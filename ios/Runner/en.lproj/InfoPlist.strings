@@ -1,0 +1,2 @@
+NSMicrophoneUsageDescription = "In order to record an audio, this app requires permission to acces the microphone";
+PermissionGroupNotification = "In order to recieve notifications, this app requires permission to acces notificatons";
