@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:provider/provider.dart';
 import 'login_model.dart';
 export 'login_model.dart';
 
@@ -25,9 +24,13 @@ class _LoginWidgetState extends State<LoginWidget> {
     super.initState();
     _model = createModel(context, () => LoginModel());
 
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'Login'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      logFirebaseEvent('LOGIN_PAGE_Login_ON_INIT_STATE');
       if (loggedIn) {
+        logFirebaseEvent('Login_navigate_to');
+
         context.goNamed('checkup');
       }
     });
@@ -50,8 +53,6 @@ class _LoginWidgetState extends State<LoginWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Title(
         title: 'Login',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
@@ -352,6 +353,9 @@ class _LoginWidgetState extends State<LoginWidget> {
                                             0.0, 0.0, 0.0, 16.0),
                                         child: FFButtonWidget(
                                           onPressed: () async {
+                                            logFirebaseEvent(
+                                                'LOGIN_PAGE_SIGN_IN_BTN_ON_TAP');
+                                            logFirebaseEvent('Button_auth');
                                             GoRouter.of(context)
                                                 .prepareAuthEvent();
 
@@ -410,9 +414,8 @@ class _LoginWidgetState extends State<LoginWidget> {
                                         padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 12.0, 0.0, 12.0),
                                         child: RichText(
-                                          textScaleFactor:
-                                              MediaQuery.of(context)
-                                                  .textScaleFactor,
+                                          textScaler:
+                                              MediaQuery.of(context).textScaler,
                                           text: TextSpan(
                                             children: [
                                               TextSpan(

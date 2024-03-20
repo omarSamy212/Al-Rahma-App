@@ -10,6 +10,9 @@ import 'schema/tools_record.dart';
 import 'schema/tools_requests_record.dart';
 import 'schema/complains_record.dart';
 import 'schema/contractors_record.dart';
+import 'schema/role_definitions_record.dart';
+import 'schema/user_roles_record.dart';
+import 'schema/tasks_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart';
@@ -22,6 +25,9 @@ export 'schema/tools_record.dart';
 export 'schema/tools_requests_record.dart';
 export 'schema/complains_record.dart';
 export 'schema/contractors_record.dart';
+export 'schema/role_definitions_record.dart';
+export 'schema/user_roles_record.dart';
+export 'schema/tasks_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -208,6 +214,117 @@ Future<List<ContractorsRecord>> queryContractorsRecordOnce({
       singleRecord: singleRecord,
     );
 
+/// Functions to query RoleDefinitionsRecords (as a Stream and as a Future).
+Future<int> queryRoleDefinitionsRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      RoleDefinitionsRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<RoleDefinitionsRecord>> queryRoleDefinitionsRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      RoleDefinitionsRecord.collection,
+      RoleDefinitionsRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<RoleDefinitionsRecord>> queryRoleDefinitionsRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      RoleDefinitionsRecord.collection,
+      RoleDefinitionsRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query UserRolesRecords (as a Stream and as a Future).
+Future<int> queryUserRolesRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      UserRolesRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<UserRolesRecord>> queryUserRolesRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      UserRolesRecord.collection,
+      UserRolesRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<UserRolesRecord>> queryUserRolesRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      UserRolesRecord.collection,
+      UserRolesRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query TasksRecords (as a Stream and as a Future).
+Future<int> queryTasksRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      TasksRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<TasksRecord>> queryTasksRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      TasksRecord.collection,
+      TasksRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<TasksRecord>> queryTasksRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      TasksRecord.collection,
+      TasksRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
 Future<int> queryCollectionCount(
   Query collection, {
   Query Function(Query)? queryBuilder,
@@ -221,7 +338,7 @@ Future<int> queryCollectionCount(
 
   return query.count().get().catchError((err) {
     print('Error querying $collection: $err');
-  }).then((value) => value.count);
+  }).then((value) => value.count!);
 }
 
 Stream<List<T>> queryCollection<T>(

@@ -7,7 +7,6 @@ import '/storage_keeper/sk_components/todays_requests_dashboard/todays_requests_
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:provider/provider.dart';
 import 'day_contract_list_model.dart';
 export 'day_contract_list_model.dart';
 
@@ -64,6 +63,9 @@ class _DayContractListWidgetState extends State<DayContractListWidget>
     super.initState();
     _model = createModel(context, () => DayContractListModel());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'day_Contract_List'});
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -76,8 +78,6 @@ class _DayContractListWidgetState extends State<DayContractListWidget>
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Title(
         title: 'day_Contract_List',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
@@ -118,6 +118,9 @@ class _DayContractListWidgetState extends State<DayContractListWidget>
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
+                              logFirebaseEvent(
+                                  'DAY_CONTRACT_LIST_PAGE_menu_ON_TAP');
+                              logFirebaseEvent('menu_drawer');
                               scaffoldKey.currentState!.openDrawer();
                             },
                             child: const Icon(
@@ -164,6 +167,10 @@ class _DayContractListWidgetState extends State<DayContractListWidget>
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
+                              logFirebaseEvent(
+                                  'DAY_CONTRACT_LIST_Icon_dbnfk9gh_ON_TAP');
+                              logFirebaseEvent('Icon_navigate_to');
+
                               context.pushNamed(
                                 'welcome',
                                 extra: <String, dynamic>{

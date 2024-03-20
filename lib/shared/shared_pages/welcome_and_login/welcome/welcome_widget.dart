@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:provider/provider.dart';
 import 'welcome_model.dart';
 export 'welcome_model.dart';
 
@@ -109,6 +108,8 @@ class _WelcomeWidgetState extends State<WelcomeWidget>
     super.initState();
     _model = createModel(context, () => WelcomeModel());
 
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'welcome'});
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -121,8 +122,6 @@ class _WelcomeWidgetState extends State<WelcomeWidget>
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Title(
         title: 'welcome',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
@@ -248,6 +247,10 @@ class _WelcomeWidgetState extends State<WelcomeWidget>
                                 0.0, 0.0, 8.0, 16.0),
                             child: FFButtonWidget(
                               onPressed: () async {
+                                logFirebaseEvent(
+                                    'WELCOME_PAGE_GET_JOB_BTN_ON_TAP');
+                                logFirebaseEvent('Button_navigate_to');
+
                                 context.pushNamed(
                                   'hintBeforeapplyjob',
                                   extra: <String, dynamic>{
@@ -297,6 +300,10 @@ class _WelcomeWidgetState extends State<WelcomeWidget>
                                 8.0, 0.0, 0.0, 16.0),
                             child: FFButtonWidget(
                               onPressed: () async {
+                                logFirebaseEvent(
+                                    'WELCOME_PAGE_MY_ACCOUNT_BTN_ON_TAP');
+                                logFirebaseEvent('Button_navigate_to');
+
                                 context.goNamed(
                                   'Login',
                                   extra: <String, dynamic>{

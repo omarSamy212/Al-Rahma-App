@@ -1,7 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'dashboard04_circle_graph_copy_model.dart';
 export 'dashboard04_circle_graph_copy_model.dart';
 
@@ -40,8 +39,6 @@ class _Dashboard04CircleGraphCopyWidgetState
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Padding(
       padding: const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
       child: Container(

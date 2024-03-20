@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:provider/provider.dart';
 import 'checkup_model.dart';
 export 'checkup_model.dart';
 
@@ -45,32 +44,12 @@ class _CheckupWidgetState extends State<CheckupWidget>
           begin: 1.0,
           end: 1.0,
         ),
-        ScaleEffect(
+        ShimmerEffect(
           curve: Curves.easeInOut,
           delay: 110.ms,
           duration: 2000.ms,
-          begin: const Offset(1.0, 0.0),
-          end: const Offset(0.0, 1.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 280.ms,
-          duration: 1140.ms,
-          begin: 1.0,
-          end: 1.0,
-        ),
-        TintEffect(
-          curve: Curves.easeInOut,
-          delay: 280.ms,
-          duration: 1140.ms,
-          color: const Color(0xFF0CA256),
-          begin: 0.0,
-          end: 1.0,
+          color: const Color(0x80FFFFFF),
+          angle: 0.524,
         ),
       ],
     ),
@@ -81,33 +60,40 @@ class _CheckupWidgetState extends State<CheckupWidget>
     super.initState();
     _model = createModel(context, () => CheckupModel());
 
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'checkup'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      logFirebaseEvent('CHECKUP_PAGE_checkup_ON_INIT_STATE');
+      logFirebaseEvent('checkup_wait__delay');
       await Future.delayed(const Duration(milliseconds: 4000));
       if (loggedIn) {
-        if (valueOrDefault(currentUserDocument?.userRole, '') == 'Admin') {
+        if (currentUserDocument?.privileges.roleName == 'Admin') {
+          logFirebaseEvent('checkup_navigate_to');
+
           context.goNamedAuth('Admin_Home', context.mounted);
 
           return;
         } else {
-          if (valueOrDefault(currentUserDocument?.userRole, '') ==
-              'Supervisor') {
+          if (currentUserDocument?.privileges.roleName == 'Supervisor') {
+            logFirebaseEvent('checkup_navigate_to');
+
             context.goNamedAuth('supervisor_home', context.mounted);
 
             return;
           } else {
-            if (valueOrDefault(currentUserDocument?.userRole, '') ==
-                'Manager') {
+            if (currentUserDocument?.privileges.roleName == 'Manager') {
               return;
             } else {
-              if (valueOrDefault(currentUserDocument?.userRole, '') ==
+              if (currentUserDocument?.privileges.roleName ==
                   'Storage Keeper') {
+                logFirebaseEvent('checkup_navigate_to');
+
                 context.goNamedAuth('storekeeperHome', context.mounted);
 
                 return;
               } else {
-                if (valueOrDefault(currentUserDocument?.userRole, '') ==
-                    'Worker') {
+                if (currentUserDocument?.privileges.roleName == 'Worker') {
+                  logFirebaseEvent('checkup_alert_dialog');
                   await showDialog(
                     context: context,
                     builder: (alertDialogContext) {
@@ -124,12 +110,14 @@ class _CheckupWidgetState extends State<CheckupWidget>
                       );
                     },
                   );
+                  logFirebaseEvent('checkup_auth');
                   GoRouter.of(context).prepareAuthEvent();
                   await authManager.signOut();
                   GoRouter.of(context).clearRedirectLocation();
 
                   return;
                 } else {
+                  logFirebaseEvent('checkup_auth');
                   GoRouter.of(context).prepareAuthEvent();
                   await authManager.signOut();
                   GoRouter.of(context).clearRedirectLocation();
@@ -141,6 +129,8 @@ class _CheckupWidgetState extends State<CheckupWidget>
           }
         }
       } else {
+        logFirebaseEvent('checkup_navigate_to');
+
         context.goNamedAuth('Login', context.mounted);
 
         return;
@@ -166,8 +156,6 @@ class _CheckupWidgetState extends State<CheckupWidget>
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Title(
         title: 'checkup',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
@@ -194,25 +182,10 @@ class _CheckupWidgetState extends State<CheckupWidget>
               children: [
                 Image.asset(
                   'assets/images/El_Rahma_Logo.png',
-                  width: 140.0,
-                  height: 140.0,
+                  width: 190.0,
+                  height: 204.0,
                   fit: BoxFit.fitHeight,
                 ).animateOnPageLoad(animationsMap['imageOnPageLoadAnimation']!),
-                Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
-                  child: Text(
-                    FFLocalizations.of(context).getText(
-                      'rb4faenc' /* Loading... */,
-                    ),
-                    style: FlutterFlowTheme.of(context).displaySmall.override(
-                          fontFamily: 'Lexend Deca',
-                          color: Colors.white,
-                          fontSize: 28.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                  ).animateOnPageLoad(
-                      animationsMap['textOnPageLoadAnimation']!),
-                ),
               ],
             ),
           ).animateOnPageLoad(animationsMap['containerOnPageLoadAnimation']!),

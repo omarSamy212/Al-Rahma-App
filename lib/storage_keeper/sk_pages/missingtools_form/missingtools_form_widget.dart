@@ -20,7 +20,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:provider/provider.dart';
 import 'package:record/record.dart';
 import 'missingtools_form_model.dart';
 export 'missingtools_form_model.dart';
@@ -110,8 +109,12 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
     super.initState();
     _model = createModel(context, () => MissingtoolsFormModel());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'Missingtools_form'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      logFirebaseEvent('MISSINGTOOLS_FORM_Missingtools_form_ON_I');
+      logFirebaseEvent('Missingtools_form_update_page_state');
       setState(() {
         _model.requestTools =
             widget.requestDec!.tools.toList().cast<ArrayOfToolsStruct>();
@@ -140,8 +143,6 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Title(
         title: 'Missingtools_form',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
@@ -182,6 +183,9 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                                   size: 30.0,
                                 ),
                                 onPressed: () async {
+                                  logFirebaseEvent(
+                                      'MISSINGTOOLS_FORM_arrow_back_rounded_ICN');
+                                  logFirebaseEvent('IconButton_navigate_back');
                                   context.pop();
                                 },
                               ),
@@ -324,8 +328,10 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                                                                 20.0, 0.0),
                                                     child: Text(
                                                       valueOrDefault<String>(
-                                                        widget.supervisorDoc
-                                                            ?.userRole,
+                                                        widget
+                                                            .supervisorDoc
+                                                            ?.privileges
+                                                            .roleName,
                                                         'Role',
                                                       ),
                                                       style:
@@ -380,11 +386,7 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                                                             .fromSTEB(16.0,
                                                                 18.0, 0.0, 0.0),
                                                     child: Text(
-                                                      valueOrDefault<String>(
-                                                        widget.supervisorDoc
-                                                            ?.shiftPeriod,
-                                                        'Shift',
-                                                      ),
+                                                      '${widget.supervisorDoc?.shift.startingShift}\' \'${widget.supervisorDoc?.shift.shiftPeriod}',
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -446,6 +448,10 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                                     .toList(),
                                 onChanged: (val) async {
                                   setState(() => _model.toolsMenuValue = val);
+                                  logFirebaseEvent(
+                                      'MISSINGTOOLS_FORM_ToolsMenu_ON_FORM_WIDG');
+                                  logFirebaseEvent(
+                                      'ToolsMenu_update_page_state');
                                   setState(() {
                                     _model.selectedToolRef = functions
                                         .newCustomFunction(
@@ -653,6 +659,10 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
+                                  logFirebaseEvent(
+                                      'MISSINGTOOLS_FORM_Icon_vdab7t8o_ON_TAP');
+                                  logFirebaseEvent(
+                                      'Icon_start_audio_recording');
                                   _model.audioRecorder ??= AudioRecorder();
                                   if (await _model.audioRecorder!
                                       .hasPermission()) {
@@ -679,6 +689,7 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                                     );
                                   }
 
+                                  logFirebaseEvent('Icon_update_page_state');
                                   setState(() {
                                     _model.isRecording = !_model.isRecording;
                                   });
@@ -717,6 +728,10 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                                       hoverColor: Colors.transparent,
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
+                                        logFirebaseEvent(
+                                            'MISSINGTOOLS_FORM_Icon_8okw98yi_ON_TAP');
+                                        logFirebaseEvent(
+                                            'Icon_stop_audio_recording');
                                         _model.playComplainRecord =
                                             await _model.audioRecorder?.stop();
                                         if (_model.playComplainRecord != null) {
@@ -729,6 +744,8 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                                           );
                                         }
 
+                                        logFirebaseEvent(
+                                            'Icon_upload_file_to_firebase');
                                         {
                                           setState(() =>
                                               _model.isDataUploading1 = true);
@@ -790,6 +807,8 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                                           }
                                         }
 
+                                        logFirebaseEvent(
+                                            'Icon_update_page_state');
                                         setState(() {
                                           _model.showPlayer =
                                               !_model.showPlayer;
@@ -851,7 +870,10 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                         focusColor: Colors.transparent,
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
-                        onTap: () async {},
+                        onTap: () async {
+                          logFirebaseEvent(
+                              'MISSINGTOOLS_FORM_UploadPhoto_ON_TAP');
+                        },
                         child: Container(
                           width: double.infinity,
                           constraints: const BoxConstraints(
@@ -925,7 +947,11 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                                     hoverColor: Colors.transparent,
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
+                                      logFirebaseEvent(
+                                          'MISSINGTOOLS_FORM_imageBorder_ON_TAP');
                                       // uploadMultiple Images
+                                      logFirebaseEvent(
+                                          'imageBorder_uploadMultipleImages');
                                       final selectedMedia = await selectMedia(
                                         imageQuality: 80,
                                         mediaSource: MediaSource.photoGallery,
@@ -997,6 +1023,8 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                                       while (uploadedImagesIndex ==
                                           _model.uploadedFileUrls2.length) {
                                         // incrementPhotoByOne
+                                        logFirebaseEvent(
+                                            'imageBorder_incrementPhotoByOne');
                                         setState(() {
                                           _model.photoNumber =
                                               _model.photoNumber! + 1;
@@ -1067,6 +1095,9 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                           const EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 17.0),
                       child: FFButtonWidget(
                         onPressed: () async {
+                          logFirebaseEvent(
+                              'MISSINGTOOLS_FORM_MAKE_COMPLAIN_BTN_ON_T');
+                          logFirebaseEvent('Button_validate_form');
                           if (_model.formKey.currentState == null ||
                               !_model.formKey.currentState!.validate()) {
                             return;

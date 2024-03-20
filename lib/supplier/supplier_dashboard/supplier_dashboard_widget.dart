@@ -8,7 +8,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:percent_indicator/percent_indicator.dart';
-import 'package:provider/provider.dart';
 import 'supplier_dashboard_model.dart';
 export 'supplier_dashboard_model.dart';
 
@@ -151,6 +150,8 @@ class _SupplierDashboardWidgetState extends State<SupplierDashboardWidget>
     super.initState();
     _model = createModel(context, () => SupplierDashboardModel());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'supplierDashboard'});
     setupAnimations(
       animationsMap.values.where((anim) =>
           anim.trigger == AnimationTrigger.onActionTrigger ||
@@ -170,8 +171,6 @@ class _SupplierDashboardWidgetState extends State<SupplierDashboardWidget>
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Title(
         title: 'supplierDashboard',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
@@ -630,7 +629,10 @@ class _SupplierDashboardWidgetState extends State<SupplierDashboardWidget>
                                       focusColor: Colors.transparent,
                                       hoverColor: Colors.transparent,
                                       highlightColor: Colors.transparent,
-                                      onTap: () async {},
+                                      onTap: () async {
+                                        logFirebaseEvent(
+                                            'SUPPLIER_DASHBOARD_lightDark_small_ON_TA');
+                                      },
                                       child: Container(
                                         width: 80.0,
                                         height: 40.0,
@@ -1387,11 +1389,16 @@ class _SupplierDashboardWidgetState extends State<SupplierDashboardWidget>
                                                             FFButtonWidget(
                                                               onPressed:
                                                                   () async {
+                                                                logFirebaseEvent(
+                                                                    'SUPPLIER_DASHBOARD_PAGE_VIEW_BTN_ON_TAP');
                                                                 if (loggedIn &&
-                                                                    (valueOrDefault(
-                                                                            currentUserDocument?.userRole,
-                                                                            '') ==
+                                                                    (currentUserDocument
+                                                                            ?.privileges
+                                                                            .roleName ==
                                                                         'Admin')) {
+                                                                  logFirebaseEvent(
+                                                                      'Button_navigate_to');
+
                                                                   context
                                                                       .pushNamed(
                                                                     'createUser',
@@ -2418,7 +2425,7 @@ class _SupplierDashboardWidgetState extends State<SupplierDashboardWidget>
                                                             FFLocalizations.of(
                                                                     context)
                                                                 .getText(
-                                                              '446936gf' /* Sent To: */,
+                                                              '446936gf' /* Send To: */,
                                                             ),
                                                             style: FlutterFlowTheme
                                                                     .of(context)

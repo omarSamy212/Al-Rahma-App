@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'home13_productivity_model.dart';
 export 'home13_productivity_model.dart';
 
@@ -27,6 +26,8 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
     super.initState();
     _model = createModel(context, () => Home13ProductivityModel());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'Home13Productivity'});
     _model.tabBarController = TabController(
       vsync: this,
       length: 2,
@@ -44,8 +45,6 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Title(
         title: 'Home13Productivity',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
@@ -98,6 +97,9 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
+                                logFirebaseEvent(
+                                    'HOME13_PRODUCTIVITY_userAvatar_ON_TAP');
+                                logFirebaseEvent('userAvatar_drawer');
                                 scaffoldKey.currentState!.openDrawer();
                               },
                               child: Container(

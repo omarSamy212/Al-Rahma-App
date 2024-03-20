@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:provider/provider.dart';
 import 'todays_requests_dashboard_model.dart';
 export 'todays_requests_dashboard_model.dart';
 
@@ -43,8 +42,6 @@ class _TodaysRequestsDashboardWidgetState
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Padding(
       padding: const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
       child: Container(

@@ -6,7 +6,6 @@ import '/shared/shared_components/our_side_nav/our_side_nav_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:provider/provider.dart';
 import 'worker_home_model.dart';
 export 'worker_home_model.dart';
 
@@ -63,6 +62,8 @@ class _WorkerHomeWidgetState extends State<WorkerHomeWidget>
     super.initState();
     _model = createModel(context, () => WorkerHomeModel());
 
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'worker_Home'});
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -75,8 +76,6 @@ class _WorkerHomeWidgetState extends State<WorkerHomeWidget>
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Title(
         title: 'worker_Home',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
@@ -108,6 +107,8 @@ class _WorkerHomeWidgetState extends State<WorkerHomeWidget>
                     hoverColor: Colors.transparent,
                     highlightColor: Colors.transparent,
                     onTap: () async {
+                      logFirebaseEvent('WORKER_HOME_PAGE_menu_ON_TAP');
+                      logFirebaseEvent('menu_drawer');
                       scaffoldKey.currentState!.openDrawer();
                     },
                     child: const Icon(
@@ -193,6 +194,9 @@ class _WorkerHomeWidgetState extends State<WorkerHomeWidget>
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
+                          logFirebaseEvent('WORKER_HOME_PAGE_chat_ON_TAP');
+                          logFirebaseEvent('chat_navigate_to');
+
                           context.pushNamed(
                             'welcome',
                             extra: <String, dynamic>{
@@ -509,7 +513,11 @@ class _WorkerHomeWidgetState extends State<WorkerHomeWidget>
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              context.pushNamed('profile_Detals_WIth_QR');
+                              logFirebaseEvent(
+                                  'WORKER_HOME_PAGE_Column_2n6vqs2s_ON_TAP');
+                              logFirebaseEvent('Column_navigate_to');
+
+                              context.pushNamed('my_profile');
                             },
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
@@ -544,8 +552,11 @@ class _WorkerHomeWidgetState extends State<WorkerHomeWidget>
                                     hoverColor: Colors.transparent,
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
-                                      context
-                                          .pushNamed('profile_Detals_WIth_QR');
+                                      logFirebaseEvent(
+                                          'WORKER_HOME_PAGE_Icon_ift8jeyx_ON_TAP');
+                                      logFirebaseEvent('Icon_navigate_to');
+
+                                      context.pushNamed('my_profile');
                                     },
                                     child: FaIcon(
                                       FontAwesomeIcons.arrowCircleRight,

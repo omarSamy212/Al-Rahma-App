@@ -145,16 +145,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => CreateUser2Widget(
             nickName: params.getParam('nickName', ParamType.String),
             role: params.getParam('role', ParamType.String),
-            shift: params.getParam('shift', ParamType.String),
             nationalID: params.getParam('nationalID', ParamType.String),
-            userNum: params.getParam('userNum', ParamType.int),
             image: params.getParam('image', ParamType.String),
             phoneNumber: params.getParam('phoneNumber', ParamType.int),
             firstName: params.getParam('firstName', ParamType.String),
             middleName: params.getParam('middleName', ParamType.String),
             lastName: params.getParam('lastName', ParamType.String),
             gender: params.getParam('gender', ParamType.String),
-            birthdate: params.getParam('birthdate', ParamType.DateTime),
+            birthdate: params.getParam('birthdate', ParamType.String),
             country: params.getParam('country', ParamType.String),
             government: params.getParam('government', ParamType.String),
             city: params.getParam('city', ParamType.String),
@@ -162,6 +160,17 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             socialStatus: params.getParam('socialStatus', ParamType.String),
             employmentDate:
                 params.getParam('employmentDate', ParamType.DateTime),
+            frontNatImageUrl:
+                params.getParam('frontNatImageUrl', ParamType.String),
+            backNatImageUrl:
+                params.getParam('backNatImageUrl', ParamType.String),
+            drugTestImageUrl:
+                params.getParam('drugTestImageUrl', ParamType.String),
+            frontDLic: params.getParam('frontDLic', ParamType.String),
+            backDLic: params.getParam('backDLic', ParamType.String),
+            startingShift: params.getParam('startingShift', ParamType.String),
+            shiftPeriod: params.getParam('shiftPeriod', ParamType.String),
+            userId: params.getParam('userId', ParamType.String),
           ),
         ),
         FFRoute(
@@ -177,10 +186,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const AdminHomeWidget(),
         ),
         FFRoute(
-          name: 'profile_Detals_WIth_QR',
+          name: 'my_profile',
           path: '/my_profile',
           requireAuth: true,
-          builder: (context, params) => const ProfileDetalsWIthQRWidget(),
+          builder: (context, params) => const MyProfileWidget(),
         ),
         FFRoute(
           name: 'worker_Home',
@@ -255,6 +264,36 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             supervisorDoc: params.getParam('supervisorDoc', ParamType.Document),
             requestDec: params.getParam('requestDec', ParamType.Document),
           ),
+        ),
+        FFRoute(
+          name: 'usersList',
+          path: '/usersList',
+          builder: (context, params) => const UsersListWidget(),
+        ),
+        FFRoute(
+          name: 'user_profile',
+          path: '/user_profile',
+          requireAuth: true,
+          builder: (context, params) => UserProfileWidget(
+            userDoc: params.getParam(
+                'userDoc', ParamType.DocumentReference, false, ['users']),
+          ),
+        ),
+        FFRoute(
+          name: 'list',
+          path: '/list',
+          builder: (context, params) => const ListWidget(),
+        ),
+        FFRoute(
+          name: 'Settings1Notifications',
+          path: '/settings1Notifications',
+          builder: (context, params) => const Settings1NotificationsWidget(),
+        ),
+        FFRoute(
+          name: 'updateUser',
+          path: '/updateUser',
+          requireAuth: true,
+          builder: (context, params) => const UpdateUserWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

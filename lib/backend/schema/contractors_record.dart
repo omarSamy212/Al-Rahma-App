@@ -20,11 +20,6 @@ class ContractorsRecord extends FirestoreRecord {
   String get name => _name ?? '';
   bool hasName() => _name != null;
 
-  // "Id" field.
-  String? _id;
-  String get id => _id ?? '';
-  bool hasId() => _id != null;
-
   // "total_debit" field.
   double? _totalDebit;
   double get totalDebit => _totalDebit ?? 0.0;
@@ -40,12 +35,35 @@ class ContractorsRecord extends FirestoreRecord {
   List<DocumentReference> get workersList => _workersList ?? const [];
   bool hasWorkersList() => _workersList != null;
 
+  // "user_ref" field.
+  DocumentReference? _userRef;
+  DocumentReference? get userRef => _userRef;
+  bool hasUserRef() => _userRef != null;
+
+  // "diflict_percentage" field.
+  double? _diflictPercentage;
+  double get diflictPercentage => _diflictPercentage ?? 0.0;
+  bool hasDiflictPercentage() => _diflictPercentage != null;
+
+  // "shift_price" field.
+  double? _shiftPrice;
+  double get shiftPrice => _shiftPrice ?? 0.0;
+  bool hasShiftPrice() => _shiftPrice != null;
+
+  // "contract_date" field.
+  DateTime? _contractDate;
+  DateTime? get contractDate => _contractDate;
+  bool hasContractDate() => _contractDate != null;
+
   void _initializeFields() {
     _name = snapshotData['name'] as String?;
-    _id = snapshotData['Id'] as String?;
     _totalDebit = castToType<double>(snapshotData['total_debit']);
     _totalCredit = castToType<double>(snapshotData['total_credit']);
     _workersList = getDataList(snapshotData['workersList']);
+    _userRef = snapshotData['user_ref'] as DocumentReference?;
+    _diflictPercentage = castToType<double>(snapshotData['diflict_percentage']);
+    _shiftPrice = castToType<double>(snapshotData['shift_price']);
+    _contractDate = snapshotData['contract_date'] as DateTime?;
   }
 
   static CollectionReference get collection =>
@@ -84,16 +102,22 @@ class ContractorsRecord extends FirestoreRecord {
 
 Map<String, dynamic> createContractorsRecordData({
   String? name,
-  String? id,
   double? totalDebit,
   double? totalCredit,
+  DocumentReference? userRef,
+  double? diflictPercentage,
+  double? shiftPrice,
+  DateTime? contractDate,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'name': name,
-      'Id': id,
       'total_debit': totalDebit,
       'total_credit': totalCredit,
+      'user_ref': userRef,
+      'diflict_percentage': diflictPercentage,
+      'shift_price': shiftPrice,
+      'contract_date': contractDate,
     }.withoutNulls,
   );
 
@@ -107,15 +131,26 @@ class ContractorsRecordDocumentEquality implements Equality<ContractorsRecord> {
   bool equals(ContractorsRecord? e1, ContractorsRecord? e2) {
     const listEquality = ListEquality();
     return e1?.name == e2?.name &&
-        e1?.id == e2?.id &&
         e1?.totalDebit == e2?.totalDebit &&
         e1?.totalCredit == e2?.totalCredit &&
-        listEquality.equals(e1?.workersList, e2?.workersList);
+        listEquality.equals(e1?.workersList, e2?.workersList) &&
+        e1?.userRef == e2?.userRef &&
+        e1?.diflictPercentage == e2?.diflictPercentage &&
+        e1?.shiftPrice == e2?.shiftPrice &&
+        e1?.contractDate == e2?.contractDate;
   }
 
   @override
-  int hash(ContractorsRecord? e) => const ListEquality()
-      .hash([e?.name, e?.id, e?.totalDebit, e?.totalCredit, e?.workersList]);
+  int hash(ContractorsRecord? e) => const ListEquality().hash([
+        e?.name,
+        e?.totalDebit,
+        e?.totalCredit,
+        e?.workersList,
+        e?.userRef,
+        e?.diflictPercentage,
+        e?.shiftPrice,
+        e?.contractDate
+      ]);
 
   @override
   bool isValidKey(Object? o) => o is ContractorsRecord;

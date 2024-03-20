@@ -4,28 +4,27 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:barcode_widget/barcode_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'profile_detals_w_ith_q_r_model.dart';
-export 'profile_detals_w_ith_q_r_model.dart';
+import 'my_profile_model.dart';
+export 'my_profile_model.dart';
 
-class ProfileDetalsWIthQRWidget extends StatefulWidget {
-  const ProfileDetalsWIthQRWidget({super.key});
+class MyProfileWidget extends StatefulWidget {
+  const MyProfileWidget({super.key});
 
   @override
-  State<ProfileDetalsWIthQRWidget> createState() =>
-      _ProfileDetalsWIthQRWidgetState();
+  State<MyProfileWidget> createState() => _MyProfileWidgetState();
 }
 
-class _ProfileDetalsWIthQRWidgetState extends State<ProfileDetalsWIthQRWidget> {
-  late ProfileDetalsWIthQRModel _model;
+class _MyProfileWidgetState extends State<MyProfileWidget> {
+  late MyProfileModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => ProfileDetalsWIthQRModel());
+    _model = createModel(context, () => MyProfileModel());
 
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'my_profile'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -38,10 +37,8 @@ class _ProfileDetalsWIthQRWidgetState extends State<ProfileDetalsWIthQRWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Title(
-        title: 'profile_Detals_WIth_QR',
+        title: 'my_profile',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
         child: GestureDetector(
           onTap: () => _model.unfocusNode.canRequestFocus
@@ -64,6 +61,8 @@ class _ProfileDetalsWIthQRWidgetState extends State<ProfileDetalsWIthQRWidget> {
                   size: 30.0,
                 ),
                 onPressed: () async {
+                  logFirebaseEvent('MY_PROFILE_arrow_back_rounded_ICN_ON_TAP');
+                  logFirebaseEvent('IconButton_navigate_back');
                   context.pop();
                 },
               ),
@@ -78,7 +77,28 @@ class _ProfileDetalsWIthQRWidgetState extends State<ProfileDetalsWIthQRWidget> {
                       fontWeight: FontWeight.w500,
                     ),
               ),
-              actions: const [],
+              actions: [
+                Padding(
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
+                  child: InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      logFirebaseEvent('MY_PROFILE_PAGE_edit_ON_TAP');
+                      logFirebaseEvent('edit_navigate_to');
+
+                      context.pushNamed('updateUser');
+                    },
+                    child: Icon(
+                      Icons.edit,
+                      color: FlutterFlowTheme.of(context).secondaryText,
+                      size: 30.0,
+                    ),
+                  ),
+                ),
+              ],
               centerTitle: false,
               elevation: 0.0,
             ),
@@ -126,8 +146,11 @@ class _ProfileDetalsWIthQRWidgetState extends State<ProfileDetalsWIthQRWidget> {
                                 children: [
                                   AuthUserStreamWidget(
                                     builder: (context) => Text(
-                                      valueOrDefault(
-                                          currentUserDocument?.userRole, ''),
+                                      valueOrDefault<String>(
+                                        currentUserDocument
+                                            ?.privileges.roleName,
+                                        'role',
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(
@@ -345,7 +368,7 @@ class _ProfileDetalsWIthQRWidgetState extends State<ProfileDetalsWIthQRWidget> {
                                                   0.0, 8.0, 30.0, 12.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
-                                              'n5q2xs7v' /* Shift */,
+                                              'n5q2xs7v' /* work Shift */,
                                             ),
                                             style: FlutterFlowTheme.of(context)
                                                 .labelMedium
@@ -368,10 +391,7 @@ class _ProfileDetalsWIthQRWidgetState extends State<ProfileDetalsWIthQRWidget> {
                                                   0.0, 8.0, 0.0, 12.0),
                                           child: AuthUserStreamWidget(
                                             builder: (context) => Text(
-                                              valueOrDefault(
-                                                  currentUserDocument
-                                                      ?.shiftPeriod,
-                                                  ''),
+                                              '${currentUserDocument?.shift.startingShift}\' \'${currentUserDocument?.shift.shiftPeriod}',
                                               style: FlutterFlowTheme.of(
                                                       context)
                                                   .labelMedium
@@ -435,10 +455,12 @@ class _ProfileDetalsWIthQRWidgetState extends State<ProfileDetalsWIthQRWidget> {
                           focusColor: Colors.transparent,
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
-                          onTap: () async {},
+                          onTap: () async {
+                            logFirebaseEvent(
+                                'MY_PROFILE_PAGE_RichText_okorbf90_ON_TAP');
+                          },
                           child: RichText(
-                            textScaleFactor:
-                                MediaQuery.of(context).textScaleFactor,
+                            textScaler: MediaQuery.of(context).textScaler,
                             text: TextSpan(
                               children: [
                                 TextSpan(

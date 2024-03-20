@@ -11,7 +11,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:provider/provider.dart';
 import 'storekeeper_home_model.dart';
 export 'storekeeper_home_model.dart';
 
@@ -80,6 +79,9 @@ class _StorekeeperHomeWidgetState extends State<StorekeeperHomeWidget>
     super.initState();
     _model = createModel(context, () => StorekeeperHomeModel());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'storekeeperHome'});
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -92,8 +94,6 @@ class _StorekeeperHomeWidgetState extends State<StorekeeperHomeWidget>
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return StreamBuilder<List<ToolsRequestsRecord>>(
       stream: queryToolsRequestsRecord(
         queryBuilder: (toolsRequestsRecord) => toolsRequestsRecord.where(
@@ -152,6 +152,8 @@ class _StorekeeperHomeWidgetState extends State<StorekeeperHomeWidget>
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
+                          logFirebaseEvent('STOREKEEPER_HOME_PAGE_menu_ON_TAP');
+                          logFirebaseEvent('menu_drawer');
                           scaffoldKey.currentState!.openDrawer();
                         },
                         child: const Icon(
@@ -238,6 +240,10 @@ class _StorekeeperHomeWidgetState extends State<StorekeeperHomeWidget>
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
+                              logFirebaseEvent(
+                                  'STOREKEEPER_HOME_PAGE_chat_ON_TAP');
+                              logFirebaseEvent('chat_navigate_to');
+
                               context.pushNamed(
                                 'welcome',
                                 extra: <String, dynamic>{
@@ -434,6 +440,11 @@ class _StorekeeperHomeWidgetState extends State<StorekeeperHomeWidget>
                                         hoverColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
+                                          logFirebaseEvent(
+                                              'STOREKEEPER_HOME_Container_bapyju4g_ON_T');
+                                          logFirebaseEvent(
+                                              'TodaysRequests_Dashboard_navigate_to');
+
                                           context
                                               .pushNamed('day_Contract_List');
                                         },
@@ -472,6 +483,10 @@ class _StorekeeperHomeWidgetState extends State<StorekeeperHomeWidget>
                               alignment: const AlignmentDirectional(0.0, 0.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
+                                  logFirebaseEvent(
+                                      'STOREKEEPER_HOME_PAGE_Reception_ON_TAP');
+                                  logFirebaseEvent('Reception_navigate_to');
+
                                   context.pushNamed('day_Contract_List');
                                 },
                                 text: FFLocalizations.of(context).getText(
@@ -505,6 +520,10 @@ class _StorekeeperHomeWidgetState extends State<StorekeeperHomeWidget>
                               alignment: const AlignmentDirectional(0.0, 0.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
+                                  logFirebaseEvent(
+                                      'STOREKEEPER_HOME_Transmission_ON_TAP');
+                                  logFirebaseEvent('Transmission_navigate_to');
+
                                   context.pushNamed('transmission_Select_1');
                                 },
                                 text: FFLocalizations.of(context).getText(

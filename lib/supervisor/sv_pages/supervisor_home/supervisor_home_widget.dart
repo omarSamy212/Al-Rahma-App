@@ -9,7 +9,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:percent_indicator/percent_indicator.dart';
-import 'package:provider/provider.dart';
 import 'supervisor_home_model.dart';
 export 'supervisor_home_model.dart';
 
@@ -137,6 +136,9 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
     super.initState();
     _model = createModel(context, () => SupervisorHomeModel());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'supervisor_home'});
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -149,8 +151,6 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Title(
         title: 'supervisor_home',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
@@ -182,6 +182,8 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                     hoverColor: Colors.transparent,
                     highlightColor: Colors.transparent,
                     onTap: () async {
+                      logFirebaseEvent('SUPERVISOR_HOME_PAGE_menu_ON_TAP');
+                      logFirebaseEvent('menu_drawer');
                       scaffoldKey.currentState!.openDrawer();
                     },
                     child: const Icon(
@@ -267,6 +269,9 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
+                          logFirebaseEvent('SUPERVISOR_HOME_PAGE_chat_ON_TAP');
+                          logFirebaseEvent('chat_navigate_to');
+
                           context.pushNamed(
                             'welcome',
                             extra: <String, dynamic>{
@@ -1412,10 +1417,9 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                       .labelMedium,
                                                                 ),
                                                                 RichText(
-                                                                  textScaleFactor:
-                                                                      MediaQuery.of(
-                                                                              context)
-                                                                          .textScaleFactor,
+                                                                  textScaler: MediaQuery.of(
+                                                                          context)
+                                                                      .textScaler,
                                                                   text:
                                                                       TextSpan(
                                                                     children: [
@@ -1483,9 +1487,9 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                           0.0),
                                                                   child:
                                                                       RichText(
-                                                                    textScaleFactor:
+                                                                    textScaler:
                                                                         MediaQuery.of(context)
-                                                                            .textScaleFactor,
+                                                                            .textScaler,
                                                                     text:
                                                                         TextSpan(
                                                                       children: [
@@ -4833,8 +4837,8 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                           12.0),
                                                                       child:
                                                                           RichText(
-                                                                        textScaleFactor:
-                                                                            MediaQuery.of(context).textScaleFactor,
+                                                                        textScaler:
+                                                                            MediaQuery.of(context).textScaler,
                                                                         text:
                                                                             TextSpan(
                                                                           children: [
@@ -5048,8 +5052,8 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                           12.0),
                                                                       child:
                                                                           RichText(
-                                                                        textScaleFactor:
-                                                                            MediaQuery.of(context).textScaleFactor,
+                                                                        textScaler:
+                                                                            MediaQuery.of(context).textScaler,
                                                                         text:
                                                                             TextSpan(
                                                                           children: [
@@ -5263,8 +5267,8 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                           12.0),
                                                                       child:
                                                                           RichText(
-                                                                        textScaleFactor:
-                                                                            MediaQuery.of(context).textScaleFactor,
+                                                                        textScaler:
+                                                                            MediaQuery.of(context).textScaler,
                                                                         text:
                                                                             TextSpan(
                                                                           children: [
@@ -5493,8 +5497,8 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                           12.0),
                                                                       child:
                                                                           RichText(
-                                                                        textScaleFactor:
-                                                                            MediaQuery.of(context).textScaleFactor,
+                                                                        textScaler:
+                                                                            MediaQuery.of(context).textScaler,
                                                                         text:
                                                                             TextSpan(
                                                                           children: [
@@ -5708,8 +5712,8 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                           12.0),
                                                                       child:
                                                                           RichText(
-                                                                        textScaleFactor:
-                                                                            MediaQuery.of(context).textScaleFactor,
+                                                                        textScaler:
+                                                                            MediaQuery.of(context).textScaler,
                                                                         text:
                                                                             TextSpan(
                                                                           children: [

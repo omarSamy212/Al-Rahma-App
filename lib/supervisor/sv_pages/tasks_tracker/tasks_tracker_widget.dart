@@ -6,7 +6,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:percent_indicator/percent_indicator.dart';
-import 'package:provider/provider.dart';
 import 'tasks_tracker_model.dart';
 export 'tasks_tracker_model.dart';
 
@@ -145,6 +144,8 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
     super.initState();
     _model = createModel(context, () => TasksTrackerModel());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'tasksTracker'});
     _model.tabBarController = TabController(
       vsync: this,
       length: 3,
@@ -169,8 +170,6 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Title(
         title: 'tasksTracker',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
@@ -213,6 +212,9 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                   size: 30.0,
                                 ),
                                 onPressed: () async {
+                                  logFirebaseEvent(
+                                      'TASKS_TRACKER_arrow_back_rounded_ICN_ON_');
+                                  logFirebaseEvent('IconButton_navigate_back');
                                   context.pop();
                                 },
                               ),

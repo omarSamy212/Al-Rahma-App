@@ -7,7 +7,6 @@ import '/storage_keeper/sk_components/end_request/end_request_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'request_details_model.dart';
 export 'request_details_model.dart';
@@ -36,8 +35,12 @@ class _RequestDetailsWidgetState extends State<RequestDetailsWidget> {
     super.initState();
     _model = createModel(context, () => RequestDetailsModel());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'request_Details'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      logFirebaseEvent('REQUEST_DETAILS_request_Details_ON_INIT_');
+      logFirebaseEvent('request_Details_backend_call');
       _model.request =
           await ToolsRequestsRecord.getDocumentOnce(widget.requestRef!);
     });
@@ -54,8 +57,6 @@ class _RequestDetailsWidgetState extends State<RequestDetailsWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return StreamBuilder<UsersRecord>(
       stream: UsersRecord.getDocument(widget.supervisorRef!),
       builder: (context, snapshot) {
@@ -100,6 +101,9 @@ class _RequestDetailsWidgetState extends State<RequestDetailsWidget> {
                       size: 30.0,
                     ),
                     onPressed: () async {
+                      logFirebaseEvent(
+                          'REQUEST_DETAILS_arrow_back_rounded_ICN_O');
+                      logFirebaseEvent('IconButton_navigate_back');
                       context.pop();
                     },
                   ),
@@ -159,7 +163,8 @@ class _RequestDetailsWidgetState extends State<RequestDetailsWidget> {
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Text(
-                                        requestDetailsUsersRecord.userRole,
+                                        requestDetailsUsersRecord
+                                            .privileges.roleName,
                                         style: FlutterFlowTheme.of(context)
                                             .labelMedium
                                             .override(
@@ -290,6 +295,10 @@ class _RequestDetailsWidgetState extends State<RequestDetailsWidget> {
                                                   highlightColor:
                                                       Colors.transparent,
                                                   onTap: () async {
+                                                    logFirebaseEvent(
+                                                        'REQUEST_DETAILS_PAGE_Row_rdlzdv9s_ON_TAP');
+                                                    logFirebaseEvent(
+                                                        'Row_call_number');
                                                     await launchUrl(Uri(
                                                       scheme: 'tel',
                                                       path:
@@ -418,7 +427,7 @@ class _RequestDetailsWidgetState extends State<RequestDetailsWidget> {
                                               child: Text(
                                                 FFLocalizations.of(context)
                                                     .getText(
-                                                  'd7bt3xdh' /* Shift */,
+                                                  'd7bt3xdh' /* work Shift */,
                                                 ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
@@ -443,8 +452,7 @@ class _RequestDetailsWidgetState extends State<RequestDetailsWidget> {
                                                   .fromSTEB(
                                                       0.0, 8.0, 0.0, 12.0),
                                               child: Text(
-                                                requestDetailsUsersRecord
-                                                    .shiftPeriod,
+                                                '${requestDetailsUsersRecord.shift.startingShift}\' \'${requestDetailsUsersRecord.shift.shiftPeriod}',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .labelMedium
@@ -704,6 +712,9 @@ class _RequestDetailsWidgetState extends State<RequestDetailsWidget> {
                             onPressed: !_model.isRequestActive
                                 ? null
                                 : () async {
+                                    logFirebaseEvent(
+                                        'REQUEST_DETAILS_END_REQUEST_BTN_ON_TAP');
+                                    logFirebaseEvent('Button_bottom_sheet');
                                     await showModalBottomSheet(
                                       isScrollControlled: true,
                                       backgroundColor:

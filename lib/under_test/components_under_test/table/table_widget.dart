@@ -2,7 +2,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'table_model.dart';
 export 'table_model.dart';
 
@@ -39,8 +38,6 @@ class _TableWidgetState extends State<TableWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Align(
       alignment: const AlignmentDirectional(0.0, 0.0),
       child: Padding(
@@ -260,6 +257,9 @@ class _TableWidgetState extends State<TableWidget> {
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
+                          logFirebaseEvent(
+                              'TABLE_COMP_Container_zjfsoy60_ON_TAP');
+                          logFirebaseEvent('Container_drawer');
                           Scaffold.of(context).openEndDrawer();
                         },
                         child: Container(
@@ -463,6 +463,9 @@ class _TableWidgetState extends State<TableWidget> {
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
+                          logFirebaseEvent(
+                              'TABLE_COMP_Container_ydhfodsz_ON_TAP');
+                          logFirebaseEvent('Container_drawer');
                           Scaffold.of(context).openEndDrawer();
                         },
                         child: Container(

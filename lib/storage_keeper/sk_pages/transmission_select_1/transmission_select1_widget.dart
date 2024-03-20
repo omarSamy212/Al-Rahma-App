@@ -30,6 +30,8 @@ class _TransmissionSelect1WidgetState extends State<TransmissionSelect1Widget> {
     super.initState();
     _model = createModel(context, () => TransmissionSelect1Model());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'transmission_Select_1'});
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
 
@@ -91,6 +93,9 @@ class _TransmissionSelect1WidgetState extends State<TransmissionSelect1Widget> {
                       size: 30.0,
                     ),
                     onPressed: () async {
+                      logFirebaseEvent(
+                          'TRANSMISSION_SELECT_1_arrow_back_rounded');
+                      logFirebaseEvent('IconButton_navigate_back');
                       context.pop();
                     },
                   ),
@@ -209,6 +214,11 @@ class _TransmissionSelect1WidgetState extends State<TransmissionSelect1Widget> {
                                           size: 24.0,
                                         ),
                                         onPressed: () async {
+                                          logFirebaseEvent(
+                                              'TRANSMISSION_SELECT_1_leaf_ICN_ON_TAP');
+                                          logFirebaseEvent(
+                                              'IconButton_navigate_to');
+
                                           context
                                               .pushNamed('transmission_Scan_2');
                                         },
@@ -343,6 +353,10 @@ class _TransmissionSelect1WidgetState extends State<TransmissionSelect1Widget> {
                               10.0, 20.0, 10.0, 20.0),
                           child: FFButtonWidget(
                             onPressed: () async {
+                              logFirebaseEvent(
+                                  'TRANSMISSION_SELECT_1_NEXT_BTN_ON_TAP');
+                              logFirebaseEvent('Button_navigate_to');
+
                               context.pushNamed('transmission_Scan_2');
                             },
                             text: FFLocalizations.of(context).getText(

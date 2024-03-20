@@ -8,7 +8,6 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:provider/provider.dart';
 import 'onboarding04_model.dart';
 export 'onboarding04_model.dart';
 
@@ -370,6 +369,8 @@ class _Onboarding04WidgetState extends State<Onboarding04Widget>
     super.initState();
     _model = createModel(context, () => Onboarding04Model());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'Onboarding04'});
     setupAnimations(
       animationsMap.values.where((anim) =>
           anim.trigger == AnimationTrigger.onActionTrigger ||
@@ -389,8 +390,6 @@ class _Onboarding04WidgetState extends State<Onboarding04Widget>
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Title(
         title: 'Onboarding04',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
@@ -477,6 +476,10 @@ class _Onboarding04WidgetState extends State<Onboarding04Widget>
                                           size: 30.0,
                                         ),
                                         onPressed: () async {
+                                          logFirebaseEvent(
+                                              'ONBOARDING04_navigate_next_rounded_ICN_O');
+                                          logFirebaseEvent(
+                                              'IconButton_page_view');
                                           await _model.pageViewController
                                               ?.nextPage(
                                             duration:
@@ -560,6 +563,10 @@ class _Onboarding04WidgetState extends State<Onboarding04Widget>
                                           size: 30.0,
                                         ),
                                         onPressed: () async {
+                                          logFirebaseEvent(
+                                              'ONBOARDING04_navigate_next_rounded_ICN_O');
+                                          logFirebaseEvent(
+                                              'IconButton_page_view');
                                           await _model.pageViewController
                                               ?.nextPage(
                                             duration:
@@ -643,6 +650,10 @@ class _Onboarding04WidgetState extends State<Onboarding04Widget>
                                           size: 30.0,
                                         ),
                                         onPressed: () async {
+                                          logFirebaseEvent(
+                                              'ONBOARDING04_navigate_next_rounded_ICN_O');
+                                          logFirebaseEvent(
+                                              'IconButton_page_view');
                                           await _model.pageViewController
                                               ?.nextPage(
                                             duration:

@@ -1,13 +1,15 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'create_user2_model.dart';
 export 'create_user2_model.dart';
 
@@ -16,10 +18,8 @@ class CreateUser2Widget extends StatefulWidget {
     super.key,
     required this.nickName,
     required this.role,
-    required this.shift,
     required this.nationalID,
-    required this.userNum,
-    required this.image,
+    this.image,
     required this.phoneNumber,
     required this.firstName,
     required this.middleName,
@@ -30,28 +30,42 @@ class CreateUser2Widget extends StatefulWidget {
     required this.government,
     required this.city,
     required this.fullAddress,
-    required this.socialStatus,
-    required this.employmentDate,
+    this.socialStatus,
+    this.employmentDate,
+    this.frontNatImageUrl,
+    this.backNatImageUrl,
+    this.drugTestImageUrl,
+    this.frontDLic,
+    required this.backDLic,
+    this.startingShift,
+    this.shiftPeriod,
+    required this.userId,
   });
 
   final String? nickName;
   final String? role;
-  final String? shift;
   final String? nationalID;
-  final int? userNum;
   final String? image;
   final int? phoneNumber;
   final String? firstName;
   final String? middleName;
   final String? lastName;
   final String? gender;
-  final DateTime? birthdate;
+  final String? birthdate;
   final String? country;
   final String? government;
   final String? city;
   final String? fullAddress;
   final String? socialStatus;
   final DateTime? employmentDate;
+  final String? frontNatImageUrl;
+  final String? backNatImageUrl;
+  final String? drugTestImageUrl;
+  final String? frontDLic;
+  final String? backDLic;
+  final String? startingShift;
+  final String? shiftPeriod;
+  final String? userId;
 
   @override
   State<CreateUser2Widget> createState() => _CreateUser2WidgetState();
@@ -67,22 +81,27 @@ class _CreateUser2WidgetState extends State<CreateUser2Widget> {
     super.initState();
     _model = createModel(context, () => CreateUser2Model());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'createUser_2'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      if (loggedIn &&
-          (valueOrDefault(currentUserDocument?.userRole, '') == 'Admin')) {
+      logFirebaseEvent('CREATE_USER_2_createUser_2_ON_INIT_STATE');
+      if (loggedIn && (currentUserDocument?.privileges.roleName == 'Admin')) {
+        logFirebaseEvent('createUser_2_set_form_field');
         setState(() {
-          _model.idController?.text =
-              functions.generateUserID(widget.userNum!, widget.role!);
+          _model.idController?.text = widget.userId!;
         });
+        logFirebaseEvent('createUser_2_set_form_field');
         setState(() {
           _model.emailController?.text =
-              functions.generateEmail(_model.idController.text);
+              functions.generateEmail(widget.userId!);
         });
+        logFirebaseEvent('createUser_2_set_form_field');
         setState(() {
           _model.passwordController?.text = functions.generatePassword();
         });
       } else {
+        logFirebaseEvent('createUser_2_alert_dialog');
         await showDialog(
           context: context,
           builder: (alertDialogContext) {
@@ -98,6 +117,7 @@ class _CreateUser2WidgetState extends State<CreateUser2Widget> {
             );
           },
         );
+        logFirebaseEvent('createUser_2_navigate_back');
         context.safePop();
       }
     });
@@ -123,8 +143,6 @@ class _CreateUser2WidgetState extends State<CreateUser2Widget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Title(
         title: 'createUser_2',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
@@ -166,6 +184,9 @@ class _CreateUser2WidgetState extends State<CreateUser2Widget> {
                                   size: 30.0,
                                 ),
                                 onPressed: () async {
+                                  logFirebaseEvent(
+                                      'CREATE_USER_2_arrow_back_rounded_ICN_ON_');
+                                  logFirebaseEvent('IconButton_navigate_back');
                                   context.safePop();
                                 },
                               ),
@@ -178,7 +199,7 @@ class _CreateUser2WidgetState extends State<CreateUser2Widget> {
                             const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
                         child: Text(
                           FFLocalizations.of(context).getText(
-                            '1801r09g' /* CreateProfile */,
+                            '1801r09g' /* Create Profile */,
                           ),
                           style: FlutterFlowTheme.of(context)
                               .headlineMedium
@@ -349,6 +370,15 @@ class _CreateUser2WidgetState extends State<CreateUser2Widget> {
                   child: TextFormField(
                     controller: _model.passwordController,
                     focusNode: _model.passwordFocusNode,
+                    onFieldSubmitted: (_) async {
+                      logFirebaseEvent(
+                          'CREATE_USER_2_Password_ON_TEXTFIELD_SUBM');
+                      logFirebaseEvent('Password_set_form_field');
+                      setState(() {
+                        _model.passwordController?.text =
+                            functions.generatePassword();
+                      });
+                    },
                     textCapitalization: TextCapitalization.words,
                     readOnly: true,
                     obscureText: false,
@@ -420,9 +450,19 @@ class _CreateUser2WidgetState extends State<CreateUser2Widget> {
                         const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                     child: FFButtonWidget(
                       onPressed: () async {
-                        _model.isCreated = await actions.createUserWithoutLogin(
+                        logFirebaseEvent(
+                            'CREATE_USER_2_CREATE_USER_BTN_ON_TAP');
+                        logFirebaseEvent('Button_custom_action');
+                        _model.returnObject = await actions.createUser(
                           _model.emailController.text,
                           _model.passwordController.text,
+                          random_data.randomString(
+                            10,
+                            25,
+                            true,
+                            true,
+                            true,
+                          ),
                           widget.nickName!,
                           widget.firstName!,
                           widget.middleName!,
@@ -436,35 +476,46 @@ class _CreateUser2WidgetState extends State<CreateUser2Widget> {
                           widget.fullAddress!,
                           widget.socialStatus!,
                           widget.nationalID!,
-                          widget.image!,
+                          widget.image,
                           widget.employmentDate!,
-                          widget.shift!,
-                          _model.idController.text,
+                          random_data.randomInteger(0, 5).toString(),
+                          'active',
+                          widget.frontNatImageUrl!,
+                          widget.backNatImageUrl!,
+                          widget.drugTestImageUrl,
                           widget.role!,
-                          'Active',
+                          ShiftStruct(
+                            startingShift: widget.startingShift,
+                            shiftPeriod: widget.shiftPeriod,
+                          ),
+                          _model.idController.text,
                         );
-                        if (_model.isCreated!) {
-                          await showDialog(
-                            context: context,
-                            builder: (alertDialogContext) {
-                              return AlertDialog(
-                                content: const Text('User Created Successfully'),
-                                actions: [
-                                  TextButton(
-                                    onPressed: () =>
-                                        Navigator.pop(alertDialogContext),
-                                    child: const Text('Ok'),
-                                  ),
-                                ],
-                              );
-                            },
-                          );
+                        if (_model.returnObject?.message == 'Success') {
+                          logFirebaseEvent('Button_navigate_to');
+
+                          context.goNamed('Admin_Home');
+
+                          logFirebaseEvent('Button_send_s_m_s');
+                          if (isiOS) {
+                            await launchUrl(Uri.parse(
+                                "sms:${'+201140820404'}&body=${Uri.encodeComponent(_model.idController.text)}"));
+                          } else {
+                            await launchUrl(Uri(
+                              scheme: 'sms',
+                              path: '+201140820404',
+                              queryParameters: <String, String>{
+                                'body': _model.idController.text,
+                              },
+                            ));
+                          }
                         } else {
+                          logFirebaseEvent('Button_alert_dialog');
                           await showDialog(
                             context: context,
                             builder: (alertDialogContext) {
                               return AlertDialog(
-                                content: const Text('error in creating user'),
+                                title: const Text('error'),
+                                content: Text(_model.returnObject!.message),
                                 actions: [
                                   TextButton(
                                     onPressed: () =>
@@ -476,8 +527,6 @@ class _CreateUser2WidgetState extends State<CreateUser2Widget> {
                             },
                           );
                         }
-
-                        context.goNamed('Admin_Home');
 
                         setState(() {});
                       },

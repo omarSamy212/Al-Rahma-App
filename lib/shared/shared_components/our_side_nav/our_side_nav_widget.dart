@@ -7,7 +7,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:provider/provider.dart';
 import 'our_side_nav_model.dart';
 export 'our_side_nav_model.dart';
 
@@ -75,8 +74,6 @@ class _OurSideNavWidgetState extends State<OurSideNavWidget>
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Container(
       width: 270.0,
       height: double.infinity,
@@ -129,6 +126,9 @@ class _OurSideNavWidgetState extends State<OurSideNavWidget>
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
+                        logFirebaseEvent(
+                            'OUR_SIDE_NAV_COMP_Icon_pp9681z2_ON_TAP');
+                        logFirebaseEvent('Icon_navigate_back');
                         context.safePop();
                       },
                       child: const Icon(
@@ -149,7 +149,10 @@ class _OurSideNavWidgetState extends State<OurSideNavWidget>
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () async {
-                  context.pushNamed('profile_Detals_WIth_QR');
+                  logFirebaseEvent('OUR_SIDE_NAV_COMP_Row_wc09bffz_ON_TAP');
+                  logFirebaseEvent('Row_navigate_to');
+
+                  context.pushNamed('my_profile');
                 },
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
@@ -278,6 +281,10 @@ class _OurSideNavWidgetState extends State<OurSideNavWidget>
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
+                            logFirebaseEvent(
+                                'OUR_SIDE_NAV_COMP_Row_md9xats4_ON_TAP');
+                            logFirebaseEvent('Row_navigate_to');
+
                             context.pushNamed('storekeeperHome');
                           },
                           child: Row(
@@ -384,7 +391,10 @@ class _OurSideNavWidgetState extends State<OurSideNavWidget>
                           focusColor: Colors.transparent,
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
-                          onTap: () async {},
+                          onTap: () async {
+                            logFirebaseEvent(
+                                'OUR_SIDE_NAV_COMP_Row_ujx95frf_ON_TAP');
+                          },
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -532,6 +542,10 @@ class _OurSideNavWidgetState extends State<OurSideNavWidget>
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
+                            logFirebaseEvent(
+                                'OUR_SIDE_NAV_COMP_Row_1b9mqv06_ON_TAP');
+                            logFirebaseEvent('Row_navigate_to');
+
                             context.goNamed('HowToUseApp');
                           },
                           child: Row(
@@ -631,6 +645,8 @@ class _OurSideNavWidgetState extends State<OurSideNavWidget>
                 padding: const EdgeInsetsDirectional.fromSTEB(0.0, 1.0, 0.0, 0.0),
                 child: FFButtonWidget(
                   onPressed: () async {
+                    logFirebaseEvent('OUR_SIDE_NAV_COMP_LOG_OUT_BTN_ON_TAP');
+                    logFirebaseEvent('Button_auth');
                     GoRouter.of(context).prepareAuthEvent();
                     await authManager.signOut();
                     GoRouter.of(context).clearRedirectLocation();

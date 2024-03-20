@@ -32,6 +32,8 @@ class _TransmissionScan2WidgetState extends State<TransmissionScan2Widget> {
     super.initState();
     _model = createModel(context, () => TransmissionScan2Model());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'transmission_Scan_2'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -70,12 +72,14 @@ class _TransmissionScan2WidgetState extends State<TransmissionScan2Widget> {
                   size: 30.0,
                 ),
                 onPressed: () async {
+                  logFirebaseEvent('TRANSMISSION_SCAN_2_arrow_back_rounded_I');
+                  logFirebaseEvent('IconButton_navigate_back');
                   context.pop();
                 },
               ),
               title: Text(
                 FFLocalizations.of(context).getText(
-                  '7ahfc4uq' /* Cheack out */,
+                  '7ahfc4uq' /* Check out */,
                 ),
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
                       fontFamily: 'Plus Jakarta Sans',
@@ -282,11 +286,17 @@ class _TransmissionScan2WidgetState extends State<TransmissionScan2Widget> {
                                               size: 20.0,
                                             ),
                                             onPressed: () async {
+                                              logFirebaseEvent(
+                                                  'TRANSMISSION_SCAN_2_delete_outline_round');
+                                              logFirebaseEvent(
+                                                  'IconButton_update_app_state');
                                               setState(() {
                                                 FFAppState().removeFromToolsCart(
                                                     FFAppState().toolsCart[
                                                         selectedToolsIndex]);
                                               });
+                                              logFirebaseEvent(
+                                                  'IconButton_show_snack_bar');
                                               ScaffoldMessenger.of(context)
                                                   .clearSnackBars();
                                               ScaffoldMessenger.of(context)
@@ -329,8 +339,12 @@ class _TransmissionScan2WidgetState extends State<TransmissionScan2Widget> {
                               10.0, 50.0, 10.0, 5.0),
                           child: FFButtonWidget(
                             onPressed: () async {
+                              logFirebaseEvent(
+                                  'TRANSMISSION_SCAN_2_SCAN_Q_R_CODE_BTN_ON');
                               var shouldSetState = false;
                               if (FFAppState().toolsCart.isNotEmpty) {
+                                logFirebaseEvent(
+                                    'Button_scan_barcode_q_r_code');
                                 _model.supervisorDocId =
                                     await FlutterBarcodeScanner.scanBarcode(
                                   '#C62828', // scanning line color
@@ -342,14 +356,17 @@ class _TransmissionScan2WidgetState extends State<TransmissionScan2Widget> {
                                 );
 
                                 shouldSetState = true;
+                                logFirebaseEvent('Button_custom_action');
                                 _model.supRef = await actions.getUserRef(
                                   _model.supervisorDocId,
                                 );
                                 shouldSetState = true;
+                                logFirebaseEvent('Button_backend_call');
                                 _model.supervisorRef =
                                     await UsersRecord.getDocumentOnce(
                                         _model.supRef!);
                                 shouldSetState = true;
+                                logFirebaseEvent('Button_backend_call');
 
                                 var toolsRequestsRecordReference =
                                     ToolsRequestsRecord.collection.doc();
@@ -390,6 +407,8 @@ class _TransmissionScan2WidgetState extends State<TransmissionScan2Widget> {
                                 shouldSetState = true;
                                 while (_model.countCart! <
                                     FFAppState().toolsCart.length) {
+                                  logFirebaseEvent('Button_backend_call');
+
                                   await FFAppState()
                                       .toolsCart[_model.countCart!]
                                       .toolId!
@@ -403,10 +422,12 @@ class _TransmissionScan2WidgetState extends State<TransmissionScan2Widget> {
                                       },
                                     ),
                                   });
+                                  logFirebaseEvent('Button_update_page_state');
                                   setState(() {
                                     _model.countCart = _model.countCart! + 1;
                                   });
                                 }
+                                logFirebaseEvent('Button_alert_dialog');
                                 unawaited(
                                   () async {
                                     await showDialog(
@@ -428,9 +449,11 @@ class _TransmissionScan2WidgetState extends State<TransmissionScan2Widget> {
                                     );
                                   }(),
                                 );
+                                logFirebaseEvent('Button_update_app_state');
                                 setState(() {
                                   FFAppState().toolsCart = [];
                                 });
+                                logFirebaseEvent('Button_navigate_to');
 
                                 context.pushNamed(
                                   'request_Details',
@@ -449,6 +472,7 @@ class _TransmissionScan2WidgetState extends State<TransmissionScan2Widget> {
                                 if (shouldSetState) setState(() {});
                                 return;
                               } else {
+                                logFirebaseEvent('Button_show_snack_bar');
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(
                                     content: Text(
@@ -511,8 +535,7 @@ class _TransmissionScan2WidgetState extends State<TransmissionScan2Widget> {
                             padding: const EdgeInsetsDirectional.fromSTEB(
                                 20.0, 0.0, 20.0, 12.0),
                             child: RichText(
-                              textScaleFactor:
-                                  MediaQuery.of(context).textScaleFactor,
+                              textScaler: MediaQuery.of(context).textScaler,
                               text: TextSpan(
                                 children: [
                                   TextSpan(
@@ -536,6 +559,11 @@ class _TransmissionScan2WidgetState extends State<TransmissionScan2Widget> {
                                     mouseCursor: SystemMouseCursors.click,
                                     recognizer: TapGestureRecognizer()
                                       ..onTap = () async {
+                                        logFirebaseEvent(
+                                            'TRANSMISSION_SCAN_2_RichTextSpan_x1twagp');
+                                        logFirebaseEvent(
+                                            'RichTextSpan_navigate_to');
+
                                         context.pushNamed('HowToUseApp');
                                       },
                                   )

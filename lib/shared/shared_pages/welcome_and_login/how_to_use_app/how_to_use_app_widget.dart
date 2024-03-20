@@ -2,7 +2,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'how_to_use_app_model.dart';
 export 'how_to_use_app_model.dart';
 
@@ -23,6 +22,7 @@ class _HowToUseAppWidgetState extends State<HowToUseAppWidget> {
     super.initState();
     _model = createModel(context, () => HowToUseAppModel());
 
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'HowToUseApp'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -35,8 +35,6 @@ class _HowToUseAppWidgetState extends State<HowToUseAppWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Title(
         title: 'HowToUseApp',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
@@ -61,6 +59,9 @@ class _HowToUseAppWidgetState extends State<HowToUseAppWidget> {
                   size: 30.0,
                 ),
                 onPressed: () async {
+                  logFirebaseEvent('HOW_TO_USE_APP_arrow_back_rounded_ICN_ON');
+                  logFirebaseEvent('IconButton_navigate_to');
+
                   context.pushNamed('storekeeperHome');
                 },
               ),

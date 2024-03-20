@@ -1,9 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'profile_detals_w_ith_q_r_widget.dart' show ProfileDetalsWIthQRWidget;
+import 'my_profile_widget.dart' show MyProfileWidget;
 import 'package:flutter/material.dart';
 
-class ProfileDetalsWIthQRModel
-    extends FlutterFlowModel<ProfileDetalsWIthQRWidget> {
+class MyProfileModel extends FlutterFlowModel<MyProfileWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

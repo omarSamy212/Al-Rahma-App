@@ -1,3 +1,4 @@
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'create_user2_widget.dart' show CreateUser2Widget;
 import 'package:flutter/material.dart';
@@ -17,8 +18,8 @@ class CreateUser2Model extends FlutterFlowModel<CreateUser2Widget> {
   FocusNode? passwordFocusNode;
   TextEditingController? passwordController;
   String? Function(BuildContext, String?)? passwordControllerValidator;
-  // Stores action output result for [Custom Action - createUserWithoutLogin] action in Button widget.
-  bool? isCreated;
+  // Stores action output result for [Custom Action - createUser] action in Button widget.
+  UserCreationObjectStruct? returnObject;
 
   /// Initialization and disposal methods.
 

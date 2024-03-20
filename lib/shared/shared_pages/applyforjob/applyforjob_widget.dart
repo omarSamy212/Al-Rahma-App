@@ -8,7 +8,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
-import 'package:provider/provider.dart';
 import 'applyforjob_model.dart';
 export 'applyforjob_model.dart';
 
@@ -31,6 +30,7 @@ class _ApplyforjobWidgetState extends State<ApplyforjobWidget> {
     super.initState();
     _model = createModel(context, () => ApplyforjobModel());
 
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'applyforjob'});
     if (!isWeb) {
       _keyboardVisibilitySubscription =
           KeyboardVisibilityController().onChange.listen((bool visible) {
@@ -64,8 +64,6 @@ class _ApplyforjobWidgetState extends State<ApplyforjobWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Title(
         title: 'applyforjob',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
@@ -90,6 +88,8 @@ class _ApplyforjobWidgetState extends State<ApplyforjobWidget> {
                   size: 30.0,
                 ),
                 onPressed: () async {
+                  logFirebaseEvent('APPLYFORJOB_arrow_back_rounded_ICN_ON_TA');
+                  logFirebaseEvent('IconButton_navigate_back');
                   context.pop();
                 },
               ),

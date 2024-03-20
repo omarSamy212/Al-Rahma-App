@@ -2,7 +2,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'home01_company_list_model.dart';
 export 'home01_company_list_model.dart';
 
@@ -25,6 +24,8 @@ class _Home01CompanyListWidgetState extends State<Home01CompanyListWidget>
     super.initState();
     _model = createModel(context, () => Home01CompanyListModel());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'Home01CompanyList'});
     _model.tabBarController = TabController(
       vsync: this,
       length: 3,
@@ -42,8 +43,6 @@ class _Home01CompanyListWidgetState extends State<Home01CompanyListWidget>
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Title(
         title: 'Home01CompanyList',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
@@ -702,8 +701,8 @@ class _Home01CompanyListWidgetState extends State<Home01CompanyListWidget>
                                               ),
                                             ),
                                             const Icon(
-                                              Icons.radio_button_checked,
-                                              color: Color(0xFF4B39EF),
+                                              Icons.motion_photos_off,
+                                              color: Color(0xFF57636C),
                                               size: 24.0,
                                             ),
                                           ],

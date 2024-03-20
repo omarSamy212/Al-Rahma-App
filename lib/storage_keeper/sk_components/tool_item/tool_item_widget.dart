@@ -212,12 +212,17 @@ class _ToolItemWidgetState extends State<ToolItemWidget>
                       count: _model.countControllerValue ??= 0,
                       updateCount: (count) async {
                         setState(() => _model.countControllerValue = count);
+                        logFirebaseEvent(
+                            'TOOL_ITEM_CountController_d4i4llun_ON_FO');
                         if (_model.countControllerValue ==
                             widget.availableQuantity) {
+                          logFirebaseEvent(
+                              'CountController_update_component_state');
                           setState(() {
                             _model.isCountControllerVisible =
                                 !_model.isCountControllerVisible;
                           });
+                          logFirebaseEvent('CountController_show_snack_bar');
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(
                               content: Text(
@@ -258,6 +263,7 @@ class _ToolItemWidgetState extends State<ToolItemWidget>
                     size: 24.0,
                   ),
                   onPressed: () async {
+                    logFirebaseEvent('TOOL_ITEM_COMP_add_task_ICN_ON_TAP');
                     if (functions
                             .updateAppstateCart(
                                 FFAppState().toolsCart.toList(),
@@ -266,6 +272,7 @@ class _ToolItemWidgetState extends State<ToolItemWidget>
                                 ))
                             .toString() !=
                         '-1') {
+                      logFirebaseEvent('IconButton_update_app_state');
                       setState(() {
                         FFAppState().updateToolsCartAtIndex(
                           functions.updateAppstateCart(
@@ -282,6 +289,7 @@ class _ToolItemWidgetState extends State<ToolItemWidget>
                         );
                       });
                     } else {
+                      logFirebaseEvent('IconButton_update_app_state');
                       setState(() {
                         FFAppState().addToToolsCart(ArrayOfToolsStruct(
                           toolId: widget.toolDocRef,
@@ -293,12 +301,14 @@ class _ToolItemWidgetState extends State<ToolItemWidget>
                       });
                     }
 
+                    logFirebaseEvent('IconButton_widget_animation');
                     if (animationsMap['iconButtonOnActionTriggerAnimation'] !=
                         null) {
                       await animationsMap['iconButtonOnActionTriggerAnimation']!
                           .controller
                           .forward(from: 0.0);
                     }
+                    logFirebaseEvent('IconButton_show_snack_bar');
                     ScaffoldMessenger.of(context).clearSnackBars();
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(

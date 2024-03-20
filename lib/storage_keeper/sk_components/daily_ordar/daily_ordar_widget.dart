@@ -6,7 +6,6 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:sticky_headers/sticky_headers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:provider/provider.dart';
 import 'daily_ordar_model.dart';
 export 'daily_ordar_model.dart';
 
@@ -43,8 +42,6 @@ class _DailyOrdarWidgetState extends State<DailyOrdarWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return SingleChildScrollView(
       child: Column(
         mainAxisSize: MainAxisSize.max,
@@ -139,141 +136,161 @@ class _DailyOrdarWidgetState extends State<DailyOrdarWidget> {
                           listViewToolsRequestsRecordList[listViewIndex];
                       return Align(
                         alignment: const AlignmentDirectional(0.0, 0.0),
-                        child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              5.0, 5.0, 5.0, 5.0),
-                          child: StreamBuilder<UsersRecord>(
-                            stream: UsersRecord.getDocument(
-                                listViewToolsRequestsRecord.supervisor!),
-                            builder: (context, snapshot) {
-                              // Customize what your widget looks like when it's loading.
-                              if (!snapshot.hasData) {
-                                return const Center(
-                                  child: SizedBox(
-                                    width: 50.0,
-                                    height: 50.0,
-                                    child: SpinKitDualRing(
-                                      color: Color(0xFF0CA256),
-                                      size: 50.0,
-                                    ),
+                        child: StreamBuilder<UsersRecord>(
+                          stream: UsersRecord.getDocument(
+                              listViewToolsRequestsRecord.supervisor!),
+                          builder: (context, snapshot) {
+                            // Customize what your widget looks like when it's loading.
+                            if (!snapshot.hasData) {
+                              return const Center(
+                                child: SizedBox(
+                                  width: 50.0,
+                                  height: 50.0,
+                                  child: SpinKitDualRing(
+                                    color: Color(0xFF0CA256),
+                                    size: 50.0,
                                   ),
+                                ),
+                              );
+                            }
+                            final materialListItem4UsersRecord = snapshot.data!;
+                            return InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                logFirebaseEvent(
+                                    'DAILY_ORDAR_materialList_Item_4_ON_TAP');
+                                logFirebaseEvent(
+                                    'materialList_Item_4_navigate_to');
+
+                                context.pushNamed(
+                                  'request_Details',
+                                  queryParameters: {
+                                    'supervisorRef': serializeParam(
+                                      listViewToolsRequestsRecord.supervisor,
+                                      ParamType.DocumentReference,
+                                    ),
+                                    'requestRef': serializeParam(
+                                      listViewToolsRequestsRecord.reference,
+                                      ParamType.DocumentReference,
+                                    ),
+                                  }.withoutNulls,
                                 );
-                              }
-                              final materialListItem4UsersRecord =
-                                  snapshot.data!;
-                              return InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  context.pushNamed(
-                                    'request_Details',
-                                    queryParameters: {
-                                      'supervisorRef': serializeParam(
-                                        listViewToolsRequestsRecord.supervisor,
-                                        ParamType.DocumentReference,
-                                      ),
-                                      'requestRef': serializeParam(
-                                        listViewToolsRequestsRecord.reference,
-                                        ParamType.DocumentReference,
-                                      ),
-                                    }.withoutNulls,
-                                  );
-                                },
-                                child: Container(
-                                  width: double.infinity,
-                                  height: 90.0,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryBackground,
-                                    boxShadow: [
-                                      BoxShadow(
-                                        blurRadius: 5.0,
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                        offset: const Offset(0.0, 1.0),
-                                      )
-                                    ],
-                                    borderRadius: const BorderRadius.only(
-                                      bottomLeft: Radius.circular(6.0),
-                                      bottomRight: Radius.circular(6.0),
-                                      topLeft: Radius.circular(6.0),
-                                      topRight: Radius.circular(6.0),
-                                    ),
-                                    border: Border.all(
-                                      color: const Color(0xFFF1F4F8),
-                                      width: 1.0,
-                                    ),
+                              },
+                              child: Container(
+                                width: double.infinity,
+                                height: 90.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .primaryBackground,
+                                  borderRadius: const BorderRadius.only(
+                                    bottomLeft: Radius.circular(6.0),
+                                    bottomRight: Radius.circular(6.0),
+                                    topLeft: Radius.circular(6.0),
+                                    topRight: Radius.circular(6.0),
                                   ),
-                                  child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 12.0, 16.0, 12.0),
-                                    child: InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      onTap: () async {
-                                        context.pushNamed(
-                                          'request_Details',
-                                          queryParameters: {
-                                            'supervisorRef': serializeParam(
-                                              listViewToolsRequestsRecord
-                                                  .supervisor,
-                                              ParamType.DocumentReference,
+                                  border: Border.all(
+                                    color: const Color(0xFFF1F4F8),
+                                    width: 1.0,
+                                  ),
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 12.0, 16.0, 12.0),
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      logFirebaseEvent(
+                                          'DAILY_ORDAR_COMP_Row_2nz2k4ey_ON_TAP');
+                                      logFirebaseEvent('Row_navigate_to');
+
+                                      context.pushNamed(
+                                        'request_Details',
+                                        queryParameters: {
+                                          'supervisorRef': serializeParam(
+                                            listViewToolsRequestsRecord
+                                                .supervisor,
+                                            ParamType.DocumentReference,
+                                          ),
+                                          'requestRef': serializeParam(
+                                            listViewToolsRequestsRecord
+                                                .reference,
+                                            ParamType.DocumentReference,
+                                          ),
+                                        }.withoutNulls,
+                                      );
+                                    },
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  16.0, 0.0, 0.0, 0.0),
+                                          child: Container(
+                                            width: 44.0,
+                                            height: 44.0,
+                                            decoration: const BoxDecoration(
+                                              color: Color(0xFF0CA256),
+                                              shape: BoxShape.circle,
                                             ),
-                                            'requestRef': serializeParam(
-                                              listViewToolsRequestsRecord
-                                                  .reference,
-                                              ParamType.DocumentReference,
-                                            ),
-                                          }.withoutNulls,
-                                        );
-                                      },
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 0.0, 0.0, 0.0),
+                                            alignment:
+                                                const AlignmentDirectional(0.0, 0.0),
                                             child: Container(
-                                              width: 44.0,
-                                              height: 44.0,
+                                              width: 120.0,
+                                              height: 120.0,
+                                              clipBehavior: Clip.antiAlias,
                                               decoration: const BoxDecoration(
-                                                color: Color(0xFF0CA256),
                                                 shape: BoxShape.circle,
                                               ),
-                                              alignment: const AlignmentDirectional(
-                                                  0.0, 0.0),
-                                              child: Container(
-                                                width: 120.0,
-                                                height: 120.0,
-                                                clipBehavior: Clip.antiAlias,
-                                                decoration: const BoxDecoration(
-                                                  shape: BoxShape.circle,
-                                                ),
-                                                child: Image.network(
-                                                  materialListItem4UsersRecord
-                                                      .photoUrl,
-                                                  fit: BoxFit.cover,
-                                                ),
+                                              child: Image.network(
+                                                materialListItem4UsersRecord
+                                                    .photoUrl,
+                                                fit: BoxFit.cover,
                                               ),
                                             ),
                                           ),
-                                          Align(
+                                        ),
+                                        Align(
+                                          alignment:
+                                              const AlignmentDirectional(-1.0, 0.0),
+                                          child: Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    12.0, 0.0, 12.0, 0.0),
+                                            child: Text(
+                                              materialListItem4UsersRecord
+                                                  .displayName,
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyLarge
+                                                  .override(
+                                                    fontFamily:
+                                                        'Plus Jakarta Sans',
+                                                    color: const Color(0xFF15161E),
+                                                    fontSize: 16.0,
+                                                    fontWeight: FontWeight.w600,
+                                                  ),
+                                            ),
+                                          ),
+                                        ),
+                                        Expanded(
+                                          child: Align(
                                             alignment:
-                                                const AlignmentDirectional(-1.0, 0.0),
+                                                const AlignmentDirectional(1.0, 0.0),
                                             child: Padding(
                                               padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       12.0, 0.0, 12.0, 0.0),
                                               child: Text(
-                                                materialListItem4UsersRecord
-                                                    .displayName,
+                                                'ID: #${materialListItem4UsersRecord.userCode}',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyLarge
@@ -289,69 +306,47 @@ class _DailyOrdarWidgetState extends State<DailyOrdarWidget> {
                                               ),
                                             ),
                                           ),
-                                          Expanded(
-                                            child: Align(
-                                              alignment: const AlignmentDirectional(
-                                                  1.0, 0.0),
-                                              child: Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        12.0, 0.0, 12.0, 0.0),
-                                                child: Text(
-                                                  'ID: #${materialListItem4UsersRecord.userCode}',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyLarge
-                                                      .override(
-                                                        fontFamily:
-                                                            'Plus Jakarta Sans',
-                                                        color:
-                                                            const Color(0xFF15161E),
-                                                        fontSize: 16.0,
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                      ),
+                                        ),
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            logFirebaseEvent(
+                                                'DAILY_ORDAR_COMP_Icon_3kkvr8u7_ON_TAP');
+                                            logFirebaseEvent(
+                                                'Icon_navigate_to');
+
+                                            context.pushNamed(
+                                              'request_Details',
+                                              queryParameters: {
+                                                'supervisorRef': serializeParam(
+                                                  listViewToolsRequestsRecord
+                                                      .supervisor,
+                                                  ParamType.DocumentReference,
                                                 ),
-                                              ),
-                                            ),
+                                                'requestRef': serializeParam(
+                                                  listViewToolsRequestsRecord
+                                                      .reference,
+                                                  ParamType.DocumentReference,
+                                                ),
+                                              }.withoutNulls,
+                                            );
+                                          },
+                                          child: const Icon(
+                                            Icons.chevron_right_rounded,
+                                            color: Color(0xFF606A85),
+                                            size: 24.0,
                                           ),
-                                          InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              context.pushNamed(
-                                                'request_Details',
-                                                queryParameters: {
-                                                  'supervisorRef':
-                                                      serializeParam(
-                                                    listViewToolsRequestsRecord
-                                                        .supervisor,
-                                                    ParamType.DocumentReference,
-                                                  ),
-                                                  'requestRef': serializeParam(
-                                                    listViewToolsRequestsRecord
-                                                        .reference,
-                                                    ParamType.DocumentReference,
-                                                  ),
-                                                }.withoutNulls,
-                                              );
-                                            },
-                                            child: const Icon(
-                                              Icons.chevron_right_rounded,
-                                              color: Color(0xFF606A85),
-                                              size: 24.0,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
+                                        ),
+                                      ],
                                     ),
                                   ),
                                 ),
-                              );
-                            },
-                          ),
+                              ),
+                            );
+                          },
                         ),
                       );
                     },

@@ -18,7 +18,6 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:provider/provider.dart';
 import 'package:record/record.dart';
 import 'complain_form_copy_model.dart';
 export 'complain_form_copy_model.dart';
@@ -89,8 +88,12 @@ class _ComplainFormCopyWidgetState extends State<ComplainFormCopyWidget>
     super.initState();
     _model = createModel(context, () => ComplainFormCopyModel());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'complain_formCopy'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      logFirebaseEvent('COMPLAIN_FORM_COPY_complain_formCopy_ON_');
+      logFirebaseEvent('complain_formCopy_update_page_state');
       setState(() {
         _model.requestTools =
             widget.requestDec!.tools.toList().cast<ArrayOfToolsStruct>();
@@ -119,8 +122,6 @@ class _ComplainFormCopyWidgetState extends State<ComplainFormCopyWidget>
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Title(
         title: 'complain_formCopy',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
@@ -161,6 +162,9 @@ class _ComplainFormCopyWidgetState extends State<ComplainFormCopyWidget>
                                   size: 30.0,
                                 ),
                                 onPressed: () async {
+                                  logFirebaseEvent(
+                                      'COMPLAIN_FORM_COPY_arrow_back_rounded_IC');
+                                  logFirebaseEvent('IconButton_navigate_back');
                                   context.pop();
                                 },
                               ),
@@ -359,11 +363,7 @@ class _ComplainFormCopyWidgetState extends State<ComplainFormCopyWidget>
                                                             .fromSTEB(16.0,
                                                                 18.0, 0.0, 0.0),
                                                     child: Text(
-                                                      valueOrDefault<String>(
-                                                        widget.supervisorDoc
-                                                            ?.shiftPeriod,
-                                                        'Shift',
-                                                      ),
+                                                      '${widget.supervisorDoc?.shift.startingShift}\' \'${widget.supervisorDoc?.shift.shiftPeriod}',
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -477,6 +477,10 @@ class _ComplainFormCopyWidgetState extends State<ComplainFormCopyWidget>
                                       .toList(),
                                   onChanged: (val) async {
                                     setState(() => _model.toolsMenuValue = val);
+                                    logFirebaseEvent(
+                                        'COMPLAIN_FORM_COPY_ToolsMenu_ON_FORM_WID');
+                                    logFirebaseEvent(
+                                        'ToolsMenu_update_page_state');
                                     setState(() {
                                       _model.selectedToolRef = functions
                                           .newCustomFunction(
@@ -666,6 +670,10 @@ class _ComplainFormCopyWidgetState extends State<ComplainFormCopyWidget>
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
+                                  logFirebaseEvent(
+                                      'COMPLAIN_FORM_COPY_Icon_f0wy54x8_ON_TAP');
+                                  logFirebaseEvent(
+                                      'Icon_start_audio_recording');
                                   _model.audioRecorder ??= AudioRecorder();
                                   if (await _model.audioRecorder!
                                       .hasPermission()) {
@@ -692,6 +700,7 @@ class _ComplainFormCopyWidgetState extends State<ComplainFormCopyWidget>
                                     );
                                   }
 
+                                  logFirebaseEvent('Icon_update_page_state');
                                   setState(() {
                                     _model.isRecording = !_model.isRecording;
                                   });
@@ -730,6 +739,10 @@ class _ComplainFormCopyWidgetState extends State<ComplainFormCopyWidget>
                                       hoverColor: Colors.transparent,
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
+                                        logFirebaseEvent(
+                                            'COMPLAIN_FORM_COPY_Icon_n6xaz4s8_ON_TAP');
+                                        logFirebaseEvent(
+                                            'Icon_stop_audio_recording');
                                         _model.playComplainRecord =
                                             await _model.audioRecorder?.stop();
                                         if (_model.playComplainRecord != null) {
@@ -742,6 +755,8 @@ class _ComplainFormCopyWidgetState extends State<ComplainFormCopyWidget>
                                           );
                                         }
 
+                                        logFirebaseEvent(
+                                            'Icon_upload_file_to_firebase');
                                         {
                                           setState(() =>
                                               _model.isDataUploading = true);
@@ -803,6 +818,8 @@ class _ComplainFormCopyWidgetState extends State<ComplainFormCopyWidget>
                                           }
                                         }
 
+                                        logFirebaseEvent(
+                                            'Icon_update_page_state');
                                         setState(() {
                                           _model.showPlayer =
                                               !_model.showPlayer;
@@ -861,6 +878,9 @@ class _ComplainFormCopyWidgetState extends State<ComplainFormCopyWidget>
                           const EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 17.0),
                       child: FFButtonWidget(
                         onPressed: () async {
+                          logFirebaseEvent(
+                              'COMPLAIN_FORM_COPY_MAKE_COMPLAIN_BTN_ON_');
+                          logFirebaseEvent('Button_validate_form');
                           if (_model.formKey.currentState == null ||
                               !_model.formKey.currentState!.validate()) {
                             return;

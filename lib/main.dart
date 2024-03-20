@@ -15,6 +15,8 @@ void main() async {
   usePathUrlStrategy();
   await initFirebase();
 
+  await FFLocalizations.initialize();
+
   final appState = FFAppState(); // Initialize FFAppState
   await appState.initializePersistedState();
 
@@ -36,7 +38,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  Locale? _locale;
+  Locale? _locale = FFLocalizations.getStoredLocale();
   ThemeMode _themeMode = ThemeMode.system;
 
   late Stream<BaseAuthUser> userStream;
@@ -70,6 +72,7 @@ class _MyAppState extends State<MyApp> {
 
   void setLocale(String language) {
     setState(() => _locale = createLocale(language));
+    FFLocalizations.storeLocale(language);
   }
 
   void setThemeMode(ThemeMode mode) => setState(() {
@@ -97,6 +100,7 @@ class _MyAppState extends State<MyApp> {
           thumbVisibility: MaterialStateProperty.all(false),
           interactive: false,
         ),
+        useMaterial3: false,
       ),
       themeMode: _themeMode,
       routerConfig: _router,

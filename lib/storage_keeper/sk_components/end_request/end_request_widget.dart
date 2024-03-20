@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
-import 'package:provider/provider.dart';
 import 'end_request_model.dart';
 export 'end_request_model.dart';
 
@@ -48,8 +47,6 @@ class _EndRequestWidgetState extends State<EndRequestWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Padding(
       padding: const EdgeInsetsDirectional.fromSTEB(0.0, 44.0, 0.0, 0.0),
       child: Container(
@@ -209,6 +206,10 @@ class _EndRequestWidgetState extends State<EndRequestWidget> {
                         const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                     child: FFButtonWidget(
                       onPressed: () async {
+                        logFirebaseEvent(
+                            'END_REQUEST_REPORT_MISSING_TOOLS_BTN_ON_');
+                        logFirebaseEvent('Button_navigate_to');
+
                         context.pushNamed(
                           'Missingtools_form',
                           queryParameters: {
@@ -265,6 +266,9 @@ class _EndRequestWidgetState extends State<EndRequestWidget> {
                   ),
                   FFButtonWidget(
                     onPressed: () async {
+                      logFirebaseEvent(
+                          'END_REQUEST_COMP_END_REQUEST_BTN_ON_TAP');
+                      logFirebaseEvent('Button_scan_barcode_q_r_code');
                       _model.scannedSupervsorID =
                           await FlutterBarcodeScanner.scanBarcode(
                         '#C62828', // scanning line color
@@ -277,11 +281,13 @@ class _EndRequestWidgetState extends State<EndRequestWidget> {
 
                       if (widget.requestDoc?.supervisor?.id ==
                           _model.scannedSupervsorID) {
+                        logFirebaseEvent('Button_update_component_state');
                         setState(() {
                           _model.reqTools = widget.requestDoc!.tools
                               .toList()
                               .cast<ArrayOfToolsStruct>();
                         });
+                        logFirebaseEvent('Button_backend_call');
 
                         await widget.requestDoc!.reference
                             .update(createToolsRequestsRecordData(
@@ -289,6 +295,8 @@ class _EndRequestWidgetState extends State<EndRequestWidget> {
                           endedAt: getCurrentTimestamp,
                         ));
                         while (_model.counter! < _model.reqTools.length) {
+                          logFirebaseEvent('Button_backend_call');
+
                           await _model.reqTools[_model.counter!].toolId!
                               .update({
                             ...mapToFirestore(
@@ -299,10 +307,12 @@ class _EndRequestWidgetState extends State<EndRequestWidget> {
                               },
                             ),
                           });
+                          logFirebaseEvent('Button_update_component_state');
                           setState(() {
                             _model.counter = _model.counter! + 1;
                           });
                         }
+                        logFirebaseEvent('Button_alert_dialog');
                         await showDialog(
                           context: context,
                           builder: (alertDialogContext) {
@@ -321,6 +331,7 @@ class _EndRequestWidgetState extends State<EndRequestWidget> {
                           },
                         );
                       } else {
+                        logFirebaseEvent('Button_alert_dialog');
                         await showDialog(
                           context: context,
                           builder: (alertDialogContext) {
@@ -339,6 +350,8 @@ class _EndRequestWidgetState extends State<EndRequestWidget> {
                           },
                         );
                       }
+
+                      logFirebaseEvent('Button_navigate_to');
 
                       context.goNamed('day_Contract_List');
 

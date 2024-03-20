@@ -7,7 +7,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:provider/provider.dart';
 import 'search_model.dart';
 export 'search_model.dart';
 
@@ -96,8 +95,6 @@ class _SearchWidgetState extends State<SearchWidget>
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return ClipRRect(
       child: BackdropFilter(
         filter: ImageFilter.blur(
@@ -140,6 +137,9 @@ class _SearchWidgetState extends State<SearchWidget>
                             size: 24.0,
                           ),
                           onPressed: () async {
+                            logFirebaseEvent(
+                                'SEARCH_COMP_close_rounded_ICN_ON_TAP');
+                            logFirebaseEvent('IconButton_bottom_sheet');
                             Navigator.pop(context);
                           },
                         ),
@@ -1427,6 +1427,10 @@ class _SearchWidgetState extends State<SearchWidget>
                                                       highlightColor:
                                                           Colors.transparent,
                                                       onTap: () async {
+                                                        logFirebaseEvent(
+                                                            'SEARCH_COMP_Container_zm0pw7er_ON_TAP');
+                                                        logFirebaseEvent(
+                                                            'Container_drawer');
                                                         Scaffold.of(context)
                                                             .openEndDrawer();
                                                       },
@@ -1644,6 +1648,10 @@ class _SearchWidgetState extends State<SearchWidget>
                                                       highlightColor:
                                                           Colors.transparent,
                                                       onTap: () async {
+                                                        logFirebaseEvent(
+                                                            'SEARCH_COMP_Container_wbpfj5az_ON_TAP');
+                                                        logFirebaseEvent(
+                                                            'Container_drawer');
                                                         Scaffold.of(context)
                                                             .openEndDrawer();
                                                       },
@@ -1861,6 +1869,10 @@ class _SearchWidgetState extends State<SearchWidget>
                                                       highlightColor:
                                                           Colors.transparent,
                                                       onTap: () async {
+                                                        logFirebaseEvent(
+                                                            'SEARCH_COMP_Container_ewwqebz1_ON_TAP');
+                                                        logFirebaseEvent(
+                                                            'Container_drawer');
                                                         Scaffold.of(context)
                                                             .openEndDrawer();
                                                       },
@@ -2078,6 +2090,10 @@ class _SearchWidgetState extends State<SearchWidget>
                                                       highlightColor:
                                                           Colors.transparent,
                                                       onTap: () async {
+                                                        logFirebaseEvent(
+                                                            'SEARCH_COMP_Container_7uj1h3ta_ON_TAP');
+                                                        logFirebaseEvent(
+                                                            'Container_drawer');
                                                         Scaffold.of(context)
                                                             .openEndDrawer();
                                                       },

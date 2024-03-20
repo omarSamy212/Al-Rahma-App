@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'hint_beforeapplyjob_model.dart';
 export 'hint_beforeapplyjob_model.dart';
 
@@ -27,6 +26,8 @@ class _HintBeforeapplyjobWidgetState extends State<HintBeforeapplyjobWidget> {
     super.initState();
     _model = createModel(context, () => HintBeforeapplyjobModel());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'hintBeforeapplyjob'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -39,8 +40,6 @@ class _HintBeforeapplyjobWidgetState extends State<HintBeforeapplyjobWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Title(
         title: 'hintBeforeapplyjob',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
@@ -309,6 +308,10 @@ class _HintBeforeapplyjobWidgetState extends State<HintBeforeapplyjobWidget> {
                       children: [
                         FFButtonWidget(
                           onPressed: () async {
+                            logFirebaseEvent(
+                                'HINT_BEFOREAPPLYJOB_PAGE_NEXT_BTN_ON_TAP');
+                            logFirebaseEvent('Button_navigate_to');
+
                             context.pushNamed('applyforjob');
                           },
                           text: FFLocalizations.of(context).getText(

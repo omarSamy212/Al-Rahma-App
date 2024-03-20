@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:provider/provider.dart';
 import 'modal16_create_company_model.dart';
 export 'modal16_create_company_model.dart';
 
@@ -82,8 +81,6 @@ class _Modal16CreateCompanyWidgetState extends State<Modal16CreateCompanyWidget>
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Container(
       width: double.infinity,
       height: double.infinity,
@@ -146,7 +143,10 @@ class _Modal16CreateCompanyWidgetState extends State<Modal16CreateCompanyWidget>
                           focusColor: Colors.transparent,
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
-                          onTap: () async {},
+                          onTap: () async {
+                            logFirebaseEvent(
+                                'MODAL16_CREATE_COMPANY_imageBorder_ON_TA');
+                          },
                           child: Container(
                             width: 100.0,
                             height: 100.0,
@@ -169,34 +169,6 @@ class _Modal16CreateCompanyWidgetState extends State<Modal16CreateCompanyWidget>
                                   height: 200.0,
                                   fit: BoxFit.cover,
                                 ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      Align(
-                        alignment: const AlignmentDirectional(-1.0, 0.0),
-                        child: Container(
-                          width: 100.0,
-                          height: 100.0,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context).accent1,
-                            borderRadius: BorderRadius.circular(12.0),
-                            shape: BoxShape.rectangle,
-                            border: Border.all(
-                              color: FlutterFlowTheme.of(context).primary,
-                              width: 2.0,
-                            ),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(2.0),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(10.0),
-                              child: Image.network(
-                                'https://picsum.photos/seed/123/600',
-                                width: 300.0,
-                                height: 200.0,
-                                fit: BoxFit.cover,
                               ),
                             ),
                           ),
