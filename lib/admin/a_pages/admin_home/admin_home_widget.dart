@@ -8,13 +8,15 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/shared/shared_components/our_side_nav/our_side_nav_widget.dart';
 import 'package:badges/badges.dart' as badges;
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:provider/provider.dart';
 import 'admin_home_model.dart';
 export 'admin_home_model.dart';
 
@@ -46,15 +48,15 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: const Offset(-50.0, 0.0),
-          end: const Offset(0.0, 0.0),
+          begin: Offset(-50.0, 0.0),
+          end: Offset(0.0, 0.0),
         ),
         ScaleEffect(
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: const Offset(0.7, 0.7),
-          end: const Offset(1.0, 1.0),
+          begin: Offset(0.7, 0.7),
+          end: Offset(1.0, 1.0),
         ),
       ],
     ),
@@ -72,15 +74,15 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: const Offset(-50.0, 0.0),
-          end: const Offset(0.0, 0.0),
+          begin: Offset(-50.0, 0.0),
+          end: Offset(0.0, 0.0),
         ),
         ScaleEffect(
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: const Offset(0.7, 0.7),
-          end: const Offset(1.0, 1.0),
+          begin: Offset(0.7, 0.7),
+          end: Offset(1.0, 1.0),
         ),
       ],
     ),
@@ -98,15 +100,15 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: const Offset(-50.0, 0.0),
-          end: const Offset(0.0, 0.0),
+          begin: Offset(-50.0, 0.0),
+          end: Offset(0.0, 0.0),
         ),
         ScaleEffect(
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: const Offset(0.7, 0.7),
-          end: const Offset(1.0, 1.0),
+          begin: Offset(0.7, 0.7),
+          end: Offset(1.0, 1.0),
         ),
       ],
     ),
@@ -124,15 +126,15 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 300.ms,
-          begin: const Offset(0.0, 20.0),
-          end: const Offset(0.0, 0.0),
+          begin: Offset(0.0, 20.0),
+          end: Offset(0.0, 0.0),
         ),
         TiltEffect(
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 300.ms,
-          begin: const Offset(0.698, 0),
-          end: const Offset(0, 0),
+          begin: Offset(0.698, 0),
+          end: Offset(0, 0),
         ),
       ],
     ),
@@ -144,25 +146,6 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
     _model = createModel(context, () => AdminHomeModel());
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'Admin_Home'});
-    // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      logFirebaseEvent('ADMIN_HOME_PAGE_Admin_Home_ON_INIT_STATE');
-      logFirebaseEvent('Admin_Home_send_s_m_s');
-      if (isiOS) {
-        await launchUrl(Uri.parse(
-            "sms:${'+201140820404'}&body=${Uri.encodeComponent('صبح, خد ده الباسورد بتاعك لشركة الرحمة  يا فقير يامعفن يا شحات لو نسيته برا عننا')}"));
-      } else {
-        await launchUrl(Uri(
-          scheme: 'sms',
-          path: '+201140820404',
-          queryParameters: <String, String>{
-            'body':
-                'صبح, خد ده الباسورد بتاعك لشركة الرحمة  يا فقير يامعفن يا شحات لو نسيته برا عننا',
-          },
-        ));
-      }
-    });
-
     setupAnimations(
       animationsMap.values.where((anim) =>
           anim.trigger == AnimationTrigger.onActionTrigger ||
@@ -199,7 +182,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                 child: wrapWithModel(
                   model: _model.ourSideNavModel,
                   updateCallback: () => setState(() {}),
-                  child: const OurSideNavWidget(),
+                  child: OurSideNavWidget(),
                 ),
               ),
               body: SafeArea(
@@ -223,20 +206,23 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                             BoxShadow(
                               blurRadius: 0.0,
                               color: FlutterFlowTheme.of(context).alternate,
-                              offset: const Offset(1.0, 0.0),
+                              offset: Offset(
+                                1.0,
+                                0.0,
+                              ),
                             )
                           ],
                           borderRadius: BorderRadius.circular(0.0),
                         ),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 16.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 24.0),
                                 child: Container(
                                   width: double.infinity,
@@ -246,7 +232,10 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                       BoxShadow(
                                         color: FlutterFlowTheme.of(context)
                                             .accent1,
-                                        offset: const Offset(0.0, 1.0),
+                                        offset: Offset(
+                                          0.0,
+                                          1.0,
+                                        ),
                                       )
                                     ],
                                   ),
@@ -254,7 +243,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             16.0, 24.0, 16.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -267,7 +256,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                               size: 32.0,
                                             ),
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       12.0, 0.0, 0.0, 0.0),
                                               child: Text(
@@ -283,6 +272,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .info,
+                                                          letterSpacing: 0.0,
                                                         ),
                                               ),
                                             ),
@@ -290,7 +280,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             16.0, 20.0, 16.0, 16.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -302,7 +292,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .accent1,
-                                                borderRadius: const BorderRadius.only(
+                                                borderRadius: BorderRadius.only(
                                                   bottomLeft:
                                                       Radius.circular(10.0),
                                                   bottomRight:
@@ -320,15 +310,15 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                 ),
                                               ),
                                               child: Padding(
-                                                padding: const EdgeInsets.all(2.0),
+                                                padding: EdgeInsets.all(2.0),
                                                 child: ClipRRect(
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           8.0),
                                                   child: CachedNetworkImage(
-                                                    fadeInDuration: const Duration(
+                                                    fadeInDuration: Duration(
                                                         milliseconds: 500),
-                                                    fadeOutDuration: const Duration(
+                                                    fadeOutDuration: Duration(
                                                         milliseconds: 500),
                                                     imageUrl:
                                                         'https://images.unsplash.com/photo-1624561172888-ac93c696e10c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjJ8fHVzZXJzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=900&q=60',
@@ -341,7 +331,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                             ),
                                             Expanded(
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         12.0, 0.0, 0.0, 0.0),
                                                 child: Column(
@@ -366,11 +356,13 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .info,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   4.0,
@@ -392,6 +384,8 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .accent4,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                       ),
                                                     ),
@@ -407,7 +401,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     16.0, 0.0, 16.0, 12.0),
                                 child: Container(
                                   width: double.infinity,
@@ -423,14 +417,14 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                     ),
                                   ),
                                   child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         12.0, 0.0, 12.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 12.0, 12.0, 12.0),
                                           child: Container(
                                             width: 4.0,
@@ -452,14 +446,18 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   12.0, 0.0, 0.0, 0.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
                                               '4uguly9m' /* Dashboard */,
                                             ),
                                             style: FlutterFlowTheme.of(context)
-                                                .titleMedium,
+                                                .titleMedium
+                                                .override(
+                                                  fontFamily: 'Readex Pro',
+                                                  letterSpacing: 0.0,
+                                                ),
                                           ),
                                         ),
                                       ],
@@ -468,7 +466,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     16.0, 0.0, 16.0, 12.0),
                                 child: Container(
                                   width: double.infinity,
@@ -479,14 +477,14 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                     shape: BoxShape.rectangle,
                                   ),
                                   child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         12.0, 0.0, 12.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 12.0, 12.0, 12.0),
                                           child: Container(
                                             width: 4.0,
@@ -508,14 +506,18 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   12.0, 0.0, 0.0, 0.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
                                               'cvanvzh1' /* Transactions */,
                                             ),
                                             style: FlutterFlowTheme.of(context)
-                                                .titleSmall,
+                                                .titleSmall
+                                                .override(
+                                                  fontFamily: 'Readex Pro',
+                                                  letterSpacing: 0.0,
+                                                ),
                                           ),
                                         ),
                                       ],
@@ -524,7 +526,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     16.0, 0.0, 16.0, 12.0),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
@@ -549,14 +551,14 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                       shape: BoxShape.rectangle,
                                     ),
                                     child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           12.0, 0.0, 12.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 12.0, 12.0, 12.0),
                                             child: Container(
                                               width: 4.0,
@@ -578,7 +580,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                           ),
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     12.0, 0.0, 0.0, 0.0),
                                             child: Text(
                                               FFLocalizations.of(context)
@@ -593,6 +595,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .info,
+                                                    letterSpacing: 0.0,
                                                   ),
                                             ),
                                           ),
@@ -603,7 +606,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     16.0, 0.0, 16.0, 12.0),
                                 child: Container(
                                   width: double.infinity,
@@ -614,14 +617,14 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                     shape: BoxShape.rectangle,
                                   ),
                                   child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         12.0, 0.0, 12.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 12.0, 12.0, 12.0),
                                           child: Container(
                                             width: 4.0,
@@ -643,14 +646,18 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   12.0, 0.0, 0.0, 0.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
                                               '13mexr2b' /* Managing employees */,
                                             ),
                                             style: FlutterFlowTheme.of(context)
-                                                .titleSmall,
+                                                .titleSmall
+                                                .override(
+                                                  fontFamily: 'Readex Pro',
+                                                  letterSpacing: 0.0,
+                                                ),
                                           ),
                                         ),
                                       ],
@@ -659,7 +666,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     16.0, 0.0, 16.0, 12.0),
                                 child: Container(
                                   width: double.infinity,
@@ -670,14 +677,14 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                     shape: BoxShape.rectangle,
                                   ),
                                   child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         12.0, 0.0, 12.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 12.0, 12.0, 12.0),
                                           child: Container(
                                             width: 4.0,
@@ -699,14 +706,18 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   12.0, 0.0, 0.0, 0.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
                                               'dyywl81k' /* Job applications */,
                                             ),
                                             style: FlutterFlowTheme.of(context)
-                                                .titleSmall,
+                                                .titleSmall
+                                                .override(
+                                                  fontFamily: 'Readex Pro',
+                                                  letterSpacing: 0.0,
+                                                ),
                                           ),
                                         ),
                                       ],
@@ -715,7 +726,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     16.0, 0.0, 16.0, 12.0),
                                 child: Container(
                                   width: double.infinity,
@@ -726,14 +737,14 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                     shape: BoxShape.rectangle,
                                   ),
                                   child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         12.0, 0.0, 12.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 12.0, 12.0, 12.0),
                                           child: Container(
                                             width: 4.0,
@@ -755,14 +766,18 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   12.0, 0.0, 0.0, 0.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
                                               '493aaam0' /* Add Area */,
                                             ),
                                             style: FlutterFlowTheme.of(context)
-                                                .titleSmall,
+                                                .titleSmall
+                                                .override(
+                                                  fontFamily: 'Readex Pro',
+                                                  letterSpacing: 0.0,
+                                                ),
                                           ),
                                         ),
                                       ],
@@ -776,19 +791,19 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                       ),
                     Expanded(
                       child: Align(
-                        alignment: const AlignmentDirectional(0.0, -1.0),
+                        alignment: AlignmentDirectional(0.0, -1.0),
                         child: Container(
                           width: double.infinity,
-                          constraints: const BoxConstraints(
+                          constraints: BoxConstraints(
                             maxWidth: 1370.0,
                           ),
-                          decoration: const BoxDecoration(),
+                          decoration: BoxDecoration(),
                           child: SingleChildScrollView(
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       16.0, 16.0, 16.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
@@ -816,114 +831,67 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                       ),
                                       Align(
                                         alignment:
-                                            const AlignmentDirectional(0.0, 0.0),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Align(
-                                              alignment: const AlignmentDirectional(
+                                              alignment: AlignmentDirectional(
                                                   0.0, 0.0),
-                                              child: Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 0.0, 10.0, 0.0),
-                                                child: badges.Badge(
-                                                  badgeContent: Text(
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                      'jupa7up6' /* 1 */,
-                                                    ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .titleSmall
-                                                        .override(
-                                                          fontFamily:
-                                                              'Readex Pro',
-                                                          color: Colors.white,
-                                                        ),
-                                                  ),
-                                                  showBadge: true,
-                                                  shape:
-                                                      badges.BadgeShape.circle,
-                                                  badgeColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .primary,
-                                                  elevation: 4.0,
-                                                  padding: const EdgeInsetsDirectional
+                                              child: FFButtonWidget(
+                                                onPressed: () async {
+                                                  logFirebaseEvent(
+                                                      'ADMIN_HOME_PAGE__BTN_ON_TAP');
+                                                  logFirebaseEvent(
+                                                      'Button_navigate_to');
+
+                                                  context
+                                                      .pushNamed('createUser');
+                                                },
+                                                text: '',
+                                                icon: Icon(
+                                                  Icons.person_add,
+                                                  size: 15.0,
+                                                ),
+                                                options: FFButtonOptions(
+                                                  width: 50.0,
+                                                  height: 50.0,
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                          8.0, 8.0, 8.0, 8.0),
-                                                  position: badges.BadgePosition
-                                                      .topEnd(),
-                                                  animationType: badges
-                                                      .BadgeAnimationType.scale,
-                                                  toAnimate: true,
-                                                  child: Align(
-                                                    alignment:
-                                                        const AlignmentDirectional(
-                                                            0.0, 0.0),
-                                                    child: FFButtonWidget(
-                                                      onPressed: () {
-                                                        print(
-                                                            'Button pressed ...');
-                                                      },
-                                                      text: '',
-                                                      icon: const Icon(
-                                                        Icons.person_add,
-                                                        size: 15.0,
+                                                          4.0, 0.0, 0.0, 0.0),
+                                                  iconPadding:
+                                                      EdgeInsetsDirectional
+                                                          .fromSTEB(0.0, 0.0,
+                                                              0.0, 0.0),
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primary,
+                                                  textStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .titleSmall
+                                                      .override(
+                                                        fontFamily:
+                                                            'Readex Pro',
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.normal,
                                                       ),
-                                                      options: FFButtonOptions(
-                                                        width: 50.0,
-                                                        height: 50.0,
-                                                        padding:
-                                                            const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    4.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        iconPadding:
-                                                            const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primary,
-                                                        textStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleSmall
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Readex Pro',
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
-                                                                ),
-                                                        elevation: 3.0,
-                                                        borderSide: const BorderSide(
-                                                          color: Colors
-                                                              .transparent,
-                                                          width: 1.0,
-                                                        ),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(50.0),
-                                                      ),
-                                                    ),
+                                                  elevation: 3.0,
+                                                  borderSide: BorderSide(
+                                                    color: Colors.transparent,
+                                                    width: 1.0,
                                                   ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          50.0),
                                                 ),
                                               ),
                                             ),
                                             Align(
-                                              alignment: const AlignmentDirectional(
+                                              alignment: AlignmentDirectional(
                                                   0.0, 0.0),
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 10.0, 0.0),
                                                 child: badges.Badge(
@@ -939,6 +907,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                           fontFamily:
                                                               'Readex Pro',
                                                           color: Colors.white,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                   showBadge: true,
@@ -949,7 +918,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                               context)
                                                           .primary,
                                                   elevation: 4.0,
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           8.0, 8.0, 8.0, 8.0),
                                                   position: badges.BadgePosition
@@ -959,7 +928,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                   toAnimate: true,
                                                   child: Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             0.0, 1.0),
                                                     child: FFButtonWidget(
                                                       onPressed: () {
@@ -967,7 +936,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                             'Button pressed ...');
                                                       },
                                                       text: '',
-                                                      icon: const Icon(
+                                                      icon: Icon(
                                                         FFIcons.kairportShuttle,
                                                         size: 15.0,
                                                       ),
@@ -975,14 +944,14 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                         width: 50.0,
                                                         height: 50.0,
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     10.0,
                                                                     0.0,
                                                                     0.0,
                                                                     0.0),
                                                         iconPadding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -999,12 +968,14 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                 .override(
                                                                   fontFamily:
                                                                       'Readex Pro',
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,
                                                                 ),
                                                         elevation: 3.0,
-                                                        borderSide: const BorderSide(
+                                                        borderSide: BorderSide(
                                                           color: Colors
                                                               .transparent,
                                                           width: 1.0,
@@ -1019,10 +990,10 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                               ),
                                             ),
                                             Align(
-                                              alignment: const AlignmentDirectional(
+                                              alignment: AlignmentDirectional(
                                                   0.0, 0.0),
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 10.0, 0.0),
                                                 child: badges.Badge(
@@ -1038,6 +1009,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                           fontFamily:
                                                               'Readex Pro',
                                                           color: Colors.white,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                   showBadge: true,
@@ -1048,7 +1020,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                               context)
                                                           .primary,
                                                   elevation: 4.0,
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           8.0, 8.0, 8.0, 8.0),
                                                   position: badges.BadgePosition
@@ -1058,7 +1030,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                   toAnimate: true,
                                                   child: Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             0.0, 1.0),
                                                     child: FFButtonWidget(
                                                       onPressed: () {
@@ -1066,7 +1038,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                             'Button pressed ...');
                                                       },
                                                       text: '',
-                                                      icon: const Icon(
+                                                      icon: Icon(
                                                         Icons.groups_2,
                                                         size: 15.0,
                                                       ),
@@ -1074,14 +1046,14 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                         width: 50.0,
                                                         height: 50.0,
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     10.0,
                                                                     0.0,
                                                                     0.0,
                                                                     0.0),
                                                         iconPadding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -1098,12 +1070,14 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                 .override(
                                                                   fontFamily:
                                                                       'Readex Pro',
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,
                                                                 ),
                                                         elevation: 3.0,
-                                                        borderSide: const BorderSide(
+                                                        borderSide: BorderSide(
                                                           color: Colors
                                                               .transparent,
                                                           width: 1.0,
@@ -1118,10 +1092,10 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                               ),
                                             ),
                                             Align(
-                                              alignment: const AlignmentDirectional(
+                                              alignment: AlignmentDirectional(
                                                   0.0, 0.0),
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 10.0, 0.0),
                                                 child: badges.Badge(
@@ -1137,6 +1111,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                           fontFamily:
                                                               'Readex Pro',
                                                           color: Colors.white,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                   showBadge: true,
@@ -1147,7 +1122,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                               context)
                                                           .primary,
                                                   elevation: 4.0,
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           8.0, 8.0, 8.0, 8.0),
                                                   position: badges.BadgePosition
@@ -1157,7 +1132,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                   toAnimate: true,
                                                   child: Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             0.0, 1.0),
                                                     child: FFButtonWidget(
                                                       onPressed: () {
@@ -1165,7 +1140,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                             'Button pressed ...');
                                                       },
                                                       text: '',
-                                                      icon: const Icon(
+                                                      icon: Icon(
                                                         FFIcons.kaddAlert,
                                                         size: 15.0,
                                                       ),
@@ -1173,14 +1148,14 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                         width: 50.0,
                                                         height: 50.0,
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     10.0,
                                                                     0.0,
                                                                     0.0,
                                                                     0.0),
                                                         iconPadding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -1197,12 +1172,14 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                 .override(
                                                                   fontFamily:
                                                                       'Readex Pro',
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,
                                                                 ),
                                                         elevation: 3.0,
-                                                        borderSide: const BorderSide(
+                                                        borderSide: BorderSide(
                                                           color: Colors
                                                               .transparent,
                                                           width: 1.0,
@@ -1223,9 +1200,9 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                   ),
                                 ),
                                 Align(
-                                  alignment: const AlignmentDirectional(-1.0, 0.0),
+                                  alignment: AlignmentDirectional(-1.0, 0.0),
                                   child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 4.0),
                                     child: SingleChildScrollView(
                                       scrollDirection: Axis.horizontal,
@@ -1234,11 +1211,11 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                         children: [
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 12.0, 0.0, 12.0),
                                             child: Container(
                                               height: 120.0,
-                                              constraints: const BoxConstraints(
+                                              constraints: BoxConstraints(
                                                 maxWidth: 270.0,
                                               ),
                                               decoration: BoxDecoration(
@@ -1255,7 +1232,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                 ),
                                               ),
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         16.0, 0.0, 16.0, 0.0),
                                                 child: Row(
@@ -1264,7 +1241,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                   children: [
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -1299,7 +1276,13 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                             ),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .labelMedium,
+                                                                .labelMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Readex Pro',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                           ),
                                                           Row(
                                                             mainAxisSize:
@@ -1308,7 +1291,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                             children: [
                                                               Expanded(
                                                                 child: Padding(
-                                                                  padding: const EdgeInsetsDirectional
+                                                                  padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           4.0,
@@ -1322,7 +1305,13 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .displaySmall,
+                                                                        .displaySmall
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Outfit',
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                        ),
                                                                   ),
                                                                 ),
                                                               ),
@@ -1338,11 +1327,11 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                           ),
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 12.0, 0.0, 12.0),
                                             child: Container(
                                               height: 120.0,
-                                              constraints: const BoxConstraints(
+                                              constraints: BoxConstraints(
                                                 maxWidth: 270.0,
                                               ),
                                               decoration: BoxDecoration(
@@ -1359,7 +1348,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                 ),
                                               ),
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         16.0, 0.0, 16.0, 0.0),
                                                 child: Row(
@@ -1368,7 +1357,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                   children: [
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -1402,7 +1391,13 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                             ),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .labelMedium,
+                                                                .labelMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Readex Pro',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                           ),
                                                           Row(
                                                             mainAxisSize:
@@ -1411,7 +1406,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                             children: [
                                                               Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             4.0,
@@ -1425,7 +1420,13 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .displaySmall,
+                                                                      .displaySmall
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Outfit',
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
                                                                 ),
                                                               ),
                                                             ],
@@ -1440,11 +1441,11 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                           ),
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 12.0, 0.0, 12.0),
                                             child: Container(
                                               height: 120.0,
-                                              constraints: const BoxConstraints(
+                                              constraints: BoxConstraints(
                                                 maxWidth: 270.0,
                                               ),
                                               decoration: BoxDecoration(
@@ -1461,7 +1462,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                 ),
                                               ),
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         16.0, 0.0, 16.0, 0.0),
                                                 child: Row(
@@ -1470,7 +1471,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                   children: [
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -1505,7 +1506,13 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                             ),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .labelMedium,
+                                                                .labelMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Readex Pro',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                           ),
                                                           Row(
                                                             mainAxisSize:
@@ -1514,7 +1521,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                             children: [
                                                               Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             4.0,
@@ -1528,7 +1535,13 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .displaySmall,
+                                                                      .displaySmall
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Outfit',
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
                                                                 ),
                                                               ),
                                                             ],
@@ -1543,11 +1556,11 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                           ),
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 12.0, 0.0, 12.0),
                                             child: Container(
                                               height: 120.0,
-                                              constraints: const BoxConstraints(
+                                              constraints: BoxConstraints(
                                                 maxWidth: 270.0,
                                               ),
                                               decoration: BoxDecoration(
@@ -1564,7 +1577,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                 ),
                                               ),
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         16.0, 0.0, 16.0, 0.0),
                                                 child: Row(
@@ -1573,7 +1586,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                   children: [
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -1608,7 +1621,13 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                             ),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .labelMedium,
+                                                                .labelMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Readex Pro',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                           ),
                                                           Row(
                                                             mainAxisSize:
@@ -1617,7 +1636,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                             children: [
                                                               Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             4.0,
@@ -1631,7 +1650,13 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .displaySmall,
+                                                                      .displaySmall
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Outfit',
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
                                                                 ),
                                                               ),
                                                             ],
@@ -1645,9 +1670,9 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                             ),
                                           ),
                                         ]
-                                            .divide(const SizedBox(width: 16.0))
-                                            .addToStart(const SizedBox(width: 16.0))
-                                            .addToEnd(const SizedBox(width: 16.0)),
+                                            .divide(SizedBox(width: 16.0))
+                                            .addToStart(SizedBox(width: 16.0))
+                                            .addToEnd(SizedBox(width: 16.0)),
                                       ),
                                     ),
                                   ),
@@ -1703,7 +1728,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                   CrossAxisAlignment.start,
                                               children: [
                                                 Padding(
-                                                  padding: const EdgeInsets.all(12.0),
+                                                  padding: EdgeInsets.all(12.0),
                                                   child: Column(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
@@ -1713,7 +1738,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                     children: [
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -1727,7 +1752,13 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .headlineMedium,
+                                                              .headlineMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Outfit',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
                                                         ),
                                                       ),
                                                       Divider(
@@ -1740,7 +1771,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     12.0,
@@ -1773,7 +1804,13 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .labelMedium,
+                                                                        .labelMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Readex Pro',
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                        ),
                                                                   ),
                                                                   RichText(
                                                                     textScaler:
@@ -1788,24 +1825,34 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                             'wzqyw8jd' /* 62.2% / */,
                                                                           ),
                                                                           style:
-                                                                              const TextStyle(),
+                                                                              TextStyle(),
                                                                         ),
                                                                         TextSpan(
                                                                           text:
                                                                               FFLocalizations.of(context).getText(
                                                                             'hmdhszwt' /* 16,650 👷🏼 */,
                                                                           ),
-                                                                          style:
-                                                                              FlutterFlowTheme.of(context).labelLarge,
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .labelLarge
+                                                                              .override(
+                                                                                fontFamily: 'Readex Pro',
+                                                                                letterSpacing: 0.0,
+                                                                              ),
                                                                         )
                                                                       ],
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .displaySmall,
+                                                                          .displaySmall
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Outfit',
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                          ),
                                                                     ),
                                                                   ),
                                                                   Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             8.0,
@@ -1830,7 +1877,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                           FlutterFlowTheme.of(context)
                                                                               .alternate,
                                                                       barRadius:
-                                                                          const Radius.circular(
+                                                                          Radius.circular(
                                                                               16.0),
                                                                       padding:
                                                                           EdgeInsets
@@ -1838,7 +1885,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                     ),
                                                                   ),
                                                                   Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             8.0,
@@ -1858,7 +1905,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                               'q77onnil' /* Forecasted income is:  */,
                                                                             ),
                                                                             style:
-                                                                                const TextStyle(),
+                                                                                TextStyle(),
                                                                           ),
                                                                           TextSpan(
                                                                             text:
@@ -1867,16 +1914,21 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                             ),
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'Readex Pro',
+                                                                                  letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.bold,
                                                                                 ),
                                                                           )
                                                                         ],
                                                                         style: FlutterFlowTheme.of(context)
-                                                                            .labelMedium,
+                                                                            .labelMedium
+                                                                            .override(
+                                                                              fontFamily: 'Readex Pro',
+                                                                              letterSpacing: 0.0,
+                                                                            ),
                                                                       ),
                                                                     ),
                                                                   ),
-                                                                ].divide(const SizedBox(
+                                                                ].divide(SizedBox(
                                                                     height:
                                                                         4.0)),
                                                               ),
@@ -1894,14 +1946,14 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                               options:
                                                                   FFButtonOptions(
                                                                 height: 36.0,
-                                                                padding: const EdgeInsetsDirectional
+                                                                padding: EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         16.0,
                                                                         0.0,
                                                                         16.0,
                                                                         0.0),
                                                                 iconPadding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -1912,7 +1964,13 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                     .secondaryBackground,
                                                                 textStyle: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyMedium,
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Readex Pro',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                                 elevation: 0.0,
                                                                 borderSide:
                                                                     BorderSide(
@@ -1957,7 +2015,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     12.0,
@@ -1971,7 +2029,13 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .labelMedium,
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Readex Pro',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
                                                         ),
                                                       ),
                                                     ],
@@ -1979,11 +2043,11 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                 ),
                                                 Align(
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           -1.0, 0.0),
                                                   child: Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 4.0),
                                                     child:
@@ -1996,7 +2060,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                         children: [
                                                           Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
@@ -2030,7 +2094,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                   child:
                                                                       Padding(
                                                                     padding:
-                                                                        const EdgeInsets.all(
+                                                                        EdgeInsets.all(
                                                                             2.0),
                                                                     child:
                                                                         ClipRRect(
@@ -2051,7 +2115,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                   ),
                                                                 ),
                                                                 Padding(
-                                                                  padding: const EdgeInsetsDirectional
+                                                                  padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           8.0,
@@ -2069,6 +2133,8 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                         .override(
                                                                           fontFamily:
                                                                               'Readex Pro',
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight:
                                                                               FontWeight.bold,
                                                                         ),
@@ -2082,15 +2148,21 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .labelSmall,
+                                                                      .labelSmall
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Readex Pro',
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
                                                                 ),
-                                                              ].divide(const SizedBox(
+                                                              ].divide(SizedBox(
                                                                   height: 4.0)),
                                                             ),
                                                           ),
                                                           Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
@@ -2124,7 +2196,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                   child:
                                                                       Padding(
                                                                     padding:
-                                                                        const EdgeInsets.all(
+                                                                        EdgeInsets.all(
                                                                             2.0),
                                                                     child:
                                                                         ClipRRect(
@@ -2145,7 +2217,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                   ),
                                                                 ),
                                                                 Padding(
-                                                                  padding: const EdgeInsetsDirectional
+                                                                  padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           8.0,
@@ -2163,6 +2235,8 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                         .override(
                                                                           fontFamily:
                                                                               'Readex Pro',
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight:
                                                                               FontWeight.bold,
                                                                         ),
@@ -2176,15 +2250,21 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .labelSmall,
+                                                                      .labelSmall
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Readex Pro',
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
                                                                 ),
-                                                              ].divide(const SizedBox(
+                                                              ].divide(SizedBox(
                                                                   height: 4.0)),
                                                             ),
                                                           ),
                                                           Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
@@ -2218,7 +2298,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                   child:
                                                                       Padding(
                                                                     padding:
-                                                                        const EdgeInsets.all(
+                                                                        EdgeInsets.all(
                                                                             2.0),
                                                                     child:
                                                                         ClipRRect(
@@ -2239,7 +2319,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                   ),
                                                                 ),
                                                                 Padding(
-                                                                  padding: const EdgeInsetsDirectional
+                                                                  padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           8.0,
@@ -2257,6 +2337,8 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                         .override(
                                                                           fontFamily:
                                                                               'Readex Pro',
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight:
                                                                               FontWeight.bold,
                                                                         ),
@@ -2270,15 +2352,21 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .labelSmall,
+                                                                      .labelSmall
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Readex Pro',
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
                                                                 ),
-                                                              ].divide(const SizedBox(
+                                                              ].divide(SizedBox(
                                                                   height: 4.0)),
                                                             ),
                                                           ),
                                                           Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
@@ -2312,7 +2400,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                   child:
                                                                       Padding(
                                                                     padding:
-                                                                        const EdgeInsets.all(
+                                                                        EdgeInsets.all(
                                                                             2.0),
                                                                     child:
                                                                         ClipRRect(
@@ -2333,7 +2421,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                   ),
                                                                 ),
                                                                 Padding(
-                                                                  padding: const EdgeInsetsDirectional
+                                                                  padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           8.0,
@@ -2351,6 +2439,8 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                         .override(
                                                                           fontFamily:
                                                                               'Readex Pro',
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight:
                                                                               FontWeight.bold,
                                                                         ),
@@ -2364,20 +2454,26 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .labelSmall,
+                                                                      .labelSmall
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Readex Pro',
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
                                                                 ),
-                                                              ].divide(const SizedBox(
+                                                              ].divide(SizedBox(
                                                                   height: 4.0)),
                                                             ),
                                                           ),
                                                         ]
-                                                            .divide(const SizedBox(
+                                                            .divide(SizedBox(
                                                                 width: 12.0))
                                                             .addToStart(
-                                                                const SizedBox(
+                                                                SizedBox(
                                                                     width:
                                                                         16.0))
-                                                            .addToEnd(const SizedBox(
+                                                            .addToEnd(SizedBox(
                                                                 width: 16.0)),
                                                       ),
                                                     ),
@@ -2424,7 +2520,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                               ),
                                             ),
                                             child: Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       16.0, 0.0, 16.0, 0.0),
                                               child: Row(
@@ -2467,7 +2563,13 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                             ),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .headlineMedium,
+                                                                .headlineMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Outfit',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                           ),
                                                         ).animateOnPageLoad(
                                                             animationsMap[
@@ -2481,7 +2583,13 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .labelSmall,
+                                                                .labelSmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Readex Pro',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                       ),
                                                     ],
                                                   ),
@@ -2519,7 +2627,13 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                             ),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .headlineMedium,
+                                                                .headlineMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Outfit',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                           ),
                                                         ).animateOnPageLoad(
                                                             animationsMap[
@@ -2533,7 +2647,13 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .labelSmall,
+                                                                .labelSmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Readex Pro',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                       ),
                                                     ],
                                                   ),
@@ -2571,7 +2691,13 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                             ),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .headlineMedium,
+                                                                .headlineMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Outfit',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                           ),
                                                         ).animateOnPageLoad(
                                                             animationsMap[
@@ -2585,7 +2711,13 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .labelSmall,
+                                                                .labelSmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Readex Pro',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                       ),
                                                     ],
                                                   ),
@@ -2609,7 +2741,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                               ),
                                             ),
                                             child: Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 16.0, 0.0, 12.0),
                                               child: Column(
@@ -2626,7 +2758,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                     children: [
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     16.0,
                                                                     0.0,
@@ -2640,16 +2772,22 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .titleLarge,
+                                                              .titleLarge
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Outfit',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
                                                         ),
                                                       ),
                                                       Align(
                                                         alignment:
-                                                            const AlignmentDirectional(
+                                                            AlignmentDirectional(
                                                                 0.0, 0.0),
                                                         child: Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       0.0,
@@ -2669,14 +2807,14 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                 FFButtonOptions(
                                                               height: 36.0,
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           16.0,
                                                                           0.0,
                                                                           16.0,
                                                                           0.0),
                                                               iconPadding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -2688,7 +2826,13 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                               textStyle:
                                                                   FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyMedium,
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Readex Pro',
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
                                                               elevation: 0.0,
                                                               borderSide:
                                                                   BorderSide(
@@ -2726,7 +2870,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(16.0, 4.0,
                                                                 0.0, 0.0),
                                                     child: Text(
@@ -2735,15 +2879,19 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                           .getText(
                                                         '7v2t2s51' /* General information about the ... */,
                                                       ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .labelMedium,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .labelMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Readex Pro',
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(16.0, 4.0,
                                                                 16.0, 0.0),
                                                     child: Row(
@@ -2755,7 +2903,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                         Container(
                                                           height: 32.0,
                                                           constraints:
-                                                              const BoxConstraints(
+                                                              BoxConstraints(
                                                             maxHeight: 32.0,
                                                           ),
                                                           decoration:
@@ -2775,7 +2923,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                             children: [
                                                               Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             8.0,
                                                                             0.0,
@@ -2799,7 +2947,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                           20.0,
                                                                     ),
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           8.0,
                                                                           0.0,
                                                                           0.0,
@@ -2811,7 +2959,11 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                           'bx7bqyhu' /* Tasks */,
                                                                         ),
                                                                         style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium,
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Readex Pro',
+                                                                              letterSpacing: 0.0,
+                                                                            ),
                                                                       ),
                                                                     ),
                                                                   ],
@@ -2819,7 +2971,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                               ),
                                                               Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             8.0,
                                                                             0.0,
@@ -2843,7 +2995,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                           20.0,
                                                                     ),
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           8.0,
                                                                           0.0,
                                                                           0.0,
@@ -2855,7 +3007,11 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                           '1ijdpn9m' /* Start Point */,
                                                                         ),
                                                                         style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium,
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Readex Pro',
+                                                                              letterSpacing: 0.0,
+                                                                            ),
                                                                       ),
                                                                     ),
                                                                   ],
@@ -2863,7 +3019,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                               ),
                                                               Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             8.0,
                                                                             0.0,
@@ -2887,7 +3043,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                           20.0,
                                                                     ),
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           8.0,
                                                                           0.0,
                                                                           0.0,
@@ -2899,7 +3055,11 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                           'k16siumh' /* End Point */,
                                                                         ),
                                                                         style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium,
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Readex Pro',
+                                                                              letterSpacing: 0.0,
+                                                                            ),
                                                                       ),
                                                                     ),
                                                                   ],
@@ -2911,7 +3071,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                         Container(
                                                           height: 32.0,
                                                           constraints:
-                                                              const BoxConstraints(
+                                                              BoxConstraints(
                                                             maxHeight: 32.0,
                                                           ),
                                                           decoration:
@@ -2930,7 +3090,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(
                                                                 16.0,
                                                                 12.0,
@@ -2959,12 +3119,12 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                           ),
                                                         ),
                                                         alignment:
-                                                            const AlignmentDirectional(
+                                                            AlignmentDirectional(
                                                                 0.0, 0.0),
                                                         child: Container(
                                                           height: 200.0,
                                                           decoration:
-                                                              const BoxDecoration(),
+                                                              BoxDecoration(),
                                                         ),
                                                       ),
                                                     ),
@@ -2974,7 +3134,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                             ),
                                           ).animateOnPageLoad(animationsMap[
                                               'containerOnPageLoadAnimation']!),
-                                        ].divide(const SizedBox(height: 16.0)),
+                                        ].divide(SizedBox(height: 16.0)),
                                       ),
                                     ),
                                     if (responsiveVisibility(
@@ -2987,11 +3147,11 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                         flex: 12,
                                         child: Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 16.0, 0.0),
                                           child: Container(
                                             width: double.infinity,
-                                            constraints: const BoxConstraints(
+                                            constraints: BoxConstraints(
                                               maxWidth: 1270.0,
                                             ),
                                             decoration: BoxDecoration(
@@ -3008,7 +3168,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                               ),
                                             ),
                                             child: Padding(
-                                              padding: const EdgeInsets.all(16.0),
+                                              padding: EdgeInsets.all(16.0),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
@@ -3031,7 +3191,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                           children: [
                                                             Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -3045,12 +3205,18 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .headlineMedium,
+                                                                    .headlineMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Outfit',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                               ),
                                                             ),
                                                             Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           4.0,
@@ -3064,7 +3230,13 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .labelMedium,
+                                                                    .labelMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Readex Pro',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                               ),
                                                             ),
                                                           ],
@@ -3092,14 +3264,14 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                             FFButtonOptions(
                                                           height: 40.0,
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       16.0,
                                                                       0.0,
                                                                       16.0,
                                                                       0.0),
                                                           iconPadding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       0.0,
@@ -3117,10 +3289,12 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                         'Readex Pro',
                                                                     fontSize:
                                                                         14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                           elevation: 2.0,
                                                           borderSide:
-                                                              const BorderSide(
+                                                              BorderSide(
                                                             color: Colors
                                                                 .transparent,
                                                             width: 1.0,
@@ -3135,7 +3309,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 16.0,
                                                                 0.0, 0.0),
                                                     child: Container(
@@ -3146,7 +3320,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                 .of(context)
                                                             .primaryBackground,
                                                         borderRadius:
-                                                            const BorderRadius.only(
+                                                            BorderRadius.only(
                                                           bottomLeft:
                                                               Radius.circular(
                                                                   0.0),
@@ -3163,7 +3337,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                       ),
                                                       child: Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     16.0,
                                                                     0.0,
@@ -3188,7 +3362,13 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .labelSmall,
+                                                                      .labelSmall
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Readex Pro',
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
                                                                 ),
                                                               ),
                                                             Expanded(
@@ -3201,7 +3381,13 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .labelSmall,
+                                                                    .labelSmall
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Readex Pro',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                               ),
                                                             ),
                                                             if (responsiveVisibility(
@@ -3218,7 +3404,13 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .labelSmall,
+                                                                      .labelSmall
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Readex Pro',
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
                                                                 ),
                                                               ),
                                                             Expanded(
@@ -3231,7 +3423,13 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .labelSmall,
+                                                                    .labelSmall
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Readex Pro',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                               ),
                                                             ),
                                                             Expanded(
@@ -3247,7 +3445,13 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                         .end,
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .labelSmall,
+                                                                    .labelSmall
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Readex Pro',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                               ),
                                                             ),
                                                           ],
@@ -3263,7 +3467,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                     children: [
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -3282,14 +3486,16 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .alternate,
-                                                                offset: const Offset(
-                                                                    0.0, 1.0),
+                                                                offset: Offset(
+                                                                  0.0,
+                                                                  1.0,
+                                                                ),
                                                               )
                                                             ],
                                                           ),
                                                           child: Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         16.0,
                                                                         0.0,
@@ -3316,14 +3522,20 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                       ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyMedium,
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Readex Pro',
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                          ),
                                                                     ),
                                                                   ),
                                                                 Expanded(
                                                                   flex: 4,
                                                                   child:
                                                                       Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             8.0,
@@ -3335,7 +3547,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                               .max,
                                                                       children: [
                                                                         Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
                                                                               0.0,
                                                                               0.0,
                                                                               8.0,
@@ -3356,7 +3568,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                         Expanded(
                                                                           child:
                                                                               Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 4.0,
                                                                                 0.0,
                                                                                 0.0,
@@ -3373,11 +3585,12 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                                   ),
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Readex Pro',
+                                                                                        letterSpacing: 0.0,
                                                                                         fontWeight: FontWeight.bold,
                                                                                       ),
                                                                                 ),
                                                                                 Padding(
-                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                                                                                   child: Text(
                                                                                     FFLocalizations.of(context).getText(
                                                                                       '0mig7c2l' /* Business Name */,
@@ -3385,6 +3598,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                                     style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                           fontFamily: 'Readex Pro',
                                                                                           color: FlutterFlowTheme.of(context).primary,
+                                                                                          letterSpacing: 0.0,
                                                                                         ),
                                                                                   ),
                                                                                 ),
@@ -3411,7 +3625,13 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                       ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .titleLarge,
+                                                                          .titleLarge
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Outfit',
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                          ),
                                                                     ),
                                                                   ),
                                                                 Expanded(
@@ -3436,12 +3656,12 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                                 FlutterFlowTheme.of(context).secondary,
                                                                           ),
                                                                         ),
-                                                                        alignment: const AlignmentDirectional(
+                                                                        alignment: AlignmentDirectional(
                                                                             0.0,
                                                                             0.0),
                                                                         child:
                                                                             Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
                                                                               12.0,
                                                                               0.0,
                                                                               12.0,
@@ -3451,8 +3671,10 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                             FFLocalizations.of(context).getText(
                                                                               '03n9itb8' /* Paid */,
                                                                             ),
-                                                                            style:
-                                                                                FlutterFlowTheme.of(context).bodyMedium,
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  fontFamily: 'Readex Pro',
+                                                                                  letterSpacing: 0.0,
+                                                                                ),
                                                                           ),
                                                                         ),
                                                                       ),
@@ -3503,7 +3725,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -3522,14 +3744,16 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .alternate,
-                                                                offset: const Offset(
-                                                                    0.0, 1.0),
+                                                                offset: Offset(
+                                                                  0.0,
+                                                                  1.0,
+                                                                ),
                                                               )
                                                             ],
                                                           ),
                                                           child: Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         16.0,
                                                                         0.0,
@@ -3556,14 +3780,20 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                       ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyMedium,
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Readex Pro',
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                          ),
                                                                     ),
                                                                   ),
                                                                 Expanded(
                                                                   flex: 4,
                                                                   child:
                                                                       Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             8.0,
@@ -3575,7 +3805,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                               .max,
                                                                       children: [
                                                                         Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
                                                                               0.0,
                                                                               0.0,
                                                                               8.0,
@@ -3596,7 +3826,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                         Expanded(
                                                                           child:
                                                                               Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 4.0,
                                                                                 0.0,
                                                                                 0.0,
@@ -3613,11 +3843,12 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                                   ),
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Readex Pro',
+                                                                                        letterSpacing: 0.0,
                                                                                         fontWeight: FontWeight.bold,
                                                                                       ),
                                                                                 ),
                                                                                 Padding(
-                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                                                                                   child: Text(
                                                                                     FFLocalizations.of(context).getText(
                                                                                       'cx5kvk8d' /* Business Name */,
@@ -3625,6 +3856,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                                     style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                           fontFamily: 'Readex Pro',
                                                                                           color: FlutterFlowTheme.of(context).primary,
+                                                                                          letterSpacing: 0.0,
                                                                                         ),
                                                                                   ),
                                                                                 ),
@@ -3651,7 +3883,13 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                       ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .titleLarge,
+                                                                          .titleLarge
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Outfit',
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                          ),
                                                                     ),
                                                                   ),
                                                                 Expanded(
@@ -3676,12 +3914,12 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                                 FlutterFlowTheme.of(context).secondary,
                                                                           ),
                                                                         ),
-                                                                        alignment: const AlignmentDirectional(
+                                                                        alignment: AlignmentDirectional(
                                                                             0.0,
                                                                             0.0),
                                                                         child:
                                                                             Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
                                                                               12.0,
                                                                               0.0,
                                                                               12.0,
@@ -3691,8 +3929,10 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                             FFLocalizations.of(context).getText(
                                                                               'j5rq2fqa' /* Paid */,
                                                                             ),
-                                                                            style:
-                                                                                FlutterFlowTheme.of(context).bodyMedium,
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  fontFamily: 'Readex Pro',
+                                                                                  letterSpacing: 0.0,
+                                                                                ),
                                                                           ),
                                                                         ),
                                                                       ),
@@ -3743,7 +3983,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -3762,14 +4002,16 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .alternate,
-                                                                offset: const Offset(
-                                                                    0.0, 1.0),
+                                                                offset: Offset(
+                                                                  0.0,
+                                                                  1.0,
+                                                                ),
                                                               )
                                                             ],
                                                           ),
                                                           child: Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         16.0,
                                                                         0.0,
@@ -3796,14 +4038,20 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                       ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyMedium,
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Readex Pro',
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                          ),
                                                                     ),
                                                                   ),
                                                                 Expanded(
                                                                   flex: 4,
                                                                   child:
                                                                       Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             8.0,
@@ -3815,7 +4063,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                               .max,
                                                                       children: [
                                                                         Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
                                                                               0.0,
                                                                               0.0,
                                                                               8.0,
@@ -3836,7 +4084,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                         Expanded(
                                                                           child:
                                                                               Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 4.0,
                                                                                 0.0,
                                                                                 0.0,
@@ -3853,11 +4101,12 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                                   ),
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Readex Pro',
+                                                                                        letterSpacing: 0.0,
                                                                                         fontWeight: FontWeight.bold,
                                                                                       ),
                                                                                 ),
                                                                                 Padding(
-                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                                                                                   child: Text(
                                                                                     FFLocalizations.of(context).getText(
                                                                                       'ni3t1mou' /* Business Name */,
@@ -3865,6 +4114,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                                     style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                           fontFamily: 'Readex Pro',
                                                                                           color: FlutterFlowTheme.of(context).primary,
+                                                                                          letterSpacing: 0.0,
                                                                                         ),
                                                                                   ),
                                                                                 ),
@@ -3891,7 +4141,13 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                       ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .titleLarge,
+                                                                          .titleLarge
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Outfit',
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                          ),
                                                                     ),
                                                                   ),
                                                                 Expanded(
@@ -3916,12 +4172,12 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                                 FlutterFlowTheme.of(context).secondary,
                                                                           ),
                                                                         ),
-                                                                        alignment: const AlignmentDirectional(
+                                                                        alignment: AlignmentDirectional(
                                                                             0.0,
                                                                             0.0),
                                                                         child:
                                                                             Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
                                                                               12.0,
                                                                               0.0,
                                                                               12.0,
@@ -3931,8 +4187,10 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                             FFLocalizations.of(context).getText(
                                                                               'ntntfnil' /* Paid */,
                                                                             ),
-                                                                            style:
-                                                                                FlutterFlowTheme.of(context).bodyMedium,
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  fontFamily: 'Readex Pro',
+                                                                                  letterSpacing: 0.0,
+                                                                                ),
                                                                           ),
                                                                         ),
                                                                       ),
@@ -3983,7 +4241,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -4002,14 +4260,16 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .alternate,
-                                                                offset: const Offset(
-                                                                    0.0, 1.0),
+                                                                offset: Offset(
+                                                                  0.0,
+                                                                  1.0,
+                                                                ),
                                                               )
                                                             ],
                                                           ),
                                                           child: Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         16.0,
                                                                         0.0,
@@ -4036,14 +4296,20 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                       ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyMedium,
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Readex Pro',
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                          ),
                                                                     ),
                                                                   ),
                                                                 Expanded(
                                                                   flex: 4,
                                                                   child:
                                                                       Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             8.0,
@@ -4055,7 +4321,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                               .max,
                                                                       children: [
                                                                         Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
                                                                               0.0,
                                                                               0.0,
                                                                               8.0,
@@ -4076,7 +4342,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                         Expanded(
                                                                           child:
                                                                               Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 4.0,
                                                                                 0.0,
                                                                                 0.0,
@@ -4093,11 +4359,12 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                                   ),
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Readex Pro',
+                                                                                        letterSpacing: 0.0,
                                                                                         fontWeight: FontWeight.bold,
                                                                                       ),
                                                                                 ),
                                                                                 Padding(
-                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                                                                                   child: Text(
                                                                                     FFLocalizations.of(context).getText(
                                                                                       'rgdymm2u' /* Business Name */,
@@ -4105,6 +4372,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                                     style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                           fontFamily: 'Readex Pro',
                                                                                           color: FlutterFlowTheme.of(context).primary,
+                                                                                          letterSpacing: 0.0,
                                                                                         ),
                                                                                   ),
                                                                                 ),
@@ -4131,7 +4399,13 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                       ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .titleLarge,
+                                                                          .titleLarge
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Outfit',
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                          ),
                                                                     ),
                                                                   ),
                                                                 Expanded(
@@ -4156,12 +4430,12 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                                 FlutterFlowTheme.of(context).secondary,
                                                                           ),
                                                                         ),
-                                                                        alignment: const AlignmentDirectional(
+                                                                        alignment: AlignmentDirectional(
                                                                             0.0,
                                                                             0.0),
                                                                         child:
                                                                             Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
                                                                               12.0,
                                                                               0.0,
                                                                               12.0,
@@ -4171,8 +4445,10 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                             FFLocalizations.of(context).getText(
                                                                               '1wxycpqh' /* Paid */,
                                                                             ),
-                                                                            style:
-                                                                                FlutterFlowTheme.of(context).bodyMedium,
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  fontFamily: 'Readex Pro',
+                                                                                  letterSpacing: 0.0,
+                                                                                ),
                                                                           ),
                                                                         ),
                                                                       ),
@@ -4223,7 +4499,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -4242,14 +4518,16 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .alternate,
-                                                                offset: const Offset(
-                                                                    0.0, 1.0),
+                                                                offset: Offset(
+                                                                  0.0,
+                                                                  1.0,
+                                                                ),
                                                               )
                                                             ],
                                                           ),
                                                           child: Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         16.0,
                                                                         0.0,
@@ -4276,14 +4554,20 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                       ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyMedium,
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Readex Pro',
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                          ),
                                                                     ),
                                                                   ),
                                                                 Expanded(
                                                                   flex: 4,
                                                                   child:
                                                                       Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             8.0,
@@ -4295,7 +4579,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                               .max,
                                                                       children: [
                                                                         Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
                                                                               0.0,
                                                                               0.0,
                                                                               8.0,
@@ -4316,7 +4600,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                         Expanded(
                                                                           child:
                                                                               Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 4.0,
                                                                                 0.0,
                                                                                 0.0,
@@ -4333,11 +4617,12 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                                   ),
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Readex Pro',
+                                                                                        letterSpacing: 0.0,
                                                                                         fontWeight: FontWeight.bold,
                                                                                       ),
                                                                                 ),
                                                                                 Padding(
-                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                                                                                   child: Text(
                                                                                     FFLocalizations.of(context).getText(
                                                                                       '9hfvusjv' /* Business Name */,
@@ -4345,6 +4630,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                                     style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                           fontFamily: 'Readex Pro',
                                                                                           color: FlutterFlowTheme.of(context).primary,
+                                                                                          letterSpacing: 0.0,
                                                                                         ),
                                                                                   ),
                                                                                 ),
@@ -4371,7 +4657,13 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                       ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .titleLarge,
+                                                                          .titleLarge
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Outfit',
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                          ),
                                                                     ),
                                                                   ),
                                                                 Expanded(
@@ -4391,12 +4683,12 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                           borderRadius:
                                                                               BorderRadius.circular(40.0),
                                                                         ),
-                                                                        alignment: const AlignmentDirectional(
+                                                                        alignment: AlignmentDirectional(
                                                                             0.0,
                                                                             0.0),
                                                                         child:
                                                                             Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
                                                                               12.0,
                                                                               0.0,
                                                                               12.0,
@@ -4406,8 +4698,10 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                             FFLocalizations.of(context).getText(
                                                                               'dshc0l4k' /* Pending */,
                                                                             ),
-                                                                            style:
-                                                                                FlutterFlowTheme.of(context).bodyMedium,
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  fontFamily: 'Readex Pro',
+                                                                                  letterSpacing: 0.0,
+                                                                                ),
                                                                           ),
                                                                         ),
                                                                       ),
@@ -4458,7 +4752,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -4477,14 +4771,16 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .alternate,
-                                                                offset: const Offset(
-                                                                    0.0, 1.0),
+                                                                offset: Offset(
+                                                                  0.0,
+                                                                  1.0,
+                                                                ),
                                                               )
                                                             ],
                                                           ),
                                                           child: Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         16.0,
                                                                         0.0,
@@ -4511,14 +4807,20 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                       ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyMedium,
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Readex Pro',
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                          ),
                                                                     ),
                                                                   ),
                                                                 Expanded(
                                                                   flex: 4,
                                                                   child:
                                                                       Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             8.0,
@@ -4530,7 +4832,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                               .max,
                                                                       children: [
                                                                         Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
                                                                               0.0,
                                                                               0.0,
                                                                               8.0,
@@ -4551,7 +4853,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                         Expanded(
                                                                           child:
                                                                               Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 4.0,
                                                                                 0.0,
                                                                                 0.0,
@@ -4568,11 +4870,12 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                                   ),
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Readex Pro',
+                                                                                        letterSpacing: 0.0,
                                                                                         fontWeight: FontWeight.bold,
                                                                                       ),
                                                                                 ),
                                                                                 Padding(
-                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                                                                                   child: Text(
                                                                                     FFLocalizations.of(context).getText(
                                                                                       'tx50xlfx' /* Business Name */,
@@ -4580,6 +4883,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                                     style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                           fontFamily: 'Readex Pro',
                                                                                           color: FlutterFlowTheme.of(context).primary,
+                                                                                          letterSpacing: 0.0,
                                                                                         ),
                                                                                   ),
                                                                                 ),
@@ -4606,7 +4910,13 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                       ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .titleLarge,
+                                                                          .titleLarge
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Outfit',
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                          ),
                                                                     ),
                                                                   ),
                                                                 Expanded(
@@ -4626,12 +4936,12 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                           borderRadius:
                                                                               BorderRadius.circular(40.0),
                                                                         ),
-                                                                        alignment: const AlignmentDirectional(
+                                                                        alignment: AlignmentDirectional(
                                                                             0.0,
                                                                             0.0),
                                                                         child:
                                                                             Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
                                                                               12.0,
                                                                               0.0,
                                                                               12.0,
@@ -4641,8 +4951,10 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                             FFLocalizations.of(context).getText(
                                                                               'h490gzjc' /* Pending */,
                                                                             ),
-                                                                            style:
-                                                                                FlutterFlowTheme.of(context).bodyMedium,
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  fontFamily: 'Readex Pro',
+                                                                                  letterSpacing: 0.0,
+                                                                                ),
                                                                           ),
                                                                         ),
                                                                       ),
@@ -4693,7 +5005,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -4712,14 +5024,16 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .alternate,
-                                                                offset: const Offset(
-                                                                    0.0, 1.0),
+                                                                offset: Offset(
+                                                                  0.0,
+                                                                  1.0,
+                                                                ),
                                                               )
                                                             ],
                                                           ),
                                                           child: Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         16.0,
                                                                         0.0,
@@ -4746,14 +5060,20 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                       ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyMedium,
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Readex Pro',
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                          ),
                                                                     ),
                                                                   ),
                                                                 Expanded(
                                                                   flex: 4,
                                                                   child:
                                                                       Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             8.0,
@@ -4765,7 +5085,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                               .max,
                                                                       children: [
                                                                         Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
                                                                               0.0,
                                                                               0.0,
                                                                               8.0,
@@ -4786,7 +5106,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                         Expanded(
                                                                           child:
                                                                               Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 4.0,
                                                                                 0.0,
                                                                                 0.0,
@@ -4803,11 +5123,12 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                                   ),
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Readex Pro',
+                                                                                        letterSpacing: 0.0,
                                                                                         fontWeight: FontWeight.bold,
                                                                                       ),
                                                                                 ),
                                                                                 Padding(
-                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                                                                                   child: Text(
                                                                                     FFLocalizations.of(context).getText(
                                                                                       'b168p06m' /* Business Name */,
@@ -4815,6 +5136,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                                     style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                           fontFamily: 'Readex Pro',
                                                                                           color: FlutterFlowTheme.of(context).primary,
+                                                                                          letterSpacing: 0.0,
                                                                                         ),
                                                                                   ),
                                                                                 ),
@@ -4841,7 +5163,13 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                       ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .titleLarge,
+                                                                          .titleLarge
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Outfit',
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                          ),
                                                                     ),
                                                                   ),
                                                                 Expanded(
@@ -4861,12 +5189,12 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                           borderRadius:
                                                                               BorderRadius.circular(40.0),
                                                                         ),
-                                                                        alignment: const AlignmentDirectional(
+                                                                        alignment: AlignmentDirectional(
                                                                             0.0,
                                                                             0.0),
                                                                         child:
                                                                             Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
                                                                               12.0,
                                                                               0.0,
                                                                               12.0,
@@ -4876,8 +5204,10 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                             FFLocalizations.of(context).getText(
                                                                               'np3v5tqb' /* Pending */,
                                                                             ),
-                                                                            style:
-                                                                                FlutterFlowTheme.of(context).bodyMedium,
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  fontFamily: 'Readex Pro',
+                                                                                  letterSpacing: 0.0,
+                                                                                ),
                                                                           ),
                                                                         ),
                                                                       ),
@@ -4935,11 +5265,11 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                         ),
                                       ),
                                   ]
-                                      .divide(const SizedBox(width: 16.0))
-                                      .addToStart(const SizedBox(width: 16.0)),
+                                      .divide(SizedBox(width: 16.0))
+                                      .addToStart(SizedBox(width: 16.0)),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       16.0, 16.0, 16.0, 0.0),
                                   child: StreamBuilder<List<UsersRecord>>(
                                     stream: queryUsersRecord(
@@ -4948,7 +5278,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                     builder: (context, snapshot) {
                                       // Customize what your widget looks like when it's loading.
                                       if (!snapshot.hasData) {
-                                        return const Center(
+                                        return Center(
                                           child: SizedBox(
                                             width: 50.0,
                                             height: 50.0,
@@ -4964,7 +5294,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                           snapshot.data!;
                                       return Container(
                                         width: double.infinity,
-                                        constraints: const BoxConstraints(
+                                        constraints: BoxConstraints(
                                           maxWidth: 1370.0,
                                         ),
                                         decoration: BoxDecoration(
@@ -4979,7 +5309,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                           ),
                                         ),
                                         child: Padding(
-                                          padding: const EdgeInsets.all(16.0),
+                                          padding: EdgeInsets.all(16.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             crossAxisAlignment:
@@ -5003,7 +5333,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                       children: [
                                                         Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       0.0,
@@ -5017,12 +5347,18 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                             ),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .headlineMedium,
+                                                                .headlineMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Outfit',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                           ),
                                                         ),
                                                         Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       4.0,
@@ -5036,7 +5372,13 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                             ),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .labelMedium,
+                                                                .labelMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Readex Pro',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                           ),
                                                         ),
                                                       ],
@@ -5050,35 +5392,35 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                     children: [
                                                       Align(
                                                         alignment:
-                                                            const AlignmentDirectional(
+                                                            AlignmentDirectional(
                                                                 0.0, 0.0),
                                                         child: FFButtonWidget(
                                                           onPressed: () async {
                                                             logFirebaseEvent(
-                                                                'ADMIN_HOME_PAGE_VIEW_BTN_ON_TAP');
+                                                                'ADMIN_HOME_PAGE_VIEW_ALL_BTN_ON_TAP');
                                                             logFirebaseEvent(
                                                                 'Button_navigate_to');
 
                                                             context.pushNamed(
-                                                                'createUser');
+                                                                'usersList');
                                                           },
                                                           text: FFLocalizations
                                                                   .of(context)
                                                               .getText(
-                                                            'wsa27jvn' /* View */,
+                                                            'wsa27jvn' /* View All */,
                                                           ),
                                                           options:
                                                               FFButtonOptions(
                                                             height: 36.0,
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         16.0,
                                                                         0.0,
                                                                         16.0,
                                                                         0.0),
                                                             iconPadding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
@@ -5090,7 +5432,13 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                             textStyle:
                                                                 FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyMedium,
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Readex Pro',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                             elevation: 0.0,
                                                             borderSide:
                                                                 BorderSide(
@@ -5134,7 +5482,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                 ],
                                               ),
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 16.0, 0.0, 0.0),
                                                 child: Container(
@@ -5145,7 +5493,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                             context)
                                                         .primaryBackground,
                                                     borderRadius:
-                                                        const BorderRadius.only(
+                                                        BorderRadius.only(
                                                       bottomLeft:
                                                           Radius.circular(0.0),
                                                       bottomRight:
@@ -5158,7 +5506,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                   ),
                                                   child: Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(16.0, 0.0,
                                                                 16.0, 0.0),
                                                     child: Row(
@@ -5180,7 +5528,13 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                               ),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .labelSmall,
+                                                                  .labelSmall
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Readex Pro',
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
                                                             ),
                                                           ),
                                                         Expanded(
@@ -5193,7 +5547,13 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                             ),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .labelSmall,
+                                                                .labelSmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Readex Pro',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                           ),
                                                         ),
                                                         if (responsiveVisibility(
@@ -5210,7 +5570,13 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                               ),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .labelSmall,
+                                                                  .labelSmall
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Readex Pro',
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
                                                             ),
                                                           ),
                                                         Expanded(
@@ -5223,7 +5589,13 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                             ),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .labelSmall,
+                                                                .labelSmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Readex Pro',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                           ),
                                                         ),
                                                         Expanded(
@@ -5238,7 +5610,13 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                 TextAlign.end,
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .labelSmall,
+                                                                .labelSmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Readex Pro',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                           ),
                                                         ),
                                                       ],
@@ -5248,12 +5626,17 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                               ),
                                               Builder(
                                                 builder: (context) {
-                                                  final users =
-                                                      cardTable6UsersRecordList
-                                                          .map((e) => e)
-                                                          .toList();
+                                                  final users = cardTable6UsersRecordList
+                                                      .map((e) => e)
+                                                      .toList()
+                                                      .where((e) =>
+                                                          e.createdTime ==
+                                                          dateTimeFromSecondsSinceEpoch(
+                                                              getCurrentTimestamp
+                                                                  .secondsSinceEpoch))
+                                                      .toList();
                                                   if (users.isEmpty) {
-                                                    return const EmptyListsimpleWidget();
+                                                    return EmptyListsimpleWidget();
                                                   }
                                                   return ListView.builder(
                                                     padding: EdgeInsets.zero,
@@ -5267,7 +5650,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                           users[usersIndex];
                                                       return Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -5286,14 +5669,16 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primaryBackground,
-                                                                offset: const Offset(
-                                                                    0.0, 1.0),
+                                                                offset: Offset(
+                                                                  0.0,
+                                                                  1.0,
+                                                                ),
                                                               )
                                                             ],
                                                           ),
                                                           child: Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         16.0,
                                                                         0.0,
@@ -5320,14 +5705,20 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                       ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyMedium,
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Readex Pro',
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                          ),
                                                                     ),
                                                                   ),
                                                                 Expanded(
                                                                   flex: 4,
                                                                   child:
                                                                       Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             8.0,
@@ -5339,7 +5730,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                               .max,
                                                                       children: [
                                                                         Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
                                                                               0.0,
                                                                               0.0,
                                                                               8.0,
@@ -5360,7 +5751,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                         Expanded(
                                                                           child:
                                                                               Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 4.0,
                                                                                 0.0,
                                                                                 0.0,
@@ -5375,16 +5766,18 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                                   usersItem.displayName,
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Readex Pro',
+                                                                                        letterSpacing: 0.0,
                                                                                         fontWeight: FontWeight.bold,
                                                                                       ),
                                                                                 ),
                                                                                 Padding(
-                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                                                                                   child: Text(
                                                                                     usersItem.userCode,
                                                                                     style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                           fontFamily: 'Readex Pro',
                                                                                           color: FlutterFlowTheme.of(context).primary,
+                                                                                          letterSpacing: 0.0,
                                                                                         ),
                                                                                   ),
                                                                                 ),
@@ -5411,7 +5804,13 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                       ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .titleLarge,
+                                                                          .titleLarge
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Outfit',
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                          ),
                                                                     ),
                                                                   ),
                                                                 Expanded(
@@ -5436,12 +5835,12 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                                 FlutterFlowTheme.of(context).alternate,
                                                                           ),
                                                                         ),
-                                                                        alignment: const AlignmentDirectional(
+                                                                        alignment: AlignmentDirectional(
                                                                             0.0,
                                                                             0.0),
                                                                         child:
                                                                             Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
                                                                               12.0,
                                                                               0.0,
                                                                               12.0,
@@ -5449,8 +5848,10 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                           child:
                                                                               Text(
                                                                             usersItem.privileges.roleName,
-                                                                            style:
-                                                                                FlutterFlowTheme.of(context).bodyMedium,
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  fontFamily: 'Readex Pro',
+                                                                                  letterSpacing: 0.0,
+                                                                                ),
                                                                           ),
                                                                         ),
                                                                       ),
@@ -5511,7 +5912,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       16.0, 16.0, 16.0, 0.0),
                                   child: StreamBuilder<List<UsersRecord>>(
                                     stream: queryUsersRecord(
@@ -5520,7 +5921,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                     builder: (context, snapshot) {
                                       // Customize what your widget looks like when it's loading.
                                       if (!snapshot.hasData) {
-                                        return const Center(
+                                        return Center(
                                           child: SizedBox(
                                             width: 50.0,
                                             height: 50.0,
@@ -5536,7 +5937,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                           snapshot.data!;
                                       return Container(
                                         width: double.infinity,
-                                        constraints: const BoxConstraints(
+                                        constraints: BoxConstraints(
                                           maxWidth: 1370.0,
                                         ),
                                         decoration: BoxDecoration(
@@ -5554,7 +5955,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Padding(
-                                              padding: const EdgeInsets.all(16.0),
+                                              padding: EdgeInsets.all(16.0),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
@@ -5580,7 +5981,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                           children: [
                                                             Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -5594,12 +5995,18 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .headlineMedium,
+                                                                    .headlineMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Outfit',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                               ),
                                                             ),
                                                             Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           4.0,
@@ -5613,7 +6020,13 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .labelMedium,
+                                                                    .labelMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Readex Pro',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                               ),
                                                             ),
                                                           ],
@@ -5628,7 +6041,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                         children: [
                                                           Align(
                                                             alignment:
-                                                                const AlignmentDirectional(
+                                                                AlignmentDirectional(
                                                                     0.0, 0.0),
                                                             child:
                                                                 FFButtonWidget(
@@ -5650,14 +6063,14 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                               options:
                                                                   FFButtonOptions(
                                                                 height: 36.0,
-                                                                padding: const EdgeInsetsDirectional
+                                                                padding: EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         16.0,
                                                                         0.0,
                                                                         16.0,
                                                                         0.0),
                                                                 iconPadding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -5668,7 +6081,13 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                     .secondaryBackground,
                                                                 textStyle: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyMedium,
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Readex Pro',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                                 elevation: 0.0,
                                                                 borderSide:
                                                                     BorderSide(
@@ -5713,7 +6132,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 16.0,
                                                                 0.0, 0.0),
                                                     child: Container(
@@ -5724,7 +6143,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                 .of(context)
                                                             .primaryBackground,
                                                         borderRadius:
-                                                            const BorderRadius.only(
+                                                            BorderRadius.only(
                                                           bottomLeft:
                                                               Radius.circular(
                                                                   0.0),
@@ -5741,7 +6160,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                       ),
                                                       child: Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     16.0,
                                                                     0.0,
@@ -5766,7 +6185,13 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .labelSmall,
+                                                                      .labelSmall
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Readex Pro',
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
                                                                 ),
                                                               ),
                                                             Expanded(
@@ -5779,7 +6204,13 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .labelSmall,
+                                                                    .labelSmall
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Readex Pro',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                               ),
                                                             ),
                                                             if (responsiveVisibility(
@@ -5796,7 +6227,13 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .labelSmall,
+                                                                      .labelSmall
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Readex Pro',
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
                                                                 ),
                                                               ),
                                                             Expanded(
@@ -5809,7 +6246,13 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .labelSmall,
+                                                                    .labelSmall
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Readex Pro',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                               ),
                                                             ),
                                                             Expanded(
@@ -5825,7 +6268,13 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                         .end,
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .labelSmall,
+                                                                    .labelSmall
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Readex Pro',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                               ),
                                                             ),
                                                           ],
@@ -5845,10 +6294,11 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                     .toList()
                                                     .isNotEmpty) ==
                                                 false)
-                                              SizedBox(
+                                              Container(
                                                 height: 200.0,
+                                                decoration: BoxDecoration(),
                                                 child: Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 0.0, 16.0),
                                                   child: wrapWithModel(
@@ -5857,7 +6307,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                     updateCallback: () =>
                                                         setState(() {}),
                                                     child:
-                                                        const EmptyListsimpleWidget(),
+                                                        EmptyListsimpleWidget(),
                                                   ),
                                                 ),
                                               ),
@@ -5869,7 +6319,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                     },
                                   ),
                                 ),
-                              ].addToEnd(const SizedBox(height: 24.0)),
+                              ].addToEnd(SizedBox(height: 24.0)),
                             ),
                           ),
                         ),

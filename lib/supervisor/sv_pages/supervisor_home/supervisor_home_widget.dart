@@ -5,10 +5,15 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/shared/shared_components/our_side_nav/our_side_nav_widget.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
+import 'package:provider/provider.dart';
 import 'supervisor_home_model.dart';
 export 'supervisor_home_model.dart';
 
@@ -40,15 +45,15 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 300.ms,
-          begin: const Offset(0.0, 20.0),
-          end: const Offset(0.0, 0.0),
+          begin: Offset(0.0, 20.0),
+          end: Offset(0.0, 0.0),
         ),
         TiltEffect(
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 300.ms,
-          begin: const Offset(0.698, 0),
-          end: const Offset(0, 0),
+          begin: Offset(0.698, 0),
+          end: Offset(0, 0),
         ),
       ],
     ),
@@ -66,15 +71,15 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 300.ms,
-          begin: const Offset(0.0, 20.0),
-          end: const Offset(0.0, 0.0),
+          begin: Offset(0.0, 20.0),
+          end: Offset(0.0, 0.0),
         ),
         TiltEffect(
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 300.ms,
-          begin: const Offset(0.698, 0),
-          end: const Offset(0, 0),
+          begin: Offset(0.698, 0),
+          end: Offset(0, 0),
         ),
       ],
     ),
@@ -92,8 +97,8 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: const Offset(0.0, 40.0),
-          end: const Offset(0.0, 0.0),
+          begin: Offset(0.0, 40.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -112,8 +117,8 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: const Offset(0.0, 10.0),
-          end: const Offset(0.0, 0.0),
+          begin: Offset(0.0, 10.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -166,16 +171,16 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
               child: wrapWithModel(
                 model: _model.ourSideNavModel,
                 updateCallback: () => setState(() {}),
-                child: const OurSideNavWidget(),
+                child: OurSideNavWidget(),
               ),
             ),
             appBar: PreferredSize(
-              preferredSize: const Size.fromHeight(100.0),
+              preferredSize: Size.fromHeight(100.0),
               child: AppBar(
-                backgroundColor: const Color(0xFF0CA256),
+                backgroundColor: Color(0xFF0CA256),
                 automaticallyImplyLeading: false,
                 leading: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
                   child: InkWell(
                     splashColor: Colors.transparent,
                     focusColor: Colors.transparent,
@@ -186,7 +191,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                       logFirebaseEvent('menu_drawer');
                       scaffoldKey.currentState!.openDrawer();
                     },
-                    child: const Icon(
+                    child: Icon(
                       Icons.menu,
                       color: Color(0xFFE0E3E7),
                       size: 24.0,
@@ -194,15 +199,15 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                   ),
                 ),
                 title: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 0.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Align(
-                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        alignment: AlignmentDirectional(0.0, 0.0),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 10.0, 0.0, 0.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
@@ -220,6 +225,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                           fontFamily: 'Outfit',
                                           color: Colors.white,
                                           fontSize: 36.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
                                         ),
                                   ).animateOnPageLoad(animationsMap[
@@ -234,7 +240,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                 ],
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 35.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
@@ -246,6 +252,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                         fontFamily: 'Outfit',
                                         color: Colors.white,
                                         fontSize: 18.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
                                       ),
                                 ),
@@ -259,10 +266,10 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                 ),
                 actions: [
                   Align(
-                    alignment: const AlignmentDirectional(1.0, 0.0),
+                    alignment: AlignmentDirectional(1.0, 0.0),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 24.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 24.0, 0.0),
                       child: InkWell(
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,
@@ -275,7 +282,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                           context.pushNamed(
                             'welcome',
                             extra: <String, dynamic>{
-                              kTransitionInfoKey: const TransitionInfo(
+                              kTransitionInfoKey: TransitionInfo(
                                 hasTransition: true,
                                 transitionType: PageTransitionType.fade,
                               ),
@@ -304,28 +311,28 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                 children: [
                   Expanded(
                     child: Align(
-                      alignment: const AlignmentDirectional(0.0, -1.0),
+                      alignment: AlignmentDirectional(0.0, -1.0),
                       child: Container(
                         width: double.infinity,
-                        constraints: const BoxConstraints(
+                        constraints: BoxConstraints(
                           maxWidth: 1470.0,
                         ),
-                        decoration: const BoxDecoration(),
+                        decoration: BoxDecoration(),
                         child: SingleChildScrollView(
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Align(
-                                alignment: const AlignmentDirectional(0.0, 0.0),
-                                child: SizedBox(
+                                alignment: AlignmentDirectional(0.0, 0.0),
+                                child: Container(
                                   height: 68.0,
                                   child: Stack(
                                     children: [
                                       Container(
                                         width: double.infinity,
                                         height: 96.0,
-                                        decoration: const BoxDecoration(
+                                        decoration: BoxDecoration(
                                           color: Color(0xFF0CA256),
                                           borderRadius: BorderRadius.only(
                                             bottomLeft: Radius.circular(0.0),
@@ -337,10 +344,10 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                       ),
                                       Align(
                                         alignment:
-                                            const AlignmentDirectional(-1.0, 0.0),
+                                            AlignmentDirectional(-1.0, 0.0),
                                         child: Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   30.0, 0.0, 30.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -354,11 +361,11 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                 children: [
                                                   Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             -1.0, 0.0),
                                                     child: Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -376,9 +383,11 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                             .override(
                                                               fontFamily:
                                                                   'Outfit',
-                                                              color: const Color(
+                                                              color: Color(
                                                                   0xFF14181B),
                                                               fontSize: 18.0,
+                                                              letterSpacing:
+                                                                  0.0,
                                                               fontWeight:
                                                                   FontWeight
                                                                       .normal,
@@ -388,7 +397,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(2.0, 0.0,
                                                                 0.0, 0.0),
                                                     child: AuthUserStreamWidget(
@@ -404,6 +413,8 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                               color:
                                                                   Colors.white,
                                                               fontSize: 18.0,
+                                                              letterSpacing:
+                                                                  0.0,
                                                               fontWeight:
                                                                   FontWeight
                                                                       .w600,
@@ -418,11 +429,11 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                 children: [
                                                   Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             1.0, 0.0),
                                                     child: Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   73.0,
                                                                   0.0,
@@ -449,6 +460,8 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .info,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .bold,
@@ -474,6 +487,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .info,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.bold,
                                                         ),
@@ -489,7 +503,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     16.0, 24.0, 16.0, 16.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -507,7 +521,11 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                               '630xn3m1' /* Team Overview */,
                                             ),
                                             style: FlutterFlowTheme.of(context)
-                                                .headlineMedium,
+                                                .headlineMedium
+                                                .override(
+                                                  fontFamily: 'Outfit',
+                                                  letterSpacing: 0.0,
+                                                ),
                                           ),
                                           Text(
                                             FFLocalizations.of(context).getText(
@@ -515,9 +533,13 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                             ),
                                             textAlign: TextAlign.start,
                                             style: FlutterFlowTheme.of(context)
-                                                .labelMedium,
+                                                .labelMedium
+                                                .override(
+                                                  fontFamily: 'Readex Pro',
+                                                  letterSpacing: 0.0,
+                                                ),
                                           ),
-                                        ].divide(const SizedBox(height: 4.0)),
+                                        ].divide(SizedBox(height: 4.0)),
                                       ),
                                     ),
                                     if (responsiveVisibility(
@@ -544,7 +566,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                               ),
                                             ),
                                             child: Padding(
-                                              padding: const EdgeInsets.all(2.0),
+                                              padding: EdgeInsets.all(2.0),
                                               child: ClipRRect(
                                                 borderRadius:
                                                     BorderRadius.circular(40.0),
@@ -573,7 +595,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                               ),
                                             ),
                                             child: Padding(
-                                              padding: const EdgeInsets.all(2.0),
+                                              padding: EdgeInsets.all(2.0),
                                               child: ClipRRect(
                                                 borderRadius:
                                                     BorderRadius.circular(40.0),
@@ -602,7 +624,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                               ),
                                             ),
                                             child: Padding(
-                                              padding: const EdgeInsets.all(2.0),
+                                              padding: EdgeInsets.all(2.0),
                                               child: ClipRRect(
                                                 borderRadius:
                                                     BorderRadius.circular(40.0),
@@ -615,14 +637,14 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                               ),
                                             ),
                                           ),
-                                        ].divide(const SizedBox(width: 4.0)),
+                                        ].divide(SizedBox(width: 4.0)),
                                       ),
                                     if (responsiveVisibility(
                                       context: context,
                                       phone: false,
                                     ))
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             16.0, 0.0, 0.0, 0.0),
                                         child: FFButtonWidget(
                                           onPressed: () {
@@ -635,16 +657,20 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                           options: FFButtonOptions(
                                             height: 40.0,
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     16.0, 0.0, 16.0, 0.0),
                                             iconPadding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 0.0),
                                             color: FlutterFlowTheme.of(context)
                                                 .accent1,
                                             textStyle:
                                                 FlutterFlowTheme.of(context)
-                                                    .bodyLarge,
+                                                    .bodyLarge
+                                                    .override(
+                                                      fontFamily: 'Readex Pro',
+                                                      letterSpacing: 0.0,
+                                                    ),
                                             elevation: 0.0,
                                             borderSide: BorderSide(
                                               color:
@@ -661,7 +687,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     16.0, 0.0, 0.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -679,7 +705,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                 child: Container(
                                                   width: double.infinity,
                                                   height: 100.0,
-                                                  constraints: const BoxConstraints(
+                                                  constraints: BoxConstraints(
                                                     maxWidth: 370.0,
                                                   ),
                                                   decoration: BoxDecoration(
@@ -699,7 +725,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                   ),
                                                   child: Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(16.0, 0.0,
                                                                 16.0, 0.0),
                                                     child: Row(
@@ -715,7 +741,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                         ))
                                                           Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
@@ -758,7 +784,13 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .labelMedium,
+                                                                        .labelMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Readex Pro',
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                        ),
                                                                   ),
                                                                   if (responsiveVisibility(
                                                                     context:
@@ -770,7 +802,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                   ))
                                                                     Align(
                                                                       alignment:
-                                                                          const AlignmentDirectional(
+                                                                          AlignmentDirectional(
                                                                               0.0,
                                                                               -1.0),
                                                                       child:
@@ -793,7 +825,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                   Expanded(
                                                                     child:
                                                                         Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           4.0,
                                                                           4.0,
@@ -805,12 +837,16 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                           'okkyz5ed' /* 5 */,
                                                                         ),
                                                                         style: FlutterFlowTheme.of(context)
-                                                                            .displaySmall,
+                                                                            .displaySmall
+                                                                            .override(
+                                                                              fontFamily: 'Outfit',
+                                                                              letterSpacing: 0.0,
+                                                                            ),
                                                                       ),
                                                                     ),
                                                                   ),
                                                                   Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -837,7 +873,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                         false,
                                                                   ))
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           4.0,
                                                                           0.0,
@@ -853,6 +889,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                             .override(
                                                                               fontFamily: 'Readex Pro',
                                                                               color: FlutterFlowTheme.of(context).secondary,
+                                                                              letterSpacing: 0.0,
                                                                             ),
                                                                       ),
                                                                     ),
@@ -870,7 +907,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                 child: Container(
                                                   width: double.infinity,
                                                   height: 100.0,
-                                                  constraints: const BoxConstraints(
+                                                  constraints: BoxConstraints(
                                                     maxWidth: 370.0,
                                                   ),
                                                   decoration: BoxDecoration(
@@ -890,7 +927,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                   ),
                                                   child: Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(16.0, 0.0,
                                                                 16.0, 0.0),
                                                     child: Row(
@@ -906,7 +943,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                         ))
                                                           Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
@@ -949,7 +986,13 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .labelMedium,
+                                                                        .labelMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Readex Pro',
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                        ),
                                                                   ),
                                                                   if (responsiveVisibility(
                                                                     context:
@@ -961,7 +1004,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                   ))
                                                                     Align(
                                                                       alignment:
-                                                                          const AlignmentDirectional(
+                                                                          AlignmentDirectional(
                                                                               0.0,
                                                                               -1.0),
                                                                       child:
@@ -984,7 +1027,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                   Expanded(
                                                                     child:
                                                                         Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           4.0,
                                                                           4.0,
@@ -996,12 +1039,16 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                           '7ijp8xlm' /* 17 */,
                                                                         ),
                                                                         style: FlutterFlowTheme.of(context)
-                                                                            .displaySmall,
+                                                                            .displaySmall
+                                                                            .override(
+                                                                              fontFamily: 'Outfit',
+                                                                              letterSpacing: 0.0,
+                                                                            ),
                                                                       ),
                                                                     ),
                                                                   ),
                                                                   Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -1028,7 +1075,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                         false,
                                                                   ))
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           4.0,
                                                                           0.0,
@@ -1044,6 +1091,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                             .override(
                                                                               fontFamily: 'Readex Pro',
                                                                               color: FlutterFlowTheme.of(context).secondary,
+                                                                              letterSpacing: 0.0,
                                                                             ),
                                                                       ),
                                                                     ),
@@ -1057,7 +1105,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                   ),
                                                 ),
                                               ),
-                                            ].divide(const SizedBox(width: 16.0)),
+                                            ].divide(SizedBox(width: 16.0)),
                                           ),
                                           Container(
                                             width: double.infinity,
@@ -1075,7 +1123,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                               ),
                                             ),
                                             child: Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 16.0, 0.0, 12.0),
                                               child: Column(
@@ -1085,7 +1133,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(16.0, 0.0,
                                                                 0.0, 0.0),
                                                     child: Text(
@@ -1094,15 +1142,19 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                           .getText(
                                                         'umli55v9' /* Work Area */,
                                                       ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleLarge,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .titleLarge
+                                                          .override(
+                                                            fontFamily:
+                                                                'Outfit',
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(16.0, 4.0,
                                                                 0.0, 0.0),
                                                     child: Text(
@@ -1111,15 +1163,19 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                           .getText(
                                                         'zh8me3su' /* General information about the ... */,
                                                       ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .labelMedium,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .labelMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Readex Pro',
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(16.0, 4.0,
                                                                 16.0, 0.0),
                                                     child: Row(
@@ -1131,7 +1187,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                         Container(
                                                           height: 32.0,
                                                           constraints:
-                                                              const BoxConstraints(
+                                                              BoxConstraints(
                                                             maxHeight: 32.0,
                                                           ),
                                                           decoration:
@@ -1151,7 +1207,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                             children: [
                                                               Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             8.0,
                                                                             0.0,
@@ -1175,7 +1231,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                           20.0,
                                                                     ),
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           8.0,
                                                                           0.0,
                                                                           0.0,
@@ -1187,7 +1243,11 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                           'q0e28txe' /* Tasks */,
                                                                         ),
                                                                         style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium,
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Readex Pro',
+                                                                              letterSpacing: 0.0,
+                                                                            ),
                                                                       ),
                                                                     ),
                                                                   ],
@@ -1195,7 +1255,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                               ),
                                                               Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             8.0,
                                                                             0.0,
@@ -1219,7 +1279,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                           20.0,
                                                                     ),
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           8.0,
                                                                           0.0,
                                                                           0.0,
@@ -1231,7 +1291,11 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                           '7j6932h9' /* Start Point */,
                                                                         ),
                                                                         style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium,
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Readex Pro',
+                                                                              letterSpacing: 0.0,
+                                                                            ),
                                                                       ),
                                                                     ),
                                                                   ],
@@ -1239,7 +1303,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                               ),
                                                               Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             8.0,
                                                                             0.0,
@@ -1263,7 +1327,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                           20.0,
                                                                     ),
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           8.0,
                                                                           0.0,
                                                                           0.0,
@@ -1275,7 +1339,11 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                           '7jm18jz7' /* End Point */,
                                                                         ),
                                                                         style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium,
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Readex Pro',
+                                                                              letterSpacing: 0.0,
+                                                                            ),
                                                                       ),
                                                                     ),
                                                                   ],
@@ -1287,7 +1355,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                         Container(
                                                           height: 32.0,
                                                           constraints:
-                                                              const BoxConstraints(
+                                                              BoxConstraints(
                                                             maxHeight: 32.0,
                                                           ),
                                                           decoration:
@@ -1306,7 +1374,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(
                                                                 16.0,
                                                                 12.0,
@@ -1335,12 +1403,12 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                           ),
                                                         ),
                                                         alignment:
-                                                            const AlignmentDirectional(
+                                                            AlignmentDirectional(
                                                                 0.0, 0.0),
                                                         child: Container(
                                                           height: 200.0,
                                                           decoration:
-                                                              const BoxDecoration(),
+                                                              BoxDecoration(),
                                                         ),
                                                       ),
                                                     ),
@@ -1366,7 +1434,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                               ),
                                             ),
                                             child: Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 16.0, 0.0, 12.0),
                                               child: Column(
@@ -1376,7 +1444,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(4.0, 12.0,
                                                                 8.0, 12.0),
                                                     child: Row(
@@ -1392,7 +1460,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                         Expanded(
                                                           child: Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         12.0,
                                                                         0.0,
@@ -1414,7 +1482,13 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .labelMedium,
+                                                                      .labelMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Readex Pro',
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
                                                                 ),
                                                                 RichText(
                                                                   textScaler: MediaQuery.of(
@@ -1429,7 +1503,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                           'o1c5id0f' /* 62.2% / */,
                                                                         ),
                                                                         style:
-                                                                            const TextStyle(),
+                                                                            TextStyle(),
                                                                       ),
                                                                       TextSpan(
                                                                         text: FFLocalizations.of(context)
@@ -1437,16 +1511,26 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                           '1d6bmoyl' /*  12 */,
                                                                         ),
                                                                         style: FlutterFlowTheme.of(context)
-                                                                            .labelLarge,
+                                                                            .labelLarge
+                                                                            .override(
+                                                                              fontFamily: 'Readex Pro',
+                                                                              letterSpacing: 0.0,
+                                                                            ),
                                                                       )
                                                                     ],
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .displaySmall,
+                                                                        .displaySmall
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Outfit',
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                        ),
                                                                   ),
                                                                 ),
                                                                 Padding(
-                                                                  padding: const EdgeInsetsDirectional
+                                                                  padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           8.0,
@@ -1470,7 +1554,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                     backgroundColor:
                                                                         FlutterFlowTheme.of(context)
                                                                             .alternate,
-                                                                    barRadius: const Radius
+                                                                    barRadius: Radius
                                                                         .circular(
                                                                             16.0),
                                                                     padding:
@@ -1479,7 +1563,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                   ),
                                                                 ),
                                                                 Padding(
-                                                                  padding: const EdgeInsetsDirectional
+                                                                  padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           8.0,
@@ -1499,7 +1583,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                             '9hh3fpfk' /* Achieved goals:  */,
                                                                           ),
                                                                           style:
-                                                                              const TextStyle(),
+                                                                              TextStyle(),
                                                                         ),
                                                                         TextSpan(
                                                                           text:
@@ -1510,17 +1594,24 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                               .bodyMedium
                                                                               .override(
                                                                                 fontFamily: 'Readex Pro',
+                                                                                letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.bold,
                                                                               ),
                                                                         )
                                                                       ],
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .labelMedium,
+                                                                          .labelMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Readex Pro',
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                          ),
                                                                     ),
                                                                   ),
                                                                 ),
-                                                              ].divide(const SizedBox(
+                                                              ].divide(SizedBox(
                                                                   height: 4.0)),
                                                             ),
                                                           ),
@@ -1539,14 +1630,14 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                               FFButtonOptions(
                                                             height: 36.0,
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         16.0,
                                                                         0.0,
                                                                         16.0,
                                                                         0.0),
                                                             iconPadding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
@@ -1558,7 +1649,13 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                             textStyle:
                                                                 FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyMedium,
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Readex Pro',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                             elevation: 0.0,
                                                             borderSide:
                                                                 BorderSide(
@@ -1592,7 +1689,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                       ],
                                                     ),
                                                   ),
-                                                  const Divider(
+                                                  Divider(
                                                     height: 24.0,
                                                     thickness: 1.0,
                                                     color: Color(0xFFF1F4F8),
@@ -1610,7 +1707,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                         children: [
                                                           Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         16.0,
                                                                         3.0,
@@ -1626,7 +1723,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                           ),
                                                           Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         2.0,
                                                                         0.0,
@@ -1647,6 +1744,8 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .primary,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                           ),
@@ -1654,7 +1753,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -1674,14 +1773,14 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                               FFButtonOptions(
                                                             height: 36.0,
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         16.0,
                                                                         0.0,
                                                                         16.0,
                                                                         0.0),
                                                             iconPadding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
@@ -1693,7 +1792,13 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                             textStyle:
                                                                 FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyMedium,
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Readex Pro',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                             elevation: 0.0,
                                                             borderSide:
                                                                 BorderSide(
@@ -1729,7 +1834,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(4.0, 4.0,
                                                                 4.0, 0.0),
                                                     child: Container(
@@ -1742,7 +1847,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                       ),
                                                       child: Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     12.0,
                                                                     8.0,
@@ -1757,7 +1862,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                           children: [
                                                             Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           10.0,
@@ -1771,12 +1876,18 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .titleLarge,
+                                                                    .titleLarge
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Outfit',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                               ),
                                                             ),
                                                             Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           4.0,
@@ -1790,10 +1901,16 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .labelMedium,
+                                                                    .labelMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Readex Pro',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                               ),
                                                             ),
-                                                            const Divider(
+                                                            Divider(
                                                               height: 24.0,
                                                               thickness: 1.0,
                                                               color: Color(
@@ -1819,10 +1936,12 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                       .override(
                                                                         fontFamily:
                                                                             'Plus Jakarta Sans',
-                                                                        color: const Color(
+                                                                        color: Color(
                                                                             0xFF14181B),
                                                                         fontSize:
                                                                             14.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
                                                                       ),
@@ -1830,7 +1949,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                 Expanded(
                                                                   child:
                                                                       Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             8.0,
                                                                             0.0,
@@ -1852,6 +1971,8 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                                 FlutterFlowTheme.of(context).primary,
                                                                             fontSize:
                                                                                 14.0,
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                             fontWeight:
                                                                                 FontWeight.normal,
                                                                           ),
@@ -1863,14 +1984,14 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                   height: 32.0,
                                                                   decoration:
                                                                       BoxDecoration(
-                                                                    color: const Color(
+                                                                    color: Color(
                                                                         0xFFF1F4F8),
                                                                     borderRadius:
                                                                         BorderRadius.circular(
                                                                             32.0),
                                                                   ),
                                                                   alignment:
-                                                                      const AlignmentDirectional(
+                                                                      AlignmentDirectional(
                                                                           0.0,
                                                                           0.0),
                                                                   child: Text(
@@ -1886,9 +2007,11 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                           fontFamily:
                                                                               'Plus Jakarta Sans',
                                                                           color:
-                                                                              const Color(0xFF14181B),
+                                                                              Color(0xFF14181B),
                                                                           fontSize:
                                                                               14.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight:
                                                                               FontWeight.normal,
                                                                         ),
@@ -1910,7 +2033,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                               'containerOnPageLoadAnimation2']!),
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     16.0, 24.0, 16.0, 16.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -1921,7 +2044,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                 Expanded(
                                                   child: Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             -1.0, 0.0),
                                                     child: Column(
                                                       mainAxisSize:
@@ -1938,7 +2061,13 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .headlineMedium,
+                                                              .headlineMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Outfit',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
                                                         ),
                                                         Text(
                                                           FFLocalizations.of(
@@ -1950,9 +2079,15 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                               TextAlign.start,
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .labelMedium,
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Readex Pro',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
                                                         ),
-                                                      ].divide(const SizedBox(
+                                                      ].divide(SizedBox(
                                                           height: 4.0)),
                                                     ),
                                                   ),
@@ -1985,7 +2120,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                         ),
                                                         child: Padding(
                                                           padding:
-                                                              const EdgeInsets.all(
+                                                              EdgeInsets.all(
                                                                   2.0),
                                                           child: ClipRRect(
                                                             borderRadius:
@@ -2021,7 +2156,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                         ),
                                                         child: Padding(
                                                           padding:
-                                                              const EdgeInsets.all(
+                                                              EdgeInsets.all(
                                                                   2.0),
                                                           child: ClipRRect(
                                                             borderRadius:
@@ -2057,7 +2192,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                         ),
                                                         child: Padding(
                                                           padding:
-                                                              const EdgeInsets.all(
+                                                              EdgeInsets.all(
                                                                   2.0),
                                                           child: ClipRRect(
                                                             borderRadius:
@@ -2075,7 +2210,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                         ),
                                                       ),
                                                     ].divide(
-                                                        const SizedBox(width: 4.0)),
+                                                        SizedBox(width: 4.0)),
                                                   ),
                                                 if (responsiveVisibility(
                                                   context: context,
@@ -2083,7 +2218,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                 ))
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(16.0, 0.0,
                                                                 0.0, 0.0),
                                                     child: FFButtonWidget(
@@ -2099,14 +2234,14 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                       options: FFButtonOptions(
                                                         height: 40.0,
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     16.0,
                                                                     0.0,
                                                                     16.0,
                                                                     0.0),
                                                         iconPadding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -2119,7 +2254,13 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                         textStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyLarge,
+                                                                .bodyLarge
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Readex Pro',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                         elevation: 0.0,
                                                         borderSide: BorderSide(
                                                           color: FlutterFlowTheme
@@ -2138,7 +2279,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                           ),
                                           Container(
                                             width: double.infinity,
-                                            constraints: const BoxConstraints(
+                                            constraints: BoxConstraints(
                                               maxWidth: 1270.0,
                                             ),
                                             decoration: BoxDecoration(
@@ -2155,7 +2296,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                               ),
                                             ),
                                             child: Padding(
-                                              padding: const EdgeInsets.all(16.0),
+                                              padding: EdgeInsets.all(16.0),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
@@ -2185,7 +2326,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                       .spaceBetween,
                                                               children: [
                                                                 Padding(
-                                                                  padding: const EdgeInsetsDirectional
+                                                                  padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -2199,7 +2340,13 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .titleLarge,
+                                                                        .titleLarge
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Outfit',
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                        ),
                                                                   ),
                                                                 ),
                                                                 FFButtonWidget(
@@ -2217,14 +2364,14 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                       FFButtonOptions(
                                                                     height:
                                                                         36.0,
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             16.0,
                                                                             0.0,
                                                                             16.0,
                                                                             0.0),
                                                                     iconPadding:
-                                                                        const EdgeInsetsDirectional.fromSTEB(
+                                                                        EdgeInsetsDirectional.fromSTEB(
                                                                             0.0,
                                                                             0.0,
                                                                             0.0,
@@ -2234,7 +2381,13 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                         .secondaryBackground,
                                                                     textStyle: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyMedium,
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Readex Pro',
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                        ),
                                                                     elevation:
                                                                         0.0,
                                                                     borderSide:
@@ -2270,7 +2423,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                             ),
                                                             Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           4.0,
@@ -2284,7 +2437,13 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .labelMedium,
+                                                                    .labelMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Readex Pro',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                               ),
                                                             ),
                                                           ],
@@ -2315,14 +2474,14 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                               FFButtonOptions(
                                                             height: 40.0,
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         16.0,
                                                                         0.0,
                                                                         16.0,
                                                                         0.0),
                                                             iconPadding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
@@ -2340,10 +2499,12 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                           'Readex Pro',
                                                                       fontSize:
                                                                           14.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                     ),
                                                             elevation: 2.0,
                                                             borderSide:
-                                                                const BorderSide(
+                                                                BorderSide(
                                                               color: Colors
                                                                   .transparent,
                                                               width: 1.0,
@@ -2358,7 +2519,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 16.0,
                                                                 0.0, 0.0),
                                                     child: Container(
@@ -2369,7 +2530,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                 .of(context)
                                                             .primaryBackground,
                                                         borderRadius:
-                                                            const BorderRadius.only(
+                                                            BorderRadius.only(
                                                           bottomLeft:
                                                               Radius.circular(
                                                                   0.0),
@@ -2386,7 +2547,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                       ),
                                                       child: Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     16.0,
                                                                     0.0,
@@ -2406,7 +2567,13 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .labelSmall,
+                                                                    .labelSmall
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Readex Pro',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                               ),
                                                             ),
                                                             if (responsiveVisibility(
@@ -2423,7 +2590,13 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .labelSmall,
+                                                                      .labelSmall
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Readex Pro',
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
                                                                 ),
                                                               ),
                                                             Expanded(
@@ -2436,7 +2609,13 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .labelSmall,
+                                                                    .labelSmall
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Readex Pro',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                               ),
                                                             ),
                                                             if (responsiveVisibility(
@@ -2456,7 +2635,13 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                           .end,
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .labelSmall,
+                                                                      .labelSmall
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Readex Pro',
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
                                                                 ),
                                                               ),
                                                           ],
@@ -2472,7 +2657,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                     children: [
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -2491,14 +2676,16 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primaryBackground,
-                                                                offset: const Offset(
-                                                                    0.0, 1.0),
+                                                                offset: Offset(
+                                                                  0.0,
+                                                                  1.0,
+                                                                ),
                                                               )
                                                             ],
                                                           ),
                                                           child: Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         16.0,
                                                                         0.0,
@@ -2513,7 +2700,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                   flex: 3,
                                                                   child:
                                                                       Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             8.0,
@@ -2525,7 +2712,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                               .max,
                                                                       children: [
                                                                         Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
                                                                               0.0,
                                                                               0.0,
                                                                               8.0,
@@ -2546,7 +2733,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                         Expanded(
                                                                           child:
                                                                               Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 4.0,
                                                                                 0.0,
                                                                                 0.0,
@@ -2563,11 +2750,12 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                                   ),
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Readex Pro',
+                                                                                        letterSpacing: 0.0,
                                                                                         fontWeight: FontWeight.bold,
                                                                                       ),
                                                                                 ),
                                                                                 Padding(
-                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                                                                                   child: Text(
                                                                                     FFLocalizations.of(context).getText(
                                                                                       'm11feh5e' /* Business Name */,
@@ -2575,6 +2763,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                                     style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                           fontFamily: 'Readex Pro',
                                                                                           color: FlutterFlowTheme.of(context).primary,
+                                                                                          letterSpacing: 0.0,
                                                                                         ),
                                                                                   ),
                                                                                 ),
@@ -2601,7 +2790,13 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                       ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyMedium,
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Readex Pro',
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                          ),
                                                                     ),
                                                                   ),
                                                                 Expanded(
@@ -2626,12 +2821,12 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                                 1.0,
                                                                           ),
                                                                         ),
-                                                                        alignment: const AlignmentDirectional(
+                                                                        alignment: AlignmentDirectional(
                                                                             0.0,
                                                                             0.0),
                                                                         child:
                                                                             Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
                                                                               12.0,
                                                                               0.0,
                                                                               12.0,
@@ -2641,8 +2836,10 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                             FFLocalizations.of(context).getText(
                                                                               '561mho95' /* High */,
                                                                             ),
-                                                                            style:
-                                                                                FlutterFlowTheme.of(context).bodyMedium,
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  fontFamily: 'Readex Pro',
+                                                                                  letterSpacing: 0.0,
+                                                                                ),
                                                                           ),
                                                                         ),
                                                                       ),
@@ -2696,7 +2893,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -2715,14 +2912,16 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primaryBackground,
-                                                                offset: const Offset(
-                                                                    0.0, 1.0),
+                                                                offset: Offset(
+                                                                  0.0,
+                                                                  1.0,
+                                                                ),
                                                               )
                                                             ],
                                                           ),
                                                           child: Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         16.0,
                                                                         0.0,
@@ -2737,7 +2936,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                   flex: 3,
                                                                   child:
                                                                       Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             8.0,
@@ -2749,7 +2948,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                               .max,
                                                                       children: [
                                                                         Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
                                                                               0.0,
                                                                               0.0,
                                                                               8.0,
@@ -2770,7 +2969,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                         Expanded(
                                                                           child:
                                                                               Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 4.0,
                                                                                 0.0,
                                                                                 0.0,
@@ -2787,11 +2986,12 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                                   ),
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Readex Pro',
+                                                                                        letterSpacing: 0.0,
                                                                                         fontWeight: FontWeight.bold,
                                                                                       ),
                                                                                 ),
                                                                                 Padding(
-                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                                                                                   child: Text(
                                                                                     FFLocalizations.of(context).getText(
                                                                                       'rys9sr05' /* Business Name */,
@@ -2799,6 +2999,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                                     style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                           fontFamily: 'Readex Pro',
                                                                                           color: FlutterFlowTheme.of(context).primary,
+                                                                                          letterSpacing: 0.0,
                                                                                         ),
                                                                                   ),
                                                                                 ),
@@ -2825,7 +3026,13 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                       ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyMedium,
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Readex Pro',
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                          ),
                                                                     ),
                                                                   ),
                                                                 Expanded(
@@ -2850,12 +3057,12 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                                 1.0,
                                                                           ),
                                                                         ),
-                                                                        alignment: const AlignmentDirectional(
+                                                                        alignment: AlignmentDirectional(
                                                                             0.0,
                                                                             0.0),
                                                                         child:
                                                                             Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
                                                                               12.0,
                                                                               0.0,
                                                                               12.0,
@@ -2865,8 +3072,10 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                             FFLocalizations.of(context).getText(
                                                                               'wnkxus7c' /* High */,
                                                                             ),
-                                                                            style:
-                                                                                FlutterFlowTheme.of(context).bodyMedium,
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  fontFamily: 'Readex Pro',
+                                                                                  letterSpacing: 0.0,
+                                                                                ),
                                                                           ),
                                                                         ),
                                                                       ),
@@ -2920,7 +3129,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -2939,14 +3148,16 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primaryBackground,
-                                                                offset: const Offset(
-                                                                    0.0, 1.0),
+                                                                offset: Offset(
+                                                                  0.0,
+                                                                  1.0,
+                                                                ),
                                                               )
                                                             ],
                                                           ),
                                                           child: Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         16.0,
                                                                         0.0,
@@ -2961,7 +3172,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                   flex: 3,
                                                                   child:
                                                                       Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             8.0,
@@ -2973,7 +3184,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                               .max,
                                                                       children: [
                                                                         Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
                                                                               0.0,
                                                                               0.0,
                                                                               8.0,
@@ -2994,7 +3205,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                         Expanded(
                                                                           child:
                                                                               Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 4.0,
                                                                                 0.0,
                                                                                 0.0,
@@ -3011,11 +3222,12 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                                   ),
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Readex Pro',
+                                                                                        letterSpacing: 0.0,
                                                                                         fontWeight: FontWeight.bold,
                                                                                       ),
                                                                                 ),
                                                                                 Padding(
-                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                                                                                   child: Text(
                                                                                     FFLocalizations.of(context).getText(
                                                                                       '1vyq7s8g' /* Business Name */,
@@ -3023,6 +3235,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                                     style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                           fontFamily: 'Readex Pro',
                                                                                           color: FlutterFlowTheme.of(context).primary,
+                                                                                          letterSpacing: 0.0,
                                                                                         ),
                                                                                   ),
                                                                                 ),
@@ -3049,7 +3262,13 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                       ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyMedium,
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Readex Pro',
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                          ),
                                                                     ),
                                                                   ),
                                                                 Expanded(
@@ -3074,12 +3293,12 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                                 1.0,
                                                                           ),
                                                                         ),
-                                                                        alignment: const AlignmentDirectional(
+                                                                        alignment: AlignmentDirectional(
                                                                             0.0,
                                                                             0.0),
                                                                         child:
                                                                             Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
                                                                               12.0,
                                                                               0.0,
                                                                               12.0,
@@ -3089,8 +3308,10 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                             FFLocalizations.of(context).getText(
                                                                               'ojcmb8c6' /* High */,
                                                                             ),
-                                                                            style:
-                                                                                FlutterFlowTheme.of(context).bodyMedium,
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  fontFamily: 'Readex Pro',
+                                                                                  letterSpacing: 0.0,
+                                                                                ),
                                                                           ),
                                                                         ),
                                                                       ),
@@ -3144,7 +3365,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -3163,14 +3384,16 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primaryBackground,
-                                                                offset: const Offset(
-                                                                    0.0, 1.0),
+                                                                offset: Offset(
+                                                                  0.0,
+                                                                  1.0,
+                                                                ),
                                                               )
                                                             ],
                                                           ),
                                                           child: Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         16.0,
                                                                         0.0,
@@ -3185,7 +3408,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                   flex: 3,
                                                                   child:
                                                                       Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             8.0,
@@ -3197,7 +3420,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                               .max,
                                                                       children: [
                                                                         Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
                                                                               0.0,
                                                                               0.0,
                                                                               8.0,
@@ -3218,7 +3441,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                         Expanded(
                                                                           child:
                                                                               Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 4.0,
                                                                                 0.0,
                                                                                 0.0,
@@ -3235,11 +3458,12 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                                   ),
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Readex Pro',
+                                                                                        letterSpacing: 0.0,
                                                                                         fontWeight: FontWeight.bold,
                                                                                       ),
                                                                                 ),
                                                                                 Padding(
-                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                                                                                   child: Text(
                                                                                     FFLocalizations.of(context).getText(
                                                                                       'obloxmop' /* Business Name */,
@@ -3247,6 +3471,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                                     style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                           fontFamily: 'Readex Pro',
                                                                                           color: FlutterFlowTheme.of(context).primary,
+                                                                                          letterSpacing: 0.0,
                                                                                         ),
                                                                                   ),
                                                                                 ),
@@ -3273,7 +3498,13 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                       ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyMedium,
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Readex Pro',
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                          ),
                                                                     ),
                                                                   ),
                                                                 Expanded(
@@ -3298,12 +3529,12 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                                 1.0,
                                                                           ),
                                                                         ),
-                                                                        alignment: const AlignmentDirectional(
+                                                                        alignment: AlignmentDirectional(
                                                                             0.0,
                                                                             0.0),
                                                                         child:
                                                                             Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
                                                                               12.0,
                                                                               0.0,
                                                                               12.0,
@@ -3313,8 +3544,10 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                             FFLocalizations.of(context).getText(
                                                                               'gaye1lao' /* High */,
                                                                             ),
-                                                                            style:
-                                                                                FlutterFlowTheme.of(context).bodyMedium,
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  fontFamily: 'Readex Pro',
+                                                                                  letterSpacing: 0.0,
+                                                                                ),
                                                                           ),
                                                                         ),
                                                                       ),
@@ -3374,7 +3607,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                           ),
                                           Container(
                                             width: double.infinity,
-                                            constraints: const BoxConstraints(
+                                            constraints: BoxConstraints(
                                               maxWidth: 1270.0,
                                             ),
                                             decoration: BoxDecoration(
@@ -3391,7 +3624,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                               ),
                                             ),
                                             child: Padding(
-                                              padding: const EdgeInsets.all(16.0),
+                                              padding: EdgeInsets.all(16.0),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
@@ -3421,7 +3654,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                       .spaceBetween,
                                                               children: [
                                                                 Padding(
-                                                                  padding: const EdgeInsetsDirectional
+                                                                  padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -3435,7 +3668,13 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .titleLarge,
+                                                                        .titleLarge
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Outfit',
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                        ),
                                                                   ),
                                                                 ),
                                                                 FFButtonWidget(
@@ -3453,14 +3692,14 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                       FFButtonOptions(
                                                                     height:
                                                                         36.0,
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             16.0,
                                                                             0.0,
                                                                             16.0,
                                                                             0.0),
                                                                     iconPadding:
-                                                                        const EdgeInsetsDirectional.fromSTEB(
+                                                                        EdgeInsetsDirectional.fromSTEB(
                                                                             0.0,
                                                                             0.0,
                                                                             0.0,
@@ -3470,7 +3709,13 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                         .secondaryBackground,
                                                                     textStyle: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyMedium,
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Readex Pro',
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                        ),
                                                                     elevation:
                                                                         0.0,
                                                                     borderSide:
@@ -3506,7 +3751,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                             ),
                                                             Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           4.0,
@@ -3520,7 +3765,13 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .labelMedium,
+                                                                    .labelMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Readex Pro',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                               ),
                                                             ),
                                                           ],
@@ -3551,14 +3802,14 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                               FFButtonOptions(
                                                             height: 40.0,
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         16.0,
                                                                         0.0,
                                                                         16.0,
                                                                         0.0),
                                                             iconPadding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
@@ -3576,10 +3827,12 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                           'Readex Pro',
                                                                       fontSize:
                                                                           14.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                     ),
                                                             elevation: 2.0,
                                                             borderSide:
-                                                                const BorderSide(
+                                                                BorderSide(
                                                               color: Colors
                                                                   .transparent,
                                                               width: 1.0,
@@ -3594,7 +3847,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 16.0,
                                                                 0.0, 0.0),
                                                     child: Container(
@@ -3605,7 +3858,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                 .of(context)
                                                             .primaryBackground,
                                                         borderRadius:
-                                                            const BorderRadius.only(
+                                                            BorderRadius.only(
                                                           bottomLeft:
                                                               Radius.circular(
                                                                   0.0),
@@ -3622,7 +3875,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                       ),
                                                       child: Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     16.0,
                                                                     0.0,
@@ -3642,7 +3895,13 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .labelSmall,
+                                                                    .labelSmall
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Readex Pro',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                               ),
                                                             ),
                                                             if (responsiveVisibility(
@@ -3659,7 +3918,13 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .labelSmall,
+                                                                      .labelSmall
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Readex Pro',
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
                                                                 ),
                                                               ),
                                                             if (responsiveVisibility(
@@ -3679,7 +3944,13 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                           .end,
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .labelSmall,
+                                                                      .labelSmall
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Readex Pro',
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
                                                                 ),
                                                               ),
                                                           ],
@@ -3695,7 +3966,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                     children: [
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -3714,14 +3985,16 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primaryBackground,
-                                                                offset: const Offset(
-                                                                    0.0, 1.0),
+                                                                offset: Offset(
+                                                                  0.0,
+                                                                  1.0,
+                                                                ),
                                                               )
                                                             ],
                                                           ),
                                                           child: Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         16.0,
                                                                         0.0,
@@ -3736,7 +4009,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                   flex: 3,
                                                                   child:
                                                                       Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             8.0,
@@ -3748,7 +4021,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                               .max,
                                                                       children: [
                                                                         Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
                                                                               0.0,
                                                                               0.0,
                                                                               8.0,
@@ -3769,7 +4042,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                         Expanded(
                                                                           child:
                                                                               Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 4.0,
                                                                                 0.0,
                                                                                 0.0,
@@ -3786,11 +4059,12 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                                   ),
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Readex Pro',
+                                                                                        letterSpacing: 0.0,
                                                                                         fontWeight: FontWeight.bold,
                                                                                       ),
                                                                                 ),
                                                                                 Padding(
-                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                                                                                   child: Text(
                                                                                     FFLocalizations.of(context).getText(
                                                                                       'gcmqt5o3' /* Business Name */,
@@ -3798,6 +4072,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                                     style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                           fontFamily: 'Readex Pro',
                                                                                           color: FlutterFlowTheme.of(context).primary,
+                                                                                          letterSpacing: 0.0,
                                                                                         ),
                                                                                   ),
                                                                                 ),
@@ -3824,7 +4099,13 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                       ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyMedium,
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Readex Pro',
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                          ),
                                                                     ),
                                                                   ),
                                                                 Expanded(
@@ -3849,12 +4130,12 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                                 1.0,
                                                                           ),
                                                                         ),
-                                                                        alignment: const AlignmentDirectional(
+                                                                        alignment: AlignmentDirectional(
                                                                             0.0,
                                                                             0.0),
                                                                         child:
                                                                             Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
                                                                               12.0,
                                                                               0.0,
                                                                               12.0,
@@ -3864,8 +4145,10 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                             FFLocalizations.of(context).getText(
                                                                               'orna9bre' /* High */,
                                                                             ),
-                                                                            style:
-                                                                                FlutterFlowTheme.of(context).bodyMedium,
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  fontFamily: 'Readex Pro',
+                                                                                  letterSpacing: 0.0,
+                                                                                ),
                                                                           ),
                                                                         ),
                                                                       ),
@@ -3919,7 +4202,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -3938,14 +4221,16 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primaryBackground,
-                                                                offset: const Offset(
-                                                                    0.0, 1.0),
+                                                                offset: Offset(
+                                                                  0.0,
+                                                                  1.0,
+                                                                ),
                                                               )
                                                             ],
                                                           ),
                                                           child: Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         16.0,
                                                                         0.0,
@@ -3960,7 +4245,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                   flex: 3,
                                                                   child:
                                                                       Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             8.0,
@@ -3972,7 +4257,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                               .max,
                                                                       children: [
                                                                         Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
                                                                               0.0,
                                                                               0.0,
                                                                               8.0,
@@ -3993,7 +4278,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                         Expanded(
                                                                           child:
                                                                               Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 4.0,
                                                                                 0.0,
                                                                                 0.0,
@@ -4010,11 +4295,12 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                                   ),
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Readex Pro',
+                                                                                        letterSpacing: 0.0,
                                                                                         fontWeight: FontWeight.bold,
                                                                                       ),
                                                                                 ),
                                                                                 Padding(
-                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                                                                                   child: Text(
                                                                                     FFLocalizations.of(context).getText(
                                                                                       'c26o3jsx' /* Business Name */,
@@ -4022,6 +4308,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                                     style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                           fontFamily: 'Readex Pro',
                                                                                           color: FlutterFlowTheme.of(context).primary,
+                                                                                          letterSpacing: 0.0,
                                                                                         ),
                                                                                   ),
                                                                                 ),
@@ -4048,7 +4335,13 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                       ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyMedium,
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Readex Pro',
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                          ),
                                                                     ),
                                                                   ),
                                                                 Expanded(
@@ -4073,12 +4366,12 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                                 1.0,
                                                                           ),
                                                                         ),
-                                                                        alignment: const AlignmentDirectional(
+                                                                        alignment: AlignmentDirectional(
                                                                             0.0,
                                                                             0.0),
                                                                         child:
                                                                             Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
                                                                               12.0,
                                                                               0.0,
                                                                               12.0,
@@ -4088,8 +4381,10 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                             FFLocalizations.of(context).getText(
                                                                               'bfs9dsiw' /* High */,
                                                                             ),
-                                                                            style:
-                                                                                FlutterFlowTheme.of(context).bodyMedium,
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  fontFamily: 'Readex Pro',
+                                                                                  letterSpacing: 0.0,
+                                                                                ),
                                                                           ),
                                                                         ),
                                                                       ),
@@ -4143,7 +4438,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -4162,14 +4457,16 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primaryBackground,
-                                                                offset: const Offset(
-                                                                    0.0, 1.0),
+                                                                offset: Offset(
+                                                                  0.0,
+                                                                  1.0,
+                                                                ),
                                                               )
                                                             ],
                                                           ),
                                                           child: Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         16.0,
                                                                         0.0,
@@ -4184,7 +4481,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                   flex: 3,
                                                                   child:
                                                                       Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             8.0,
@@ -4196,7 +4493,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                               .max,
                                                                       children: [
                                                                         Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
                                                                               0.0,
                                                                               0.0,
                                                                               8.0,
@@ -4217,7 +4514,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                         Expanded(
                                                                           child:
                                                                               Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 4.0,
                                                                                 0.0,
                                                                                 0.0,
@@ -4234,11 +4531,12 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                                   ),
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Readex Pro',
+                                                                                        letterSpacing: 0.0,
                                                                                         fontWeight: FontWeight.bold,
                                                                                       ),
                                                                                 ),
                                                                                 Padding(
-                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                                                                                   child: Text(
                                                                                     FFLocalizations.of(context).getText(
                                                                                       'fmtv4f9a' /* Business Name */,
@@ -4246,6 +4544,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                                     style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                           fontFamily: 'Readex Pro',
                                                                                           color: FlutterFlowTheme.of(context).primary,
+                                                                                          letterSpacing: 0.0,
                                                                                         ),
                                                                                   ),
                                                                                 ),
@@ -4272,7 +4571,13 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                       ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyMedium,
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Readex Pro',
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                          ),
                                                                     ),
                                                                   ),
                                                                 Expanded(
@@ -4297,12 +4602,12 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                                 1.0,
                                                                           ),
                                                                         ),
-                                                                        alignment: const AlignmentDirectional(
+                                                                        alignment: AlignmentDirectional(
                                                                             0.0,
                                                                             0.0),
                                                                         child:
                                                                             Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
                                                                               12.0,
                                                                               0.0,
                                                                               12.0,
@@ -4312,8 +4617,10 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                             FFLocalizations.of(context).getText(
                                                                               'rag58zof' /* High */,
                                                                             ),
-                                                                            style:
-                                                                                FlutterFlowTheme.of(context).bodyMedium,
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  fontFamily: 'Readex Pro',
+                                                                                  letterSpacing: 0.0,
+                                                                                ),
                                                                           ),
                                                                         ),
                                                                       ),
@@ -4367,7 +4674,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -4386,14 +4693,16 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primaryBackground,
-                                                                offset: const Offset(
-                                                                    0.0, 1.0),
+                                                                offset: Offset(
+                                                                  0.0,
+                                                                  1.0,
+                                                                ),
                                                               )
                                                             ],
                                                           ),
                                                           child: Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         16.0,
                                                                         0.0,
@@ -4408,7 +4717,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                   flex: 3,
                                                                   child:
                                                                       Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             8.0,
@@ -4420,7 +4729,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                               .max,
                                                                       children: [
                                                                         Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
                                                                               0.0,
                                                                               0.0,
                                                                               8.0,
@@ -4441,7 +4750,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                         Expanded(
                                                                           child:
                                                                               Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 4.0,
                                                                                 0.0,
                                                                                 0.0,
@@ -4458,11 +4767,12 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                                   ),
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Readex Pro',
+                                                                                        letterSpacing: 0.0,
                                                                                         fontWeight: FontWeight.bold,
                                                                                       ),
                                                                                 ),
                                                                                 Padding(
-                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                                                                                   child: Text(
                                                                                     FFLocalizations.of(context).getText(
                                                                                       'lu3209ey' /* Business Name */,
@@ -4470,6 +4780,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                                     style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                           fontFamily: 'Readex Pro',
                                                                                           color: FlutterFlowTheme.of(context).primary,
+                                                                                          letterSpacing: 0.0,
                                                                                         ),
                                                                                   ),
                                                                                 ),
@@ -4496,7 +4807,13 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                       ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyMedium,
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Readex Pro',
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                          ),
                                                                     ),
                                                                   ),
                                                                 Expanded(
@@ -4521,12 +4838,12 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                                 1.0,
                                                                           ),
                                                                         ),
-                                                                        alignment: const AlignmentDirectional(
+                                                                        alignment: AlignmentDirectional(
                                                                             0.0,
                                                                             0.0),
                                                                         child:
                                                                             Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
                                                                               12.0,
                                                                               0.0,
                                                                               12.0,
@@ -4536,8 +4853,10 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                             FFLocalizations.of(context).getText(
                                                                               '2vs1y3z7' /* High */,
                                                                             ),
-                                                                            style:
-                                                                                FlutterFlowTheme.of(context).bodyMedium,
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  fontFamily: 'Readex Pro',
+                                                                                  letterSpacing: 0.0,
+                                                                                ),
                                                                           ),
                                                                         ),
                                                                       ),
@@ -4596,8 +4915,8 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                             ),
                                           ),
                                         ]
-                                            .divide(const SizedBox(height: 16.0))
-                                            .addToEnd(const SizedBox(height: 44.0)),
+                                            .divide(SizedBox(height: 16.0))
+                                            .addToEnd(SizedBox(height: 44.0)),
                                       ),
                                     ),
                                     if (responsiveVisibility(
@@ -4606,11 +4925,11 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                       tablet: false,
                                     ))
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 16.0, 0.0),
                                         child: Container(
                                           width: double.infinity,
-                                          constraints: const BoxConstraints(
+                                          constraints: BoxConstraints(
                                             maxWidth: 370.0,
                                           ),
                                           decoration: BoxDecoration(
@@ -4626,14 +4945,14 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                             ),
                                           ),
                                           child: Padding(
-                                            padding: const EdgeInsets.all(16.0),
+                                            padding: EdgeInsets.all(16.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.start,
                                               children: [
                                                 Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 12.0, 0.0),
                                                   child: Text(
@@ -4643,11 +4962,15 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .titleLarge,
+                                                        .titleLarge
+                                                        .override(
+                                                          fontFamily: 'Outfit',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 4.0, 12.0, 0.0),
                                                   child: Text(
@@ -4657,11 +4980,16 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .labelMedium,
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                   ),
                                                 ),
                                                 ListView(
-                                                  padding: const EdgeInsets.fromLTRB(
+                                                  padding: EdgeInsets.fromLTRB(
                                                     0,
                                                     16.0,
                                                     0,
@@ -4674,7 +5002,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                     Container(
                                                       width: double.infinity,
                                                       constraints:
-                                                          const BoxConstraints(
+                                                          BoxConstraints(
                                                         maxWidth: 570.0,
                                                       ),
                                                       decoration: BoxDecoration(
@@ -4717,7 +5045,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                 ),
                                                                 child: Padding(
                                                                   padding:
-                                                                      const EdgeInsets
+                                                                      EdgeInsets
                                                                           .all(
                                                                               2.0),
                                                                   child:
@@ -4740,7 +5068,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                               ),
                                                               Expanded(
                                                                 child: Padding(
-                                                                  padding: const EdgeInsetsDirectional
+                                                                  padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           12.0,
                                                                           0.0,
@@ -4758,6 +5086,8 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                         .override(
                                                                           fontFamily:
                                                                               'Readex Pro',
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight:
                                                                               FontWeight.bold,
                                                                         ),
@@ -4772,13 +5102,19 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .labelSmall,
+                                                                    .labelSmall
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Readex Pro',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                               ),
                                                             ],
                                                           ),
                                                           Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         18.0,
                                                                         0.0,
@@ -4800,9 +5136,10 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                             context)
                                                                         .primary,
                                                                     offset:
-                                                                        const Offset(
-                                                                            -2.0,
-                                                                            0.0),
+                                                                        Offset(
+                                                                      -2.0,
+                                                                      0.0,
+                                                                    ),
                                                                   )
                                                                 ],
                                                                 border:
@@ -4815,7 +5152,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                               ),
                                                               child: Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             26.0,
                                                                             0.0,
@@ -4830,7 +5167,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                           .start,
                                                                   children: [
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           0.0,
                                                                           0.0,
@@ -4846,7 +5183,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                               text: FFLocalizations.of(context).getText(
                                                                                 'j8wuget6' /* Completed  */,
                                                                               ),
-                                                                              style: const TextStyle(),
+                                                                              style: TextStyle(),
                                                                             ),
                                                                             TextSpan(
                                                                               text: FFLocalizations.of(context).getText(
@@ -4855,12 +5192,17 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                               style: FlutterFlowTheme.of(context).labelMedium.override(
                                                                                     fontFamily: 'Readex Pro',
                                                                                     color: FlutterFlowTheme.of(context).primary,
+                                                                                    letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.bold,
                                                                                   ),
                                                                             )
                                                                           ],
-                                                                          style:
-                                                                              FlutterFlowTheme.of(context).labelMedium,
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .labelMedium
+                                                                              .override(
+                                                                                fontFamily: 'Readex Pro',
+                                                                                letterSpacing: 0.0,
+                                                                              ),
                                                                         ),
                                                                       ),
                                                                     ),
@@ -4876,7 +5218,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                           .alternate,
                                                                     ),
                                                                   ].addToEnd(
-                                                                      const SizedBox(
+                                                                      SizedBox(
                                                                           height:
                                                                               12.0)),
                                                                 ),
@@ -4889,7 +5231,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                     Container(
                                                       width: double.infinity,
                                                       constraints:
-                                                          const BoxConstraints(
+                                                          BoxConstraints(
                                                         maxWidth: 570.0,
                                                       ),
                                                       decoration: BoxDecoration(
@@ -4932,7 +5274,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                 ),
                                                                 child: Padding(
                                                                   padding:
-                                                                      const EdgeInsets
+                                                                      EdgeInsets
                                                                           .all(
                                                                               2.0),
                                                                   child:
@@ -4955,7 +5297,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                               ),
                                                               Expanded(
                                                                 child: Padding(
-                                                                  padding: const EdgeInsetsDirectional
+                                                                  padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           12.0,
                                                                           0.0,
@@ -4973,6 +5315,8 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                         .override(
                                                                           fontFamily:
                                                                               'Readex Pro',
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight:
                                                                               FontWeight.bold,
                                                                         ),
@@ -4987,13 +5331,19 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .labelSmall,
+                                                                    .labelSmall
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Readex Pro',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                               ),
                                                             ],
                                                           ),
                                                           Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         18.0,
                                                                         0.0,
@@ -5015,9 +5365,10 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                             context)
                                                                         .primary,
                                                                     offset:
-                                                                        const Offset(
-                                                                            -2.0,
-                                                                            0.0),
+                                                                        Offset(
+                                                                      -2.0,
+                                                                      0.0,
+                                                                    ),
                                                                   )
                                                                 ],
                                                                 border:
@@ -5030,7 +5381,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                               ),
                                                               child: Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             26.0,
                                                                             0.0,
@@ -5045,7 +5396,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                           .start,
                                                                   children: [
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           0.0,
                                                                           0.0,
@@ -5061,7 +5412,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                               text: FFLocalizations.of(context).getText(
                                                                                 'rj9ygn3n' /* Started  */,
                                                                               ),
-                                                                              style: const TextStyle(),
+                                                                              style: TextStyle(),
                                                                             ),
                                                                             TextSpan(
                                                                               text: FFLocalizations.of(context).getText(
@@ -5070,12 +5421,17 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                               style: FlutterFlowTheme.of(context).labelMedium.override(
                                                                                     fontFamily: 'Readex Pro',
                                                                                     color: FlutterFlowTheme.of(context).primary,
+                                                                                    letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.bold,
                                                                                   ),
                                                                             )
                                                                           ],
-                                                                          style:
-                                                                              FlutterFlowTheme.of(context).labelMedium,
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .labelMedium
+                                                                              .override(
+                                                                                fontFamily: 'Readex Pro',
+                                                                                letterSpacing: 0.0,
+                                                                              ),
                                                                         ),
                                                                       ),
                                                                     ),
@@ -5091,7 +5447,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                           .alternate,
                                                                     ),
                                                                   ].addToEnd(
-                                                                      const SizedBox(
+                                                                      SizedBox(
                                                                           height:
                                                                               12.0)),
                                                                 ),
@@ -5104,7 +5460,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                     Container(
                                                       width: double.infinity,
                                                       constraints:
-                                                          const BoxConstraints(
+                                                          BoxConstraints(
                                                         maxWidth: 570.0,
                                                       ),
                                                       decoration: BoxDecoration(
@@ -5147,7 +5503,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                 ),
                                                                 child: Padding(
                                                                   padding:
-                                                                      const EdgeInsets
+                                                                      EdgeInsets
                                                                           .all(
                                                                               2.0),
                                                                   child:
@@ -5170,7 +5526,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                               ),
                                                               Expanded(
                                                                 child: Padding(
-                                                                  padding: const EdgeInsetsDirectional
+                                                                  padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           12.0,
                                                                           0.0,
@@ -5188,6 +5544,8 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                         .override(
                                                                           fontFamily:
                                                                               'Readex Pro',
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight:
                                                                               FontWeight.bold,
                                                                         ),
@@ -5202,13 +5560,19 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .labelSmall,
+                                                                    .labelSmall
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Readex Pro',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                               ),
                                                             ],
                                                           ),
                                                           Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         18.0,
                                                                         0.0,
@@ -5230,9 +5594,10 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                             context)
                                                                         .primary,
                                                                     offset:
-                                                                        const Offset(
-                                                                            -2.0,
-                                                                            0.0),
+                                                                        Offset(
+                                                                      -2.0,
+                                                                      0.0,
+                                                                    ),
                                                                   )
                                                                 ],
                                                                 border:
@@ -5245,7 +5610,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                               ),
                                                               child: Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             26.0,
                                                                             0.0,
@@ -5260,7 +5625,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                           .start,
                                                                   children: [
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           0.0,
                                                                           0.0,
@@ -5276,7 +5641,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                               text: FFLocalizations.of(context).getText(
                                                                                 'be3aog6l' /* Assigned   */,
                                                                               ),
-                                                                              style: const TextStyle(),
+                                                                              style: TextStyle(),
                                                                             ),
                                                                             TextSpan(
                                                                               text: FFLocalizations.of(context).getText(
@@ -5285,6 +5650,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                               style: FlutterFlowTheme.of(context).labelMedium.override(
                                                                                     fontFamily: 'Readex Pro',
                                                                                     color: FlutterFlowTheme.of(context).secondary,
+                                                                                    letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.bold,
                                                                                   ),
                                                                             ),
@@ -5292,7 +5658,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                               text: FFLocalizations.of(context).getText(
                                                                                 '2mup0dbr' /* to  */,
                                                                               ),
-                                                                              style: const TextStyle(),
+                                                                              style: TextStyle(),
                                                                             ),
                                                                             TextSpan(
                                                                               text: FFLocalizations.of(context).getText(
@@ -5304,8 +5670,12 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                               ),
                                                                             )
                                                                           ],
-                                                                          style:
-                                                                              FlutterFlowTheme.of(context).labelMedium,
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .labelMedium
+                                                                              .override(
+                                                                                fontFamily: 'Readex Pro',
+                                                                                letterSpacing: 0.0,
+                                                                              ),
                                                                         ),
                                                                       ),
                                                                     ),
@@ -5321,7 +5691,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                           .alternate,
                                                                     ),
                                                                   ].addToEnd(
-                                                                      const SizedBox(
+                                                                      SizedBox(
                                                                           height:
                                                                               12.0)),
                                                                 ),
@@ -5334,7 +5704,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                     Container(
                                                       width: double.infinity,
                                                       constraints:
-                                                          const BoxConstraints(
+                                                          BoxConstraints(
                                                         maxWidth: 570.0,
                                                       ),
                                                       decoration: BoxDecoration(
@@ -5377,7 +5747,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                 ),
                                                                 child: Padding(
                                                                   padding:
-                                                                      const EdgeInsets
+                                                                      EdgeInsets
                                                                           .all(
                                                                               2.0),
                                                                   child:
@@ -5400,7 +5770,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                               ),
                                                               Expanded(
                                                                 child: Padding(
-                                                                  padding: const EdgeInsetsDirectional
+                                                                  padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           12.0,
                                                                           0.0,
@@ -5418,6 +5788,8 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                         .override(
                                                                           fontFamily:
                                                                               'Readex Pro',
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight:
                                                                               FontWeight.bold,
                                                                         ),
@@ -5432,13 +5804,19 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .labelSmall,
+                                                                    .labelSmall
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Readex Pro',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                               ),
                                                             ],
                                                           ),
                                                           Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         18.0,
                                                                         0.0,
@@ -5460,9 +5838,10 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                             context)
                                                                         .primary,
                                                                     offset:
-                                                                        const Offset(
-                                                                            -2.0,
-                                                                            0.0),
+                                                                        Offset(
+                                                                      -2.0,
+                                                                      0.0,
+                                                                    ),
                                                                   )
                                                                 ],
                                                                 border:
@@ -5475,7 +5854,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                               ),
                                                               child: Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             26.0,
                                                                             0.0,
@@ -5490,7 +5869,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                           .start,
                                                                   children: [
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           0.0,
                                                                           0.0,
@@ -5506,7 +5885,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                               text: FFLocalizations.of(context).getText(
                                                                                 '0rl4k3iy' /* Created a project:  */,
                                                                               ),
-                                                                              style: const TextStyle(),
+                                                                              style: TextStyle(),
                                                                             ),
                                                                             TextSpan(
                                                                               text: FFLocalizations.of(context).getText(
@@ -5515,12 +5894,17 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                               style: FlutterFlowTheme.of(context).labelMedium.override(
                                                                                     fontFamily: 'Readex Pro',
                                                                                     color: FlutterFlowTheme.of(context).primary,
+                                                                                    letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.bold,
                                                                                   ),
                                                                             )
                                                                           ],
-                                                                          style:
-                                                                              FlutterFlowTheme.of(context).labelMedium,
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .labelMedium
+                                                                              .override(
+                                                                                fontFamily: 'Readex Pro',
+                                                                                letterSpacing: 0.0,
+                                                                              ),
                                                                         ),
                                                                       ),
                                                                     ),
@@ -5536,7 +5920,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                           .alternate,
                                                                     ),
                                                                   ].addToEnd(
-                                                                      const SizedBox(
+                                                                      SizedBox(
                                                                           height:
                                                                               12.0)),
                                                                 ),
@@ -5549,7 +5933,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                     Container(
                                                       width: double.infinity,
                                                       constraints:
-                                                          const BoxConstraints(
+                                                          BoxConstraints(
                                                         maxWidth: 570.0,
                                                       ),
                                                       decoration: BoxDecoration(
@@ -5592,7 +5976,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                 ),
                                                                 child: Padding(
                                                                   padding:
-                                                                      const EdgeInsets
+                                                                      EdgeInsets
                                                                           .all(
                                                                               2.0),
                                                                   child:
@@ -5615,7 +5999,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                               ),
                                                               Expanded(
                                                                 child: Padding(
-                                                                  padding: const EdgeInsetsDirectional
+                                                                  padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           12.0,
                                                                           0.0,
@@ -5633,6 +6017,8 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                         .override(
                                                                           fontFamily:
                                                                               'Readex Pro',
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight:
                                                                               FontWeight.bold,
                                                                         ),
@@ -5647,13 +6033,19 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .labelSmall,
+                                                                    .labelSmall
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Readex Pro',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                               ),
                                                             ],
                                                           ),
                                                           Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         18.0,
                                                                         0.0,
@@ -5675,9 +6067,10 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                             context)
                                                                         .primary,
                                                                     offset:
-                                                                        const Offset(
-                                                                            -2.0,
-                                                                            0.0),
+                                                                        Offset(
+                                                                      -2.0,
+                                                                      0.0,
+                                                                    ),
                                                                   )
                                                                 ],
                                                                 border:
@@ -5690,7 +6083,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                               ),
                                                               child: Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             26.0,
                                                                             0.0,
@@ -5705,7 +6098,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                           .start,
                                                                   children: [
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           0.0,
                                                                           0.0,
@@ -5721,7 +6114,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                               text: FFLocalizations.of(context).getText(
                                                                                 'xifzw6x5' /* Sent a plan update for  */,
                                                                               ),
-                                                                              style: const TextStyle(),
+                                                                              style: TextStyle(),
                                                                             ),
                                                                             TextSpan(
                                                                               text: FFLocalizations.of(context).getText(
@@ -5730,12 +6123,17 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                               style: FlutterFlowTheme.of(context).labelMedium.override(
                                                                                     fontFamily: 'Readex Pro',
                                                                                     color: FlutterFlowTheme.of(context).primary,
+                                                                                    letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.bold,
                                                                                   ),
                                                                             )
                                                                           ],
-                                                                          style:
-                                                                              FlutterFlowTheme.of(context).labelMedium,
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .labelMedium
+                                                                              .override(
+                                                                                fontFamily: 'Readex Pro',
+                                                                                letterSpacing: 0.0,
+                                                                              ),
                                                                         ),
                                                                       ),
                                                                     ),
@@ -5751,7 +6149,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                           .alternate,
                                                                     ),
                                                                   ].addToEnd(
-                                                                      const SizedBox(
+                                                                      SizedBox(
                                                                           height:
                                                                               12.0)),
                                                                 ),
@@ -5764,7 +6162,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                     Container(
                                                       width: double.infinity,
                                                       constraints:
-                                                          const BoxConstraints(
+                                                          BoxConstraints(
                                                         maxWidth: 570.0,
                                                       ),
                                                       decoration: BoxDecoration(
@@ -5777,14 +6175,16 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .alternate,
-                                                            offset: const Offset(
-                                                                0.0, 1.0),
+                                                            offset: Offset(
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
                                                       child: Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -5820,7 +6220,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                               ),
                                                               child: Padding(
                                                                 padding:
-                                                                    const EdgeInsets
+                                                                    EdgeInsets
                                                                         .all(
                                                                             2.0),
                                                                 child:
@@ -5844,7 +6244,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                             Expanded(
                                                               child: Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             12.0,
                                                                             0.0,
@@ -5870,6 +6270,8 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                           .override(
                                                                             fontFamily:
                                                                                 'Readex Pro',
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                             fontWeight:
                                                                                 FontWeight.bold,
                                                                           ),
@@ -5882,7 +6284,13 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                       ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .labelSmall,
+                                                                          .labelSmall
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Readex Pro',
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                          ),
                                                                     ),
                                                                   ],
                                                                 ),
@@ -5893,17 +6301,17 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                       ),
                                                     ),
                                                   ].divide(
-                                                      const SizedBox(height: 0.0)),
+                                                      SizedBox(height: 0.0)),
                                                 ),
                                               ],
                                             ),
                                           ),
                                         ),
                                       ),
-                                  ].divide(const SizedBox(width: 16.0)),
+                                  ].divide(SizedBox(width: 16.0)),
                                 ),
                               ),
-                            ].addToEnd(const SizedBox(height: 44.0)),
+                            ].addToEnd(SizedBox(height: 44.0)),
                           ),
                         ),
                       ),

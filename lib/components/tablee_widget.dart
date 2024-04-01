@@ -3,6 +3,9 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'tablee_model.dart';
 export 'tablee_model.dart';
 
@@ -43,21 +46,24 @@ class _TableeWidgetState extends State<TableeWidget> {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: const AlignmentDirectional(0.0, 0.0),
+      alignment: AlignmentDirectional(0.0, 0.0),
       child: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(16.0),
         child: Container(
           width: double.infinity,
-          constraints: const BoxConstraints(
+          constraints: BoxConstraints(
             maxWidth: 1170.0,
           ),
           decoration: BoxDecoration(
             color: FlutterFlowTheme.of(context).secondaryBackground,
-            boxShadow: const [
+            boxShadow: [
               BoxShadow(
                 blurRadius: 3.0,
                 color: Color(0x33000000),
-                offset: Offset(0.0, 1.0),
+                offset: Offset(
+                  0.0,
+                  1.0,
+                ),
               )
             ],
             borderRadius: BorderRadius.circular(8.0),
@@ -67,7 +73,7 @@ class _TableeWidgetState extends State<TableeWidget> {
             ),
           ),
           child: Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: EdgeInsets.all(16.0),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -82,24 +88,33 @@ class _TableeWidgetState extends State<TableeWidget> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 12.0, 0.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
                                 '0j0kw8sb' /* Card Header */,
                               ),
-                              style:
-                                  FlutterFlowTheme.of(context).headlineMedium,
+                              style: FlutterFlowTheme.of(context)
+                                  .headlineMedium
+                                  .override(
+                                    fontFamily: 'Outfit',
+                                    letterSpacing: 0.0,
+                                  ),
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 4.0, 12.0, 0.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
                                 'o0pi4iwh' /* Create tables and ui elements ... */,
                               ),
-                              style: FlutterFlowTheme.of(context).labelMedium,
+                              style: FlutterFlowTheme.of(context)
+                                  .labelMedium
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    letterSpacing: 0.0,
+                                  ),
                             ),
                           ),
                         ],
@@ -112,12 +127,13 @@ class _TableeWidgetState extends State<TableeWidget> {
                     ))
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
-                        child: SizedBox(
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
+                        child: Container(
                           width: 270.0,
                           child: TextFormField(
                             controller: _model.textController,
                             focusNode: _model.textFieldFocusNode,
+                            autofocus: false,
                             textCapitalization: TextCapitalization.sentences,
                             obscureText: false,
                             decoration: InputDecoration(
@@ -125,7 +141,12 @@ class _TableeWidgetState extends State<TableeWidget> {
                               hintText: FFLocalizations.of(context).getText(
                                 'sarysha1' /* Search users... */,
                               ),
-                              hintStyle: FlutterFlowTheme.of(context).bodySmall,
+                              hintStyle: FlutterFlowTheme.of(context)
+                                  .bodySmall
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    letterSpacing: 0.0,
+                                  ),
                               enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
                                   color: FlutterFlowTheme.of(context)
@@ -135,21 +156,21 @@ class _TableeWidgetState extends State<TableeWidget> {
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
                               focusedBorder: OutlineInputBorder(
-                                borderSide: const BorderSide(
+                                borderSide: BorderSide(
                                   color: Color(0x00000000),
                                   width: 2.0,
                                 ),
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
                               errorBorder: OutlineInputBorder(
-                                borderSide: const BorderSide(
+                                borderSide: BorderSide(
                                   color: Color(0x00000000),
                                   width: 2.0,
                                 ),
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
                               focusedErrorBorder: OutlineInputBorder(
-                                borderSide: const BorderSide(
+                                borderSide: BorderSide(
                                   color: Color(0x00000000),
                                   width: 2.0,
                                 ),
@@ -162,7 +183,13 @@ class _TableeWidgetState extends State<TableeWidget> {
                                 size: 20.0,
                               ),
                             ),
-                            style: FlutterFlowTheme.of(context).bodyMedium,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  letterSpacing: 0.0,
+                                ),
+                            minLines: null,
                             validator: _model.textControllerValidator
                                 .asValidator(context),
                           ),
@@ -175,24 +202,25 @@ class _TableeWidgetState extends State<TableeWidget> {
                       text: FFLocalizations.of(context).getText(
                         'll7tgmu7' /* Create User */,
                       ),
-                      icon: const Icon(
+                      icon: Icon(
                         Icons.add_rounded,
                         size: 15.0,
                       ),
                       options: FFButtonOptions(
                         height: 40.0,
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             16.0, 0.0, 16.0, 0.0),
                         iconPadding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         color: FlutterFlowTheme.of(context).primary,
                         textStyle:
                             FlutterFlowTheme.of(context).titleSmall.override(
                                   fontFamily: 'Readex Pro',
                                   color: Colors.white,
+                                  letterSpacing: 0.0,
                                 ),
                         elevation: 3.0,
-                        borderSide: const BorderSide(
+                        borderSide: BorderSide(
                           color: Colors.transparent,
                           width: 1.0,
                         ),
@@ -202,13 +230,13 @@ class _TableeWidgetState extends State<TableeWidget> {
                   ],
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                   child: Container(
                     width: double.infinity,
                     height: 40.0,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).primaryBackground,
-                      borderRadius: const BorderRadius.only(
+                      borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(0.0),
                         bottomRight: Radius.circular(0.0),
                         topLeft: Radius.circular(8.0),
@@ -217,7 +245,7 @@ class _TableeWidgetState extends State<TableeWidget> {
                     ),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -232,7 +260,12 @@ class _TableeWidgetState extends State<TableeWidget> {
                                 FFLocalizations.of(context).getText(
                                   'mrxazj43' /* ID */,
                                 ),
-                                style: FlutterFlowTheme.of(context).bodySmall,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodySmall
+                                    .override(
+                                      fontFamily: 'Readex Pro',
+                                      letterSpacing: 0.0,
+                                    ),
                               ),
                             ),
                           Expanded(
@@ -241,7 +274,12 @@ class _TableeWidgetState extends State<TableeWidget> {
                               FFLocalizations.of(context).getText(
                                 'hagy7hy2' /* User Information */,
                               ),
-                              style: FlutterFlowTheme.of(context).bodySmall,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodySmall
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    letterSpacing: 0.0,
+                                  ),
                             ),
                           ),
                           if (responsiveVisibility(
@@ -254,7 +292,12 @@ class _TableeWidgetState extends State<TableeWidget> {
                                 FFLocalizations.of(context).getText(
                                   '5k1xhmr4' /* Next Task Due */,
                                 ),
-                                style: FlutterFlowTheme.of(context).bodySmall,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodySmall
+                                    .override(
+                                      fontFamily: 'Readex Pro',
+                                      letterSpacing: 0.0,
+                                    ),
                               ),
                             ),
                           Expanded(
@@ -262,7 +305,12 @@ class _TableeWidgetState extends State<TableeWidget> {
                               FFLocalizations.of(context).getText(
                                 'cfq2sqnh' /* Status */,
                               ),
-                              style: FlutterFlowTheme.of(context).bodySmall,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodySmall
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    letterSpacing: 0.0,
+                                  ),
                             ),
                           ),
                           Expanded(
@@ -271,7 +319,12 @@ class _TableeWidgetState extends State<TableeWidget> {
                                 'l4l7fkd1' /* Actions */,
                               ),
                               textAlign: TextAlign.end,
-                              style: FlutterFlowTheme.of(context).bodySmall,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodySmall
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    letterSpacing: 0.0,
+                                  ),
                             ),
                           ),
                         ],
@@ -286,7 +339,7 @@ class _TableeWidgetState extends State<TableeWidget> {
                   children: [
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 1.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 1.0),
                       child: Container(
                         width: 100.0,
                         decoration: BoxDecoration(
@@ -297,12 +350,15 @@ class _TableeWidgetState extends State<TableeWidget> {
                               blurRadius: 0.0,
                               color: FlutterFlowTheme.of(context)
                                   .primaryBackground,
-                              offset: const Offset(0.0, 1.0),
+                              offset: Offset(
+                                0.0,
+                                1.0,
+                              ),
                             )
                           ],
                         ),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               16.0, 0.0, 16.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -318,20 +374,24 @@ class _TableeWidgetState extends State<TableeWidget> {
                                     FFLocalizations.of(context).getText(
                                       'dqm4hj6w' /* #2424552 */,
                                     ),
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Readex Pro',
+                                          letterSpacing: 0.0,
+                                        ),
                                   ),
                                 ),
                               Expanded(
                                 flex: 4,
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 8.0, 12.0, 8.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 8.0, 0.0),
                                         child: ClipRRect(
                                           borderRadius:
@@ -347,7 +407,7 @@ class _TableeWidgetState extends State<TableeWidget> {
                                       Expanded(
                                         child: Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   4.0, 0.0, 0.0, 0.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
@@ -367,12 +427,13 @@ class _TableeWidgetState extends State<TableeWidget> {
                                                         .override(
                                                           fontFamily:
                                                               'Readex Pro',
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.bold,
                                                         ),
                                               ),
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 4.0, 0.0, 0.0),
                                                 child: Text(
@@ -390,6 +451,7 @@ class _TableeWidgetState extends State<TableeWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .primary,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                 ),
                                               ),
@@ -411,8 +473,12 @@ class _TableeWidgetState extends State<TableeWidget> {
                                     FFLocalizations.of(context).getText(
                                       'cmhfus69' /* Jan. 30th, 2023 */,
                                     ),
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Readex Pro',
+                                          letterSpacing: 0.0,
+                                        ),
                                   ),
                                 ),
                               Expanded(
@@ -427,16 +493,20 @@ class _TableeWidgetState extends State<TableeWidget> {
                                         borderRadius:
                                             BorderRadius.circular(40.0),
                                       ),
-                                      alignment: const AlignmentDirectional(0.0, 0.0),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             12.0, 0.0, 12.0, 0.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
                                             'lpxwepbr' /* Active */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyMedium,
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Readex Pro',
+                                                letterSpacing: 0.0,
+                                              ),
                                         ),
                                       ),
                                     ),
@@ -453,7 +523,7 @@ class _TableeWidgetState extends State<TableeWidget> {
                                       phone: false,
                                     ))
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 8.0, 0.0),
                                         child: FlutterFlowIconButton(
                                           borderColor: Colors.transparent,
@@ -496,7 +566,7 @@ class _TableeWidgetState extends State<TableeWidget> {
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 1.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 1.0),
                       child: Container(
                         width: 100.0,
                         decoration: BoxDecoration(
@@ -507,12 +577,15 @@ class _TableeWidgetState extends State<TableeWidget> {
                               blurRadius: 0.0,
                               color: FlutterFlowTheme.of(context)
                                   .primaryBackground,
-                              offset: const Offset(0.0, 1.0),
+                              offset: Offset(
+                                0.0,
+                                1.0,
+                              ),
                             )
                           ],
                         ),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               16.0, 0.0, 16.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -528,20 +601,24 @@ class _TableeWidgetState extends State<TableeWidget> {
                                     FFLocalizations.of(context).getText(
                                       'wy1ez7zx' /* #2424552 */,
                                     ),
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Readex Pro',
+                                          letterSpacing: 0.0,
+                                        ),
                                   ),
                                 ),
                               Expanded(
                                 flex: 4,
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 8.0, 12.0, 8.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 8.0, 0.0),
                                         child: ClipRRect(
                                           borderRadius:
@@ -557,7 +634,7 @@ class _TableeWidgetState extends State<TableeWidget> {
                                       Expanded(
                                         child: Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   4.0, 0.0, 0.0, 0.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
@@ -577,12 +654,13 @@ class _TableeWidgetState extends State<TableeWidget> {
                                                         .override(
                                                           fontFamily:
                                                               'Readex Pro',
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.bold,
                                                         ),
                                               ),
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 4.0, 0.0, 0.0),
                                                 child: Text(
@@ -600,6 +678,7 @@ class _TableeWidgetState extends State<TableeWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .primary,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                 ),
                                               ),
@@ -621,8 +700,12 @@ class _TableeWidgetState extends State<TableeWidget> {
                                     FFLocalizations.of(context).getText(
                                       '3x4zj1po' /* Jan. 30th, 2023 */,
                                     ),
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Readex Pro',
+                                          letterSpacing: 0.0,
+                                        ),
                                   ),
                                 ),
                               Expanded(
@@ -637,16 +720,20 @@ class _TableeWidgetState extends State<TableeWidget> {
                                         borderRadius:
                                             BorderRadius.circular(40.0),
                                       ),
-                                      alignment: const AlignmentDirectional(0.0, 0.0),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             12.0, 0.0, 12.0, 0.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
                                             'z4jdrnwc' /* Active */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyMedium,
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Readex Pro',
+                                                letterSpacing: 0.0,
+                                              ),
                                         ),
                                       ),
                                     ),
@@ -663,7 +750,7 @@ class _TableeWidgetState extends State<TableeWidget> {
                                       phone: false,
                                     ))
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 8.0, 0.0),
                                         child: FlutterFlowIconButton(
                                           borderColor: Colors.transparent,
@@ -706,7 +793,7 @@ class _TableeWidgetState extends State<TableeWidget> {
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 1.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 1.0),
                       child: Container(
                         width: 100.0,
                         decoration: BoxDecoration(
@@ -717,12 +804,15 @@ class _TableeWidgetState extends State<TableeWidget> {
                               blurRadius: 0.0,
                               color: FlutterFlowTheme.of(context)
                                   .primaryBackground,
-                              offset: const Offset(0.0, 1.0),
+                              offset: Offset(
+                                0.0,
+                                1.0,
+                              ),
                             )
                           ],
                         ),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               16.0, 0.0, 16.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -738,20 +828,24 @@ class _TableeWidgetState extends State<TableeWidget> {
                                     FFLocalizations.of(context).getText(
                                       'au8ybpgp' /* #2424552 */,
                                     ),
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Readex Pro',
+                                          letterSpacing: 0.0,
+                                        ),
                                   ),
                                 ),
                               Expanded(
                                 flex: 4,
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 8.0, 12.0, 8.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 8.0, 0.0),
                                         child: ClipRRect(
                                           borderRadius:
@@ -767,7 +861,7 @@ class _TableeWidgetState extends State<TableeWidget> {
                                       Expanded(
                                         child: Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   4.0, 0.0, 0.0, 0.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
@@ -787,12 +881,13 @@ class _TableeWidgetState extends State<TableeWidget> {
                                                         .override(
                                                           fontFamily:
                                                               'Readex Pro',
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.bold,
                                                         ),
                                               ),
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 4.0, 0.0, 0.0),
                                                 child: Text(
@@ -810,6 +905,7 @@ class _TableeWidgetState extends State<TableeWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .primary,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                 ),
                                               ),
@@ -831,8 +927,12 @@ class _TableeWidgetState extends State<TableeWidget> {
                                     FFLocalizations.of(context).getText(
                                       '475izkmq' /* Jan. 30th, 2023 */,
                                     ),
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Readex Pro',
+                                          letterSpacing: 0.0,
+                                        ),
                                   ),
                                 ),
                               Expanded(
@@ -847,16 +947,20 @@ class _TableeWidgetState extends State<TableeWidget> {
                                         borderRadius:
                                             BorderRadius.circular(40.0),
                                       ),
-                                      alignment: const AlignmentDirectional(0.0, 0.0),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             12.0, 0.0, 12.0, 0.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
                                             'r7bhgkr4' /* Active */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyMedium,
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Readex Pro',
+                                                letterSpacing: 0.0,
+                                              ),
                                         ),
                                       ),
                                     ),
@@ -873,7 +977,7 @@ class _TableeWidgetState extends State<TableeWidget> {
                                       phone: false,
                                     ))
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 8.0, 0.0),
                                         child: FlutterFlowIconButton(
                                           borderColor: Colors.transparent,

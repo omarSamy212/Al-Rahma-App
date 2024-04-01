@@ -23,7 +23,7 @@ Future<String> generateUserCode(String userRole) async {
   int userCounts = await getDocumentCount(startRange, endRange);
   int tempNumber = int.parse(userIDCategory);
   int resultNumber = tempNumber + userCounts;
-  return 'User_$resultNumber';
+  return '$resultNumber';
 }
 
 Future<int> getDocumentCount(String startRange, String endRange) async {

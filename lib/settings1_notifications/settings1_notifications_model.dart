@@ -1,6 +1,12 @@
+import '/flutter_flow/flutter_flow_icon_button.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'settings1_notifications_widget.dart' show Settings1NotificationsWidget;
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class Settings1NotificationsModel
     extends FlutterFlowModel<Settings1NotificationsWidget> {
@@ -13,15 +19,9 @@ class Settings1NotificationsModel
   // State field(s) for SwitchListTile widget.
   bool? switchListTileValue3;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
   @override
   void dispose() {}
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

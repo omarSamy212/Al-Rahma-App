@@ -5,6 +5,9 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'hint_beforeapplyjob_model.dart';
 export 'hint_beforeapplyjob_model.dart';
 
@@ -49,20 +52,20 @@ class _HintBeforeapplyjobWidgetState extends State<HintBeforeapplyjobWidget> {
               : FocusScope.of(context).unfocus(),
           child: Scaffold(
             key: scaffoldKey,
-            backgroundColor: const Color(0xFFF1F4F8),
+            backgroundColor: Color(0xFFF1F4F8),
             body: SafeArea(
               top: true,
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Expanded(
-                    child: SizedBox(
+                    child: Container(
                       width: double.infinity,
                       height: 500.0,
                       child: Stack(
                         children: [
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 30.0),
                             child: PageView(
                               controller: _model.pageViewController ??=
@@ -70,15 +73,15 @@ class _HintBeforeapplyjobWidgetState extends State<HintBeforeapplyjobWidget> {
                               scrollDirection: Axis.horizontal,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.all(12.0),
+                                  padding: EdgeInsets.all(12.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      const Spacer(),
-                                      const Align(
+                                      Spacer(),
+                                      Align(
                                         alignment:
                                             AlignmentDirectional(0.0, 0.0),
                                         child: FlutterFlowVideoPlayer(
@@ -92,9 +95,9 @@ class _HintBeforeapplyjobWidgetState extends State<HintBeforeapplyjobWidget> {
                                           allowPlaybackSpeedMenu: false,
                                         ),
                                       ),
-                                      const Spacer(),
+                                      Spacer(),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             12.0, 0.0, 0.0, 0.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
@@ -104,14 +107,15 @@ class _HintBeforeapplyjobWidgetState extends State<HintBeforeapplyjobWidget> {
                                               .headlineLarge
                                               .override(
                                                 fontFamily: 'Urbanist',
-                                                color: const Color(0xFF101213),
+                                                color: Color(0xFF101213),
                                                 fontSize: 32.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             12.0, 4.0, 12.0, 0.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
@@ -121,18 +125,19 @@ class _HintBeforeapplyjobWidgetState extends State<HintBeforeapplyjobWidget> {
                                               .labelLarge
                                               .override(
                                                 fontFamily: 'Plus Jakarta Sans',
-                                                color: const Color(0xFF57636C),
+                                                color: Color(0xFF57636C),
                                                 fontSize: 16.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,
                                               ),
                                         ),
                                       ),
-                                      const Spacer(),
+                                      Spacer(),
                                     ],
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.all(12.0),
+                                  padding: EdgeInsets.all(12.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment: MainAxisAlignment.center,
@@ -142,7 +147,7 @@ class _HintBeforeapplyjobWidgetState extends State<HintBeforeapplyjobWidget> {
                                       Expanded(
                                         child: Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 12.0),
                                           child: ClipRRect(
                                             borderRadius:
@@ -157,7 +162,7 @@ class _HintBeforeapplyjobWidgetState extends State<HintBeforeapplyjobWidget> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             12.0, 0.0, 0.0, 0.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
@@ -167,14 +172,15 @@ class _HintBeforeapplyjobWidgetState extends State<HintBeforeapplyjobWidget> {
                                               .headlineLarge
                                               .override(
                                                 fontFamily: 'Urbanist',
-                                                color: const Color(0xFF101213),
+                                                color: Color(0xFF101213),
                                                 fontSize: 32.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             12.0, 4.0, 12.0, 0.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
@@ -184,8 +190,9 @@ class _HintBeforeapplyjobWidgetState extends State<HintBeforeapplyjobWidget> {
                                               .labelLarge
                                               .override(
                                                 fontFamily: 'Plus Jakarta Sans',
-                                                color: const Color(0xFF57636C),
+                                                color: Color(0xFF57636C),
                                                 fontSize: 16.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,
                                               ),
                                         ),
@@ -194,7 +201,7 @@ class _HintBeforeapplyjobWidgetState extends State<HintBeforeapplyjobWidget> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.all(12.0),
+                                  padding: EdgeInsets.all(12.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment: MainAxisAlignment.center,
@@ -204,7 +211,7 @@ class _HintBeforeapplyjobWidgetState extends State<HintBeforeapplyjobWidget> {
                                       Expanded(
                                         child: Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 12.0),
                                           child: ClipRRect(
                                             borderRadius:
@@ -219,7 +226,7 @@ class _HintBeforeapplyjobWidgetState extends State<HintBeforeapplyjobWidget> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             12.0, 0.0, 0.0, 0.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
@@ -229,14 +236,15 @@ class _HintBeforeapplyjobWidgetState extends State<HintBeforeapplyjobWidget> {
                                               .headlineLarge
                                               .override(
                                                 fontFamily: 'Urbanist',
-                                                color: const Color(0xFF101213),
+                                                color: Color(0xFF101213),
                                                 fontSize: 32.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             12.0, 4.0, 12.0, 0.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
@@ -246,8 +254,9 @@ class _HintBeforeapplyjobWidgetState extends State<HintBeforeapplyjobWidget> {
                                               .labelLarge
                                               .override(
                                                 fontFamily: 'Plus Jakarta Sans',
-                                                color: const Color(0xFF57636C),
+                                                color: Color(0xFF57636C),
                                                 fontSize: 16.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,
                                               ),
                                         ),
@@ -259,9 +268,9 @@ class _HintBeforeapplyjobWidgetState extends State<HintBeforeapplyjobWidget> {
                             ),
                           ),
                           Align(
-                            alignment: const AlignmentDirectional(0.0, 1.0),
+                            alignment: AlignmentDirectional(0.0, 1.0),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 10.0),
                               child: smooth_page_indicator.SmoothPageIndicator(
                                 controller: _model.pageViewController ??=
@@ -272,12 +281,12 @@ class _HintBeforeapplyjobWidgetState extends State<HintBeforeapplyjobWidget> {
                                   await _model.pageViewController!
                                       .animateToPage(
                                     i,
-                                    duration: const Duration(milliseconds: 500),
+                                    duration: Duration(milliseconds: 500),
                                     curve: Curves.ease,
                                   );
                                 },
                                 effect:
-                                    const smooth_page_indicator.ExpandingDotsEffect(
+                                    smooth_page_indicator.ExpandingDotsEffect(
                                   expansionFactor: 2.0,
                                   spacing: 8.0,
                                   radius: 16.0,
@@ -295,7 +304,7 @@ class _HintBeforeapplyjobWidgetState extends State<HintBeforeapplyjobWidget> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(24.0),
+                    padding: EdgeInsets.all(24.0),
                     child: Wrap(
                       spacing: 16.0,
                       runSpacing: 16.0,
@@ -320,21 +329,22 @@ class _HintBeforeapplyjobWidgetState extends State<HintBeforeapplyjobWidget> {
                           options: FFButtonOptions(
                             width: 304.0,
                             height: 50.0,
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            color: const Color(0xFF101213),
+                            color: Color(0xFF101213),
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
                                   fontFamily: 'Plus Jakarta Sans',
                                   color: Colors.white,
                                   fontSize: 16.0,
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.w500,
                                 ),
                             elevation: 2.0,
-                            borderSide: const BorderSide(
+                            borderSide: BorderSide(
                               color: Colors.transparent,
                               width: 1.0,
                             ),

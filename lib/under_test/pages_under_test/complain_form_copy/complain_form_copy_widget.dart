@@ -1,5 +1,6 @@
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_audio_player.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
@@ -11,13 +12,13 @@ import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:cross_file/cross_file.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:path_provider/path_provider.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:record/record.dart';
 import 'complain_form_copy_model.dart';
 export 'complain_form_copy_model.dart';
@@ -57,8 +58,8 @@ class _ComplainFormCopyWidgetState extends State<ComplainFormCopyWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: const Offset(0.0, 110.0),
-          end: const Offset(0.0, 0.0),
+          begin: Offset(0.0, 110.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -76,8 +77,8 @@ class _ComplainFormCopyWidgetState extends State<ComplainFormCopyWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: const Offset(0.0, 110.0),
-          end: const Offset(0.0, 0.0),
+          begin: Offset(0.0, 110.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -129,14 +130,14 @@ class _ComplainFormCopyWidgetState extends State<ComplainFormCopyWidget>
           key: scaffoldKey,
           backgroundColor: Colors.white,
           appBar: PreferredSize(
-            preferredSize: const Size.fromHeight(100.0),
+            preferredSize: Size.fromHeight(100.0),
             child: AppBar(
               backgroundColor: Colors.white,
               automaticallyImplyLeading: false,
-              actions: const [],
+              actions: [],
               flexibleSpace: FlexibleSpaceBar(
                 title: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 14.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 14.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.end,
@@ -144,19 +145,19 @@ class _ComplainFormCopyWidgetState extends State<ComplainFormCopyWidget>
                     children: [
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   12.0, 0.0, 0.0, 0.0),
                               child: FlutterFlowIconButton(
                                 borderColor: Colors.transparent,
                                 borderRadius: 30.0,
                                 borderWidth: 1.0,
                                 buttonSize: 50.0,
-                                icon: const Icon(
+                                icon: Icon(
                                   Icons.arrow_back_rounded,
                                   color: Color(0xFF14181B),
                                   size: 30.0,
@@ -170,7 +171,7 @@ class _ComplainFormCopyWidgetState extends State<ComplainFormCopyWidget>
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   24.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 FFLocalizations.of(context).getText(
@@ -180,8 +181,9 @@ class _ComplainFormCopyWidgetState extends State<ComplainFormCopyWidget>
                                     .headlineMedium
                                     .override(
                                       fontFamily: 'Outfit',
-                                      color: const Color(0xFF14181B),
+                                      color: Color(0xFF14181B),
                                       fontSize: 22.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
                                     ),
                               ),
@@ -209,30 +211,33 @@ class _ComplainFormCopyWidgetState extends State<ComplainFormCopyWidget>
                   children: [
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Expanded(
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 8.0, 16.0, 0.0),
                               child: Container(
                                 width: double.infinity,
                                 decoration: BoxDecoration(
                                   color: Colors.white,
-                                  boxShadow: const [
+                                  boxShadow: [
                                     BoxShadow(
                                       blurRadius: 3.0,
                                       color: Color(0x20000000),
-                                      offset: Offset(0.0, 1.0),
+                                      offset: Offset(
+                                        0.0,
+                                        1.0,
+                                      ),
                                     )
                                   ],
                                   borderRadius: BorderRadius.circular(12.0),
                                 ),
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       8.0, 8.0, 12.0, 8.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
@@ -244,9 +249,9 @@ class _ComplainFormCopyWidgetState extends State<ComplainFormCopyWidget>
                                             BorderRadius.circular(8.0),
                                         child: CachedNetworkImage(
                                           fadeInDuration:
-                                              const Duration(milliseconds: 500),
+                                              Duration(milliseconds: 500),
                                           fadeOutDuration:
-                                              const Duration(milliseconds: 500),
+                                              Duration(milliseconds: 500),
                                           imageUrl:
                                               widget.supervisorDoc!.photoUrl,
                                           width: 157.0,
@@ -265,14 +270,14 @@ class _ComplainFormCopyWidgetState extends State<ComplainFormCopyWidget>
                                       Expanded(
                                         child: Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, 0.0),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         16.0, 0.0, 0.0, 0.0),
                                                 child: Text(
@@ -288,8 +293,9 @@ class _ComplainFormCopyWidgetState extends State<ComplainFormCopyWidget>
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            const Color(0xFF14181B),
+                                                            Color(0xFF14181B),
                                                         fontSize: 16.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                       ),
@@ -302,7 +308,7 @@ class _ComplainFormCopyWidgetState extends State<ComplainFormCopyWidget>
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(16.0, 4.0,
                                                                 20.0, 0.0),
                                                     child: Text(
@@ -311,43 +317,43 @@ class _ComplainFormCopyWidgetState extends State<ComplainFormCopyWidget>
                                                             ?.userCode,
                                                         'Role',
                                                       ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .labelMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Plus Jakarta Sans',
-                                                                color: const Color(
-                                                                    0xFF57636C),
-                                                                fontSize: 14.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .normal,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .labelMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Plus Jakarta Sans',
+                                                            color: Color(
+                                                                0xFF57636C),
+                                                            fontSize: 14.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .normal,
+                                                          ),
                                                     ),
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(16.0, 4.0,
                                                                 0.0, 0.0),
                                                     child: Text(
                                                       '#${widget.supervisorDoc?.userCode}',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .labelMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Plus Jakarta Sans',
-                                                                color: const Color(
-                                                                    0xFF57636C),
-                                                                fontSize: 14.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .normal,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .labelMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Plus Jakarta Sans',
+                                                            color: Color(
+                                                                0xFF57636C),
+                                                            fontSize: 14.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .normal,
+                                                          ),
                                                     ),
                                                   ),
                                                 ],
@@ -359,25 +365,25 @@ class _ComplainFormCopyWidgetState extends State<ComplainFormCopyWidget>
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(16.0,
                                                                 18.0, 0.0, 0.0),
                                                     child: Text(
-                                                      '${widget.supervisorDoc?.shift.startingShift}\' \'${widget.supervisorDoc?.shift.shiftPeriod}',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .labelMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Plus Jakarta Sans',
-                                                                color: const Color(
-                                                                    0xFF57636C),
-                                                                fontSize: 14.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .normal,
-                                                              ),
+                                                      '${widget.supervisorDoc?.shift?.startingShift}\' \'${widget.supervisorDoc?.shift?.shiftPeriod}',
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .labelMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Plus Jakarta Sans',
+                                                            color: Color(
+                                                                0xFF57636C),
+                                                            fontSize: 14.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .normal,
+                                                          ),
                                                     ),
                                                   ),
                                                 ],
@@ -397,7 +403,7 @@ class _ComplainFormCopyWidgetState extends State<ComplainFormCopyWidget>
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 12.0),
+                          EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 12.0),
                       child: FlutterFlowDropDown<int>(
                         controller: _model.complainsMenuValueController ??=
                             FormFieldController<int>(null),
@@ -423,22 +429,23 @@ class _ComplainFormCopyWidgetState extends State<ComplainFormCopyWidget>
                               fontFamily: 'Plus Jakarta Sans',
                               color: FlutterFlowTheme.of(context).secondaryText,
                               fontSize: 14.0,
+                              letterSpacing: 0.0,
                               fontWeight: FontWeight.normal,
                             ),
                         hintText: FFLocalizations.of(context).getText(
                           '0tgihp0g' /* Complain Type */,
                         ),
-                        icon: const Icon(
+                        icon: Icon(
                           Icons.keyboard_arrow_down_rounded,
                           color: Color(0xFF57636C),
                           size: 15.0,
                         ),
                         fillColor: Colors.white,
                         elevation: 2.0,
-                        borderColor: const Color(0xFFE0E3E7),
+                        borderColor: Color(0xFFE0E3E7),
                         borderWidth: 2.0,
                         borderRadius: 8.0,
-                        margin: const EdgeInsetsDirectional.fromSTEB(
+                        margin: EdgeInsetsDirectional.fromSTEB(
                             20.0, 4.0, 12.0, 4.0),
                         hidesUnderline: true,
                         isSearchable: false,
@@ -447,23 +454,23 @@ class _ComplainFormCopyWidgetState extends State<ComplainFormCopyWidget>
                     ),
                     if (_model.complainsMenuValue == 1)
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             20.0, 0.0, 20.0, 10.0),
                         child: Container(
                           width: double.infinity,
-                          constraints: const BoxConstraints(
+                          constraints: BoxConstraints(
                             maxWidth: 500.0,
                           ),
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(12.0),
                             border: Border.all(
-                              color: const Color(0xFFE5E7EB),
+                              color: Color(0xFFE5E7EB),
                               width: 2.0,
                             ),
                           ),
                           child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: EdgeInsets.all(8.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -497,6 +504,7 @@ class _ComplainFormCopyWidgetState extends State<ComplainFormCopyWidget>
                                         fontFamily: 'Readex Pro',
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryText,
+                                        letterSpacing: 0.0,
                                       ),
                                   hintText: FFLocalizations.of(context).getText(
                                     '4j08k91v' /* Select Missing tools */,
@@ -513,14 +521,14 @@ class _ComplainFormCopyWidgetState extends State<ComplainFormCopyWidget>
                                   borderColor: Colors.transparent,
                                   borderWidth: 2.0,
                                   borderRadius: 8.0,
-                                  margin: const EdgeInsetsDirectional.fromSTEB(
+                                  margin: EdgeInsetsDirectional.fromSTEB(
                                       16.0, 4.0, 16.0, 4.0),
                                   hidesUnderline: true,
                                   isOverButton: true,
                                   isSearchable: false,
                                   isMultiSelect: false,
                                 ),
-                                const SizedBox(
+                                SizedBox(
                                   height: 45.0,
                                   child: VerticalDivider(
                                     width: 10.0,
@@ -531,7 +539,7 @@ class _ComplainFormCopyWidgetState extends State<ComplainFormCopyWidget>
                                 FlutterFlowDropDown<String>(
                                   controller: _model.dropDownValueController ??=
                                       FormFieldController<String>(null),
-                                  options: const <String>[],
+                                  options: <String>[],
                                   onChanged: (val) => setState(
                                       () => _model.dropDownValue = val),
                                   width: 100.0,
@@ -541,6 +549,7 @@ class _ComplainFormCopyWidgetState extends State<ComplainFormCopyWidget>
                                       .override(
                                         fontFamily: 'Readex Pro',
                                         fontSize: 11.0,
+                                        letterSpacing: 0.0,
                                       ),
                                   hintText: FFLocalizations.of(context).getText(
                                     '7v4k0ejk' /* Number */,
@@ -557,7 +566,7 @@ class _ComplainFormCopyWidgetState extends State<ComplainFormCopyWidget>
                                   borderColor: Colors.transparent,
                                   borderWidth: 2.0,
                                   borderRadius: 8.0,
-                                  margin: const EdgeInsetsDirectional.fromSTEB(
+                                  margin: EdgeInsetsDirectional.fromSTEB(
                                       16.0, 4.0, 16.0, 4.0),
                                   hidesUnderline: true,
                                   isOverButton: true,
@@ -572,7 +581,7 @@ class _ComplainFormCopyWidgetState extends State<ComplainFormCopyWidget>
                       ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 12.0),
+                          EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 12.0),
                       child: TextFormField(
                         controller: _model.textualDetailsController,
                         focusNode: _model.textualDetailsFocusNode,
@@ -582,8 +591,9 @@ class _ComplainFormCopyWidgetState extends State<ComplainFormCopyWidget>
                           labelStyle:
                               FlutterFlowTheme.of(context).labelMedium.override(
                                     fontFamily: 'Plus Jakarta Sans',
-                                    color: const Color(0xFF57636C),
+                                    color: Color(0xFF57636C),
                                     fontSize: 14.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
                                   ),
                           hintText: FFLocalizations.of(context).getText(
@@ -592,33 +602,34 @@ class _ComplainFormCopyWidgetState extends State<ComplainFormCopyWidget>
                           hintStyle:
                               FlutterFlowTheme.of(context).labelMedium.override(
                                     fontFamily: 'Plus Jakarta Sans',
-                                    color: const Color(0xFF57636C),
+                                    color: Color(0xFF57636C),
                                     fontSize: 14.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
                                   ),
                           enabledBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
+                            borderSide: BorderSide(
                               color: Color(0xFFE0E3E7),
                               width: 2.0,
                             ),
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
+                            borderSide: BorderSide(
                               color: Color(0xFF4B39EF),
                               width: 2.0,
                             ),
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           errorBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
+                            borderSide: BorderSide(
                               color: Color(0xFFFF5963),
                               width: 2.0,
                             ),
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           focusedErrorBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
+                            borderSide: BorderSide(
                               color: Color(0xFFFF5963),
                               width: 2.0,
                             ),
@@ -626,17 +637,19 @@ class _ComplainFormCopyWidgetState extends State<ComplainFormCopyWidget>
                           ),
                           filled: true,
                           fillColor: Colors.white,
-                          contentPadding: const EdgeInsetsDirectional.fromSTEB(
+                          contentPadding: EdgeInsetsDirectional.fromSTEB(
                               20.0, 24.0, 0.0, 24.0),
                         ),
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Plus Jakarta Sans',
-                              color: const Color(0xFF14181B),
+                              color: Color(0xFF14181B),
                               fontSize: 14.0,
+                              letterSpacing: 0.0,
                               fontWeight: FontWeight.normal,
                             ),
                         textAlign: TextAlign.start,
                         maxLines: 3,
+                        minLines: null,
                         maxLength: 500,
                         maxLengthEnforcement: MaxLengthEnforcement.enforced,
                         validator: _model.textualDetailsControllerValidator
@@ -645,22 +658,22 @@ class _ComplainFormCopyWidgetState extends State<ComplainFormCopyWidget>
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 10.0),
+                          EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 10.0),
                       child: Container(
                         width: double.infinity,
-                        constraints: const BoxConstraints(
+                        constraints: BoxConstraints(
                           maxWidth: 500.0,
                         ),
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(12.0),
                           border: Border.all(
-                            color: const Color(0xFFE5E7EB),
+                            color: Color(0xFFE5E7EB),
                             width: 2.0,
                           ),
                         ),
                         child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: EdgeInsets.all(8.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -674,45 +687,25 @@ class _ComplainFormCopyWidgetState extends State<ComplainFormCopyWidget>
                                       'COMPLAIN_FORM_COPY_Icon_f0wy54x8_ON_TAP');
                                   logFirebaseEvent(
                                       'Icon_start_audio_recording');
-                                  _model.audioRecorder ??= AudioRecorder();
-                                  if (await _model.audioRecorder!
-                                      .hasPermission()) {
-                                    final String path;
-                                    final AudioEncoder encoder;
-                                    if (kIsWeb) {
-                                      path = '';
-                                      encoder = AudioEncoder.opus;
-                                    } else {
-                                      final dir =
-                                          await getApplicationDocumentsDirectory();
-                                      path =
-                                          '${dir.path}/audio_${DateTime.now().millisecondsSinceEpoch}.m4a';
-                                      encoder = AudioEncoder.aacLc;
-                                    }
-                                    await _model.audioRecorder!.start(
-                                      RecordConfig(encoder: encoder),
-                                      path: path,
-                                    );
-                                  } else {
-                                    showSnackbar(
-                                      context,
-                                      'You have not provided permission to record audio.',
-                                    );
-                                  }
+                                  await startAudioRecording(
+                                    context,
+                                    audioRecorder: _model.audioRecorder ??=
+                                        AudioRecorder(),
+                                  );
 
                                   logFirebaseEvent('Icon_update_page_state');
                                   setState(() {
                                     _model.isRecording = !_model.isRecording;
                                   });
                                 },
-                                child: const Icon(
+                                child: Icon(
                                   Icons.fiber_manual_record_sharp,
                                   color: Color(0xFF0CA256),
                                   size: 32.0,
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     16.0, 0.0, 0.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
@@ -723,8 +716,9 @@ class _ComplainFormCopyWidgetState extends State<ComplainFormCopyWidget>
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Plus Jakarta Sans',
-                                        color: const Color(0xFF15161E),
+                                        color: Color(0xFF15161E),
                                         fontSize: 14.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
                                       ),
                                 ),
@@ -732,7 +726,7 @@ class _ComplainFormCopyWidgetState extends State<ComplainFormCopyWidget>
                               if (!_model.isRecording)
                                 Expanded(
                                   child: Align(
-                                    alignment: const AlignmentDirectional(1.0, 0.0),
+                                    alignment: AlignmentDirectional(1.0, 0.0),
                                     child: InkWell(
                                       splashColor: Colors.transparent,
                                       focusColor: Colors.transparent,
@@ -743,17 +737,17 @@ class _ComplainFormCopyWidgetState extends State<ComplainFormCopyWidget>
                                             'COMPLAIN_FORM_COPY_Icon_n6xaz4s8_ON_TAP');
                                         logFirebaseEvent(
                                             'Icon_stop_audio_recording');
-                                        _model.playComplainRecord =
-                                            await _model.audioRecorder?.stop();
-                                        if (_model.playComplainRecord != null) {
-                                          _model.recordedFileBytes =
-                                              FFUploadedFile(
-                                            name: 'recordedFileBytes.mp3',
-                                            bytes: await XFile(
-                                                    _model.playComplainRecord!)
-                                                .readAsBytes(),
-                                          );
-                                        }
+                                        await stopAudioRecording(
+                                          audioRecorder: _model.audioRecorder,
+                                          audioName: 'recordedFileBytes.mp3',
+                                          onRecordingComplete:
+                                              (audioFilePath, audioBytes) {
+                                            _model.playComplainRecord =
+                                                audioFilePath;
+                                            _model.recordedFileBytes =
+                                                audioBytes;
+                                          },
+                                        );
 
                                         logFirebaseEvent(
                                             'Icon_upload_file_to_firebase');
@@ -859,12 +853,18 @@ class _ComplainFormCopyWidgetState extends State<ComplainFormCopyWidget>
                             ),
                           ),
                           titleTextStyle:
-                              FlutterFlowTheme.of(context).titleLarge,
+                              FlutterFlowTheme.of(context).titleLarge.override(
+                                    fontFamily: 'Outfit',
+                                    letterSpacing: 0.0,
+                                  ),
                           playbackDurationTextStyle:
-                              FlutterFlowTheme.of(context).labelMedium,
+                              FlutterFlowTheme.of(context).labelMedium.override(
+                                    fontFamily: 'Readex Pro',
+                                    letterSpacing: 0.0,
+                                  ),
                           fillColor:
                               FlutterFlowTheme.of(context).secondaryBackground,
-                          playbackButtonColor: const Color(0xFF0CA256),
+                          playbackButtonColor: Color(0xFF0CA256),
                           activeTrackColor:
                               FlutterFlowTheme.of(context).alternate,
                           elevation: 4.0,
@@ -875,7 +875,7 @@ class _ComplainFormCopyWidgetState extends State<ComplainFormCopyWidget>
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 17.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 17.0),
                       child: FFButtonWidget(
                         onPressed: () async {
                           logFirebaseEvent(
@@ -896,9 +896,10 @@ class _ComplainFormCopyWidgetState extends State<ComplainFormCopyWidget>
                                         fontFamily: 'Readex Pro',
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
-                                duration: const Duration(milliseconds: 4000),
+                                duration: Duration(milliseconds: 4000),
                                 backgroundColor: FlutterFlowTheme.of(context)
                                     .primaryBackground,
                               ),
@@ -916,9 +917,10 @@ class _ComplainFormCopyWidgetState extends State<ComplainFormCopyWidget>
                                         fontFamily: 'Outfit',
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
-                                duration: const Duration(milliseconds: 4000),
+                                duration: Duration(milliseconds: 4000),
                                 backgroundColor: FlutterFlowTheme.of(context)
                                     .primaryBackground,
                               ),
@@ -932,20 +934,21 @@ class _ComplainFormCopyWidgetState extends State<ComplainFormCopyWidget>
                         options: FFButtonOptions(
                           width: 270.0,
                           height: 50.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
-                          color: const Color(0xFF0CA256),
+                          color: Color(0xFF0CA256),
                           textStyle:
                               FlutterFlowTheme.of(context).titleMedium.override(
                                     fontFamily: 'Plus Jakarta Sans',
                                     color: Colors.white,
                                     fontSize: 18.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
                                   ),
                           elevation: 2.0,
-                          borderSide: const BorderSide(
+                          borderSide: BorderSide(
                             color: Colors.transparent,
                             width: 1.0,
                           ),

@@ -1,5 +1,6 @@
 import 'form_field_controller.dart';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -75,7 +76,7 @@ class _FlutterFlowChoiceChipsState extends State<FlutterFlowChoiceChips> {
   @override
   void initState() {
     super.initState();
-    choiceChipValues = selectedValues;
+    choiceChipValues = List.from(selectedValues);
     if (!widget.initialized && choiceChipValues.isNotEmpty) {
       SchedulerBinding.instance.addPostFrameCallback(
         (_) {
@@ -105,6 +106,7 @@ class _FlutterFlowChoiceChipsState extends State<FlutterFlowChoiceChips> {
             selected: selected,
             onSelected: widget.onChanged != null
                 ? (isSelected) {
+                    choiceChipValues = List.from(selectedValues);
                     if (isSelected) {
                       widget.multiselect
                           ? choiceChipValues.add(option.label)

@@ -1,7 +1,11 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'how_to_use_app_model.dart';
 export 'how_to_use_app_model.dart';
 
@@ -53,7 +57,7 @@ class _HowToUseAppWidgetState extends State<HowToUseAppWidget> {
                 borderRadius: 30.0,
                 borderWidth: 1.0,
                 buttonSize: 60.0,
-                icon: const Icon(
+                icon: Icon(
                   Icons.arrow_back_rounded,
                   color: Color(0xFF0F1113),
                   size: 30.0,
@@ -65,7 +69,7 @@ class _HowToUseAppWidgetState extends State<HowToUseAppWidget> {
                   context.pushNamed('storekeeperHome');
                 },
               ),
-              actions: const [],
+              actions: [],
               centerTitle: true,
               elevation: 0.0,
             ),
@@ -78,7 +82,7 @@ class _HowToUseAppWidgetState extends State<HowToUseAppWidget> {
                   children: [
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 0.0, 0.0),
                       child: Text(
                         FFLocalizations.of(context).getText(
                           'yinsllsg' /* About app */,
@@ -86,14 +90,15 @@ class _HowToUseAppWidgetState extends State<HowToUseAppWidget> {
                         style:
                             FlutterFlowTheme.of(context).displaySmall.override(
                                   fontFamily: 'Outfit',
-                                  color: const Color(0xFF0F1113),
+                                  color: Color(0xFF0F1113),
                                   fontSize: 32.0,
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.w500,
                                 ),
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(12.0),
+                      padding: EdgeInsets.all(12.0),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(8.0),
                         child: Image.network(
@@ -106,22 +111,23 @@ class _HowToUseAppWidgetState extends State<HowToUseAppWidget> {
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 8.0),
+                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 8.0),
                       child: Text(
                         FFLocalizations.of(context).getText(
                           '8xed3obm' /* Overview */,
                         ),
                         style: FlutterFlowTheme.of(context).bodySmall.override(
                               fontFamily: 'Outfit',
-                              color: const Color(0xFF0F1113),
+                              color: Color(0xFF0F1113),
                               fontSize: 12.0,
+                              letterSpacing: 0.0,
                               fontWeight: FontWeight.normal,
                             ),
                       ),
                     ),
                     Flexible(
                       child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             16.0, 0.0, 16.0, 16.0),
                         child: Text(
                           FFLocalizations.of(context).getText(
@@ -130,8 +136,9 @@ class _HowToUseAppWidgetState extends State<HowToUseAppWidget> {
                           style:
                               FlutterFlowTheme.of(context).labelLarge.override(
                                     fontFamily: 'Outfit',
-                                    color: const Color(0xFF57636C),
+                                    color: Color(0xFF57636C),
                                     fontSize: 16.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.w500,
                                   ),
                         ),
@@ -139,38 +146,42 @@ class _HowToUseAppWidgetState extends State<HowToUseAppWidget> {
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 8.0),
+                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 8.0),
                       child: Text(
                         FFLocalizations.of(context).getText(
                           '07aj0hpq' /* Introduction */,
                         ),
                         style: FlutterFlowTheme.of(context).bodySmall.override(
                               fontFamily: 'Outfit',
-                              color: const Color(0xFF0F1113),
+                              color: Color(0xFF0F1113),
                               fontSize: 12.0,
+                              letterSpacing: 0.0,
                               fontWeight: FontWeight.normal,
                             ),
                       ),
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 12.0),
+                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 12.0),
                       child: Container(
                         width: double.infinity,
                         height: 50.0,
                         decoration: BoxDecoration(
-                          color: const Color(0xFFF1F4F8),
-                          boxShadow: const [
+                          color: Color(0xFFF1F4F8),
+                          boxShadow: [
                             BoxShadow(
                               blurRadius: 3.0,
                               color: Color(0x33000000),
-                              offset: Offset(0.0, 1.0),
+                              offset: Offset(
+                                0.0,
+                                1.0,
+                              ),
                             )
                           ],
                           borderRadius: BorderRadius.circular(8.0),
                         ),
                         child: Padding(
-                          padding: const EdgeInsets.all(12.0),
+                          padding: EdgeInsets.all(12.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -183,12 +194,13 @@ class _HowToUseAppWidgetState extends State<HowToUseAppWidget> {
                                     .labelMedium
                                     .override(
                                       fontFamily: 'Outfit',
-                                      color: const Color(0xFF57636C),
+                                      color: Color(0xFF57636C),
                                       fontSize: 14.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
-                              const Icon(
+                              Icon(
                                 Icons.chevron_right_rounded,
                                 color: Color(0xFF0F1113),
                                 size: 24.0,
@@ -200,23 +212,26 @@ class _HowToUseAppWidgetState extends State<HowToUseAppWidget> {
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 12.0),
+                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 12.0),
                       child: Container(
                         width: double.infinity,
                         height: 50.0,
                         decoration: BoxDecoration(
-                          color: const Color(0xFFF1F4F8),
-                          boxShadow: const [
+                          color: Color(0xFFF1F4F8),
+                          boxShadow: [
                             BoxShadow(
                               blurRadius: 3.0,
                               color: Color(0x33000000),
-                              offset: Offset(0.0, 1.0),
+                              offset: Offset(
+                                0.0,
+                                1.0,
+                              ),
                             )
                           ],
                           borderRadius: BorderRadius.circular(8.0),
                         ),
                         child: Padding(
-                          padding: const EdgeInsets.all(12.0),
+                          padding: EdgeInsets.all(12.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -229,12 +244,13 @@ class _HowToUseAppWidgetState extends State<HowToUseAppWidget> {
                                     .labelMedium
                                     .override(
                                       fontFamily: 'Outfit',
-                                      color: const Color(0xFF57636C),
+                                      color: Color(0xFF57636C),
                                       fontSize: 14.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
-                              const Icon(
+                              Icon(
                                 Icons.chevron_right_rounded,
                                 color: Color(0xFF0F1113),
                                 size: 24.0,
@@ -246,38 +262,42 @@ class _HowToUseAppWidgetState extends State<HowToUseAppWidget> {
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 8.0),
+                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 8.0),
                       child: Text(
                         FFLocalizations.of(context).getText(
                           'oed4ky7p' /* Main Content */,
                         ),
                         style: FlutterFlowTheme.of(context).bodySmall.override(
                               fontFamily: 'Outfit',
-                              color: const Color(0xFF0F1113),
+                              color: Color(0xFF0F1113),
                               fontSize: 12.0,
+                              letterSpacing: 0.0,
                               fontWeight: FontWeight.normal,
                             ),
                       ),
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 12.0),
+                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 12.0),
                       child: Container(
                         width: double.infinity,
                         height: 50.0,
                         decoration: BoxDecoration(
-                          color: const Color(0xFFF1F4F8),
-                          boxShadow: const [
+                          color: Color(0xFFF1F4F8),
+                          boxShadow: [
                             BoxShadow(
                               blurRadius: 3.0,
                               color: Color(0x33000000),
-                              offset: Offset(0.0, 1.0),
+                              offset: Offset(
+                                0.0,
+                                1.0,
+                              ),
                             )
                           ],
                           borderRadius: BorderRadius.circular(8.0),
                         ),
                         child: Padding(
-                          padding: const EdgeInsets.all(12.0),
+                          padding: EdgeInsets.all(12.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -290,12 +310,13 @@ class _HowToUseAppWidgetState extends State<HowToUseAppWidget> {
                                     .labelMedium
                                     .override(
                                       fontFamily: 'Outfit',
-                                      color: const Color(0xFF57636C),
+                                      color: Color(0xFF57636C),
                                       fontSize: 14.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
-                              const Icon(
+                              Icon(
                                 Icons.chevron_right_rounded,
                                 color: Color(0xFF0F1113),
                                 size: 24.0,
@@ -307,23 +328,26 @@ class _HowToUseAppWidgetState extends State<HowToUseAppWidget> {
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 8.0),
+                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 8.0),
                       child: Container(
                         width: double.infinity,
                         height: 50.0,
                         decoration: BoxDecoration(
-                          color: const Color(0xFFF1F4F8),
-                          boxShadow: const [
+                          color: Color(0xFFF1F4F8),
+                          boxShadow: [
                             BoxShadow(
                               blurRadius: 3.0,
                               color: Color(0x33000000),
-                              offset: Offset(0.0, 1.0),
+                              offset: Offset(
+                                0.0,
+                                1.0,
+                              ),
                             )
                           ],
                           borderRadius: BorderRadius.circular(8.0),
                         ),
                         child: Padding(
-                          padding: const EdgeInsets.all(12.0),
+                          padding: EdgeInsets.all(12.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -336,12 +360,13 @@ class _HowToUseAppWidgetState extends State<HowToUseAppWidget> {
                                     .labelMedium
                                     .override(
                                       fontFamily: 'Outfit',
-                                      color: const Color(0xFF57636C),
+                                      color: Color(0xFF57636C),
                                       fontSize: 14.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
-                              const Icon(
+                              Icon(
                                 Icons.chevron_right_rounded,
                                 color: Color(0xFF0F1113),
                                 size: 24.0,

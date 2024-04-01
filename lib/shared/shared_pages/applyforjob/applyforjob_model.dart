@@ -1,7 +1,17 @@
+import '/flutter_flow/flutter_flow_drop_down.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import 'dart:async';
 import 'applyforjob_widget.dart' show ApplyforjobWidget;
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class ApplyforjobModel extends FlutterFlowModel<ApplyforjobWidget> {
   ///  State fields for stateful widgets in this page.
@@ -25,8 +35,6 @@ class ApplyforjobModel extends FlutterFlowModel<ApplyforjobWidget> {
   // State field(s) for CheckboxListTile widget.
   bool? checkboxListTileValue;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -42,8 +50,4 @@ class ApplyforjobModel extends FlutterFlowModel<ApplyforjobWidget> {
     textFieldFocusNode3?.dispose();
     textController3?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

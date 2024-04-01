@@ -6,7 +6,11 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'search_model.dart';
 export 'search_model.dart';
 
@@ -43,8 +47,8 @@ class _SearchWidgetState extends State<SearchWidget>
           curve: Curves.bounceOut,
           delay: 300.ms,
           duration: 400.ms,
-          begin: const Offset(0.0, 100.0),
-          end: const Offset(0.0, 0.0),
+          begin: Offset(0.0, 100.0),
+          end: Offset(0.0, 0.0),
         ),
         FadeEffect(
           curve: Curves.easeInOut,
@@ -112,15 +116,15 @@ class _SearchWidgetState extends State<SearchWidget>
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 60.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 60.0, 0.0, 0.0),
                 child: Container(
                   width: double.infinity,
-                  constraints: const BoxConstraints(
+                  constraints: BoxConstraints(
                     maxWidth: 770.0,
                   ),
-                  decoration: const BoxDecoration(),
+                  decoration: BoxDecoration(),
                   child: Padding(
-                    padding: const EdgeInsets.all(12.0),
+                    padding: EdgeInsets.all(12.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.end,
@@ -149,19 +153,22 @@ class _SearchWidgetState extends State<SearchWidget>
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 0.0),
                 child: Container(
                   width: double.infinity,
-                  constraints: const BoxConstraints(
+                  constraints: BoxConstraints(
                     maxWidth: 770.0,
                   ),
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).primaryBackground,
-                    boxShadow: const [
+                    boxShadow: [
                       BoxShadow(
                         blurRadius: 12.0,
                         color: Color(0x1E000000),
-                        offset: Offset(0.0, 5.0),
+                        offset: Offset(
+                          0.0,
+                          5.0,
+                        ),
                       )
                     ],
                     borderRadius: BorderRadius.circular(16.0),
@@ -171,7 +178,7 @@ class _SearchWidgetState extends State<SearchWidget>
                       mainAxisSize: MainAxisSize.max,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SizedBox(
+                        Container(
                           height: 80.0,
                           child: Stack(
                             children: [
@@ -190,6 +197,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                         fontFamily: 'Readex Pro',
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryText,
+                                        letterSpacing: 0.0,
                                       ),
                                   enabledBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
@@ -213,38 +221,44 @@ class _SearchWidgetState extends State<SearchWidget>
                                       topRight: Radius.circular(4.0),
                                     ),
                                   ),
-                                  errorBorder: const UnderlineInputBorder(
+                                  errorBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
                                       width: 2.0,
                                     ),
-                                    borderRadius: BorderRadius.only(
+                                    borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(4.0),
                                       topRight: Radius.circular(4.0),
                                     ),
                                   ),
-                                  focusedErrorBorder: const UnderlineInputBorder(
+                                  focusedErrorBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
                                       width: 2.0,
                                     ),
-                                    borderRadius: BorderRadius.only(
+                                    borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(4.0),
                                       topRight: Radius.circular(4.0),
                                     ),
                                   ),
                                   contentPadding:
-                                      const EdgeInsetsDirectional.fromSTEB(
+                                      EdgeInsetsDirectional.fromSTEB(
                                           24.0, 32.0, 0.0, 32.0),
                                 ),
-                                style: FlutterFlowTheme.of(context).titleMedium,
+                                style: FlutterFlowTheme.of(context)
+                                    .titleMedium
+                                    .override(
+                                      fontFamily: 'Readex Pro',
+                                      letterSpacing: 0.0,
+                                    ),
+                                minLines: null,
                                 validator: _model.textControllerValidator
                                     .asValidator(context),
                               ),
                               Align(
-                                alignment: const AlignmentDirectional(1.0, 0.0),
+                                alignment: AlignmentDirectional(1.0, 0.0),
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 16.0, 0.0),
                                   child: FFButtonWidget(
                                     onPressed: () {
@@ -256,10 +270,10 @@ class _SearchWidgetState extends State<SearchWidget>
                                     options: FFButtonOptions(
                                       width: 90.0,
                                       height: 40.0,
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 0.0),
                                       iconPadding:
-                                          const EdgeInsetsDirectional.fromSTEB(
+                                          EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 0.0, 0.0),
                                       color:
                                           FlutterFlowTheme.of(context).primary,
@@ -269,9 +283,10 @@ class _SearchWidgetState extends State<SearchWidget>
                                             fontFamily: 'Readex Pro',
                                             color: Colors.white,
                                             fontSize: 14.0,
+                                            letterSpacing: 0.0,
                                           ),
                                       elevation: 4.0,
-                                      borderSide: const BorderSide(
+                                      borderSide: BorderSide(
                                         color: Colors.transparent,
                                         width: 1.0,
                                       ),
@@ -284,7 +299,7 @@ class _SearchWidgetState extends State<SearchWidget>
                           ),
                         ),
                         ClipRRect(
-                          borderRadius: const BorderRadius.only(
+                          borderRadius: BorderRadius.only(
                             bottomLeft: Radius.circular(12.0),
                             bottomRight: Radius.circular(12.0),
                             topLeft: Radius.circular(0.0),
@@ -296,7 +311,7 @@ class _SearchWidgetState extends State<SearchWidget>
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
-                              borderRadius: const BorderRadius.only(
+                              borderRadius: BorderRadius.only(
                                 bottomLeft: Radius.circular(12.0),
                                 bottomRight: Radius.circular(12.0),
                                 topLeft: Radius.circular(0.0),
@@ -306,13 +321,17 @@ class _SearchWidgetState extends State<SearchWidget>
                             child: Column(
                               children: [
                                 Align(
-                                  alignment: const Alignment(0.0, 0),
+                                  alignment: Alignment(0.0, 0),
                                   child: FlutterFlowButtonTabBar(
                                     useToggleButtonStyle: true,
                                     isScrollable: true,
-                                    labelStyle:
-                                        FlutterFlowTheme.of(context).bodyLarge,
-                                    unselectedLabelStyle: const TextStyle(),
+                                    labelStyle: FlutterFlowTheme.of(context)
+                                        .bodyLarge
+                                        .override(
+                                          fontFamily: 'Readex Pro',
+                                          letterSpacing: 0.0,
+                                        ),
+                                    unselectedLabelStyle: TextStyle(),
                                     labelColor:
                                         FlutterFlowTheme.of(context).info,
                                     unselectedLabelColor:
@@ -331,12 +350,12 @@ class _SearchWidgetState extends State<SearchWidget>
                                     borderRadius: 12.0,
                                     elevation: 0.0,
                                     labelPadding:
-                                        const EdgeInsetsDirectional.fromSTEB(
+                                        EdgeInsetsDirectional.fromSTEB(
                                             16.0, 0.0, 16.0, 0.0),
                                     buttonMargin:
-                                        const EdgeInsetsDirectional.fromSTEB(
+                                        EdgeInsetsDirectional.fromSTEB(
                                             16.0, 8.0, 0.0, 8.0),
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 12.0, 0.0, 12.0),
                                     tabs: [
                                       Tab(
@@ -390,7 +409,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                                         .alternate,
                                               ),
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         16.0, 0.0, 16.0, 0.0),
                                                 child: Row(
@@ -401,7 +420,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                                       flex: 3,
                                                       child: Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     12.0,
@@ -415,7 +434,13 @@ class _SearchWidgetState extends State<SearchWidget>
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .labelMedium,
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Readex Pro',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
                                                         ),
                                                       ),
                                                     ),
@@ -423,7 +448,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                                       flex: 2,
                                                       child: Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     12.0,
@@ -437,7 +462,13 @@ class _SearchWidgetState extends State<SearchWidget>
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .labelMedium,
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Readex Pro',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
                                                         ),
                                                       ),
                                                     ),
@@ -445,7 +476,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                                       flex: 2,
                                                       child: Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     12.0,
@@ -459,7 +490,13 @@ class _SearchWidgetState extends State<SearchWidget>
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .labelMedium,
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Readex Pro',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
                                                         ),
                                                       ),
                                                     ),
@@ -483,7 +520,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 1.0),
                                                     child: Container(
@@ -498,8 +535,10 @@ class _SearchWidgetState extends State<SearchWidget>
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .alternate,
-                                                            offset: const Offset(
-                                                                0.0, 1.0),
+                                                            offset: Offset(
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                         borderRadius:
@@ -508,7 +547,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                                       ),
                                                       child: Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     16.0,
                                                                     12.0,
@@ -522,7 +561,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                                               flex: 3,
                                                               child: Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -536,7 +575,13 @@ class _SearchWidgetState extends State<SearchWidget>
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyLarge,
+                                                                      .bodyLarge
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Readex Pro',
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
                                                                 ),
                                                               ),
                                                             ),
@@ -550,7 +595,13 @@ class _SearchWidgetState extends State<SearchWidget>
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .labelMedium,
+                                                                    .labelMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Readex Pro',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                               ),
                                                             ),
                                                             Expanded(
@@ -576,12 +627,12 @@ class _SearchWidgetState extends State<SearchWidget>
                                                                               20.0),
                                                                     ),
                                                                     alignment:
-                                                                        const AlignmentDirectional(
+                                                                        AlignmentDirectional(
                                                                             0.0,
                                                                             0.0),
                                                                     child:
                                                                         Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           12.0,
                                                                           0.0,
                                                                           12.0,
@@ -597,6 +648,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                                                             .override(
                                                                               fontFamily: 'Readex Pro',
                                                                               color: FlutterFlowTheme.of(context).secondary,
+                                                                              letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.w500,
                                                                             ),
                                                                       ),
@@ -612,7 +664,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 1.0),
                                                     child: Container(
@@ -627,8 +679,10 @@ class _SearchWidgetState extends State<SearchWidget>
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .alternate,
-                                                            offset: const Offset(
-                                                                0.0, 1.0),
+                                                            offset: Offset(
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                         borderRadius:
@@ -637,7 +691,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                                       ),
                                                       child: Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     16.0,
                                                                     12.0,
@@ -651,7 +705,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                                               flex: 3,
                                                               child: Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -665,7 +719,13 @@ class _SearchWidgetState extends State<SearchWidget>
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyLarge,
+                                                                      .bodyLarge
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Readex Pro',
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
                                                                 ),
                                                               ),
                                                             ),
@@ -679,7 +739,13 @@ class _SearchWidgetState extends State<SearchWidget>
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .labelMedium,
+                                                                    .labelMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Readex Pro',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                               ),
                                                             ),
                                                             Expanded(
@@ -705,12 +771,12 @@ class _SearchWidgetState extends State<SearchWidget>
                                                                               20.0),
                                                                     ),
                                                                     alignment:
-                                                                        const AlignmentDirectional(
+                                                                        AlignmentDirectional(
                                                                             0.0,
                                                                             0.0),
                                                                     child:
                                                                         Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           12.0,
                                                                           0.0,
                                                                           12.0,
@@ -726,6 +792,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                                                             .override(
                                                                               fontFamily: 'Readex Pro',
                                                                               color: FlutterFlowTheme.of(context).secondary,
+                                                                              letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.w500,
                                                                             ),
                                                                       ),
@@ -741,7 +808,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 1.0),
                                                     child: Container(
@@ -756,8 +823,10 @@ class _SearchWidgetState extends State<SearchWidget>
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .alternate,
-                                                            offset: const Offset(
-                                                                0.0, 1.0),
+                                                            offset: Offset(
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                         borderRadius:
@@ -766,7 +835,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                                       ),
                                                       child: Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     16.0,
                                                                     12.0,
@@ -780,7 +849,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                                               flex: 3,
                                                               child: Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -794,7 +863,13 @@ class _SearchWidgetState extends State<SearchWidget>
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyLarge,
+                                                                      .bodyLarge
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Readex Pro',
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
                                                                 ),
                                                               ),
                                                             ),
@@ -808,7 +883,13 @@ class _SearchWidgetState extends State<SearchWidget>
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .labelMedium,
+                                                                    .labelMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Readex Pro',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                               ),
                                                             ),
                                                             Expanded(
@@ -834,12 +915,12 @@ class _SearchWidgetState extends State<SearchWidget>
                                                                               20.0),
                                                                     ),
                                                                     alignment:
-                                                                        const AlignmentDirectional(
+                                                                        AlignmentDirectional(
                                                                             0.0,
                                                                             0.0),
                                                                     child:
                                                                         Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           12.0,
                                                                           0.0,
                                                                           12.0,
@@ -855,6 +936,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                                                             .override(
                                                                               fontFamily: 'Readex Pro',
                                                                               color: FlutterFlowTheme.of(context).tertiary,
+                                                                              letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.w500,
                                                                             ),
                                                                       ),
@@ -892,7 +974,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                                         .alternate,
                                               ),
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         16.0, 0.0, 16.0, 0.0),
                                                 child: Row(
@@ -903,7 +985,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                                       flex: 3,
                                                       child: Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     12.0,
@@ -917,7 +999,13 @@ class _SearchWidgetState extends State<SearchWidget>
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .labelMedium,
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Readex Pro',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
                                                         ),
                                                       ),
                                                     ),
@@ -925,7 +1013,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                                       flex: 2,
                                                       child: Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     12.0,
@@ -939,7 +1027,13 @@ class _SearchWidgetState extends State<SearchWidget>
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .labelMedium,
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Readex Pro',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
                                                         ),
                                                       ),
                                                     ),
@@ -947,7 +1041,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                                       flex: 2,
                                                       child: Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     12.0,
@@ -961,7 +1055,13 @@ class _SearchWidgetState extends State<SearchWidget>
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .labelMedium,
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Readex Pro',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
                                                         ),
                                                       ),
                                                     ),
@@ -985,7 +1085,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 1.0),
                                                     child: Container(
@@ -1000,8 +1100,10 @@ class _SearchWidgetState extends State<SearchWidget>
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .alternate,
-                                                            offset: const Offset(
-                                                                0.0, 1.0),
+                                                            offset: Offset(
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                         borderRadius:
@@ -1010,7 +1112,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                                       ),
                                                       child: Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     16.0,
                                                                     12.0,
@@ -1024,7 +1126,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                                               flex: 3,
                                                               child: Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -1038,7 +1140,13 @@ class _SearchWidgetState extends State<SearchWidget>
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyLarge,
+                                                                      .bodyLarge
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Readex Pro',
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
                                                                 ),
                                                               ),
                                                             ),
@@ -1052,7 +1160,13 @@ class _SearchWidgetState extends State<SearchWidget>
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .labelMedium,
+                                                                    .labelMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Readex Pro',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                               ),
                                                             ),
                                                             Expanded(
@@ -1078,12 +1192,12 @@ class _SearchWidgetState extends State<SearchWidget>
                                                                               20.0),
                                                                     ),
                                                                     alignment:
-                                                                        const AlignmentDirectional(
+                                                                        AlignmentDirectional(
                                                                             0.0,
                                                                             0.0),
                                                                     child:
                                                                         Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           12.0,
                                                                           0.0,
                                                                           12.0,
@@ -1099,6 +1213,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                                                             .override(
                                                                               fontFamily: 'Readex Pro',
                                                                               color: FlutterFlowTheme.of(context).secondary,
+                                                                              letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.w500,
                                                                             ),
                                                                       ),
@@ -1114,7 +1229,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 1.0),
                                                     child: Container(
@@ -1129,8 +1244,10 @@ class _SearchWidgetState extends State<SearchWidget>
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .alternate,
-                                                            offset: const Offset(
-                                                                0.0, 1.0),
+                                                            offset: Offset(
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                         borderRadius:
@@ -1139,7 +1256,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                                       ),
                                                       child: Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     16.0,
                                                                     12.0,
@@ -1153,7 +1270,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                                               flex: 3,
                                                               child: Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -1167,7 +1284,13 @@ class _SearchWidgetState extends State<SearchWidget>
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyLarge,
+                                                                      .bodyLarge
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Readex Pro',
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
                                                                 ),
                                                               ),
                                                             ),
@@ -1181,7 +1304,13 @@ class _SearchWidgetState extends State<SearchWidget>
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .labelMedium,
+                                                                    .labelMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Readex Pro',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                               ),
                                                             ),
                                                             Expanded(
@@ -1207,12 +1336,12 @@ class _SearchWidgetState extends State<SearchWidget>
                                                                               20.0),
                                                                     ),
                                                                     alignment:
-                                                                        const AlignmentDirectional(
+                                                                        AlignmentDirectional(
                                                                             0.0,
                                                                             0.0),
                                                                     child:
                                                                         Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           12.0,
                                                                           0.0,
                                                                           12.0,
@@ -1228,6 +1357,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                                                             .override(
                                                                               fontFamily: 'Readex Pro',
                                                                               color: FlutterFlowTheme.of(context).secondary,
+                                                                              letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.w500,
                                                                             ),
                                                                       ),
@@ -1243,7 +1373,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 1.0),
                                                     child: Container(
@@ -1258,8 +1388,10 @@ class _SearchWidgetState extends State<SearchWidget>
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .alternate,
-                                                            offset: const Offset(
-                                                                0.0, 1.0),
+                                                            offset: Offset(
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                         borderRadius:
@@ -1268,7 +1400,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                                       ),
                                                       child: Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     16.0,
                                                                     12.0,
@@ -1282,7 +1414,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                                               flex: 3,
                                                               child: Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -1296,7 +1428,13 @@ class _SearchWidgetState extends State<SearchWidget>
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyLarge,
+                                                                      .bodyLarge
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Readex Pro',
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
                                                                 ),
                                                               ),
                                                             ),
@@ -1310,7 +1448,13 @@ class _SearchWidgetState extends State<SearchWidget>
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .labelMedium,
+                                                                    .labelMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Readex Pro',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                               ),
                                                             ),
                                                             Expanded(
@@ -1336,12 +1480,12 @@ class _SearchWidgetState extends State<SearchWidget>
                                                                               20.0),
                                                                     ),
                                                                     alignment:
-                                                                        const AlignmentDirectional(
+                                                                        AlignmentDirectional(
                                                                             0.0,
                                                                             0.0),
                                                                     child:
                                                                         Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           12.0,
                                                                           0.0,
                                                                           12.0,
@@ -1357,6 +1501,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                                                             .override(
                                                                               fontFamily: 'Readex Pro',
                                                                               color: FlutterFlowTheme.of(context).tertiary,
+                                                                              letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.w500,
                                                                             ),
                                                                       ),
@@ -1394,7 +1539,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                                         .alternate,
                                               ),
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         16.0, 12.0, 0.0, 12.0),
                                                 child: Text(
@@ -1404,7 +1549,12 @@ class _SearchWidgetState extends State<SearchWidget>
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .labelMedium,
+                                                      .labelMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Readex Pro',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                                 ),
                                               ),
                                               ListView(
@@ -1414,7 +1564,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 1.0),
                                                     child: InkWell(
@@ -1448,8 +1598,10 @@ class _SearchWidgetState extends State<SearchWidget>
                                                               color: FlutterFlowTheme
                                                                       .of(context)
                                                                   .alternate,
-                                                              offset: const Offset(
-                                                                  0.0, 1.0),
+                                                              offset: Offset(
+                                                                0.0,
+                                                                1.0,
+                                                              ),
                                                             )
                                                           ],
                                                           borderRadius:
@@ -1459,7 +1611,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                                         ),
                                                         child: Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       16.0,
                                                                       0.0,
@@ -1472,7 +1624,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                                             children: [
                                                               Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             8.0,
@@ -1495,7 +1647,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                                                   child:
                                                                       Padding(
                                                                     padding:
-                                                                        const EdgeInsets.all(
+                                                                        EdgeInsets.all(
                                                                             2.0),
                                                                     child:
                                                                         ClipRRect(
@@ -1519,7 +1671,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                                               Expanded(
                                                                 flex: 3,
                                                                 child: Padding(
-                                                                  padding: const EdgeInsetsDirectional
+                                                                  padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -1542,10 +1694,14 @@ class _SearchWidgetState extends State<SearchWidget>
                                                                           'snug5fbw' /* FlutterFlow x AI */,
                                                                         ),
                                                                         style: FlutterFlowTheme.of(context)
-                                                                            .bodyLarge,
+                                                                            .bodyLarge
+                                                                            .override(
+                                                                              fontFamily: 'Readex Pro',
+                                                                              letterSpacing: 0.0,
+                                                                            ),
                                                                       ),
                                                                       Padding(
-                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
                                                                             0.0,
                                                                             4.0,
                                                                             0.0,
@@ -1556,8 +1712,12 @@ class _SearchWidgetState extends State<SearchWidget>
                                                                               .getText(
                                                                             '1t7wf5ht' /* Customize your app design with... */,
                                                                           ),
-                                                                          style:
-                                                                              FlutterFlowTheme.of(context).labelMedium,
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .labelMedium
+                                                                              .override(
+                                                                                fontFamily: 'Readex Pro',
+                                                                                letterSpacing: 0.0,
+                                                                              ),
                                                                         ),
                                                                       ),
                                                                     ],
@@ -1574,7 +1734,13 @@ class _SearchWidgetState extends State<SearchWidget>
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .labelMedium,
+                                                                      .labelMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Readex Pro',
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
                                                                 ),
                                                               ),
                                                               Expanded(
@@ -1598,12 +1764,12 @@ class _SearchWidgetState extends State<SearchWidget>
                                                                             BorderRadius.circular(20.0),
                                                                       ),
                                                                       alignment:
-                                                                          const AlignmentDirectional(
+                                                                          AlignmentDirectional(
                                                                               0.0,
                                                                               0.0),
                                                                       child:
                                                                           Padding(
-                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
                                                                             12.0,
                                                                             0.0,
                                                                             12.0,
@@ -1619,6 +1785,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                                                               .override(
                                                                                 fontFamily: 'Readex Pro',
                                                                                 color: FlutterFlowTheme.of(context).secondary,
+                                                                                letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.w500,
                                                                               ),
                                                                         ),
@@ -1635,7 +1802,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 1.0),
                                                     child: InkWell(
@@ -1669,8 +1836,10 @@ class _SearchWidgetState extends State<SearchWidget>
                                                               color: FlutterFlowTheme
                                                                       .of(context)
                                                                   .alternate,
-                                                              offset: const Offset(
-                                                                  0.0, 1.0),
+                                                              offset: Offset(
+                                                                0.0,
+                                                                1.0,
+                                                              ),
                                                             )
                                                           ],
                                                           borderRadius:
@@ -1680,7 +1849,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                                         ),
                                                         child: Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       16.0,
                                                                       0.0,
@@ -1693,7 +1862,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                                             children: [
                                                               Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             8.0,
@@ -1716,7 +1885,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                                                   child:
                                                                       Padding(
                                                                     padding:
-                                                                        const EdgeInsets.all(
+                                                                        EdgeInsets.all(
                                                                             2.0),
                                                                     child:
                                                                         ClipRRect(
@@ -1740,7 +1909,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                                               Expanded(
                                                                 flex: 3,
                                                                 child: Padding(
-                                                                  padding: const EdgeInsetsDirectional
+                                                                  padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -1763,10 +1932,14 @@ class _SearchWidgetState extends State<SearchWidget>
                                                                           '4x9ueh2v' /* FlutterFlow Basics */,
                                                                         ),
                                                                         style: FlutterFlowTheme.of(context)
-                                                                            .bodyLarge,
+                                                                            .bodyLarge
+                                                                            .override(
+                                                                              fontFamily: 'Readex Pro',
+                                                                              letterSpacing: 0.0,
+                                                                            ),
                                                                       ),
                                                                       Padding(
-                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
                                                                             0.0,
                                                                             4.0,
                                                                             0.0,
@@ -1777,8 +1950,12 @@ class _SearchWidgetState extends State<SearchWidget>
                                                                               .getText(
                                                                             'cydzc143' /* In this tutorial, we'll dive i... */,
                                                                           ),
-                                                                          style:
-                                                                              FlutterFlowTheme.of(context).labelMedium,
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .labelMedium
+                                                                              .override(
+                                                                                fontFamily: 'Readex Pro',
+                                                                                letterSpacing: 0.0,
+                                                                              ),
                                                                         ),
                                                                       ),
                                                                     ],
@@ -1795,7 +1972,13 @@ class _SearchWidgetState extends State<SearchWidget>
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .labelMedium,
+                                                                      .labelMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Readex Pro',
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
                                                                 ),
                                                               ),
                                                               Expanded(
@@ -1819,12 +2002,12 @@ class _SearchWidgetState extends State<SearchWidget>
                                                                             BorderRadius.circular(20.0),
                                                                       ),
                                                                       alignment:
-                                                                          const AlignmentDirectional(
+                                                                          AlignmentDirectional(
                                                                               0.0,
                                                                               0.0),
                                                                       child:
                                                                           Padding(
-                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
                                                                             12.0,
                                                                             0.0,
                                                                             12.0,
@@ -1840,6 +2023,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                                                               .override(
                                                                                 fontFamily: 'Readex Pro',
                                                                                 color: FlutterFlowTheme.of(context).secondary,
+                                                                                letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.w500,
                                                                               ),
                                                                         ),
@@ -1856,7 +2040,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 1.0),
                                                     child: InkWell(
@@ -1890,8 +2074,10 @@ class _SearchWidgetState extends State<SearchWidget>
                                                               color: FlutterFlowTheme
                                                                       .of(context)
                                                                   .alternate,
-                                                              offset: const Offset(
-                                                                  0.0, 1.0),
+                                                              offset: Offset(
+                                                                0.0,
+                                                                1.0,
+                                                              ),
                                                             )
                                                           ],
                                                           borderRadius:
@@ -1901,7 +2087,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                                         ),
                                                         child: Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       16.0,
                                                                       0.0,
@@ -1914,7 +2100,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                                             children: [
                                                               Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             8.0,
@@ -1937,7 +2123,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                                                   child:
                                                                       Padding(
                                                                     padding:
-                                                                        const EdgeInsets.all(
+                                                                        EdgeInsets.all(
                                                                             2.0),
                                                                     child:
                                                                         ClipRRect(
@@ -1961,7 +2147,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                                               Expanded(
                                                                 flex: 3,
                                                                 child: Padding(
-                                                                  padding: const EdgeInsetsDirectional
+                                                                  padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -1984,10 +2170,14 @@ class _SearchWidgetState extends State<SearchWidget>
                                                                           'uk2u0fn2' /* FlutterFlow 101 */,
                                                                         ),
                                                                         style: FlutterFlowTheme.of(context)
-                                                                            .bodyLarge,
+                                                                            .bodyLarge
+                                                                            .override(
+                                                                              fontFamily: 'Readex Pro',
+                                                                              letterSpacing: 0.0,
+                                                                            ),
                                                                       ),
                                                                       Padding(
-                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
                                                                             0.0,
                                                                             4.0,
                                                                             0.0,
@@ -1998,8 +2188,12 @@ class _SearchWidgetState extends State<SearchWidget>
                                                                               .getText(
                                                                             'h9vlkphh' /* Save time and effort with Flut... */,
                                                                           ),
-                                                                          style:
-                                                                              FlutterFlowTheme.of(context).labelMedium,
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .labelMedium
+                                                                              .override(
+                                                                                fontFamily: 'Readex Pro',
+                                                                                letterSpacing: 0.0,
+                                                                              ),
                                                                         ),
                                                                       ),
                                                                     ],
@@ -2016,7 +2210,13 @@ class _SearchWidgetState extends State<SearchWidget>
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .labelMedium,
+                                                                      .labelMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Readex Pro',
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
                                                                 ),
                                                               ),
                                                               Expanded(
@@ -2040,12 +2240,12 @@ class _SearchWidgetState extends State<SearchWidget>
                                                                             BorderRadius.circular(20.0),
                                                                       ),
                                                                       alignment:
-                                                                          const AlignmentDirectional(
+                                                                          AlignmentDirectional(
                                                                               0.0,
                                                                               0.0),
                                                                       child:
                                                                           Padding(
-                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
                                                                             12.0,
                                                                             0.0,
                                                                             12.0,
@@ -2061,6 +2261,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                                                               .override(
                                                                                 fontFamily: 'Readex Pro',
                                                                                 color: FlutterFlowTheme.of(context).secondary,
+                                                                                letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.w500,
                                                                               ),
                                                                         ),
@@ -2077,7 +2278,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 1.0),
                                                     child: InkWell(
@@ -2111,8 +2312,10 @@ class _SearchWidgetState extends State<SearchWidget>
                                                               color: FlutterFlowTheme
                                                                       .of(context)
                                                                   .alternate,
-                                                              offset: const Offset(
-                                                                  0.0, 1.0),
+                                                              offset: Offset(
+                                                                0.0,
+                                                                1.0,
+                                                              ),
                                                             )
                                                           ],
                                                           borderRadius:
@@ -2122,7 +2325,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                                         ),
                                                         child: Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       16.0,
                                                                       0.0,
@@ -2135,7 +2338,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                                             children: [
                                                               Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             8.0,
@@ -2158,7 +2361,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                                                   child:
                                                                       Padding(
                                                                     padding:
-                                                                        const EdgeInsets.all(
+                                                                        EdgeInsets.all(
                                                                             2.0),
                                                                     child:
                                                                         ClipRRect(
@@ -2182,7 +2385,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                                               Expanded(
                                                                 flex: 3,
                                                                 child: Padding(
-                                                                  padding: const EdgeInsetsDirectional
+                                                                  padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -2205,10 +2408,14 @@ class _SearchWidgetState extends State<SearchWidget>
                                                                           '93jwpe9i' /* FlutterFlow Command Palette */,
                                                                         ),
                                                                         style: FlutterFlowTheme.of(context)
-                                                                            .bodyLarge,
+                                                                            .bodyLarge
+                                                                            .override(
+                                                                              fontFamily: 'Readex Pro',
+                                                                              letterSpacing: 0.0,
+                                                                            ),
                                                                       ),
                                                                       Padding(
-                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
                                                                             0.0,
                                                                             4.0,
                                                                             0.0,
@@ -2219,8 +2426,12 @@ class _SearchWidgetState extends State<SearchWidget>
                                                                               .getText(
                                                                             '1g1sjykp' /* Learn how to create interactiv... */,
                                                                           ),
-                                                                          style:
-                                                                              FlutterFlowTheme.of(context).labelMedium,
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .labelMedium
+                                                                              .override(
+                                                                                fontFamily: 'Readex Pro',
+                                                                                letterSpacing: 0.0,
+                                                                              ),
                                                                         ),
                                                                       ),
                                                                     ],
@@ -2237,7 +2448,13 @@ class _SearchWidgetState extends State<SearchWidget>
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .labelMedium,
+                                                                      .labelMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Readex Pro',
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
                                                                 ),
                                                               ),
                                                               Expanded(
@@ -2261,12 +2478,12 @@ class _SearchWidgetState extends State<SearchWidget>
                                                                             BorderRadius.circular(20.0),
                                                                       ),
                                                                       alignment:
-                                                                          const AlignmentDirectional(
+                                                                          AlignmentDirectional(
                                                                               0.0,
                                                                               0.0),
                                                                       child:
                                                                           Padding(
-                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
                                                                             12.0,
                                                                             0.0,
                                                                             12.0,
@@ -2282,6 +2499,7 @@ class _SearchWidgetState extends State<SearchWidget>
                                                                               .override(
                                                                                 fontFamily: 'Readex Pro',
                                                                                 color: FlutterFlowTheme.of(context).secondary,
+                                                                                letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.w500,
                                                                               ),
                                                                         ),

@@ -3,6 +3,9 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'settings1_notifications_model.dart';
 export 'settings1_notifications_model.dart';
 
@@ -67,9 +70,12 @@ class _Settings1NotificationsWidgetState
               FFLocalizations.of(context).getText(
                 'rb6mq28f' /* Settings Page */,
               ),
-              style: FlutterFlowTheme.of(context).headlineSmall,
+              style: FlutterFlowTheme.of(context).headlineSmall.override(
+                    fontFamily: 'Outfit',
+                    letterSpacing: 0.0,
+                  ),
             ),
-            actions: const [],
+            actions: [],
             centerTitle: false,
             elevation: 0.0,
           ),
@@ -77,7 +83,7 @@ class _Settings1NotificationsWidgetState
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -86,18 +92,22 @@ class _Settings1NotificationsWidgetState
                         FFLocalizations.of(context).getText(
                           '1pmo85is' /* Choose what notifcations you w... */,
                         ),
-                        style: FlutterFlowTheme.of(context).labelMedium,
+                        style:
+                            FlutterFlowTheme.of(context).labelMedium.override(
+                                  fontFamily: 'Readex Pro',
+                                  letterSpacing: 0.0,
+                                ),
                       ),
                     ),
                   ],
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                 child: SwitchListTile.adaptive(
                   value: _model.switchListTileValue1 ??= true,
                   onChanged: (newValue) async {
-                    setState(() => _model.switchListTileValue1 = newValue);
+                    setState(() => _model.switchListTileValue1 = newValue!);
                   },
                   title: Text(
                     FFLocalizations.of(context).getText(
@@ -105,6 +115,7 @@ class _Settings1NotificationsWidgetState
                     ),
                     style: FlutterFlowTheme.of(context).bodyLarge.override(
                           fontFamily: 'Readex Pro',
+                          letterSpacing: 0.0,
                           lineHeight: 2.0,
                         ),
                   ),
@@ -114,7 +125,8 @@ class _Settings1NotificationsWidgetState
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Readex Pro',
-                          color: const Color(0xFF8B97A2),
+                          color: Color(0xFF8B97A2),
+                          letterSpacing: 0.0,
                         ),
                   ),
                   tileColor: FlutterFlowTheme.of(context).secondaryBackground,
@@ -123,13 +135,13 @@ class _Settings1NotificationsWidgetState
                   dense: false,
                   controlAffinity: ListTileControlAffinity.trailing,
                   contentPadding:
-                      const EdgeInsetsDirectional.fromSTEB(24.0, 12.0, 24.0, 12.0),
+                      EdgeInsetsDirectional.fromSTEB(24.0, 12.0, 24.0, 12.0),
                 ),
               ),
               SwitchListTile.adaptive(
                 value: _model.switchListTileValue2 ??= true,
                 onChanged: (newValue) async {
-                  setState(() => _model.switchListTileValue2 = newValue);
+                  setState(() => _model.switchListTileValue2 = newValue!);
                 },
                 title: Text(
                   FFLocalizations.of(context).getText(
@@ -137,6 +149,7 @@ class _Settings1NotificationsWidgetState
                   ),
                   style: FlutterFlowTheme.of(context).bodyLarge.override(
                         fontFamily: 'Readex Pro',
+                        letterSpacing: 0.0,
                         lineHeight: 2.0,
                       ),
                 ),
@@ -146,7 +159,8 @@ class _Settings1NotificationsWidgetState
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Readex Pro',
-                        color: const Color(0xFF8B97A2),
+                        color: Color(0xFF8B97A2),
+                        letterSpacing: 0.0,
                       ),
                 ),
                 tileColor: FlutterFlowTheme.of(context).secondaryBackground,
@@ -155,12 +169,12 @@ class _Settings1NotificationsWidgetState
                 dense: false,
                 controlAffinity: ListTileControlAffinity.trailing,
                 contentPadding:
-                    const EdgeInsetsDirectional.fromSTEB(24.0, 12.0, 24.0, 12.0),
+                    EdgeInsetsDirectional.fromSTEB(24.0, 12.0, 24.0, 12.0),
               ),
               SwitchListTile.adaptive(
                 value: _model.switchListTileValue3 ??= true,
                 onChanged: (newValue) async {
-                  setState(() => _model.switchListTileValue3 = newValue);
+                  setState(() => _model.switchListTileValue3 = newValue!);
                 },
                 title: Text(
                   FFLocalizations.of(context).getText(
@@ -168,6 +182,7 @@ class _Settings1NotificationsWidgetState
                   ),
                   style: FlutterFlowTheme.of(context).bodyLarge.override(
                         fontFamily: 'Readex Pro',
+                        letterSpacing: 0.0,
                         lineHeight: 2.0,
                       ),
                 ),
@@ -177,7 +192,8 @@ class _Settings1NotificationsWidgetState
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Readex Pro',
-                        color: const Color(0xFF8B97A2),
+                        color: Color(0xFF8B97A2),
+                        letterSpacing: 0.0,
                       ),
                 ),
                 tileColor: FlutterFlowTheme.of(context).secondaryBackground,
@@ -186,10 +202,10 @@ class _Settings1NotificationsWidgetState
                 dense: false,
                 controlAffinity: ListTileControlAffinity.trailing,
                 contentPadding:
-                    const EdgeInsetsDirectional.fromSTEB(24.0, 12.0, 24.0, 12.0),
+                    EdgeInsetsDirectional.fromSTEB(24.0, 12.0, 24.0, 12.0),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                 child: FFButtonWidget(
                   onPressed: () async {
                     logFirebaseEvent(
@@ -203,16 +219,17 @@ class _Settings1NotificationsWidgetState
                   options: FFButtonOptions(
                     width: 190.0,
                     height: 50.0,
-                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     iconPadding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: FlutterFlowTheme.of(context).primary,
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Readex Pro',
                           color: Colors.white,
+                          letterSpacing: 0.0,
                         ),
                     elevation: 3.0,
-                    borderSide: const BorderSide(
+                    borderSide: BorderSide(
                       color: Colors.transparent,
                       width: 1.0,
                     ),

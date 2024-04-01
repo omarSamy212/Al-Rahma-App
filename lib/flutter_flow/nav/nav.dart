@@ -2,13 +2,21 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:go_router/go_router.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 
 import '/auth/base_auth_user_provider.dart';
 
 import '/index.dart';
+import '/main.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/lat_lng.dart';
+import '/flutter_flow/place.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'serialization_util.dart';
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
@@ -73,40 +81,40 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? const CheckupWidget() : const LoginWidget(),
+          appStateNotifier.loggedIn ? CheckupWidget() : LoginWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? const CheckupWidget() : const LoginWidget(),
+              appStateNotifier.loggedIn ? CheckupWidget() : LoginWidget(),
         ),
         FFRoute(
           name: 'welcome',
           path: '/welcome',
-          builder: (context, params) => const WelcomeWidget(),
+          builder: (context, params) => WelcomeWidget(),
         ),
         FFRoute(
           name: 'Login',
           path: '/login',
-          builder: (context, params) => const LoginWidget(),
+          builder: (context, params) => LoginWidget(),
         ),
         FFRoute(
           name: 'storekeeperHome',
           path: '/storekeeperHome',
           requireAuth: true,
-          builder: (context, params) => const StorekeeperHomeWidget(),
+          builder: (context, params) => StorekeeperHomeWidget(),
         ),
         FFRoute(
           name: 'Home01CompanyList',
           path: '/home01CompanyList',
-          builder: (context, params) => const Home01CompanyListWidget(),
+          builder: (context, params) => Home01CompanyListWidget(),
         ),
         FFRoute(
           name: 'createUser',
           path: '/createUser',
           requireAuth: true,
-          builder: (context, params) => const CreateUserWidget(),
+          builder: (context, params) => CreateUserWidget(),
         ),
         FFRoute(
           name: 'Missingtools_form',
@@ -118,15 +126,21 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 getDoc(['Tools_Requests'], ToolsRequestsRecord.fromSnapshot),
           },
           builder: (context, params) => MissingtoolsFormWidget(
-            supervisorDoc: params.getParam('supervisorDoc', ParamType.Document),
-            requestDec: params.getParam('requestDec', ParamType.Document),
+            supervisorDoc: params.getParam(
+              'supervisorDoc',
+              ParamType.Document,
+            ),
+            requestDec: params.getParam(
+              'requestDec',
+              ParamType.Document,
+            ),
           ),
         ),
         FFRoute(
           name: 'day_Contract_List',
           path: '/dayContractList',
           requireAuth: true,
-          builder: (context, params) => const DayContractListWidget(),
+          builder: (context, params) => DayContractListWidget(),
         ),
         FFRoute(
           name: 'request_Details',
@@ -134,122 +148,199 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           requireAuth: true,
           builder: (context, params) => RequestDetailsWidget(
             supervisorRef: params.getParam(
-                'supervisorRef', ParamType.DocumentReference, false, ['users']),
-            requestRef: params.getParam('requestRef',
-                ParamType.DocumentReference, false, ['Tools_Requests']),
+              'supervisorRef',
+              ParamType.DocumentReference,
+              false,
+              ['users'],
+            ),
+            requestRef: params.getParam(
+              'requestRef',
+              ParamType.DocumentReference,
+              false,
+              ['Tools_Requests'],
+            ),
           ),
         ),
         FFRoute(
           name: 'createUser_2',
           path: '/createUser2',
+          requireAuth: true,
           builder: (context, params) => CreateUser2Widget(
-            nickName: params.getParam('nickName', ParamType.String),
-            role: params.getParam('role', ParamType.String),
-            nationalID: params.getParam('nationalID', ParamType.String),
-            image: params.getParam('image', ParamType.String),
-            phoneNumber: params.getParam('phoneNumber', ParamType.int),
-            firstName: params.getParam('firstName', ParamType.String),
-            middleName: params.getParam('middleName', ParamType.String),
-            lastName: params.getParam('lastName', ParamType.String),
-            gender: params.getParam('gender', ParamType.String),
-            birthdate: params.getParam('birthdate', ParamType.String),
-            country: params.getParam('country', ParamType.String),
-            government: params.getParam('government', ParamType.String),
-            city: params.getParam('city', ParamType.String),
-            fullAddress: params.getParam('fullAddress', ParamType.String),
-            socialStatus: params.getParam('socialStatus', ParamType.String),
-            employmentDate:
-                params.getParam('employmentDate', ParamType.DateTime),
-            frontNatImageUrl:
-                params.getParam('frontNatImageUrl', ParamType.String),
-            backNatImageUrl:
-                params.getParam('backNatImageUrl', ParamType.String),
-            drugTestImageUrl:
-                params.getParam('drugTestImageUrl', ParamType.String),
-            frontDLic: params.getParam('frontDLic', ParamType.String),
-            backDLic: params.getParam('backDLic', ParamType.String),
-            startingShift: params.getParam('startingShift', ParamType.String),
-            shiftPeriod: params.getParam('shiftPeriod', ParamType.String),
-            userId: params.getParam('userId', ParamType.String),
+            nickName: params.getParam(
+              'nickName',
+              ParamType.String,
+            ),
+            role: params.getParam(
+              'role',
+              ParamType.String,
+            ),
+            nationalID: params.getParam(
+              'nationalID',
+              ParamType.String,
+            ),
+            image: params.getParam(
+              'image',
+              ParamType.String,
+            ),
+            phoneNumber: params.getParam(
+              'phoneNumber',
+              ParamType.int,
+            ),
+            firstName: params.getParam(
+              'firstName',
+              ParamType.String,
+            ),
+            middleName: params.getParam(
+              'middleName',
+              ParamType.String,
+            ),
+            lastName: params.getParam(
+              'lastName',
+              ParamType.String,
+            ),
+            gender: params.getParam(
+              'gender',
+              ParamType.String,
+            ),
+            birthdate: params.getParam(
+              'birthdate',
+              ParamType.String,
+            ),
+            country: params.getParam(
+              'country',
+              ParamType.String,
+            ),
+            government: params.getParam(
+              'government',
+              ParamType.String,
+            ),
+            city: params.getParam(
+              'city',
+              ParamType.String,
+            ),
+            fullAddress: params.getParam(
+              'fullAddress',
+              ParamType.String,
+            ),
+            socialStatus: params.getParam(
+              'socialStatus',
+              ParamType.String,
+            ),
+            employmentDate: params.getParam(
+              'employmentDate',
+              ParamType.DateTime,
+            ),
+            frontNatImageUrl: params.getParam(
+              'frontNatImageUrl',
+              ParamType.String,
+            ),
+            backNatImageUrl: params.getParam(
+              'backNatImageUrl',
+              ParamType.String,
+            ),
+            drugTestImageUrl: params.getParam(
+              'drugTestImageUrl',
+              ParamType.String,
+            ),
+            frontDLic: params.getParam(
+              'frontDLic',
+              ParamType.String,
+            ),
+            backDLic: params.getParam(
+              'backDLic',
+              ParamType.String,
+            ),
+            startingShift: params.getParam(
+              'startingShift',
+              ParamType.String,
+            ),
+            shiftPeriod: params.getParam(
+              'shiftPeriod',
+              ParamType.String,
+            ),
+            userId: params.getParam(
+              'userId',
+              ParamType.String,
+            ),
           ),
         ),
         FFRoute(
           name: 'supervisor_home',
           path: '/supervisorHome',
           requireAuth: true,
-          builder: (context, params) => const SupervisorHomeWidget(),
+          builder: (context, params) => SupervisorHomeWidget(),
         ),
         FFRoute(
           name: 'Admin_Home',
           path: '/adminHome',
           requireAuth: true,
-          builder: (context, params) => const AdminHomeWidget(),
+          builder: (context, params) => AdminHomeWidget(),
         ),
         FFRoute(
           name: 'my_profile',
           path: '/my_profile',
           requireAuth: true,
-          builder: (context, params) => const MyProfileWidget(),
+          builder: (context, params) => MyProfileWidget(),
         ),
         FFRoute(
           name: 'worker_Home',
           path: '/workerHome',
           requireAuth: true,
-          builder: (context, params) => const WorkerHomeWidget(),
+          builder: (context, params) => WorkerHomeWidget(),
         ),
         FFRoute(
           name: 'transmission_Select_1',
           path: '/transmission_Select_1',
           requireAuth: true,
-          builder: (context, params) => const TransmissionSelect1Widget(),
+          builder: (context, params) => TransmissionSelect1Widget(),
         ),
         FFRoute(
           name: 'transmission_Scan_2',
           path: '/transmission_Scan_2',
           requireAuth: true,
-          builder: (context, params) => const TransmissionScan2Widget(),
+          builder: (context, params) => TransmissionScan2Widget(),
         ),
         FFRoute(
           name: 'HowToUseApp',
           path: '/howToUseApp',
-          builder: (context, params) => const HowToUseAppWidget(),
+          builder: (context, params) => HowToUseAppWidget(),
         ),
         FFRoute(
           name: 'checkup',
           path: '/checkup',
           requireAuth: true,
-          builder: (context, params) => const CheckupWidget(),
+          builder: (context, params) => CheckupWidget(),
         ),
         FFRoute(
           name: 'supplierDashboard',
           path: '/supplierDashboard',
           requireAuth: true,
-          builder: (context, params) => const SupplierDashboardWidget(),
+          builder: (context, params) => SupplierDashboardWidget(),
         ),
         FFRoute(
           name: 'applyforjob',
           path: '/applyforjob',
-          builder: (context, params) => const ApplyforjobWidget(),
+          builder: (context, params) => ApplyforjobWidget(),
         ),
         FFRoute(
           name: 'Onboarding04',
           path: '/onboarding04',
-          builder: (context, params) => const Onboarding04Widget(),
+          builder: (context, params) => Onboarding04Widget(),
         ),
         FFRoute(
           name: 'hintBeforeapplyjob',
           path: '/hintBeforeapplyjob',
-          builder: (context, params) => const HintBeforeapplyjobWidget(),
+          builder: (context, params) => HintBeforeapplyjobWidget(),
         ),
         FFRoute(
           name: 'Home13Productivity',
           path: '/home13Productivity',
-          builder: (context, params) => const Home13ProductivityWidget(),
+          builder: (context, params) => Home13ProductivityWidget(),
         ),
         FFRoute(
           name: 'tasksTracker',
           path: '/tasksTracker',
-          builder: (context, params) => const TasksTrackerWidget(),
+          builder: (context, params) => TasksTrackerWidget(),
         ),
         FFRoute(
           name: 'complain_formCopy',
@@ -261,14 +352,20 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 getDoc(['Tools_Requests'], ToolsRequestsRecord.fromSnapshot),
           },
           builder: (context, params) => ComplainFormCopyWidget(
-            supervisorDoc: params.getParam('supervisorDoc', ParamType.Document),
-            requestDec: params.getParam('requestDec', ParamType.Document),
+            supervisorDoc: params.getParam(
+              'supervisorDoc',
+              ParamType.Document,
+            ),
+            requestDec: params.getParam(
+              'requestDec',
+              ParamType.Document,
+            ),
           ),
         ),
         FFRoute(
           name: 'usersList',
           path: '/usersList',
-          builder: (context, params) => const UsersListWidget(),
+          builder: (context, params) => UsersListWidget(),
         ),
         FFRoute(
           name: 'user_profile',
@@ -276,24 +373,35 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           requireAuth: true,
           builder: (context, params) => UserProfileWidget(
             userDoc: params.getParam(
-                'userDoc', ParamType.DocumentReference, false, ['users']),
+              'userDoc',
+              ParamType.DocumentReference,
+              false,
+              ['users'],
+            ),
           ),
         ),
         FFRoute(
           name: 'list',
           path: '/list',
-          builder: (context, params) => const ListWidget(),
+          builder: (context, params) => ListWidget(),
         ),
         FFRoute(
           name: 'Settings1Notifications',
           path: '/settings1Notifications',
-          builder: (context, params) => const Settings1NotificationsWidget(),
+          builder: (context, params) => Settings1NotificationsWidget(),
         ),
         FFRoute(
           name: 'updateUser',
           path: '/updateUser',
           requireAuth: true,
-          builder: (context, params) => const UpdateUserWidget(),
+          builder: (context, params) => UpdateUserWidget(
+            userRef: params.getParam(
+              'userRef',
+              ParamType.DocumentReference,
+              false,
+              ['users'],
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],
@@ -414,6 +522,7 @@ class FFParameters {
     ParamType type, [
     bool isList = false,
     List<String>? collectionNamePath,
+    StructBuilder<T>? structBuilder,
   ]) {
     if (futureParamValues.containsKey(paramName)) {
       return futureParamValues[paramName];
@@ -427,8 +536,13 @@ class FFParameters {
       return param;
     }
     // Return serialized value.
-    return deserializeParam<T>(param, type, isList,
-        collectionNamePath: collectionNamePath);
+    return deserializeParam<T>(
+      param,
+      type,
+      isList,
+      collectionNamePath: collectionNamePath,
+      structBuilder: structBuilder,
+    );
   }
 }
 
@@ -475,7 +589,7 @@ class FFRoute {
                 )
               : builder(context, ffParams);
           final child = appStateNotifier.loading
-              ? const Center(
+              ? Center(
                   child: SizedBox(
                     width: 50.0,
                     height: 50.0,
@@ -527,7 +641,7 @@ class TransitionInfo {
   final Duration duration;
   final Alignment? alignment;
 
-  static TransitionInfo appDefault() => const TransitionInfo(hasTransition: false);
+  static TransitionInfo appDefault() => TransitionInfo(hasTransition: false);
 }
 
 class RootPageContext {

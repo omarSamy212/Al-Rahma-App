@@ -1,13 +1,16 @@
 import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/storage_keeper/sk_components/tool_item/tool_item_widget.dart';
 import 'package:badges/badges.dart' as badges;
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'transmission_select1_model.dart';
 export 'transmission_select1_model.dart';
@@ -54,7 +57,7 @@ class _TransmissionSelect1WidgetState extends State<TransmissionSelect1Widget> {
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
-          return const Scaffold(
+          return Scaffold(
             backgroundColor: Color(0xFFF1F4F8),
             body: Center(
               child: SizedBox(
@@ -78,16 +81,16 @@ class _TransmissionSelect1WidgetState extends State<TransmissionSelect1Widget> {
                   : FocusScope.of(context).unfocus(),
               child: Scaffold(
                 key: scaffoldKey,
-                backgroundColor: const Color(0xFFF1F4F8),
+                backgroundColor: Color(0xFFF1F4F8),
                 appBar: AppBar(
-                  backgroundColor: const Color(0xFFF1F4F8),
+                  backgroundColor: Color(0xFFF1F4F8),
                   automaticallyImplyLeading: false,
                   leading: FlutterFlowIconButton(
                     borderColor: Colors.transparent,
                     borderRadius: 30.0,
                     borderWidth: 1.0,
                     buttonSize: 60.0,
-                    icon: const Icon(
+                    icon: Icon(
                       Icons.arrow_back_rounded,
                       color: Color(0xFF101213),
                       size: 30.0,
@@ -105,12 +108,13 @@ class _TransmissionSelect1WidgetState extends State<TransmissionSelect1Widget> {
                     ),
                     style: FlutterFlowTheme.of(context).headlineMedium.override(
                           fontFamily: 'Plus Jakarta Sans',
-                          color: const Color(0xFF101213),
+                          color: Color(0xFF101213),
                           fontSize: 24.0,
+                          letterSpacing: 0.0,
                           fontWeight: FontWeight.w500,
                         ),
                   ),
-                  actions: const [],
+                  actions: [],
                   centerTitle: false,
                   elevation: 0.0,
                 ),
@@ -121,7 +125,7 @@ class _TransmissionSelect1WidgetState extends State<TransmissionSelect1Widget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               8.0, 20.0, 8.0, 8.0),
                           child: Container(
                             width: double.infinity,
@@ -130,15 +134,15 @@ class _TransmissionSelect1WidgetState extends State<TransmissionSelect1Widget> {
                               borderRadius: BorderRadius.circular(8.0),
                             ),
                             child: Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 10.0, 0.0, 10.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           25.0, 3.0, 0.0, 0.0),
                                       child: Icon(
                                         Icons.filter_1_rounded,
@@ -149,9 +153,9 @@ class _TransmissionSelect1WidgetState extends State<TransmissionSelect1Widget> {
                                     ),
                                     Align(
                                       alignment:
-                                          const AlignmentDirectional(-1.0, 0.0),
+                                          AlignmentDirectional(-1.0, 0.0),
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             5.0, 5.0, 0.0, 5.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
@@ -162,6 +166,7 @@ class _TransmissionSelect1WidgetState extends State<TransmissionSelect1Widget> {
                                               .override(
                                                 fontFamily: 'Readex Pro',
                                                 fontSize: 24.0,
+                                                letterSpacing: 0.0,
                                               ),
                                         ),
                                       ),
@@ -186,6 +191,7 @@ class _TransmissionSelect1WidgetState extends State<TransmissionSelect1Widget> {
                                             .override(
                                               fontFamily: 'Readex Pro',
                                               fontSize: 11.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                       showBadge: true,
@@ -193,7 +199,7 @@ class _TransmissionSelect1WidgetState extends State<TransmissionSelect1Widget> {
                                       badgeColor: FlutterFlowTheme.of(context)
                                           .primaryText,
                                       elevation: 4.0,
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           8.0, 8.0, 8.0, 8.0),
                                       position: badges.BadgePosition.topEnd(),
                                       animationType:
@@ -208,7 +214,7 @@ class _TransmissionSelect1WidgetState extends State<TransmissionSelect1Widget> {
                                         buttonSize: 40.0,
                                         fillColor: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
-                                        icon: const FaIcon(
+                                        icon: FaIcon(
                                           FontAwesomeIcons.leaf,
                                           color: Color(0xFF0CA256),
                                           size: 24.0,
@@ -231,9 +237,9 @@ class _TransmissionSelect1WidgetState extends State<TransmissionSelect1Widget> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               16.0, 0.0, 16.0, 0.0),
-                          child: SizedBox(
+                          child: Container(
                             height: 48.0,
                             child: Stack(
                               children: [
@@ -253,6 +259,7 @@ class _TransmissionSelect1WidgetState extends State<TransmissionSelect1Widget> {
                                           fontFamily: 'Readex Pro',
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryText,
+                                          letterSpacing: 0.0,
                                         ),
                                     enabledBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
@@ -263,28 +270,28 @@ class _TransmissionSelect1WidgetState extends State<TransmissionSelect1Widget> {
                                       borderRadius: BorderRadius.circular(8.0),
                                     ),
                                     focusedBorder: UnderlineInputBorder(
-                                      borderSide: const BorderSide(
+                                      borderSide: BorderSide(
                                         color: Color(0xFF0CA256),
                                         width: 2.0,
                                       ),
                                       borderRadius: BorderRadius.circular(8.0),
                                     ),
                                     errorBorder: UnderlineInputBorder(
-                                      borderSide: const BorderSide(
+                                      borderSide: BorderSide(
                                         color: Color(0x00000000),
                                         width: 2.0,
                                       ),
                                       borderRadius: BorderRadius.circular(8.0),
                                     ),
                                     focusedErrorBorder: UnderlineInputBorder(
-                                      borderSide: const BorderSide(
+                                      borderSide: BorderSide(
                                         color: Color(0x00000000),
                                         width: 2.0,
                                       ),
                                       borderRadius: BorderRadius.circular(8.0),
                                     ),
                                     contentPadding:
-                                        const EdgeInsetsDirectional.fromSTEB(
+                                        EdgeInsetsDirectional.fromSTEB(
                                             12.0, 16.0, 0.0, 16.0),
                                   ),
                                   style: FlutterFlowTheme.of(context)
@@ -293,14 +300,16 @@ class _TransmissionSelect1WidgetState extends State<TransmissionSelect1Widget> {
                                         fontFamily: 'Readex Pro',
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
+                                        letterSpacing: 0.0,
                                       ),
+                                  minLines: null,
                                   validator: _model.textControllerValidator
                                       .asValidator(context),
                                 ),
                                 Align(
-                                  alignment: const AlignmentDirectional(1.0, 0.0),
+                                  alignment: AlignmentDirectional(1.0, 0.0),
                                   child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 10.0, 0.0),
                                     child: FaIcon(
                                       FontAwesomeIcons.search,
@@ -349,7 +358,7 @@ class _TransmissionSelect1WidgetState extends State<TransmissionSelect1Widget> {
                           },
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               10.0, 20.0, 10.0, 20.0),
                           child: FFButtonWidget(
                             onPressed: () async {
@@ -365,20 +374,21 @@ class _TransmissionSelect1WidgetState extends State<TransmissionSelect1Widget> {
                             options: FFButtonOptions(
                               width: 122.0,
                               height: 48.0,
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
-                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
-                              color: const Color(0xFF0CA256),
+                              color: Color(0xFF0CA256),
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
                                     fontFamily: 'Plus Jakarta Sans',
                                     color: Colors.white,
                                     fontSize: 16.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.w500,
                                   ),
-                              borderSide: const BorderSide(
+                              borderSide: BorderSide(
                                 color: Colors.transparent,
                                 width: 1.0,
                               ),

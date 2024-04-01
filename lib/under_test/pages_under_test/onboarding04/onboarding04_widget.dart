@@ -7,7 +7,11 @@ import 'dart:ui';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'onboarding04_model.dart';
 export 'onboarding04_model.dart';
 
@@ -39,8 +43,8 @@ class _Onboarding04WidgetState extends State<Onboarding04Widget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: const Offset(1.2, 1.2),
-          end: const Offset(1.0, 1.0),
+          begin: Offset(1.2, 1.2),
+          end: Offset(1.0, 1.0),
         ),
       ],
     ),
@@ -58,8 +62,8 @@ class _Onboarding04WidgetState extends State<Onboarding04Widget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: const Offset(0.0, 60.0),
-          end: const Offset(0.0, 0.0),
+          begin: Offset(0.0, 60.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -77,8 +81,8 @@ class _Onboarding04WidgetState extends State<Onboarding04Widget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: const Offset(0.0, 80.0),
-          end: const Offset(0.0, 0.0),
+          begin: Offset(0.0, 80.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -96,8 +100,8 @@ class _Onboarding04WidgetState extends State<Onboarding04Widget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: const Offset(0.4, 0.4),
-          end: const Offset(1.0, 1.0),
+          begin: Offset(0.4, 0.4),
+          end: Offset(1.0, 1.0),
         ),
       ],
     ),
@@ -115,8 +119,8 @@ class _Onboarding04WidgetState extends State<Onboarding04Widget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: const Offset(1.2, 1.2),
-          end: const Offset(1.0, 1.0),
+          begin: Offset(1.2, 1.2),
+          end: Offset(1.0, 1.0),
         ),
       ],
     ),
@@ -134,8 +138,8 @@ class _Onboarding04WidgetState extends State<Onboarding04Widget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: const Offset(0.0, 60.0),
-          end: const Offset(0.0, 0.0),
+          begin: Offset(0.0, 60.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -153,8 +157,8 @@ class _Onboarding04WidgetState extends State<Onboarding04Widget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: const Offset(0.0, 80.0),
-          end: const Offset(0.0, 0.0),
+          begin: Offset(0.0, 80.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -172,8 +176,8 @@ class _Onboarding04WidgetState extends State<Onboarding04Widget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: const Offset(0.5, 0.5),
-          end: const Offset(1.0, 1.0),
+          begin: Offset(0.5, 0.5),
+          end: Offset(1.0, 1.0),
         ),
       ],
     ),
@@ -191,8 +195,8 @@ class _Onboarding04WidgetState extends State<Onboarding04Widget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: const Offset(1.2, 1.2),
-          end: const Offset(1.0, 1.0),
+          begin: Offset(1.2, 1.2),
+          end: Offset(1.0, 1.0),
         ),
       ],
     ),
@@ -210,8 +214,8 @@ class _Onboarding04WidgetState extends State<Onboarding04Widget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: const Offset(0.0, 60.0),
-          end: const Offset(0.0, 0.0),
+          begin: Offset(0.0, 60.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -229,8 +233,8 @@ class _Onboarding04WidgetState extends State<Onboarding04Widget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: const Offset(0.0, 80.0),
-          end: const Offset(0.0, 0.0),
+          begin: Offset(0.0, 80.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -248,8 +252,8 @@ class _Onboarding04WidgetState extends State<Onboarding04Widget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: const Offset(0.5, 0.5),
-          end: const Offset(1.0, 1.0),
+          begin: Offset(0.5, 0.5),
+          end: Offset(1.0, 1.0),
         ),
       ],
     ),
@@ -267,8 +271,8 @@ class _Onboarding04WidgetState extends State<Onboarding04Widget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: const Offset(1.4, 1.4),
-          end: const Offset(1.0, 1.0),
+          begin: Offset(1.4, 1.4),
+          end: Offset(1.0, 1.0),
         ),
       ],
     ),
@@ -286,15 +290,15 @@ class _Onboarding04WidgetState extends State<Onboarding04Widget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: const Offset(0.0, 50.0),
-          end: const Offset(0.0, 0.0),
+          begin: Offset(0.0, 50.0),
+          end: Offset(0.0, 0.0),
         ),
         ScaleEffect(
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: const Offset(0.3, 0.3),
-          end: const Offset(1.0, 1.0),
+          begin: Offset(0.3, 0.3),
+          end: Offset(1.0, 1.0),
         ),
       ],
     ),
@@ -312,8 +316,8 @@ class _Onboarding04WidgetState extends State<Onboarding04Widget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: const Offset(0.0, 70.0),
-          end: const Offset(0.0, 0.0),
+          begin: Offset(0.0, 70.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -331,8 +335,8 @@ class _Onboarding04WidgetState extends State<Onboarding04Widget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: const Offset(0.0, 90.0),
-          end: const Offset(0.0, 0.0),
+          begin: Offset(0.0, 90.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -350,15 +354,15 @@ class _Onboarding04WidgetState extends State<Onboarding04Widget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: const Offset(0.0, 100.0),
-          end: const Offset(0.0, 0.0),
+          begin: Offset(0.0, 100.0),
+          end: Offset(0.0, 0.0),
         ),
         ScaleEffect(
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: const Offset(0.8, 0.8),
-          end: const Offset(1.0, 1.0),
+          begin: Offset(0.8, 0.8),
+          end: Offset(1.0, 1.0),
         ),
       ],
     ),
@@ -399,8 +403,8 @@ class _Onboarding04WidgetState extends State<Onboarding04Widget>
               : FocusScope.of(context).unfocus(),
           child: Scaffold(
             key: scaffoldKey,
-            backgroundColor: const Color(0xFFF1F4F8),
-            body: SizedBox(
+            backgroundColor: Color(0xFFF1F4F8),
+            body: Container(
               width: double.infinity,
               height: double.infinity,
               child: Stack(
@@ -421,7 +425,7 @@ class _Onboarding04WidgetState extends State<Onboarding04Widget>
                           ).animateOnPageLoad(
                               animationsMap['imageOnPageLoadAnimation1']!),
                           Padding(
-                            padding: const EdgeInsets.all(24.0),
+                            padding: EdgeInsets.all(24.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -434,14 +438,15 @@ class _Onboarding04WidgetState extends State<Onboarding04Widget>
                                       .headlineMedium
                                       .override(
                                         fontFamily: 'Outfit',
-                                        color: const Color(0xFF14181B),
+                                        color: Color(0xFF14181B),
                                         fontSize: 24.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
                                       ),
                                 ).animateOnPageLoad(
                                     animationsMap['textOnPageLoadAnimation1']!),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 12.0, 0.0, 0.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
@@ -451,15 +456,16 @@ class _Onboarding04WidgetState extends State<Onboarding04Widget>
                                         .labelMedium
                                         .override(
                                           fontFamily: 'Plus Jakarta Sans',
-                                          color: const Color(0xFF57636C),
+                                          color: Color(0xFF57636C),
                                           fontSize: 14.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.normal,
                                         ),
                                   ).animateOnPageLoad(animationsMap[
                                       'textOnPageLoadAnimation2']!),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 24.0, 0.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
@@ -470,7 +476,7 @@ class _Onboarding04WidgetState extends State<Onboarding04Widget>
                                         borderRadius: 30.0,
                                         borderWidth: 1.0,
                                         buttonSize: 60.0,
-                                        icon: const Icon(
+                                        icon: Icon(
                                           Icons.navigate_next_rounded,
                                           color: Color(0xFF57636C),
                                           size: 30.0,
@@ -483,7 +489,7 @@ class _Onboarding04WidgetState extends State<Onboarding04Widget>
                                           await _model.pageViewController
                                               ?.nextPage(
                                             duration:
-                                                const Duration(milliseconds: 300),
+                                                Duration(milliseconds: 300),
                                             curve: Curves.ease,
                                           );
                                         },
@@ -508,7 +514,7 @@ class _Onboarding04WidgetState extends State<Onboarding04Widget>
                           ).animateOnPageLoad(
                               animationsMap['imageOnPageLoadAnimation2']!),
                           Padding(
-                            padding: const EdgeInsets.all(24.0),
+                            padding: EdgeInsets.all(24.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -521,14 +527,15 @@ class _Onboarding04WidgetState extends State<Onboarding04Widget>
                                       .headlineMedium
                                       .override(
                                         fontFamily: 'Outfit',
-                                        color: const Color(0xFF14181B),
+                                        color: Color(0xFF14181B),
                                         fontSize: 24.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
                                       ),
                                 ).animateOnPageLoad(
                                     animationsMap['textOnPageLoadAnimation3']!),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 12.0, 0.0, 0.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
@@ -538,15 +545,16 @@ class _Onboarding04WidgetState extends State<Onboarding04Widget>
                                         .labelMedium
                                         .override(
                                           fontFamily: 'Plus Jakarta Sans',
-                                          color: const Color(0xFF57636C),
+                                          color: Color(0xFF57636C),
                                           fontSize: 14.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.normal,
                                         ),
                                   ).animateOnPageLoad(animationsMap[
                                       'textOnPageLoadAnimation4']!),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 24.0, 0.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
@@ -557,7 +565,7 @@ class _Onboarding04WidgetState extends State<Onboarding04Widget>
                                         borderRadius: 30.0,
                                         borderWidth: 1.0,
                                         buttonSize: 60.0,
-                                        icon: const Icon(
+                                        icon: Icon(
                                           Icons.navigate_next_rounded,
                                           color: Color(0xFF57636C),
                                           size: 30.0,
@@ -570,7 +578,7 @@ class _Onboarding04WidgetState extends State<Onboarding04Widget>
                                           await _model.pageViewController
                                               ?.nextPage(
                                             duration:
-                                                const Duration(milliseconds: 300),
+                                                Duration(milliseconds: 300),
                                             curve: Curves.ease,
                                           );
                                         },
@@ -595,7 +603,7 @@ class _Onboarding04WidgetState extends State<Onboarding04Widget>
                           ).animateOnPageLoad(
                               animationsMap['imageOnPageLoadAnimation3']!),
                           Padding(
-                            padding: const EdgeInsets.all(24.0),
+                            padding: EdgeInsets.all(24.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -608,14 +616,15 @@ class _Onboarding04WidgetState extends State<Onboarding04Widget>
                                       .headlineMedium
                                       .override(
                                         fontFamily: 'Outfit',
-                                        color: const Color(0xFF14181B),
+                                        color: Color(0xFF14181B),
                                         fontSize: 24.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
                                       ),
                                 ).animateOnPageLoad(
                                     animationsMap['textOnPageLoadAnimation5']!),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 12.0, 0.0, 0.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
@@ -625,15 +634,16 @@ class _Onboarding04WidgetState extends State<Onboarding04Widget>
                                         .labelMedium
                                         .override(
                                           fontFamily: 'Plus Jakarta Sans',
-                                          color: const Color(0xFF57636C),
+                                          color: Color(0xFF57636C),
                                           fontSize: 14.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.normal,
                                         ),
                                   ).animateOnPageLoad(animationsMap[
                                       'textOnPageLoadAnimation6']!),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 24.0, 0.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
@@ -644,7 +654,7 @@ class _Onboarding04WidgetState extends State<Onboarding04Widget>
                                         borderRadius: 30.0,
                                         borderWidth: 1.0,
                                         buttonSize: 60.0,
-                                        icon: const Icon(
+                                        icon: Icon(
                                           Icons.navigate_next_rounded,
                                           color: Color(0xFF57636C),
                                           size: 30.0,
@@ -657,7 +667,7 @@ class _Onboarding04WidgetState extends State<Onboarding04Widget>
                                           await _model.pageViewController
                                               ?.nextPage(
                                             duration:
-                                                const Duration(milliseconds: 300),
+                                                Duration(milliseconds: 300),
                                             curve: Curves.ease,
                                           );
                                         },
@@ -675,7 +685,7 @@ class _Onboarding04WidgetState extends State<Onboarding04Widget>
                         width: 100.0,
                         height: 100.0,
                         decoration: BoxDecoration(
-                          color: const Color(0xFFF1F4F8),
+                          color: Color(0xFFF1F4F8),
                           image: DecorationImage(
                             fit: BoxFit.cover,
                             image: Image.network(
@@ -692,7 +702,7 @@ class _Onboarding04WidgetState extends State<Onboarding04Widget>
                             child: Container(
                               width: 100.0,
                               height: 100.0,
-                              decoration: const BoxDecoration(
+                              decoration: BoxDecoration(
                                 color: Color(0x97FFFFFF),
                               ),
                               child: Column(
@@ -700,7 +710,7 @@ class _Onboarding04WidgetState extends State<Onboarding04Widget>
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 44.0),
                                     child: Image.network(
                                       'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/templates-2-ktmgjv/assets/4lve2p8qsetr/@3xlogoMark_outlinePrimary_transparent.png',
@@ -718,14 +728,15 @@ class _Onboarding04WidgetState extends State<Onboarding04Widget>
                                         .headlineMedium
                                         .override(
                                           fontFamily: 'Outfit',
-                                          color: const Color(0xFF14181B),
+                                          color: Color(0xFF14181B),
                                           fontSize: 24.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.normal,
                                         ),
                                   ).animateOnPageLoad(animationsMap[
                                       'textOnPageLoadAnimation7']!),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         24.0, 12.0, 24.0, 0.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
@@ -735,15 +746,16 @@ class _Onboarding04WidgetState extends State<Onboarding04Widget>
                                           .titleSmall
                                           .override(
                                             fontFamily: 'Plus Jakarta Sans',
-                                            color: const Color(0xFF57636C),
+                                            color: Color(0xFF57636C),
                                             fontSize: 16.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
                                           ),
                                     ).animateOnPageLoad(animationsMap[
                                         'textOnPageLoadAnimation8']!),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 44.0, 0.0, 0.0),
                                     child: FFButtonWidget(
                                       onPressed: () {
@@ -755,22 +767,23 @@ class _Onboarding04WidgetState extends State<Onboarding04Widget>
                                       options: FFButtonOptions(
                                         width: 200.0,
                                         height: 50.0,
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 0.0),
                                         iconPadding:
-                                            const EdgeInsetsDirectional.fromSTEB(
+                                            EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
-                                        color: const Color(0xFF4B39EF),
+                                        color: Color(0xFF4B39EF),
                                         textStyle: FlutterFlowTheme.of(context)
                                             .titleSmall
                                             .override(
                                               fontFamily: 'Plus Jakarta Sans',
                                               color: Colors.white,
                                               fontSize: 16.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
                                         elevation: 2.0,
-                                        borderSide: const BorderSide(
+                                        borderSide: BorderSide(
                                           color: Colors.transparent,
                                           width: 1.0,
                                         ),
@@ -790,10 +803,10 @@ class _Onboarding04WidgetState extends State<Onboarding04Widget>
                     ],
                   ),
                   Align(
-                    alignment: const AlignmentDirectional(-0.85, 0.85),
+                    alignment: AlignmentDirectional(-0.85, 0.85),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
                       child: smooth_page_indicator.SmoothPageIndicator(
                         controller: _model.pageViewController ??=
                             PageController(initialPage: 0),
@@ -802,11 +815,11 @@ class _Onboarding04WidgetState extends State<Onboarding04Widget>
                         onDotClicked: (i) async {
                           await _model.pageViewController!.animateToPage(
                             i,
-                            duration: const Duration(milliseconds: 500),
+                            duration: Duration(milliseconds: 500),
                             curve: Curves.ease,
                           );
                         },
-                        effect: const smooth_page_indicator.ExpandingDotsEffect(
+                        effect: smooth_page_indicator.ExpandingDotsEffect(
                           expansionFactor: 2.0,
                           spacing: 8.0,
                           radius: 16.0,

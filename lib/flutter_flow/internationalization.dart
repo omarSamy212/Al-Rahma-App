@@ -341,6 +341,38 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Nationality',
       'ar': 'جنسية',
     },
+    'ggodxj06': {
+      'en': 'Field is required',
+      'ar': '',
+    },
+    'dunjd1uo': {
+      'en': 'Please choose an option from the dropdown',
+      'ar': 'يرجى اختيار خيار من القائمة المنسدلة',
+    },
+    'vkrrbebk': {
+      'en': 'Field is required',
+      'ar': '',
+    },
+    'bxq5z3ib': {
+      'en': 'Please choose an option from the dropdown',
+      'ar': '',
+    },
+    '87jbrjhh': {
+      'en': 'Field is required',
+      'ar': '',
+    },
+    '5elr8x4g': {
+      'en': 'Please choose an option from the dropdown',
+      'ar': '',
+    },
+    '4iue3yt2': {
+      'en': 'Field is required',
+      'ar': '',
+    },
+    '3bacjmia': {
+      'en': 'Please choose an option from the dropdown',
+      'ar': '',
+    },
     'u66kvll4': {
       'en': 'National ID',
       'ar': 'الهوية الوطنية',
@@ -375,6 +407,54 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'jsxz6av1': {
       'en': '',
+      'ar': '',
+    },
+    '3dsgsa6c': {
+      'en': 'Field is required',
+      'ar': '',
+    },
+    'upwyfvm2': {
+      'en': 'Please choose an option from the dropdown',
+      'ar': '',
+    },
+    'xrl64zux': {
+      'en': 'Field is required',
+      'ar': '',
+    },
+    't3jei06a': {
+      'en': 'Please choose an option from the dropdown',
+      'ar': '',
+    },
+    'xc4thabi': {
+      'en': 'Field is required',
+      'ar': '',
+    },
+    'tsskkm4o': {
+      'en': 'Please choose an option from the dropdown',
+      'ar': '',
+    },
+    'o6zikw1h': {
+      'en': 'Field is required',
+      'ar': '',
+    },
+    'yj7frnbg': {
+      'en': 'Please choose an option from the dropdown',
+      'ar': '',
+    },
+    'ep3xap2v': {
+      'en': 'Field is required',
+      'ar': '',
+    },
+    'twh137ci': {
+      'en': 'Please choose an option from the dropdown',
+      'ar': 'يرجى اختيار خيار من القائمة المنسدلة',
+    },
+    'cgj9gsqz': {
+      'en': 'Field is required',
+      'ar': '',
+    },
+    'rpkbzmmo': {
+      'en': 'Please choose an option from the dropdown',
       'ar': '',
     },
     'qsfdk174': {
@@ -421,6 +501,62 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
       'ar': '',
     },
+    '1mn2cxty': {
+      'en': 'Field is required',
+      'ar': '',
+    },
+    'jmsjpsix': {
+      'en': 'Please choose an option from the dropdown',
+      'ar': '',
+    },
+    '8vbjnb37': {
+      'en': 'Field is required',
+      'ar': '',
+    },
+    'u3srb58b': {
+      'en': 'Please choose an option from the dropdown',
+      'ar': '',
+    },
+    'tr06y4hy': {
+      'en': 'Field is required',
+      'ar': '',
+    },
+    'ppl01db3': {
+      'en': 'Please choose an option from the dropdown',
+      'ar': '',
+    },
+    '3zkdeqja': {
+      'en': 'Field is required',
+      'ar': '',
+    },
+    '54ugpsb0': {
+      'en': 'Please choose an option from the dropdown',
+      'ar': '',
+    },
+    'moe1hv4e': {
+      'en': 'Field is required',
+      'ar': '',
+    },
+    'kedrfj69': {
+      'en': 'Please choose an option from the dropdown',
+      'ar': '',
+    },
+    'agftcbph': {
+      'en': 'Field is required',
+      'ar': '',
+    },
+    'nbik4hor': {
+      'en': 'Please choose an option from the dropdown',
+      'ar': '',
+    },
+    '82gx3o43': {
+      'en': 'Field is required',
+      'ar': '',
+    },
+    '2us7jgen': {
+      'en': 'Please choose an option from the dropdown',
+      'ar': '',
+    },
     'oghvu3y2': {
       'en': 'Government',
       'ar': 'محافظة',
@@ -436,6 +572,38 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'nsaue4po': {
       'en': 'Phone Number',
       'ar': 'رقم التليفون',
+    },
+    'kdw10inl': {
+      'en': 'Field is required',
+      'ar': '',
+    },
+    'oukl7amw': {
+      'en': 'Please choose an option from the dropdown',
+      'ar': '',
+    },
+    '9t4q9h1g': {
+      'en': 'Field is required',
+      'ar': '',
+    },
+    'yy129kby': {
+      'en': 'Please choose an option from the dropdown',
+      'ar': '',
+    },
+    'a3gl1iij': {
+      'en': 'Field is required',
+      'ar': '',
+    },
+    '7sh7ckay': {
+      'en': 'Please choose an option from the dropdown',
+      'ar': '',
+    },
+    '412nn2e1': {
+      'en': 'Field is required',
+      'ar': '',
+    },
+    '7016hcp1': {
+      'en': 'Please choose an option from the dropdown',
+      'ar': '',
     },
     'wbewlluf': {
       'en': 'Education Data',
@@ -456,6 +624,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'd0xh78gg': {
       'en': 'Employed now?',
       'ar': 'موظف الآن؟',
+    },
+    '4qxp6c30': {
+      'en': 'Field is required',
+      'ar': '',
+    },
+    'bzkc56ee': {
+      'en': 'Please choose an option from the dropdown',
+      'ar': '',
     },
     'gjf75qlj': {
       'en': '',
@@ -524,6 +700,82 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'b1gya0sv': {
       'en': 'Select Contractor',
       'ar': 'أختر المورد',
+    },
+    '5emwe7zt': {
+      'en': 'Morning',
+      'ar': 'صباح',
+    },
+    'jzsebavj': {
+      'en': 'Evening',
+      'ar': 'مساء',
+    },
+    'worv047g': {
+      'en': 'Night',
+      'ar': 'ليلة',
+    },
+    'z9ptj5z9': {
+      'en': 'Select starting shift ',
+      'ar': 'حدد بداية الوردية',
+    },
+    'p0dyomyl': {
+      'en': 'Search for an item...',
+      'ar': 'البحث عن عنصر...',
+    },
+    '5le1ml99': {
+      'en': '8 h',
+      'ar': '8 ساعات',
+    },
+    'guhkh4l1': {
+      'en': '16 h',
+      'ar': '16 ساعة',
+    },
+    'tr77kv9z': {
+      'en': 'Time',
+      'ar': 'وقت',
+    },
+    '0iu0hqff': {
+      'en': 'Search for an item...',
+      'ar': 'البحث عن عنصر...',
+    },
+    'vibkb11l': {
+      'en': 'Morning',
+      'ar': 'صباح',
+    },
+    '3a1t5wee': {
+      'en': 'Evening',
+      'ar': 'مساء',
+    },
+    'q7n5lwn3': {
+      'en': 'Night',
+      'ar': 'ليلة',
+    },
+    'fntl9krj': {
+      'en': 'Select starting shift ',
+      'ar': 'حدد بداية الوردية',
+    },
+    '6gz89b42': {
+      'en': 'Search for an item...',
+      'ar': 'البحث عن عنصر...',
+    },
+    'q2r4uge7': {
+      'en': '8 h',
+      'ar': '8 ساعات',
+    },
+    '9hlrwzk6': {
+      'en': '12 h',
+      'ar': '12 ساعة',
+    },
+    'nueh6d3a': {
+      'en': '16 h',
+      'ar': '16 ساعة',
+    },
+    'zeu3elfq': {
+      'en': 'Time',
+      'ar': 'وقت',
+    },
+    'uxmr3cq2': {
+      'en': 'Search for an item...',
+      'ar': 'البحث عن عنصر...',
     },
     'e35e8h9c': {
       'en': '',
@@ -609,82 +861,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Select code',
       'ar': 'حدد كود الوظيفة',
     },
-    'vibkb11l': {
-      'en': 'Morning',
-      'ar': 'صباح',
-    },
-    '3a1t5wee': {
-      'en': 'Evening',
-      'ar': 'مساء',
-    },
-    'q7n5lwn3': {
-      'en': 'Night',
-      'ar': 'ليلة',
-    },
-    'fntl9krj': {
-      'en': 'Select starting shift ',
-      'ar': 'حدد بداية الوردية',
-    },
-    'p0dyomyl': {
-      'en': 'Search for an item...',
-      'ar': 'البحث عن عنصر...',
-    },
-    'q2r4uge7': {
-      'en': '8 h',
-      'ar': '8 ساعات',
-    },
-    '9hlrwzk6': {
-      'en': '12 h',
-      'ar': '12 ساعة',
-    },
-    'nueh6d3a': {
-      'en': '16 h',
-      'ar': '16 ساعة',
-    },
-    'zeu3elfq': {
-      'en': 'Time',
-      'ar': 'وقت',
-    },
-    '0iu0hqff': {
-      'en': 'Search for an item...',
-      'ar': 'البحث عن عنصر...',
-    },
-    '5emwe7zt': {
-      'en': 'Morning',
-      'ar': 'صباح',
-    },
-    'jzsebavj': {
-      'en': 'Evening',
-      'ar': 'مساء',
-    },
-    'worv047g': {
-      'en': 'Night',
-      'ar': 'ليلة',
-    },
-    'z9ptj5z9': {
-      'en': 'Select starting shift ',
-      'ar': 'حدد بداية الوردية',
-    },
-    '6gz89b42': {
-      'en': 'Search for an item...',
-      'ar': 'البحث عن عنصر...',
-    },
-    '5le1ml99': {
-      'en': '8 h',
-      'ar': '8 ساعات',
-    },
-    'guhkh4l1': {
-      'en': '16 h',
-      'ar': '16 ساعة',
-    },
-    'tr77kv9z': {
-      'en': 'Time',
-      'ar': 'وقت',
-    },
-    'uxmr3cq2': {
-      'en': 'Search for an item...',
-      'ar': 'البحث عن عنصر...',
-    },
     '9vjhddi3': {
       'en': 'employment date',
       'ar': 'تاريخ التوظيف',
@@ -713,17 +889,41 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
       'ar': '',
     },
-    'ul5x5si2': {
-      'en': '1.Upload ID',
-      'ar': '1. ارفق صورة البطاقة الشخصية',
+    'tnens0ef': {
+      'en': 'Field is required',
+      'ar': '',
+    },
+    'azm7t8e0': {
+      'en': 'Please choose an option from the dropdown',
+      'ar': '',
+    },
+    'mz8l2oaj': {
+      'en': 'Field is required',
+      'ar': '',
+    },
+    '0zsv5i5p': {
+      'en': 'Please choose an option from the dropdown',
+      'ar': '',
+    },
+    'bcfrlk3f': {
+      'en': 'Field is required',
+      'ar': '',
+    },
+    '5sjmqwng': {
+      'en': 'Please choose an option from the dropdown',
+      'ar': '',
+    },
+    'd9j235xq': {
+      'en': 'Field is required',
+      'ar': '',
+    },
+    'q436lgef': {
+      'en': 'Please choose an option from the dropdown',
+      'ar': '',
     },
     'qk923r8j': {
-      'en': 'Personal ID',
-      'ar': 'البطاقة الشخصية',
-    },
-    '8e1l95al': {
-      'en': 'Please upload front ID.',
-      'ar': 'يرجي تحميل الجهة الأمامية.',
+      'en': 'Personal Photo',
+      'ar': 'صورة شخصية',
     },
     'nsbp09d8': {
       'en': 'Add Photo',
@@ -733,13 +933,37 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Upload an image here...',
       'ar': 'ارفع صورة هنا...',
     },
-    '9xr8khaa': {
-      'en': 'Personal ID',
+    'ariuy6ku': {
+      'en': 'Upload ID',
       'ar': '',
     },
-    'tq7uqg7d': {
+    'ul5x5si2': {
+      'en': 'Upload Photo',
+      'ar': '1. ارفق صورة البطاقة الشخصية',
+    },
+    'd5fyxf95': {
+      'en': 'National ID',
+      'ar': 'البطاقة الشخصية',
+    },
+    'm668wexn': {
+      'en': 'Please upload front ID.',
+      'ar': 'يرجى تحميل الجهة  الأمامية.',
+    },
+    'dknzyvpb': {
+      'en': 'Add Photo',
+      'ar': 'إضافة صورة',
+    },
+    'v6qutznl': {
+      'en': 'Upload an image here...',
+      'ar': 'ارفع صورة هنا...',
+    },
+    '75tpe56i': {
+      'en': 'National ID',
+      'ar': 'البطاقة الشخصية',
+    },
+    'nlgq80r6': {
       'en': 'Please upload back ID.',
-      'ar': '',
+      'ar': 'يرجى تحميل الجهة الخلفية.',
     },
     'stvwbuqx': {
       'en': 'Add Photo',
@@ -750,16 +974,16 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ar': '',
     },
     'ig3n93ko': {
-      'en': '2. Upload driving license',
+      'en': 'Upload driving license',
       'ar': '',
     },
     'hzhb7hi3': {
       'en': 'Driving license',
-      'ar': '',
+      'ar': 'رخصة القيادة',
     },
     'rqkzmia7': {
       'en': 'Please upload front driving license.',
-      'ar': '',
+      'ar': 'يرجى تحميل الجهة  الأمامية.',
     },
     'rvu9vpqs': {
       'en': 'Add Photo',
@@ -771,11 +995,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'xusw3d0f': {
       'en': 'Driving license',
-      'ar': '',
+      'ar': 'رخصة القيادة',
     },
     'nlddt3w2': {
       'en': 'Please upload back ID.',
-      'ar': '',
+      'ar': 'يرجى تحميل الجهة  الخلفية.',
     },
     'txb2quhn': {
       'en': 'Add Photo',
@@ -786,12 +1010,12 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ar': '',
     },
     '7rakgrdr': {
-      'en': '3. Upload drug test',
-      'ar': '',
+      'en': '* Please verify the data, it cannot be changed later',
+      'ar': '* برجاء التأكد من البيانات فلا يمكن تغييرها لاحقاً',
     },
     'drel3fy8': {
       'en': 'Upload drug test',
-      'ar': '',
+      'ar': 'تحميل نتيجة اختبار المخدرات',
     },
     'crnh5tvi': {
       'en': 'Please upload your drug test.',
@@ -808,230 +1032,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'aue2890w': {
       'en': 'Next',
       'ar': 'التالي',
-    },
-    'uqp1cu71': {
-      'en': 'Field is required',
-      'ar': ' مطلوب الملء',
-    },
-    'dunjd1uo': {
-      'en': 'Please choose an option from the dropdown',
-      'ar': 'يرجى اختيار خيار من القائمة المنسدلة',
-    },
-    'vkrrbebk': {
-      'en': 'Field is required',
-      'ar': ' مطلوب الملء',
-    },
-    'bxq5z3ib': {
-      'en': 'Please choose an option from the dropdown',
-      'ar': 'يرجى اختيار خيار من القائمة المنسدلة',
-    },
-    'ggodxj06': {
-      'en': 'Field is required',
-      'ar': ' مطلوب الملء',
-    },
-    '7cozg12h': {
-      'en': 'Please choose an option from the dropdown',
-      'ar': 'يرجى اختيار خيار من القائمة المنسدلة',
-    },
-    'h02dy9m3': {
-      'en': 'Field is required',
-      'ar': ' مطلوب الملء',
-    },
-    'm9hde46z': {
-      'en': 'Please choose an option from the dropdown',
-      'ar': 'يرجى اختيار خيار من القائمة المنسدلة',
-    },
-    'emgbqhzq': {
-      'en': 'Field is required',
-      'ar': ' مطلوب الملء',
-    },
-    '6jmgnqqz': {
-      'en': 'Please choose an option from the dropdown',
-      'ar': '',
-    },
-    '6quszuut': {
-      'en': 'Field is required',
-      'ar': '',
-    },
-    'mk7vinbk': {
-      'en': 'Please choose an option from the dropdown',
-      'ar': '',
-    },
-    'xs113aiw': {
-      'en': 'Field is required',
-      'ar': ' مطلوب الملء',
-    },
-    'tz8hguxz': {
-      'en': 'Please choose an option from the dropdown',
-      'ar': '',
-    },
-    'o6zikw1h': {
-      'en': 'Field is required',
-      'ar': '',
-    },
-    'tsskkm4o': {
-      'en': 'Please choose an option from the dropdown',
-      'ar': '',
-    },
-    'ycwc7s5w': {
-      'en': 'Field is required',
-      'ar': '',
-    },
-    'yj7frnbg': {
-      'en': 'Please choose an option from the dropdown',
-      'ar': '',
-    },
-    'cgj9gsqz': {
-      'en': 'Field is required',
-      'ar': '',
-    },
-    'twh137ci': {
-      'en': 'Please choose an option from the dropdown',
-      'ar': 'يرجى اختيار خيار من القائمة المنسدلة',
-    },
-    '87jbrjhh': {
-      'en': 'Field is required',
-      'ar': 'مطلوب الملئ',
-    },
-    'u7tjd6ab': {
-      'en': 'Wrong Number',
-      'ar': 'رقم غير صحيح',
-    },
-    'pcug1wnh': {
-      'en': 'Wrong Number',
-      'ar': 'رقم غير صحيح',
-    },
-    '5elr8x4g': {
-      'en': 'Please choose an option from the dropdown',
-      'ar': 'يرجى اختيار خيار من القائمة المنسدلة',
-    },
-    '1mn2cxty': {
-      'en': 'Field is required',
-      'ar': '',
-    },
-    'rpkbzmmo': {
-      'en': 'Please choose an option from the dropdown',
-      'ar': '',
-    },
-    'moe1hv4e': {
-      'en': 'Field is required',
-      'ar': '',
-    },
-    'kedrfj69': {
-      'en': 'Please choose an option from the dropdown',
-      'ar': '',
-    },
-    'tr06y4hy': {
-      'en': 'Field is required',
-      'ar': '',
-    },
-    'ppl01db3': {
-      'en': 'Please choose an option from the dropdown',
-      'ar': '',
-    },
-    '3zkdeqja': {
-      'en': 'Field is required',
-      'ar': '',
-    },
-    '54ugpsb0': {
-      'en': 'Please choose an option from the dropdown',
-      'ar': '',
-    },
-    'yofs1kcr': {
-      'en': 'Field is required',
-      'ar': ' مطلوب الملء',
-    },
-    'b9d58iu1': {
-      'en': 'Please choose an option from the dropdown',
-      'ar': 'يرجى اختيار خيار من القائمة المنسدلة',
-    },
-    'agftcbph': {
-      'en': 'Field is required',
-      'ar': '',
-    },
-    'nbik4hor': {
-      'en': 'Please choose an option from the dropdown',
-      'ar': '',
-    },
-    '82gx3o43': {
-      'en': 'Field is required',
-      'ar': '',
-    },
-    '2us7jgen': {
-      'en': 'Please choose an option from the dropdown',
-      'ar': '',
-    },
-    '3dsgsa6c': {
-      'en': 'Field is required',
-      'ar': 'مطلوب الملئ',
-    },
-    'upwyfvm2': {
-      'en': 'Please choose an option from the dropdown',
-      'ar': 'يرجى اختيار خيار من القائمة المنسدلة',
-    },
-    'xrl64zux': {
-      'en': 'Field is required',
-      'ar': 'مطلوب الملئ',
-    },
-    't3jei06a': {
-      'en': 'Please choose an option from the dropdown',
-      'ar': 'يرجى اختيار خيار من القائمة المنسدلة',
-    },
-    'kdw10inl': {
-      'en': 'Field is required',
-      'ar': '',
-    },
-    'oukl7amw': {
-      'en': 'Please choose an option from the dropdown',
-      'ar': '',
-    },
-    '9t4q9h1g': {
-      'en': 'Field is required',
-      'ar': '',
-    },
-    'yy129kby': {
-      'en': 'Please choose an option from the dropdown',
-      'ar': '',
-    },
-    'a3gl1iij': {
-      'en': 'Field is required',
-      'ar': '',
-    },
-    '7sh7ckay': {
-      'en': 'Please choose an option from the dropdown',
-      'ar': '',
-    },
-    '412nn2e1': {
-      'en': 'Field is required',
-      'ar': '',
-    },
-    '7016hcp1': {
-      'en': 'Please choose an option from the dropdown',
-      'ar': '',
-    },
-    '4qxp6c30': {
-      'en': 'Field is required',
-      'ar': '',
-    },
-    'bzkc56ee': {
-      'en': 'Please choose an option from the dropdown',
-      'ar': '',
-    },
-    'ppgpzmcp': {
-      'en': 'Field is required',
-      'ar': '',
-    },
-    'g36uzy67': {
-      'en': 'Please choose an option from the dropdown',
-      'ar': '',
-    },
-    '4iue3yt2': {
-      'en': 'Field is required',
-      'ar': 'مطلوب الملئ',
-    },
-    '3bacjmia': {
-      'en': 'Please choose an option from the dropdown',
-      'ar': 'يرجى اختيار خيار من القائمة المنسدلة',
     },
     '0nw9lsur': {
       'en': 'Create  Profile',
@@ -1167,7 +1167,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   {
     'yf8l2oet': {
       'en': 'ID',
-      'ar': 'بطاقة تعريف',
+      'ar': 'كود المستخدم',
     },
     'kv4tuiot': {
       'en': 'Email',
@@ -1659,10 +1659,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Add Area',
       'ar': '',
     },
-    'jupa7up6': {
-      'en': '1',
-      'ar': '',
-    },
     'kzios87q': {
       'en': '1',
       'ar': '',
@@ -2000,7 +1996,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ar': 'الموظفين الجدد الذين تم تعيينهم اليوم',
     },
     'wsa27jvn': {
-      'en': 'View',
+      'en': 'View All',
       'ar': '',
     },
     'p8d84ios': {
@@ -3168,7 +3164,55 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // usersList
   {
+    'yx27j223': {
+      'en': 'Search...',
+      'ar': '',
+    },
     'iyudgnjx': {
+      'en': 'All',
+      'ar': 'الجميع',
+    },
+    'qhpdwdqu': {
+      'en': 'Pending',
+      'ar': '',
+    },
+    'mp2a8rxq': {
+      'en': 'In Progress',
+      'ar': '',
+    },
+    'w89kyjul': {
+      'en': 'Completed',
+      'ar': '',
+    },
+    'pjcc4zh5': {
+      'en': 'All',
+      'ar': '',
+    },
+    '42cyl7iz': {
+      'en': 'All',
+      'ar': '',
+    },
+    'vyf9o7jr': {
+      'en': 'Pending',
+      'ar': '',
+    },
+    'xyj0yeoa': {
+      'en': 'In Progress',
+      'ar': '',
+    },
+    'sf3wos36': {
+      'en': 'Completed',
+      'ar': '',
+    },
+    '6q16sq71': {
+      'en': 'All',
+      'ar': '',
+    },
+    '1lnv0fff': {
+      'en': 'All',
+      'ar': '',
+    },
+    'lg0bwmgt': {
       'en': 'All',
       'ar': 'الجميع',
     },
@@ -3318,15 +3362,15 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Below is a summary of tasks.',
       'ar': '',
     },
-    'lg0bwmgt': {
+    'dgn5gxtg': {
       'en': 'All',
       'ar': 'الجميع',
     },
-    'qhpdwdqu': {
+    'e46p36b7': {
       'en': 'Pending',
       'ar': '',
     },
-    'mp2a8rxq': {
+    'w0m4c3zq': {
       'en': 'In Progress',
       'ar': '',
     },
@@ -3398,7 +3442,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'June 5th',
       'ar': '',
     },
-    'vyf9o7jr': {
+    'uaxo3knq': {
       'en': 'Pending',
       'ar': '',
     },
@@ -3536,7 +3580,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Nick Name',
       'ar': '',
     },
-    'nxrwi02a': {
+    '9uh7vdup': {
       'en': '',
       'ar': '',
     },
@@ -3552,7 +3596,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Religion',
       'ar': '',
     },
-    '9uh7vdup': {
+    'nxrwi02a': {
       'en': '',
       'ar': '',
     },
@@ -3704,11 +3748,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
       'ar': '',
     },
-    '8o63g4c2': {
+    '9kf7nwsm': {
       'en': 'Yes',
       'ar': 'نعم',
     },
-    '18282v62': {
+    '2x19u4uw': {
       'en': 'No',
       'ar': 'لا',
     },
@@ -3976,35 +4020,35 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '1.Upload ID',
       'ar': '',
     },
-    'd5fyxf95': {
+    'fz7ke8wg': {
       'en': 'Personal ID',
-      'ar': '',
+      'ar': 'البطاقة الشخصية',
     },
-    'm668wexn': {
+    '8e1l95al': {
       'en': 'Please upload front ID.',
+      'ar': 'يرجي تحميل الجهة الأمامية.',
+    },
+    'ni755dhl': {
+      'en': 'Add Photo',
       'ar': '',
     },
-    'dknzyvpb': {
-      'en': 'Add Photo',
-      'ar': 'إضافة صورة',
-    },
-    'v6qutznl': {
+    'fcg4tkc8': {
       'en': 'Upload an image here...',
-      'ar': 'ارفع صورة هنا...',
+      'ar': '',
     },
-    '75tpe56i': {
+    '9xr8khaa': {
       'en': 'Personal ID',
       'ar': '',
     },
-    'nlgq80r6': {
+    'tq7uqg7d': {
       'en': 'Please upload back ID.',
       'ar': '',
     },
-    'bf56g7n9': {
+    'ntk6jfou': {
       'en': 'Add Photo',
       'ar': '',
     },
-    'p885ebxf': {
+    'cpnk0be9': {
       'en': 'Upload an image here...',
       'ar': '',
     },
@@ -4020,11 +4064,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Please upload front driving license.',
       'ar': '',
     },
-    'ni755dhl': {
+    'bf56g7n9': {
       'en': 'Add Photo',
       'ar': '',
     },
-    'fcg4tkc8': {
+    'p885ebxf': {
       'en': 'Upload an image here...',
       'ar': '',
     },
@@ -4036,11 +4080,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Please upload back ID.',
       'ar': '',
     },
-    'ntk6jfou': {
+    '42ao6djv': {
       'en': 'Add Photo',
       'ar': '',
     },
-    'cpnk0be9': {
+    '62w9dw9p': {
       'en': 'Upload an image here...',
       'ar': '',
     },
@@ -4068,83 +4112,83 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Next',
       'ar': '',
     },
-    'ulqrenzc': {
+    'h02dy9m3': {
       'en': 'Field is required',
       'ar': ' مطلوب الملء',
     },
-    '0tzma4qa': {
+    '7cozg12h': {
       'en': 'Please choose an option from the dropdown',
       'ar': 'يرجى اختيار خيار من القائمة المنسدلة',
     },
-    '59sadv3d': {
+    'emgbqhzq': {
       'en': 'Field is required',
       'ar': ' مطلوب الملء',
     },
-    '50mvtgt0': {
+    'm9hde46z': {
       'en': 'Please choose an option from the dropdown',
       'ar': 'يرجى اختيار خيار من القائمة المنسدلة',
     },
-    'tl1hsk73': {
+    '6quszuut': {
       'en': 'Field is required',
       'ar': '',
     },
-    '7eye35yj': {
+    '6jmgnqqz': {
       'en': 'Please choose an option from the dropdown',
       'ar': '',
     },
-    'v3rmz8xq': {
+    'xs113aiw': {
       'en': 'Field is required',
       'ar': ' مطلوب الملء',
     },
-    '5ecz0d1b': {
+    'mk7vinbk': {
       'en': 'Please choose an option from the dropdown',
       'ar': '',
     },
-    'vcqki3dz': {
+    'ycwc7s5w': {
       'en': 'Field is required',
       'ar': '',
     },
-    'p4v9rldb': {
+    'tz8hguxz': {
       'en': 'Please choose an option from the dropdown',
       'ar': '',
     },
-    'xc4thabi': {
+    'yofs1kcr': {
       'en': 'Field is required',
       'ar': '',
     },
-    '2c99dtx9': {
+    'b9d58iu1': {
       'en': 'Please choose an option from the dropdown',
-      'ar': '',
+      'ar': 'يرجى اختيار خيار من القائمة المنسدلة',
     },
-    '6h5ylbrm': {
+    'uqp1cu71': {
       'en': 'Field is required',
-      'ar': '',
+      'ar': ' مطلوب الملء',
     },
-    'a76r88ew': {
+    'g36uzy67': {
       'en': 'Please choose an option from the dropdown',
-      'ar': '',
+      'ar': 'يرجى اختيار خيار من القائمة المنسدلة',
     },
     'qg9i8cyf': {
       'en': 'Field is required',
       'ar': '',
     },
-    '92qdid5a': {
+    'jybvddsq': {
+      'en': 'Please choose an option from the dropdown',
+      'ar': '',
+    },
+    'ppgpzmcp': {
+      'en': 'Field is required',
+      'ar': ' مطلوب الملء',
+    },
+    'vzn9h8jy': {
       'en': 'Please choose an option from the dropdown',
       'ar': 'يرجى اختيار خيار من القائمة المنسدلة',
-    },
-    'ep3xap2v': {
-      'en': 'Field is required',
-      'ar': '',
-    },
-    'nzqn0som': {
-      'en': 'Please choose an option from the dropdown',
-      'ar': '',
     },
     'jtk10equ': {
       'en': 'Field is required',
       'ar': '',
     },
-    'jmsjpsix': {
+    '6jmcc71z': {
       'en': 'Please choose an option from the dropdown',
       'ar': '',
     },
@@ -4160,9 +4204,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Wrong Number',
       'ar': '',
     },
-    'cf6h6b08': {
+    '0tzma4qa': {
       'en': 'Please choose an option from the dropdown',
-      'ar': '',
+      'ar': 'يرجى اختيار خيار من القائمة المنسدلة',
     },
     'cswlnhig': {
       'en': 'Field is required',
@@ -4172,7 +4216,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Please choose an option from the dropdown',
       'ar': '',
     },
-    '5yusgnyb': {
+    '5tcqb9s4': {
       'en': 'Field is required',
       'ar': '',
     },
@@ -4252,19 +4296,19 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Please choose an option from the dropdown',
       'ar': '',
     },
-    'tnens0ef': {
+    'b4cjw1qc': {
       'en': 'Field is required',
-      'ar': '',
+      'ar': ' مطلوب الملء',
     },
-    'azm7t8e0': {
+    'cipj5xau': {
       'en': 'Please choose an option from the dropdown',
       'ar': '',
     },
-    'mz8l2oaj': {
+    'ulqrenzc': {
       'en': 'Field is required',
-      'ar': '',
+      'ar': ' مطلوب الملء',
     },
-    '0zsv5i5p': {
+    '5nhhdvad': {
       'en': 'Please choose an option from the dropdown',
       'ar': '',
     },
@@ -4272,7 +4316,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Field is required',
       'ar': '',
     },
-    '5sjmqwng': {
+    'o7nyxvhv': {
       'en': 'Please choose an option from the dropdown',
       'ar': '',
     },
@@ -4280,7 +4324,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Field is required',
       'ar': '',
     },
-    'q436lgef': {
+    'li131cp9': {
       'en': 'Please choose an option from the dropdown',
       'ar': '',
     },
@@ -5262,6 +5306,132 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'kpiw9w0t': {
       'en': 'It seems that you don\'t have any recent activity.',
+      'ar': '',
+    },
+  },
+  // user_created
+  {
+    '1x4vfeio': {
+      'en': 'User Created Successfully',
+      'ar': 'تم إنشاء المستخدم بنجاح',
+    },
+    '8jjr3g8w': {
+      'en': 'View Profile',
+      'ar': 'غلق',
+    },
+    'kakzwltv': {
+      'en': 'Back To Home',
+      'ar': '',
+    },
+  },
+  // serch
+  {
+    'w0clerx5': {
+      'en': 'Search platform...',
+      'ar': '',
+    },
+    'z7akv505': {
+      'en': 'Search',
+      'ar': '',
+    },
+    'yui44yf6': {
+      'en': 'Templates',
+      'ar': '',
+    },
+    'tlzz6rqj': {
+      'en': 'Quickly find templates',
+      'ar': '',
+    },
+    'zqvn8qj3': {
+      'en': '[Template Name]',
+      'ar': '',
+    },
+    's7sjs0ni': {
+      'en': 'cateogry',
+      'ar': '',
+    },
+    '6vhzxdh5': {
+      'en': 'Enabled',
+      'ar': '',
+    },
+    'uw03yfhu': {
+      'en': '[Template Name]',
+      'ar': '',
+    },
+    '1kpmitzd': {
+      'en': 'cateogry',
+      'ar': '',
+    },
+    'p25h1afx': {
+      'en': 'Enabled',
+      'ar': '',
+    },
+    '4j8m6yq1': {
+      'en': '[Template Name]',
+      'ar': '',
+    },
+    'xe418l6p': {
+      'en': 'cateogry',
+      'ar': '',
+    },
+    'xwg5088l': {
+      'en': 'Disabled',
+      'ar': '',
+    },
+    'a6uc141c': {
+      'en': '[Template Name]',
+      'ar': '',
+    },
+    'oktqk054': {
+      'en': 'cateogry',
+      'ar': '',
+    },
+    'sxaet95r': {
+      'en': 'Enabled',
+      'ar': '',
+    },
+    'zdmh6rim': {
+      'en': '[Template Name]',
+      'ar': '',
+    },
+    'w2b2h9df': {
+      'en': 'cateogry',
+      'ar': '',
+    },
+    'extqpspw': {
+      'en': 'Enabled',
+      'ar': '',
+    },
+    'x1xifn57': {
+      'en': 'Components',
+      'ar': '',
+    },
+    'zr7nsni6': {
+      'en': 'Find your components',
+      'ar': '',
+    },
+    '0lm7atcw': {
+      'en': '[Template Name]',
+      'ar': '',
+    },
+    'i1qcqwui': {
+      'en': 'cateogry',
+      'ar': '',
+    },
+    'e67ec6j5': {
+      'en': 'Enabled',
+      'ar': '',
+    },
+    'mdczuoad': {
+      'en': '[Template Name]',
+      'ar': '',
+    },
+    'clwibx7e': {
+      'en': 'cateogry',
+      'ar': '',
+    },
+    'q8kz9p3l': {
+      'en': 'Disabled',
       'ar': '',
     },
   },

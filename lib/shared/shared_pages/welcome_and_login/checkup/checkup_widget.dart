@@ -1,10 +1,15 @@
+import '/auth/base_auth_user_provider.dart';
 import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'checkup_model.dart';
 export 'checkup_model.dart';
 
@@ -48,7 +53,7 @@ class _CheckupWidgetState extends State<CheckupWidget>
           curve: Curves.easeInOut,
           delay: 110.ms,
           duration: 2000.ms,
-          color: const Color(0x80FFFFFF),
+          color: Color(0x80FFFFFF),
           angle: 0.524,
         ),
       ],
@@ -67,24 +72,24 @@ class _CheckupWidgetState extends State<CheckupWidget>
       logFirebaseEvent('checkup_wait__delay');
       await Future.delayed(const Duration(milliseconds: 4000));
       if (loggedIn) {
-        if (currentUserDocument?.privileges.roleName == 'Admin') {
+        if (currentUserDocument?.privileges?.roleName == 'Admin') {
           logFirebaseEvent('checkup_navigate_to');
 
           context.goNamedAuth('Admin_Home', context.mounted);
 
           return;
         } else {
-          if (currentUserDocument?.privileges.roleName == 'Supervisor') {
+          if (currentUserDocument?.privileges?.roleName == 'Supervisor') {
             logFirebaseEvent('checkup_navigate_to');
 
             context.goNamedAuth('supervisor_home', context.mounted);
 
             return;
           } else {
-            if (currentUserDocument?.privileges.roleName == 'Manager') {
+            if (currentUserDocument?.privileges?.roleName == 'Manager') {
               return;
             } else {
-              if (currentUserDocument?.privileges.roleName ==
+              if (currentUserDocument?.privileges?.roleName ==
                   'Storage Keeper') {
                 logFirebaseEvent('checkup_navigate_to');
 
@@ -92,19 +97,19 @@ class _CheckupWidgetState extends State<CheckupWidget>
 
                 return;
               } else {
-                if (currentUserDocument?.privileges.roleName == 'Worker') {
+                if (currentUserDocument?.privileges?.roleName == 'Worker') {
                   logFirebaseEvent('checkup_alert_dialog');
                   await showDialog(
                     context: context,
                     builder: (alertDialogContext) {
                       return AlertDialog(
-                        title: const Text('Unauthorized'),
-                        content: const Text(
+                        title: Text('Unauthorized'),
+                        content: Text(
                             'You dont have permisiosn to enter the system'),
                         actions: [
                           TextButton(
                             onPressed: () => Navigator.pop(alertDialogContext),
-                            child: const Text('Ok'),
+                            child: Text('Ok'),
                           ),
                         ],
                       );
@@ -161,7 +166,7 @@ class _CheckupWidgetState extends State<CheckupWidget>
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
         child: Scaffold(
           key: scaffoldKey,
-          backgroundColor: const Color(0xFF1E2429),
+          backgroundColor: Color(0xFF1E2429),
           body: Container(
             width: double.infinity,
             height: double.infinity,
@@ -169,11 +174,11 @@ class _CheckupWidgetState extends State<CheckupWidget>
               gradient: LinearGradient(
                 colors: [
                   FlutterFlowTheme.of(context).secondaryBackground,
-                  const Color(0xFF0D8A49)
+                  Color(0xFF0D8A49)
                 ],
-                stops: const [0.35, 1.0],
-                begin: const AlignmentDirectional(1.0, -1.0),
-                end: const AlignmentDirectional(-1.0, 1.0),
+                stops: [0.35, 1.0],
+                begin: AlignmentDirectional(1.0, -1.0),
+                end: AlignmentDirectional(-1.0, 1.0),
               ),
             ),
             child: Column(

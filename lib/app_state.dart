@@ -45,72 +45,72 @@ class FFAppState extends ChangeNotifier {
 
   List<ArrayOfToolsStruct> _toolsCart = [];
   List<ArrayOfToolsStruct> get toolsCart => _toolsCart;
-  set toolsCart(List<ArrayOfToolsStruct> value) {
-    _toolsCart = value;
+  set toolsCart(List<ArrayOfToolsStruct> _value) {
+    _toolsCart = _value;
     prefs.setStringList(
-        'ff_toolsCart', value.map((x) => x.serialize()).toList());
+        'ff_toolsCart', _value.map((x) => x.serialize()).toList());
   }
 
-  void addToToolsCart(ArrayOfToolsStruct value) {
-    _toolsCart.add(value);
-    prefs.setStringList(
-        'ff_toolsCart', _toolsCart.map((x) => x.serialize()).toList());
-  }
-
-  void removeFromToolsCart(ArrayOfToolsStruct value) {
-    _toolsCart.remove(value);
+  void addToToolsCart(ArrayOfToolsStruct _value) {
+    _toolsCart.add(_value);
     prefs.setStringList(
         'ff_toolsCart', _toolsCart.map((x) => x.serialize()).toList());
   }
 
-  void removeAtIndexFromToolsCart(int index) {
-    _toolsCart.removeAt(index);
+  void removeFromToolsCart(ArrayOfToolsStruct _value) {
+    _toolsCart.remove(_value);
+    prefs.setStringList(
+        'ff_toolsCart', _toolsCart.map((x) => x.serialize()).toList());
+  }
+
+  void removeAtIndexFromToolsCart(int _index) {
+    _toolsCart.removeAt(_index);
     prefs.setStringList(
         'ff_toolsCart', _toolsCart.map((x) => x.serialize()).toList());
   }
 
   void updateToolsCartAtIndex(
-    int index,
+    int _index,
     ArrayOfToolsStruct Function(ArrayOfToolsStruct) updateFn,
   ) {
-    _toolsCart[index] = updateFn(_toolsCart[index]);
+    _toolsCart[_index] = updateFn(_toolsCart[_index]);
     prefs.setStringList(
         'ff_toolsCart', _toolsCart.map((x) => x.serialize()).toList());
   }
 
-  void insertAtIndexInToolsCart(int index, ArrayOfToolsStruct value) {
-    _toolsCart.insert(index, value);
+  void insertAtIndexInToolsCart(int _index, ArrayOfToolsStruct _value) {
+    _toolsCart.insert(_index, _value);
     prefs.setStringList(
         'ff_toolsCart', _toolsCart.map((x) => x.serialize()).toList());
   }
 
   List<int> _complainsCounter = [1];
   List<int> get complainsCounter => _complainsCounter;
-  set complainsCounter(List<int> value) {
-    _complainsCounter = value;
+  set complainsCounter(List<int> _value) {
+    _complainsCounter = _value;
   }
 
-  void addToComplainsCounter(int value) {
-    _complainsCounter.add(value);
+  void addToComplainsCounter(int _value) {
+    _complainsCounter.add(_value);
   }
 
-  void removeFromComplainsCounter(int value) {
-    _complainsCounter.remove(value);
+  void removeFromComplainsCounter(int _value) {
+    _complainsCounter.remove(_value);
   }
 
-  void removeAtIndexFromComplainsCounter(int index) {
-    _complainsCounter.removeAt(index);
+  void removeAtIndexFromComplainsCounter(int _index) {
+    _complainsCounter.removeAt(_index);
   }
 
   void updateComplainsCounterAtIndex(
-    int index,
+    int _index,
     int Function(int) updateFn,
   ) {
-    _complainsCounter[index] = updateFn(_complainsCounter[index]);
+    _complainsCounter[_index] = updateFn(_complainsCounter[_index]);
   }
 
-  void insertAtIndexInComplainsCounter(int index, int value) {
-    _complainsCounter.insert(index, value);
+  void insertAtIndexInComplainsCounter(int _index, int _value) {
+    _complainsCounter.insert(_index, _value);
   }
 }
 

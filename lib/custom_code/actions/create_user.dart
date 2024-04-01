@@ -40,6 +40,7 @@ Future<UserCreationObjectStruct?> createUser(
   String userRole,
   ShiftStruct? shift,
   String userID,
+  UserPrivilegesStruct privileges,
 ) async {
   String returnmsg = 'Success';
 
@@ -83,6 +84,7 @@ Future<UserCreationObjectStruct?> createUser(
         'drug_test_image_url': drugTestImageUrl,
         'userCode': userCode,
         'accountStatus': accountStatus,
+        'privileges': privileges
       };
 
       if (shift != null) {
@@ -91,6 +93,10 @@ Future<UserCreationObjectStruct?> createUser(
           'shiftPeriod': shift.shiftPeriod,
         };
       }
+      userData['privileges'] = {
+        'roleName': privileges.roleName,
+        'roleTasks': privileges.roleTasks
+      };
 
       userDocRef.set(userData);
 
