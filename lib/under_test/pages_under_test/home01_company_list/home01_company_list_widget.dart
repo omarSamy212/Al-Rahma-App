@@ -1,11 +1,7 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'home01_company_list_model.dart';
 export 'home01_company_list_model.dart';
 
@@ -56,9 +52,9 @@ class _Home01CompanyListWidgetState extends State<Home01CompanyListWidget>
               : FocusScope.of(context).unfocus(),
           child: Scaffold(
             key: scaffoldKey,
-            backgroundColor: Color(0xFF4B39EF),
+            backgroundColor: const Color(0xFF4B39EF),
             appBar: AppBar(
-              backgroundColor: Color(0xFF4B39EF),
+              backgroundColor: const Color(0xFF4B39EF),
               automaticallyImplyLeading: false,
               title: Text(
                 FFLocalizations.of(context).getText(
@@ -78,7 +74,7 @@ class _Home01CompanyListWidgetState extends State<Home01CompanyListWidget>
                   borderRadius: 30.0,
                   borderWidth: 1.0,
                   buttonSize: 60.0,
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.search_sharp,
                     color: Colors.white,
                     size: 30.0,
@@ -98,10 +94,10 @@ class _Home01CompanyListWidgetState extends State<Home01CompanyListWidget>
                   child: Column(
                     children: [
                       Align(
-                        alignment: Alignment(0.0, 0),
+                        alignment: const Alignment(0.0, 0),
                         child: TabBar(
                           labelColor: Colors.white,
-                          unselectedLabelColor: Color(0xB3FFFFFF),
+                          unselectedLabelColor: const Color(0xB3FFFFFF),
                           labelStyle:
                               FlutterFlowTheme.of(context).titleMedium.override(
                                     fontFamily: 'Plus Jakarta Sans',
@@ -110,8 +106,8 @@ class _Home01CompanyListWidgetState extends State<Home01CompanyListWidget>
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
                                   ),
-                          unselectedLabelStyle: TextStyle(),
-                          indicatorColor: Color(0xFF4B39EF),
+                          unselectedLabelStyle: const TextStyle(),
+                          indicatorColor: const Color(0xFF4B39EF),
                           indicatorWeight: 3.0,
                           tabs: [
                             Tab(
@@ -143,7 +139,7 @@ class _Home01CompanyListWidgetState extends State<Home01CompanyListWidget>
                             Container(
                               width: 100.0,
                               height: 100.0,
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                 color: Color(0xFFF1F4F8),
                               ),
                               child: ListView(
@@ -151,13 +147,13 @@ class _Home01CompanyListWidgetState extends State<Home01CompanyListWidget>
                                 scrollDirection: Axis.vertical,
                                 children: [
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         16.0, 8.0, 16.0, 0.0),
                                     child: Container(
                                       width: double.infinity,
                                       decoration: BoxDecoration(
                                         color: Colors.white,
-                                        boxShadow: [
+                                        boxShadow: const [
                                           BoxShadow(
                                             blurRadius: 3.0,
                                             color: Color(0x20000000),
@@ -171,7 +167,7 @@ class _Home01CompanyListWidgetState extends State<Home01CompanyListWidget>
                                             BorderRadius.circular(12.0),
                                       ),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             8.0, 8.0, 12.0, 8.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -196,7 +192,7 @@ class _Home01CompanyListWidgetState extends State<Home01CompanyListWidget>
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(16.0, 0.0,
                                                                 0.0, 0.0),
                                                     child: Text(
@@ -211,7 +207,7 @@ class _Home01CompanyListWidgetState extends State<Home01CompanyListWidget>
                                                           .override(
                                                             fontFamily:
                                                                 'Plus Jakarta Sans',
-                                                            color: Color(
+                                                            color: const Color(
                                                                 0xFF14181B),
                                                             fontSize: 16.0,
                                                             letterSpacing: 0.0,
@@ -223,7 +219,7 @@ class _Home01CompanyListWidgetState extends State<Home01CompanyListWidget>
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(16.0, 4.0,
                                                                 0.0, 0.0),
                                                     child: Text(
@@ -238,7 +234,7 @@ class _Home01CompanyListWidgetState extends State<Home01CompanyListWidget>
                                                           .override(
                                                             fontFamily:
                                                                 'Plus Jakarta Sans',
-                                                            color: Color(
+                                                            color: const Color(
                                                                 0xFF57636C),
                                                             fontSize: 14.0,
                                                             letterSpacing: 0.0,
@@ -251,7 +247,7 @@ class _Home01CompanyListWidgetState extends State<Home01CompanyListWidget>
                                                 ],
                                               ),
                                             ),
-                                            Icon(
+                                            const Icon(
                                               Icons.radio_button_checked,
                                               color: Color(0xFF4B39EF),
                                               size: 24.0,
@@ -262,13 +258,13 @@ class _Home01CompanyListWidgetState extends State<Home01CompanyListWidget>
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         16.0, 8.0, 16.0, 0.0),
                                     child: Container(
                                       width: double.infinity,
                                       decoration: BoxDecoration(
                                         color: Colors.white,
-                                        boxShadow: [
+                                        boxShadow: const [
                                           BoxShadow(
                                             blurRadius: 3.0,
                                             color: Color(0x20000000),
@@ -282,7 +278,7 @@ class _Home01CompanyListWidgetState extends State<Home01CompanyListWidget>
                                             BorderRadius.circular(12.0),
                                       ),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             8.0, 8.0, 12.0, 8.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -307,7 +303,7 @@ class _Home01CompanyListWidgetState extends State<Home01CompanyListWidget>
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(16.0, 0.0,
                                                                 0.0, 0.0),
                                                     child: Text(
@@ -322,7 +318,7 @@ class _Home01CompanyListWidgetState extends State<Home01CompanyListWidget>
                                                           .override(
                                                             fontFamily:
                                                                 'Plus Jakarta Sans',
-                                                            color: Color(
+                                                            color: const Color(
                                                                 0xFF14181B),
                                                             fontSize: 16.0,
                                                             letterSpacing: 0.0,
@@ -334,7 +330,7 @@ class _Home01CompanyListWidgetState extends State<Home01CompanyListWidget>
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(16.0, 4.0,
                                                                 0.0, 0.0),
                                                     child: Text(
@@ -349,7 +345,7 @@ class _Home01CompanyListWidgetState extends State<Home01CompanyListWidget>
                                                           .override(
                                                             fontFamily:
                                                                 'Plus Jakarta Sans',
-                                                            color: Color(
+                                                            color: const Color(
                                                                 0xFF57636C),
                                                             fontSize: 14.0,
                                                             letterSpacing: 0.0,
@@ -362,7 +358,7 @@ class _Home01CompanyListWidgetState extends State<Home01CompanyListWidget>
                                                 ],
                                               ),
                                             ),
-                                            Icon(
+                                            const Icon(
                                               Icons.motion_photos_off,
                                               color: Color(0xFF57636C),
                                               size: 24.0,
@@ -373,13 +369,13 @@ class _Home01CompanyListWidgetState extends State<Home01CompanyListWidget>
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         16.0, 8.0, 16.0, 0.0),
                                     child: Container(
                                       width: double.infinity,
                                       decoration: BoxDecoration(
                                         color: Colors.white,
-                                        boxShadow: [
+                                        boxShadow: const [
                                           BoxShadow(
                                             blurRadius: 3.0,
                                             color: Color(0x20000000),
@@ -393,7 +389,7 @@ class _Home01CompanyListWidgetState extends State<Home01CompanyListWidget>
                                             BorderRadius.circular(12.0),
                                       ),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             8.0, 8.0, 12.0, 8.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -418,7 +414,7 @@ class _Home01CompanyListWidgetState extends State<Home01CompanyListWidget>
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(16.0, 0.0,
                                                                 0.0, 0.0),
                                                     child: Text(
@@ -433,7 +429,7 @@ class _Home01CompanyListWidgetState extends State<Home01CompanyListWidget>
                                                           .override(
                                                             fontFamily:
                                                                 'Plus Jakarta Sans',
-                                                            color: Color(
+                                                            color: const Color(
                                                                 0xFF14181B),
                                                             fontSize: 16.0,
                                                             letterSpacing: 0.0,
@@ -445,7 +441,7 @@ class _Home01CompanyListWidgetState extends State<Home01CompanyListWidget>
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(16.0, 4.0,
                                                                 0.0, 0.0),
                                                     child: Text(
@@ -460,7 +456,7 @@ class _Home01CompanyListWidgetState extends State<Home01CompanyListWidget>
                                                           .override(
                                                             fontFamily:
                                                                 'Plus Jakarta Sans',
-                                                            color: Color(
+                                                            color: const Color(
                                                                 0xFF57636C),
                                                             fontSize: 14.0,
                                                             letterSpacing: 0.0,
@@ -473,7 +469,7 @@ class _Home01CompanyListWidgetState extends State<Home01CompanyListWidget>
                                                 ],
                                               ),
                                             ),
-                                            Icon(
+                                            const Icon(
                                               Icons.radio_button_checked,
                                               color: Color(0xFF4B39EF),
                                               size: 24.0,
@@ -489,7 +485,7 @@ class _Home01CompanyListWidgetState extends State<Home01CompanyListWidget>
                             Container(
                               width: 100.0,
                               height: 100.0,
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                 color: Color(0xFFF1F4F8),
                               ),
                               child: ListView(
@@ -497,13 +493,13 @@ class _Home01CompanyListWidgetState extends State<Home01CompanyListWidget>
                                 scrollDirection: Axis.vertical,
                                 children: [
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         16.0, 8.0, 16.0, 0.0),
                                     child: Container(
                                       width: double.infinity,
                                       decoration: BoxDecoration(
                                         color: Colors.white,
-                                        boxShadow: [
+                                        boxShadow: const [
                                           BoxShadow(
                                             blurRadius: 3.0,
                                             color: Color(0x20000000),
@@ -517,7 +513,7 @@ class _Home01CompanyListWidgetState extends State<Home01CompanyListWidget>
                                             BorderRadius.circular(12.0),
                                       ),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             8.0, 8.0, 12.0, 8.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -542,7 +538,7 @@ class _Home01CompanyListWidgetState extends State<Home01CompanyListWidget>
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(16.0, 0.0,
                                                                 0.0, 0.0),
                                                     child: Text(
@@ -557,7 +553,7 @@ class _Home01CompanyListWidgetState extends State<Home01CompanyListWidget>
                                                           .override(
                                                             fontFamily:
                                                                 'Plus Jakarta Sans',
-                                                            color: Color(
+                                                            color: const Color(
                                                                 0xFF14181B),
                                                             fontSize: 16.0,
                                                             letterSpacing: 0.0,
@@ -569,7 +565,7 @@ class _Home01CompanyListWidgetState extends State<Home01CompanyListWidget>
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(16.0, 4.0,
                                                                 0.0, 0.0),
                                                     child: Text(
@@ -584,7 +580,7 @@ class _Home01CompanyListWidgetState extends State<Home01CompanyListWidget>
                                                           .override(
                                                             fontFamily:
                                                                 'Plus Jakarta Sans',
-                                                            color: Color(
+                                                            color: const Color(
                                                                 0xFF57636C),
                                                             fontSize: 14.0,
                                                             letterSpacing: 0.0,
@@ -597,7 +593,7 @@ class _Home01CompanyListWidgetState extends State<Home01CompanyListWidget>
                                                 ],
                                               ),
                                             ),
-                                            Icon(
+                                            const Icon(
                                               Icons.radio_button_checked,
                                               color: Color(0xFF4B39EF),
                                               size: 24.0,
@@ -613,7 +609,7 @@ class _Home01CompanyListWidgetState extends State<Home01CompanyListWidget>
                             Container(
                               width: 100.0,
                               height: 100.0,
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                 color: Color(0xFFF1F4F8),
                               ),
                               child: ListView(
@@ -621,13 +617,13 @@ class _Home01CompanyListWidgetState extends State<Home01CompanyListWidget>
                                 scrollDirection: Axis.vertical,
                                 children: [
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         16.0, 8.0, 16.0, 0.0),
                                     child: Container(
                                       width: double.infinity,
                                       decoration: BoxDecoration(
                                         color: Colors.white,
-                                        boxShadow: [
+                                        boxShadow: const [
                                           BoxShadow(
                                             blurRadius: 3.0,
                                             color: Color(0x20000000),
@@ -641,7 +637,7 @@ class _Home01CompanyListWidgetState extends State<Home01CompanyListWidget>
                                             BorderRadius.circular(12.0),
                                       ),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             8.0, 8.0, 12.0, 8.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -666,7 +662,7 @@ class _Home01CompanyListWidgetState extends State<Home01CompanyListWidget>
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(16.0, 0.0,
                                                                 0.0, 0.0),
                                                     child: Text(
@@ -681,7 +677,7 @@ class _Home01CompanyListWidgetState extends State<Home01CompanyListWidget>
                                                           .override(
                                                             fontFamily:
                                                                 'Plus Jakarta Sans',
-                                                            color: Color(
+                                                            color: const Color(
                                                                 0xFF14181B),
                                                             fontSize: 16.0,
                                                             letterSpacing: 0.0,
@@ -693,7 +689,7 @@ class _Home01CompanyListWidgetState extends State<Home01CompanyListWidget>
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(16.0, 4.0,
                                                                 0.0, 0.0),
                                                     child: Text(
@@ -708,7 +704,7 @@ class _Home01CompanyListWidgetState extends State<Home01CompanyListWidget>
                                                           .override(
                                                             fontFamily:
                                                                 'Plus Jakarta Sans',
-                                                            color: Color(
+                                                            color: const Color(
                                                                 0xFF57636C),
                                                             fontSize: 14.0,
                                                             letterSpacing: 0.0,
@@ -721,7 +717,7 @@ class _Home01CompanyListWidgetState extends State<Home01CompanyListWidget>
                                                 ],
                                               ),
                                             ),
-                                            Icon(
+                                            const Icon(
                                               Icons.motion_photos_off,
                                               color: Color(0xFF57636C),
                                               size: 24.0,

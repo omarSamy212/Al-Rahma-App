@@ -8,12 +8,9 @@ import '/shared/shared_components/our_side_nav/our_side_nav_widget.dart';
 import '/storage_keeper/sk_components/todays_requests_dashboard/todays_requests_dashboard_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'storekeeper_home_model.dart';
 export 'storekeeper_home_model.dart';
 
@@ -46,8 +43,8 @@ class _StorekeeperHomeWidgetState extends State<StorekeeperHomeWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: Offset(0.0, 10.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(0.0, 10.0),
+          end: const Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -70,8 +67,8 @@ class _StorekeeperHomeWidgetState extends State<StorekeeperHomeWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: Offset(0.0, 0.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(0.0, 0.0),
+          end: const Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -107,7 +104,7 @@ class _StorekeeperHomeWidgetState extends State<StorekeeperHomeWidget>
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
-          return Scaffold(
+          return const Scaffold(
             backgroundColor: Color(0xFFF1F4F8),
             body: Center(
               child: SizedBox(
@@ -132,23 +129,23 @@ class _StorekeeperHomeWidgetState extends State<StorekeeperHomeWidget>
                   : FocusScope.of(context).unfocus(),
               child: Scaffold(
                 key: scaffoldKey,
-                backgroundColor: Color(0xFFF1F4F8),
+                backgroundColor: const Color(0xFFF1F4F8),
                 drawer: Drawer(
                   elevation: 16.0,
                   child: wrapWithModel(
                     model: _model.ourSideNavModel,
                     updateCallback: () => setState(() {}),
-                    child: OurSideNavWidget(),
+                    child: const OurSideNavWidget(),
                   ),
                 ),
                 appBar: PreferredSize(
-                  preferredSize: Size.fromHeight(100.0),
+                  preferredSize: const Size.fromHeight(100.0),
                   child: AppBar(
-                    backgroundColor: Color(0xFF0CA256),
+                    backgroundColor: const Color(0xFF0CA256),
                     automaticallyImplyLeading: false,
                     leading: Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
                       child: InkWell(
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,
@@ -159,7 +156,7 @@ class _StorekeeperHomeWidgetState extends State<StorekeeperHomeWidget>
                           logFirebaseEvent('menu_drawer');
                           scaffoldKey.currentState!.openDrawer();
                         },
-                        child: Icon(
+                        child: const Icon(
                           Icons.menu,
                           color: Color(0xFFE0E3E7),
                           size: 24.0,
@@ -168,15 +165,15 @@ class _StorekeeperHomeWidgetState extends State<StorekeeperHomeWidget>
                     ),
                     title: Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
+                            alignment: const AlignmentDirectional(0.0, 0.0),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 10.0, 0.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
@@ -209,7 +206,7 @@ class _StorekeeperHomeWidgetState extends State<StorekeeperHomeWidget>
                                     ],
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 35.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
@@ -235,9 +232,9 @@ class _StorekeeperHomeWidgetState extends State<StorekeeperHomeWidget>
                     ),
                     actions: [
                       Align(
-                        alignment: AlignmentDirectional(1.0, 0.0),
+                        alignment: const AlignmentDirectional(1.0, 0.0),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 24.0, 0.0),
                           child: InkWell(
                             splashColor: Colors.transparent,
@@ -252,7 +249,7 @@ class _StorekeeperHomeWidgetState extends State<StorekeeperHomeWidget>
                               context.pushNamed(
                                 'welcome',
                                 extra: <String, dynamic>{
-                                  kTransitionInfoKey: TransitionInfo(
+                                  kTransitionInfoKey: const TransitionInfo(
                                     hasTransition: true,
                                     transitionType: PageTransitionType.fade,
                                   ),
@@ -286,15 +283,15 @@ class _StorekeeperHomeWidgetState extends State<StorekeeperHomeWidget>
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
-                                child: Container(
+                                alignment: const AlignmentDirectional(0.0, 0.0),
+                                child: SizedBox(
                                   height: 68.0,
                                   child: Stack(
                                     children: [
                                       Container(
                                         width: double.infinity,
                                         height: 96.0,
-                                        decoration: BoxDecoration(
+                                        decoration: const BoxDecoration(
                                           color: Color(0xFF0CA256),
                                           borderRadius: BorderRadius.only(
                                             bottomLeft: Radius.circular(0.0),
@@ -306,10 +303,10 @@ class _StorekeeperHomeWidgetState extends State<StorekeeperHomeWidget>
                                       ),
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(-1.0, 0.0),
+                                            const AlignmentDirectional(-1.0, 0.0),
                                         child: Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   25.0, 0.0, 0.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -319,10 +316,10 @@ class _StorekeeperHomeWidgetState extends State<StorekeeperHomeWidget>
                                                 CrossAxisAlignment.center,
                                             children: [
                                               Align(
-                                                alignment: AlignmentDirectional(
+                                                alignment: const AlignmentDirectional(
                                                     -1.0, 0.0),
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 2.0, 0.0),
                                                   child: Text(
@@ -336,7 +333,7 @@ class _StorekeeperHomeWidgetState extends State<StorekeeperHomeWidget>
                                                         .override(
                                                           fontFamily: 'Outfit',
                                                           color:
-                                                              Color(0xFF14181B),
+                                                              const Color(0xFF14181B),
                                                           fontSize: 18.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -346,7 +343,7 @@ class _StorekeeperHomeWidgetState extends State<StorekeeperHomeWidget>
                                                 ),
                                               ),
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         2.0, 0.0, 0.0, 0.0),
                                                 child: AuthUserStreamWidget(
@@ -367,10 +364,10 @@ class _StorekeeperHomeWidgetState extends State<StorekeeperHomeWidget>
                                                 ),
                                               ),
                                               Align(
-                                                alignment: AlignmentDirectional(
+                                                alignment: const AlignmentDirectional(
                                                     1.0, 0.0),
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           73.0, 0.0, 12.0, 0.0),
                                                   child: Text(
@@ -431,18 +428,18 @@ class _StorekeeperHomeWidgetState extends State<StorekeeperHomeWidget>
                                 ),
                               ),
                               Align(
-                                alignment: AlignmentDirectional(0.0, -1.0),
+                                alignment: const AlignmentDirectional(0.0, -1.0),
                                 child: Stack(
                                   children: [
                                     Container(
                                       width: double.infinity,
                                       height: 87.0,
-                                      decoration: BoxDecoration(
+                                      decoration: const BoxDecoration(
                                         color: Color(0xFF0CA256),
                                       ),
                                     ),
                                     Align(
-                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      alignment: const AlignmentDirectional(0.0, 0.0),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
                                         focusColor: Colors.transparent,
@@ -461,7 +458,7 @@ class _StorekeeperHomeWidgetState extends State<StorekeeperHomeWidget>
                                           model: _model
                                               .todaysRequestsDashboardModel,
                                           updateCallback: () => setState(() {}),
-                                          child: Hero(
+                                          child: const Hero(
                                             tag: 'requestCounter',
                                             transitionOnUserGestures: true,
                                             child: Material(
@@ -480,16 +477,16 @@ class _StorekeeperHomeWidgetState extends State<StorekeeperHomeWidget>
                           ),
                         ],
                       ),
-                      Spacer(),
+                      const Spacer(),
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
                                   logFirebaseEvent(
@@ -501,15 +498,15 @@ class _StorekeeperHomeWidgetState extends State<StorekeeperHomeWidget>
                                 text: FFLocalizations.of(context).getText(
                                   'g83vp3ub' /* Reception */,
                                 ),
-                                icon: Icon(
+                                icon: const Icon(
                                   Icons.trending_down_sharp,
                                   size: 15.0,
                                 ),
                                 options: FFButtonOptions(
                                   height: 100.0,
-                                  padding: EdgeInsets.all(24.0),
-                                  iconPadding: EdgeInsets.all(0.0),
-                                  color: Color(0xFF1FB0E2),
+                                  padding: const EdgeInsets.all(24.0),
+                                  iconPadding: const EdgeInsets.all(0.0),
+                                  color: const Color(0xFF1FB0E2),
                                   textStyle: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
@@ -518,7 +515,7 @@ class _StorekeeperHomeWidgetState extends State<StorekeeperHomeWidget>
                                         letterSpacing: 0.0,
                                       ),
                                   elevation: 3.0,
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                     color: Colors.transparent,
                                     width: 1.0,
                                   ),
@@ -527,7 +524,7 @@ class _StorekeeperHomeWidgetState extends State<StorekeeperHomeWidget>
                               ),
                             ),
                             Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
                                   logFirebaseEvent(
@@ -539,15 +536,15 @@ class _StorekeeperHomeWidgetState extends State<StorekeeperHomeWidget>
                                 text: FFLocalizations.of(context).getText(
                                   'p86pjahx' /* Transmission */,
                                 ),
-                                icon: Icon(
+                                icon: const Icon(
                                   Icons.trending_up_rounded,
                                   size: 15.0,
                                 ),
                                 options: FFButtonOptions(
                                   height: 100.0,
-                                  padding: EdgeInsets.all(14.0),
-                                  iconPadding: EdgeInsets.all(0.0),
-                                  color: Color(0xFF0CA256),
+                                  padding: const EdgeInsets.all(14.0),
+                                  iconPadding: const EdgeInsets.all(0.0),
+                                  color: const Color(0xFF0CA256),
                                   textStyle: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
@@ -556,7 +553,7 @@ class _StorekeeperHomeWidgetState extends State<StorekeeperHomeWidget>
                                         letterSpacing: 0.0,
                                       ),
                                   elevation: 3.0,
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                     color: Colors.transparent,
                                     width: 1.0,
                                   ),
@@ -568,8 +565,8 @@ class _StorekeeperHomeWidgetState extends State<StorekeeperHomeWidget>
                         ).animateOnPageLoad(
                             animationsMap['rowOnPageLoadAnimation']!),
                       ),
-                      Spacer(),
-                      Spacer(),
+                      const Spacer(),
+                      const Spacer(),
                       Text(
                         FFLocalizations.of(context).getText(
                           'k8dg7d3t' /* Powerd by Omar-s Team */,

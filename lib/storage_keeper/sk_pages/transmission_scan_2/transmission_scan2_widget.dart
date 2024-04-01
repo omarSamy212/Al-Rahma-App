@@ -1,6 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -8,12 +7,9 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:async';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'transmission_scan2_model.dart';
 export 'transmission_scan2_model.dart';
@@ -61,16 +57,16 @@ class _TransmissionScan2WidgetState extends State<TransmissionScan2Widget> {
               : FocusScope.of(context).unfocus(),
           child: Scaffold(
             key: scaffoldKey,
-            backgroundColor: Color(0xFFF1F4F8),
+            backgroundColor: const Color(0xFFF1F4F8),
             appBar: AppBar(
-              backgroundColor: Color(0xFFF1F4F8),
+              backgroundColor: const Color(0xFFF1F4F8),
               automaticallyImplyLeading: false,
               leading: FlutterFlowIconButton(
                 borderColor: Colors.transparent,
                 borderRadius: 30.0,
                 borderWidth: 1.0,
                 buttonSize: 60.0,
-                icon: Icon(
+                icon: const Icon(
                   Icons.arrow_back_rounded,
                   color: Color(0xFF101213),
                   size: 30.0,
@@ -87,13 +83,13 @@ class _TransmissionScan2WidgetState extends State<TransmissionScan2Widget> {
                 ),
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
                       fontFamily: 'Plus Jakarta Sans',
-                      color: Color(0xFF101213),
+                      color: const Color(0xFF101213),
                       fontSize: 24.0,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.w500,
                     ),
               ),
-              actions: [],
+              actions: const [],
               centerTitle: false,
               elevation: 0.0,
             ),
@@ -107,7 +103,7 @@ class _TransmissionScan2WidgetState extends State<TransmissionScan2Widget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               8.0, 20.0, 8.0, 8.0),
                           child: Container(
                             width: double.infinity,
@@ -116,15 +112,15 @@ class _TransmissionScan2WidgetState extends State<TransmissionScan2Widget> {
                               borderRadius: BorderRadius.circular(8.0),
                             ),
                             child: Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 10.0, 0.0, 10.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           25.0, 0.0, 0.0, 0.0),
                                       child: Icon(
                                         Icons.filter_2,
@@ -135,9 +131,9 @@ class _TransmissionScan2WidgetState extends State<TransmissionScan2Widget> {
                                     ),
                                     Align(
                                       alignment:
-                                          AlignmentDirectional(-1.0, 0.0),
+                                          const AlignmentDirectional(-1.0, 0.0),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             5.0, 5.0, 0.0, 5.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
@@ -173,14 +169,14 @@ class _TransmissionScan2WidgetState extends State<TransmissionScan2Widget> {
                                 final selectedToolsItem =
                                     selectedTools[selectedToolsIndex];
                                 return Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       16.0, 8.0, 16.0, 0.0),
                                   child: Container(
                                     width: double.infinity,
                                     height: 100.0,
                                     decoration: BoxDecoration(
                                       color: Colors.white,
-                                      boxShadow: [
+                                      boxShadow: const [
                                         BoxShadow(
                                           blurRadius: 4.0,
                                           color: Color(0x320E151B),
@@ -193,7 +189,7 @@ class _TransmissionScan2WidgetState extends State<TransmissionScan2Widget> {
                                       borderRadius: BorderRadius.circular(8.0),
                                     ),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           12.0, 8.0, 8.0, 8.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -221,7 +217,7 @@ class _TransmissionScan2WidgetState extends State<TransmissionScan2Widget> {
                                           ),
                                           Expanded(
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       12.0, 0.0, 0.0, 0.0),
                                               child: Column(
@@ -233,7 +229,7 @@ class _TransmissionScan2WidgetState extends State<TransmissionScan2Widget> {
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 8.0),
                                                     child: Text(
@@ -247,7 +243,7 @@ class _TransmissionScan2WidgetState extends State<TransmissionScan2Widget> {
                                                           .override(
                                                             fontFamily:
                                                                 'Plus Jakarta Sans',
-                                                            color: Color(
+                                                            color: const Color(
                                                                 0xFF0F1113),
                                                             fontSize: 18.0,
                                                             letterSpacing: 0.0,
@@ -258,7 +254,7 @@ class _TransmissionScan2WidgetState extends State<TransmissionScan2Widget> {
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 8.0,
                                                                 0.0, 0.0),
                                                     child: Text(
@@ -273,7 +269,7 @@ class _TransmissionScan2WidgetState extends State<TransmissionScan2Widget> {
                                                           .override(
                                                             fontFamily:
                                                                 'Plus Jakarta Sans',
-                                                            color: Color(
+                                                            color: const Color(
                                                                 0xFF57636C),
                                                             fontSize: 12.0,
                                                             letterSpacing: 0.0,
@@ -291,7 +287,7 @@ class _TransmissionScan2WidgetState extends State<TransmissionScan2Widget> {
                                             borderRadius: 30.0,
                                             borderWidth: 1.0,
                                             buttonSize: 40.0,
-                                            icon: Icon(
+                                            icon: const Icon(
                                               Icons.delete_outline_rounded,
                                               color: Color(0xFFDE4C62),
                                               size: 20.0,
@@ -327,7 +323,7 @@ class _TransmissionScan2WidgetState extends State<TransmissionScan2Widget> {
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),
-                                                  duration: Duration(
+                                                  duration: const Duration(
                                                       milliseconds: 3300),
                                                   backgroundColor:
                                                       FlutterFlowTheme.of(
@@ -347,13 +343,13 @@ class _TransmissionScan2WidgetState extends State<TransmissionScan2Widget> {
                           },
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               10.0, 50.0, 10.0, 5.0),
                           child: FFButtonWidget(
                             onPressed: () async {
                               logFirebaseEvent(
                                   'TRANSMISSION_SCAN_2_SCAN_Q_R_CODE_BTN_ON');
-                              var _shouldSetState = false;
+                              var shouldSetState = false;
                               if (FFAppState().toolsCart.isNotEmpty) {
                                 logFirebaseEvent(
                                     'Button_scan_barcode_q_r_code');
@@ -367,17 +363,17 @@ class _TransmissionScan2WidgetState extends State<TransmissionScan2Widget> {
                                   ScanMode.BARCODE,
                                 );
 
-                                _shouldSetState = true;
+                                shouldSetState = true;
                                 logFirebaseEvent('Button_custom_action');
                                 _model.supRef = await actions.getUserRef(
-                                  _model.supervisorDocId!,
+                                  _model.supervisorDocId,
                                 );
-                                _shouldSetState = true;
+                                shouldSetState = true;
                                 logFirebaseEvent('Button_backend_call');
                                 _model.supervisorRef =
                                     await UsersRecord.getDocumentOnce(
                                         _model.supRef!);
-                                _shouldSetState = true;
+                                shouldSetState = true;
                                 logFirebaseEvent('Button_backend_call');
 
                                 var toolsRequestsRecordReference =
@@ -416,7 +412,7 @@ class _TransmissionScan2WidgetState extends State<TransmissionScan2Widget> {
                                     },
                                   ),
                                 }, toolsRequestsRecordReference);
-                                _shouldSetState = true;
+                                shouldSetState = true;
                                 while (_model.countCart! <
                                     FFAppState().toolsCart.length) {
                                   logFirebaseEvent('Button_backend_call');
@@ -446,14 +442,14 @@ class _TransmissionScan2WidgetState extends State<TransmissionScan2Widget> {
                                       context: context,
                                       builder: (alertDialogContext) {
                                         return AlertDialog(
-                                          title: Text('Request Confirmation'),
-                                          content: Text(
+                                          title: const Text('Request Confirmation'),
+                                          content: const Text(
                                               'The request has been recorded succefully'),
                                           actions: [
                                             TextButton(
                                               onPressed: () => Navigator.pop(
                                                   alertDialogContext),
-                                              child: Text('Ok'),
+                                              child: const Text('Ok'),
                                             ),
                                           ],
                                         );
@@ -481,7 +477,7 @@ class _TransmissionScan2WidgetState extends State<TransmissionScan2Widget> {
                                   }.withoutNulls,
                                 );
 
-                                if (_shouldSetState) setState(() {});
+                                if (shouldSetState) setState(() {});
                                 return;
                               } else {
                                 logFirebaseEvent('Button_show_snack_bar');
@@ -498,32 +494,32 @@ class _TransmissionScan2WidgetState extends State<TransmissionScan2Widget> {
                                             letterSpacing: 0.0,
                                           ),
                                     ),
-                                    duration: Duration(milliseconds: 4000),
+                                    duration: const Duration(milliseconds: 4000),
                                     backgroundColor:
                                         FlutterFlowTheme.of(context).secondary,
                                   ),
                                 );
-                                if (_shouldSetState) setState(() {});
+                                if (shouldSetState) setState(() {});
                                 return;
                               }
 
-                              if (_shouldSetState) setState(() {});
+                              if (shouldSetState) setState(() {});
                             },
                             text: FFLocalizations.of(context).getText(
                               '4e5ye6w7' /* Scan  QR Code */,
                             ),
-                            icon: Icon(
+                            icon: const Icon(
                               Icons.qr_code_scanner_rounded,
                               size: 15.0,
                             ),
                             options: FFButtonOptions(
                               width: double.infinity,
                               height: 48.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
-                              color: Color(0xFF0CA256),
+                              color: const Color(0xFF0CA256),
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
@@ -533,7 +529,7 @@ class _TransmissionScan2WidgetState extends State<TransmissionScan2Widget> {
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w500,
                                   ),
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                 color: Colors.transparent,
                                 width: 1.0,
                               ),
@@ -544,9 +540,9 @@ class _TransmissionScan2WidgetState extends State<TransmissionScan2Widget> {
 
                         // You will have to add an action on this rich text to go to your login page.
                         Align(
-                          alignment: AlignmentDirectional(0.0, 0.0),
+                          alignment: const AlignmentDirectional(0.0, 0.0),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 20.0, 0.0, 20.0, 12.0),
                             child: RichText(
                               textScaler: MediaQuery.of(context).textScaler,
@@ -556,7 +552,7 @@ class _TransmissionScan2WidgetState extends State<TransmissionScan2Widget> {
                                     text: FFLocalizations.of(context).getText(
                                       'disfmria' /* Qr code is available on (Detai... */,
                                     ),
-                                    style: TextStyle(),
+                                    style: const TextStyle(),
                                   ),
                                   TextSpan(
                                     text: FFLocalizations.of(context).getText(
@@ -566,7 +562,7 @@ class _TransmissionScan2WidgetState extends State<TransmissionScan2Widget> {
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Plus Jakarta Sans',
-                                          color: Color(0xFF4B39EF),
+                                          color: const Color(0xFF4B39EF),
                                           fontSize: 14.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
@@ -587,7 +583,7 @@ class _TransmissionScan2WidgetState extends State<TransmissionScan2Widget> {
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Plus Jakarta Sans',
-                                      color: Color(0xFF101213),
+                                      color: const Color(0xFF101213),
                                       fontSize: 14.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,

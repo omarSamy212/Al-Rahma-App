@@ -3,11 +3,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'modal16_create_company_model.dart';
 export 'modal16_create_company_model.dart';
 
@@ -32,8 +28,8 @@ class _Modal16CreateCompanyWidgetState extends State<Modal16CreateCompanyWidget>
           curve: Curves.bounceOut,
           delay: 300.ms,
           duration: 400.ms,
-          begin: Offset(0.0, 100.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(0.0, 100.0),
+          end: const Offset(0.0, 0.0),
         ),
         FadeEffect(
           curve: Curves.easeInOut,
@@ -96,15 +92,15 @@ class _Modal16CreateCompanyWidgetState extends State<Modal16CreateCompanyWidget>
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(16.0, 2.0, 16.0, 16.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(16.0, 2.0, 16.0, 16.0),
             child: Container(
               width: double.infinity,
-              constraints: BoxConstraints(
+              constraints: const BoxConstraints(
                 maxWidth: 670.0,
               ),
               decoration: BoxDecoration(
                 color: FlutterFlowTheme.of(context).secondaryBackground,
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
                     blurRadius: 12.0,
                     color: Color(0x1E000000),
@@ -122,7 +118,7 @@ class _Modal16CreateCompanyWidgetState extends State<Modal16CreateCompanyWidget>
                 children: [
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 0.0, 0.0),
                     child: Text(
                       FFLocalizations.of(context).getText(
                         'z4dxy792' /* Create Company Profile */,
@@ -136,7 +132,7 @@ class _Modal16CreateCompanyWidgetState extends State<Modal16CreateCompanyWidget>
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(24.0, 4.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(24.0, 4.0, 0.0, 0.0),
                     child: Text(
                       FFLocalizations.of(context).getText(
                         'nfid9m8t' /* Upload images about your compa... */,
@@ -151,7 +147,7 @@ class _Modal16CreateCompanyWidgetState extends State<Modal16CreateCompanyWidget>
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Align(
-                        alignment: AlignmentDirectional(-1.0, 0.0),
+                        alignment: const AlignmentDirectional(-1.0, 0.0),
                         child: InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
@@ -174,7 +170,7 @@ class _Modal16CreateCompanyWidgetState extends State<Modal16CreateCompanyWidget>
                               ),
                             ),
                             child: Padding(
-                              padding: EdgeInsets.all(2.0),
+                              padding: const EdgeInsets.all(2.0),
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(10.0),
                                 child: Image.network(
@@ -189,7 +185,7 @@ class _Modal16CreateCompanyWidgetState extends State<Modal16CreateCompanyWidget>
                         ),
                       ),
                       Align(
-                        alignment: AlignmentDirectional(-1.0, 0.0),
+                        alignment: const AlignmentDirectional(-1.0, 0.0),
                         child: Container(
                           width: 100.0,
                           height: 100.0,
@@ -203,7 +199,7 @@ class _Modal16CreateCompanyWidgetState extends State<Modal16CreateCompanyWidget>
                             ),
                           ),
                           child: Padding(
-                            padding: EdgeInsets.all(2.0),
+                            padding: const EdgeInsets.all(2.0),
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(10.0),
                               child: Image.network(
@@ -217,13 +213,13 @@ class _Modal16CreateCompanyWidgetState extends State<Modal16CreateCompanyWidget>
                         ),
                       ),
                     ]
-                        .divide(SizedBox(width: 12.0))
-                        .addToStart(SizedBox(width: 24.0))
-                        .addToEnd(SizedBox(width: 24.0)),
+                        .divide(const SizedBox(width: 12.0))
+                        .addToStart(const SizedBox(width: 24.0))
+                        .addToEnd(const SizedBox(width: 24.0)),
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 24.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 24.0, 0.0),
                     child: TextFormField(
                       controller: _model.yourNameController,
                       focusNode: _model.yourNameFocusNode,
@@ -274,7 +270,7 @@ class _Modal16CreateCompanyWidgetState extends State<Modal16CreateCompanyWidget>
                         filled: true,
                         fillColor:
                             FlutterFlowTheme.of(context).secondaryBackground,
-                        contentPadding: EdgeInsetsDirectional.fromSTEB(
+                        contentPadding: const EdgeInsetsDirectional.fromSTEB(
                             20.0, 24.0, 20.0, 24.0),
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -289,7 +285,7 @@ class _Modal16CreateCompanyWidgetState extends State<Modal16CreateCompanyWidget>
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 24.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 24.0, 0.0),
                     child: TextFormField(
                       controller: _model.cityController,
                       focusNode: _model.cityFocusNode,
@@ -340,7 +336,7 @@ class _Modal16CreateCompanyWidgetState extends State<Modal16CreateCompanyWidget>
                         filled: true,
                         fillColor:
                             FlutterFlowTheme.of(context).secondaryBackground,
-                        contentPadding: EdgeInsetsDirectional.fromSTEB(
+                        contentPadding: const EdgeInsetsDirectional.fromSTEB(
                             20.0, 24.0, 20.0, 24.0),
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -355,7 +351,7 @@ class _Modal16CreateCompanyWidgetState extends State<Modal16CreateCompanyWidget>
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 24.0, 32.0),
+                        const EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 24.0, 32.0),
                     child: TextFormField(
                       controller: _model.myBioController,
                       focusNode: _model.myBioFocusNode,
@@ -409,7 +405,7 @@ class _Modal16CreateCompanyWidgetState extends State<Modal16CreateCompanyWidget>
                         filled: true,
                         fillColor:
                             FlutterFlowTheme.of(context).secondaryBackground,
-                        contentPadding: EdgeInsetsDirectional.fromSTEB(
+                        contentPadding: const EdgeInsetsDirectional.fromSTEB(
                             20.0, 24.0, 20.0, 24.0),
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -424,13 +420,13 @@ class _Modal16CreateCompanyWidgetState extends State<Modal16CreateCompanyWidget>
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Align(
-                          alignment: AlignmentDirectional(0.0, 0.05),
+                          alignment: const AlignmentDirectional(0.0, 0.05),
                           child: FFButtonWidget(
                             onPressed: () {
                               print('Button pressed ...');
@@ -440,9 +436,9 @@ class _Modal16CreateCompanyWidgetState extends State<Modal16CreateCompanyWidget>
                             ),
                             options: FFButtonOptions(
                               height: 44.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   24.0, 0.0, 24.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
@@ -471,7 +467,7 @@ class _Modal16CreateCompanyWidgetState extends State<Modal16CreateCompanyWidget>
                           ),
                         ),
                         Align(
-                          alignment: AlignmentDirectional(0.0, 0.05),
+                          alignment: const AlignmentDirectional(0.0, 0.05),
                           child: FFButtonWidget(
                             onPressed: () {
                               print('Button pressed ...');
@@ -481,9 +477,9 @@ class _Modal16CreateCompanyWidgetState extends State<Modal16CreateCompanyWidget>
                             ),
                             options: FFButtonOptions(
                               height: 44.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   24.0, 0.0, 24.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
                               color: FlutterFlowTheme.of(context).primary,
                               textStyle: FlutterFlowTheme.of(context)
@@ -493,7 +489,7 @@ class _Modal16CreateCompanyWidgetState extends State<Modal16CreateCompanyWidget>
                                     letterSpacing: 0.0,
                                   ),
                               elevation: 3.0,
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                 color: Colors.transparent,
                                 width: 1.0,
                               ),

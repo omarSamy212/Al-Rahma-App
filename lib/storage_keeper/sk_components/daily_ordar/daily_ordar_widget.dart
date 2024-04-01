@@ -6,8 +6,6 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:sticky_headers/sticky_headers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'daily_ordar_model.dart';
 export 'daily_ordar_model.dart';
 
@@ -53,24 +51,24 @@ class _DailyOrdarWidgetState extends State<DailyOrdarWidget> {
             header: Container(
               width: double.infinity,
               height: 80.0,
-              constraints: BoxConstraints(
+              constraints: const BoxConstraints(
                 maxWidth: 430.0,
               ),
               decoration: BoxDecoration(
-                color: Color(0xFFF1F4F8),
+                color: const Color(0xFFF1F4F8),
                 borderRadius: BorderRadius.circular(0.0),
               ),
-              alignment: AlignmentDirectional(-1.0, 0.0),
+              alignment: const AlignmentDirectional(-1.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Align(
-                    alignment: AlignmentDirectional(-1.0, 0.0),
+                    alignment: const AlignmentDirectional(-1.0, 0.0),
                     child: Container(
-                      decoration: BoxDecoration(),
+                      decoration: const BoxDecoration(),
                       child: Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                         child: Text(
                           FFLocalizations.of(context).getText(
                             'bjbteacw' /* Today's Requests */,
@@ -78,7 +76,7 @@ class _DailyOrdarWidgetState extends State<DailyOrdarWidget> {
                           style:
                               FlutterFlowTheme.of(context).titleLarge.override(
                                     fontFamily: 'Outfit',
-                                    color: Color(0xFF15161E),
+                                    color: const Color(0xFF15161E),
                                     fontSize: 22.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w500,
@@ -92,7 +90,7 @@ class _DailyOrdarWidgetState extends State<DailyOrdarWidget> {
             ),
             content: Container(
               width: double.infinity,
-              constraints: BoxConstraints(
+              constraints: const BoxConstraints(
                 maxWidth: 430.0,
               ),
               decoration: BoxDecoration(
@@ -115,7 +113,7 @@ class _DailyOrdarWidgetState extends State<DailyOrdarWidget> {
                 builder: (context, snapshot) {
                   // Customize what your widget looks like when it's loading.
                   if (!snapshot.hasData) {
-                    return Center(
+                    return const Center(
                       child: SizedBox(
                         width: 50.0,
                         height: 50.0,
@@ -138,14 +136,14 @@ class _DailyOrdarWidgetState extends State<DailyOrdarWidget> {
                       final listViewToolsRequestsRecord =
                           listViewToolsRequestsRecordList[listViewIndex];
                       return Align(
-                        alignment: AlignmentDirectional(0.0, 0.0),
+                        alignment: const AlignmentDirectional(0.0, 0.0),
                         child: StreamBuilder<UsersRecord>(
                           stream: UsersRecord.getDocument(
                               listViewToolsRequestsRecord.supervisor!),
                           builder: (context, snapshot) {
                             // Customize what your widget looks like when it's loading.
                             if (!snapshot.hasData) {
-                              return Center(
+                              return const Center(
                                 child: SizedBox(
                                   width: 50.0,
                                   height: 50.0,
@@ -188,19 +186,19 @@ class _DailyOrdarWidgetState extends State<DailyOrdarWidget> {
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .primaryBackground,
-                                  borderRadius: BorderRadius.only(
+                                  borderRadius: const BorderRadius.only(
                                     bottomLeft: Radius.circular(6.0),
                                     bottomRight: Radius.circular(6.0),
                                     topLeft: Radius.circular(6.0),
                                     topRight: Radius.circular(6.0),
                                   ),
                                   border: Border.all(
-                                    color: Color(0xFFF1F4F8),
+                                    color: const Color(0xFFF1F4F8),
                                     width: 1.0,
                                   ),
                                 ),
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 12.0, 16.0, 12.0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
@@ -235,22 +233,22 @@ class _DailyOrdarWidgetState extends State<DailyOrdarWidget> {
                                       children: [
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   16.0, 0.0, 0.0, 0.0),
                                           child: Container(
                                             width: 44.0,
                                             height: 44.0,
-                                            decoration: BoxDecoration(
+                                            decoration: const BoxDecoration(
                                               color: Color(0xFF0CA256),
                                               shape: BoxShape.circle,
                                             ),
                                             alignment:
-                                                AlignmentDirectional(0.0, 0.0),
+                                                const AlignmentDirectional(0.0, 0.0),
                                             child: Container(
                                               width: 120.0,
                                               height: 120.0,
                                               clipBehavior: Clip.antiAlias,
-                                              decoration: BoxDecoration(
+                                              decoration: const BoxDecoration(
                                                 shape: BoxShape.circle,
                                               ),
                                               child: Image.network(
@@ -263,10 +261,10 @@ class _DailyOrdarWidgetState extends State<DailyOrdarWidget> {
                                         ),
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(-1.0, 0.0),
+                                              const AlignmentDirectional(-1.0, 0.0),
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     12.0, 0.0, 12.0, 0.0),
                                             child: Text(
                                               materialListItem4UsersRecord
@@ -277,7 +275,7 @@ class _DailyOrdarWidgetState extends State<DailyOrdarWidget> {
                                                   .override(
                                                     fontFamily:
                                                         'Plus Jakarta Sans',
-                                                    color: Color(0xFF15161E),
+                                                    color: const Color(0xFF15161E),
                                                     fontSize: 16.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
@@ -288,9 +286,9 @@ class _DailyOrdarWidgetState extends State<DailyOrdarWidget> {
                                         Expanded(
                                           child: Align(
                                             alignment:
-                                                AlignmentDirectional(1.0, 0.0),
+                                                const AlignmentDirectional(1.0, 0.0),
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       12.0, 0.0, 12.0, 0.0),
                                               child: Text(
@@ -302,7 +300,7 @@ class _DailyOrdarWidgetState extends State<DailyOrdarWidget> {
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              Color(0xFF15161E),
+                                                              const Color(0xFF15161E),
                                                           fontSize: 16.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -339,7 +337,7 @@ class _DailyOrdarWidgetState extends State<DailyOrdarWidget> {
                                               }.withoutNulls,
                                             );
                                           },
-                                          child: Icon(
+                                          child: const Icon(
                                             Icons.chevron_right_rounded,
                                             color: Color(0xFF606A85),
                                             size: 24.0,

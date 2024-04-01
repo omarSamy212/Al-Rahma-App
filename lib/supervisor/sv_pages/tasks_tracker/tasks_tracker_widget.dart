@@ -3,14 +3,9 @@ import '/flutter_flow/flutter_flow_button_tabbar.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
-import 'package:provider/provider.dart';
 import 'tasks_tracker_model.dart';
 export 'tasks_tracker_model.dart';
 
@@ -42,8 +37,8 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(0.0, 30.0),
+          end: const Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -61,8 +56,8 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: Offset(0.0, 40.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(0.0, 40.0),
+          end: const Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -80,8 +75,8 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(0.0, 30.0),
+          end: const Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -99,8 +94,8 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: Offset(0.0, 40.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(0.0, 40.0),
+          end: const Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -118,8 +113,8 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(0.0, 30.0),
+          end: const Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -137,8 +132,8 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: Offset(0.0, 40.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(0.0, 40.0),
+          end: const Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -184,13 +179,13 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
               : FocusScope.of(context).unfocus(),
           child: Scaffold(
             key: scaffoldKey,
-            backgroundColor: Color(0xFFF1F4F8),
+            backgroundColor: const Color(0xFFF1F4F8),
             appBar: PreferredSize(
-              preferredSize: Size.fromHeight(100.0),
+              preferredSize: const Size.fromHeight(100.0),
               child: AppBar(
                 backgroundColor: FlutterFlowTheme.of(context).primary,
                 automaticallyImplyLeading: false,
-                actions: [],
+                actions: const [],
                 flexibleSpace: FlexibleSpaceBar(
                   title: Column(
                     mainAxisSize: MainAxisSize.max,
@@ -199,19 +194,19 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                     children: [
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   12.0, 0.0, 0.0, 0.0),
                               child: FlutterFlowIconButton(
                                 borderColor: Colors.transparent,
                                 borderRadius: 30.0,
                                 borderWidth: 1.0,
                                 buttonSize: 50.0,
-                                icon: Icon(
+                                icon: const Icon(
                                   Icons.arrow_back_rounded,
                                   color: Colors.white,
                                   size: 30.0,
@@ -229,13 +224,13 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                       ),
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 24.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 24.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Expanded(
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     24.0, 0.0, 0.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
@@ -279,7 +274,7 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                     ),
                     child: Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 16.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 16.0, 0.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -307,7 +302,7 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                     width: double.infinity,
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      boxShadow: [
+                      boxShadow: const [
                         BoxShadow(
                           blurRadius: 4.0,
                           color: Color(0x2D101213),
@@ -324,24 +319,24 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               16.0, 12.0, 16.0, 12.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
-                              Container(
+                              SizedBox(
                                 width: 150.0,
                                 child: Stack(
-                                  alignment: AlignmentDirectional(-1.0, 0.0),
+                                  alignment: const AlignmentDirectional(-1.0, 0.0),
                                   children: [
                                     Align(
                                       alignment:
-                                          AlignmentDirectional(-1.0, 0.0),
+                                          const AlignmentDirectional(-1.0, 0.0),
                                       child: Container(
                                         width: 40.0,
                                         height: 40.0,
                                         clipBehavior: Clip.antiAlias,
-                                        decoration: BoxDecoration(
+                                        decoration: const BoxDecoration(
                                           shape: BoxShape.circle,
                                         ),
                                         child: Image.network(
@@ -352,12 +347,12 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                     ),
                                     Align(
                                       alignment:
-                                          AlignmentDirectional(-0.45, 0.0),
+                                          const AlignmentDirectional(-0.45, 0.0),
                                       child: Container(
                                         width: 40.0,
                                         height: 40.0,
                                         clipBehavior: Clip.antiAlias,
-                                        decoration: BoxDecoration(
+                                        decoration: const BoxDecoration(
                                           shape: BoxShape.circle,
                                         ),
                                         child: Image.network(
@@ -368,12 +363,12 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                     ),
                                     Align(
                                       alignment:
-                                          AlignmentDirectional(-0.1, 0.1),
+                                          const AlignmentDirectional(-0.1, 0.1),
                                       child: Container(
                                         width: 40.0,
                                         height: 40.0,
                                         clipBehavior: Clip.antiAlias,
-                                        decoration: BoxDecoration(
+                                        decoration: const BoxDecoration(
                                           shape: BoxShape.circle,
                                         ),
                                         child: Image.network(
@@ -387,7 +382,7 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                               ),
                               Expanded(
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 8.0, 0.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
@@ -398,7 +393,7 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                         .bodySmall
                                         .override(
                                           fontFamily: 'Plus Jakarta Sans',
-                                          color: Color(0xFF14181B),
+                                          color: const Color(0xFF14181B),
                                           fontSize: 12.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.normal,
@@ -406,7 +401,7 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                   ),
                                 ),
                               ),
-                              Icon(
+                              const Icon(
                                 Icons.chevron_right_rounded,
                                 color: Color(0xFF57636C),
                                 size: 24.0,
@@ -421,8 +416,8 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                           animation: true,
                           animateFromLastPercent: true,
                           progressColor: FlutterFlowTheme.of(context).primary,
-                          backgroundColor: Color(0xFFF1F4F8),
-                          barRadius: Radius.circular(0.0),
+                          backgroundColor: const Color(0xFFF1F4F8),
+                          barRadius: const Radius.circular(0.0),
                           padding: EdgeInsets.zero,
                         ),
                       ],
@@ -431,11 +426,11 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                   Expanded(
                     child: Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                       child: Column(
                         children: [
                           Align(
-                            alignment: Alignment(0.0, 0),
+                            alignment: const Alignment(0.0, 0),
                             child: FlutterFlowButtonTabBar(
                               useToggleButtonStyle: true,
                               isScrollable: true,
@@ -448,16 +443,16 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
                                   ),
-                              unselectedLabelStyle: TextStyle(),
-                              labelColor: Color(0xFF4B39EF),
-                              unselectedLabelColor: Color(0xFF57636C),
+                              unselectedLabelStyle: const TextStyle(),
+                              labelColor: const Color(0xFF4B39EF),
+                              unselectedLabelColor: const Color(0xFF57636C),
                               backgroundColor: Colors.white,
-                              unselectedBackgroundColor: Color(0xFFE0E3E7),
-                              borderColor: Color(0xFFE0E3E7),
+                              unselectedBackgroundColor: const Color(0xFFE0E3E7),
+                              borderColor: const Color(0xFFE0E3E7),
                               borderWidth: 2.0,
                               borderRadius: 12.0,
                               elevation: 0.0,
-                              labelPadding: EdgeInsetsDirectional.fromSTEB(
+                              labelPadding: const EdgeInsetsDirectional.fromSTEB(
                                   16.0, 0.0, 16.0, 0.0),
                               tabs: [
                                 Tab(
@@ -487,7 +482,7 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                               controller: _model.tabBarController,
                               children: [
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       16.0, 12.0, 16.0, 12.0),
                                   child: ListView(
                                     padding: EdgeInsets.zero,
@@ -499,12 +494,12 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                         width: 100.0,
                                         height: 32.0,
                                         decoration: BoxDecoration(
-                                          color: Color(0xFFF1F4F8),
+                                          color: const Color(0xFFF1F4F8),
                                           borderRadius:
                                               BorderRadius.circular(32.0),
                                         ),
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
                                             '0oxhwfw1' /* In Progress */,
@@ -513,7 +508,7 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Plus Jakarta Sans',
-                                                color: Color(0xFF14181B),
+                                                color: const Color(0xFF14181B),
                                                 fontSize: 14.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
@@ -521,13 +516,13 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                         ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 12.0),
                                         child: Container(
                                           width: double.infinity,
                                           decoration: BoxDecoration(
                                             color: Colors.white,
-                                            boxShadow: [
+                                            boxShadow: const [
                                               BoxShadow(
                                                 blurRadius: 3.0,
                                                 color: Color(0x25090F13),
@@ -542,7 +537,7 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                           ),
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     12.0, 8.0, 12.0, 12.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
@@ -561,7 +556,7 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                       ),
                                                     ),
                                                     unselectedWidgetColor:
-                                                        Color(0xFF57636C),
+                                                        const Color(0xFF57636C),
                                                   ),
                                                   child: CheckboxListTile(
                                                     value: _model
@@ -585,7 +580,7 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                           .override(
                                                             fontFamily:
                                                                 'Outfit',
-                                                            color: Color(
+                                                            color: const Color(
                                                                 0xFF14181B),
                                                             fontSize: 24.0,
                                                             letterSpacing: 0.0,
@@ -606,7 +601,7 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                           .override(
                                                             fontFamily:
                                                                 'Plus Jakarta Sans',
-                                                            color: Color(
+                                                            color: const Color(
                                                                 0xFF57636C),
                                                             fontSize: 14.0,
                                                             letterSpacing: 0.0,
@@ -617,14 +612,14 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                     ),
                                                     tileColor: Colors.white,
                                                     activeColor:
-                                                        Color(0xFF4B39EF),
+                                                        const Color(0xFF4B39EF),
                                                     dense: true,
                                                     controlAffinity:
                                                         ListTileControlAffinity
                                                             .trailing,
                                                   ),
                                                 ),
-                                                Divider(
+                                                const Divider(
                                                   height: 24.0,
                                                   thickness: 1.0,
                                                   color: Color(0xFFF1F4F8),
@@ -647,7 +642,7 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                           .override(
                                                             fontFamily:
                                                                 'Plus Jakarta Sans',
-                                                            color: Color(
+                                                            color: const Color(
                                                                 0xFF14181B),
                                                             fontSize: 14.0,
                                                             letterSpacing: 0.0,
@@ -659,7 +654,7 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                     Expanded(
                                                       child: Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     8.0,
                                                                     0.0,
@@ -677,7 +672,7 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Plus Jakarta Sans',
-                                                                color: Color(
+                                                                color: const Color(
                                                                     0xFF4B39EF),
                                                                 fontSize: 14.0,
                                                                 letterSpacing:
@@ -701,7 +696,7 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                         width: double.infinity,
                                         decoration: BoxDecoration(
                                           color: Colors.white,
-                                          boxShadow: [
+                                          boxShadow: const [
                                             BoxShadow(
                                               blurRadius: 3.0,
                                               color: Color(0x25090F13),
@@ -716,7 +711,7 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                         ),
                                         child: Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   12.0, 8.0, 12.0, 12.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
@@ -735,7 +730,7 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                     ),
                                                   ),
                                                   unselectedWidgetColor:
-                                                      Color(0xFF57636C),
+                                                      const Color(0xFF57636C),
                                                 ),
                                                 child: CheckboxListTile(
                                                   value: _model
@@ -757,7 +752,7 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                         .override(
                                                           fontFamily: 'Outfit',
                                                           color:
-                                                              Color(0xFF14181B),
+                                                              const Color(0xFF14181B),
                                                           fontSize: 24.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -777,7 +772,7 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              Color(0xFF57636C),
+                                                              const Color(0xFF57636C),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -786,14 +781,14 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                   ),
                                                   tileColor: Colors.white,
                                                   activeColor:
-                                                      Color(0xFF4B39EF),
+                                                      const Color(0xFF4B39EF),
                                                   dense: true,
                                                   controlAffinity:
                                                       ListTileControlAffinity
                                                           .trailing,
                                                 ),
                                               ),
-                                              Divider(
+                                              const Divider(
                                                 height: 24.0,
                                                 thickness: 1.0,
                                                 color: Color(0xFFF1F4F8),
@@ -815,7 +810,7 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              Color(0xFF14181B),
+                                                              const Color(0xFF14181B),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -825,7 +820,7 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                   Expanded(
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   8.0,
                                                                   0.0,
@@ -843,7 +838,7 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                             .override(
                                                               fontFamily:
                                                                   'Plus Jakarta Sans',
-                                                              color: Color(
+                                                              color: const Color(
                                                                   0xFF4B39EF),
                                                               fontSize: 14.0,
                                                               letterSpacing:
@@ -859,13 +854,13 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                     width: 100.0,
                                                     height: 32.0,
                                                     decoration: BoxDecoration(
-                                                      color: Color(0xFFF1F4F8),
+                                                      color: const Color(0xFFF1F4F8),
                                                       borderRadius:
                                                           BorderRadius.circular(
                                                               32.0),
                                                     ),
                                                     alignment:
-                                                        AlignmentDirectional(
+                                                        const AlignmentDirectional(
                                                             0.0, 0.0),
                                                     child: Text(
                                                       FFLocalizations.of(
@@ -879,7 +874,7 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                           .override(
                                                             fontFamily:
                                                                 'Plus Jakarta Sans',
-                                                            color: Color(
+                                                            color: const Color(
                                                                 0xFF14181B),
                                                             fontSize: 14.0,
                                                             letterSpacing: 0.0,
@@ -903,7 +898,7 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           16.0, 12.0, 16.0, 12.0),
                                       child: ListView(
                                         padding: EdgeInsets.zero,
@@ -913,21 +908,21 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                         children: [
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 12.0),
                                             child: Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color: Color(0xFFF1F4F8),
+                                                color: const Color(0xFFF1F4F8),
                                                 borderRadius:
                                                     BorderRadius.circular(12.0),
                                                 border: Border.all(
-                                                  color: Color(0xFFE0E3E7),
+                                                  color: const Color(0xFFE0E3E7),
                                                   width: 2.0,
                                                 ),
                                               ),
                                               child: Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         12.0, 8.0, 12.0, 12.0),
                                                 child: Column(
@@ -949,7 +944,7 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                           ),
                                                         ),
                                                         unselectedWidgetColor:
-                                                            Color(0xFF57636C),
+                                                            const Color(0xFF57636C),
                                                       ),
                                                       child: CheckboxListTile(
                                                         value: _model
@@ -973,7 +968,7 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Outfit',
-                                                                color: Color(
+                                                                color: const Color(
                                                                     0xFF14181B),
                                                                 fontSize: 24.0,
                                                                 letterSpacing:
@@ -998,7 +993,7 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Plus Jakarta Sans',
-                                                                color: Color(
+                                                                color: const Color(
                                                                     0xFF57636C),
                                                                 fontSize: 14.0,
                                                                 letterSpacing:
@@ -1013,14 +1008,14 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                         ),
                                                         tileColor: Colors.white,
                                                         activeColor:
-                                                            Color(0xFF4B39EF),
+                                                            const Color(0xFF4B39EF),
                                                         dense: true,
                                                         controlAffinity:
                                                             ListTileControlAffinity
                                                                 .trailing,
                                                       ),
                                                     ),
-                                                    Divider(
+                                                    const Divider(
                                                       height: 24.0,
                                                       thickness: 1.0,
                                                       color: Color(0xFFE0E3E7),
@@ -1045,7 +1040,7 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                                 .override(
                                                                   fontFamily:
                                                                       'Plus Jakarta Sans',
-                                                                  color: Color(
+                                                                  color: const Color(
                                                                       0xFF4B39EF),
                                                                   fontSize:
                                                                       14.0,
@@ -1069,7 +1064,7 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                                         32.0),
                                                           ),
                                                           alignment:
-                                                              AlignmentDirectional(
+                                                              const AlignmentDirectional(
                                                                   0.0, 0.0),
                                                           child: Text(
                                                             FFLocalizations.of(
@@ -1083,7 +1078,7 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                                 .override(
                                                                   fontFamily:
                                                                       'Plus Jakarta Sans',
-                                                                  color: Color(
+                                                                  color: const Color(
                                                                       0xFF14181B),
                                                                   fontSize:
                                                                       14.0,
@@ -1106,16 +1101,16 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                           Container(
                                             width: double.infinity,
                                             decoration: BoxDecoration(
-                                              color: Color(0xFFF1F4F8),
+                                              color: const Color(0xFFF1F4F8),
                                               borderRadius:
                                                   BorderRadius.circular(12.0),
                                               border: Border.all(
-                                                color: Color(0xFFE0E3E7),
+                                                color: const Color(0xFFE0E3E7),
                                                 width: 2.0,
                                               ),
                                             ),
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       12.0, 8.0, 12.0, 12.0),
                                               child: Column(
@@ -1135,7 +1130,7 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                         ),
                                                       ),
                                                       unselectedWidgetColor:
-                                                          Color(0xFF57636C),
+                                                          const Color(0xFF57636C),
                                                     ),
                                                     child: CheckboxListTile(
                                                       value: _model
@@ -1159,7 +1154,7 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                             .override(
                                                               fontFamily:
                                                                   'Outfit',
-                                                              color: Color(
+                                                              color: const Color(
                                                                   0xFF14181B),
                                                               fontSize: 24.0,
                                                               letterSpacing:
@@ -1184,7 +1179,7 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                             .override(
                                                               fontFamily:
                                                                   'Plus Jakarta Sans',
-                                                              color: Color(
+                                                              color: const Color(
                                                                   0xFF57636C),
                                                               fontSize: 14.0,
                                                               letterSpacing:
@@ -1199,14 +1194,14 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                       ),
                                                       tileColor: Colors.white,
                                                       activeColor:
-                                                          Color(0xFF4B39EF),
+                                                          const Color(0xFF4B39EF),
                                                       dense: true,
                                                       controlAffinity:
                                                           ListTileControlAffinity
                                                               .trailing,
                                                     ),
                                                   ),
-                                                  Divider(
+                                                  const Divider(
                                                     height: 24.0,
                                                     thickness: 1.0,
                                                     color: Color(0xFFE0E3E7),
@@ -1230,7 +1225,7 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Plus Jakarta Sans',
-                                                                color: Color(
+                                                                color: const Color(
                                                                     0xFF4B39EF),
                                                                 fontSize: 14.0,
                                                                 letterSpacing:
@@ -1253,7 +1248,7 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                                       32.0),
                                                         ),
                                                         alignment:
-                                                            AlignmentDirectional(
+                                                            const AlignmentDirectional(
                                                                 0.0, 0.0),
                                                         child: Text(
                                                           FFLocalizations.of(
@@ -1267,7 +1262,7 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Plus Jakarta Sans',
-                                                                color: Color(
+                                                                color: const Color(
                                                                     0xFF14181B),
                                                                 fontSize: 14.0,
                                                                 letterSpacing:
@@ -1294,7 +1289,7 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           16.0, 12.0, 16.0, 12.0),
                                       child: ListView(
                                         padding: EdgeInsets.zero,
@@ -1304,21 +1299,21 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                         children: [
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 12.0),
                                             child: Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color: Color(0xFFF1F4F8),
+                                                color: const Color(0xFFF1F4F8),
                                                 borderRadius:
                                                     BorderRadius.circular(12.0),
                                                 border: Border.all(
-                                                  color: Color(0xFFE0E3E7),
+                                                  color: const Color(0xFFE0E3E7),
                                                   width: 2.0,
                                                 ),
                                               ),
                                               child: Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         12.0, 8.0, 12.0, 12.0),
                                                 child: Column(
@@ -1340,7 +1335,7 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                           ),
                                                         ),
                                                         unselectedWidgetColor:
-                                                            Color(0xFF57636C),
+                                                            const Color(0xFF57636C),
                                                       ),
                                                       child: CheckboxListTile(
                                                         value: _model
@@ -1364,7 +1359,7 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Outfit',
-                                                                color: Color(
+                                                                color: const Color(
                                                                     0xFF14181B),
                                                                 fontSize: 24.0,
                                                                 letterSpacing:
@@ -1389,7 +1384,7 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Plus Jakarta Sans',
-                                                                color: Color(
+                                                                color: const Color(
                                                                     0xFF57636C),
                                                                 fontSize: 14.0,
                                                                 letterSpacing:
@@ -1404,14 +1399,14 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                         ),
                                                         tileColor: Colors.white,
                                                         activeColor:
-                                                            Color(0xFF4B39EF),
+                                                            const Color(0xFF4B39EF),
                                                         dense: true,
                                                         controlAffinity:
                                                             ListTileControlAffinity
                                                                 .trailing,
                                                       ),
                                                     ),
-                                                    Divider(
+                                                    const Divider(
                                                       height: 24.0,
                                                       thickness: 1.0,
                                                       color: Color(0xFFE0E3E7),
@@ -1436,7 +1431,7 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                                 .override(
                                                                   fontFamily:
                                                                       'Plus Jakarta Sans',
-                                                                  color: Color(
+                                                                  color: const Color(
                                                                       0xFF4B39EF),
                                                                   fontSize:
                                                                       14.0,
@@ -1460,7 +1455,7 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                                         32.0),
                                                           ),
                                                           alignment:
-                                                              AlignmentDirectional(
+                                                              const AlignmentDirectional(
                                                                   0.0, 0.0),
                                                           child: Text(
                                                             FFLocalizations.of(
@@ -1474,7 +1469,7 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                                 .override(
                                                                   fontFamily:
                                                                       'Plus Jakarta Sans',
-                                                                  color: Color(
+                                                                  color: const Color(
                                                                       0xFF14181B),
                                                                   fontSize:
                                                                       14.0,
@@ -1497,16 +1492,16 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                           Container(
                                             width: double.infinity,
                                             decoration: BoxDecoration(
-                                              color: Color(0xFFF1F4F8),
+                                              color: const Color(0xFFF1F4F8),
                                               borderRadius:
                                                   BorderRadius.circular(12.0),
                                               border: Border.all(
-                                                color: Color(0xFFE0E3E7),
+                                                color: const Color(0xFFE0E3E7),
                                                 width: 2.0,
                                               ),
                                             ),
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       12.0, 8.0, 12.0, 12.0),
                                               child: Column(
@@ -1526,7 +1521,7 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                         ),
                                                       ),
                                                       unselectedWidgetColor:
-                                                          Color(0xFF57636C),
+                                                          const Color(0xFF57636C),
                                                     ),
                                                     child: CheckboxListTile(
                                                       value: _model
@@ -1550,7 +1545,7 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                             .override(
                                                               fontFamily:
                                                                   'Outfit',
-                                                              color: Color(
+                                                              color: const Color(
                                                                   0xFF14181B),
                                                               fontSize: 24.0,
                                                               letterSpacing:
@@ -1575,7 +1570,7 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                             .override(
                                                               fontFamily:
                                                                   'Plus Jakarta Sans',
-                                                              color: Color(
+                                                              color: const Color(
                                                                   0xFF57636C),
                                                               fontSize: 14.0,
                                                               letterSpacing:
@@ -1590,14 +1585,14 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                       ),
                                                       tileColor: Colors.white,
                                                       activeColor:
-                                                          Color(0xFF4B39EF),
+                                                          const Color(0xFF4B39EF),
                                                       dense: true,
                                                       controlAffinity:
                                                           ListTileControlAffinity
                                                               .trailing,
                                                     ),
                                                   ),
-                                                  Divider(
+                                                  const Divider(
                                                     height: 24.0,
                                                     thickness: 1.0,
                                                     color: Color(0xFFE0E3E7),
@@ -1621,7 +1616,7 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Plus Jakarta Sans',
-                                                                color: Color(
+                                                                color: const Color(
                                                                     0xFF4B39EF),
                                                                 fontSize: 14.0,
                                                                 letterSpacing:
@@ -1644,7 +1639,7 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                                       32.0),
                                                         ),
                                                         alignment:
-                                                            AlignmentDirectional(
+                                                            const AlignmentDirectional(
                                                                 0.0, 0.0),
                                                         child: Text(
                                                           FFLocalizations.of(
@@ -1658,7 +1653,7 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Plus Jakarta Sans',
-                                                                color: Color(
+                                                                color: const Color(
                                                                     0xFF14181B),
                                                                 fontSize: 14.0,
                                                                 letterSpacing:

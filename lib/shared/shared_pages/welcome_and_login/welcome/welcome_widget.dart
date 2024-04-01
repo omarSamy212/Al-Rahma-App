@@ -3,11 +3,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'welcome_model.dart';
 export 'welcome_model.dart';
 
@@ -40,8 +36,8 @@ class _WelcomeWidgetState extends State<WelcomeWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 400.ms,
-          begin: Offset(3.0, 3.0),
-          end: Offset(1.0, 1.0),
+          begin: const Offset(3.0, 3.0),
+          end: const Offset(1.0, 1.0),
         ),
       ],
     ),
@@ -60,8 +56,8 @@ class _WelcomeWidgetState extends State<WelcomeWidget>
           curve: Curves.bounceOut,
           delay: 300.ms,
           duration: 300.ms,
-          begin: Offset(0.6, 0.6),
-          end: Offset(1.0, 1.0),
+          begin: const Offset(0.6, 0.6),
+          end: const Offset(1.0, 1.0),
         ),
       ],
     ),
@@ -80,8 +76,8 @@ class _WelcomeWidgetState extends State<WelcomeWidget>
           curve: Curves.easeInOut,
           delay: 400.ms,
           duration: 400.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(0.0, 30.0),
+          end: const Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -100,8 +96,8 @@ class _WelcomeWidgetState extends State<WelcomeWidget>
           curve: Curves.bounceOut,
           delay: 300.ms,
           duration: 600.ms,
-          begin: Offset(0.6, 0.6),
-          end: Offset(1.0, 1.0),
+          begin: const Offset(0.6, 0.6),
+          end: const Offset(1.0, 1.0),
         ),
       ],
     ),
@@ -144,7 +140,7 @@ class _WelcomeWidgetState extends State<WelcomeWidget>
                   child: Container(
                     width: double.infinity,
                     height: 500.0,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       gradient: LinearGradient(
                         colors: [
                           Color(0xFF0CA256),
@@ -159,7 +155,7 @@ class _WelcomeWidgetState extends State<WelcomeWidget>
                     child: Container(
                       width: 100.0,
                       height: 100.0,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         gradient: LinearGradient(
                           colors: [Color(0x00FFFFFF), Colors.white],
                           stops: [0.0, 1.0],
@@ -174,12 +170,12 @@ class _WelcomeWidgetState extends State<WelcomeWidget>
                           Container(
                             width: 120.0,
                             height: 120.0,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               color: Color(0xCCFFFFFF),
                               shape: BoxShape.circle,
                             ),
                             child: ClipRRect(
-                              borderRadius: BorderRadius.only(
+                              borderRadius: const BorderRadius.only(
                                 bottomLeft: Radius.circular(120.0),
                                 bottomRight: Radius.circular(120.0),
                                 topLeft: Radius.circular(120.0),
@@ -190,13 +186,13 @@ class _WelcomeWidgetState extends State<WelcomeWidget>
                                 width: 453.0,
                                 height: 190.0,
                                 fit: BoxFit.cover,
-                                alignment: Alignment(0.1, 0.0),
+                                alignment: const Alignment(0.1, 0.0),
                               ),
                             ),
                           ).animateOnPageLoad(
                               animationsMap['containerOnPageLoadAnimation2']!),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 44.0, 0.0, 0.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
@@ -206,7 +202,7 @@ class _WelcomeWidgetState extends State<WelcomeWidget>
                                   .displaySmall
                                   .override(
                                     fontFamily: 'Plus Jakarta Sans',
-                                    color: Color(0xFF101213),
+                                    color: const Color(0xFF101213),
                                     fontSize: 36.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
@@ -214,7 +210,7 @@ class _WelcomeWidgetState extends State<WelcomeWidget>
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 44.0, 8.0, 44.0, 0.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
@@ -225,7 +221,7 @@ class _WelcomeWidgetState extends State<WelcomeWidget>
                                   .labelMedium
                                   .override(
                                     fontFamily: 'Plus Jakarta Sans',
-                                    color: Color(0xFF57636C),
+                                    color: const Color(0xFF57636C),
                                     fontSize: 14.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w500,
@@ -241,15 +237,15 @@ class _WelcomeWidgetState extends State<WelcomeWidget>
                 ),
                 Padding(
                   padding:
-                      EdgeInsetsDirectional.fromSTEB(16.0, 24.0, 16.0, 44.0),
+                      const EdgeInsetsDirectional.fromSTEB(16.0, 24.0, 16.0, 44.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Expanded(
                         child: Align(
-                          alignment: AlignmentDirectional(0.0, 0.0),
+                          alignment: const AlignmentDirectional(0.0, 0.0),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 8.0, 16.0),
                             child: FFButtonWidget(
                               onPressed: () async {
@@ -260,7 +256,7 @@ class _WelcomeWidgetState extends State<WelcomeWidget>
                                 context.pushNamed(
                                   'hintBeforeapplyjob',
                                   extra: <String, dynamic>{
-                                    kTransitionInfoKey: TransitionInfo(
+                                    kTransitionInfoKey: const TransitionInfo(
                                       hasTransition: true,
                                       transitionType: PageTransitionType.fade,
                                       duration: Duration(milliseconds: 0),
@@ -274,22 +270,22 @@ class _WelcomeWidgetState extends State<WelcomeWidget>
                               options: FFButtonOptions(
                                 width: 230.0,
                                 height: 52.0,
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color: Colors.white,
                                 textStyle: FlutterFlowTheme.of(context)
                                     .bodyLarge
                                     .override(
                                       fontFamily: 'Plus Jakarta Sans',
-                                      color: Color(0xFF101213),
+                                      color: const Color(0xFF101213),
                                       fontSize: 16.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                                 elevation: 0.0,
-                                borderSide: BorderSide(
+                                borderSide: const BorderSide(
                                   color: Color(0xFFE0E3E7),
                                   width: 2.0,
                                 ),
@@ -301,9 +297,9 @@ class _WelcomeWidgetState extends State<WelcomeWidget>
                       ),
                       Expanded(
                         child: Align(
-                          alignment: AlignmentDirectional(0.0, 0.0),
+                          alignment: const AlignmentDirectional(0.0, 0.0),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 8.0, 0.0, 0.0, 16.0),
                             child: FFButtonWidget(
                               onPressed: () async {
@@ -314,7 +310,7 @@ class _WelcomeWidgetState extends State<WelcomeWidget>
                                 context.goNamed(
                                   'Login',
                                   extra: <String, dynamic>{
-                                    kTransitionInfoKey: TransitionInfo(
+                                    kTransitionInfoKey: const TransitionInfo(
                                       hasTransition: true,
                                       transitionType: PageTransitionType.fade,
                                       duration: Duration(milliseconds: 0),
@@ -328,11 +324,11 @@ class _WelcomeWidgetState extends State<WelcomeWidget>
                               options: FFButtonOptions(
                                 width: 230.0,
                                 height: 52.0,
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
-                                color: Color(0xFF4B39EF),
+                                color: const Color(0xFF4B39EF),
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
@@ -343,7 +339,7 @@ class _WelcomeWidgetState extends State<WelcomeWidget>
                                       fontWeight: FontWeight.w500,
                                     ),
                                 elevation: 3.0,
-                                borderSide: BorderSide(
+                                borderSide: const BorderSide(
                                   color: Colors.transparent,
                                   width: 1.0,
                                 ),

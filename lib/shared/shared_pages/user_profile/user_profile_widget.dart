@@ -4,12 +4,8 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:barcode_widget/barcode_widget.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'user_profile_model.dart';
 export 'user_profile_model.dart';
@@ -55,7 +51,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
-          return Scaffold(
+          return const Scaffold(
             backgroundColor: Color(0xFFF1F4F8),
             body: Center(
               child: SizedBox(
@@ -79,16 +75,16 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                   : FocusScope.of(context).unfocus(),
               child: Scaffold(
                 key: scaffoldKey,
-                backgroundColor: Color(0xFFF1F4F8),
+                backgroundColor: const Color(0xFFF1F4F8),
                 appBar: AppBar(
-                  backgroundColor: Color(0xFFF1F4F8),
+                  backgroundColor: const Color(0xFFF1F4F8),
                   automaticallyImplyLeading: false,
                   leading: FlutterFlowIconButton(
                     borderColor: Colors.transparent,
                     borderRadius: 30.0,
                     borderWidth: 1.0,
                     buttonSize: 60.0,
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.arrow_back_rounded,
                       color: Color(0xFF101213),
                       size: 30.0,
@@ -106,7 +102,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                     ),
                     style: FlutterFlowTheme.of(context).headlineMedium.override(
                           fontFamily: 'Plus Jakarta Sans',
-                          color: Color(0xFF101213),
+                          color: const Color(0xFF101213),
                           fontSize: 24.0,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.w500,
@@ -115,7 +111,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                   actions: [
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
                       child: InkWell(
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,
@@ -156,7 +152,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                           width: 200.0,
                           height: 200.0,
                           clipBehavior: Clip.antiAlias,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             shape: BoxShape.circle,
                           ),
                           child: Image.network(
@@ -170,7 +166,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               8.0, 0.0, 8.0, 8.0),
                           child: Container(
                             width: double.infinity,
@@ -182,7 +178,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
-                                  padding: EdgeInsets.all(12.0),
+                                  padding: const EdgeInsets.all(12.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
@@ -193,14 +189,14 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                             .labelMedium
                                             .override(
                                               fontFamily: 'Plus Jakarta Sans',
-                                              color: Color(0xFF57636C),
+                                              color: const Color(0xFF57636C),
                                               fontSize: 14.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 8.0, 0.0, 8.0),
                                         child: Text(
                                           userProfileUsersRecord.displayName,
@@ -208,7 +204,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                               .headlineMedium
                                               .override(
                                                 fontFamily: 'Plus Jakarta Sans',
-                                                color: Color(0xFF101213),
+                                                color: const Color(0xFF101213),
                                                 fontSize: 24.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,
@@ -221,14 +217,14 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Plus Jakarta Sans',
-                                              color: Color(0xFF101213),
+                                              color: const Color(0xFF101213),
                                               fontSize: 14.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 12.0, 0.0, 12.0),
                                         child: Container(
                                           width: double.infinity,
@@ -238,7 +234,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                             borderRadius:
                                                 BorderRadius.circular(12.0),
                                             border: Border.all(
-                                              color: Color(0xFFE0E3E7),
+                                              color: const Color(0xFFE0E3E7),
                                               width: 2.0,
                                             ),
                                           ),
@@ -254,7 +250,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                                   mainAxisAlignment:
                                                       MainAxisAlignment.center,
                                                   children: [
-                                                    Padding(
+                                                    const Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
@@ -272,7 +268,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   8.0,
                                                                   0.0,
@@ -290,7 +286,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                                             .override(
                                                               fontFamily:
                                                                   'Plus Jakarta Sans',
-                                                              color: Color(
+                                                              color: const Color(
                                                                   0xFF0CA256),
                                                               fontSize: 14.0,
                                                               letterSpacing:
@@ -304,7 +300,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                                   ],
                                                 ),
                                               ),
-                                              SizedBox(
+                                              const SizedBox(
                                                 height: 100.0,
                                                 child: VerticalDivider(
                                                   thickness: 1.0,
@@ -342,7 +338,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                                         MainAxisAlignment
                                                             .center,
                                                     children: [
-                                                      Padding(
+                                                      const Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
                                                                 .fromSTEB(
@@ -359,7 +355,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     8.0,
                                                                     0.0,
@@ -377,7 +373,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Plus Jakarta Sans',
-                                                                color: Color(
+                                                                color: const Color(
                                                                     0xFF0CA256),
                                                                 fontSize: 14.0,
                                                                 letterSpacing:
@@ -398,10 +394,10 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                       ),
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(-1.0, 0.0),
+                                            const AlignmentDirectional(-1.0, 0.0),
                                         child: Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 10.0, 0.0, 5.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
@@ -412,7 +408,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                                 .override(
                                                   fontFamily:
                                                       'Plus Jakarta Sans',
-                                                  color: Color(0xFF101213),
+                                                  color: const Color(0xFF101213),
                                                   fontSize: 12.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.bold,
@@ -425,9 +421,9 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                         children: [
                                           Align(
                                             alignment:
-                                                AlignmentDirectional(-1.0, 0.0),
+                                                const AlignmentDirectional(-1.0, 0.0),
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 8.0, 70.0, 12.0),
                                               child: Text(
@@ -442,7 +438,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              Color(0xFF57636C),
+                                                              const Color(0xFF57636C),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -458,9 +454,9 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                         children: [
                                           Align(
                                             alignment:
-                                                AlignmentDirectional(-1.0, 0.0),
+                                                const AlignmentDirectional(-1.0, 0.0),
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 8.0, 30.0, 12.0),
                                               child: Text(
@@ -475,7 +471,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              Color(0xFF57636C),
+                                                              const Color(0xFF57636C),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -486,9 +482,9 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                           ),
                                           Align(
                                             alignment:
-                                                AlignmentDirectional(-1.0, 0.0),
+                                                const AlignmentDirectional(-1.0, 0.0),
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 8.0, 0.0, 12.0),
                                               child: Text(
@@ -500,7 +496,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              Color(0xFF57636C),
+                                                              const Color(0xFF57636C),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -516,9 +512,9 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                         children: [
                                           Align(
                                             alignment:
-                                                AlignmentDirectional(-1.0, 0.0),
+                                                const AlignmentDirectional(-1.0, 0.0),
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 8.0, 70.0, 12.0),
                                               child: Text(
@@ -533,7 +529,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              Color(0xFF57636C),
+                                                              const Color(0xFF57636C),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -554,9 +550,9 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
 
                         // You will have to add an action on this rich text to go to your login page.
                         Align(
-                          alignment: AlignmentDirectional(-1.0, 0.0),
+                          alignment: const AlignmentDirectional(-1.0, 0.0),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 20.0, 12.0, 0.0, 12.0),
                             child: InkWell(
                               splashColor: Colors.transparent,
@@ -575,7 +571,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                       text: FFLocalizations.of(context).getText(
                                         'rrf5kyl6' /*  have a problem?  */,
                                       ),
-                                      style: TextStyle(),
+                                      style: const TextStyle(),
                                     ),
                                     TextSpan(
                                       text: FFLocalizations.of(context).getText(
@@ -585,7 +581,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Plus Jakarta Sans',
-                                            color: Color(0xFF4B39EF),
+                                            color: const Color(0xFF4B39EF),
                                             fontSize: 14.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
@@ -596,7 +592,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Plus Jakarta Sans',
-                                        color: Color(0xFF101213),
+                                        color: const Color(0xFF101213),
                                         fontSize: 14.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
@@ -607,7 +603,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 40.0, 0.0, 80.0),
                           child: Container(
                             width: 218.0,
@@ -616,7 +612,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(8.0),
                               border: Border.all(
-                                color: Color(0xFF0CA256),
+                                color: const Color(0xFF0CA256),
                               ),
                             ),
                             child: BarcodeWidget(
@@ -626,7 +622,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                               height: 360.0,
                               color: FlutterFlowTheme.of(context).primaryText,
                               backgroundColor: Colors.transparent,
-                              errorBuilder: (_context, _error) => SizedBox(
+                              errorBuilder: (context, error) => const SizedBox(
                                 width: 360.0,
                                 height: 360.0,
                               ),
@@ -635,9 +631,9 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                           ),
                         ),
                         Align(
-                          alignment: AlignmentDirectional(0.0, 0.05),
+                          alignment: const AlignmentDirectional(0.0, 0.05),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 24.0, 0.0, 24.0),
                             child: FFButtonWidget(
                               onPressed: () async {
@@ -653,9 +649,9 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                               options: FFButtonOptions(
                                 width: 270.0,
                                 height: 50.0,
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color: FlutterFlowTheme.of(context).error,
                                 textStyle: FlutterFlowTheme.of(context)
@@ -668,7 +664,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                       fontWeight: FontWeight.normal,
                                     ),
                                 elevation: 2.0,
-                                borderSide: BorderSide(
+                                borderSide: const BorderSide(
                                   color: Colors.transparent,
                                   width: 1.0,
                                 ),

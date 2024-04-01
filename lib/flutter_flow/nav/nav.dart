@@ -2,21 +2,13 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:go_router/go_router.dart';
-import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import '/backend/backend.dart';
-import '/backend/schema/structs/index.dart';
 
 import '/auth/base_auth_user_provider.dart';
 
 import '/index.dart';
-import '/main.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/lat_lng.dart';
-import '/flutter_flow/place.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'serialization_util.dart';
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
@@ -81,40 +73,40 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? CheckupWidget() : LoginWidget(),
+          appStateNotifier.loggedIn ? const CheckupWidget() : const LoginWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? CheckupWidget() : LoginWidget(),
+              appStateNotifier.loggedIn ? const CheckupWidget() : const LoginWidget(),
         ),
         FFRoute(
           name: 'welcome',
           path: '/welcome',
-          builder: (context, params) => WelcomeWidget(),
+          builder: (context, params) => const WelcomeWidget(),
         ),
         FFRoute(
           name: 'Login',
           path: '/login',
-          builder: (context, params) => LoginWidget(),
+          builder: (context, params) => const LoginWidget(),
         ),
         FFRoute(
           name: 'storekeeperHome',
           path: '/storekeeperHome',
           requireAuth: true,
-          builder: (context, params) => StorekeeperHomeWidget(),
+          builder: (context, params) => const StorekeeperHomeWidget(),
         ),
         FFRoute(
           name: 'Home01CompanyList',
           path: '/home01CompanyList',
-          builder: (context, params) => Home01CompanyListWidget(),
+          builder: (context, params) => const Home01CompanyListWidget(),
         ),
         FFRoute(
           name: 'createUser',
           path: '/createUser',
           requireAuth: true,
-          builder: (context, params) => CreateUserWidget(),
+          builder: (context, params) => const CreateUserWidget(),
         ),
         FFRoute(
           name: 'Missingtools_form',
@@ -140,7 +132,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'day_Contract_List',
           path: '/dayContractList',
           requireAuth: true,
-          builder: (context, params) => DayContractListWidget(),
+          builder: (context, params) => const DayContractListWidget(),
         ),
         FFRoute(
           name: 'request_Details',
@@ -268,79 +260,79 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'supervisor_home',
           path: '/supervisorHome',
           requireAuth: true,
-          builder: (context, params) => SupervisorHomeWidget(),
+          builder: (context, params) => const SupervisorHomeWidget(),
         ),
         FFRoute(
           name: 'Admin_Home',
           path: '/adminHome',
           requireAuth: true,
-          builder: (context, params) => AdminHomeWidget(),
+          builder: (context, params) => const AdminHomeWidget(),
         ),
         FFRoute(
           name: 'my_profile',
           path: '/my_profile',
           requireAuth: true,
-          builder: (context, params) => MyProfileWidget(),
+          builder: (context, params) => const MyProfileWidget(),
         ),
         FFRoute(
           name: 'worker_Home',
           path: '/workerHome',
           requireAuth: true,
-          builder: (context, params) => WorkerHomeWidget(),
+          builder: (context, params) => const WorkerHomeWidget(),
         ),
         FFRoute(
           name: 'transmission_Select_1',
           path: '/transmission_Select_1',
           requireAuth: true,
-          builder: (context, params) => TransmissionSelect1Widget(),
+          builder: (context, params) => const TransmissionSelect1Widget(),
         ),
         FFRoute(
           name: 'transmission_Scan_2',
           path: '/transmission_Scan_2',
           requireAuth: true,
-          builder: (context, params) => TransmissionScan2Widget(),
+          builder: (context, params) => const TransmissionScan2Widget(),
         ),
         FFRoute(
           name: 'HowToUseApp',
           path: '/howToUseApp',
-          builder: (context, params) => HowToUseAppWidget(),
+          builder: (context, params) => const HowToUseAppWidget(),
         ),
         FFRoute(
           name: 'checkup',
           path: '/checkup',
           requireAuth: true,
-          builder: (context, params) => CheckupWidget(),
+          builder: (context, params) => const CheckupWidget(),
         ),
         FFRoute(
           name: 'supplierDashboard',
           path: '/supplierDashboard',
           requireAuth: true,
-          builder: (context, params) => SupplierDashboardWidget(),
+          builder: (context, params) => const SupplierDashboardWidget(),
         ),
         FFRoute(
           name: 'applyforjob',
           path: '/applyforjob',
-          builder: (context, params) => ApplyforjobWidget(),
+          builder: (context, params) => const ApplyforjobWidget(),
         ),
         FFRoute(
           name: 'Onboarding04',
           path: '/onboarding04',
-          builder: (context, params) => Onboarding04Widget(),
+          builder: (context, params) => const Onboarding04Widget(),
         ),
         FFRoute(
           name: 'hintBeforeapplyjob',
           path: '/hintBeforeapplyjob',
-          builder: (context, params) => HintBeforeapplyjobWidget(),
+          builder: (context, params) => const HintBeforeapplyjobWidget(),
         ),
         FFRoute(
           name: 'Home13Productivity',
           path: '/home13Productivity',
-          builder: (context, params) => Home13ProductivityWidget(),
+          builder: (context, params) => const Home13ProductivityWidget(),
         ),
         FFRoute(
           name: 'tasksTracker',
           path: '/tasksTracker',
-          builder: (context, params) => TasksTrackerWidget(),
+          builder: (context, params) => const TasksTrackerWidget(),
         ),
         FFRoute(
           name: 'complain_formCopy',
@@ -365,7 +357,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'usersList',
           path: '/usersList',
-          builder: (context, params) => UsersListWidget(),
+          builder: (context, params) => const UsersListWidget(),
         ),
         FFRoute(
           name: 'user_profile',
@@ -383,12 +375,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'list',
           path: '/list',
-          builder: (context, params) => ListWidget(),
+          builder: (context, params) => const ListWidget(),
         ),
         FFRoute(
           name: 'Settings1Notifications',
           path: '/settings1Notifications',
-          builder: (context, params) => Settings1NotificationsWidget(),
+          builder: (context, params) => const Settings1NotificationsWidget(),
         ),
         FFRoute(
           name: 'updateUser',
@@ -589,7 +581,7 @@ class FFRoute {
                 )
               : builder(context, ffParams);
           final child = appStateNotifier.loading
-              ? Center(
+              ? const Center(
                   child: SizedBox(
                     width: 50.0,
                     height: 50.0,
@@ -641,7 +633,7 @@ class TransitionInfo {
   final Duration duration;
   final Alignment? alignment;
 
-  static TransitionInfo appDefault() => TransitionInfo(hasTransition: false);
+  static TransitionInfo appDefault() => const TransitionInfo(hasTransition: false);
 }
 
 class RootPageContext {
