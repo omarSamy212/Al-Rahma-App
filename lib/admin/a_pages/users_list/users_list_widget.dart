@@ -3,9 +3,12 @@ import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'users_list_model.dart';
 export 'users_list_model.dart';
 
@@ -55,7 +58,7 @@ class _UsersListWidgetState extends State<UsersListWidget>
         if (!snapshot.hasData) {
           return Scaffold(
             backgroundColor: FlutterFlowTheme.of(context).primary,
-            body: const Center(
+            body: Center(
               child: SizedBox(
                 width: 50.0,
                 height: 50.0,
@@ -92,7 +95,7 @@ class _UsersListWidgetState extends State<UsersListWidget>
                           letterSpacing: 0.0,
                         ),
                   ),
-                  actions: const [],
+                  actions: [],
                   centerTitle: false,
                   elevation: 0.0,
                 ),
@@ -100,14 +103,14 @@ class _UsersListWidgetState extends State<UsersListWidget>
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Align(
-                      alignment: const AlignmentDirectional(0.0, 0.0),
+                      alignment: AlignmentDirectional(0.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           Expanded(
                             child: Align(
-                              alignment: const AlignmentDirectional(0.0, -5.11),
+                              alignment: AlignmentDirectional(0.0, -5.11),
                               child: TextFormField(
                                 controller: _model.textController,
                                 focusNode: _model.textFieldFocusNode,
@@ -145,28 +148,28 @@ class _UsersListWidgetState extends State<UsersListWidget>
                                       topRight: Radius.circular(4.0),
                                     ),
                                   ),
-                                  errorBorder: const UnderlineInputBorder(
+                                  errorBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
                                       width: 2.0,
                                     ),
-                                    borderRadius: BorderRadius.only(
+                                    borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(4.0),
                                       topRight: Radius.circular(4.0),
                                     ),
                                   ),
-                                  focusedErrorBorder: const UnderlineInputBorder(
+                                  focusedErrorBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
                                       width: 2.0,
                                     ),
-                                    borderRadius: BorderRadius.only(
+                                    borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(4.0),
                                       topRight: Radius.circular(4.0),
                                     ),
                                   ),
                                   contentPadding:
-                                      const EdgeInsetsDirectional.fromSTEB(
+                                      EdgeInsetsDirectional.fromSTEB(
                                           24.0, 32.0, 0.0, 32.0),
                                 ),
                                 style: FlutterFlowTheme.of(context)
@@ -186,7 +189,7 @@ class _UsersListWidgetState extends State<UsersListWidget>
                             borderRadius: 30.0,
                             borderWidth: 1.0,
                             buttonSize: 60.0,
-                            icon: const Icon(
+                            icon: Icon(
                               Icons.search_sharp,
                               color: Colors.white,
                               size: 30.0,
@@ -203,7 +206,7 @@ class _UsersListWidgetState extends State<UsersListWidget>
                       children: [
                         Expanded(
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 16.0, 8.0, 0.0, 8.0),
                             child: FlutterFlowChoiceChips(
                               options: [
@@ -284,7 +287,7 @@ class _UsersListWidgetState extends State<UsersListWidget>
                       children: [
                         Expanded(
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 27.0, 8.0, 0.0, 8.0),
                             child: FlutterFlowChoiceChips(
                               options: [
@@ -341,15 +344,10 @@ class _UsersListWidgetState extends State<UsersListWidget>
                               chipSpacing: 8.0,
                               rowSpacing: 12.0,
                               multiselect: false,
-                              initialized: _model.choiceChipsValue2 != null,
                               alignment: WrapAlignment.start,
                               controller: _model.choiceChipsValueController2 ??=
                                   FormFieldController<List<String>>(
-                                [
-                                  FFLocalizations.of(context).getText(
-                                    '6q16sq71' /* All */,
-                                  )
-                                ],
+                                [],
                               ),
                               wrapped: true,
                             ),
@@ -361,24 +359,24 @@ class _UsersListWidgetState extends State<UsersListWidget>
                       child: Column(
                         children: [
                           Align(
-                            alignment: const Alignment(0.0, 0),
+                            alignment: Alignment(0.0, 0),
                             child: TabBar(
                               labelColor: Colors.white,
-                              unselectedLabelColor: const Color(0xB3FFFFFF),
+                              unselectedLabelColor: Color(0xB3FFFFFF),
                               labelStyle: FlutterFlowTheme.of(context)
                                   .titleMedium
                                   .override(
                                     fontFamily: 'Readex Pro',
                                     letterSpacing: 0.0,
                                   ),
-                              unselectedLabelStyle: const TextStyle(),
+                              unselectedLabelStyle: TextStyle(),
                               indicatorColor:
                                   FlutterFlowTheme.of(context).primary,
                               indicatorWeight: 3.0,
                               tabs: [
                                 Tab(
                                   text: FFLocalizations.of(context).getText(
-                                    'iyudgnjx' /* All */,
+                                    'lg0bwmgt' /* All */,
                                   ),
                                 ),
                                 Tab(
@@ -422,7 +420,7 @@ class _UsersListWidgetState extends State<UsersListWidget>
                                           itemBuilder: (context, usersIndex) {
                                             final usersItem = users[usersIndex];
                                             return Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       16.0, 8.0, 16.0, 0.0),
                                               child: Container(
@@ -431,7 +429,7 @@ class _UsersListWidgetState extends State<UsersListWidget>
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .secondaryBackground,
-                                                  boxShadow: const [
+                                                  boxShadow: [
                                                     BoxShadow(
                                                       blurRadius: 3.0,
                                                       color: Color(0x20000000),
@@ -446,7 +444,7 @@ class _UsersListWidgetState extends State<UsersListWidget>
                                                           12.0),
                                                 ),
                                                 child: Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           8.0, 8.0, 12.0, 8.0),
                                                   child: Row(
@@ -477,7 +475,7 @@ class _UsersListWidgetState extends State<UsersListWidget>
                                                           children: [
                                                             Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           16.0,
                                                                           0.0,
@@ -499,7 +497,7 @@ class _UsersListWidgetState extends State<UsersListWidget>
                                                             ),
                                                             Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           16.0,
                                                                           4.0,
@@ -596,7 +594,7 @@ class _UsersListWidgetState extends State<UsersListWidget>
                                             final activeUsersItem =
                                                 activeUsers[activeUsersIndex];
                                             return Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       16.0, 8.0, 16.0, 0.0),
                                               child: Container(
@@ -605,7 +603,7 @@ class _UsersListWidgetState extends State<UsersListWidget>
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .secondaryBackground,
-                                                  boxShadow: const [
+                                                  boxShadow: [
                                                     BoxShadow(
                                                       blurRadius: 3.0,
                                                       color: Color(0x20000000),
@@ -620,7 +618,7 @@ class _UsersListWidgetState extends State<UsersListWidget>
                                                           12.0),
                                                 ),
                                                 child: Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           8.0, 8.0, 12.0, 8.0),
                                                   child: Row(
@@ -652,7 +650,7 @@ class _UsersListWidgetState extends State<UsersListWidget>
                                                           children: [
                                                             Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           16.0,
                                                                           0.0,
@@ -674,7 +672,7 @@ class _UsersListWidgetState extends State<UsersListWidget>
                                                             ),
                                                             Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           16.0,
                                                                           4.0,
@@ -773,7 +771,7 @@ class _UsersListWidgetState extends State<UsersListWidget>
                                                 inactiveUsers[
                                                     inactiveUsersIndex];
                                             return Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       16.0, 8.0, 16.0, 0.0),
                                               child: Container(
@@ -782,7 +780,7 @@ class _UsersListWidgetState extends State<UsersListWidget>
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .secondaryBackground,
-                                                  boxShadow: const [
+                                                  boxShadow: [
                                                     BoxShadow(
                                                       blurRadius: 3.0,
                                                       color: Color(0x20000000),
@@ -797,7 +795,7 @@ class _UsersListWidgetState extends State<UsersListWidget>
                                                           12.0),
                                                 ),
                                                 child: Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           8.0, 8.0, 12.0, 8.0),
                                                   child: Row(
@@ -829,7 +827,7 @@ class _UsersListWidgetState extends State<UsersListWidget>
                                                           children: [
                                                             Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           16.0,
                                                                           0.0,
@@ -851,7 +849,7 @@ class _UsersListWidgetState extends State<UsersListWidget>
                                                             ),
                                                             Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           16.0,
                                                                           4.0,

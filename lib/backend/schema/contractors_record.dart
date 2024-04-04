@@ -3,15 +3,16 @@ import 'dart:async';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
+import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
 class ContractorsRecord extends FirestoreRecord {
   ContractorsRecord._(
-    super.reference,
-    super.data,
-  ) {
+    DocumentReference reference,
+    Map<String, dynamic> data,
+  ) : super(reference, data) {
     _initializeFields();
   }
 
@@ -55,6 +56,11 @@ class ContractorsRecord extends FirestoreRecord {
   DateTime? get contractDate => _contractDate;
   bool hasContractDate() => _contractDate != null;
 
+  // "code" field.
+  String? _code;
+  String get code => _code ?? '';
+  bool hasCode() => _code != null;
+
   void _initializeFields() {
     _name = snapshotData['name'] as String?;
     _totalDebit = castToType<double>(snapshotData['total_debit']);
@@ -64,6 +70,7 @@ class ContractorsRecord extends FirestoreRecord {
     _diflictPercentage = castToType<double>(snapshotData['diflict_percentage']);
     _shiftPrice = castToType<double>(snapshotData['shift_price']);
     _contractDate = snapshotData['contract_date'] as DateTime?;
+    _code = snapshotData['code'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -108,6 +115,7 @@ Map<String, dynamic> createContractorsRecordData({
   double? diflictPercentage,
   double? shiftPrice,
   DateTime? contractDate,
+  String? code,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -118,6 +126,7 @@ Map<String, dynamic> createContractorsRecordData({
       'diflict_percentage': diflictPercentage,
       'shift_price': shiftPrice,
       'contract_date': contractDate,
+      'code': code,
     }.withoutNulls,
   );
 
@@ -137,7 +146,8 @@ class ContractorsRecordDocumentEquality implements Equality<ContractorsRecord> {
         e1?.userRef == e2?.userRef &&
         e1?.diflictPercentage == e2?.diflictPercentage &&
         e1?.shiftPrice == e2?.shiftPrice &&
-        e1?.contractDate == e2?.contractDate;
+        e1?.contractDate == e2?.contractDate &&
+        e1?.code == e2?.code;
   }
 
   @override
@@ -149,7 +159,8 @@ class ContractorsRecordDocumentEquality implements Equality<ContractorsRecord> {
         e?.userRef,
         e?.diflictPercentage,
         e?.shiftPrice,
-        e?.contractDate
+        e?.contractDate,
+        e?.code
       ]);
 
   @override

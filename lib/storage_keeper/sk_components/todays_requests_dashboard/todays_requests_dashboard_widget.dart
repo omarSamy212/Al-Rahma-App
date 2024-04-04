@@ -4,6 +4,8 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'todays_requests_dashboard_model.dart';
 export 'todays_requests_dashboard_model.dart';
 
@@ -43,12 +45,12 @@ class _TodaysRequestsDashboardWidgetState
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
+      padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).secondaryBackground,
-          boxShadow: const [
+          boxShadow: [
             BoxShadow(
               blurRadius: 5.0,
               color: Color(0x230E151B),
@@ -65,7 +67,7 @@ class _TodaysRequestsDashboardWidgetState
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 0.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 0.0, 0.0),
               child: Text(
                 FFLocalizations.of(context).getText(
                   'fplbb8lh' /* Today's Requests */,
@@ -85,18 +87,18 @@ class _TodaysRequestsDashboardWidgetState
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.all(12.0),
+                        padding: EdgeInsets.all(12.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            const Icon(
+                            Icon(
                               Icons.work_history,
                               color: Color(0xFF0CA256),
                               size: 44.0,
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 12.0, 0.0, 4.0),
                               child: FutureBuilder<int>(
                                 future: queryToolsRequestsRecordCount(
@@ -114,7 +116,7 @@ class _TodaysRequestsDashboardWidgetState
                                 builder: (context, snapshot) {
                                   // Customize what your widget looks like when it's loading.
                                   if (!snapshot.hasData) {
-                                    return const Center(
+                                    return Center(
                                       child: SizedBox(
                                         width: 50.0,
                                         height: 50.0,
@@ -158,7 +160,7 @@ class _TodaysRequestsDashboardWidgetState
                           ],
                         ),
                       ),
-                    ].divide(const SizedBox(height: 0.0)),
+                    ].divide(SizedBox(height: 0.0)),
                   ),
                 ),
                 Expanded(
@@ -166,18 +168,18 @@ class _TodaysRequestsDashboardWidgetState
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.all(12.0),
+                        padding: EdgeInsets.all(12.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            const Icon(
+                            Icon(
                               Icons.work,
                               color: Color(0xFF232323),
                               size: 44.0,
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 12.0, 0.0, 4.0),
                               child: FutureBuilder<int>(
                                 future: queryToolsRequestsRecordCount(
@@ -190,7 +192,7 @@ class _TodaysRequestsDashboardWidgetState
                                 builder: (context, snapshot) {
                                   // Customize what your widget looks like when it's loading.
                                   if (!snapshot.hasData) {
-                                    return const Center(
+                                    return Center(
                                       child: SizedBox(
                                         width: 50.0,
                                         height: 50.0,

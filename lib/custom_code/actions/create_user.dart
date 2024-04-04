@@ -24,12 +24,13 @@ Future<UserCreationObjectStruct?> createUser(
   String gender,
   String birthdate,
   String phoneNumber,
-  String country,
   String government,
   String city,
   String fullAddress,
   String socialStatus,
-  String nationalID,
+  //String nationalID,
+  NationalInformationStruct? natInfo,
+  DrivingInformationStruct? drLicInfo,
   String? photo,
   DateTime employmentDate,
   String userCode,
@@ -41,6 +42,7 @@ Future<UserCreationObjectStruct?> createUser(
   ShiftStruct? shift,
   String userID,
   UserPrivilegesStruct privileges,
+  DocumentReference? contractorRef,
 ) async {
   String returnmsg = 'Success';
 
@@ -71,12 +73,12 @@ Future<UserCreationObjectStruct?> createUser(
         'gender': gender,
         'birthdate': birthdate,
         'phone_number': phoneNumber,
-        'country': country,
+        //'country': country,
         'government': government,
         'city': city,
         'fullAddress': fullAddress,
         'socialStatus': socialStatus,
-        'nationalID': nationalID,
+        //'nationalID': nationalID,
         'photo_url': photo,
         'employmentDate': employmentDate,
         'front_nat_image_url': frontNatImageUrl,
@@ -84,7 +86,10 @@ Future<UserCreationObjectStruct?> createUser(
         'drug_test_image_url': drugTestImageUrl,
         'userCode': userCode,
         'accountStatus': accountStatus,
-        'privileges': privileges
+        'privileges': privileges,
+        'national_information': natInfo,
+        'drivnig_information': drLicInfo,
+        'contractorRef': contractorRef
       };
 
       if (shift != null) {
@@ -97,7 +102,23 @@ Future<UserCreationObjectStruct?> createUser(
         'roleName': privileges.roleName,
         'roleTasks': privileges.roleTasks
       };
-
+      if (natInfo != null) {
+        userData['national_information'] = {
+          'nationality': natInfo.nationality,
+          'national_id': natInfo.national_id,
+          'issue_place': natInfo.issue_place,
+          'issue_date': natInfo.issue_date,
+          'expiry_date': natInfo.expiry_date,
+        };
+      }
+      if (drLicInfo != null) {
+        userData['drivnig_information'] = {
+          'licsence_type': drLicInfo.licsence_type,
+          'issue_place': drLicInfo.issue_place,
+          'issue_date': drLicInfo.issue_date,
+          'expiry_date': drLicInfo.expiry_date,
+        };
+      }
       userDocRef.set(userData);
 
       await app.delete();

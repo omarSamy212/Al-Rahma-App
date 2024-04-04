@@ -1,12 +1,18 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/storage_keeper/sk_components/end_request/end_request_widget.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'request_details_model.dart';
 export 'request_details_model.dart';
@@ -62,7 +68,7 @@ class _RequestDetailsWidgetState extends State<RequestDetailsWidget> {
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
-          return const Scaffold(
+          return Scaffold(
             backgroundColor: Color(0xFFF1F4F8),
             body: Center(
               child: SizedBox(
@@ -86,16 +92,16 @@ class _RequestDetailsWidgetState extends State<RequestDetailsWidget> {
                   : FocusScope.of(context).unfocus(),
               child: Scaffold(
                 key: scaffoldKey,
-                backgroundColor: const Color(0xFFF1F4F8),
+                backgroundColor: Color(0xFFF1F4F8),
                 appBar: AppBar(
-                  backgroundColor: const Color(0xFFF1F4F8),
+                  backgroundColor: Color(0xFFF1F4F8),
                   automaticallyImplyLeading: false,
                   leading: FlutterFlowIconButton(
                     borderColor: Colors.transparent,
                     borderRadius: 30.0,
                     borderWidth: 1.0,
                     buttonSize: 60.0,
-                    icon: const Icon(
+                    icon: Icon(
                       Icons.arrow_back_rounded,
                       color: Color(0xFF101213),
                       size: 30.0,
@@ -113,13 +119,13 @@ class _RequestDetailsWidgetState extends State<RequestDetailsWidget> {
                     ),
                     style: FlutterFlowTheme.of(context).headlineMedium.override(
                           fontFamily: 'Plus Jakarta Sans',
-                          color: const Color(0xFF101213),
+                          color: Color(0xFF101213),
                           fontSize: 24.0,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.w500,
                         ),
                   ),
-                  actions: const [],
+                  actions: [],
                   centerTitle: false,
                   elevation: 0.0,
                 ),
@@ -133,7 +139,7 @@ class _RequestDetailsWidgetState extends State<RequestDetailsWidget> {
                           width: 200.0,
                           height: 200.0,
                           clipBehavior: Clip.antiAlias,
-                          decoration: const BoxDecoration(
+                          decoration: BoxDecoration(
                             shape: BoxShape.circle,
                           ),
                           child: Image.network(
@@ -147,7 +153,7 @@ class _RequestDetailsWidgetState extends State<RequestDetailsWidget> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               8.0, 0.0, 8.0, 8.0),
                           child: Container(
                             width: double.infinity,
@@ -159,7 +165,7 @@ class _RequestDetailsWidgetState extends State<RequestDetailsWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.all(12.0),
+                                  padding: EdgeInsets.all(12.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
@@ -170,14 +176,14 @@ class _RequestDetailsWidgetState extends State<RequestDetailsWidget> {
                                             .labelMedium
                                             .override(
                                               fontFamily: 'Plus Jakarta Sans',
-                                              color: const Color(0xFF57636C),
+                                              color: Color(0xFF57636C),
                                               fontSize: 14.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 8.0, 0.0, 8.0),
                                         child: Text(
                                           requestDetailsUsersRecord.displayName,
@@ -185,7 +191,7 @@ class _RequestDetailsWidgetState extends State<RequestDetailsWidget> {
                                               .headlineMedium
                                               .override(
                                                 fontFamily: 'Plus Jakarta Sans',
-                                                color: const Color(0xFF101213),
+                                                color: Color(0xFF101213),
                                                 fontSize: 24.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,
@@ -198,14 +204,14 @@ class _RequestDetailsWidgetState extends State<RequestDetailsWidget> {
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Plus Jakarta Sans',
-                                              color: const Color(0xFF101213),
+                                              color: Color(0xFF101213),
                                               fontSize: 14.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 12.0, 0.0, 12.0),
                                         child: Container(
                                           width: double.infinity,
@@ -215,7 +221,7 @@ class _RequestDetailsWidgetState extends State<RequestDetailsWidget> {
                                             borderRadius:
                                                 BorderRadius.circular(12.0),
                                             border: Border.all(
-                                              color: const Color(0xFFE0E3E7),
+                                              color: Color(0xFFE0E3E7),
                                               width: 2.0,
                                             ),
                                           ),
@@ -231,7 +237,7 @@ class _RequestDetailsWidgetState extends State<RequestDetailsWidget> {
                                                   mainAxisAlignment:
                                                       MainAxisAlignment.center,
                                                   children: [
-                                                    const Padding(
+                                                    Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
@@ -249,7 +255,7 @@ class _RequestDetailsWidgetState extends State<RequestDetailsWidget> {
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   8.0,
                                                                   0.0,
@@ -267,7 +273,7 @@ class _RequestDetailsWidgetState extends State<RequestDetailsWidget> {
                                                             .override(
                                                               fontFamily:
                                                                   'Plus Jakarta Sans',
-                                                              color: const Color(
+                                                              color: Color(
                                                                   0xFF0CA256),
                                                               fontSize: 14.0,
                                                               letterSpacing:
@@ -281,7 +287,7 @@ class _RequestDetailsWidgetState extends State<RequestDetailsWidget> {
                                                   ],
                                                 ),
                                               ),
-                                              const SizedBox(
+                                              SizedBox(
                                                 height: 100.0,
                                                 child: VerticalDivider(
                                                   thickness: 1.0,
@@ -319,7 +325,7 @@ class _RequestDetailsWidgetState extends State<RequestDetailsWidget> {
                                                         MainAxisAlignment
                                                             .center,
                                                     children: [
-                                                      const Padding(
+                                                      Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
                                                                 .fromSTEB(
@@ -336,7 +342,7 @@ class _RequestDetailsWidgetState extends State<RequestDetailsWidget> {
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     8.0,
                                                                     0.0,
@@ -354,7 +360,7 @@ class _RequestDetailsWidgetState extends State<RequestDetailsWidget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Plus Jakarta Sans',
-                                                                color: const Color(
+                                                                color: Color(
                                                                     0xFF0CA256),
                                                                 fontSize: 14.0,
                                                                 letterSpacing:
@@ -375,7 +381,7 @@ class _RequestDetailsWidgetState extends State<RequestDetailsWidget> {
                                       ),
                                       Align(
                                         alignment:
-                                            const AlignmentDirectional(-1.0, 0.0),
+                                            AlignmentDirectional(-1.0, 0.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
                                             'o5flpqtg' /* Today's Work Info */,
@@ -384,7 +390,7 @@ class _RequestDetailsWidgetState extends State<RequestDetailsWidget> {
                                               .bodySmall
                                               .override(
                                                 fontFamily: 'Plus Jakarta Sans',
-                                                color: const Color(0xFF101213),
+                                                color: Color(0xFF101213),
                                                 fontSize: 12.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.bold,
@@ -396,9 +402,9 @@ class _RequestDetailsWidgetState extends State<RequestDetailsWidget> {
                                         children: [
                                           Align(
                                             alignment:
-                                                const AlignmentDirectional(-1.0, 0.0),
+                                                AlignmentDirectional(-1.0, 0.0),
                                             child: Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 8.0, 70.0, 12.0),
                                               child: Text(
@@ -413,7 +419,7 @@ class _RequestDetailsWidgetState extends State<RequestDetailsWidget> {
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              const Color(0xFF57636C),
+                                                              Color(0xFF57636C),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -429,9 +435,9 @@ class _RequestDetailsWidgetState extends State<RequestDetailsWidget> {
                                         children: [
                                           Align(
                                             alignment:
-                                                const AlignmentDirectional(-1.0, 0.0),
+                                                AlignmentDirectional(-1.0, 0.0),
                                             child: Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 8.0, 30.0, 12.0),
                                               child: Text(
@@ -446,7 +452,7 @@ class _RequestDetailsWidgetState extends State<RequestDetailsWidget> {
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              const Color(0xFF57636C),
+                                                              Color(0xFF57636C),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -457,9 +463,9 @@ class _RequestDetailsWidgetState extends State<RequestDetailsWidget> {
                                           ),
                                           Align(
                                             alignment:
-                                                const AlignmentDirectional(-1.0, 0.0),
+                                                AlignmentDirectional(-1.0, 0.0),
                                             child: Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 8.0, 0.0, 12.0),
                                               child: Text(
@@ -471,7 +477,7 @@ class _RequestDetailsWidgetState extends State<RequestDetailsWidget> {
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              const Color(0xFF57636C),
+                                                              Color(0xFF57636C),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -487,9 +493,9 @@ class _RequestDetailsWidgetState extends State<RequestDetailsWidget> {
                                         children: [
                                           Align(
                                             alignment:
-                                                const AlignmentDirectional(-1.0, 0.0),
+                                                AlignmentDirectional(-1.0, 0.0),
                                             child: Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 8.0, 70.0, 12.0),
                                               child: Text(
@@ -504,7 +510,7 @@ class _RequestDetailsWidgetState extends State<RequestDetailsWidget> {
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              const Color(0xFF57636C),
+                                                              Color(0xFF57636C),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -523,9 +529,9 @@ class _RequestDetailsWidgetState extends State<RequestDetailsWidget> {
                           ),
                         ),
                         Align(
-                          alignment: const AlignmentDirectional(-1.0, 0.0),
+                          alignment: AlignmentDirectional(-1.0, 0.0),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 30.0, 5.0, 0.0, 5.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
@@ -544,9 +550,9 @@ class _RequestDetailsWidgetState extends State<RequestDetailsWidget> {
                         Builder(
                           builder: (context) {
                             final tools = _model.request?.tools
-                                    .map((e) => e)
+                                    ?.map((e) => e)
                                     .toList()
-                                    .toList() ??
+                                    ?.toList() ??
                                 [];
                             return ListView.builder(
                               padding: EdgeInsets.zero,
@@ -557,14 +563,14 @@ class _RequestDetailsWidgetState extends State<RequestDetailsWidget> {
                               itemBuilder: (context, toolsIndex) {
                                 final toolsItem = tools[toolsIndex];
                                 return Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       16.0, 8.0, 16.0, 0.0),
                                   child: Container(
                                     width: double.infinity,
                                     height: 100.0,
                                     decoration: BoxDecoration(
                                       color: Colors.white,
-                                      boxShadow: const [
+                                      boxShadow: [
                                         BoxShadow(
                                           blurRadius: 4.0,
                                           color: Color(0x320E151B),
@@ -577,7 +583,7 @@ class _RequestDetailsWidgetState extends State<RequestDetailsWidget> {
                                       borderRadius: BorderRadius.circular(8.0),
                                     ),
                                     child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           12.0, 8.0, 8.0, 8.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -600,7 +606,7 @@ class _RequestDetailsWidgetState extends State<RequestDetailsWidget> {
                                           ),
                                           Expanded(
                                             child: Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       12.0, 0.0, 0.0, 0.0),
                                               child: Column(
@@ -613,11 +619,11 @@ class _RequestDetailsWidgetState extends State<RequestDetailsWidget> {
                                                   Expanded(
                                                     child: Align(
                                                       alignment:
-                                                          const AlignmentDirectional(
+                                                          AlignmentDirectional(
                                                               -1.0, 0.0),
                                                       child: Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -631,7 +637,7 @@ class _RequestDetailsWidgetState extends State<RequestDetailsWidget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Plus Jakarta Sans',
-                                                                color: const Color(
+                                                                color: Color(
                                                                     0xFF0F1113),
                                                                 fontSize: 18.0,
                                                                 letterSpacing:
@@ -647,7 +653,7 @@ class _RequestDetailsWidgetState extends State<RequestDetailsWidget> {
                                                   Expanded(
                                                     child: Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   8.0,
@@ -663,7 +669,7 @@ class _RequestDetailsWidgetState extends State<RequestDetailsWidget> {
                                                             .override(
                                                               fontFamily:
                                                                   'Plus Jakarta Sans',
-                                                              color: const Color(
+                                                              color: Color(
                                                                   0xFF57636C),
                                                               fontSize: 12.0,
                                                               letterSpacing:
@@ -681,7 +687,7 @@ class _RequestDetailsWidgetState extends State<RequestDetailsWidget> {
                                           ),
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 20.0, 0.0),
                                             child: Theme(
                                               data: ThemeData(
@@ -710,7 +716,7 @@ class _RequestDetailsWidgetState extends State<RequestDetailsWidget> {
                                                           .checkboxValueMap1[
                                                       toolsItem] = newValue!);
                                                 },
-                                                activeColor: const Color(0xFF0CA256),
+                                                activeColor: Color(0xFF0CA256),
                                                 checkColor:
                                                     FlutterFlowTheme.of(context)
                                                         .info,
@@ -727,7 +733,7 @@ class _RequestDetailsWidgetState extends State<RequestDetailsWidget> {
                           },
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               10.0, 20.0, 10.0, 20.0),
                           child: FFButtonWidget(
                             onPressed: !_model.isRequestActive
@@ -754,7 +760,7 @@ class _RequestDetailsWidgetState extends State<RequestDetailsWidget> {
                                           child: Padding(
                                             padding: MediaQuery.viewInsetsOf(
                                                 context),
-                                            child: SizedBox(
+                                            child: Container(
                                               height: MediaQuery.sizeOf(context)
                                                       .height *
                                                   0.5,
@@ -772,18 +778,18 @@ class _RequestDetailsWidgetState extends State<RequestDetailsWidget> {
                             text: FFLocalizations.of(context).getText(
                               'vy3ggafz' /* End Request */,
                             ),
-                            icon: const Icon(
+                            icon: Icon(
                               Icons.qr_code_scanner_rounded,
                               size: 15.0,
                             ),
                             options: FFButtonOptions(
                               width: double.infinity,
                               height: 48.0,
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
-                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
-                              color: const Color(0xFF0CA256),
+                              color: Color(0xFF0CA256),
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
@@ -793,7 +799,7 @@ class _RequestDetailsWidgetState extends State<RequestDetailsWidget> {
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w500,
                                   ),
-                              borderSide: const BorderSide(
+                              borderSide: BorderSide(
                                 color: Colors.transparent,
                                 width: 1.0,
                               ),

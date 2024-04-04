@@ -1,6 +1,8 @@
 import '/admin/a_components/user_created/user_created_widget.dart';
+import '/auth/base_auth_user_provider.dart';
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -8,9 +10,12 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/random_data_util.dart' as random_data;
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'create_user2_model.dart';
 export 'create_user2_model.dart';
@@ -20,7 +25,6 @@ class CreateUser2Widget extends StatefulWidget {
     super.key,
     required this.nickName,
     required this.role,
-    required this.nationalID,
     this.image,
     required this.phoneNumber,
     required this.firstName,
@@ -28,7 +32,6 @@ class CreateUser2Widget extends StatefulWidget {
     required this.lastName,
     required this.gender,
     required this.birthdate,
-    required this.country,
     required this.government,
     required this.city,
     required this.fullAddress,
@@ -42,11 +45,13 @@ class CreateUser2Widget extends StatefulWidget {
     this.startingShift,
     this.shiftPeriod,
     required this.userId,
+    required this.natInfo,
+    this.drLicInfo,
+    this.contractorRef,
   });
 
   final String? nickName;
   final String? role;
-  final String? nationalID;
   final String? image;
   final int? phoneNumber;
   final String? firstName;
@@ -54,7 +59,6 @@ class CreateUser2Widget extends StatefulWidget {
   final String? lastName;
   final String? gender;
   final String? birthdate;
-  final String? country;
   final String? government;
   final String? city;
   final String? fullAddress;
@@ -68,6 +72,9 @@ class CreateUser2Widget extends StatefulWidget {
   final String? startingShift;
   final String? shiftPeriod;
   final String? userId;
+  final NationalInformationStruct? natInfo;
+  final DrivingInformationStruct? drLicInfo;
+  final DocumentReference? contractorRef;
 
   @override
   State<CreateUser2Widget> createState() => _CreateUser2WidgetState();
@@ -88,7 +95,7 @@ class _CreateUser2WidgetState extends State<CreateUser2Widget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       logFirebaseEvent('CREATE_USER_2_createUser_2_ON_INIT_STATE');
-      if (loggedIn && (currentUserDocument?.privileges.roleName == 'Admin')) {
+      if (loggedIn && (currentUserDocument?.privileges?.roleName == 'Admin')) {
         logFirebaseEvent('createUser_2_set_form_field');
         setState(() {
           _model.idController?.text = widget.userId!;
@@ -108,12 +115,12 @@ class _CreateUser2WidgetState extends State<CreateUser2Widget> {
           context: context,
           builder: (alertDialogContext) {
             return AlertDialog(
-              title: const Text('Error'),
-              content: const Text('Access Not Granted'),
+              title: Text('Error'),
+              content: Text('Access Not Granted'),
               actions: [
                 TextButton(
                   onPressed: () => Navigator.pop(alertDialogContext),
-                  child: const Text('Ok'),
+                  child: Text('Ok'),
                 ),
               ],
             );
@@ -158,7 +165,7 @@ class _CreateUser2WidgetState extends State<CreateUser2Widget> {
         if (!snapshot.hasData) {
           return Scaffold(
             backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-            body: const Center(
+            body: Center(
               child: SizedBox(
                 width: 50.0,
                 height: 50.0,
@@ -183,29 +190,29 @@ class _CreateUser2WidgetState extends State<CreateUser2Widget> {
               key: scaffoldKey,
               backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
               appBar: PreferredSize(
-                preferredSize: const Size.fromHeight(100.0),
+                preferredSize: Size.fromHeight(100.0),
                 child: AppBar(
                   backgroundColor:
                       FlutterFlowTheme.of(context).secondaryBackground,
                   automaticallyImplyLeading: false,
-                  actions: const [],
+                  actions: [],
                   flexibleSpace: FlexibleSpaceBar(
                     title: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 14.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 14.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.end,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 8.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       12.0, 0.0, 0.0, 0.0),
                                   child: FlutterFlowIconButton(
                                     borderColor: Colors.transparent,
@@ -231,7 +238,7 @@ class _CreateUser2WidgetState extends State<CreateUser2Widget> {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 24.0, 0.0, 0.0, 0.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
@@ -264,7 +271,7 @@ class _CreateUser2WidgetState extends State<CreateUser2Widget> {
                   children: [
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 16.0),
+                          EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 16.0),
                       child: TextFormField(
                         controller: _model.idController,
                         focusNode: _model.idFocusNode,
@@ -278,7 +285,7 @@ class _CreateUser2WidgetState extends State<CreateUser2Widget> {
                           labelStyle:
                               FlutterFlowTheme.of(context).labelMedium.override(
                                     fontFamily: 'Plus Jakarta Sans',
-                                    color: const Color(0xFF57636C),
+                                    color: Color(0xFF57636C),
                                     fontSize: 14.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
@@ -286,34 +293,34 @@ class _CreateUser2WidgetState extends State<CreateUser2Widget> {
                           hintStyle:
                               FlutterFlowTheme.of(context).labelMedium.override(
                                     fontFamily: 'Plus Jakarta Sans',
-                                    color: const Color(0xFF57636C),
+                                    color: Color(0xFF57636C),
                                     fontSize: 14.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
                                   ),
                           enabledBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
+                            borderSide: BorderSide(
                               color: Color(0xFFE0E3E7),
                               width: 2.0,
                             ),
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
+                            borderSide: BorderSide(
                               color: Color(0xFF4B39EF),
                               width: 2.0,
                             ),
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           errorBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
+                            borderSide: BorderSide(
                               color: Color(0xFFFF5963),
                               width: 2.0,
                             ),
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           focusedErrorBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
+                            borderSide: BorderSide(
                               color: Color(0xFFFF5963),
                               width: 2.0,
                             ),
@@ -321,12 +328,12 @@ class _CreateUser2WidgetState extends State<CreateUser2Widget> {
                           ),
                           filled: true,
                           fillColor: Colors.white,
-                          contentPadding: const EdgeInsetsDirectional.fromSTEB(
+                          contentPadding: EdgeInsetsDirectional.fromSTEB(
                               20.0, 24.0, 0.0, 24.0),
                         ),
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Plus Jakarta Sans',
-                              color: const Color(0xFF14181B),
+                              color: Color(0xFF14181B),
                               fontSize: 14.0,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.normal,
@@ -338,7 +345,7 @@ class _CreateUser2WidgetState extends State<CreateUser2Widget> {
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 16.0),
+                          EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 16.0),
                       child: TextFormField(
                         controller: _model.emailController,
                         focusNode: _model.emailFocusNode,
@@ -352,7 +359,7 @@ class _CreateUser2WidgetState extends State<CreateUser2Widget> {
                           labelStyle:
                               FlutterFlowTheme.of(context).labelMedium.override(
                                     fontFamily: 'Plus Jakarta Sans',
-                                    color: const Color(0xFF57636C),
+                                    color: Color(0xFF57636C),
                                     fontSize: 14.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
@@ -360,34 +367,34 @@ class _CreateUser2WidgetState extends State<CreateUser2Widget> {
                           hintStyle:
                               FlutterFlowTheme.of(context).labelMedium.override(
                                     fontFamily: 'Plus Jakarta Sans',
-                                    color: const Color(0xFF57636C),
+                                    color: Color(0xFF57636C),
                                     fontSize: 14.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
                                   ),
                           enabledBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
+                            borderSide: BorderSide(
                               color: Color(0xFFE0E3E7),
                               width: 2.0,
                             ),
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
+                            borderSide: BorderSide(
                               color: Color(0xFF4B39EF),
                               width: 2.0,
                             ),
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           errorBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
+                            borderSide: BorderSide(
                               color: Color(0xFFFF5963),
                               width: 2.0,
                             ),
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           focusedErrorBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
+                            borderSide: BorderSide(
                               color: Color(0xFFFF5963),
                               width: 2.0,
                             ),
@@ -395,12 +402,12 @@ class _CreateUser2WidgetState extends State<CreateUser2Widget> {
                           ),
                           filled: true,
                           fillColor: Colors.white,
-                          contentPadding: const EdgeInsetsDirectional.fromSTEB(
+                          contentPadding: EdgeInsetsDirectional.fromSTEB(
                               20.0, 24.0, 0.0, 24.0),
                         ),
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Plus Jakarta Sans',
-                              color: const Color(0xFF14181B),
+                              color: Color(0xFF14181B),
                               fontSize: 14.0,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.normal,
@@ -412,7 +419,7 @@ class _CreateUser2WidgetState extends State<CreateUser2Widget> {
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 16.0),
+                          EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 16.0),
                       child: TextFormField(
                         controller: _model.passwordController,
                         focusNode: _model.passwordFocusNode,
@@ -435,7 +442,7 @@ class _CreateUser2WidgetState extends State<CreateUser2Widget> {
                           labelStyle:
                               FlutterFlowTheme.of(context).labelMedium.override(
                                     fontFamily: 'Plus Jakarta Sans',
-                                    color: const Color(0xFF57636C),
+                                    color: Color(0xFF57636C),
                                     fontSize: 14.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
@@ -443,34 +450,34 @@ class _CreateUser2WidgetState extends State<CreateUser2Widget> {
                           hintStyle:
                               FlutterFlowTheme.of(context).labelMedium.override(
                                     fontFamily: 'Plus Jakarta Sans',
-                                    color: const Color(0xFF57636C),
+                                    color: Color(0xFF57636C),
                                     fontSize: 14.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
                                   ),
                           enabledBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
+                            borderSide: BorderSide(
                               color: Color(0xFFE0E3E7),
                               width: 2.0,
                             ),
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
+                            borderSide: BorderSide(
                               color: Color(0xFF4B39EF),
                               width: 2.0,
                             ),
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           errorBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
+                            borderSide: BorderSide(
                               color: Color(0xFFFF5963),
                               width: 2.0,
                             ),
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           focusedErrorBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
+                            borderSide: BorderSide(
                               color: Color(0xFFFF5963),
                               width: 2.0,
                             ),
@@ -478,12 +485,12 @@ class _CreateUser2WidgetState extends State<CreateUser2Widget> {
                           ),
                           filled: true,
                           fillColor: Colors.white,
-                          contentPadding: const EdgeInsetsDirectional.fromSTEB(
+                          contentPadding: EdgeInsetsDirectional.fromSTEB(
                               20.0, 24.0, 0.0, 24.0),
                         ),
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Plus Jakarta Sans',
-                              color: const Color(0xFF14181B),
+                              color: Color(0xFF14181B),
                               fontSize: 14.0,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.normal,
@@ -494,10 +501,10 @@ class _CreateUser2WidgetState extends State<CreateUser2Widget> {
                       ),
                     ),
                     Align(
-                      alignment: const AlignmentDirectional(0.0, 0.05),
+                      alignment: AlignmentDirectional(0.0, 0.05),
                       child: Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                         child: FFButtonWidget(
                           onPressed: () async {
                             logFirebaseEvent(
@@ -520,12 +527,12 @@ class _CreateUser2WidgetState extends State<CreateUser2Widget> {
                               widget.gender!,
                               widget.birthdate!,
                               widget.phoneNumber!.toString(),
-                              widget.country!,
                               widget.government!,
                               widget.city!,
                               widget.fullAddress!,
                               widget.socialStatus!,
-                              widget.nationalID!,
+                              widget.natInfo,
+                              DrivingInformationStruct(),
                               widget.image,
                               widget.employmentDate!,
                               random_data.randomInteger(0, 5).toString(),
@@ -545,6 +552,7 @@ class _CreateUser2WidgetState extends State<CreateUser2Widget> {
                                 roleTasks:
                                     createUser2RoleDefinitionsRecord?.roleTasks,
                               ),
+                              widget.contractorRef,
                             );
                             if (_model.returnObject?.message == 'Success') {
                               logFirebaseEvent('Button_send_s_m_s');
@@ -593,13 +601,13 @@ class _CreateUser2WidgetState extends State<CreateUser2Widget> {
                                 context: context,
                                 builder: (alertDialogContext) {
                                   return AlertDialog(
-                                    title: const Text('error'),
+                                    title: Text('error'),
                                     content: Text(_model.returnObject!.message),
                                     actions: [
                                       TextButton(
                                         onPressed: () =>
                                             Navigator.pop(alertDialogContext),
-                                        child: const Text('Ok'),
+                                        child: Text('Ok'),
                                       ),
                                     ],
                                   );
@@ -615,11 +623,11 @@ class _CreateUser2WidgetState extends State<CreateUser2Widget> {
                           options: FFButtonOptions(
                             width: 270.0,
                             height: 50.0,
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            color: const Color(0xFF0CA256),
+                            color: Color(0xFF0CA256),
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleMedium
                                 .override(
@@ -628,7 +636,7 @@ class _CreateUser2WidgetState extends State<CreateUser2Widget> {
                                   letterSpacing: 0.0,
                                 ),
                             elevation: 2.0,
-                            borderSide: const BorderSide(
+                            borderSide: BorderSide(
                               color: Colors.transparent,
                               width: 1.0,
                             ),

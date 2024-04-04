@@ -2,13 +2,21 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:go_router/go_router.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 
 import '/auth/base_auth_user_provider.dart';
 
 import '/index.dart';
+import '/main.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/lat_lng.dart';
+import '/flutter_flow/place.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'serialization_util.dart';
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
@@ -73,40 +81,40 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? const CheckupWidget() : const LoginWidget(),
+          appStateNotifier.loggedIn ? CheckupWidget() : LoginWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? const CheckupWidget() : const LoginWidget(),
+              appStateNotifier.loggedIn ? CheckupWidget() : LoginWidget(),
         ),
         FFRoute(
           name: 'welcome',
           path: '/welcome',
-          builder: (context, params) => const WelcomeWidget(),
+          builder: (context, params) => WelcomeWidget(),
         ),
         FFRoute(
           name: 'Login',
           path: '/login',
-          builder: (context, params) => const LoginWidget(),
+          builder: (context, params) => LoginWidget(),
         ),
         FFRoute(
           name: 'storekeeperHome',
           path: '/storekeeperHome',
           requireAuth: true,
-          builder: (context, params) => const StorekeeperHomeWidget(),
+          builder: (context, params) => StorekeeperHomeWidget(),
         ),
         FFRoute(
           name: 'Home01CompanyList',
           path: '/home01CompanyList',
-          builder: (context, params) => const Home01CompanyListWidget(),
+          builder: (context, params) => Home01CompanyListWidget(),
         ),
         FFRoute(
           name: 'createUser',
           path: '/createUser',
           requireAuth: true,
-          builder: (context, params) => const CreateUserWidget(),
+          builder: (context, params) => CreateUserWidget(),
         ),
         FFRoute(
           name: 'Missingtools_form',
@@ -132,7 +140,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'day_Contract_List',
           path: '/dayContractList',
           requireAuth: true,
-          builder: (context, params) => const DayContractListWidget(),
+          builder: (context, params) => DayContractListWidget(),
         ),
         FFRoute(
           name: 'request_Details',
@@ -166,10 +174,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               'role',
               ParamType.String,
             ),
-            nationalID: params.getParam(
-              'nationalID',
-              ParamType.String,
-            ),
             image: params.getParam(
               'image',
               ParamType.String,
@@ -196,10 +200,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             ),
             birthdate: params.getParam(
               'birthdate',
-              ParamType.String,
-            ),
-            country: params.getParam(
-              'country',
               ParamType.String,
             ),
             government: params.getParam(
@@ -254,85 +254,103 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               'userId',
               ParamType.String,
             ),
+            natInfo: params.getParam(
+              'natInfo',
+              ParamType.DataStruct,
+              false,
+              NationalInformationStruct.fromSerializableMap,
+            ),
+            drLicInfo: params.getParam(
+              'drLicInfo',
+              ParamType.DataStruct,
+              false,
+              DrivingInformationStruct.fromSerializableMap,
+            ),
+            contractorRef: params.getParam(
+              'contractorRef',
+              ParamType.DocumentReference,
+              false,
+              ['contractors'],
+            ),
           ),
         ),
         FFRoute(
           name: 'supervisor_home',
           path: '/supervisorHome',
           requireAuth: true,
-          builder: (context, params) => const SupervisorHomeWidget(),
+          builder: (context, params) => SupervisorHomeWidget(),
         ),
         FFRoute(
           name: 'Admin_Home',
           path: '/adminHome',
           requireAuth: true,
-          builder: (context, params) => const AdminHomeWidget(),
+          builder: (context, params) => AdminHomeWidget(),
         ),
         FFRoute(
           name: 'my_profile',
           path: '/my_profile',
           requireAuth: true,
-          builder: (context, params) => const MyProfileWidget(),
+          builder: (context, params) => MyProfileWidget(),
         ),
         FFRoute(
           name: 'worker_Home',
           path: '/workerHome',
           requireAuth: true,
-          builder: (context, params) => const WorkerHomeWidget(),
+          builder: (context, params) => WorkerHomeWidget(),
         ),
         FFRoute(
           name: 'transmission_Select_1',
           path: '/transmission_Select_1',
           requireAuth: true,
-          builder: (context, params) => const TransmissionSelect1Widget(),
+          builder: (context, params) => TransmissionSelect1Widget(),
         ),
         FFRoute(
           name: 'transmission_Scan_2',
           path: '/transmission_Scan_2',
           requireAuth: true,
-          builder: (context, params) => const TransmissionScan2Widget(),
+          builder: (context, params) => TransmissionScan2Widget(),
         ),
         FFRoute(
           name: 'HowToUseApp',
           path: '/howToUseApp',
-          builder: (context, params) => const HowToUseAppWidget(),
+          builder: (context, params) => HowToUseAppWidget(),
         ),
         FFRoute(
           name: 'checkup',
           path: '/checkup',
           requireAuth: true,
-          builder: (context, params) => const CheckupWidget(),
+          builder: (context, params) => CheckupWidget(),
         ),
         FFRoute(
           name: 'supplierDashboard',
           path: '/supplierDashboard',
           requireAuth: true,
-          builder: (context, params) => const SupplierDashboardWidget(),
+          builder: (context, params) => SupplierDashboardWidget(),
         ),
         FFRoute(
           name: 'applyforjob',
           path: '/applyforjob',
-          builder: (context, params) => const ApplyforjobWidget(),
+          builder: (context, params) => ApplyforjobWidget(),
         ),
         FFRoute(
           name: 'Onboarding04',
           path: '/onboarding04',
-          builder: (context, params) => const Onboarding04Widget(),
+          builder: (context, params) => Onboarding04Widget(),
         ),
         FFRoute(
           name: 'hintBeforeapplyjob',
           path: '/hintBeforeapplyjob',
-          builder: (context, params) => const HintBeforeapplyjobWidget(),
+          builder: (context, params) => HintBeforeapplyjobWidget(),
         ),
         FFRoute(
           name: 'Home13Productivity',
           path: '/home13Productivity',
-          builder: (context, params) => const Home13ProductivityWidget(),
+          builder: (context, params) => Home13ProductivityWidget(),
         ),
         FFRoute(
           name: 'tasksTracker',
           path: '/tasksTracker',
-          builder: (context, params) => const TasksTrackerWidget(),
+          builder: (context, params) => TasksTrackerWidget(),
         ),
         FFRoute(
           name: 'complain_formCopy',
@@ -357,7 +375,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'usersList',
           path: '/usersList',
-          builder: (context, params) => const UsersListWidget(),
+          builder: (context, params) => UsersListWidget(),
         ),
         FFRoute(
           name: 'user_profile',
@@ -375,12 +393,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'list',
           path: '/list',
-          builder: (context, params) => const ListWidget(),
+          builder: (context, params) => ListWidget(),
         ),
         FFRoute(
           name: 'Settings1Notifications',
           path: '/settings1Notifications',
-          builder: (context, params) => const Settings1NotificationsWidget(),
+          builder: (context, params) => Settings1NotificationsWidget(),
         ),
         FFRoute(
           name: 'updateUser',
@@ -394,6 +412,142 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ['users'],
             ),
           ),
+        ),
+        FFRoute(
+          name: 'WorkingArea',
+          path: '/workingArea',
+          builder: (context, params) => WorkingAreaWidget(),
+        ),
+        FFRoute(
+          name: 'Sv_Requests',
+          path: '/requestss',
+          builder: (context, params) => SvRequestsWidget(),
+        ),
+        FFRoute(
+          name: 'Attendanceofworkers',
+          path: '/attendanceofworkers',
+          builder: (context, params) => AttendanceofworkersWidget(),
+        ),
+        FFRoute(
+          name: 'Sv_map',
+          path: '/svMap',
+          builder: (context, params) => SvMapWidget(),
+        ),
+        FFRoute(
+          name: 'AttendenceofSupervisor',
+          path: '/attendenceofSupervisor',
+          builder: (context, params) => AttendenceofSupervisorWidget(),
+        ),
+        FFRoute(
+          name: 'loggingout_for_supervisor',
+          path: '/loggingoutForSupervisor',
+          builder: (context, params) => LoggingoutForSupervisorWidget(),
+        ),
+        FFRoute(
+          name: 'Submitting_complaints',
+          path: '/submittingComplaints',
+          builder: (context, params) => SubmittingComplaintsWidget(),
+        ),
+        FFRoute(
+          name: 'DailyReport',
+          path: '/dailyReport',
+          builder: (context, params) => DailyReportWidget(),
+        ),
+        FFRoute(
+          name: 'Submitting_personal_requests',
+          path: '/submittingPersonalRequests',
+          requireAuth: true,
+          asyncParams: {
+            'supervisorDoc': getDoc(['users'], UsersRecord.fromSnapshot),
+            'requestDec':
+                getDoc(['Tools_Requests'], ToolsRequestsRecord.fromSnapshot),
+          },
+          builder: (context, params) => SubmittingPersonalRequestsWidget(
+            supervisorDoc: params.getParam(
+              'supervisorDoc',
+              ParamType.Document,
+            ),
+            requestDec: params.getParam(
+              'requestDec',
+              ParamType.Document,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'Taskdetails',
+          path: '/taskdetails',
+          builder: (context, params) => TaskdetailsWidget(),
+        ),
+        FFRoute(
+          name: 'loggingout_for_Workers',
+          path: '/loggingoutForWorkers',
+          builder: (context, params) => LoggingoutForWorkersWidget(),
+        ),
+        FFRoute(
+          name: 'workers_review',
+          path: '/workersReview',
+          builder: (context, params) => WorkersReviewWidget(),
+        ),
+        FFRoute(
+          name: 'DetailsArea',
+          path: '/detailsArea',
+          builder: (context, params) => DetailsAreaWidget(),
+        ),
+        FFRoute(
+          name: 'Tm_Home',
+          path: '/tmHome',
+          requireAuth: true,
+          builder: (context, params) => TmHomeWidget(),
+        ),
+        FFRoute(
+          name: 'Create04Task',
+          path: '/create04Task',
+          builder: (context, params) => Create04TaskWidget(),
+        ),
+        FFRoute(
+          name: 'movment',
+          path: '/movment',
+          builder: (context, params) => MovmentWidget(),
+        ),
+        FFRoute(
+          name: 'Add_servicingreport',
+          path: '/addServicingreport',
+          builder: (context, params) => AddServicingreportWidget(),
+        ),
+        FFRoute(
+          name: 'Tm_List_Requests',
+          path: '/tmListRequests',
+          builder: (context, params) => TmListRequestsWidget(),
+        ),
+        FFRoute(
+          name: 'Tm_Task_Discription',
+          path: '/tmTaskDiscription',
+          builder: (context, params) => TmTaskDiscriptionWidget(),
+        ),
+        FFRoute(
+          name: 'ServicingDiscription',
+          path: '/servicingDiscription',
+          builder: (context, params) => ServicingDiscriptionWidget(),
+        ),
+        FFRoute(
+          name: 'Tm_List_Fixing',
+          path: '/tmListFixing',
+          builder: (context, params) => TmListFixingWidget(),
+        ),
+        FFRoute(
+          name: 'Form_for_LatedTask',
+          path: '/formForLatedTask',
+          builder: (context, params) => FormForLatedTaskWidget(),
+        ),
+        FFRoute(
+          name: 'TaskdetailsCopy',
+          path: '/taskdetailsCopy',
+          builder: (context, params) => TaskdetailsCopyWidget(),
+        ),
+        FFRoute(
+          name: 'Sv_RequestsCopy',
+          path: '/sv_requestss',
+          builder: (context, params) => SvRequestsCopyWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],
@@ -581,7 +735,7 @@ class FFRoute {
                 )
               : builder(context, ffParams);
           final child = appStateNotifier.loading
-              ? const Center(
+              ? Center(
                   child: SizedBox(
                     width: 50.0,
                     height: 50.0,
@@ -633,7 +787,7 @@ class TransitionInfo {
   final Duration duration;
   final Alignment? alignment;
 
-  static TransitionInfo appDefault() => const TransitionInfo(hasTransition: false);
+  static TransitionInfo appDefault() => TransitionInfo(hasTransition: false);
 }
 
 class RootPageContext {

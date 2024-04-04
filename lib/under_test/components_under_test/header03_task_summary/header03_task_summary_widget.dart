@@ -5,7 +5,10 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'header03_task_summary_model.dart';
 export 'header03_task_summary_model.dart';
 
@@ -48,7 +51,7 @@ class _Header03TaskSummaryWidgetState extends State<Header03TaskSummaryWidget> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         color: Color(0xFF0CA256),
       ),
       child: Column(
@@ -56,7 +59,7 @@ class _Header03TaskSummaryWidgetState extends State<Header03TaskSummaryWidget> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(16.0, 44.0, 16.0, 0.0),
+            padding: EdgeInsetsDirectional.fromSTEB(16.0, 44.0, 16.0, 0.0),
             child: Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -66,7 +69,7 @@ class _Header03TaskSummaryWidgetState extends State<Header03TaskSummaryWidget> {
                   borderRadius: 30.0,
                   borderWidth: 1.0,
                   buttonSize: 44.0,
-                  icon: const Icon(
+                  icon: Icon(
                     Icons.menu_rounded,
                     color: Color(0xFF14181B),
                     size: 24.0,
@@ -130,7 +133,7 @@ class _Header03TaskSummaryWidgetState extends State<Header03TaskSummaryWidget> {
                     width: 40.0,
                     height: 40.0,
                     clipBehavior: Clip.antiAlias,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       shape: BoxShape.circle,
                     ),
                     child: Image.network(
@@ -143,20 +146,20 @@ class _Header03TaskSummaryWidgetState extends State<Header03TaskSummaryWidget> {
             ),
           ),
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 16.0, 0.0),
+            padding: EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 16.0, 0.0),
             child: Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
                   child: Text(
                     FFLocalizations.of(context).getText(
                       'ck38isne' /* Hello, */,
                     ),
                     style: FlutterFlowTheme.of(context).displaySmall.override(
                           fontFamily: 'Outfit',
-                          color: const Color(0xFF14181B),
+                          color: Color(0xFF14181B),
                           fontSize: 36.0,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.normal,
@@ -164,7 +167,7 @@ class _Header03TaskSummaryWidgetState extends State<Header03TaskSummaryWidget> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 0.0, 0.0),
                   child: Text(
                     FFLocalizations.of(context).getText(
                       'g65qy9e8' /* حاتم */,
@@ -185,7 +188,7 @@ class _Header03TaskSummaryWidgetState extends State<Header03TaskSummaryWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Container(
-                decoration: const BoxDecoration(),
+                decoration: BoxDecoration(),
               ),
             ],
           ),
@@ -195,13 +198,13 @@ class _Header03TaskSummaryWidgetState extends State<Header03TaskSummaryWidget> {
             ),
           ),
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(20.0, 12.0, 20.0, 12.0),
+            padding: EdgeInsetsDirectional.fromSTEB(20.0, 12.0, 20.0, 12.0),
             child: Container(
               width: double.infinity,
               height: 110.0,
               decoration: BoxDecoration(
                 color: Colors.white,
-                boxShadow: const [
+                boxShadow: [
                   BoxShadow(
                     blurRadius: 4.0,
                     color: Color(0x34090F13),
@@ -214,21 +217,21 @@ class _Header03TaskSummaryWidgetState extends State<Header03TaskSummaryWidget> {
                 borderRadius: BorderRadius.circular(12.0),
               ),
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(12.0, 8.0, 12.0, 8.0),
+                padding: EdgeInsetsDirectional.fromSTEB(12.0, 8.0, 12.0, 8.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 4.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 4.0),
                       child: Text(
                         FFLocalizations.of(context).getText(
                           '6in2m23z' /* Goals */,
                         ),
                         style: FlutterFlowTheme.of(context).labelSmall.override(
                               fontFamily: 'Plus Jakarta Sans',
-                              color: const Color(0xFF57636C),
+                              color: Color(0xFF57636C),
                               fontSize: 12.0,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.w500,
@@ -241,7 +244,7 @@ class _Header03TaskSummaryWidgetState extends State<Header03TaskSummaryWidget> {
                       ),
                       style: FlutterFlowTheme.of(context).titleLarge.override(
                             fontFamily: 'Outfit',
-                            color: const Color(0xFF14181B),
+                            color: Color(0xFF14181B),
                             fontSize: 22.0,
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.w500,
@@ -249,14 +252,14 @@ class _Header03TaskSummaryWidgetState extends State<Header03TaskSummaryWidget> {
                     ),
                     Expanded(
                       child: Align(
-                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        alignment: AlignmentDirectional(0.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 4.0, 0.0, 0.0),
                               child: Text(
                                 FFLocalizations.of(context).getText(
@@ -266,7 +269,7 @@ class _Header03TaskSummaryWidgetState extends State<Header03TaskSummaryWidget> {
                                     .headlineLarge
                                     .override(
                                       fontFamily: 'Outfit',
-                                      color: const Color(0xFF14181B),
+                                      color: Color(0xFF14181B),
                                       fontSize: 32.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
@@ -286,20 +289,20 @@ class _Header03TaskSummaryWidgetState extends State<Header03TaskSummaryWidget> {
             child: Container(
               width: double.infinity,
               height: double.infinity,
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 color: Color(0xB20B191E),
               ),
               child: Align(
-                alignment: const AlignmentDirectional(0.0, 1.0),
+                alignment: AlignmentDirectional(0.0, 1.0),
                 child: SingleChildScrollView(
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Align(
-                        alignment: const AlignmentDirectional(1.0, 0.0),
+                        alignment: AlignmentDirectional(1.0, 0.0),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 12.0, 16.0),
                           child: FlutterFlowIconButton(
                             borderColor: Colors.transparent,
@@ -325,7 +328,7 @@ class _Header03TaskSummaryWidgetState extends State<Header03TaskSummaryWidget> {
                       Material(
                         color: Colors.transparent,
                         elevation: 5.0,
-                        shape: const RoundedRectangleBorder(
+                        shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.only(
                             bottomLeft: Radius.circular(0.0),
                             bottomRight: Radius.circular(0.0),
@@ -338,7 +341,7 @@ class _Header03TaskSummaryWidgetState extends State<Header03TaskSummaryWidget> {
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
-                            borderRadius: const BorderRadius.only(
+                            borderRadius: BorderRadius.only(
                               bottomLeft: Radius.circular(0.0),
                               bottomRight: Radius.circular(0.0),
                               topLeft: Radius.circular(16.0),
@@ -350,7 +353,7 @@ class _Header03TaskSummaryWidgetState extends State<Header03TaskSummaryWidget> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 12.0, 0.0, 12.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -358,7 +361,7 @@ class _Header03TaskSummaryWidgetState extends State<Header03TaskSummaryWidget> {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           16.0, 0.0, 0.0, 0.0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
@@ -373,7 +376,7 @@ class _Header03TaskSummaryWidgetState extends State<Header03TaskSummaryWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 16.0, 0.0),
                                       child: FlutterFlowDropDown<String>(
                                         controller: _model
@@ -416,10 +419,10 @@ class _Header03TaskSummaryWidgetState extends State<Header03TaskSummaryWidget> {
                                         fillColor: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
                                         elevation: 2.0,
-                                        borderColor: const Color(0xFFE0E3E7),
+                                        borderColor: Color(0xFFE0E3E7),
                                         borderWidth: 2.0,
                                         borderRadius: 8.0,
-                                        margin: const EdgeInsetsDirectional.fromSTEB(
+                                        margin: EdgeInsetsDirectional.fromSTEB(
                                             12.0, 4.0, 12.0, 4.0),
                                         hidesUnderline: true,
                                         isSearchable: false,
@@ -429,7 +432,7 @@ class _Header03TaskSummaryWidgetState extends State<Header03TaskSummaryWidget> {
                                   ],
                                 ),
                               ),
-                              const Divider(
+                              Divider(
                                 height: 4.0,
                                 thickness: 1.0,
                                 color: Color(0xFFE0E3E7),
@@ -474,21 +477,21 @@ class _Header03TaskSummaryWidgetState extends State<Header03TaskSummaryWidget> {
                                       borderRadius: BorderRadius.circular(4.0),
                                     ),
                                     focusedBorder: OutlineInputBorder(
-                                      borderSide: const BorderSide(
+                                      borderSide: BorderSide(
                                         color: Color(0x00000000),
                                         width: 1.0,
                                       ),
                                       borderRadius: BorderRadius.circular(4.0),
                                     ),
                                     errorBorder: OutlineInputBorder(
-                                      borderSide: const BorderSide(
+                                      borderSide: BorderSide(
                                         color: Color(0x00000000),
                                         width: 1.0,
                                       ),
                                       borderRadius: BorderRadius.circular(4.0),
                                     ),
                                     focusedErrorBorder: OutlineInputBorder(
-                                      borderSide: const BorderSide(
+                                      borderSide: BorderSide(
                                         color: Color(0x00000000),
                                         width: 1.0,
                                       ),
@@ -498,7 +501,7 @@ class _Header03TaskSummaryWidgetState extends State<Header03TaskSummaryWidget> {
                                     fillColor: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
                                     contentPadding:
-                                        const EdgeInsetsDirectional.fromSTEB(
+                                        EdgeInsetsDirectional.fromSTEB(
                                             16.0, 24.0, 20.0, 24.0),
                                   ),
                                   style: FlutterFlowTheme.of(context)
@@ -518,7 +521,7 @@ class _Header03TaskSummaryWidgetState extends State<Header03TaskSummaryWidget> {
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     16.0, 0.0, 16.0, 12.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -533,7 +536,7 @@ class _Header03TaskSummaryWidgetState extends State<Header03TaskSummaryWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           12.0, 0.0, 0.0, 0.0),
                                       child: FlutterFlowIconButton(
                                         borderColor: Colors.transparent,
@@ -554,13 +557,13 @@ class _Header03TaskSummaryWidgetState extends State<Header03TaskSummaryWidget> {
                                   ],
                                 ),
                               ),
-                              const Divider(
+                              Divider(
                                 height: 4.0,
                                 thickness: 1.0,
                                 color: Color(0xFFE0E3E7),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     8.0, 4.0, 16.0, 44.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -568,7 +571,7 @@ class _Header03TaskSummaryWidgetState extends State<Header03TaskSummaryWidget> {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           8.0, 0.0, 0.0, 0.0),
                                       child: FlutterFlowIconButton(
                                         borderColor: Colors.transparent,
@@ -600,7 +603,7 @@ class _Header03TaskSummaryWidgetState extends State<Header03TaskSummaryWidget> {
                                         children: [
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 12.0, 0.0),
                                             child: Text(
                                               FFLocalizations.of(context)

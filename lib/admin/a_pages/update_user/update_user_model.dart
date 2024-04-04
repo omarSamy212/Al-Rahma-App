@@ -1,8 +1,33 @@
+import '/auth/base_auth_user_provider.dart';
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
+import '/backend/firebase_storage/storage.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_drop_down.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/flutter_flow/upload_data.dart';
+import '/custom_code/actions/index.dart' as actions;
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'update_user_widget.dart' show UpdateUserWidget;
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:collection/collection.dart';
+import 'package:easy_debounce/easy_debounce.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_blurhash/flutter_blurhash.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+import 'package:octo_image/octo_image.dart';
+import 'package:provider/provider.dart';
 
 class UpdateUserModel extends FlutterFlowModel<UpdateUserWidget> {
   ///  Local state fields for this page.
@@ -167,6 +192,18 @@ class UpdateUserModel extends FlutterFlowModel<UpdateUserWidget> {
   // State field(s) for drivingLicType widget.
   String? drivingLicTypeValue;
   FormFieldController<String>? drivingLicTypeValueController;
+  // State field(s) for drivingLicIssueIssueDate widget.
+  FocusNode? drivingLicIssueIssueDateFocusNode;
+  TextEditingController? drivingLicIssueIssueDateController;
+  String? Function(BuildContext, String?)?
+      drivingLicIssueIssueDateControllerValidator;
+  DateTime? datePicked6;
+  // State field(s) for drivingLicIssueExpiryDate widget.
+  FocusNode? drivingLicIssueExpiryDateFocusNode;
+  TextEditingController? drivingLicIssueExpiryDateController;
+  String? Function(BuildContext, String?)?
+      drivingLicIssueExpiryDateControllerValidator;
+  DateTime? datePicked7;
   // State field(s) for Sv_workArea widget.
   String? svWorkAreaValue;
   FormFieldController<String>? svWorkAreaValueController;
@@ -189,7 +226,7 @@ class UpdateUserModel extends FlutterFlowModel<UpdateUserWidget> {
   FocusNode? employmentDateFocusNode2;
   TextEditingController? employmentDateController2;
   String? Function(BuildContext, String?)? employmentDateController2Validator;
-  DateTime? datePicked6;
+  DateTime? datePicked8;
   // State field(s) for Age widget.
   FocusNode? ageFocusNode3;
   TextEditingController? ageController3;
@@ -206,7 +243,7 @@ class UpdateUserModel extends FlutterFlowModel<UpdateUserWidget> {
   FocusNode? contractDateFocusNode;
   TextEditingController? contractDateController;
   String? Function(BuildContext, String?)? contractDateControllerValidator;
-  DateTime? datePicked7;
+  DateTime? datePicked9;
   bool isDataUploading2 = false;
   FFUploadedFile uploadedLocalFile2 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
@@ -307,6 +344,12 @@ class UpdateUserModel extends FlutterFlowModel<UpdateUserWidget> {
 
     eduDataFocusNode3?.dispose();
     eduDataController3?.dispose();
+
+    drivingLicIssueIssueDateFocusNode?.dispose();
+    drivingLicIssueIssueDateController?.dispose();
+
+    drivingLicIssueExpiryDateFocusNode?.dispose();
+    drivingLicIssueExpiryDateController?.dispose();
 
     employmentDateFocusNode2?.dispose();
     employmentDateController2?.dispose();

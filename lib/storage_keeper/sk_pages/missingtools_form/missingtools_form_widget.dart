@@ -1,5 +1,6 @@
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_audio_player.dart';
 import '/flutter_flow/flutter_flow_count_controller.dart';
@@ -16,7 +17,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:record/record.dart';
 import 'missingtools_form_model.dart';
 export 'missingtools_form_model.dart';
@@ -56,8 +60,8 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: const Offset(0.0, 110.0),
-          end: const Offset(0.0, 0.0),
+          begin: Offset(0.0, 110.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -75,8 +79,8 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: const Offset(0.0, 110.0),
-          end: const Offset(0.0, 0.0),
+          begin: Offset(0.0, 110.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -94,8 +98,8 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: const Offset(0.0, 110.0),
-          end: const Offset(0.0, 0.0),
+          begin: Offset(0.0, 110.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -147,14 +151,14 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
           key: scaffoldKey,
           backgroundColor: Colors.white,
           appBar: PreferredSize(
-            preferredSize: const Size.fromHeight(100.0),
+            preferredSize: Size.fromHeight(100.0),
             child: AppBar(
               backgroundColor: Colors.white,
               automaticallyImplyLeading: false,
-              actions: const [],
+              actions: [],
               flexibleSpace: FlexibleSpaceBar(
                 title: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 14.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 14.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.end,
@@ -162,19 +166,19 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                     children: [
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   12.0, 0.0, 0.0, 0.0),
                               child: FlutterFlowIconButton(
                                 borderColor: Colors.transparent,
                                 borderRadius: 30.0,
                                 borderWidth: 1.0,
                                 buttonSize: 50.0,
-                                icon: const Icon(
+                                icon: Icon(
                                   Icons.arrow_back_rounded,
                                   color: Color(0xFF14181B),
                                   size: 30.0,
@@ -188,7 +192,7 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   24.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 FFLocalizations.of(context).getText(
@@ -198,7 +202,7 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                                     .headlineMedium
                                     .override(
                                       fontFamily: 'Outfit',
-                                      color: const Color(0xFF14181B),
+                                      color: Color(0xFF14181B),
                                       fontSize: 22.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
@@ -228,20 +232,20 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                   children: [
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Expanded(
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 8.0, 16.0, 0.0),
                               child: Container(
                                 width: double.infinity,
                                 decoration: BoxDecoration(
                                   color: Colors.white,
-                                  boxShadow: const [
+                                  boxShadow: [
                                     BoxShadow(
                                       blurRadius: 3.0,
                                       color: Color(0x20000000),
@@ -254,7 +258,7 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                                   borderRadius: BorderRadius.circular(12.0),
                                 ),
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       8.0, 8.0, 12.0, 8.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
@@ -266,9 +270,9 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                                             BorderRadius.circular(8.0),
                                         child: CachedNetworkImage(
                                           fadeInDuration:
-                                              const Duration(milliseconds: 500),
+                                              Duration(milliseconds: 500),
                                           fadeOutDuration:
-                                              const Duration(milliseconds: 500),
+                                              Duration(milliseconds: 500),
                                           imageUrl:
                                               widget.supervisorDoc!.photoUrl,
                                           width: 157.0,
@@ -287,14 +291,14 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                                       Expanded(
                                         child: Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, 0.0),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         16.0, 0.0, 0.0, 0.0),
                                                 child: Text(
@@ -310,7 +314,7 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            const Color(0xFF14181B),
+                                                            Color(0xFF14181B),
                                                         fontSize: 16.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -325,7 +329,7 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(16.0, 4.0,
                                                                 20.0, 0.0),
                                                     child: Text(
@@ -333,7 +337,7 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                                                         widget
                                                             .supervisorDoc
                                                             ?.privileges
-                                                            .roleName,
+                                                            ?.roleName,
                                                         'Role',
                                                       ),
                                                       style: FlutterFlowTheme
@@ -342,7 +346,7 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                                                           .override(
                                                             fontFamily:
                                                                 'Plus Jakarta Sans',
-                                                            color: const Color(
+                                                            color: Color(
                                                                 0xFF57636C),
                                                             fontSize: 14.0,
                                                             letterSpacing: 0.0,
@@ -354,7 +358,7 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(16.0, 4.0,
                                                                 0.0, 0.0),
                                                     child: Text(
@@ -365,7 +369,7 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                                                           .override(
                                                             fontFamily:
                                                                 'Plus Jakarta Sans',
-                                                            color: const Color(
+                                                            color: Color(
                                                                 0xFF57636C),
                                                             fontSize: 14.0,
                                                             letterSpacing: 0.0,
@@ -384,18 +388,18 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(16.0,
                                                                 18.0, 0.0, 0.0),
                                                     child: Text(
-                                                      '${widget.supervisorDoc?.shift.startingShift}\' \'${widget.supervisorDoc?.shift.shiftPeriod}',
+                                                      '${widget.supervisorDoc?.shift?.startingShift}\' \'${widget.supervisorDoc?.shift?.shiftPeriod}',
                                                       style: FlutterFlowTheme
                                                               .of(context)
                                                           .labelMedium
                                                           .override(
                                                             fontFamily:
                                                                 'Plus Jakarta Sans',
-                                                            color: const Color(
+                                                            color: Color(
                                                                 0xFF57636C),
                                                             fontSize: 14.0,
                                                             letterSpacing: 0.0,
@@ -422,22 +426,22 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 10.0),
+                          EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 10.0),
                       child: Container(
                         width: double.infinity,
-                        constraints: const BoxConstraints(
+                        constraints: BoxConstraints(
                           maxWidth: 500.0,
                         ),
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(12.0),
                           border: Border.all(
-                            color: const Color(0xFFE5E7EB),
+                            color: Color(0xFFE5E7EB),
                             width: 2.0,
                           ),
                         ),
                         child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: EdgeInsets.all(8.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -487,14 +491,14 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                                 borderColor: Colors.transparent,
                                 borderWidth: 2.0,
                                 borderRadius: 8.0,
-                                margin: const EdgeInsetsDirectional.fromSTEB(
+                                margin: EdgeInsetsDirectional.fromSTEB(
                                     16.0, 4.0, 16.0, 4.0),
                                 hidesUnderline: true,
                                 isOverButton: true,
                                 isSearchable: false,
                                 isMultiSelect: false,
                               ),
-                              const SizedBox(
+                              SizedBox(
                                 height: 45.0,
                                 child: VerticalDivider(
                                   width: 10.0,
@@ -503,9 +507,9 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                                 ),
                               ),
                               Align(
-                                alignment: const AlignmentDirectional(0.0, 0.0),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 5.0, 0.0),
                                   child: Container(
                                     width: 73.0,
@@ -551,7 +555,7 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                                       stepSize: 1,
                                       minimum: 1,
                                       contentPadding:
-                                          const EdgeInsetsDirectional.fromSTEB(
+                                          EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 2.0, 0.0),
                                     ),
                                   ),
@@ -565,7 +569,7 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 12.0),
+                          EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 12.0),
                       child: TextFormField(
                         controller: _model.textualDetailsController,
                         focusNode: _model.textualDetailsFocusNode,
@@ -575,7 +579,7 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                           labelStyle:
                               FlutterFlowTheme.of(context).labelMedium.override(
                                     fontFamily: 'Plus Jakarta Sans',
-                                    color: const Color(0xFF57636C),
+                                    color: Color(0xFF57636C),
                                     fontSize: 14.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
@@ -586,34 +590,34 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                           hintStyle:
                               FlutterFlowTheme.of(context).labelMedium.override(
                                     fontFamily: 'Plus Jakarta Sans',
-                                    color: const Color(0xFF57636C),
+                                    color: Color(0xFF57636C),
                                     fontSize: 14.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
                                   ),
                           enabledBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
+                            borderSide: BorderSide(
                               color: Color(0xFFE0E3E7),
                               width: 2.0,
                             ),
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
+                            borderSide: BorderSide(
                               color: Color(0xFF4B39EF),
                               width: 2.0,
                             ),
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           errorBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
+                            borderSide: BorderSide(
                               color: Color(0xFFFF5963),
                               width: 2.0,
                             ),
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           focusedErrorBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
+                            borderSide: BorderSide(
                               color: Color(0xFFFF5963),
                               width: 2.0,
                             ),
@@ -621,12 +625,12 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                           ),
                           filled: true,
                           fillColor: Colors.white,
-                          contentPadding: const EdgeInsetsDirectional.fromSTEB(
+                          contentPadding: EdgeInsetsDirectional.fromSTEB(
                               20.0, 24.0, 0.0, 24.0),
                         ),
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Plus Jakarta Sans',
-                              color: const Color(0xFF14181B),
+                              color: Color(0xFF14181B),
                               fontSize: 14.0,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.normal,
@@ -642,22 +646,22 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 10.0),
+                          EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 10.0),
                       child: Container(
                         width: double.infinity,
-                        constraints: const BoxConstraints(
+                        constraints: BoxConstraints(
                           maxWidth: 500.0,
                         ),
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(12.0),
                           border: Border.all(
-                            color: const Color(0xFFE5E7EB),
+                            color: Color(0xFFE5E7EB),
                             width: 2.0,
                           ),
                         ),
                         child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: EdgeInsets.all(8.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -682,14 +686,14 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                                     _model.isRecording = !_model.isRecording;
                                   });
                                 },
-                                child: const Icon(
+                                child: Icon(
                                   Icons.fiber_manual_record_sharp,
                                   color: Color(0xFF0CA256),
                                   size: 32.0,
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     16.0, 0.0, 0.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
@@ -700,7 +704,7 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Plus Jakarta Sans',
-                                        color: const Color(0xFF15161E),
+                                        color: Color(0xFF15161E),
                                         fontSize: 14.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
@@ -710,7 +714,7 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                               if (!_model.isRecording)
                                 Expanded(
                                   child: Align(
-                                    alignment: const AlignmentDirectional(1.0, 0.0),
+                                    alignment: AlignmentDirectional(1.0, 0.0),
                                     child: InkWell(
                                       splashColor: Colors.transparent,
                                       focusColor: Colors.transparent,
@@ -737,7 +741,7 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                                             'Icon_upload_file_to_firebase');
                                         {
                                           setState(() =>
-                                              _model.isDataUploading1 = true);
+                                              _model.isDataUploading = true);
                                           var selectedUploadedFiles =
                                               <FFUploadedFile>[];
                                           var selectedFiles = <SelectedFile>[];
@@ -770,16 +774,16 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                                           } finally {
                                             ScaffoldMessenger.of(context)
                                                 .hideCurrentSnackBar();
-                                            _model.isDataUploading1 = false;
+                                            _model.isDataUploading = false;
                                           }
                                           if (selectedUploadedFiles.length ==
                                                   selectedFiles.length &&
                                               downloadUrls.length ==
                                                   selectedFiles.length) {
                                             setState(() {
-                                              _model.uploadedLocalFile1 =
+                                              _model.uploadedLocalFile =
                                                   selectedUploadedFiles.first;
-                                              _model.uploadedFileUrl1 =
+                                              _model.uploadedFileUrl =
                                                   downloadUrls.first;
                                             });
                                             showUploadMessage(
@@ -830,7 +834,7 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                         visible: !_model.showPlayer,
                         child: FlutterFlowAudioPlayer(
                           audio: Audio.network(
-                            _model.uploadedFileUrl1,
+                            _model.uploadedFileUrl,
                             metas: Metas(
                               id: 'sample3.mp3-2e4103c9',
                               title: 'Recorder Details',
@@ -848,7 +852,7 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                                   ),
                           fillColor:
                               FlutterFlowTheme.of(context).secondaryBackground,
-                          playbackButtonColor: const Color(0xFF0CA256),
+                          playbackButtonColor: Color(0xFF0CA256),
                           activeTrackColor:
                               FlutterFlowTheme.of(context).alternate,
                           elevation: 4.0,
@@ -858,7 +862,7 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsetsDirectional.fromSTEB(
+                      padding: EdgeInsetsDirectional.fromSTEB(
                           20.0, 17.0, 20.0, 17.0),
                       child: InkWell(
                         splashColor: Colors.transparent,
@@ -871,29 +875,29 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                         },
                         child: Container(
                           width: double.infinity,
-                          constraints: const BoxConstraints(
+                          constraints: BoxConstraints(
                             maxWidth: 500.0,
                           ),
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(12.0),
                             border: Border.all(
-                              color: const Color(0xFFE5E7EB),
+                              color: Color(0xFFE5E7EB),
                               width: 2.0,
                             ),
                           ),
                           child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: EdgeInsets.all(8.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
-                                const Icon(
+                                Icon(
                                   Icons.add_a_photo_rounded,
                                   color: Color(0xFF0CA256),
                                   size: 32.0,
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       16.0, 0.0, 0.0, 0.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
@@ -904,7 +908,7 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Plus Jakarta Sans',
-                                          color: const Color(0xFF15161E),
+                                          color: Color(0xFF15161E),
                                           fontSize: 14.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w500,
@@ -920,158 +924,119 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
-                      child: Builder(
-                        builder: (context) {
-                          final uploadedImages = _model.uploadedFileUrls2
-                              .toList()
-                              .take(3)
-                              .toList();
-                          return SingleChildScrollView(
-                            scrollDirection: Axis.horizontal,
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: List.generate(uploadedImages.length,
-                                      (uploadedImagesIndex) {
-                                final uploadedImagesItem =
-                                    uploadedImages[uploadedImagesIndex];
-                                return Align(
-                                  alignment: const AlignmentDirectional(-1.0, 0.0),
-                                  child: InkWell(
-                                    splashColor: Colors.transparent,
-                                    focusColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    onTap: () async {
-                                      logFirebaseEvent(
-                                          'MISSINGTOOLS_FORM_imageBorder_ON_TAP');
-                                      // uploadMultiple Images
-                                      logFirebaseEvent(
-                                          'imageBorder_uploadMultipleImages');
-                                      final selectedMedia = await selectMedia(
-                                        imageQuality: 80,
-                                        mediaSource: MediaSource.photoGallery,
-                                        multiImage: true,
-                                      );
-                                      if (selectedMedia != null &&
-                                          selectedMedia.every((m) =>
-                                              validateFileFormat(
-                                                  m.storagePath, context))) {
-                                        setState(() =>
-                                            _model.isDataUploading2 = true);
-                                        var selectedUploadedFiles =
-                                            <FFUploadedFile>[];
-
-                                        var downloadUrls = <String>[];
-                                        try {
-                                          showUploadMessage(
-                                            context,
-                                            'Uploading file...',
-                                            showLoading: true,
-                                          );
-                                          selectedUploadedFiles = selectedMedia
-                                              .map((m) => FFUploadedFile(
-                                                    name: m.storagePath
-                                                        .split('/')
-                                                        .last,
-                                                    bytes: m.bytes,
-                                                    height:
-                                                        m.dimensions?.height,
-                                                    width: m.dimensions?.width,
-                                                    blurHash: m.blurHash,
-                                                  ))
-                                              .toList();
-
-                                          downloadUrls = (await Future.wait(
-                                            selectedMedia.map(
-                                              (m) async => await uploadData(
-                                                  m.storagePath, m.bytes),
-                                            ),
-                                          ))
-                                              .where((u) => u != null)
-                                              .map((u) => u!)
-                                              .toList();
-                                        } finally {
-                                          ScaffoldMessenger.of(context)
-                                              .hideCurrentSnackBar();
-                                          _model.isDataUploading2 = false;
-                                        }
-                                        if (selectedUploadedFiles.length ==
-                                                selectedMedia.length &&
-                                            downloadUrls.length ==
-                                                selectedMedia.length) {
-                                          setState(() {
-                                            _model.uploadedLocalFiles2 =
-                                                selectedUploadedFiles;
-                                            _model.uploadedFileUrls2 =
-                                                downloadUrls;
-                                          });
-                                          showUploadMessage(
-                                              context, 'Success!');
-                                        } else {
-                                          setState(() {});
-                                          showUploadMessage(
-                                              context, 'Failed to upload data');
-                                          return;
-                                        }
-                                      }
-
-                                      while (uploadedImagesIndex ==
-                                          _model.uploadedFileUrls2.length) {
-                                        // incrementPhotoByOne
-                                        logFirebaseEvent(
-                                            'imageBorder_incrementPhotoByOne');
-                                        setState(() {
-                                          _model.photoNumber =
-                                              _model.photoNumber! + 1;
-                                        });
-                                      }
-                                    },
-                                    child: Container(
-                                      width: 100.0,
-                                      height: 100.0,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .accent1,
-                                        borderRadius:
-                                            BorderRadius.circular(12.0),
-                                        shape: BoxShape.rectangle,
-                                        border: Border.all(
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
-                                          width: 2.0,
-                                        ),
-                                      ),
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(2.0),
-                                        child: ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(10.0),
-                                          child: Image.network(
-                                            'https://picsum.photos/seed/123/600',
-                                            width: 300.0,
-                                            height: 200.0,
-                                            fit: BoxFit.cover,
-                                          ),
-                                        ),
+                          EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Align(
+                              alignment: AlignmentDirectional(-1.0, 0.0),
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  logFirebaseEvent(
+                                      'MISSINGTOOLS_FORM_imageBorder_ON_TAP');
+                                },
+                                child: Container(
+                                  width: 100.0,
+                                  height: 100.0,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context).accent1,
+                                    borderRadius: BorderRadius.circular(12.0),
+                                    shape: BoxShape.rectangle,
+                                    border: Border.all(
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
+                                      width: 2.0,
+                                    ),
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsets.all(2.0),
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(10.0),
+                                      child: Image.network(
+                                        'https://picsum.photos/seed/123/600',
+                                        width: 300.0,
+                                        height: 200.0,
+                                        fit: BoxFit.cover,
                                       ),
                                     ),
                                   ),
-                                );
-                              })
-                                  .divide(const SizedBox(width: 12.0))
-                                  .addToStart(const SizedBox(width: 24.0))
-                                  .addToEnd(const SizedBox(width: 24.0)),
+                                ),
+                              ),
                             ),
-                          );
-                        },
+                            Align(
+                              alignment: AlignmentDirectional(-1.0, 0.0),
+                              child: Container(
+                                width: 100.0,
+                                height: 100.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context).accent1,
+                                  borderRadius: BorderRadius.circular(12.0),
+                                  shape: BoxShape.rectangle,
+                                  border: Border.all(
+                                    color: FlutterFlowTheme.of(context).primary,
+                                    width: 2.0,
+                                  ),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsets.all(2.0),
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(10.0),
+                                    child: Image.network(
+                                      'https://picsum.photos/seed/123/600',
+                                      width: 300.0,
+                                      height: 200.0,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Align(
+                              alignment: AlignmentDirectional(-1.0, 0.0),
+                              child: Container(
+                                width: 100.0,
+                                height: 100.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context).accent1,
+                                  borderRadius: BorderRadius.circular(12.0),
+                                  shape: BoxShape.rectangle,
+                                  border: Border.all(
+                                    color: FlutterFlowTheme.of(context).primary,
+                                    width: 2.0,
+                                  ),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsets.all(2.0),
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(10.0),
+                                    child: Image.network(
+                                      'https://picsum.photos/seed/123/600',
+                                      width: 300.0,
+                                      height: 200.0,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ]
+                              .divide(SizedBox(width: 12.0))
+                              .addToStart(SizedBox(width: 24.0))
+                              .addToEnd(SizedBox(width: 24.0)),
+                        ),
                       ),
                     ),
                     Align(
-                      alignment: const AlignmentDirectional(1.0, 0.0),
+                      alignment: AlignmentDirectional(1.0, 0.0),
                       child: Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 20.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 20.0, 0.0),
                         child: Text(
                           FFLocalizations.of(context).getText(
                             '6s92kvhj' /* Maximum 3 img/jpg */,
@@ -1089,7 +1054,7 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 17.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 17.0),
                       child: FFButtonWidget(
                         onPressed: () async {
                           logFirebaseEvent(
@@ -1113,7 +1078,7 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                                         letterSpacing: 0.0,
                                       ),
                                 ),
-                                duration: const Duration(milliseconds: 4000),
+                                duration: Duration(milliseconds: 4000),
                                 backgroundColor: FlutterFlowTheme.of(context)
                                     .primaryBackground,
                               ),
@@ -1127,11 +1092,11 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                         options: FFButtonOptions(
                           width: 270.0,
                           height: 50.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
-                          color: const Color(0xFF0CA256),
+                          color: Color(0xFF0CA256),
                           textStyle:
                               FlutterFlowTheme.of(context).titleMedium.override(
                                     fontFamily: 'Plus Jakarta Sans',
@@ -1141,7 +1106,7 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                                     fontWeight: FontWeight.normal,
                                   ),
                           elevation: 2.0,
-                          borderSide: const BorderSide(
+                          borderSide: BorderSide(
                             color: Colors.transparent,
                             width: 1.0,
                           ),

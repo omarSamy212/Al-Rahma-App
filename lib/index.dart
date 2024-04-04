@@ -53,3 +53,47 @@ export '/settings1_notifications/settings1_notifications_widget.dart'
     show Settings1NotificationsWidget;
 export '/admin/a_pages/update_user/update_user_widget.dart'
     show UpdateUserWidget;
+export '/working_area/working_area_widget.dart' show WorkingAreaWidget;
+export '/supervisor/sv_pages/sv_requests/sv_requests_widget.dart'
+    show SvRequestsWidget;
+export '/supervisor/sv_pages/attendanceofworkers/attendanceofworkers_widget.dart'
+    show AttendanceofworkersWidget;
+export '/supervisor/sv_pages/sv_map/sv_map_widget.dart' show SvMapWidget;
+export '/supervisor/sv_pages/attendenceof_supervisor/attendenceof_supervisor_widget.dart'
+    show AttendenceofSupervisorWidget;
+export '/supervisor/sv_pages/loggingout_for_supervisor/loggingout_for_supervisor_widget.dart'
+    show LoggingoutForSupervisorWidget;
+export '/supervisor/sv_pages/submitting_complaints/submitting_complaints_widget.dart'
+    show SubmittingComplaintsWidget;
+export '/supervisor/sv_pages/daily_report/daily_report_widget.dart'
+    show DailyReportWidget;
+export '/supervisor/sv_pages/submitting_personal_requests/submitting_personal_requests_widget.dart'
+    show SubmittingPersonalRequestsWidget;
+export '/supervisor/sv_pages/taskdetails/taskdetails_widget.dart'
+    show TaskdetailsWidget;
+export '/supervisor/sv_pages/loggingout_for_workers/loggingout_for_workers_widget.dart'
+    show LoggingoutForWorkersWidget;
+export '/supervisor/sv_pages/workers_review/workers_review_widget.dart'
+    show WorkersReviewWidget;
+export '/details_area/details_area_widget.dart' show DetailsAreaWidget;
+export '/traffic_manager/tm_pages/tm_home/tm_home_widget.dart'
+    show TmHomeWidget;
+export '/create04_task/create04_task_widget.dart' show Create04TaskWidget;
+export '/traffic_manager/tm_pages/movment/movment_widget.dart'
+    show MovmentWidget;
+export '/traffic_manager/tm_pages/add_servicingreport/add_servicingreport_widget.dart'
+    show AddServicingreportWidget;
+export '/traffic_manager/tm_pages/tm_list_requests/tm_list_requests_widget.dart'
+    show TmListRequestsWidget;
+export '/traffic_manager/tm_pages/tm_task_discription/tm_task_discription_widget.dart'
+    show TmTaskDiscriptionWidget;
+export '/traffic_manager/tm_pages/servicing_discription/servicing_discription_widget.dart'
+    show ServicingDiscriptionWidget;
+export '/traffic_manager/tm_pages/tm_list_fixing/tm_list_fixing_widget.dart'
+    show TmListFixingWidget;
+export '/supervisor/sv_pages/form_for_lated_task/form_for_lated_task_widget.dart'
+    show FormForLatedTaskWidget;
+export '/taskdetails_copy/taskdetails_copy_widget.dart'
+    show TaskdetailsCopyWidget;
+export '/sv_requests_copy/sv_requests_copy_widget.dart'
+    show SvRequestsCopyWidget;

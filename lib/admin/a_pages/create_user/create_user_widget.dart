@@ -1,6 +1,8 @@
+import '/auth/base_auth_user_provider.dart';
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -12,12 +14,20 @@ import '/flutter_flow/upload_data.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:collection/collection.dart';
 import 'package:easy_debounce/easy_debounce.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_blurhash/flutter_blurhash.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+import 'package:octo_image/octo_image.dart';
+import 'package:provider/provider.dart';
 import 'create_user_model.dart';
 export 'create_user_model.dart';
 
@@ -38,155 +48,136 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
     'containerOnPageLoadAnimation1': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
+        VisibilityEffect(duration: 200.ms),
         FadeEffect(
           curve: Curves.easeInOut,
-          delay: 0.ms,
+          delay: 200.ms,
           duration: 600.ms,
           begin: 0.0,
           end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: const Offset(0.0, 110.0),
-          end: const Offset(0.0, 0.0),
         ),
       ],
     ),
     'containerOnPageLoadAnimation2': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
-        VisibilityEffect(duration: 200.ms),
-        FadeEffect(
+        VisibilityEffect(duration: 250.ms),
+        MoveEffect(
           curve: Curves.easeInOut,
-          delay: 200.ms,
+          delay: 250.ms,
           duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
+          begin: Offset(0.0, 70.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
     'containerOnPageLoadAnimation3': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
-        VisibilityEffect(duration: 250.ms),
-        MoveEffect(
+        VisibilityEffect(duration: 200.ms),
+        FadeEffect(
           curve: Curves.easeInOut,
-          delay: 250.ms,
+          delay: 200.ms,
           duration: 600.ms,
-          begin: const Offset(0.0, 70.0),
-          end: const Offset(0.0, 0.0),
+          begin: 0.0,
+          end: 1.0,
         ),
       ],
     ),
     'containerOnPageLoadAnimation4': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
-        VisibilityEffect(duration: 200.ms),
-        FadeEffect(
+        VisibilityEffect(duration: 250.ms),
+        MoveEffect(
           curve: Curves.easeInOut,
-          delay: 200.ms,
+          delay: 250.ms,
           duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
+          begin: Offset(0.0, 70.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
     'containerOnPageLoadAnimation5': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
-        VisibilityEffect(duration: 250.ms),
-        MoveEffect(
+        VisibilityEffect(duration: 200.ms),
+        FadeEffect(
           curve: Curves.easeInOut,
-          delay: 250.ms,
+          delay: 200.ms,
           duration: 600.ms,
-          begin: const Offset(0.0, 70.0),
-          end: const Offset(0.0, 0.0),
+          begin: 0.0,
+          end: 1.0,
         ),
       ],
     ),
     'containerOnPageLoadAnimation6': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
-        VisibilityEffect(duration: 200.ms),
-        FadeEffect(
+        VisibilityEffect(duration: 250.ms),
+        MoveEffect(
           curve: Curves.easeInOut,
-          delay: 200.ms,
+          delay: 250.ms,
           duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
+          begin: Offset(0.0, 70.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
     'containerOnPageLoadAnimation7': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
-        VisibilityEffect(duration: 250.ms),
-        MoveEffect(
+        VisibilityEffect(duration: 200.ms),
+        FadeEffect(
           curve: Curves.easeInOut,
-          delay: 250.ms,
+          delay: 200.ms,
           duration: 600.ms,
-          begin: const Offset(0.0, 70.0),
-          end: const Offset(0.0, 0.0),
+          begin: 0.0,
+          end: 1.0,
         ),
       ],
     ),
     'containerOnPageLoadAnimation8': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
-        VisibilityEffect(duration: 200.ms),
-        FadeEffect(
+        VisibilityEffect(duration: 250.ms),
+        MoveEffect(
           curve: Curves.easeInOut,
-          delay: 200.ms,
+          delay: 250.ms,
           duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
+          begin: Offset(0.0, 70.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
     'containerOnPageLoadAnimation9': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
-        VisibilityEffect(duration: 250.ms),
-        MoveEffect(
+        VisibilityEffect(duration: 200.ms),
+        FadeEffect(
           curve: Curves.easeInOut,
-          delay: 250.ms,
+          delay: 200.ms,
           duration: 600.ms,
-          begin: const Offset(0.0, 70.0),
-          end: const Offset(0.0, 0.0),
+          begin: 0.0,
+          end: 1.0,
         ),
       ],
     ),
     'containerOnPageLoadAnimation10': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
-        VisibilityEffect(duration: 200.ms),
-        FadeEffect(
+        VisibilityEffect(duration: 250.ms),
+        MoveEffect(
           curve: Curves.easeInOut,
-          delay: 200.ms,
+          delay: 250.ms,
           duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
+          begin: Offset(0.0, 70.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
     'containerOnPageLoadAnimation11': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
-        VisibilityEffect(duration: 250.ms),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 250.ms,
-          duration: 600.ms,
-          begin: const Offset(0.0, 70.0),
-          end: const Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation12': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
         VisibilityEffect(duration: 200.ms),
         FadeEffect(
           curve: Curves.easeInOut,
@@ -197,7 +188,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
         ),
       ],
     ),
-    'containerOnPageLoadAnimation13': AnimationInfo(
+    'containerOnPageLoadAnimation12': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
         VisibilityEffect(duration: 250.ms),
@@ -205,8 +196,8 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
           curve: Curves.easeInOut,
           delay: 250.ms,
           duration: 600.ms,
-          begin: const Offset(0.0, 70.0),
-          end: const Offset(0.0, 0.0),
+          begin: Offset(0.0, 70.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -221,7 +212,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       logFirebaseEvent('CREATE_USER_createUser_ON_INIT_STATE');
-      if (loggedIn && (currentUserDocument?.privileges.roleName == 'Admin')) {
+      if (loggedIn && (currentUserDocument?.privileges?.roleName == 'Admin')) {
         logFirebaseEvent('createUser_firestore_query');
         _model.numOfUsers = await queryUsersRecordCount();
         return;
@@ -231,12 +222,12 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
           context: context,
           builder: (alertDialogContext) {
             return AlertDialog(
-              title: const Text('Error'),
-              content: const Text('Access Not Granted'),
+              title: Text('Error'),
+              content: Text('Access Not Granted'),
               actions: [
                 TextButton(
                   onPressed: () => Navigator.pop(alertDialogContext),
-                  child: const Text('Ok'),
+                  child: Text('Ok'),
                 ),
               ],
             );
@@ -269,8 +260,8 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
     _model.ageController1 ??= TextEditingController();
     _model.ageFocusNode1 ??= FocusNode();
 
-    _model.eduDataController1 ??= TextEditingController();
-    _model.eduDataFocusNode1 ??= FocusNode();
+    _model.natPlaceOfIssueController ??= TextEditingController();
+    _model.natPlaceOfIssueFocusNode ??= FocusNode();
 
     _model.natIDDateController ??= TextEditingController();
     _model.natIDDateFocusNode ??= FocusNode();
@@ -293,11 +284,11 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
     _model.passportPlaceOfIssueController ??= TextEditingController();
     _model.passportPlaceOfIssueFocusNode ??= FocusNode();
 
-    _model.dateOfCivilIdController ??= TextEditingController();
-    _model.dateOfCivilIdFocusNode ??= FocusNode();
+    _model.passportIssueDateController ??= TextEditingController();
+    _model.passportIssueDateFocusNode ??= FocusNode();
 
-    _model.expiredateController ??= TextEditingController();
-    _model.expiredateFocusNode ??= FocusNode();
+    _model.passportExpDateController ??= TextEditingController();
+    _model.passportExpDateFocusNode ??= FocusNode();
 
     _model.governmentController ??= TextEditingController();
     _model.governmentFocusNode ??= FocusNode();
@@ -311,8 +302,23 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
     _model.phoneNumberController ??= TextEditingController();
     _model.phoneNumberFocusNode ??= FocusNode();
 
-    _model.eduDataController2 ??= TextEditingController();
-    _model.eduDataFocusNode2 ??= FocusNode();
+    _model.eduDataController ??= TextEditingController();
+    _model.eduDataFocusNode ??= FocusNode();
+
+    _model.contIDController ??= TextEditingController();
+    _model.contIDFocusNode ??= FocusNode();
+
+    _model.contNumOfWorkersController ??= TextEditingController();
+    _model.contNumOfWorkersFocusNode ??= FocusNode();
+
+    _model.drivLicIssueDateController ??= TextEditingController();
+    _model.drivLicIssueDateFocusNode ??= FocusNode();
+
+    _model.drivLicExpiryDateController ??= TextEditingController();
+    _model.drivLicExpiryDateFocusNode ??= FocusNode();
+
+    _model.drivLicPlaceOfIssueController ??= TextEditingController();
+    _model.drivLicPlaceOfIssueFocusNode ??= FocusNode();
 
     _model.employmentDateController ??= TextEditingController();
     _model.employmentDateFocusNode ??= FocusNode();
@@ -368,11 +374,11 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
               key: scaffoldKey,
               backgroundColor: Colors.white,
               appBar: PreferredSize(
-                preferredSize: const Size.fromHeight(100.0),
+                preferredSize: Size.fromHeight(100.0),
                 child: AppBar(
                   backgroundColor: Colors.white,
                   automaticallyImplyLeading: false,
-                  actions: const [],
+                  actions: [],
                   flexibleSpace: FlexibleSpaceBar(
                     title: Column(
                       mainAxisSize: MainAxisSize.max,
@@ -380,20 +386,20 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 8.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     12.0, 0.0, 0.0, 0.0),
                                 child: FlutterFlowIconButton(
                                   borderColor: Colors.transparent,
                                   borderRadius: 30.0,
                                   borderWidth: 1.0,
                                   buttonSize: 50.0,
-                                  icon: const Icon(
+                                  icon: Icon(
                                     Icons.arrow_back_rounded,
                                     color: Color(0xFF14181B),
                                     size: 30.0,
@@ -411,7 +417,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               24.0, 0.0, 0.0, 16.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
@@ -421,7 +427,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                 .headlineMedium
                                 .override(
                                   fontFamily: 'Outfit',
-                                  color: const Color(0xFF14181B),
+                                  color: Color(0xFF14181B),
                                   fontSize: 22.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.normal,
@@ -443,17 +449,17 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.all(2.0),
+                        padding: EdgeInsets.all(2.0),
                         child: Container(
-                          width: 150.0,
-                          height: 150.0,
+                          width: 200.0,
+                          height: 200.0,
                           clipBehavior: Clip.antiAlias,
-                          decoration: const BoxDecoration(
+                          decoration: BoxDecoration(
                             shape: BoxShape.circle,
                           ),
                           child: CachedNetworkImage(
-                            fadeInDuration: const Duration(milliseconds: 500),
-                            fadeOutDuration: const Duration(milliseconds: 500),
+                            fadeInDuration: Duration(milliseconds: 500),
+                            fadeOutDuration: Duration(milliseconds: 500),
                             imageUrl: _model.uploadedFileUrl1,
                             fit: BoxFit.fitWidth,
                             errorWidget: (context, error, stackTrace) =>
@@ -465,13 +471,13 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                         ),
                       ),
                       Container(
-                        decoration: const BoxDecoration(),
+                        decoration: BoxDecoration(),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Align(
-                              alignment: const AlignmentDirectional(0.0, -1.0),
+                              alignment: AlignmentDirectional(0.0, -1.0),
                               child: Form(
                                 key: _model.formKey9,
                                 autovalidateMode: AutovalidateMode.disabled,
@@ -483,7 +489,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                         .secondaryBackground,
                                   ),
                                   child: Align(
-                                    alignment: const AlignmentDirectional(0.0, 0.0),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.min,
                                       crossAxisAlignment:
@@ -494,7 +500,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                           children: [
                                             Expanded(
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         20.0, 10.0, 20.0, 16.0),
                                                 child: TextFormField(
@@ -519,7 +525,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              const Color(0xFF57636C),
+                                                              Color(0xFF57636C),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -532,7 +538,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              const Color(0xFF57636C),
+                                                              Color(0xFF57636C),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -540,7 +546,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                         ),
                                                     enabledBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0xFFE0E3E7),
                                                         width: 2.0,
@@ -551,7 +557,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     ),
                                                     focusedBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0xFF4B39EF),
                                                         width: 2.0,
@@ -562,7 +568,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     ),
                                                     errorBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0xFFFF5963),
                                                         width: 2.0,
@@ -573,7 +579,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     ),
                                                     focusedErrorBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0xFFFF5963),
                                                         width: 2.0,
@@ -585,7 +591,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     filled: true,
                                                     fillColor: Colors.white,
                                                     contentPadding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(
                                                                 20.0,
                                                                 24.0,
@@ -599,7 +605,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            const Color(0xFF14181B),
+                                                            Color(0xFF14181B),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -614,7 +620,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                             ),
                                             Expanded(
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         20.0, 10.0, 20.0, 16.0),
                                                 child: TextFormField(
@@ -639,7 +645,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              const Color(0xFF57636C),
+                                                              Color(0xFF57636C),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -652,7 +658,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              const Color(0xFF57636C),
+                                                              Color(0xFF57636C),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -660,7 +666,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                         ),
                                                     enabledBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0xFFE0E3E7),
                                                         width: 2.0,
@@ -671,7 +677,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     ),
                                                     focusedBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0xFF4B39EF),
                                                         width: 2.0,
@@ -682,7 +688,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     ),
                                                     errorBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0xFFFF5963),
                                                         width: 2.0,
@@ -693,7 +699,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     ),
                                                     focusedErrorBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0xFFFF5963),
                                                         width: 2.0,
@@ -705,7 +711,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     filled: true,
                                                     fillColor: Colors.white,
                                                     contentPadding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(
                                                                 20.0,
                                                                 24.0,
@@ -719,7 +725,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            const Color(0xFF14181B),
+                                                            Color(0xFF14181B),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -739,10 +745,10 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                           children: [
                                             Expanded(
                                               child: Align(
-                                                alignment: const AlignmentDirectional(
+                                                alignment: AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(20.0, 10.0,
                                                           20.0, 16.0),
                                                   child: TextFormField(
@@ -768,7 +774,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Plus Jakarta Sans',
-                                                                color: const Color(
+                                                                color: Color(
                                                                     0xFF57636C),
                                                                 fontSize: 14.0,
                                                                 letterSpacing:
@@ -784,7 +790,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Plus Jakarta Sans',
-                                                                color: const Color(
+                                                                color: Color(
                                                                     0xFF57636C),
                                                                 fontSize: 14.0,
                                                                 letterSpacing:
@@ -795,7 +801,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                               ),
                                                       enabledBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: const BorderSide(
+                                                        borderSide: BorderSide(
                                                           color:
                                                               Color(0xFFE0E3E7),
                                                           width: 2.0,
@@ -806,7 +812,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                       ),
                                                       focusedBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: const BorderSide(
+                                                        borderSide: BorderSide(
                                                           color:
                                                               Color(0xFF4B39EF),
                                                           width: 2.0,
@@ -817,7 +823,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                       ),
                                                       errorBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: const BorderSide(
+                                                        borderSide: BorderSide(
                                                           color:
                                                               Color(0xFFFF5963),
                                                           width: 2.0,
@@ -828,7 +834,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                       ),
                                                       focusedErrorBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: const BorderSide(
+                                                        borderSide: BorderSide(
                                                           color:
                                                               Color(0xFFFF5963),
                                                           width: 2.0,
@@ -840,7 +846,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                       filled: true,
                                                       fillColor: Colors.white,
                                                       contentPadding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   20.0,
                                                                   24.0,
@@ -854,7 +860,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              const Color(0xFF14181B),
+                                                              Color(0xFF14181B),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -870,7 +876,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                             ),
                                             Expanded(
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         20.0, 10.0, 20.0, 16.0),
                                                 child: TextFormField(
@@ -895,7 +901,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              const Color(0xFF57636C),
+                                                              Color(0xFF57636C),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -908,7 +914,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              const Color(0xFF57636C),
+                                                              Color(0xFF57636C),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -916,7 +922,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                         ),
                                                     enabledBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0xFFE0E3E7),
                                                         width: 2.0,
@@ -927,7 +933,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     ),
                                                     focusedBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0xFF4B39EF),
                                                         width: 2.0,
@@ -938,7 +944,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     ),
                                                     errorBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0xFFFF5963),
                                                         width: 2.0,
@@ -949,7 +955,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     ),
                                                     focusedErrorBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0xFFFF5963),
                                                         width: 2.0,
@@ -961,7 +967,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     filled: true,
                                                     fillColor: Colors.white,
                                                     contentPadding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(
                                                                 20.0,
                                                                 24.0,
@@ -975,7 +981,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            const Color(0xFF14181B),
+                                                            Color(0xFF14181B),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -992,13 +998,18 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   20.0, 10.0, 20.0, 12.0),
                                           child: FlutterFlowDropDown<String>(
                                             controller: _model
                                                     .religionValueController ??=
                                                 FormFieldController<String>(
-                                                    null),
+                                              _model.religionValue ??=
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                '2ebdxwev' /* Muslim */,
+                                              ),
+                                            ),
                                             options: [
                                               FFLocalizations.of(context)
                                                   .getText(
@@ -1019,7 +1030,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     .override(
                                                       fontFamily:
                                                           'Plus Jakarta Sans',
-                                                      color: const Color(0xFF14181B),
+                                                      color: Color(0xFF14181B),
                                                       fontSize: 14.0,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
@@ -1030,18 +1041,18 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     .getText(
                                               'at3ibgux' /* Religion */,
                                             ),
-                                            icon: const Icon(
+                                            icon: Icon(
                                               Icons.keyboard_arrow_down_rounded,
                                               color: Color(0xFF57636C),
                                               size: 15.0,
                                             ),
                                             fillColor: Colors.white,
                                             elevation: 2.0,
-                                            borderColor: const Color(0xFFE0E3E7),
+                                            borderColor: Color(0xFFE0E3E7),
                                             borderWidth: 2.0,
                                             borderRadius: 8.0,
                                             margin:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     20.0, 4.0, 12.0, 4.0),
                                             hidesUnderline: true,
                                             isSearchable: false,
@@ -1050,13 +1061,18 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   20.0, 0.0, 20.0, 12.0),
                                           child: FlutterFlowDropDown<String>(
                                             controller:
                                                 _model.genderValueController ??=
                                                     FormFieldController<String>(
-                                                        null),
+                                              _model.genderValue ??=
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                'uibfcidd' /* Male */,
+                                              ),
+                                            ),
                                             options: [
                                               FFLocalizations.of(context)
                                                   .getText(
@@ -1077,7 +1093,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     .override(
                                                       fontFamily:
                                                           'Plus Jakarta Sans',
-                                                      color: const Color(0xFF14181B),
+                                                      color: Color(0xFF14181B),
                                                       fontSize: 14.0,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
@@ -1088,18 +1104,18 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     .getText(
                                               '3erkkh88' /* Select Gender */,
                                             ),
-                                            icon: const Icon(
+                                            icon: Icon(
                                               Icons.keyboard_arrow_down_rounded,
                                               color: Color(0xFF57636C),
                                               size: 15.0,
                                             ),
                                             fillColor: Colors.white,
                                             elevation: 2.0,
-                                            borderColor: const Color(0xFFE0E3E7),
+                                            borderColor: Color(0xFFE0E3E7),
                                             borderWidth: 2.0,
                                             borderRadius: 8.0,
                                             margin:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     20.0, 4.0, 12.0, 4.0),
                                             hidesUnderline: true,
                                             isSearchable: false,
@@ -1108,13 +1124,18 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   20.0, 10.0, 20.0, 2.0),
                                           child: FlutterFlowDropDown<String>(
                                             controller: _model
                                                     .maritalStatusValueController ??=
                                                 FormFieldController<String>(
-                                                    null),
+                                              _model.maritalStatusValue ??=
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                'p6w3932p' /* Single */,
+                                              ),
+                                            ),
                                             options: [
                                               FFLocalizations.of(context)
                                                   .getText(
@@ -1136,7 +1157,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     .override(
                                                       fontFamily:
                                                           'Plus Jakarta Sans',
-                                                      color: const Color(0xFF14181B),
+                                                      color: Color(0xFF14181B),
                                                       fontSize: 14.0,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
@@ -1147,18 +1168,18 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     .getText(
                                               '6bobo39d' /* Marital Status */,
                                             ),
-                                            icon: const Icon(
+                                            icon: Icon(
                                               Icons.keyboard_arrow_down_rounded,
                                               color: Color(0xFF57636C),
                                               size: 15.0,
                                             ),
                                             fillColor: Colors.white,
                                             elevation: 2.0,
-                                            borderColor: const Color(0xFFE0E3E7),
+                                            borderColor: Color(0xFFE0E3E7),
                                             borderWidth: 2.0,
                                             borderRadius: 8.0,
                                             margin:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     20.0, 4.0, 12.0, 4.0),
                                             hidesUnderline: true,
                                             isSearchable: false,
@@ -1167,13 +1188,18 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   20.0, 10.0, 20.0, 12.0),
                                           child: FlutterFlowDropDown<String>(
                                             controller: _model
                                                     .countryValueController ??=
                                                 FormFieldController<String>(
-                                                    null),
+                                              _model.countryValue ??=
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                'bg2461k8' /* Egypt */,
+                                              ),
+                                            ),
                                             options: [
                                               FFLocalizations.of(context)
                                                   .getText(
@@ -1194,7 +1220,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     .override(
                                                       fontFamily:
                                                           'Plus Jakarta Sans',
-                                                      color: const Color(0xFF14181B),
+                                                      color: Color(0xFF14181B),
                                                       fontSize: 14.0,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
@@ -1205,18 +1231,18 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     .getText(
                                               'vlnx38us' /* Nationality */,
                                             ),
-                                            icon: const Icon(
+                                            icon: Icon(
                                               Icons.keyboard_arrow_down_rounded,
                                               color: Color(0xFF57636C),
                                               size: 15.0,
                                             ),
                                             fillColor: Colors.white,
                                             elevation: 2.0,
-                                            borderColor: const Color(0xFFE0E3E7),
+                                            borderColor: Color(0xFFE0E3E7),
                                             borderWidth: 2.0,
                                             borderRadius: 8.0,
                                             margin:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     20.0, 4.0, 12.0, 4.0),
                                             hidesUnderline: true,
                                             isSearchable: false,
@@ -1235,7 +1261,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                               ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: Form(
                                 key: _model.formKey7,
                                 autovalidateMode: AutovalidateMode.disabled,
@@ -1252,7 +1278,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                       children: [
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   20.0, 25.0, 20.0, 0.0),
                                           child: TextFormField(
                                             controller:
@@ -1262,7 +1288,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                             onChanged: (_) =>
                                                 EasyDebounce.debounce(
                                               '_model.nationalIDController',
-                                              const Duration(milliseconds: 2000),
+                                              Duration(milliseconds: 2000),
                                               () => setState(() {}),
                                             ),
                                             textCapitalization:
@@ -1283,7 +1309,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            const Color(0xFF57636C),
+                                                            Color(0xFF57636C),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -1296,14 +1322,14 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            const Color(0xFF57636C),
+                                                            Color(0xFF57636C),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                       ),
                                               enabledBorder: OutlineInputBorder(
-                                                borderSide: const BorderSide(
+                                                borderSide: BorderSide(
                                                   color: Color(0xFFE0E3E7),
                                                   width: 2.0,
                                                 ),
@@ -1311,7 +1337,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     BorderRadius.circular(8.0),
                                               ),
                                               focusedBorder: OutlineInputBorder(
-                                                borderSide: const BorderSide(
+                                                borderSide: BorderSide(
                                                   color: Color(0xFF4B39EF),
                                                   width: 2.0,
                                                 ),
@@ -1319,7 +1345,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     BorderRadius.circular(8.0),
                                               ),
                                               errorBorder: OutlineInputBorder(
-                                                borderSide: const BorderSide(
+                                                borderSide: BorderSide(
                                                   color: Color(0xFFFF5963),
                                                   width: 2.0,
                                                 ),
@@ -1328,7 +1354,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                               ),
                                               focusedErrorBorder:
                                                   OutlineInputBorder(
-                                                borderSide: const BorderSide(
+                                                borderSide: BorderSide(
                                                   color: Color(0xFFFF5963),
                                                   width: 2.0,
                                                 ),
@@ -1338,7 +1364,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                               filled: true,
                                               fillColor: Colors.white,
                                               contentPadding:
-                                                  const EdgeInsetsDirectional
+                                                  EdgeInsetsDirectional
                                                       .fromSTEB(20.0, 24.0, 0.0,
                                                           20.0),
                                               suffixIcon: _model
@@ -1352,7 +1378,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                             ?.clear();
                                                         setState(() {});
                                                       },
-                                                      child: const Icon(
+                                                      child: Icon(
                                                         Icons.clear,
                                                         color:
                                                             Color(0xFF757575),
@@ -1366,7 +1392,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                 .override(
                                                   fontFamily:
                                                       'Plus Jakarta Sans',
-                                                  color: const Color(0xFF14181B),
+                                                  color: Color(0xFF14181B),
                                                   fontSize: 14.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.normal,
@@ -1382,12 +1408,14 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                           ),
                                         ),
                                         if (_model.nationalIDController.text !=
+                                                null &&
+                                            _model.nationalIDController.text !=
                                                 '')
                                           Align(
-                                            alignment: const AlignmentDirectional(
+                                            alignment: AlignmentDirectional(
                                                 -1.0, -1.0),
                                             child: Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       20.0, 0.0, 0.0, 10.0),
                                               child: FFButtonWidget(
@@ -1428,11 +1456,11 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                 options: FFButtonOptions(
                                                   width: 123.0,
                                                   height: 38.0,
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           24.0, 0.0, 24.0, 0.0),
                                                   iconPadding:
-                                                      const EdgeInsetsDirectional
+                                                      EdgeInsetsDirectional
                                                           .fromSTEB(0.0, 0.0,
                                                               0.0, 0.0),
                                                   color: FlutterFlowTheme.of(
@@ -1450,7 +1478,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                             letterSpacing: 0.0,
                                                           ),
                                                   elevation: 3.0,
-                                                  borderSide: const BorderSide(
+                                                  borderSide: BorderSide(
                                                     color: Colors.transparent,
                                                     width: 1.0,
                                                   ),
@@ -1463,7 +1491,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                           ),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   20.0, 0.0, 20.0, 4.0),
                                           child: TextFormField(
                                             controller:
@@ -1487,7 +1515,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            const Color(0xFF57636C),
+                                                            Color(0xFF57636C),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -1500,14 +1528,14 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            const Color(0xFF57636C),
+                                                            Color(0xFF57636C),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                       ),
                                               enabledBorder: OutlineInputBorder(
-                                                borderSide: const BorderSide(
+                                                borderSide: BorderSide(
                                                   color: Color(0xFFE0E3E7),
                                                   width: 2.0,
                                                 ),
@@ -1515,7 +1543,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     BorderRadius.circular(8.0),
                                               ),
                                               focusedBorder: OutlineInputBorder(
-                                                borderSide: const BorderSide(
+                                                borderSide: BorderSide(
                                                   color: Color(0xFF4B39EF),
                                                   width: 2.0,
                                                 ),
@@ -1523,7 +1551,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     BorderRadius.circular(8.0),
                                               ),
                                               errorBorder: OutlineInputBorder(
-                                                borderSide: const BorderSide(
+                                                borderSide: BorderSide(
                                                   color: Color(0xFFFF5963),
                                                   width: 2.0,
                                                 ),
@@ -1532,7 +1560,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                               ),
                                               focusedErrorBorder:
                                                   OutlineInputBorder(
-                                                borderSide: const BorderSide(
+                                                borderSide: BorderSide(
                                                   color: Color(0xFFFF5963),
                                                   width: 2.0,
                                                 ),
@@ -1542,7 +1570,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                               filled: true,
                                               fillColor: Colors.white,
                                               contentPadding:
-                                                  const EdgeInsetsDirectional
+                                                  EdgeInsetsDirectional
                                                       .fromSTEB(20.0, 24.0, 0.0,
                                                           24.0),
                                             ),
@@ -1551,7 +1579,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                 .override(
                                                   fontFamily:
                                                       'Plus Jakarta Sans',
-                                                  color: const Color(0xFF14181B),
+                                                  color: Color(0xFF14181B),
                                                   fontSize: 14.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.normal,
@@ -1567,7 +1595,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   20.0, 6.0, 20.0, 6.0),
                                           child: TextFormField(
                                             controller: _model.ageController1,
@@ -1589,7 +1617,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            const Color(0xFF57636C),
+                                                            Color(0xFF57636C),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -1602,14 +1630,14 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            const Color(0xFF57636C),
+                                                            Color(0xFF57636C),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                       ),
                                               enabledBorder: OutlineInputBorder(
-                                                borderSide: const BorderSide(
+                                                borderSide: BorderSide(
                                                   color: Color(0xFFE0E3E7),
                                                   width: 2.0,
                                                 ),
@@ -1617,7 +1645,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     BorderRadius.circular(8.0),
                                               ),
                                               focusedBorder: OutlineInputBorder(
-                                                borderSide: const BorderSide(
+                                                borderSide: BorderSide(
                                                   color: Color(0xFF4B39EF),
                                                   width: 2.0,
                                                 ),
@@ -1625,7 +1653,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     BorderRadius.circular(8.0),
                                               ),
                                               errorBorder: OutlineInputBorder(
-                                                borderSide: const BorderSide(
+                                                borderSide: BorderSide(
                                                   color: Color(0xFFFF5963),
                                                   width: 2.0,
                                                 ),
@@ -1634,7 +1662,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                               ),
                                               focusedErrorBorder:
                                                   OutlineInputBorder(
-                                                borderSide: const BorderSide(
+                                                borderSide: BorderSide(
                                                   color: Color(0xFFFF5963),
                                                   width: 2.0,
                                                 ),
@@ -1644,7 +1672,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                               filled: true,
                                               fillColor: Colors.white,
                                               contentPadding:
-                                                  const EdgeInsetsDirectional
+                                                  EdgeInsetsDirectional
                                                       .fromSTEB(20.0, 24.0, 0.0,
                                                           24.0),
                                             ),
@@ -1653,7 +1681,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                 .override(
                                                   fontFamily:
                                                       'Plus Jakarta Sans',
-                                                  color: const Color(0xFF14181B),
+                                                  color: Color(0xFF14181B),
                                                   fontSize: 14.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.normal,
@@ -1667,12 +1695,13 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   20.0, 10.0, 20.0, 1.0),
                                           child: TextFormField(
-                                            controller:
-                                                _model.eduDataController1,
-                                            focusNode: _model.eduDataFocusNode1,
+                                            controller: _model
+                                                .natPlaceOfIssueController,
+                                            focusNode:
+                                                _model.natPlaceOfIssueFocusNode,
                                             textCapitalization:
                                                 TextCapitalization.words,
                                             obscureText: false,
@@ -1689,7 +1718,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            const Color(0xFF57636C),
+                                                            Color(0xFF57636C),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -1702,14 +1731,14 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            const Color(0xFF57636C),
+                                                            Color(0xFF57636C),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                       ),
                                               enabledBorder: OutlineInputBorder(
-                                                borderSide: const BorderSide(
+                                                borderSide: BorderSide(
                                                   color: Color(0xFFE0E3E7),
                                                   width: 2.0,
                                                 ),
@@ -1717,7 +1746,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     BorderRadius.circular(8.0),
                                               ),
                                               focusedBorder: OutlineInputBorder(
-                                                borderSide: const BorderSide(
+                                                borderSide: BorderSide(
                                                   color: Color(0xFF4B39EF),
                                                   width: 2.0,
                                                 ),
@@ -1725,7 +1754,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     BorderRadius.circular(8.0),
                                               ),
                                               errorBorder: OutlineInputBorder(
-                                                borderSide: const BorderSide(
+                                                borderSide: BorderSide(
                                                   color: Color(0xFFFF5963),
                                                   width: 2.0,
                                                 ),
@@ -1734,7 +1763,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                               ),
                                               focusedErrorBorder:
                                                   OutlineInputBorder(
-                                                borderSide: const BorderSide(
+                                                borderSide: BorderSide(
                                                   color: Color(0xFFFF5963),
                                                   width: 2.0,
                                                 ),
@@ -1744,7 +1773,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                               filled: true,
                                               fillColor: Colors.white,
                                               contentPadding:
-                                                  const EdgeInsetsDirectional
+                                                  EdgeInsetsDirectional
                                                       .fromSTEB(20.0, 24.0, 0.0,
                                                           24.0),
                                             ),
@@ -1753,14 +1782,14 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                 .override(
                                                   fontFamily:
                                                       'Plus Jakarta Sans',
-                                                  color: const Color(0xFF14181B),
+                                                  color: Color(0xFF14181B),
                                                   fontSize: 14.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.normal,
                                                 ),
                                             minLines: null,
                                             validator: _model
-                                                .eduDataController1Validator
+                                                .natPlaceOfIssueControllerValidator
                                                 .asValidator(context),
                                           ),
                                         ),
@@ -1769,7 +1798,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                           children: [
                                             Expanded(
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         20.0, 10.0, 20.0, 16.0),
                                                 child: TextFormField(
@@ -1778,7 +1807,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                   focusNode:
                                                       _model.natIDDateFocusNode,
                                                   textCapitalization:
-                                                      TextCapitalization.words,
+                                                      TextCapitalization.none,
                                                   readOnly: true,
                                                   obscureText: false,
                                                   decoration: InputDecoration(
@@ -1795,7 +1824,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              const Color(0xFF57636C),
+                                                              Color(0xFF57636C),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -1808,7 +1837,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              const Color(0xFF57636C),
+                                                              Color(0xFF57636C),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -1816,7 +1845,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                         ),
                                                     enabledBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0xFFE0E3E7),
                                                         width: 2.0,
@@ -1827,7 +1856,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     ),
                                                     focusedBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0xFF4B39EF),
                                                         width: 2.0,
@@ -1838,7 +1867,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     ),
                                                     errorBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0xFFFF5963),
                                                         width: 2.0,
@@ -1849,7 +1878,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     ),
                                                     focusedErrorBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0xFFFF5963),
                                                         width: 2.0,
@@ -1861,7 +1890,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     filled: true,
                                                     fillColor: Colors.white,
                                                     contentPadding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(
                                                                 20.0,
                                                                 24.0,
@@ -1875,24 +1904,29 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            const Color(0xFF14181B),
+                                                            Color(0xFF14181B),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                       ),
                                                   minLines: null,
+                                                  keyboardType:
+                                                      TextInputType.datetime,
                                                   validator: _model
                                                       .natIDDateControllerValidator
                                                       .asValidator(context),
+                                                  inputFormatters: [
+                                                    _model.natIDDateMask
+                                                  ],
                                                 ),
                                               ),
                                             ),
                                             Align(
-                                              alignment: const AlignmentDirectional(
+                                              alignment: AlignmentDirectional(
                                                   0.0, 0.0),
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 16.0, 0.0),
                                                 child: FFButtonWidget(
@@ -1901,14 +1935,13 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                         'CREATE_USER_PAGE__BTN_ON_TAP');
                                                     logFirebaseEvent(
                                                         'Button_date_time_picker');
-                                                    final datePicked1Date =
+                                                    final _datePicked1Date =
                                                         await showDatePicker(
                                                       context: context,
                                                       initialDate:
                                                           getCurrentTimestamp,
                                                       firstDate: DateTime(1900),
-                                                      lastDate:
-                                                          getCurrentTimestamp,
+                                                      lastDate: DateTime(2050),
                                                       builder:
                                                           (context, child) {
                                                         return wrapInMaterialDatePickerTheme(
@@ -1962,15 +1995,15 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                       },
                                                     );
 
-                                                    if (datePicked1Date !=
+                                                    if (_datePicked1Date !=
                                                         null) {
                                                       safeSetState(() {
                                                         _model.datePicked1 =
                                                             DateTime(
-                                                          datePicked1Date.year,
-                                                          datePicked1Date
+                                                          _datePicked1Date.year,
+                                                          _datePicked1Date
                                                               .month,
-                                                          datePicked1Date.day,
+                                                          _datePicked1Date.day,
                                                         );
                                                       });
                                                     }
@@ -1978,9 +2011,13 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                         'Button_set_form_field');
                                                     setState(() {
                                                       _model.natIDDateController
-                                                              ?.text =
+                                                          ?.text = ((String
+                                                              dateTimePickerOutput) {
+                                                        return dateTimePickerOutput
+                                                            .split(' ')[0];
+                                                      }(
                                                           _model.datePicked1!
-                                                              .toString();
+                                                              .toString()));
                                                     });
                                                   },
                                                   text: FFLocalizations.of(
@@ -1988,7 +2025,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                       .getText(
                                                     '4tt4j78a' /*  */,
                                                   ),
-                                                  icon: const Icon(
+                                                  icon: Icon(
                                                     Icons.calendar_month,
                                                     size: 15.0,
                                                   ),
@@ -1996,11 +2033,11 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     width: 36.0,
                                                     height: 39.0,
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 0.0),
                                                     iconPadding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(6.0, 0.0,
                                                                 0.0, 0.0),
                                                     color: FlutterFlowTheme.of(
@@ -2016,7 +2053,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                           letterSpacing: 0.0,
                                                         ),
                                                     elevation: 3.0,
-                                                    borderSide: const BorderSide(
+                                                    borderSide: BorderSide(
                                                       color: Colors.transparent,
                                                       width: 1.0,
                                                     ),
@@ -2038,7 +2075,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                           children: [
                                             Expanded(
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         20.0, 0.0, 20.0, 10.0),
                                                 child: TextFormField(
@@ -2064,7 +2101,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              const Color(0xFF57636C),
+                                                              Color(0xFF57636C),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -2077,7 +2114,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              const Color(0xFF57636C),
+                                                              Color(0xFF57636C),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -2085,7 +2122,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                         ),
                                                     enabledBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0xFFE0E3E7),
                                                         width: 2.0,
@@ -2096,7 +2133,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     ),
                                                     focusedBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0xFF4B39EF),
                                                         width: 2.0,
@@ -2107,7 +2144,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     ),
                                                     errorBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0xFFFF5963),
                                                         width: 2.0,
@@ -2118,7 +2155,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     ),
                                                     focusedErrorBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0xFFFF5963),
                                                         width: 2.0,
@@ -2130,7 +2167,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     filled: true,
                                                     fillColor: Colors.white,
                                                     contentPadding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(
                                                                 20.0,
                                                                 24.0,
@@ -2144,7 +2181,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            const Color(0xFF14181B),
+                                                            Color(0xFF14181B),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -2158,10 +2195,10 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                               ),
                                             ),
                                             Align(
-                                              alignment: const AlignmentDirectional(
+                                              alignment: AlignmentDirectional(
                                                   0.0, 0.0),
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 16.0, 0.0),
                                                 child: FFButtonWidget(
@@ -2170,7 +2207,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                         'CREATE_USER_PAGE__BTN_ON_TAP');
                                                     logFirebaseEvent(
                                                         'Button_date_time_picker');
-                                                    final datePicked2Date =
+                                                    final _datePicked2Date =
                                                         await showDatePicker(
                                                       context: context,
                                                       initialDate:
@@ -2231,25 +2268,30 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                       },
                                                     );
 
-                                                    if (datePicked2Date !=
+                                                    if (_datePicked2Date !=
                                                         null) {
                                                       safeSetState(() {
                                                         _model.datePicked2 =
                                                             DateTime(
-                                                          datePicked2Date.year,
-                                                          datePicked2Date
+                                                          _datePicked2Date.year,
+                                                          _datePicked2Date
                                                               .month,
-                                                          datePicked2Date.day,
+                                                          _datePicked2Date.day,
                                                         );
                                                       });
                                                     }
                                                     logFirebaseEvent(
                                                         'Button_set_form_field');
                                                     setState(() {
-                                                      _model.expiryDateController
-                                                              ?.text =
+                                                      _model
+                                                          .expiryDateController
+                                                          ?.text = ((String
+                                                              dateTimePickerOutput) {
+                                                        return dateTimePickerOutput
+                                                            .split(' ')[0];
+                                                      }(
                                                           _model.datePicked2!
-                                                              .toString();
+                                                              .toString()));
                                                     });
                                                   },
                                                   text: FFLocalizations.of(
@@ -2257,7 +2299,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                       .getText(
                                                     'jsxz6av1' /*  */,
                                                   ),
-                                                  icon: const Icon(
+                                                  icon: Icon(
                                                     Icons.calendar_month,
                                                     size: 15.0,
                                                   ),
@@ -2265,11 +2307,11 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     width: 36.0,
                                                     height: 39.0,
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 0.0),
                                                     iconPadding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(6.0, 0.0,
                                                                 0.0, 0.0),
                                                     color: FlutterFlowTheme.of(
@@ -2285,7 +2327,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                           letterSpacing: 0.0,
                                                         ),
                                                     elevation: 3.0,
-                                                    borderSide: const BorderSide(
+                                                    borderSide: BorderSide(
                                                       color: Colors.transparent,
                                                       width: 1.0,
                                                     ),
@@ -2310,7 +2352,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                               ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: Form(
                                 key: _model.formKey5,
                                 autovalidateMode: AutovalidateMode.disabled,
@@ -2327,12 +2369,12 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                       children: [
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, 0.0),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.min,
                                             children: [
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         20.0, 16.0, 20.0, 16.0),
                                                 child: TextFormField(
@@ -2357,7 +2399,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              const Color(0xFF57636C),
+                                                              Color(0xFF57636C),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -2370,7 +2412,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              const Color(0xFF57636C),
+                                                              Color(0xFF57636C),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -2378,7 +2420,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                         ),
                                                     enabledBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0xFFE0E3E7),
                                                         width: 2.0,
@@ -2389,7 +2431,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     ),
                                                     focusedBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0xFF4B39EF),
                                                         width: 2.0,
@@ -2400,7 +2442,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     ),
                                                     errorBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0xFFFF5963),
                                                         width: 2.0,
@@ -2411,7 +2453,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     ),
                                                     focusedErrorBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0xFFFF5963),
                                                         width: 2.0,
@@ -2423,7 +2465,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     filled: true,
                                                     fillColor: Colors.white,
                                                     contentPadding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(
                                                                 20.0,
                                                                 24.0,
@@ -2437,7 +2479,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            const Color(0xFF14181B),
+                                                            Color(0xFF14181B),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -2450,7 +2492,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                 ),
                                               ),
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         20.0, 0.0, 20.0, 16.0),
                                                 child: TextFormField(
@@ -2461,7 +2503,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                   onChanged: (_) =>
                                                       EasyDebounce.debounce(
                                                     '_model.passportNoController',
-                                                    const Duration(
+                                                    Duration(
                                                         milliseconds: 2000),
                                                     () => setState(() {}),
                                                   ),
@@ -2482,7 +2524,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              const Color(0xFF57636C),
+                                                              Color(0xFF57636C),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -2495,7 +2537,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              const Color(0xFF57636C),
+                                                              Color(0xFF57636C),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -2503,7 +2545,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                         ),
                                                     enabledBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0xFFE0E3E7),
                                                         width: 2.0,
@@ -2514,7 +2556,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     ),
                                                     focusedBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0xFF4B39EF),
                                                         width: 2.0,
@@ -2525,7 +2567,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     ),
                                                     errorBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0xFFFF5963),
                                                         width: 2.0,
@@ -2536,7 +2578,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     ),
                                                     focusedErrorBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0xFFFF5963),
                                                         width: 2.0,
@@ -2548,7 +2590,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     filled: true,
                                                     fillColor: Colors.white,
                                                     contentPadding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(
                                                                 20.0,
                                                                 24.0,
@@ -2565,7 +2607,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                   ?.clear();
                                                               setState(() {});
                                                             },
-                                                            child: const Icon(
+                                                            child: Icon(
                                                               Icons.clear,
                                                               color: Color(
                                                                   0xFF757575),
@@ -2581,7 +2623,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            const Color(0xFF14181B),
+                                                            Color(0xFF14181B),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -2601,7 +2643,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                   Expanded(
                                                     child: Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   20.0,
                                                                   10.0,
@@ -2632,7 +2674,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                   .override(
                                                                     fontFamily:
                                                                         'Plus Jakarta Sans',
-                                                                    color: const Color(
+                                                                    color: Color(
                                                                         0xFF57636C),
                                                                     fontSize:
                                                                         14.0,
@@ -2649,7 +2691,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                   .override(
                                                                     fontFamily:
                                                                         'Plus Jakarta Sans',
-                                                                    color: const Color(
+                                                                    color: Color(
                                                                         0xFF57636C),
                                                                     fontSize:
                                                                         14.0,
@@ -2662,7 +2704,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                           enabledBorder:
                                                               OutlineInputBorder(
                                                             borderSide:
-                                                                const BorderSide(
+                                                                BorderSide(
                                                               color: Color(
                                                                   0xFFE0E3E7),
                                                               width: 2.0,
@@ -2675,7 +2717,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                           focusedBorder:
                                                               OutlineInputBorder(
                                                             borderSide:
-                                                                const BorderSide(
+                                                                BorderSide(
                                                               color: Color(
                                                                   0xFF4B39EF),
                                                               width: 2.0,
@@ -2688,7 +2730,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                           errorBorder:
                                                               OutlineInputBorder(
                                                             borderSide:
-                                                                const BorderSide(
+                                                                BorderSide(
                                                               color: Color(
                                                                   0xFFFF5963),
                                                               width: 2.0,
@@ -2701,7 +2743,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                           focusedErrorBorder:
                                                               OutlineInputBorder(
                                                             borderSide:
-                                                                const BorderSide(
+                                                                BorderSide(
                                                               color: Color(
                                                                   0xFFFF5963),
                                                               width: 2.0,
@@ -2715,7 +2757,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                           fillColor:
                                                               Colors.white,
                                                           contentPadding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       20.0,
                                                                       24.0,
@@ -2728,7 +2770,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                             .override(
                                                               fontFamily:
                                                                   'Plus Jakarta Sans',
-                                                              color: const Color(
+                                                              color: Color(
                                                                   0xFF14181B),
                                                               fontSize: 14.0,
                                                               letterSpacing:
@@ -2750,11 +2792,11 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                   ),
                                                   Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             0.0, 0.0),
                                                     child: Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -2766,7 +2808,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                               'CREATE_USER_PAGE__BTN_ON_TAP');
                                                           logFirebaseEvent(
                                                               'Button_date_time_picker');
-                                                          final datePicked3Date =
+                                                          final _datePicked3Date =
                                                               await showDatePicker(
                                                             context: context,
                                                             initialDate:
@@ -2827,16 +2869,16 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                             },
                                                           );
 
-                                                          if (datePicked3Date !=
+                                                          if (_datePicked3Date !=
                                                               null) {
                                                             safeSetState(() {
                                                               _model.datePicked3 =
                                                                   DateTime(
-                                                                datePicked3Date
+                                                                _datePicked3Date
                                                                     .year,
-                                                                datePicked3Date
+                                                                _datePicked3Date
                                                                     .month,
-                                                                datePicked3Date
+                                                                _datePicked3Date
                                                                     .day,
                                                               );
                                                             });
@@ -2844,11 +2886,17 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                           logFirebaseEvent(
                                                               'Button_set_form_field');
                                                           setState(() {
-                                                            _model.passportBirthdateController
-                                                                    ?.text =
+                                                            _model
+                                                                .passportBirthdateController
+                                                                ?.text = ((String
+                                                                    dateTimePickerOutput) {
+                                                              return dateTimePickerOutput
+                                                                  .split(
+                                                                      ' ')[0];
+                                                            }(
                                                                 _model
                                                                     .datePicked3!
-                                                                    .toString();
+                                                                    .toString()));
                                                           });
                                                         },
                                                         text:
@@ -2857,7 +2905,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                 .getText(
                                                           'iogsuam7' /*  */,
                                                         ),
-                                                        icon: const Icon(
+                                                        icon: Icon(
                                                           Icons.calendar_month,
                                                           size: 15.0,
                                                         ),
@@ -2866,14 +2914,14 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                           width: 36.0,
                                                           height: 39.0,
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       0.0,
                                                                       0.0,
                                                                       0.0),
                                                           iconPadding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       6.0,
                                                                       0.0,
@@ -2896,7 +2944,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                   ),
                                                           elevation: 3.0,
                                                           borderSide:
-                                                              const BorderSide(
+                                                              BorderSide(
                                                             color: Colors
                                                                 .transparent,
                                                             width: 1.0,
@@ -2913,14 +2961,17 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                               ),
                                               if (_model.passportBirthdateController
                                                           .text !=
+                                                      null &&
+                                                  _model.passportBirthdateController
+                                                          .text !=
                                                       '')
                                                 Align(
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           -1.0, -1.0),
                                                   child: Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(20.0, 0.0,
                                                                 0.0, 10.0),
                                                     child: FFButtonWidget(
@@ -2948,14 +2999,14 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                         width: 123.0,
                                                         height: 38.0,
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     24.0,
                                                                     0.0,
                                                                     24.0,
                                                                     0.0),
                                                         iconPadding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -2980,7 +3031,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                       0.0,
                                                                 ),
                                                         elevation: 3.0,
-                                                        borderSide: const BorderSide(
+                                                        borderSide: BorderSide(
                                                           color: Colors
                                                               .transparent,
                                                           width: 1.0,
@@ -2993,7 +3044,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                   ),
                                                 ),
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         20.0, 0.0, 20.0, 16.0),
                                                 child: TextFormField(
@@ -3019,7 +3070,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              const Color(0xFF57636C),
+                                                              Color(0xFF57636C),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -3032,7 +3083,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              const Color(0xFF57636C),
+                                                              Color(0xFF57636C),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -3040,7 +3091,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                         ),
                                                     enabledBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0xFFE0E3E7),
                                                         width: 2.0,
@@ -3051,7 +3102,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     ),
                                                     focusedBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0xFF4B39EF),
                                                         width: 2.0,
@@ -3062,7 +3113,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     ),
                                                     errorBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0xFFFF5963),
                                                         width: 2.0,
@@ -3073,7 +3124,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     ),
                                                     focusedErrorBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0xFFFF5963),
                                                         width: 2.0,
@@ -3085,7 +3136,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     filled: true,
                                                     fillColor: Colors.white,
                                                     contentPadding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(
                                                                 20.0,
                                                                 24.0,
@@ -3099,7 +3150,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            const Color(0xFF14181B),
+                                                            Color(0xFF14181B),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -3114,7 +3165,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                 ),
                                               ),
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         20.0, 10.0, 20.0, 16.0),
                                                 child: TextFormField(
@@ -3139,7 +3190,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              const Color(0xFF57636C),
+                                                              Color(0xFF57636C),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -3152,7 +3203,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              const Color(0xFF57636C),
+                                                              Color(0xFF57636C),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -3160,7 +3211,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                         ),
                                                     enabledBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0xFFE0E3E7),
                                                         width: 2.0,
@@ -3171,7 +3222,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     ),
                                                     focusedBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0xFF4B39EF),
                                                         width: 2.0,
@@ -3182,7 +3233,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     ),
                                                     errorBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0xFFFF5963),
                                                         width: 2.0,
@@ -3193,7 +3244,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     ),
                                                     focusedErrorBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0xFFFF5963),
                                                         width: 2.0,
@@ -3205,7 +3256,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     filled: true,
                                                     fillColor: Colors.white,
                                                     contentPadding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(
                                                                 20.0,
                                                                 24.0,
@@ -3219,7 +3270,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            const Color(0xFF14181B),
+                                                            Color(0xFF14181B),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -3237,7 +3288,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                   Expanded(
                                                     child: Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   20.0,
                                                                   10.0,
@@ -3245,9 +3296,9 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                   16.0),
                                                       child: TextFormField(
                                                         controller: _model
-                                                            .dateOfCivilIdController,
+                                                            .passportIssueDateController,
                                                         focusNode: _model
-                                                            .dateOfCivilIdFocusNode,
+                                                            .passportIssueDateFocusNode,
                                                         textCapitalization:
                                                             TextCapitalization
                                                                 .none,
@@ -3259,7 +3310,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                               FFLocalizations.of(
                                                                       context)
                                                                   .getText(
-                                                            '0ayj0ta2' /* Date of civil ID */,
+                                                            'm76bv32k' /* Date of civil ID */,
                                                           ),
                                                           labelStyle:
                                                               FlutterFlowTheme.of(
@@ -3268,7 +3319,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                   .override(
                                                                     fontFamily:
                                                                         'Plus Jakarta Sans',
-                                                                    color: const Color(
+                                                                    color: Color(
                                                                         0xFF57636C),
                                                                     fontSize:
                                                                         14.0,
@@ -3285,7 +3336,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                   .override(
                                                                     fontFamily:
                                                                         'Plus Jakarta Sans',
-                                                                    color: const Color(
+                                                                    color: Color(
                                                                         0xFF57636C),
                                                                     fontSize:
                                                                         14.0,
@@ -3298,7 +3349,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                           enabledBorder:
                                                               OutlineInputBorder(
                                                             borderSide:
-                                                                const BorderSide(
+                                                                BorderSide(
                                                               color: Color(
                                                                   0xFFE0E3E7),
                                                               width: 2.0,
@@ -3311,7 +3362,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                           focusedBorder:
                                                               OutlineInputBorder(
                                                             borderSide:
-                                                                const BorderSide(
+                                                                BorderSide(
                                                               color: Color(
                                                                   0xFF4B39EF),
                                                               width: 2.0,
@@ -3324,7 +3375,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                           errorBorder:
                                                               OutlineInputBorder(
                                                             borderSide:
-                                                                const BorderSide(
+                                                                BorderSide(
                                                               color: Color(
                                                                   0xFFFF5963),
                                                               width: 2.0,
@@ -3337,7 +3388,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                           focusedErrorBorder:
                                                               OutlineInputBorder(
                                                             borderSide:
-                                                                const BorderSide(
+                                                                BorderSide(
                                                               color: Color(
                                                                   0xFFFF5963),
                                                               width: 2.0,
@@ -3351,7 +3402,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                           fillColor:
                                                               Colors.white,
                                                           contentPadding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       20.0,
                                                                       24.0,
@@ -3364,7 +3415,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                             .override(
                                                               fontFamily:
                                                                   'Plus Jakarta Sans',
-                                                              color: const Color(
+                                                              color: Color(
                                                                   0xFF14181B),
                                                               fontSize: 14.0,
                                                               letterSpacing:
@@ -3378,7 +3429,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                             TextInputType
                                                                 .datetime,
                                                         validator: _model
-                                                            .dateOfCivilIdControllerValidator
+                                                            .passportIssueDateControllerValidator
                                                             .asValidator(
                                                                 context),
                                                       ),
@@ -3386,11 +3437,11 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                   ),
                                                   Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             0.0, 0.0),
                                                     child: Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -3402,7 +3453,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                               'CREATE_USER_PAGE__BTN_ON_TAP');
                                                           logFirebaseEvent(
                                                               'Button_date_time_picker');
-                                                          final datePicked4Date =
+                                                          final _datePicked4Date =
                                                               await showDatePicker(
                                                             context: context,
                                                             initialDate:
@@ -3463,16 +3514,16 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                             },
                                                           );
 
-                                                          if (datePicked4Date !=
+                                                          if (_datePicked4Date !=
                                                               null) {
                                                             safeSetState(() {
                                                               _model.datePicked4 =
                                                                   DateTime(
-                                                                datePicked4Date
+                                                                _datePicked4Date
                                                                     .year,
-                                                                datePicked4Date
+                                                                _datePicked4Date
                                                                     .month,
-                                                                datePicked4Date
+                                                                _datePicked4Date
                                                                     .day,
                                                               );
                                                             });
@@ -3480,20 +3531,26 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                           logFirebaseEvent(
                                                               'Button_set_form_field');
                                                           setState(() {
-                                                            _model.dateOfCivilIdController
-                                                                    ?.text =
+                                                            _model
+                                                                .passportIssueDateController
+                                                                ?.text = ((String
+                                                                    dateTimePickerOutput) {
+                                                              return dateTimePickerOutput
+                                                                  .split(
+                                                                      ' ')[0];
+                                                            }(
                                                                 _model
                                                                     .datePicked4!
-                                                                    .toString();
+                                                                    .toString()));
                                                           });
                                                         },
                                                         text:
                                                             FFLocalizations.of(
                                                                     context)
                                                                 .getText(
-                                                          'iogsuam7' /*  */,
+                                                          'exbhorqm' /*  */,
                                                         ),
-                                                        icon: const Icon(
+                                                        icon: Icon(
                                                           Icons.calendar_month,
                                                           size: 15.0,
                                                         ),
@@ -3502,14 +3559,14 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                           width: 36.0,
                                                           height: 39.0,
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       0.0,
                                                                       0.0,
                                                                       0.0),
                                                           iconPadding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       6.0,
                                                                       0.0,
@@ -3532,7 +3589,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                   ),
                                                           elevation: 3.0,
                                                           borderSide:
-                                                              const BorderSide(
+                                                              BorderSide(
                                                             color: Colors
                                                                 .transparent,
                                                             width: 1.0,
@@ -3548,7 +3605,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                 ],
                                               ),
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 10.0),
                                                 child: Row(
@@ -3558,7 +3615,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     Expanded(
                                                       child: Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     20.0,
                                                                     0.0,
@@ -3566,9 +3623,9 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                     0.0),
                                                         child: TextFormField(
                                                           controller: _model
-                                                              .expiredateController,
+                                                              .passportExpDateController,
                                                           focusNode: _model
-                                                              .expiredateFocusNode,
+                                                              .passportExpDateFocusNode,
                                                           textCapitalization:
                                                               TextCapitalization
                                                                   .none,
@@ -3589,7 +3646,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                     .override(
                                                                       fontFamily:
                                                                           'Plus Jakarta Sans',
-                                                                      color: const Color(
+                                                                      color: Color(
                                                                           0xFF57636C),
                                                                       fontSize:
                                                                           14.0,
@@ -3606,7 +3663,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                     .override(
                                                                       fontFamily:
                                                                           'Plus Jakarta Sans',
-                                                                      color: const Color(
+                                                                      color: Color(
                                                                           0xFF57636C),
                                                                       fontSize:
                                                                           14.0,
@@ -3619,7 +3676,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                             enabledBorder:
                                                                 OutlineInputBorder(
                                                               borderSide:
-                                                                  const BorderSide(
+                                                                  BorderSide(
                                                                 color: Color(
                                                                     0xFFE0E3E7),
                                                                 width: 2.0,
@@ -3632,7 +3689,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                             focusedBorder:
                                                                 OutlineInputBorder(
                                                               borderSide:
-                                                                  const BorderSide(
+                                                                  BorderSide(
                                                                 color: Color(
                                                                     0xFF4B39EF),
                                                                 width: 2.0,
@@ -3645,7 +3702,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                             errorBorder:
                                                                 OutlineInputBorder(
                                                               borderSide:
-                                                                  const BorderSide(
+                                                                  BorderSide(
                                                                 color: Color(
                                                                     0xFFFF5963),
                                                                 width: 2.0,
@@ -3658,7 +3715,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                             focusedErrorBorder:
                                                                 OutlineInputBorder(
                                                               borderSide:
-                                                                  const BorderSide(
+                                                                  BorderSide(
                                                                 color: Color(
                                                                     0xFFFF5963),
                                                                 width: 2.0,
@@ -3672,7 +3729,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                             fillColor:
                                                                 Colors.white,
                                                             contentPadding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         20.0,
                                                                         24.0,
@@ -3685,7 +3742,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Plus Jakarta Sans',
-                                                                color: const Color(
+                                                                color: Color(
                                                                     0xFF14181B),
                                                                 fontSize: 14.0,
                                                                 letterSpacing:
@@ -3699,7 +3756,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                               TextInputType
                                                                   .datetime,
                                                           validator: _model
-                                                              .expiredateControllerValidator
+                                                              .passportExpDateControllerValidator
                                                               .asValidator(
                                                                   context),
                                                         ),
@@ -3707,11 +3764,11 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     ),
                                                     Align(
                                                       alignment:
-                                                          const AlignmentDirectional(
+                                                          AlignmentDirectional(
                                                               0.0, 0.0),
                                                       child: Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -3723,7 +3780,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                 'CREATE_USER_PAGE__BTN_ON_TAP');
                                                             logFirebaseEvent(
                                                                 'Button_date_time_picker');
-                                                            final datePicked5Date =
+                                                            final _datePicked5Date =
                                                                 await showDatePicker(
                                                               context: context,
                                                               initialDate:
@@ -3785,16 +3842,16 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                               },
                                                             );
 
-                                                            if (datePicked5Date !=
+                                                            if (_datePicked5Date !=
                                                                 null) {
                                                               safeSetState(() {
                                                                 _model.datePicked5 =
                                                                     DateTime(
-                                                                  datePicked5Date
+                                                                  _datePicked5Date
                                                                       .year,
-                                                                  datePicked5Date
+                                                                  _datePicked5Date
                                                                       .month,
-                                                                  datePicked5Date
+                                                                  _datePicked5Date
                                                                       .day,
                                                                 );
                                                               });
@@ -3802,11 +3859,15 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                             logFirebaseEvent(
                                                                 'Button_set_form_field');
                                                             setState(() {
-                                                              _model.expiredateController
+                                                              _model.passportExpDateController
                                                                       ?.text =
-                                                                  _model
-                                                                      .datePicked5!
-                                                                      .toString();
+                                                                  ((String
+                                                                      dateTimePickerOutput) {
+                                                                return dateTimePickerOutput
+                                                                    .split(
+                                                                        ' ')[0];
+                                                              }(_model.datePicked5!
+                                                                      .toString()));
                                                             });
                                                           },
                                                           text: FFLocalizations
@@ -3814,7 +3875,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                               .getText(
                                                             'oyqf5gi2' /*  */,
                                                           ),
-                                                          icon: const Icon(
+                                                          icon: Icon(
                                                             Icons
                                                                 .calendar_month,
                                                             size: 15.0,
@@ -3824,14 +3885,14 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                             width: 36.0,
                                                             height: 39.0,
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
                                                                         0.0,
                                                                         0.0),
                                                             iconPadding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         6.0,
                                                                         0.0,
@@ -3854,7 +3915,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                     ),
                                                             elevation: 3.0,
                                                             borderSide:
-                                                                const BorderSide(
+                                                                BorderSide(
                                                               color: Colors
                                                                   .transparent,
                                                               width: 1.0,
@@ -3886,7 +3947,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                               ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: Form(
                                 key: _model.formKey10,
                                 autovalidateMode: AutovalidateMode.disabled,
@@ -3904,7 +3965,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                         children: [
                                           Expanded(
                                             child: Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       20.0, 10.0, 20.0, 10.0),
                                               child: TextFormField(
@@ -3928,7 +3989,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            const Color(0xFF57636C),
+                                                            Color(0xFF57636C),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -3941,7 +4002,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            const Color(0xFF57636C),
+                                                            Color(0xFF57636C),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -3949,7 +4010,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                       ),
                                                   enabledBorder:
                                                       OutlineInputBorder(
-                                                    borderSide: const BorderSide(
+                                                    borderSide: BorderSide(
                                                       color: Color(0xFFE0E3E7),
                                                       width: 2.0,
                                                     ),
@@ -3959,7 +4020,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                   ),
                                                   focusedBorder:
                                                       OutlineInputBorder(
-                                                    borderSide: const BorderSide(
+                                                    borderSide: BorderSide(
                                                       color: Color(0xFF4B39EF),
                                                       width: 2.0,
                                                     ),
@@ -3969,7 +4030,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                   ),
                                                   errorBorder:
                                                       OutlineInputBorder(
-                                                    borderSide: const BorderSide(
+                                                    borderSide: BorderSide(
                                                       color: Color(0xFFFF5963),
                                                       width: 2.0,
                                                     ),
@@ -3979,7 +4040,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                   ),
                                                   focusedErrorBorder:
                                                       OutlineInputBorder(
-                                                    borderSide: const BorderSide(
+                                                    borderSide: BorderSide(
                                                       color: Color(0xFFFF5963),
                                                       width: 2.0,
                                                     ),
@@ -3990,7 +4051,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                   filled: true,
                                                   fillColor: Colors.white,
                                                   contentPadding:
-                                                      const EdgeInsetsDirectional
+                                                      EdgeInsetsDirectional
                                                           .fromSTEB(20.0, 24.0,
                                                               0.0, 24.0),
                                                 ),
@@ -4001,7 +4062,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              const Color(0xFF14181B),
+                                                              Color(0xFF14181B),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -4016,7 +4077,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                           ),
                                           Expanded(
                                             child: Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       20.0, 10.0, 20.0, 10.0),
                                               child: TextFormField(
@@ -4039,7 +4100,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            const Color(0xFF57636C),
+                                                            Color(0xFF57636C),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -4052,7 +4113,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            const Color(0xFF57636C),
+                                                            Color(0xFF57636C),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -4060,7 +4121,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                       ),
                                                   enabledBorder:
                                                       OutlineInputBorder(
-                                                    borderSide: const BorderSide(
+                                                    borderSide: BorderSide(
                                                       color: Color(0xFFE0E3E7),
                                                       width: 2.0,
                                                     ),
@@ -4070,7 +4131,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                   ),
                                                   focusedBorder:
                                                       OutlineInputBorder(
-                                                    borderSide: const BorderSide(
+                                                    borderSide: BorderSide(
                                                       color: Color(0xFF4B39EF),
                                                       width: 2.0,
                                                     ),
@@ -4080,7 +4141,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                   ),
                                                   errorBorder:
                                                       OutlineInputBorder(
-                                                    borderSide: const BorderSide(
+                                                    borderSide: BorderSide(
                                                       color: Color(0xFFFF5963),
                                                       width: 2.0,
                                                     ),
@@ -4090,7 +4151,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                   ),
                                                   focusedErrorBorder:
                                                       OutlineInputBorder(
-                                                    borderSide: const BorderSide(
+                                                    borderSide: BorderSide(
                                                       color: Color(0xFFFF5963),
                                                       width: 2.0,
                                                     ),
@@ -4101,7 +4162,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                   filled: true,
                                                   fillColor: Colors.white,
                                                   contentPadding:
-                                                      const EdgeInsetsDirectional
+                                                      EdgeInsetsDirectional
                                                           .fromSTEB(20.0, 24.0,
                                                               0.0, 24.0),
                                                 ),
@@ -4112,7 +4173,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              const Color(0xFF14181B),
+                                                              Color(0xFF14181B),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -4128,7 +4189,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                         ],
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             20.0, 10.0, 20.0, 10.0),
                                         child: TextFormField(
                                           controller:
@@ -4138,7 +4199,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                           onChanged: (_) =>
                                               EasyDebounce.debounce(
                                             '_model.fullAddressController',
-                                            const Duration(milliseconds: 2000),
+                                            Duration(milliseconds: 2000),
                                             () => setState(() {}),
                                           ),
                                           textCapitalization:
@@ -4156,7 +4217,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     .override(
                                                       fontFamily:
                                                           'Plus Jakarta Sans',
-                                                      color: const Color(0xFF57636C),
+                                                      color: Color(0xFF57636C),
                                                       fontSize: 14.0,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
@@ -4168,14 +4229,14 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     .override(
                                                       fontFamily:
                                                           'Plus Jakarta Sans',
-                                                      color: const Color(0xFF57636C),
+                                                      color: Color(0xFF57636C),
                                                       fontSize: 14.0,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
                                                           FontWeight.normal,
                                                     ),
                                             enabledBorder: OutlineInputBorder(
-                                              borderSide: const BorderSide(
+                                              borderSide: BorderSide(
                                                 color: Color(0xFFE0E3E7),
                                                 width: 2.0,
                                               ),
@@ -4183,7 +4244,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                   BorderRadius.circular(8.0),
                                             ),
                                             focusedBorder: OutlineInputBorder(
-                                              borderSide: const BorderSide(
+                                              borderSide: BorderSide(
                                                 color: Color(0xFF4B39EF),
                                                 width: 2.0,
                                               ),
@@ -4191,7 +4252,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                   BorderRadius.circular(8.0),
                                             ),
                                             errorBorder: OutlineInputBorder(
-                                              borderSide: const BorderSide(
+                                              borderSide: BorderSide(
                                                 color: Color(0xFFFF5963),
                                                 width: 2.0,
                                               ),
@@ -4200,7 +4261,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                             ),
                                             focusedErrorBorder:
                                                 OutlineInputBorder(
-                                              borderSide: const BorderSide(
+                                              borderSide: BorderSide(
                                                 color: Color(0xFFFF5963),
                                                 width: 2.0,
                                               ),
@@ -4210,7 +4271,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                             filled: true,
                                             fillColor: Colors.white,
                                             contentPadding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     20.0, 24.0, 0.0, 24.0),
                                             suffixIcon: _model
                                                     .fullAddressController!
@@ -4223,7 +4284,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                           ?.clear();
                                                       setState(() {});
                                                     },
-                                                    child: const Icon(
+                                                    child: Icon(
                                                       Icons.clear,
                                                       color: Color(0xFF757575),
                                                       size: 22.0,
@@ -4235,7 +4296,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Plus Jakarta Sans',
-                                                color: const Color(0xFF14181B),
+                                                color: Color(0xFF14181B),
                                                 fontSize: 14.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
@@ -4247,7 +4308,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             20.0, 0.0, 20.0, 16.0),
                                         child: TextFormField(
                                           controller:
@@ -4269,7 +4330,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     .override(
                                                       fontFamily:
                                                           'Plus Jakarta Sans',
-                                                      color: const Color(0xFF57636C),
+                                                      color: Color(0xFF57636C),
                                                       fontSize: 14.0,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
@@ -4281,14 +4342,14 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     .override(
                                                       fontFamily:
                                                           'Plus Jakarta Sans',
-                                                      color: const Color(0xFF57636C),
+                                                      color: Color(0xFF57636C),
                                                       fontSize: 14.0,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
                                                           FontWeight.normal,
                                                     ),
                                             enabledBorder: OutlineInputBorder(
-                                              borderSide: const BorderSide(
+                                              borderSide: BorderSide(
                                                 color: Color(0xFFE0E3E7),
                                                 width: 2.0,
                                               ),
@@ -4296,7 +4357,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                   BorderRadius.circular(8.0),
                                             ),
                                             focusedBorder: OutlineInputBorder(
-                                              borderSide: const BorderSide(
+                                              borderSide: BorderSide(
                                                 color: Color(0xFF4B39EF),
                                                 width: 2.0,
                                               ),
@@ -4304,7 +4365,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                   BorderRadius.circular(8.0),
                                             ),
                                             errorBorder: OutlineInputBorder(
-                                              borderSide: const BorderSide(
+                                              borderSide: BorderSide(
                                                 color: Color(0xFFFF5963),
                                                 width: 2.0,
                                               ),
@@ -4313,7 +4374,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                             ),
                                             focusedErrorBorder:
                                                 OutlineInputBorder(
-                                              borderSide: const BorderSide(
+                                              borderSide: BorderSide(
                                                 color: Color(0xFFFF5963),
                                                 width: 2.0,
                                               ),
@@ -4323,14 +4384,14 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                             filled: true,
                                             fillColor: Colors.white,
                                             contentPadding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     20.0, 24.0, 0.0, 24.0),
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Plus Jakarta Sans',
-                                                color: const Color(0xFF14181B),
+                                                color: Color(0xFF14181B),
                                                 fontSize: 14.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
@@ -4360,7 +4421,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                               ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: Form(
                                 key: _model.formKey4,
                                 autovalidateMode: AutovalidateMode.disabled,
@@ -4375,11 +4436,11 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             20.0, 16.0, 20.0, 6.0),
                                         child: TextFormField(
-                                          controller: _model.eduDataController2,
-                                          focusNode: _model.eduDataFocusNode2,
+                                          controller: _model.eduDataController,
+                                          focusNode: _model.eduDataFocusNode,
                                           textCapitalization:
                                               TextCapitalization.words,
                                           obscureText: false,
@@ -4395,7 +4456,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     .override(
                                                       fontFamily:
                                                           'Plus Jakarta Sans',
-                                                      color: const Color(0xFF57636C),
+                                                      color: Color(0xFF57636C),
                                                       fontSize: 14.0,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
@@ -4407,14 +4468,14 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     .override(
                                                       fontFamily:
                                                           'Plus Jakarta Sans',
-                                                      color: const Color(0xFF57636C),
+                                                      color: Color(0xFF57636C),
                                                       fontSize: 14.0,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
                                                           FontWeight.normal,
                                                     ),
                                             enabledBorder: OutlineInputBorder(
-                                              borderSide: const BorderSide(
+                                              borderSide: BorderSide(
                                                 color: Color(0xFFE0E3E7),
                                                 width: 2.0,
                                               ),
@@ -4422,7 +4483,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                   BorderRadius.circular(8.0),
                                             ),
                                             focusedBorder: OutlineInputBorder(
-                                              borderSide: const BorderSide(
+                                              borderSide: BorderSide(
                                                 color: Color(0xFF4B39EF),
                                                 width: 2.0,
                                               ),
@@ -4430,7 +4491,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                   BorderRadius.circular(8.0),
                                             ),
                                             errorBorder: OutlineInputBorder(
-                                              borderSide: const BorderSide(
+                                              borderSide: BorderSide(
                                                 color: Color(0xFFFF5963),
                                                 width: 2.0,
                                               ),
@@ -4439,7 +4500,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                             ),
                                             focusedErrorBorder:
                                                 OutlineInputBorder(
-                                              borderSide: const BorderSide(
+                                              borderSide: BorderSide(
                                                 color: Color(0xFFFF5963),
                                                 width: 2.0,
                                               ),
@@ -4449,37 +4510,43 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                             filled: true,
                                             fillColor: Colors.white,
                                             contentPadding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     20.0, 24.0, 0.0, 24.0),
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Plus Jakarta Sans',
-                                                color: const Color(0xFF14181B),
+                                                color: Color(0xFF14181B),
                                                 fontSize: 14.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
                                               ),
                                           minLines: null,
                                           validator: _model
-                                              .eduDataController2Validator
+                                              .eduDataControllerValidator
                                               .asValidator(context),
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             20.0, 10.0, 20.0, 10.0),
                                         child: FlutterFlowDropDown<String>(
                                           controller: _model
                                                   .isEmployeedValueController ??=
-                                              FormFieldController<String>(null),
+                                              FormFieldController<String>(
+                                            _model.isEmployeedValue ??=
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                              '7253wm4k' /* No */,
+                                            ),
+                                          ),
                                           options: [
                                             FFLocalizations.of(context).getText(
                                               'fo1s7rh2' /* Yes */,
                                             ),
                                             FFLocalizations.of(context).getText(
-                                              '7253wm4k' /* No */,
+                                              '18282v62' /* No */,
                                             )
                                           ],
                                           onChanged: (val) => setState(() =>
@@ -4491,7 +4558,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Plus Jakarta Sans',
-                                                color: const Color(0xFF14181B),
+                                                color: Color(0xFF14181B),
                                                 fontSize: 14.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
@@ -4500,18 +4567,18 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                               .getText(
                                             'd0xh78gg' /* Employed now? */,
                                           ),
-                                          icon: const Icon(
+                                          icon: Icon(
                                             Icons.keyboard_arrow_down_rounded,
                                             color: Color(0xFF57636C),
                                             size: 15.0,
                                           ),
                                           fillColor: Colors.white,
                                           elevation: 2.0,
-                                          borderColor: const Color(0xFFE0E3E7),
+                                          borderColor: Color(0xFFE0E3E7),
                                           borderWidth: 2.0,
                                           borderRadius: 8.0,
                                           margin:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   20.0, 4.0, 12.0, 4.0),
                                           hidesUnderline: true,
                                           isSearchable: false,
@@ -4529,7 +4596,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                               ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: Form(
                                 key: _model.formKey3,
                                 autovalidateMode: AutovalidateMode.disabled,
@@ -4543,12 +4610,18 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             20.0, 10.0, 20.0, 12.0),
                                         child: FlutterFlowDropDown<String>(
-                                          controller: _model
-                                                  .userRoleValueController ??=
-                                              FormFieldController<String>(null),
+                                          controller:
+                                              _model.userRoleValueController ??=
+                                                  FormFieldController<String>(
+                                            _model.userRoleValue ??=
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                              'gjf75qlj' /* Worker */,
+                                            ),
+                                          ),
                                           options: [
                                             FFLocalizations.of(context).getText(
                                               '6o5jnil3' /* Worker */,
@@ -4599,7 +4672,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Plus Jakarta Sans',
-                                                color: const Color(0xFF14181B),
+                                                color: Color(0xFF14181B),
                                                 fontSize: 14.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
@@ -4608,18 +4681,18 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                               .getText(
                                             'doajkyn3' /* Select Role */,
                                           ),
-                                          icon: const Icon(
+                                          icon: Icon(
                                             Icons.keyboard_arrow_down_rounded,
                                             color: Color(0xFF57636C),
                                             size: 15.0,
                                           ),
                                           fillColor: Colors.white,
                                           elevation: 2.0,
-                                          borderColor: const Color(0xFFE0E3E7),
+                                          borderColor: Color(0xFFE0E3E7),
                                           borderWidth: 2.0,
                                           borderRadius: 8.0,
                                           margin:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   20.0, 4.0, 12.0, 4.0),
                                           hidesUnderline: true,
                                           isSearchable: false,
@@ -4639,15 +4712,15 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                     key: _model.formKey8,
                                     autovalidateMode: AutovalidateMode.disabled,
                                     child: Container(
-                                      decoration: const BoxDecoration(),
+                                      decoration: BoxDecoration(),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           if (_model.userRoleValue == 'Worker')
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
-                                                      20.0, 10.0, 20.0, 12.0),
+                                                      20.0, 10.0, 20.0, 0.0),
                                               child: StreamBuilder<
                                                   List<ContractorsRecord>>(
                                                 stream:
@@ -4655,7 +4728,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                 builder: (context, snapshot) {
                                                   // Customize what your widget looks like when it's loading.
                                                   if (!snapshot.hasData) {
-                                                    return const Center(
+                                                    return Center(
                                                       child: SizedBox(
                                                         width: 50.0,
                                                         height: 50.0,
@@ -4675,15 +4748,62 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     controller: _model
                                                             .contractorValueController ??=
                                                         FormFieldController<
-                                                            String>(null),
-                                                    options:
+                                                            String>(
+                                                      _model.contractorValue ??=
+                                                          contractorContractorsRecordList
+                                                              .first
+                                                              .reference
+                                                              .id,
+                                                    ),
+                                                    options: List<String>.from(
+                                                        contractorContractorsRecordList
+                                                            .map((e) =>
+                                                                e.reference.id)
+                                                            .toList()),
+                                                    optionLabels:
                                                         contractorContractorsRecordList
                                                             .map((e) => e.name)
                                                             .toList(),
-                                                    onChanged: (val) =>
-                                                        setState(() => _model
-                                                                .contractorValue =
-                                                            val),
+                                                    onChanged: (val) async {
+                                                      setState(() => _model
+                                                              .contractorValue =
+                                                          val);
+                                                      logFirebaseEvent(
+                                                          'CREATE_USER_contractor_ON_FORM_WIDGET_SE');
+                                                      logFirebaseEvent(
+                                                          'contractor_custom_action');
+                                                      _model.contRef = await actions
+                                                          .contractorPathStringToref(
+                                                        _model.contractorValue!,
+                                                      );
+                                                      logFirebaseEvent(
+                                                          'contractor_backend_call');
+                                                      _model.contDoc =
+                                                          await ContractorsRecord
+                                                              .getDocumentOnce(
+                                                                  _model
+                                                                      .contRef!);
+                                                      logFirebaseEvent(
+                                                          'contractor_set_form_field');
+                                                      setState(() {
+                                                        _model.contIDController
+                                                                ?.text =
+                                                            '#${_model.contDoc?.code}';
+                                                      });
+                                                      logFirebaseEvent(
+                                                          'contractor_set_form_field');
+                                                      setState(() {
+                                                        _model.contNumOfWorkersController
+                                                                ?.text =
+                                                            _model
+                                                                .contDoc!
+                                                                .workersList
+                                                                .length
+                                                                .toString();
+                                                      });
+
+                                                      setState(() {});
+                                                    },
                                                     width: double.infinity,
                                                     height: 56.0,
                                                     textStyle: FlutterFlowTheme
@@ -4693,7 +4813,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              const Color(0xFF14181B),
+                                                              Color(0xFF14181B),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -4705,7 +4825,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                             .getText(
                                                       'b1gya0sv' /* Select Contractor */,
                                                     ),
-                                                    icon: const Icon(
+                                                    icon: Icon(
                                                       Icons
                                                           .keyboard_arrow_down_rounded,
                                                       color: Color(0xFF57636C),
@@ -4714,11 +4834,11 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     fillColor: Colors.white,
                                                     elevation: 2.0,
                                                     borderColor:
-                                                        const Color(0xFFE0E3E7),
+                                                        Color(0xFFE0E3E7),
                                                     borderWidth: 2.0,
                                                     borderRadius: 8.0,
                                                     margin:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(20.0, 4.0,
                                                                 12.0, 4.0),
                                                     hidesUnderline: true,
@@ -4728,169 +4848,521 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                 },
                                               ),
                                             ),
-                                          Padding(
-                                            padding: const EdgeInsets.all(8.0),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                Align(
-                                                  alignment:
-                                                      const AlignmentDirectional(
-                                                          -1.0, -1.0),
-                                                  child: FlutterFlowDropDown<
-                                                      String>(
-                                                    controller: _model
-                                                            .otherStartingShiftValueController ??=
-                                                        FormFieldController<
-                                                            String>(null),
-                                                    options: [
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        '5emwe7zt' /* Morning */,
-                                                      ),
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        'jzsebavj' /* Evening */,
-                                                      ),
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        'worv047g' /* Night */,
-                                                      )
-                                                    ],
-                                                    onChanged: (val) =>
-                                                        setState(() => _model
-                                                                .otherStartingShiftValue =
-                                                            val),
-                                                    width: 237.0,
-                                                    height: 48.22,
-                                                    textStyle: FlutterFlowTheme
-                                                            .of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Plus Jakarta Sans',
-                                                          color:
-                                                              const Color(0xFF14181B),
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                                    hintText:
-                                                        FFLocalizations.of(
+                                          Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Align(
+                                                alignment: AlignmentDirectional(
+                                                    -1.0, 0.0),
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(20.0, 10.0,
+                                                          10.0, 10.0),
+                                                  child: Container(
+                                                    width: MediaQuery.sizeOf(
                                                                 context)
-                                                            .getText(
-                                                      'z9ptj5z9' /* Select starting shift  */,
+                                                            .width *
+                                                        0.4,
+                                                    child: TextFormField(
+                                                      controller: _model
+                                                          .contIDController,
+                                                      focusNode: _model
+                                                          .contIDFocusNode,
+                                                      textCapitalization:
+                                                          TextCapitalization
+                                                              .words,
+                                                      readOnly: true,
+                                                      obscureText: false,
+                                                      decoration:
+                                                          InputDecoration(
+                                                        labelText:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                          'fffwf2hz' /* Contractor ID */,
+                                                        ),
+                                                        labelStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Plus Jakarta Sans',
+                                                                  color: Color(
+                                                                      0xFF57636C),
+                                                                  fontSize:
+                                                                      14.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .normal,
+                                                                ),
+                                                        hintStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Plus Jakarta Sans',
+                                                                  color: Color(
+                                                                      0xFF57636C),
+                                                                  fontSize:
+                                                                      14.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .normal,
+                                                                ),
+                                                        enabledBorder:
+                                                            UnderlineInputBorder(
+                                                          borderSide:
+                                                              BorderSide(
+                                                            color: Color(
+                                                                0xFFE0E3E7),
+                                                            width: 2.0,
+                                                          ),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      8.0),
+                                                        ),
+                                                        focusedBorder:
+                                                            UnderlineInputBorder(
+                                                          borderSide:
+                                                              BorderSide(
+                                                            color: Color(
+                                                                0xFF4B39EF),
+                                                            width: 2.0,
+                                                          ),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      8.0),
+                                                        ),
+                                                        errorBorder:
+                                                            UnderlineInputBorder(
+                                                          borderSide:
+                                                              BorderSide(
+                                                            color: Color(
+                                                                0xFFFF5963),
+                                                            width: 2.0,
+                                                          ),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      8.0),
+                                                        ),
+                                                        focusedErrorBorder:
+                                                            UnderlineInputBorder(
+                                                          borderSide:
+                                                              BorderSide(
+                                                            color: Color(
+                                                                0xFFFF5963),
+                                                            width: 2.0,
+                                                          ),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      8.0),
+                                                        ),
+                                                        filled: true,
+                                                        fillColor: Colors.white,
+                                                        contentPadding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    20.0,
+                                                                    24.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                      ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Plus Jakarta Sans',
+                                                            color: Color(
+                                                                0xFF14181B),
+                                                            fontSize: 14.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .normal,
+                                                          ),
+                                                      minLines: null,
+                                                      validator: _model
+                                                          .contIDControllerValidator
+                                                          .asValidator(context),
                                                     ),
-                                                    icon: Icon(
-                                                      Icons
-                                                          .keyboard_arrow_down_rounded,
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .secondaryText,
-                                                      size: 24.0,
-                                                    ),
-                                                    fillColor: FlutterFlowTheme
-                                                            .of(context)
-                                                        .secondaryBackground,
-                                                    elevation: 2.0,
-                                                    borderColor:
-                                                        Colors.transparent,
-                                                    borderWidth: 2.0,
-                                                    borderRadius: 8.0,
-                                                    margin:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(10.0, 0.0,
-                                                                16.0, 0.0),
-                                                    hidesUnderline: true,
-                                                    isOverButton: true,
-                                                    isSearchable: false,
-                                                    isMultiSelect: false,
                                                   ),
                                                 ),
-                                                const SizedBox(
-                                                  height: 45.0,
-                                                  child: VerticalDivider(
-                                                    width: 10.0,
-                                                    thickness: 2.0,
-                                                    color: Color(0xFFE5E7EB),
-                                                  ),
+                                              ),
+                                              SizedBox(
+                                                height: 50.0,
+                                                child: VerticalDivider(
+                                                  thickness: 0.5,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryText,
                                                 ),
-                                                Align(
+                                              ),
+                                              Expanded(
+                                                child: Align(
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           -1.0, 0.0),
-                                                  child: FlutterFlowDropDown<
-                                                      String>(
-                                                    controller: _model
-                                                            .otherShiftPeriodValueController ??=
-                                                        FormFieldController<
-                                                            String>(null),
-                                                    options: [
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        '5le1ml99' /* 8 h */,
-                                                      ),
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        'guhkh4l1' /* 16 h */,
-                                                      )
-                                                    ],
-                                                    onChanged: (val) =>
-                                                        setState(() => _model
-                                                                .otherShiftPeriodValue =
-                                                            val),
-                                                    width: 100.0,
-                                                    height: 50.0,
-                                                    textStyle: FlutterFlowTheme
-                                                            .of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Plus Jakarta Sans',
-                                                          fontSize: 14.0,
-                                                          letterSpacing: 0.0,
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(9.0, 10.0,
+                                                                20.0, 10.0),
+                                                    child: Container(
+                                                      width: MediaQuery.sizeOf(
+                                                                  context)
+                                                              .width *
+                                                          0.5,
+                                                      child: TextFormField(
+                                                        controller: _model
+                                                            .contNumOfWorkersController,
+                                                        focusNode: _model
+                                                            .contNumOfWorkersFocusNode,
+                                                        textCapitalization:
+                                                            TextCapitalization
+                                                                .words,
+                                                        readOnly: true,
+                                                        obscureText: false,
+                                                        decoration:
+                                                            InputDecoration(
+                                                          labelText:
+                                                              FFLocalizations.of(
+                                                                      context)
+                                                                  .getText(
+                                                            'srwt4w0l' /* Num Of Workers */,
+                                                          ),
+                                                          labelStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Plus Jakarta Sans',
+                                                                    color: Color(
+                                                                        0xFF57636C),
+                                                                    fontSize:
+                                                                        14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .normal,
+                                                                  ),
+                                                          hintStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Plus Jakarta Sans',
+                                                                    color: Color(
+                                                                        0xFF57636C),
+                                                                    fontSize:
+                                                                        14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .normal,
+                                                                  ),
+                                                          enabledBorder:
+                                                              UnderlineInputBorder(
+                                                            borderSide:
+                                                                BorderSide(
+                                                              color: Color(
+                                                                  0xFFE0E3E7),
+                                                              width: 2.0,
+                                                            ),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        8.0),
+                                                          ),
+                                                          focusedBorder:
+                                                              UnderlineInputBorder(
+                                                            borderSide:
+                                                                BorderSide(
+                                                              color: Color(
+                                                                  0xFF4B39EF),
+                                                              width: 2.0,
+                                                            ),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        8.0),
+                                                          ),
+                                                          errorBorder:
+                                                              UnderlineInputBorder(
+                                                            borderSide:
+                                                                BorderSide(
+                                                              color: Color(
+                                                                  0xFFFF5963),
+                                                              width: 2.0,
+                                                            ),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        8.0),
+                                                          ),
+                                                          focusedErrorBorder:
+                                                              UnderlineInputBorder(
+                                                            borderSide:
+                                                                BorderSide(
+                                                              color: Color(
+                                                                  0xFFFF5963),
+                                                              width: 2.0,
+                                                            ),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        8.0),
+                                                          ),
+                                                          filled: true,
+                                                          fillColor:
+                                                              Colors.white,
+                                                          contentPadding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      20.0,
+                                                                      24.0,
+                                                                      0.0,
+                                                                      0.0),
                                                         ),
-                                                    hintText:
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Plus Jakarta Sans',
+                                                              color: Color(
+                                                                  0xFF14181B),
+                                                              fontSize: 14.0,
+                                                              letterSpacing:
+                                                                  0.0,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .normal,
+                                                            ),
+                                                        minLines: null,
+                                                        validator: _model
+                                                            .contNumOfWorkersControllerValidator
+                                                            .asValidator(
+                                                                context),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          Container(
+                                            width: double.infinity,
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                              border: Border.all(
+                                                color: Color(0xFFE5E7EB),
+                                                width: 2.0,
+                                              ),
+                                            ),
+                                            child: Padding(
+                                              padding: EdgeInsets.all(8.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Align(
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            -1.0, -1.0),
+                                                    child: FlutterFlowDropDown<
+                                                        String>(
+                                                      controller: _model
+                                                              .otherStartingShiftValueController ??=
+                                                          FormFieldController<
+                                                              String>(
+                                                        _model.otherStartingShiftValue ??=
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                          '5emwe7zt' /* Morning */,
+                                                        ),
+                                                      ),
+                                                      options: [
                                                         FFLocalizations.of(
                                                                 context)
                                                             .getText(
-                                                      'tr77kv9z' /* Time */,
-                                                    ),
-                                                    icon: Icon(
-                                                      Icons
-                                                          .keyboard_arrow_down_rounded,
-                                                      color:
+                                                          '5emwe7zt' /* Morning */,
+                                                        ),
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          'jzsebavj' /* Evening */,
+                                                        ),
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          'worv047g' /* Night */,
+                                                        )
+                                                      ],
+                                                      onChanged: (val) =>
+                                                          setState(() => _model
+                                                                  .otherStartingShiftValue =
+                                                              val),
+                                                      width: 237.0,
+                                                      height: 48.22,
+                                                      textStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .secondaryText,
-                                                      size: 24.0,
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Plus Jakarta Sans',
+                                                                color: Color(
+                                                                    0xFF14181B),
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
+                                                      hintText:
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                        'z9ptj5z9' /* Select starting shift  */,
+                                                      ),
+                                                      icon: Icon(
+                                                        Icons
+                                                            .keyboard_arrow_down_rounded,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryText,
+                                                        size: 24.0,
+                                                      ),
+                                                      fillColor: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
+                                                      elevation: 2.0,
+                                                      borderColor:
+                                                          Colors.transparent,
+                                                      borderWidth: 2.0,
+                                                      borderRadius: 8.0,
+                                                      margin:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  10.0,
+                                                                  0.0,
+                                                                  16.0,
+                                                                  0.0),
+                                                      hidesUnderline: true,
+                                                      isOverButton: true,
+                                                      isSearchable: false,
+                                                      isMultiSelect: false,
                                                     ),
-                                                    fillColor: FlutterFlowTheme
-                                                            .of(context)
-                                                        .secondaryBackground,
-                                                    elevation: 2.0,
-                                                    borderColor:
-                                                        Colors.transparent,
-                                                    borderWidth: 2.0,
-                                                    borderRadius: 8.0,
-                                                    margin:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(16.0, 0.0,
-                                                                16.0, 0.0),
-                                                    hidesUnderline: true,
-                                                    isOverButton: true,
-                                                    isSearchable: false,
-                                                    isMultiSelect: false,
                                                   ),
-                                                ),
-                                              ],
+                                                  SizedBox(
+                                                    height: 45.0,
+                                                    child: VerticalDivider(
+                                                      width: 10.0,
+                                                      thickness: 2.0,
+                                                      color: Color(0xFFE5E7EB),
+                                                    ),
+                                                  ),
+                                                  Align(
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            -1.0, 0.0),
+                                                    child: FlutterFlowDropDown<
+                                                        String>(
+                                                      controller: _model
+                                                              .otherShiftPeriodValueController ??=
+                                                          FormFieldController<
+                                                              String>(
+                                                        _model.otherShiftPeriodValue ??=
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                          '5le1ml99' /* 8 h */,
+                                                        ),
+                                                      ),
+                                                      options: [
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          '5le1ml99' /* 8 h */,
+                                                        ),
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          'guhkh4l1' /* 16 h */,
+                                                        )
+                                                      ],
+                                                      onChanged: (val) =>
+                                                          setState(() => _model
+                                                                  .otherShiftPeriodValue =
+                                                              val),
+                                                      width: 100.0,
+                                                      height: 50.0,
+                                                      textStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Plus Jakarta Sans',
+                                                                fontSize: 14.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
+                                                      hintText:
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                        'tr77kv9z' /* Time */,
+                                                      ),
+                                                      icon: Icon(
+                                                        Icons
+                                                            .keyboard_arrow_down_rounded,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryText,
+                                                        size: 24.0,
+                                                      ),
+                                                      fillColor: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
+                                                      elevation: 2.0,
+                                                      borderColor:
+                                                          Colors.transparent,
+                                                      borderWidth: 2.0,
+                                                      borderRadius: 8.0,
+                                                      margin:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  16.0,
+                                                                  0.0,
+                                                                  16.0,
+                                                                  0.0),
+                                                      hidesUnderline: true,
+                                                      isOverButton: true,
+                                                      isSearchable: false,
+                                                      isMultiSelect: false,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
                                           ),
                                         ],
@@ -4905,11 +5377,11 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                             'Supplier') ||
                                         (_model.userRoleValue == 'Worker')),
                                     child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           20.0, 0.0, 20.0, 10.0),
                                       child: Container(
                                         width: double.infinity,
-                                        constraints: const BoxConstraints(
+                                        constraints: BoxConstraints(
                                           maxWidth: 500.0,
                                         ),
                                         decoration: BoxDecoration(
@@ -4917,26 +5389,33 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                           borderRadius:
                                               BorderRadius.circular(8.0),
                                           border: Border.all(
-                                            color: const Color(0xFFE5E7EB),
+                                            color: Color(0xFFE5E7EB),
                                             width: 2.0,
                                           ),
                                         ),
                                         child: Padding(
-                                          padding: const EdgeInsets.all(8.0),
+                                          padding: EdgeInsets.all(8.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceBetween,
                                             children: [
                                               Align(
-                                                alignment: const AlignmentDirectional(
+                                                alignment: AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child:
                                                     FlutterFlowDropDown<String>(
                                                   controller: _model
                                                           .workerStartingShiftValueController ??=
                                                       FormFieldController<
-                                                          String>(null),
+                                                          String>(
+                                                    _model.workerStartingShiftValue ??=
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                      'x15k7nlh' /* Morning */,
+                                                    ),
+                                                  ),
                                                   options: [
                                                     FFLocalizations.of(context)
                                                         .getText(
@@ -4964,7 +5443,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            const Color(0xFF14181B),
+                                                            Color(0xFF14181B),
                                                         letterSpacing: 0.0,
                                                       ),
                                                   hintText: FFLocalizations.of(
@@ -4989,7 +5468,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                       Colors.transparent,
                                                   borderWidth: 2.0,
                                                   borderRadius: 8.0,
-                                                  margin: const EdgeInsetsDirectional
+                                                  margin: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           10.0, 0.0, 16.0, 0.0),
                                                   hidesUnderline: true,
@@ -4998,7 +5477,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                   isMultiSelect: false,
                                                 ),
                                               ),
-                                              const SizedBox(
+                                              SizedBox(
                                                 height: 45.0,
                                                 child: VerticalDivider(
                                                   width: 10.0,
@@ -5007,14 +5486,21 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                 ),
                                               ),
                                               Align(
-                                                alignment: const AlignmentDirectional(
+                                                alignment: AlignmentDirectional(
                                                     -1.0, 0.0),
                                                 child:
                                                     FlutterFlowDropDown<String>(
                                                   controller: _model
                                                           .workerShiftPeriodValueController ??=
                                                       FormFieldController<
-                                                          String>(null),
+                                                          String>(
+                                                    _model.workerShiftPeriodValue ??=
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                      'cq1cb353' /* 8 h */,
+                                                    ),
+                                                  ),
                                                   options: [
                                                     FFLocalizations.of(context)
                                                         .getText(
@@ -5067,7 +5553,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                       Colors.transparent,
                                                   borderWidth: 2.0,
                                                   borderRadius: 8.0,
-                                                  margin: const EdgeInsetsDirectional
+                                                  margin: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           16.0, 0.0, 16.0, 0.0),
                                                   hidesUnderline: true,
@@ -5079,8 +5565,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                             ],
                                           ),
                                         ),
-                                      ).animateOnPageLoad(animationsMap[
-                                          'containerOnPageLoadAnimation1']!),
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -5093,7 +5578,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                       if (_model.userRoleValue != 'Supplier')
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   20.0, 10.0, 20.0, 12.0),
                                           child: FlutterFlowDropDown<String>(
                                             controller: _model
@@ -5120,7 +5605,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     .override(
                                                       fontFamily:
                                                           'Plus Jakarta Sans',
-                                                      color: const Color(0xFF14181B),
+                                                      color: Color(0xFF14181B),
                                                       fontSize: 14.0,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
@@ -5131,18 +5616,18 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     .getText(
                                               'nrncha19' /* Do you have a driving license? */,
                                             ),
-                                            icon: const Icon(
+                                            icon: Icon(
                                               Icons.keyboard_arrow_down_rounded,
                                               color: Color(0xFF57636C),
                                               size: 15.0,
                                             ),
                                             fillColor: Colors.white,
                                             elevation: 2.0,
-                                            borderColor: const Color(0xFFE0E3E7),
+                                            borderColor: Color(0xFFE0E3E7),
                                             borderWidth: 2.0,
                                             borderRadius: 8.0,
                                             margin:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     20.0, 4.0, 12.0, 4.0),
                                             hidesUnderline: true,
                                             isSearchable: false,
@@ -5152,7 +5637,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                       if (_model.isDriverValue == 'Yes')
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   20.0, 10.0, 20.0, 12.0),
                                           child: FlutterFlowDropDown<String>(
                                             controller: _model
@@ -5180,7 +5665,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     .override(
                                                       fontFamily:
                                                           'Plus Jakarta Sans',
-                                                      color: const Color(0xFF14181B),
+                                                      color: Color(0xFF14181B),
                                                       fontSize: 14.0,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
@@ -5191,18 +5676,18 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     .getText(
                                               '6xwtd4gp' /* Type of driving license? */,
                                             ),
-                                            icon: const Icon(
+                                            icon: Icon(
                                               Icons.keyboard_arrow_down_rounded,
                                               color: Color(0xFF57636C),
                                               size: 15.0,
                                             ),
                                             fillColor: Colors.white,
                                             elevation: 2.0,
-                                            borderColor: const Color(0xFFE0E3E7),
+                                            borderColor: Color(0xFFE0E3E7),
                                             borderWidth: 2.0,
                                             borderRadius: 8.0,
                                             margin:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     20.0, 4.0, 12.0, 4.0),
                                             hidesUnderline: true,
                                             isSearchable: false,
@@ -5212,143 +5697,27 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                     ],
                                   ),
                                 ),
-                                if (true != true)
-                                  Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        20.0, 10.0, 20.0, 12.0),
-                                    child: FlutterFlowDropDown<String>(
-                                      controller:
-                                          _model.svWorkAreaValueController ??=
-                                              FormFieldController<String>(null),
-                                      options: [
-                                        FFLocalizations.of(context).getText(
-                                          '5w6ym44s' /* Leader 1 */,
-                                        ),
-                                        FFLocalizations.of(context).getText(
-                                          'eo1l6wu2' /* Leader 2 */,
-                                        )
-                                      ],
-                                      onChanged: (val) => setState(
-                                          () => _model.svWorkAreaValue = val),
-                                      width: double.infinity,
-                                      height: 56.0,
-                                      textStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Plus Jakarta Sans',
-                                            color: const Color(0xFF14181B),
-                                            fontSize: 14.0,
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.normal,
-                                          ),
-                                      hintText:
-                                          FFLocalizations.of(context).getText(
-                                        'jnt45e2u' /* Select Work Area */,
-                                      ),
-                                      icon: const Icon(
-                                        Icons.keyboard_arrow_down_rounded,
-                                        color: Color(0xFF57636C),
-                                        size: 15.0,
-                                      ),
-                                      fillColor: Colors.white,
-                                      elevation: 2.0,
-                                      borderColor: const Color(0xFFE0E3E7),
-                                      borderWidth: 2.0,
-                                      borderRadius: 8.0,
-                                      margin: const EdgeInsetsDirectional.fromSTEB(
-                                          20.0, 4.0, 12.0, 4.0),
-                                      hidesUnderline: true,
-                                      isSearchable: false,
-                                      isMultiSelect: false,
-                                    ),
-                                  ),
-                                if ((_model.userRoleValue == 'Superviser') ||
-                                    (_model.userRoleValue == 'Worker'))
-                                  Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        20.0, 10.0, 20.0, 12.0),
-                                    child: FlutterFlowDropDown<String>(
-                                      controller:
-                                          _model.roleCodeValueController ??=
-                                              FormFieldController<String>(null),
-                                      options: [
-                                        FFLocalizations.of(context).getText(
-                                          'uetymcr3' /* 150: Superviser */,
-                                        ),
-                                        FFLocalizations.of(context).getText(
-                                          'wvxq2hk6' /* 220: fixed point */,
-                                        ),
-                                        FFLocalizations.of(context).getText(
-                                          'w8fw6g5f' /* 250: Garage worker (maintenanc... */,
-                                        ),
-                                        FFLocalizations.of(context).getText(
-                                          'hkhv4hi2' /* 260: Authority workers */,
-                                        ),
-                                        FFLocalizations.of(context).getText(
-                                          '0gasou1f' /* 270: Workers’ driver */,
-                                        ),
-                                        FFLocalizations.of(context).getText(
-                                          'a6fmozgx' /* 280: Authority car driver */,
-                                        ),
-                                        FFLocalizations.of(context).getText(
-                                          'adpbzhca' /* 150- */,
-                                        )
-                                      ],
-                                      onChanged: (val) => setState(
-                                          () => _model.roleCodeValue = val),
-                                      width: double.infinity,
-                                      height: 56.0,
-                                      textStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Plus Jakarta Sans',
-                                            color: const Color(0xFF14181B),
-                                            fontSize: 14.0,
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.normal,
-                                          ),
-                                      hintText:
-                                          FFLocalizations.of(context).getText(
-                                        'lr5gpn8h' /* Select code */,
-                                      ),
-                                      icon: const Icon(
-                                        Icons.keyboard_arrow_down_rounded,
-                                        color: Color(0xFF57636C),
-                                        size: 15.0,
-                                      ),
-                                      fillColor: Colors.white,
-                                      elevation: 2.0,
-                                      borderColor: const Color(0xFFE0E3E7),
-                                      borderWidth: 2.0,
-                                      borderRadius: 8.0,
-                                      margin: const EdgeInsetsDirectional.fromSTEB(
-                                          20.0, 4.0, 12.0, 4.0),
-                                      hidesUnderline: true,
-                                      isSearchable: false,
-                                      isMultiSelect: false,
-                                    ),
-                                  ),
                                 Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Expanded(
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             20.0, 10.0, 20.0, 16.0),
                                         child: TextFormField(
                                           controller:
-                                              _model.employmentDateController,
+                                              _model.drivLicIssueDateController,
                                           focusNode:
-                                              _model.employmentDateFocusNode,
+                                              _model.drivLicIssueDateFocusNode,
                                           textCapitalization:
-                                              TextCapitalization.words,
+                                              TextCapitalization.none,
                                           readOnly: true,
                                           obscureText: false,
                                           decoration: InputDecoration(
                                             labelText:
                                                 FFLocalizations.of(context)
                                                     .getText(
-                                              '9vjhddi3' /* employment date */,
+                                              'uhrfep0r' /* Date of civil ID */,
                                             ),
                                             labelStyle:
                                                 FlutterFlowTheme.of(context)
@@ -5356,7 +5725,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     .override(
                                                       fontFamily:
                                                           'Plus Jakarta Sans',
-                                                      color: const Color(0xFF57636C),
+                                                      color: Color(0xFF57636C),
                                                       fontSize: 14.0,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
@@ -5368,14 +5737,14 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     .override(
                                                       fontFamily:
                                                           'Plus Jakarta Sans',
-                                                      color: const Color(0xFF57636C),
+                                                      color: Color(0xFF57636C),
                                                       fontSize: 14.0,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
                                                           FontWeight.normal,
                                                     ),
                                             enabledBorder: OutlineInputBorder(
-                                              borderSide: const BorderSide(
+                                              borderSide: BorderSide(
                                                 color: Color(0xFFE0E3E7),
                                                 width: 2.0,
                                               ),
@@ -5383,7 +5752,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                   BorderRadius.circular(8.0),
                                             ),
                                             focusedBorder: OutlineInputBorder(
-                                              borderSide: const BorderSide(
+                                              borderSide: BorderSide(
                                                 color: Color(0xFF4B39EF),
                                                 width: 2.0,
                                               ),
@@ -5391,7 +5760,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                   BorderRadius.circular(8.0),
                                             ),
                                             errorBorder: OutlineInputBorder(
-                                              borderSide: const BorderSide(
+                                              borderSide: BorderSide(
                                                 color: Color(0xFFFF5963),
                                                 width: 2.0,
                                               ),
@@ -5400,7 +5769,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                             ),
                                             focusedErrorBorder:
                                                 OutlineInputBorder(
-                                              borderSide: const BorderSide(
+                                              borderSide: BorderSide(
                                                 color: Color(0xFFFF5963),
                                                 width: 2.0,
                                               ),
@@ -5410,29 +5779,30 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                             filled: true,
                                             fillColor: Colors.white,
                                             contentPadding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     20.0, 24.0, 0.0, 24.0),
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Plus Jakarta Sans',
-                                                color: const Color(0xFF14181B),
+                                                color: Color(0xFF14181B),
                                                 fontSize: 14.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
                                               ),
                                           minLines: null,
+                                          keyboardType: TextInputType.datetime,
                                           validator: _model
-                                              .employmentDateControllerValidator
+                                              .drivLicIssueDateControllerValidator
                                               .asValidator(context),
                                         ),
                                       ),
                                     ),
                                     Align(
-                                      alignment: const AlignmentDirectional(0.0, 0.0),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 16.0, 0.0),
                                         child: FFButtonWidget(
                                           onPressed: () async {
@@ -5440,7 +5810,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                 'CREATE_USER_PAGE__BTN_ON_TAP');
                                             logFirebaseEvent(
                                                 'Button_date_time_picker');
-                                            final datePicked6Date =
+                                            final _datePicked6Date =
                                                 await showDatePicker(
                                               context: context,
                                               initialDate: getCurrentTimestamp,
@@ -5495,29 +5865,33 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                               },
                                             );
 
-                                            if (datePicked6Date != null) {
+                                            if (_datePicked6Date != null) {
                                               safeSetState(() {
                                                 _model.datePicked6 = DateTime(
-                                                  datePicked6Date.year,
-                                                  datePicked6Date.month,
-                                                  datePicked6Date.day,
+                                                  _datePicked6Date.year,
+                                                  _datePicked6Date.month,
+                                                  _datePicked6Date.day,
                                                 );
                                               });
                                             }
                                             logFirebaseEvent(
                                                 'Button_set_form_field');
                                             setState(() {
-                                              _model.employmentDateController
-                                                      ?.text =
+                                              _model.drivLicIssueDateController
+                                                  ?.text = ((String
+                                                      dateTimePickerOutput) {
+                                                return dateTimePickerOutput
+                                                    .split(' ')[0];
+                                              }(
                                                   _model.datePicked6!
-                                                      .toString();
+                                                      .toString()));
                                             });
                                           },
                                           text: FFLocalizations.of(context)
                                               .getText(
-                                            'oyqf5gi2' /*  */,
+                                            'sp6wv7qj' /*  */,
                                           ),
-                                          icon: const Icon(
+                                          icon: Icon(
                                             Icons.calendar_month,
                                             size: 15.0,
                                           ),
@@ -5525,10 +5899,10 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                             width: 36.0,
                                             height: 39.0,
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 0.0),
                                             iconPadding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     6.0, 0.0, 0.0, 0.0),
                                             color: FlutterFlowTheme.of(context)
                                                 .primary,
@@ -5541,7 +5915,669 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                       letterSpacing: 0.0,
                                                     ),
                                             elevation: 3.0,
-                                            borderSide: const BorderSide(
+                                            borderSide: BorderSide(
+                                              color: Colors.transparent,
+                                              width: 1.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(10.0),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Expanded(
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            20.0, 10.0, 20.0, 16.0),
+                                        child: TextFormField(
+                                          controller: _model
+                                              .drivLicExpiryDateController,
+                                          focusNode:
+                                              _model.drivLicExpiryDateFocusNode,
+                                          textCapitalization:
+                                              TextCapitalization.none,
+                                          readOnly: true,
+                                          obscureText: false,
+                                          decoration: InputDecoration(
+                                            labelText:
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                              'qju4v4iw' /* Date of civil ID */,
+                                            ),
+                                            labelStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMedium
+                                                    .override(
+                                                      fontFamily:
+                                                          'Plus Jakarta Sans',
+                                                      color: Color(0xFF57636C),
+                                                      fontSize: 14.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.normal,
+                                                    ),
+                                            hintStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMedium
+                                                    .override(
+                                                      fontFamily:
+                                                          'Plus Jakarta Sans',
+                                                      color: Color(0xFF57636C),
+                                                      fontSize: 14.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.normal,
+                                                    ),
+                                            enabledBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color: Color(0xFFE0E3E7),
+                                                width: 2.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                            ),
+                                            focusedBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color: Color(0xFF4B39EF),
+                                                width: 2.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                            ),
+                                            errorBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color: Color(0xFFFF5963),
+                                                width: 2.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                            ),
+                                            focusedErrorBorder:
+                                                OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color: Color(0xFFFF5963),
+                                                width: 2.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                            ),
+                                            filled: true,
+                                            fillColor: Colors.white,
+                                            contentPadding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    20.0, 24.0, 0.0, 24.0),
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Plus Jakarta Sans',
+                                                color: Color(0xFF14181B),
+                                                fontSize: 14.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.normal,
+                                              ),
+                                          minLines: null,
+                                          keyboardType: TextInputType.datetime,
+                                          validator: _model
+                                              .drivLicExpiryDateControllerValidator
+                                              .asValidator(context),
+                                        ),
+                                      ),
+                                    ),
+                                    Align(
+                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 16.0, 0.0),
+                                        child: FFButtonWidget(
+                                          onPressed: () async {
+                                            logFirebaseEvent(
+                                                'CREATE_USER_PAGE__BTN_ON_TAP');
+                                            logFirebaseEvent(
+                                                'Button_date_time_picker');
+                                            final _datePicked7Date =
+                                                await showDatePicker(
+                                              context: context,
+                                              initialDate: getCurrentTimestamp,
+                                              firstDate: DateTime(1900),
+                                              lastDate: getCurrentTimestamp,
+                                              builder: (context, child) {
+                                                return wrapInMaterialDatePickerTheme(
+                                                  context,
+                                                  child!,
+                                                  headerBackgroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .primary,
+                                                  headerForegroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .info,
+                                                  headerTextStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .headlineLarge
+                                                          .override(
+                                                            fontFamily:
+                                                                'Outfit',
+                                                            fontSize: 32.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                          ),
+                                                  pickerBackgroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .secondaryBackground,
+                                                  pickerForegroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .primaryText,
+                                                  selectedDateTimeBackgroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .primary,
+                                                  selectedDateTimeForegroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .info,
+                                                  actionButtonForegroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .primaryText,
+                                                  iconSize: 24.0,
+                                                );
+                                              },
+                                            );
+
+                                            if (_datePicked7Date != null) {
+                                              safeSetState(() {
+                                                _model.datePicked7 = DateTime(
+                                                  _datePicked7Date.year,
+                                                  _datePicked7Date.month,
+                                                  _datePicked7Date.day,
+                                                );
+                                              });
+                                            }
+                                            logFirebaseEvent(
+                                                'Button_set_form_field');
+                                            setState(() {
+                                              _model.drivLicExpiryDateController
+                                                  ?.text = ((String
+                                                      dateTimePickerOutput) {
+                                                return dateTimePickerOutput
+                                                    .split(' ')[0];
+                                              }(
+                                                  _model.datePicked7!
+                                                      .toString()));
+                                            });
+                                          },
+                                          text: FFLocalizations.of(context)
+                                              .getText(
+                                            'jdahn9ju' /*  */,
+                                          ),
+                                          icon: Icon(
+                                            Icons.calendar_month,
+                                            size: 15.0,
+                                          ),
+                                          options: FFButtonOptions(
+                                            width: 36.0,
+                                            height: 39.0,
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 0.0, 0.0),
+                                            iconPadding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    6.0, 0.0, 0.0, 0.0),
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
+                                            textStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleSmall
+                                                    .override(
+                                                      fontFamily: 'Readex Pro',
+                                                      color: Colors.white,
+                                                      letterSpacing: 0.0,
+                                                    ),
+                                            elevation: 3.0,
+                                            borderSide: BorderSide(
+                                              color: Colors.transparent,
+                                              width: 1.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(10.0),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      20.0, 10.0, 20.0, 16.0),
+                                  child: TextFormField(
+                                    controller:
+                                        _model.drivLicPlaceOfIssueController,
+                                    focusNode:
+                                        _model.drivLicPlaceOfIssueFocusNode,
+                                    textCapitalization:
+                                        TextCapitalization.words,
+                                    obscureText: false,
+                                    decoration: InputDecoration(
+                                      labelText:
+                                          FFLocalizations.of(context).getText(
+                                        'v3i7nzya' /* Place of Issue */,
+                                      ),
+                                      labelStyle: FlutterFlowTheme.of(context)
+                                          .labelMedium
+                                          .override(
+                                            fontFamily: 'Plus Jakarta Sans',
+                                            color: Color(0xFF57636C),
+                                            fontSize: 14.0,
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.normal,
+                                          ),
+                                      hintStyle: FlutterFlowTheme.of(context)
+                                          .labelMedium
+                                          .override(
+                                            fontFamily: 'Plus Jakarta Sans',
+                                            color: Color(0xFF57636C),
+                                            fontSize: 14.0,
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.normal,
+                                          ),
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: Color(0xFFE0E3E7),
+                                          width: 2.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: Color(0xFF4B39EF),
+                                          width: 2.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                      ),
+                                      errorBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: Color(0xFFFF5963),
+                                          width: 2.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                      ),
+                                      focusedErrorBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: Color(0xFFFF5963),
+                                          width: 2.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                      ),
+                                      filled: true,
+                                      fillColor: Colors.white,
+                                      contentPadding:
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              20.0, 24.0, 0.0, 24.0),
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Plus Jakarta Sans',
+                                          color: Color(0xFF14181B),
+                                          fontSize: 14.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.normal,
+                                        ),
+                                    minLines: null,
+                                    validator: _model
+                                        .drivLicPlaceOfIssueControllerValidator
+                                        .asValidator(context),
+                                  ),
+                                ),
+                                if (true != true)
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        20.0, 10.0, 20.0, 12.0),
+                                    child: FlutterFlowDropDown<String>(
+                                      controller:
+                                          _model.svWorkAreaValueController ??=
+                                              FormFieldController<String>(null),
+                                      options: [
+                                        FFLocalizations.of(context).getText(
+                                          '5w6ym44s' /* Leader 1 */,
+                                        ),
+                                        FFLocalizations.of(context).getText(
+                                          'eo1l6wu2' /* Leader 2 */,
+                                        )
+                                      ],
+                                      onChanged: (val) => setState(
+                                          () => _model.svWorkAreaValue = val),
+                                      width: double.infinity,
+                                      height: 56.0,
+                                      textStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Plus Jakarta Sans',
+                                            color: Color(0xFF14181B),
+                                            fontSize: 14.0,
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.normal,
+                                          ),
+                                      hintText:
+                                          FFLocalizations.of(context).getText(
+                                        'jnt45e2u' /* Select Work Area */,
+                                      ),
+                                      icon: Icon(
+                                        Icons.keyboard_arrow_down_rounded,
+                                        color: Color(0xFF57636C),
+                                        size: 15.0,
+                                      ),
+                                      fillColor: Colors.white,
+                                      elevation: 2.0,
+                                      borderColor: Color(0xFFE0E3E7),
+                                      borderWidth: 2.0,
+                                      borderRadius: 8.0,
+                                      margin: EdgeInsetsDirectional.fromSTEB(
+                                          20.0, 4.0, 12.0, 4.0),
+                                      hidesUnderline: true,
+                                      isSearchable: false,
+                                      isMultiSelect: false,
+                                    ),
+                                  ),
+                                if ((_model.userRoleValue == 'Superviser') ||
+                                    (_model.userRoleValue == 'Worker'))
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        20.0, 10.0, 20.0, 12.0),
+                                    child: FlutterFlowDropDown<String>(
+                                      controller:
+                                          _model.roleCodeValueController ??=
+                                              FormFieldController<String>(null),
+                                      options: [
+                                        FFLocalizations.of(context).getText(
+                                          'uetymcr3' /* 150: Superviser */,
+                                        ),
+                                        FFLocalizations.of(context).getText(
+                                          'wvxq2hk6' /* 220: fixed point */,
+                                        ),
+                                        FFLocalizations.of(context).getText(
+                                          'w8fw6g5f' /* 250: Garage worker (maintenanc... */,
+                                        ),
+                                        FFLocalizations.of(context).getText(
+                                          'hkhv4hi2' /* 260: Authority workers */,
+                                        ),
+                                        FFLocalizations.of(context).getText(
+                                          '0gasou1f' /* 270: Workers’ driver */,
+                                        ),
+                                        FFLocalizations.of(context).getText(
+                                          'a6fmozgx' /* 280: Authority car driver */,
+                                        ),
+                                        FFLocalizations.of(context).getText(
+                                          'adpbzhca' /* 150- */,
+                                        )
+                                      ],
+                                      onChanged: (val) => setState(
+                                          () => _model.roleCodeValue = val),
+                                      width: double.infinity,
+                                      height: 56.0,
+                                      textStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Plus Jakarta Sans',
+                                            color: Color(0xFF14181B),
+                                            fontSize: 14.0,
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.normal,
+                                          ),
+                                      hintText:
+                                          FFLocalizations.of(context).getText(
+                                        'lr5gpn8h' /* Select code */,
+                                      ),
+                                      icon: Icon(
+                                        Icons.keyboard_arrow_down_rounded,
+                                        color: Color(0xFF57636C),
+                                        size: 15.0,
+                                      ),
+                                      fillColor: Colors.white,
+                                      elevation: 2.0,
+                                      borderColor: Color(0xFFE0E3E7),
+                                      borderWidth: 2.0,
+                                      borderRadius: 8.0,
+                                      margin: EdgeInsetsDirectional.fromSTEB(
+                                          20.0, 4.0, 12.0, 4.0),
+                                      hidesUnderline: true,
+                                      isSearchable: false,
+                                      isMultiSelect: false,
+                                    ),
+                                  ),
+                                Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Expanded(
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            20.0, 10.0, 20.0, 16.0),
+                                        child: TextFormField(
+                                          controller:
+                                              _model.employmentDateController,
+                                          focusNode:
+                                              _model.employmentDateFocusNode,
+                                          textCapitalization:
+                                              TextCapitalization.words,
+                                          readOnly: true,
+                                          obscureText: false,
+                                          decoration: InputDecoration(
+                                            labelText:
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                              '9vjhddi3' /* employment date */,
+                                            ),
+                                            labelStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMedium
+                                                    .override(
+                                                      fontFamily:
+                                                          'Plus Jakarta Sans',
+                                                      color: Color(0xFF57636C),
+                                                      fontSize: 14.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.normal,
+                                                    ),
+                                            hintStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMedium
+                                                    .override(
+                                                      fontFamily:
+                                                          'Plus Jakarta Sans',
+                                                      color: Color(0xFF57636C),
+                                                      fontSize: 14.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.normal,
+                                                    ),
+                                            enabledBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color: Color(0xFFE0E3E7),
+                                                width: 2.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                            ),
+                                            focusedBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color: Color(0xFF4B39EF),
+                                                width: 2.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                            ),
+                                            errorBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color: Color(0xFFFF5963),
+                                                width: 2.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                            ),
+                                            focusedErrorBorder:
+                                                OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color: Color(0xFFFF5963),
+                                                width: 2.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                            ),
+                                            filled: true,
+                                            fillColor: Colors.white,
+                                            contentPadding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    20.0, 24.0, 0.0, 24.0),
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Plus Jakarta Sans',
+                                                color: Color(0xFF14181B),
+                                                fontSize: 14.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.normal,
+                                              ),
+                                          minLines: null,
+                                          validator: _model
+                                              .employmentDateControllerValidator
+                                              .asValidator(context),
+                                        ),
+                                      ),
+                                    ),
+                                    Align(
+                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 16.0, 0.0),
+                                        child: FFButtonWidget(
+                                          onPressed: () async {
+                                            logFirebaseEvent(
+                                                'CREATE_USER_PAGE__BTN_ON_TAP');
+                                            logFirebaseEvent(
+                                                'Button_date_time_picker');
+                                            final _datePicked8Date =
+                                                await showDatePicker(
+                                              context: context,
+                                              initialDate: getCurrentTimestamp,
+                                              firstDate: DateTime(1900),
+                                              lastDate: getCurrentTimestamp,
+                                              builder: (context, child) {
+                                                return wrapInMaterialDatePickerTheme(
+                                                  context,
+                                                  child!,
+                                                  headerBackgroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .primary,
+                                                  headerForegroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .info,
+                                                  headerTextStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .headlineLarge
+                                                          .override(
+                                                            fontFamily:
+                                                                'Outfit',
+                                                            fontSize: 32.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                          ),
+                                                  pickerBackgroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .secondaryBackground,
+                                                  pickerForegroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .primaryText,
+                                                  selectedDateTimeBackgroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .primary,
+                                                  selectedDateTimeForegroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .info,
+                                                  actionButtonForegroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .primaryText,
+                                                  iconSize: 24.0,
+                                                );
+                                              },
+                                            );
+
+                                            if (_datePicked8Date != null) {
+                                              safeSetState(() {
+                                                _model.datePicked8 = DateTime(
+                                                  _datePicked8Date.year,
+                                                  _datePicked8Date.month,
+                                                  _datePicked8Date.day,
+                                                );
+                                              });
+                                            }
+                                            logFirebaseEvent(
+                                                'Button_set_form_field');
+                                            setState(() {
+                                              _model.employmentDateController
+                                                  ?.text = ((String
+                                                      dateTimePickerOutput) {
+                                                return dateTimePickerOutput
+                                                    .split(' ')[0];
+                                              }(
+                                                  _model.datePicked8!
+                                                      .toString()));
+                                            });
+                                          },
+                                          text: FFLocalizations.of(context)
+                                              .getText(
+                                            'uhqbwxnp' /*  */,
+                                          ),
+                                          icon: Icon(
+                                            Icons.calendar_month,
+                                            size: 15.0,
+                                          ),
+                                          options: FFButtonOptions(
+                                            width: 36.0,
+                                            height: 39.0,
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 0.0, 0.0),
+                                            iconPadding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    6.0, 0.0, 0.0, 0.0),
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
+                                            textStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleSmall
+                                                    .override(
+                                                      fontFamily: 'Readex Pro',
+                                                      color: Colors.white,
+                                                      letterSpacing: 0.0,
+                                                    ),
+                                            elevation: 3.0,
+                                            borderSide: BorderSide(
                                               color: Colors.transparent,
                                               width: 1.0,
                                             ),
@@ -5559,7 +6595,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                 ),
                               ],
                             ),
-                          ].divide(const SizedBox(height: 0.0)),
+                          ].divide(SizedBox(height: 0.0)),
                         ),
                       ),
                       Divider(
@@ -5568,12 +6604,12 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                       ),
                       if (_model.userRoleValue == 'Supplier')
                         Align(
-                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Form(
                             key: _model.formKey1,
                             autovalidateMode: AutovalidateMode.disabled,
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 10.0),
                               child: Container(
                                 width: 416.0,
@@ -5590,7 +6626,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                         Expanded(
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     20.0, 0.0, 20.0, 16.0),
                                             child: TextFormField(
                                               controller:
@@ -5613,7 +6649,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              const Color(0xFF57636C),
+                                                              Color(0xFF57636C),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -5626,7 +6662,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              const Color(0xFF57636C),
+                                                              Color(0xFF57636C),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -5634,7 +6670,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                         ),
                                                 enabledBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: const BorderSide(
+                                                  borderSide: BorderSide(
                                                     color: Color(0xFFE0E3E7),
                                                     width: 2.0,
                                                   ),
@@ -5644,7 +6680,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                 ),
                                                 focusedBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: const BorderSide(
+                                                  borderSide: BorderSide(
                                                     color: Color(0xFF4B39EF),
                                                     width: 2.0,
                                                   ),
@@ -5653,7 +6689,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                           8.0),
                                                 ),
                                                 errorBorder: OutlineInputBorder(
-                                                  borderSide: const BorderSide(
+                                                  borderSide: BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 2.0,
                                                   ),
@@ -5663,7 +6699,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                 ),
                                                 focusedErrorBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: const BorderSide(
+                                                  borderSide: BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 2.0,
                                                   ),
@@ -5674,7 +6710,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                 filled: true,
                                                 fillColor: Colors.white,
                                                 contentPadding:
-                                                    const EdgeInsetsDirectional
+                                                    EdgeInsetsDirectional
                                                         .fromSTEB(20.0, 24.0,
                                                             0.0, 24.0),
                                               ),
@@ -5685,7 +6721,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            const Color(0xFF14181B),
+                                                            Color(0xFF14181B),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -5703,7 +6739,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                         Expanded(
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     20.0, 0.0, 20.0, 16.0),
                                             child: TextFormField(
                                               controller:
@@ -5726,7 +6762,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              const Color(0xFF57636C),
+                                                              Color(0xFF57636C),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -5739,7 +6775,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              const Color(0xFF57636C),
+                                                              Color(0xFF57636C),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -5747,7 +6783,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                         ),
                                                 enabledBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: const BorderSide(
+                                                  borderSide: BorderSide(
                                                     color: Color(0xFFE0E3E7),
                                                     width: 2.0,
                                                   ),
@@ -5757,7 +6793,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                 ),
                                                 focusedBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: const BorderSide(
+                                                  borderSide: BorderSide(
                                                     color: Color(0xFF4B39EF),
                                                     width: 2.0,
                                                   ),
@@ -5766,7 +6802,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                           8.0),
                                                 ),
                                                 errorBorder: OutlineInputBorder(
-                                                  borderSide: const BorderSide(
+                                                  borderSide: BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 2.0,
                                                   ),
@@ -5776,7 +6812,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                 ),
                                                 focusedErrorBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: const BorderSide(
+                                                  borderSide: BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 2.0,
                                                   ),
@@ -5787,7 +6823,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                 filled: true,
                                                 fillColor: Colors.white,
                                                 contentPadding:
-                                                    const EdgeInsetsDirectional
+                                                    EdgeInsetsDirectional
                                                         .fromSTEB(20.0, 24.0,
                                                             0.0, 24.0),
                                               ),
@@ -5798,7 +6834,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            const Color(0xFF14181B),
+                                                            Color(0xFF14181B),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -5821,7 +6857,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                         Expanded(
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     20.0, 0.0, 20.0, 16.0),
                                             child: TextFormField(
                                               controller:
@@ -5844,7 +6880,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              const Color(0xFF57636C),
+                                                              Color(0xFF57636C),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -5857,7 +6893,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              const Color(0xFF57636C),
+                                                              Color(0xFF57636C),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -5865,7 +6901,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                         ),
                                                 enabledBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: const BorderSide(
+                                                  borderSide: BorderSide(
                                                     color: Color(0xFFE0E3E7),
                                                     width: 2.0,
                                                   ),
@@ -5875,7 +6911,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                 ),
                                                 focusedBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: const BorderSide(
+                                                  borderSide: BorderSide(
                                                     color: Color(0xFF4B39EF),
                                                     width: 2.0,
                                                   ),
@@ -5884,7 +6920,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                           8.0),
                                                 ),
                                                 errorBorder: OutlineInputBorder(
-                                                  borderSide: const BorderSide(
+                                                  borderSide: BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 2.0,
                                                   ),
@@ -5894,7 +6930,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                 ),
                                                 focusedErrorBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: const BorderSide(
+                                                  borderSide: BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 2.0,
                                                   ),
@@ -5905,7 +6941,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                 filled: true,
                                                 fillColor: Colors.white,
                                                 contentPadding:
-                                                    const EdgeInsetsDirectional
+                                                    EdgeInsetsDirectional
                                                         .fromSTEB(20.0, 24.0,
                                                             0.0, 24.0),
                                               ),
@@ -5916,7 +6952,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            const Color(0xFF14181B),
+                                                            Color(0xFF14181B),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -5939,7 +6975,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                         Expanded(
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     20.0, 0.0, 20.0, 0.0),
                                             child: TextFormField(
                                               controller:
@@ -5963,7 +6999,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              const Color(0xFF57636C),
+                                                              Color(0xFF57636C),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -5976,7 +7012,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              const Color(0xFF57636C),
+                                                              Color(0xFF57636C),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -5984,7 +7020,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                         ),
                                                 enabledBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: const BorderSide(
+                                                  borderSide: BorderSide(
                                                     color: Color(0xFFE0E3E7),
                                                     width: 2.0,
                                                   ),
@@ -5994,7 +7030,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                 ),
                                                 focusedBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: const BorderSide(
+                                                  borderSide: BorderSide(
                                                     color: Color(0xFF4B39EF),
                                                     width: 2.0,
                                                   ),
@@ -6003,7 +7039,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                           8.0),
                                                 ),
                                                 errorBorder: OutlineInputBorder(
-                                                  borderSide: const BorderSide(
+                                                  borderSide: BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 2.0,
                                                   ),
@@ -6013,7 +7049,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                 ),
                                                 focusedErrorBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: const BorderSide(
+                                                  borderSide: BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 2.0,
                                                   ),
@@ -6024,7 +7060,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                 filled: true,
                                                 fillColor: Colors.white,
                                                 contentPadding:
-                                                    const EdgeInsetsDirectional
+                                                    EdgeInsetsDirectional
                                                         .fromSTEB(20.0, 24.0,
                                                             0.0, 24.0),
                                               ),
@@ -6035,7 +7071,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            const Color(0xFF14181B),
+                                                            Color(0xFF14181B),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -6052,10 +7088,10 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, 0.0),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 16.0, 0.0),
                                             child: FFButtonWidget(
                                               onPressed: () async {
@@ -6063,7 +7099,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     'CREATE_USER_PAGE__BTN_ON_TAP');
                                                 logFirebaseEvent(
                                                     'Button_date_time_picker');
-                                                final datePicked7Date =
+                                                final _datePicked9Date =
                                                     await showDatePicker(
                                                   context: context,
                                                   initialDate:
@@ -6121,13 +7157,13 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                   },
                                                 );
 
-                                                if (datePicked7Date != null) {
+                                                if (_datePicked9Date != null) {
                                                   safeSetState(() {
-                                                    _model.datePicked7 =
+                                                    _model.datePicked9 =
                                                         DateTime(
-                                                      datePicked7Date.year,
-                                                      datePicked7Date.month,
-                                                      datePicked7Date.day,
+                                                      _datePicked9Date.year,
+                                                      _datePicked9Date.month,
+                                                      _datePicked9Date.day,
                                                     );
                                                   });
                                                 }
@@ -6135,27 +7171,31 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                     'Button_set_form_field');
                                                 setState(() {
                                                   _model.contractDateController
-                                                          ?.text =
-                                                      _model.datePicked7!
-                                                          .toString();
+                                                      ?.text = ((String
+                                                          dateTimePickerOutput) {
+                                                    return dateTimePickerOutput
+                                                        .split(' ')[0];
+                                                  }(
+                                                      _model.datePicked9!
+                                                          .toString()));
                                                 });
                                               },
                                               text: FFLocalizations.of(context)
                                                   .getText(
                                                 'dl8hsghd' /*  */,
                                               ),
-                                              icon: const Icon(
+                                              icon: Icon(
                                                 Icons.calendar_month,
                                                 size: 15.0,
                                               ),
                                               options: FFButtonOptions(
                                                 width: 36.0,
                                                 height: 39.0,
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 0.0),
                                                 iconPadding:
-                                                    const EdgeInsetsDirectional
+                                                    EdgeInsetsDirectional
                                                         .fromSTEB(
                                                             6.0, 0.0, 0.0, 0.0),
                                                 color:
@@ -6171,7 +7211,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                           letterSpacing: 0.0,
                                                         ),
                                                 elevation: 3.0,
-                                                borderSide: const BorderSide(
+                                                borderSide: BorderSide(
                                                   color: Colors.transparent,
                                                   width: 1.0,
                                                 ),
@@ -6190,7 +7230,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                           ),
                         ),
                       Align(
-                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        alignment: AlignmentDirectional(0.0, 0.0),
                         child: Form(
                           key: _model.formKey13,
                           autovalidateMode: AutovalidateMode.disabled,
@@ -6223,17 +7263,17 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                               .alternate,
                                         ),
                                         Padding(
-                                          padding: const EdgeInsets.all(12.0),
+                                          padding: EdgeInsets.all(12.0),
                                           child: Container(
                                             width: double.infinity,
-                                            constraints: const BoxConstraints(
+                                            constraints: BoxConstraints(
                                               maxWidth: 670.0,
                                             ),
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryBackground,
-                                              boxShadow: const [
+                                              boxShadow: [
                                                 BoxShadow(
                                                   blurRadius: 3.0,
                                                   color: Color(0x33000000),
@@ -6260,7 +7300,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsets.all(24.0),
+                                                        EdgeInsets.all(24.0),
                                                     child: Column(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -6270,7 +7310,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                       children: [
                                                         Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       0.0,
@@ -6294,7 +7334,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                           .start,
                                                                   children: [
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           0.0,
                                                                           0.0,
@@ -6323,7 +7363,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                 children: [
                                                                   Align(
                                                                     alignment:
-                                                                        const AlignmentDirectional(
+                                                                        AlignmentDirectional(
                                                                             -0.01,
                                                                             0.87),
                                                                     child:
@@ -6382,7 +7422,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                             Expanded(
                                                               child: Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -6403,7 +7443,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                   ),
                                                                   child: Stack(
                                                                     alignment:
-                                                                        const AlignmentDirectional(
+                                                                        AlignmentDirectional(
                                                                             0.0,
                                                                             0.0),
                                                                     children: [
@@ -6421,7 +7461,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                                 72.0,
                                                                           ),
                                                                           Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 0.0,
                                                                                 12.0,
                                                                                 0.0,
@@ -6438,7 +7478,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                             ),
                                                                           ),
                                                                           Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 0.0,
                                                                                 4.0,
                                                                                 0.0,
@@ -6458,7 +7498,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                       ),
                                                                       Padding(
                                                                         padding:
-                                                                            const EdgeInsets.all(8.0),
+                                                                            EdgeInsets.all(8.0),
                                                                         child:
                                                                             InkWell(
                                                                           splashColor:
@@ -6523,8 +7563,8 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                                 BorderRadius.circular(10.0),
                                                                             child:
                                                                                 CachedNetworkImage(
-                                                                              fadeInDuration: const Duration(milliseconds: 500),
-                                                                              fadeOutDuration: const Duration(milliseconds: 500),
+                                                                              fadeInDuration: Duration(milliseconds: 500),
+                                                                              fadeOutDuration: Duration(milliseconds: 500),
                                                                               imageUrl: _model.uploadedFileUrl1,
                                                                               width: double.infinity,
                                                                               height: double.infinity,
@@ -6547,12 +7587,12 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                               ),
                                             ),
                                           ).animateOnPageLoad(animationsMap[
-                                              'containerOnPageLoadAnimation3']!),
+                                              'containerOnPageLoadAnimation2']!),
                                         ),
                                       ],
                                     ),
                                   ).animateOnPageLoad(animationsMap[
-                                      'containerOnPageLoadAnimation2']!),
+                                      'containerOnPageLoadAnimation1']!),
                                 ),
                               ],
                             ),
@@ -6560,7 +7600,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                         ),
                       ),
                       Align(
-                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        alignment: AlignmentDirectional(0.0, 0.0),
                         child: Form(
                           key: _model.formKey2,
                           autovalidateMode: AutovalidateMode.disabled,
@@ -6594,10 +7634,10 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(-1.0, 0.0),
+                                              AlignmentDirectional(-1.0, 0.0),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     20.0, 0.0, 0.0, 0.0),
                                             child: Text(
                                               FFLocalizations.of(context)
@@ -6619,10 +7659,10 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(-1.0, 0.0),
+                                              AlignmentDirectional(-1.0, 0.0),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     20.0, 0.0, 0.0, 0.0),
                                             child: Text(
                                               FFLocalizations.of(context)
@@ -6643,17 +7683,17 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                           ),
                                         ),
                                         Padding(
-                                          padding: const EdgeInsets.all(12.0),
+                                          padding: EdgeInsets.all(12.0),
                                           child: Container(
                                             width: double.infinity,
-                                            constraints: const BoxConstraints(
+                                            constraints: BoxConstraints(
                                               maxWidth: 670.0,
                                             ),
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryBackground,
-                                              boxShadow: const [
+                                              boxShadow: [
                                                 BoxShadow(
                                                   blurRadius: 3.0,
                                                   color: Color(0x33000000),
@@ -6680,7 +7720,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsets.all(24.0),
+                                                        EdgeInsets.all(24.0),
                                                     child: Column(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -6690,7 +7730,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                       children: [
                                                         Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       0.0,
@@ -6714,7 +7754,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                           .start,
                                                                   children: [
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           0.0,
                                                                           0.0,
@@ -6734,7 +7774,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                       ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           0.0,
                                                                           0.0,
@@ -6763,7 +7803,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                 children: [
                                                                   Align(
                                                                     alignment:
-                                                                        const AlignmentDirectional(
+                                                                        AlignmentDirectional(
                                                                             -0.01,
                                                                             0.87),
                                                                     child:
@@ -6822,7 +7862,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                             Expanded(
                                                               child: Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -6843,7 +7883,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                   ),
                                                                   child: Stack(
                                                                     alignment:
-                                                                        const AlignmentDirectional(
+                                                                        AlignmentDirectional(
                                                                             0.0,
                                                                             0.0),
                                                                     children: [
@@ -6861,7 +7901,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                                 72.0,
                                                                           ),
                                                                           Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 0.0,
                                                                                 12.0,
                                                                                 0.0,
@@ -6869,7 +7909,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                             child:
                                                                                 Text(
                                                                               FFLocalizations.of(context).getText(
-                                                                                'nsbp09d8' /* Add Photo */,
+                                                                                'dknzyvpb' /* Add Photo */,
                                                                               ),
                                                                               style: FlutterFlowTheme.of(context).titleLarge.override(
                                                                                     fontFamily: 'Outfit',
@@ -6878,7 +7918,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                             ),
                                                                           ),
                                                                           Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 0.0,
                                                                                 4.0,
                                                                                 0.0,
@@ -6886,7 +7926,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                             child:
                                                                                 Text(
                                                                               FFLocalizations.of(context).getText(
-                                                                                'end9cxtz' /* Upload an image here... */,
+                                                                                'v6qutznl' /* Upload an image here... */,
                                                                               ),
                                                                               style: FlutterFlowTheme.of(context).labelMedium.override(
                                                                                     fontFamily: 'Readex Pro',
@@ -6898,7 +7938,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                       ),
                                                                       Padding(
                                                                         padding:
-                                                                            const EdgeInsets.all(8.0),
+                                                                            EdgeInsets.all(8.0),
                                                                         child:
                                                                             InkWell(
                                                                           splashColor:
@@ -6963,8 +8003,8 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                                 BorderRadius.circular(10.0),
                                                                             child:
                                                                                 CachedNetworkImage(
-                                                                              fadeInDuration: const Duration(milliseconds: 500),
-                                                                              fadeOutDuration: const Duration(milliseconds: 500),
+                                                                              fadeInDuration: Duration(milliseconds: 500),
+                                                                              fadeOutDuration: Duration(milliseconds: 500),
                                                                               imageUrl: _model.uploadedFileUrl2,
                                                                               width: double.infinity,
                                                                               height: double.infinity,
@@ -6987,12 +8027,12 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                               ),
                                             ),
                                           ).animateOnPageLoad(animationsMap[
-                                              'containerOnPageLoadAnimation5']!),
+                                              'containerOnPageLoadAnimation4']!),
                                         ),
                                       ],
                                     ),
                                   ).animateOnPageLoad(animationsMap[
-                                      'containerOnPageLoadAnimation4']!),
+                                      'containerOnPageLoadAnimation3']!),
                                 ),
                                 Expanded(
                                   child: Container(
@@ -7008,17 +8048,17 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                           MainAxisAlignment.center,
                                       children: [
                                         Padding(
-                                          padding: const EdgeInsets.all(12.0),
+                                          padding: EdgeInsets.all(12.0),
                                           child: Container(
                                             width: double.infinity,
-                                            constraints: const BoxConstraints(
+                                            constraints: BoxConstraints(
                                               maxWidth: 670.0,
                                             ),
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryBackground,
-                                              boxShadow: const [
+                                              boxShadow: [
                                                 BoxShadow(
                                                   blurRadius: 3.0,
                                                   color: Color(0x33000000),
@@ -7045,7 +8085,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsets.all(24.0),
+                                                        EdgeInsets.all(24.0),
                                                     child: Column(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -7055,7 +8095,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                       children: [
                                                         Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       0.0,
@@ -7079,7 +8119,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                           .start,
                                                                   children: [
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           0.0,
                                                                           0.0,
@@ -7099,7 +8139,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                       ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           0.0,
                                                                           0.0,
@@ -7128,7 +8168,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                 children: [
                                                                   Align(
                                                                     alignment:
-                                                                        const AlignmentDirectional(
+                                                                        AlignmentDirectional(
                                                                             -0.01,
                                                                             0.87),
                                                                     child:
@@ -7187,7 +8227,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                             Expanded(
                                                               child: Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -7208,7 +8248,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                   ),
                                                                   child: Stack(
                                                                     alignment:
-                                                                        const AlignmentDirectional(
+                                                                        AlignmentDirectional(
                                                                             0.0,
                                                                             0.0),
                                                                     children: [
@@ -7226,7 +8266,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                                 72.0,
                                                                           ),
                                                                           Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 0.0,
                                                                                 12.0,
                                                                                 0.0,
@@ -7243,7 +8283,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                             ),
                                                                           ),
                                                                           Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 0.0,
                                                                                 4.0,
                                                                                 0.0,
@@ -7263,7 +8303,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                       ),
                                                                       Padding(
                                                                         padding:
-                                                                            const EdgeInsets.all(8.0),
+                                                                            EdgeInsets.all(8.0),
                                                                         child:
                                                                             InkWell(
                                                                           splashColor:
@@ -7328,8 +8368,8 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                                 BorderRadius.circular(10.0),
                                                                             child:
                                                                                 CachedNetworkImage(
-                                                                              fadeInDuration: const Duration(milliseconds: 500),
-                                                                              fadeOutDuration: const Duration(milliseconds: 500),
+                                                                              fadeInDuration: Duration(milliseconds: 500),
+                                                                              fadeOutDuration: Duration(milliseconds: 500),
                                                                               imageUrl: _model.uploadedFileUrl3,
                                                                               width: double.infinity,
                                                                               height: double.infinity,
@@ -7352,12 +8392,12 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                               ),
                                             ),
                                           ).animateOnPageLoad(animationsMap[
-                                              'containerOnPageLoadAnimation7']!),
+                                              'containerOnPageLoadAnimation6']!),
                                         ),
                                       ],
                                     ),
                                   ).animateOnPageLoad(animationsMap[
-                                      'containerOnPageLoadAnimation6']!),
+                                      'containerOnPageLoadAnimation5']!),
                                 ),
                               ],
                             ),
@@ -7365,7 +8405,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                         ),
                       ),
                       Align(
-                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        alignment: AlignmentDirectional(0.0, 0.0),
                         child: Form(
                           key: _model.formKey6,
                           autovalidateMode: AutovalidateMode.disabled,
@@ -7401,9 +8441,9 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                           ),
                                           Align(
                                             alignment:
-                                                const AlignmentDirectional(-1.0, 0.0),
+                                                AlignmentDirectional(-1.0, 0.0),
                                             child: Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       20.0, 0.0, 0.0, 0.0),
                                               child: Text(
@@ -7426,17 +8466,17 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                             ),
                                           ),
                                           Padding(
-                                            padding: const EdgeInsets.all(12.0),
+                                            padding: EdgeInsets.all(12.0),
                                             child: Container(
                                               width: double.infinity,
-                                              constraints: const BoxConstraints(
+                                              constraints: BoxConstraints(
                                                 maxWidth: 670.0,
                                               ),
                                               decoration: BoxDecoration(
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryBackground,
-                                                boxShadow: const [
+                                                boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 3.0,
                                                     color: Color(0x33000000),
@@ -7464,7 +8504,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                   children: [
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsets.all(24.0),
+                                                          EdgeInsets.all(24.0),
                                                       child: Column(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -7474,7 +8514,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                         children: [
                                                           Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
@@ -7498,7 +8538,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                             .start,
                                                                     children: [
                                                                       Padding(
-                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
                                                                             0.0,
                                                                             0.0,
                                                                             0.0,
@@ -7518,7 +8558,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                         ),
                                                                       ),
                                                                       Padding(
-                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
                                                                             0.0,
                                                                             0.0,
                                                                             0.0,
@@ -7546,7 +8586,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                           .max,
                                                                   children: [
                                                                     Align(
-                                                                      alignment: const AlignmentDirectional(
+                                                                      alignment: AlignmentDirectional(
                                                                           -0.01,
                                                                           0.87),
                                                                       child:
@@ -7601,7 +8641,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                             children: [
                                                               Expanded(
                                                                 child: Padding(
-                                                                  padding: const EdgeInsetsDirectional
+                                                                  padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -7625,7 +8665,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                     child:
                                                                         Stack(
                                                                       alignment:
-                                                                          const AlignmentDirectional(
+                                                                          AlignmentDirectional(
                                                                               0.0,
                                                                               0.0),
                                                                       children: [
@@ -7641,7 +8681,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                               size: 72.0,
                                                                             ),
                                                                             Padding(
-                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                                                                               child: Text(
                                                                                 FFLocalizations.of(context).getText(
                                                                                   'rvu9vpqs' /* Add Photo */,
@@ -7653,7 +8693,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                               ),
                                                                             ),
                                                                             Padding(
-                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                                                                               child: Text(
                                                                                 FFLocalizations.of(context).getText(
                                                                                   'u7fqinzu' /* Upload an image here... */,
@@ -7668,7 +8708,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                         ),
                                                                         Padding(
                                                                           padding:
-                                                                              const EdgeInsets.all(8.0),
+                                                                              EdgeInsets.all(8.0),
                                                                           child:
                                                                               InkWell(
                                                                             splashColor:
@@ -7729,8 +8769,8 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                                 ClipRRect(
                                                                               borderRadius: BorderRadius.circular(10.0),
                                                                               child: CachedNetworkImage(
-                                                                                fadeInDuration: const Duration(milliseconds: 500),
-                                                                                fadeOutDuration: const Duration(milliseconds: 500),
+                                                                                fadeInDuration: Duration(milliseconds: 500),
+                                                                                fadeOutDuration: Duration(milliseconds: 500),
                                                                                 imageUrl: _model.uploadedFileUrl4,
                                                                                 width: double.infinity,
                                                                                 height: double.infinity,
@@ -7753,12 +8793,12 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                 ),
                                               ),
                                             ).animateOnPageLoad(animationsMap[
-                                                'containerOnPageLoadAnimation9']!),
+                                                'containerOnPageLoadAnimation8']!),
                                           ),
                                         ],
                                       ),
                                     ).animateOnPageLoad(animationsMap[
-                                        'containerOnPageLoadAnimation8']!),
+                                        'containerOnPageLoadAnimation7']!),
                                   ),
                                   Expanded(
                                     child: Container(
@@ -7774,17 +8814,17 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                             MainAxisAlignment.center,
                                         children: [
                                           Padding(
-                                            padding: const EdgeInsets.all(12.0),
+                                            padding: EdgeInsets.all(12.0),
                                             child: Container(
                                               width: double.infinity,
-                                              constraints: const BoxConstraints(
+                                              constraints: BoxConstraints(
                                                 maxWidth: 670.0,
                                               ),
                                               decoration: BoxDecoration(
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryBackground,
-                                                boxShadow: const [
+                                                boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 3.0,
                                                     color: Color(0x33000000),
@@ -7812,7 +8852,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                   children: [
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsets.all(24.0),
+                                                          EdgeInsets.all(24.0),
                                                       child: Column(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -7822,7 +8862,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                         children: [
                                                           Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
@@ -7846,7 +8886,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                             .start,
                                                                     children: [
                                                                       Padding(
-                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
                                                                             0.0,
                                                                             0.0,
                                                                             0.0,
@@ -7866,7 +8906,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                         ),
                                                                       ),
                                                                       Padding(
-                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
                                                                             0.0,
                                                                             0.0,
                                                                             0.0,
@@ -7894,7 +8934,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                           .max,
                                                                   children: [
                                                                     Align(
-                                                                      alignment: const AlignmentDirectional(
+                                                                      alignment: AlignmentDirectional(
                                                                           -0.01,
                                                                           0.87),
                                                                       child:
@@ -7949,7 +8989,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                             children: [
                                                               Expanded(
                                                                 child: Padding(
-                                                                  padding: const EdgeInsetsDirectional
+                                                                  padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -7973,7 +9013,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                     child:
                                                                         Stack(
                                                                       alignment:
-                                                                          const AlignmentDirectional(
+                                                                          AlignmentDirectional(
                                                                               0.0,
                                                                               0.0),
                                                                       children: [
@@ -7989,7 +9029,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                               size: 72.0,
                                                                             ),
                                                                             Padding(
-                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                                                                               child: Text(
                                                                                 FFLocalizations.of(context).getText(
                                                                                   'txb2quhn' /* Add Photo */,
@@ -8001,7 +9041,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                               ),
                                                                             ),
                                                                             Padding(
-                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                                                                               child: Text(
                                                                                 FFLocalizations.of(context).getText(
                                                                                   'q1886fcl' /* Upload an image here... */,
@@ -8016,7 +9056,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                         ),
                                                                         Padding(
                                                                           padding:
-                                                                              const EdgeInsets.all(8.0),
+                                                                              EdgeInsets.all(8.0),
                                                                           child:
                                                                               InkWell(
                                                                             splashColor:
@@ -8077,8 +9117,8 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                                 ClipRRect(
                                                                               borderRadius: BorderRadius.circular(10.0),
                                                                               child: CachedNetworkImage(
-                                                                                fadeInDuration: const Duration(milliseconds: 500),
-                                                                                fadeOutDuration: const Duration(milliseconds: 500),
+                                                                                fadeInDuration: Duration(milliseconds: 500),
+                                                                                fadeOutDuration: Duration(milliseconds: 500),
                                                                                 imageUrl: _model.uploadedFileUrl5,
                                                                                 width: double.infinity,
                                                                                 height: double.infinity,
@@ -8101,12 +9141,12 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                 ),
                                               ),
                                             ).animateOnPageLoad(animationsMap[
-                                                'containerOnPageLoadAnimation11']!),
+                                                'containerOnPageLoadAnimation10']!),
                                           ),
                                         ],
                                       ),
                                     ).animateOnPageLoad(animationsMap[
-                                        'containerOnPageLoadAnimation10']!),
+                                        'containerOnPageLoadAnimation9']!),
                                   ),
                                 ],
                               ),
@@ -8116,7 +9156,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                       ),
                       if (_model.userRoleValue != 'Supplier')
                         Align(
-                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Container(
                             width: 416.0,
                             height: 460.0,
@@ -8146,10 +9186,10 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                       children: [
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(-1.0, 0.0),
+                                              AlignmentDirectional(-1.0, 0.0),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     20.0, 0.0, 0.0, 0.0),
                                             child: Text(
                                               FFLocalizations.of(context)
@@ -8170,17 +9210,17 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                           ),
                                         ),
                                         Padding(
-                                          padding: const EdgeInsets.all(12.0),
+                                          padding: EdgeInsets.all(12.0),
                                           child: Container(
                                             width: double.infinity,
-                                            constraints: const BoxConstraints(
+                                            constraints: BoxConstraints(
                                               maxWidth: 670.0,
                                             ),
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryBackground,
-                                              boxShadow: const [
+                                              boxShadow: [
                                                 BoxShadow(
                                                   blurRadius: 3.0,
                                                   color: Color(0x33000000),
@@ -8207,7 +9247,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsets.all(24.0),
+                                                        EdgeInsets.all(24.0),
                                                     child: Column(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -8217,7 +9257,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                       children: [
                                                         Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       0.0,
@@ -8241,7 +9281,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                           .start,
                                                                   children: [
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           0.0,
                                                                           0.0,
@@ -8261,7 +9301,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                       ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           0.0,
                                                                           0.0,
@@ -8290,7 +9330,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                 children: [
                                                                   Align(
                                                                     alignment:
-                                                                        const AlignmentDirectional(
+                                                                        AlignmentDirectional(
                                                                             -0.01,
                                                                             0.87),
                                                                     child:
@@ -8349,7 +9389,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                             Expanded(
                                                               child: Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -8370,7 +9410,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                   ),
                                                                   child: Stack(
                                                                     alignment:
-                                                                        const AlignmentDirectional(
+                                                                        AlignmentDirectional(
                                                                             0.0,
                                                                             0.0),
                                                                     children: [
@@ -8388,7 +9428,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                                 72.0,
                                                                           ),
                                                                           Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 0.0,
                                                                                 12.0,
                                                                                 0.0,
@@ -8405,7 +9445,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                             ),
                                                                           ),
                                                                           Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 0.0,
                                                                                 4.0,
                                                                                 0.0,
@@ -8425,7 +9465,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                       ),
                                                                       Padding(
                                                                         padding:
-                                                                            const EdgeInsets.all(8.0),
+                                                                            EdgeInsets.all(8.0),
                                                                         child:
                                                                             InkWell(
                                                                           splashColor:
@@ -8490,8 +9530,8 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                                                 BorderRadius.circular(10.0),
                                                                             child:
                                                                                 CachedNetworkImage(
-                                                                              fadeInDuration: const Duration(milliseconds: 500),
-                                                                              fadeOutDuration: const Duration(milliseconds: 500),
+                                                                              fadeInDuration: Duration(milliseconds: 500),
+                                                                              fadeOutDuration: Duration(milliseconds: 500),
                                                                               imageUrl: _model.uploadedFileUrl6,
                                                                               width: double.infinity,
                                                                               height: double.infinity,
@@ -8514,21 +9554,21 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                               ),
                                             ),
                                           ).animateOnPageLoad(animationsMap[
-                                              'containerOnPageLoadAnimation13']!),
+                                              'containerOnPageLoadAnimation12']!),
                                         ),
                                       ],
                                     ),
                                   ).animateOnPageLoad(animationsMap[
-                                      'containerOnPageLoadAnimation12']!),
+                                      'containerOnPageLoadAnimation11']!),
                                 ),
                               ],
                             ),
                           ),
                         ),
                       Align(
-                        alignment: const AlignmentDirectional(0.0, 0.05),
+                        alignment: AlignmentDirectional(0.0, 0.05),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 24.0, 0.0, 24.0),
                           child: FFButtonWidget(
                             onPressed: _model.isNext
@@ -8544,18 +9584,6 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                 null ||
                                             !_model.formKey9.currentState!
                                                 .validate()) {
-                                          return;
-                                        }
-                                        if (_model.religionValue == null) {
-                                          return;
-                                        }
-                                        if (_model.genderValue == null) {
-                                          return;
-                                        }
-                                        if (_model.maritalStatusValue == null) {
-                                          return;
-                                        }
-                                        if (_model.countryValue == null) {
                                           return;
                                         }
                                       }),
@@ -8627,13 +9655,6 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                   .validate()) {
                                             return;
                                           }
-                                          if (_model.contractorValue == null) {
-                                            return;
-                                          }
-                                          if (_model.otherStartingShiftValue ==
-                                              null) {
-                                            return;
-                                          }
                                           if (_model.otherShiftPeriodValue ==
                                               null) {
                                             return;
@@ -8695,48 +9716,6 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                   .validate()) {
                                             return;
                                           }
-                                          if (_model.uploadedFileUrl4.isEmpty) {
-                                            ScaffoldMessenger.of(context)
-                                                .showSnackBar(
-                                              SnackBar(
-                                                content: Text(
-                                                  'Please Upload The Front Licsence Photo',
-                                                  style: TextStyle(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .error,
-                                                  ),
-                                                ),
-                                                duration: const Duration(
-                                                    milliseconds: 1900),
-                                                backgroundColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondary,
-                                              ),
-                                            );
-                                            return;
-                                          }
-                                          if (_model.uploadedFileUrl5.isEmpty) {
-                                            ScaffoldMessenger.of(context)
-                                                .showSnackBar(
-                                              SnackBar(
-                                                content: Text(
-                                                  'Please Upload The Back  Licsence Photo',
-                                                  style: TextStyle(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .error,
-                                                  ),
-                                                ),
-                                                duration: const Duration(
-                                                    milliseconds: 2300),
-                                                backgroundColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondary,
-                                              ),
-                                            );
-                                            return;
-                                          }
                                         }
                                       }),
                                       Future(() async {
@@ -8748,48 +9727,6 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                 .validate()) {
                                           return;
                                         }
-                                        if (_model.uploadedFileUrl2.isEmpty) {
-                                          ScaffoldMessenger.of(context)
-                                              .showSnackBar(
-                                            SnackBar(
-                                              content: Text(
-                                                'Please Upload The Front National Photo',
-                                                style: TextStyle(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .error,
-                                                ),
-                                              ),
-                                              duration:
-                                                  const Duration(milliseconds: 2000),
-                                              backgroundColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondary,
-                                            ),
-                                          );
-                                          return;
-                                        }
-                                        if (_model.uploadedFileUrl3.isEmpty) {
-                                          ScaffoldMessenger.of(context)
-                                              .showSnackBar(
-                                            SnackBar(
-                                              content: Text(
-                                                'Please Upload The Back National Photo',
-                                                style: TextStyle(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .error,
-                                                ),
-                                              ),
-                                              duration:
-                                                  const Duration(milliseconds: 2000),
-                                              backgroundColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondary,
-                                            ),
-                                          );
-                                          return;
-                                        }
                                       }),
                                       Future(() async {
                                         logFirebaseEvent(
@@ -8798,27 +9735,6 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                                 null ||
                                             !_model.formKey13.currentState!
                                                 .validate()) {
-                                          return;
-                                        }
-                                        if (_model.uploadedFileUrl1.isEmpty) {
-                                          ScaffoldMessenger.of(context)
-                                              .showSnackBar(
-                                            SnackBar(
-                                              content: Text(
-                                                'Please Upload The A Personal Photo',
-                                                style: TextStyle(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .error,
-                                                ),
-                                              ),
-                                              duration:
-                                                  const Duration(milliseconds: 2000),
-                                              backgroundColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondary,
-                                            ),
-                                          );
                                           return;
                                         }
                                       }),
@@ -8839,15 +9755,6 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                         ),
                                         'role': serializeParam(
                                           _model.userRoleValue,
-                                          ParamType.String,
-                                        ),
-                                        'nationalID': serializeParam(
-                                          _model.nationalIDController
-                                                          .text !=
-                                                      ''
-                                              ? _model.nationalIDController.text
-                                              : _model
-                                                  .passportNoController.text,
                                           ParamType.String,
                                         ),
                                         'image': serializeParam(
@@ -8876,17 +9783,15 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                           ParamType.String,
                                         ),
                                         'birthdate': serializeParam(
-                                          _model.birthdateController
+                                          _model.birthdateController.text !=
+                                                      null &&
+                                                  _model.birthdateController
                                                           .text !=
                                                       ''
                                               ? _model.birthdateController.text
                                               : _model
                                                   .passportBirthdateController
                                                   .text,
-                                          ParamType.String,
-                                        ),
-                                        'country': serializeParam(
-                                          _model.countryValue,
                                           ParamType.String,
                                         ),
                                         'government': serializeParam(
@@ -8906,7 +9811,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                           ParamType.String,
                                         ),
                                         'employmentDate': serializeParam(
-                                          _model.datePicked6,
+                                          _model.datePicked8,
                                           ParamType.DateTime,
                                         ),
                                         'frontNatImageUrl': serializeParam(
@@ -8965,9 +9870,74 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                           _model.userIdd,
                                           ParamType.String,
                                         ),
+                                        'natInfo': serializeParam(
+                                          NationalInformationStruct(
+                                            nationality:
+                                                _model.countryValue == 'Egypt'
+                                                    ? 'Egypt'
+                                                    : _model
+                                                        .nationalityController
+                                                        .text,
+                                            nationalId:
+                                                _model.countryValue == 'Egypt'
+                                                    ? _model
+                                                        .nationalIDController
+                                                        .text
+                                                    : _model
+                                                        .passportNoController
+                                                        .text,
+                                            issuePlace: _model.countryValue ==
+                                                    'Egypt'
+                                                ? _model
+                                                    .natPlaceOfIssueController
+                                                    .text
+                                                : _model
+                                                    .passportPlaceOfIssueController
+                                                    .text,
+                                            issueDate: _model.countryValue ==
+                                                    'Egypt'
+                                                ? _model
+                                                    .natIDDateController.text
+                                                : _model
+                                                    .passportIssueDateController
+                                                    .text,
+                                            expiryDate: _model.countryValue ==
+                                                    'Egypt'
+                                                ? _model
+                                                    .expiryDateController.text
+                                                : _model
+                                                    .passportExpDateController
+                                                    .text,
+                                          ),
+                                          ParamType.DataStruct,
+                                        ),
+                                        'drLicInfo': serializeParam(
+                                          _model.isDriverValue == 'Yes'
+                                              ? DrivingInformationStruct(
+                                                  licsenceType: _model
+                                                      .drivingLicTypeValue,
+                                                  issuePlace: _model
+                                                      .drivLicPlaceOfIssueController
+                                                      .text,
+                                                  issueDate: _model
+                                                      .drivLicIssueDateController
+                                                      .text,
+                                                  expiryDate: _model
+                                                      .drivLicExpiryDateController
+                                                      .text,
+                                                )
+                                              : null,
+                                          ParamType.DataStruct,
+                                        ),
+                                        'contractorRef': serializeParam(
+                                          _model.userRoleValue == 'Worker'
+                                              ? _model.contRef
+                                              : null,
+                                          ParamType.DocumentReference,
+                                        ),
                                       }.withoutNulls,
                                       extra: <String, dynamic>{
-                                        kTransitionInfoKey: const TransitionInfo(
+                                        kTransitionInfoKey: TransitionInfo(
                                           hasTransition: true,
                                           transitionType:
                                               PageTransitionType.leftToRight,
@@ -8983,11 +9953,11 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                             options: FFButtonOptions(
                               width: 270.0,
                               height: 50.0,
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
-                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
-                              color: const Color(0xFF0CA256),
+                              color: Color(0xFF0CA256),
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleMedium
                                   .override(
@@ -8998,7 +9968,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget>
                                     fontWeight: FontWeight.normal,
                                   ),
                               elevation: 2.0,
-                              borderSide: const BorderSide(
+                              borderSide: BorderSide(
                                 color: Colors.transparent,
                                 width: 1.0,
                               ),

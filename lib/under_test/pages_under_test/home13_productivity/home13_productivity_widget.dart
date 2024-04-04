@@ -1,9 +1,13 @@
 import '/flutter_flow/flutter_flow_button_tabbar.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'home13_productivity_model.dart';
 export 'home13_productivity_model.dart';
 
@@ -55,10 +59,10 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 1.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 1.0),
                 child: Container(
                   width: double.infinity,
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                     color: Colors.white,
                     boxShadow: [
                       BoxShadow(
@@ -75,7 +79,7 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             16.0, 32.0, 16.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -89,7 +93,7 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                   .displaySmall
                                   .override(
                                     fontFamily: 'Outfit',
-                                    color: const Color(0xFF14181B),
+                                    color: Color(0xFF14181B),
                                     fontSize: 36.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
@@ -110,7 +114,7 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                 width: 40.0,
                                 height: 40.0,
                                 clipBehavior: Clip.antiAlias,
-                                decoration: const BoxDecoration(
+                                decoration: BoxDecoration(
                                   shape: BoxShape.circle,
                                 ),
                                 child: Image.asset(
@@ -122,14 +126,14 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             16.0, 0.0, 16.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   2.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 FFLocalizations.of(context).getText(
@@ -139,7 +143,7 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                     .displaySmall
                                     .override(
                                       fontFamily: 'Outfit',
-                                      color: const Color(0xFF4B39EF),
+                                      color: Color(0xFF4B39EF),
                                       fontSize: 32.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
@@ -150,18 +154,18 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: EdgeInsets.all(8.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Expanded(
-                              child: SizedBox(
+                              child: Container(
                                 width: double.infinity,
                                 height: 130.0,
                                 child: Stack(
                                   children: [
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 20.0),
                                       child: PageView(
                                         controller:
@@ -170,7 +174,7 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                         scrollDirection: Axis.horizontal,
                                         children: [
                                           Padding(
-                                            padding: const EdgeInsets.all(8.0),
+                                            padding: EdgeInsets.all(8.0),
                                             child: Container(
                                               width: 100.0,
                                               height: 100.0,
@@ -179,17 +183,17 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                                 borderRadius:
                                                     BorderRadius.circular(8.0),
                                                 border: Border.all(
-                                                  color: const Color(0xFFE0E3E7),
+                                                  color: Color(0xFFE0E3E7),
                                                   width: 2.0,
                                                 ),
                                               ),
                                               child: Padding(
-                                                padding: const EdgeInsets.all(16.0),
+                                                padding: EdgeInsets.all(16.0),
                                                 child: Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
                                                   children: [
-                                                    const Icon(
+                                                    Icon(
                                                       Icons
                                                           .folder_special_rounded,
                                                       color: Color(0xFF4B39EF),
@@ -197,7 +201,7 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   16.0,
                                                                   0.0,
@@ -225,7 +229,7 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                                                 .override(
                                                                   fontFamily:
                                                                       'Outfit',
-                                                                  color: const Color(
+                                                                  color: Color(
                                                                       0xFF14181B),
                                                                   fontSize:
                                                                       24.0,
@@ -238,7 +242,7 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                                           ),
                                                           Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         4.0,
@@ -256,7 +260,7 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                                                   .override(
                                                                     fontFamily:
                                                                         'Plus Jakarta Sans',
-                                                                    color: const Color(
+                                                                    color: Color(
                                                                         0xFF57636C),
                                                                     fontSize:
                                                                         14.0,
@@ -277,7 +281,7 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                             ),
                                           ),
                                           Padding(
-                                            padding: const EdgeInsets.all(8.0),
+                                            padding: EdgeInsets.all(8.0),
                                             child: Container(
                                               width: 100.0,
                                               height: 100.0,
@@ -286,17 +290,17 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                                 borderRadius:
                                                     BorderRadius.circular(8.0),
                                                 border: Border.all(
-                                                  color: const Color(0xFFE0E3E7),
+                                                  color: Color(0xFFE0E3E7),
                                                   width: 2.0,
                                                 ),
                                               ),
                                               child: Padding(
-                                                padding: const EdgeInsets.all(16.0),
+                                                padding: EdgeInsets.all(16.0),
                                                 child: Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
                                                   children: [
-                                                    const Icon(
+                                                    Icon(
                                                       Icons
                                                           .folder_special_rounded,
                                                       color: Color(0xFFEE8B60),
@@ -304,7 +308,7 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   16.0,
                                                                   0.0,
@@ -332,7 +336,7 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                                                 .override(
                                                                   fontFamily:
                                                                       'Outfit',
-                                                                  color: const Color(
+                                                                  color: Color(
                                                                       0xFF14181B),
                                                                   fontSize:
                                                                       24.0,
@@ -345,7 +349,7 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                                           ),
                                                           Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         4.0,
@@ -363,7 +367,7 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                                                   .override(
                                                                     fontFamily:
                                                                         'Plus Jakarta Sans',
-                                                                    color: const Color(
+                                                                    color: Color(
                                                                         0xFF57636C),
                                                                     fontSize:
                                                                         14.0,
@@ -384,7 +388,7 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                             ),
                                           ),
                                           Padding(
-                                            padding: const EdgeInsets.all(8.0),
+                                            padding: EdgeInsets.all(8.0),
                                             child: Container(
                                               width: 100.0,
                                               height: 100.0,
@@ -393,17 +397,17 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                                 borderRadius:
                                                     BorderRadius.circular(8.0),
                                                 border: Border.all(
-                                                  color: const Color(0xFFE0E3E7),
+                                                  color: Color(0xFFE0E3E7),
                                                   width: 2.0,
                                                 ),
                                               ),
                                               child: Padding(
-                                                padding: const EdgeInsets.all(16.0),
+                                                padding: EdgeInsets.all(16.0),
                                                 child: Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
                                                   children: [
-                                                    const Icon(
+                                                    Icon(
                                                       Icons
                                                           .folder_special_rounded,
                                                       color: Color(0xFF39D2C0),
@@ -411,7 +415,7 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   16.0,
                                                                   0.0,
@@ -439,7 +443,7 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                                                 .override(
                                                                   fontFamily:
                                                                       'Outfit',
-                                                                  color: const Color(
+                                                                  color: Color(
                                                                       0xFF14181B),
                                                                   fontSize:
                                                                       24.0,
@@ -452,7 +456,7 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                                           ),
                                                           Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         4.0,
@@ -470,7 +474,7 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                                                   .override(
                                                                     fontFamily:
                                                                         'Plus Jakarta Sans',
-                                                                    color: const Color(
+                                                                    color: Color(
                                                                         0xFF57636C),
                                                                     fontSize:
                                                                         14.0,
@@ -494,9 +498,9 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                       ),
                                     ),
                                     Align(
-                                      alignment: const AlignmentDirectional(0.0, 1.0),
+                                      alignment: AlignmentDirectional(0.0, 1.0),
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 10.0),
                                         child: smooth_page_indicator
                                             .SmoothPageIndicator(
@@ -510,11 +514,11 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                                 .animateToPage(
                                               i,
                                               duration:
-                                                  const Duration(milliseconds: 500),
+                                                  Duration(milliseconds: 500),
                                               curve: Curves.ease,
                                             );
                                           },
-                                          effect: const smooth_page_indicator
+                                          effect: smooth_page_indicator
                                               .ExpandingDotsEffect(
                                             expansionFactor: 2.0,
                                             spacing: 8.0,
@@ -543,7 +547,7 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                 child: Column(
                   children: [
                     Align(
-                      alignment: const Alignment(-1.0, 0),
+                      alignment: Alignment(-1.0, 0),
                       child: FlutterFlowButtonTabBar(
                         useToggleButtonStyle: false,
                         isScrollable: true,
@@ -555,18 +559,18 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w500,
                                 ),
-                        unselectedLabelStyle: const TextStyle(),
-                        labelColor: const Color(0xFF4B39EF),
-                        unselectedLabelColor: const Color(0xFF57636C),
-                        backgroundColor: const Color(0x4C4B39EF),
-                        unselectedBackgroundColor: const Color(0xFFE0E3E7),
-                        borderColor: const Color(0xFF4B39EF),
+                        unselectedLabelStyle: TextStyle(),
+                        labelColor: Color(0xFF4B39EF),
+                        unselectedLabelColor: Color(0xFF57636C),
+                        backgroundColor: Color(0x4C4B39EF),
+                        unselectedBackgroundColor: Color(0xFFE0E3E7),
+                        borderColor: Color(0xFF4B39EF),
                         borderWidth: 2.0,
                         borderRadius: 12.0,
                         elevation: 0.0,
-                        labelPadding: const EdgeInsetsDirectional.fromSTEB(
+                        labelPadding: EdgeInsetsDirectional.fromSTEB(
                             16.0, 0.0, 16.0, 0.0),
-                        buttonMargin: const EdgeInsetsDirectional.fromSTEB(
+                        buttonMargin: EdgeInsetsDirectional.fromSTEB(
                             16.0, 12.0, 0.0, 12.0),
                         tabs: [
                           Tab(
@@ -597,7 +601,7 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                               Container(
                                 width: 100.0,
                                 height: 70.0,
-                                decoration: const BoxDecoration(
+                                decoration: BoxDecoration(
                                   color: Colors.white,
                                   boxShadow: [
                                     BoxShadow(
@@ -611,18 +615,18 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                   ],
                                 ),
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       16.0, 8.0, 16.0, 8.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
-                                      const Icon(
+                                      Icon(
                                         Icons.check_box_outline_blank_rounded,
                                         color: Color(0xFF57636C),
                                         size: 24.0,
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             12.0, 0.0, 0.0, 0.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
@@ -632,7 +636,7 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                               .bodyLarge
                                               .override(
                                                 fontFamily: 'Plus Jakarta Sans',
-                                                color: const Color(0xFF14181B),
+                                                color: Color(0xFF14181B),
                                                 fontSize: 16.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
@@ -640,7 +644,7 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             4.0, 0.0, 0.0, 0.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
@@ -650,7 +654,7 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                               .titleSmall
                                               .override(
                                                 fontFamily: 'Plus Jakarta Sans',
-                                                color: const Color(0xFF4B39EF),
+                                                color: Color(0xFF4B39EF),
                                                 fontSize: 16.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,
@@ -662,12 +666,12 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 2.0, 0.0, 0.0),
                                 child: Container(
                                   width: 100.0,
                                   height: 70.0,
-                                  decoration: const BoxDecoration(
+                                  decoration: BoxDecoration(
                                     color: Colors.white,
                                     boxShadow: [
                                       BoxShadow(
@@ -681,19 +685,19 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                     ],
                                   ),
                                   child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         16.0, 8.0, 16.0, 8.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
-                                        const Icon(
+                                        Icon(
                                           Icons.check_box_outline_blank_rounded,
                                           color: Color(0xFF57636C),
                                           size: 24.0,
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   12.0, 0.0, 0.0, 0.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
@@ -704,7 +708,7 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                                 .override(
                                                   fontFamily:
                                                       'Plus Jakarta Sans',
-                                                  color: const Color(0xFF14181B),
+                                                  color: Color(0xFF14181B),
                                                   fontSize: 16.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.normal,
@@ -713,7 +717,7 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   4.0, 0.0, 0.0, 0.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
@@ -724,7 +728,7 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                                 .override(
                                                   fontFamily:
                                                       'Plus Jakarta Sans',
-                                                  color: const Color(0xFF4B39EF),
+                                                  color: Color(0xFF4B39EF),
                                                   fontSize: 16.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
@@ -737,12 +741,12 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 2.0, 0.0, 0.0),
                                 child: Container(
                                   width: 100.0,
                                   height: 70.0,
-                                  decoration: const BoxDecoration(
+                                  decoration: BoxDecoration(
                                     color: Colors.white,
                                     boxShadow: [
                                       BoxShadow(
@@ -756,19 +760,19 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                     ],
                                   ),
                                   child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         16.0, 8.0, 16.0, 8.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
-                                        const Icon(
+                                        Icon(
                                           Icons.check_box_outline_blank_rounded,
                                           color: Color(0xFF57636C),
                                           size: 24.0,
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   12.0, 0.0, 0.0, 0.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
@@ -779,7 +783,7 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                                 .override(
                                                   fontFamily:
                                                       'Plus Jakarta Sans',
-                                                  color: const Color(0xFF14181B),
+                                                  color: Color(0xFF14181B),
                                                   fontSize: 16.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.normal,
@@ -788,7 +792,7 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   4.0, 0.0, 0.0, 0.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
@@ -799,7 +803,7 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                                 .override(
                                                   fontFamily:
                                                       'Plus Jakarta Sans',
-                                                  color: const Color(0xFF4B39EF),
+                                                  color: Color(0xFF4B39EF),
                                                   fontSize: 16.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
@@ -818,13 +822,13 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                             scrollDirection: Axis.vertical,
                             children: [
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     16.0, 12.0, 16.0, 0.0),
                                 child: Container(
                                   width: MediaQuery.sizeOf(context).width * 1.0,
                                   decoration: BoxDecoration(
                                     color: Colors.white,
-                                    boxShadow: const [
+                                    boxShadow: [
                                       BoxShadow(
                                         blurRadius: 3.0,
                                         color: Color(0x25000000),
@@ -837,18 +841,18 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                     borderRadius: BorderRadius.circular(8.0),
                                   ),
                                   child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 5.0, 0.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Padding(
-                                          padding: const EdgeInsets.all(4.0),
+                                          padding: EdgeInsets.all(4.0),
                                           child: Container(
                                             width: 4.0,
                                             height: 90.0,
                                             decoration: BoxDecoration(
-                                              color: const Color(0xFF4B39EF),
+                                              color: Color(0xFF4B39EF),
                                               borderRadius:
                                                   BorderRadius.circular(4.0),
                                             ),
@@ -856,7 +860,7 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   12.0, 12.0, 16.0, 12.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
@@ -874,7 +878,7 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                                         .override(
                                                           fontFamily: 'Outfit',
                                                           color:
-                                                              const Color(0xFF14181B),
+                                                              Color(0xFF14181B),
                                                           fontSize: 24.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -882,7 +886,7 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                                         ),
                                               ),
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 4.0, 0.0, 0.0),
                                                 child: Text(
@@ -897,7 +901,7 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            const Color(0xFF57636C),
+                                                            Color(0xFF57636C),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -906,7 +910,7 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                                 ),
                                               ),
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 4.0, 0.0, 0.0),
                                                 child: Text(
@@ -921,7 +925,7 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            const Color(0xFF4B39EF),
+                                                            Color(0xFF4B39EF),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -938,13 +942,13 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     16.0, 12.0, 16.0, 0.0),
                                 child: Container(
                                   width: MediaQuery.sizeOf(context).width * 1.0,
                                   decoration: BoxDecoration(
                                     color: Colors.white,
-                                    boxShadow: const [
+                                    boxShadow: [
                                       BoxShadow(
                                         blurRadius: 3.0,
                                         color: Color(0x25000000),
@@ -960,19 +964,19 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.all(4.0),
+                                        padding: EdgeInsets.all(4.0),
                                         child: Container(
                                           width: 4.0,
                                           height: 90.0,
                                           decoration: BoxDecoration(
-                                            color: const Color(0xFF39D2C0),
+                                            color: Color(0xFF39D2C0),
                                             borderRadius:
                                                 BorderRadius.circular(4.0),
                                           ),
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             12.0, 12.0, 16.0, 12.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
@@ -990,7 +994,7 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                                       .override(
                                                         fontFamily: 'Outfit',
                                                         color:
-                                                            const Color(0xFF14181B),
+                                                            Color(0xFF14181B),
                                                         fontSize: 24.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -998,7 +1002,7 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                                       ),
                                             ),
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 4.0, 0.0, 0.0),
                                               child: Text(
                                                 FFLocalizations.of(context)
@@ -1012,7 +1016,7 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              const Color(0xFF57636C),
+                                                              Color(0xFF57636C),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -1021,7 +1025,7 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                               ),
                                             ),
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 4.0, 0.0, 0.0),
                                               child: Text(
                                                 FFLocalizations.of(context)
@@ -1035,7 +1039,7 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              const Color(0xFF39D2C0),
+                                                              Color(0xFF39D2C0),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -1051,13 +1055,13 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     16.0, 12.0, 16.0, 0.0),
                                 child: Container(
                                   width: MediaQuery.sizeOf(context).width * 1.0,
                                   decoration: BoxDecoration(
                                     color: Colors.white,
-                                    boxShadow: const [
+                                    boxShadow: [
                                       BoxShadow(
                                         blurRadius: 3.0,
                                         color: Color(0x25000000),
@@ -1073,19 +1077,19 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.all(4.0),
+                                        padding: EdgeInsets.all(4.0),
                                         child: Container(
                                           width: 4.0,
                                           height: 90.0,
                                           decoration: BoxDecoration(
-                                            color: const Color(0xFF39D2C0),
+                                            color: Color(0xFF39D2C0),
                                             borderRadius:
                                                 BorderRadius.circular(4.0),
                                           ),
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             12.0, 12.0, 16.0, 12.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
@@ -1103,7 +1107,7 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                                       .override(
                                                         fontFamily: 'Outfit',
                                                         color:
-                                                            const Color(0xFF14181B),
+                                                            Color(0xFF14181B),
                                                         fontSize: 24.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -1111,7 +1115,7 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                                       ),
                                             ),
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 4.0, 0.0, 0.0),
                                               child: Text(
                                                 FFLocalizations.of(context)
@@ -1125,7 +1129,7 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              const Color(0xFF57636C),
+                                                              Color(0xFF57636C),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -1134,7 +1138,7 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                               ),
                                             ),
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 4.0, 0.0, 0.0),
                                               child: Text(
                                                 FFLocalizations.of(context)
@@ -1148,7 +1152,7 @@ class _Home13ProductivityWidgetState extends State<Home13ProductivityWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              const Color(0xFF39D2C0),
+                                                              Color(0xFF39D2C0),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:

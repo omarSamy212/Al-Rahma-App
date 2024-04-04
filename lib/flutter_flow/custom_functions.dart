@@ -210,7 +210,3 @@ int calculateAge(DateTime birthdate) {
 String? kaloonInSefoon() {
   return "الكالون في السيفون";
 }
-
-String? apache() {
-  return "apache";
-}

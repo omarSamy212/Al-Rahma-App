@@ -3,14 +3,16 @@ import 'dart:async';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
+import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 
 class UsersRecord extends FirestoreRecord {
   UsersRecord._(
-    super.reference,
-    super.data,
-  ) {
+    DocumentReference reference,
+    Map<String, dynamic> data,
+  ) : super(reference, data) {
     _initializeFields();
   }
 
@@ -23,11 +25,6 @@ class UsersRecord extends FirestoreRecord {
   DateTime? _createdTime;
   DateTime? get createdTime => _createdTime;
   bool hasCreatedTime() => _createdTime != null;
-
-  // "contractorRef" field.
-  DocumentReference? _contractorRef;
-  DocumentReference? get contractorRef => _contractorRef;
-  bool hasContractorRef() => _contractorRef != null;
 
   // "firstName" field.
   String? _firstName;
@@ -49,11 +46,6 @@ class UsersRecord extends FirestoreRecord {
   String get gender => _gender ?? '';
   bool hasGender() => _gender != null;
 
-  // "country" field.
-  String? _country;
-  String get country => _country ?? '';
-  bool hasCountry() => _country != null;
-
   // "government" field.
   String? _government;
   String get government => _government ?? '';
@@ -73,11 +65,6 @@ class UsersRecord extends FirestoreRecord {
   String? _socialStatus;
   String get socialStatus => _socialStatus ?? '';
   bool hasSocialStatus() => _socialStatus != null;
-
-  // "nationalID" field.
-  String? _nationalID;
-  String get nationalID => _nationalID ?? '';
-  bool hasNationalID() => _nationalID != null;
 
   // "employmentDate" field.
   DateTime? _employmentDate;
@@ -154,20 +141,34 @@ class UsersRecord extends FirestoreRecord {
   ShiftStruct get shift => _shift ?? ShiftStruct();
   bool hasShift() => _shift != null;
 
+  // "national_information" field.
+  NationalInformationStruct? _nationalInformation;
+  NationalInformationStruct get nationalInformation =>
+      _nationalInformation ?? NationalInformationStruct();
+  bool hasNationalInformation() => _nationalInformation != null;
+
+  // "contractorRef" field.
+  DocumentReference? _contractorRef;
+  DocumentReference? get contractorRef => _contractorRef;
+  bool hasContractorRef() => _contractorRef != null;
+
+  // "drivnig_information" field.
+  DrivingInformationStruct? _drivnigInformation;
+  DrivingInformationStruct get drivnigInformation =>
+      _drivnigInformation ?? DrivingInformationStruct();
+  bool hasDrivnigInformation() => _drivnigInformation != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _createdTime = snapshotData['created_time'] as DateTime?;
-    _contractorRef = snapshotData['contractorRef'] as DocumentReference?;
     _firstName = snapshotData['firstName'] as String?;
     _middleName = snapshotData['middleName'] as String?;
     _lastName = snapshotData['lastName'] as String?;
     _gender = snapshotData['gender'] as String?;
-    _country = snapshotData['country'] as String?;
     _government = snapshotData['government'] as String?;
     _city = snapshotData['city'] as String?;
     _fullAddress = snapshotData['fullAddress'] as String?;
     _socialStatus = snapshotData['socialStatus'] as String?;
-    _nationalID = snapshotData['nationalID'] as String?;
     _employmentDate = snapshotData['employmentDate'] as DateTime?;
     _userCode = snapshotData['userCode'] as String?;
     _accountStatus = snapshotData['accountStatus'] as String?;
@@ -183,6 +184,11 @@ class UsersRecord extends FirestoreRecord {
     _backDrivingLicence = snapshotData['back_driving_licence'] as String?;
     _privileges = UserPrivilegesStruct.maybeFromMap(snapshotData['privileges']);
     _shift = ShiftStruct.maybeFromMap(snapshotData['shift']);
+    _nationalInformation = NationalInformationStruct.maybeFromMap(
+        snapshotData['national_information']);
+    _contractorRef = snapshotData['contractorRef'] as DocumentReference?;
+    _drivnigInformation = DrivingInformationStruct.maybeFromMap(
+        snapshotData['drivnig_information']);
   }
 
   static CollectionReference get collection =>
@@ -221,17 +227,14 @@ class UsersRecord extends FirestoreRecord {
 Map<String, dynamic> createUsersRecordData({
   String? email,
   DateTime? createdTime,
-  DocumentReference? contractorRef,
   String? firstName,
   String? middleName,
   String? lastName,
   String? gender,
-  String? country,
   String? government,
   String? city,
   String? fullAddress,
   String? socialStatus,
-  String? nationalID,
   DateTime? employmentDate,
   String? userCode,
   String? accountStatus,
@@ -247,22 +250,22 @@ Map<String, dynamic> createUsersRecordData({
   String? backDrivingLicence,
   UserPrivilegesStruct? privileges,
   ShiftStruct? shift,
+  NationalInformationStruct? nationalInformation,
+  DocumentReference? contractorRef,
+  DrivingInformationStruct? drivnigInformation,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'email': email,
       'created_time': createdTime,
-      'contractorRef': contractorRef,
       'firstName': firstName,
       'middleName': middleName,
       'lastName': lastName,
       'gender': gender,
-      'country': country,
       'government': government,
       'city': city,
       'fullAddress': fullAddress,
       'socialStatus': socialStatus,
-      'nationalID': nationalID,
       'employmentDate': employmentDate,
       'userCode': userCode,
       'accountStatus': accountStatus,
@@ -278,6 +281,9 @@ Map<String, dynamic> createUsersRecordData({
       'back_driving_licence': backDrivingLicence,
       'privileges': UserPrivilegesStruct().toMap(),
       'shift': ShiftStruct().toMap(),
+      'national_information': NationalInformationStruct().toMap(),
+      'contractorRef': contractorRef,
+      'drivnig_information': DrivingInformationStruct().toMap(),
     }.withoutNulls,
   );
 
@@ -286,6 +292,14 @@ Map<String, dynamic> createUsersRecordData({
 
   // Handle nested data for "shift" field.
   addShiftStructData(firestoreData, shift, 'shift');
+
+  // Handle nested data for "national_information" field.
+  addNationalInformationStructData(
+      firestoreData, nationalInformation, 'national_information');
+
+  // Handle nested data for "drivnig_information" field.
+  addDrivingInformationStructData(
+      firestoreData, drivnigInformation, 'drivnig_information');
 
   return firestoreData;
 }
@@ -297,17 +311,14 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
   bool equals(UsersRecord? e1, UsersRecord? e2) {
     return e1?.email == e2?.email &&
         e1?.createdTime == e2?.createdTime &&
-        e1?.contractorRef == e2?.contractorRef &&
         e1?.firstName == e2?.firstName &&
         e1?.middleName == e2?.middleName &&
         e1?.lastName == e2?.lastName &&
         e1?.gender == e2?.gender &&
-        e1?.country == e2?.country &&
         e1?.government == e2?.government &&
         e1?.city == e2?.city &&
         e1?.fullAddress == e2?.fullAddress &&
         e1?.socialStatus == e2?.socialStatus &&
-        e1?.nationalID == e2?.nationalID &&
         e1?.employmentDate == e2?.employmentDate &&
         e1?.userCode == e2?.userCode &&
         e1?.accountStatus == e2?.accountStatus &&
@@ -322,24 +333,24 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.frontDrivingLicence == e2?.frontDrivingLicence &&
         e1?.backDrivingLicence == e2?.backDrivingLicence &&
         e1?.privileges == e2?.privileges &&
-        e1?.shift == e2?.shift;
+        e1?.shift == e2?.shift &&
+        e1?.nationalInformation == e2?.nationalInformation &&
+        e1?.contractorRef == e2?.contractorRef &&
+        e1?.drivnigInformation == e2?.drivnigInformation;
   }
 
   @override
   int hash(UsersRecord? e) => const ListEquality().hash([
         e?.email,
         e?.createdTime,
-        e?.contractorRef,
         e?.firstName,
         e?.middleName,
         e?.lastName,
         e?.gender,
-        e?.country,
         e?.government,
         e?.city,
         e?.fullAddress,
         e?.socialStatus,
-        e?.nationalID,
         e?.employmentDate,
         e?.userCode,
         e?.accountStatus,
@@ -354,7 +365,10 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.frontDrivingLicence,
         e?.backDrivingLicence,
         e?.privileges,
-        e?.shift
+        e?.shift,
+        e?.nationalInformation,
+        e?.contractorRef,
+        e?.drivnigInformation
       ]);
 
   @override
