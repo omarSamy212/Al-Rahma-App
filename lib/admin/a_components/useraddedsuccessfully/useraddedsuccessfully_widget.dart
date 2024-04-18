@@ -41,16 +41,16 @@ class _UseraddedsuccessfullyWidgetState
     super.initState();
     _model = createModel(context, () => UseraddedsuccessfullyModel());
 
-    _model.nameController ??= TextEditingController();
+    _model.nameTextController ??= TextEditingController();
     _model.nameFocusNode ??= FocusNode();
 
-    _model.idController ??= TextEditingController();
+    _model.idTextController ??= TextEditingController();
     _model.idFocusNode ??= FocusNode();
 
-    _model.emailController ??= TextEditingController();
+    _model.emailTextController ??= TextEditingController();
     _model.emailFocusNode ??= FocusNode();
 
-    _model.passwordController ??= TextEditingController();
+    _model.passwordTextController ??= TextEditingController();
     _model.passwordFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -115,8 +115,11 @@ class _UseraddedsuccessfullyWidgetState
                     '5t0s6h0i' /* User added successfully! */,
                   ),
                   style: FlutterFlowTheme.of(context).headlineSmall.override(
-                        fontFamily: 'Outfit',
+                        fontFamily:
+                            FlutterFlowTheme.of(context).headlineSmallFamily,
                         letterSpacing: 0.0,
+                        useGoogleFonts: GoogleFonts.asMap().containsKey(
+                            FlutterFlowTheme.of(context).headlineSmallFamily),
                       ),
                 ),
               ),
@@ -127,8 +130,11 @@ class _UseraddedsuccessfullyWidgetState
                     'vb3djp9l' /* Here is the login information ... */,
                   ),
                   style: FlutterFlowTheme.of(context).labelMedium.override(
-                        fontFamily: 'Readex Pro',
+                        fontFamily:
+                            FlutterFlowTheme.of(context).labelMediumFamily,
                         letterSpacing: 0.0,
+                        useGoogleFonts: GoogleFonts.asMap().containsKey(
+                            FlutterFlowTheme.of(context).labelMediumFamily),
                       ),
                 ),
               ),
@@ -151,7 +157,7 @@ class _UseraddedsuccessfullyWidgetState
                         padding: EdgeInsetsDirectional.fromSTEB(
                             20.0, 0.0, 20.0, 16.0),
                         child: TextFormField(
-                          controller: _model.nameController,
+                          controller: _model.nameTextController,
                           focusNode: _model.nameFocusNode,
                           textCapitalization: TextCapitalization.words,
                           readOnly: true,
@@ -168,6 +174,8 @@ class _UseraddedsuccessfullyWidgetState
                                   fontSize: 14.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.normal,
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey('Plus Jakarta Sans'),
                                 ),
                             hintStyle: FlutterFlowTheme.of(context)
                                 .labelMedium
@@ -177,6 +185,8 @@ class _UseraddedsuccessfullyWidgetState
                                   fontSize: 14.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.normal,
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey('Plus Jakarta Sans'),
                                 ),
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
@@ -218,9 +228,10 @@ class _UseraddedsuccessfullyWidgetState
                                     fontSize: 14.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey('Plus Jakarta Sans'),
                                   ),
-                          minLines: null,
-                          validator: _model.nameControllerValidator
+                          validator: _model.nameTextControllerValidator
                               .asValidator(context),
                         ),
                       ),
@@ -228,7 +239,7 @@ class _UseraddedsuccessfullyWidgetState
                         padding: EdgeInsetsDirectional.fromSTEB(
                             20.0, 0.0, 20.0, 16.0),
                         child: TextFormField(
-                          controller: _model.idController,
+                          controller: _model.idTextController,
                           focusNode: _model.idFocusNode,
                           textCapitalization: TextCapitalization.words,
                           readOnly: true,
@@ -245,6 +256,8 @@ class _UseraddedsuccessfullyWidgetState
                                   fontSize: 14.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.normal,
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey('Plus Jakarta Sans'),
                                 ),
                             hintStyle: FlutterFlowTheme.of(context)
                                 .labelMedium
@@ -254,6 +267,8 @@ class _UseraddedsuccessfullyWidgetState
                                   fontSize: 14.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.normal,
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey('Plus Jakarta Sans'),
                                 ),
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
@@ -295,17 +310,18 @@ class _UseraddedsuccessfullyWidgetState
                                     fontSize: 14.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey('Plus Jakarta Sans'),
                                   ),
-                          minLines: null,
-                          validator:
-                              _model.idControllerValidator.asValidator(context),
+                          validator: _model.idTextControllerValidator
+                              .asValidator(context),
                         ),
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
                             20.0, 0.0, 20.0, 16.0),
                         child: TextFormField(
-                          controller: _model.emailController,
+                          controller: _model.emailTextController,
                           focusNode: _model.emailFocusNode,
                           textCapitalization: TextCapitalization.words,
                           readOnly: true,
@@ -322,6 +338,8 @@ class _UseraddedsuccessfullyWidgetState
                                   fontSize: 14.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.normal,
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey('Plus Jakarta Sans'),
                                 ),
                             hintStyle: FlutterFlowTheme.of(context)
                                 .labelMedium
@@ -331,6 +349,8 @@ class _UseraddedsuccessfullyWidgetState
                                   fontSize: 14.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.normal,
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey('Plus Jakarta Sans'),
                                 ),
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
@@ -372,9 +392,10 @@ class _UseraddedsuccessfullyWidgetState
                                     fontSize: 14.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey('Plus Jakarta Sans'),
                                   ),
-                          minLines: null,
-                          validator: _model.emailControllerValidator
+                          validator: _model.emailTextControllerValidator
                               .asValidator(context),
                         ),
                       ),
@@ -382,14 +403,14 @@ class _UseraddedsuccessfullyWidgetState
                         padding: EdgeInsetsDirectional.fromSTEB(
                             20.0, 0.0, 20.0, 16.0),
                         child: TextFormField(
-                          controller: _model.passwordController,
+                          controller: _model.passwordTextController,
                           focusNode: _model.passwordFocusNode,
                           onFieldSubmitted: (_) async {
                             logFirebaseEvent(
                                 'USERADDEDSUCCESSFULLY_Password_ON_TEXTFI');
                             logFirebaseEvent('Password_set_form_field');
                             setState(() {
-                              _model.passwordController?.text =
+                              _model.passwordTextController?.text =
                                   functions.generatePassword();
                             });
                           },
@@ -408,6 +429,8 @@ class _UseraddedsuccessfullyWidgetState
                                   fontSize: 14.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.normal,
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey('Plus Jakarta Sans'),
                                 ),
                             hintStyle: FlutterFlowTheme.of(context)
                                 .labelMedium
@@ -417,6 +440,8 @@ class _UseraddedsuccessfullyWidgetState
                                   fontSize: 14.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.normal,
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey('Plus Jakarta Sans'),
                                 ),
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
@@ -458,9 +483,10 @@ class _UseraddedsuccessfullyWidgetState
                                     fontSize: 14.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey('Plus Jakarta Sans'),
                                   ),
-                          minLines: null,
-                          validator: _model.passwordControllerValidator
+                          validator: _model.passwordTextControllerValidator
                               .asValidator(context),
                         ),
                       ),
@@ -482,12 +508,17 @@ class _UseraddedsuccessfullyWidgetState
                           iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color: Color(0xFF0CA256),
-                          textStyle:
-                              FlutterFlowTheme.of(context).titleSmall.override(
-                                    fontFamily: 'Readex Pro',
-                                    color: Colors.white,
-                                    letterSpacing: 0.0,
-                                  ),
+                          textStyle: FlutterFlowTheme.of(context)
+                              .titleSmall
+                              .override(
+                                fontFamily: FlutterFlowTheme.of(context)
+                                    .titleSmallFamily,
+                                color: Colors.white,
+                                letterSpacing: 0.0,
+                                useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                    FlutterFlowTheme.of(context)
+                                        .titleSmallFamily),
+                              ),
                           elevation: 3.0,
                           borderSide: BorderSide(
                             color: Colors.transparent,

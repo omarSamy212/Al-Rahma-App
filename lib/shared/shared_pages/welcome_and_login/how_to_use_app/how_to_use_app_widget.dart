@@ -94,6 +94,8 @@ class _HowToUseAppWidgetState extends State<HowToUseAppWidget> {
                                   fontSize: 32.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w500,
+                                  useGoogleFonts:
+                                      GoogleFonts.asMap().containsKey('Outfit'),
                                 ),
                       ),
                     ),
@@ -122,6 +124,8 @@ class _HowToUseAppWidgetState extends State<HowToUseAppWidget> {
                               fontSize: 12.0,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.normal,
+                              useGoogleFonts:
+                                  GoogleFonts.asMap().containsKey('Outfit'),
                             ),
                       ),
                     ),
@@ -133,14 +137,17 @@ class _HowToUseAppWidgetState extends State<HowToUseAppWidget> {
                           FFLocalizations.of(context).getText(
                             'b2zjs171' /* Here is an intro and descripti... */,
                           ),
-                          style:
-                              FlutterFlowTheme.of(context).labelLarge.override(
-                                    fontFamily: 'Outfit',
-                                    color: Color(0xFF57636C),
-                                    fontSize: 16.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w500,
-                                  ),
+                          style: FlutterFlowTheme.of(context)
+                              .labelLarge
+                              .override(
+                                fontFamily: 'Outfit',
+                                color: Color(0xFF57636C),
+                                fontSize: 16.0,
+                                letterSpacing: 0.0,
+                                fontWeight: FontWeight.w500,
+                                useGoogleFonts:
+                                    GoogleFonts.asMap().containsKey('Outfit'),
+                              ),
                         ),
                       ),
                     ),
@@ -157,6 +164,8 @@ class _HowToUseAppWidgetState extends State<HowToUseAppWidget> {
                               fontSize: 12.0,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.normal,
+                              useGoogleFonts:
+                                  GoogleFonts.asMap().containsKey('Outfit'),
                             ),
                       ),
                     ),
@@ -198,6 +207,8 @@ class _HowToUseAppWidgetState extends State<HowToUseAppWidget> {
                                       fontSize: 14.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
+                                      useGoogleFonts: GoogleFonts.asMap()
+                                          .containsKey('Outfit'),
                                     ),
                               ),
                               Icon(
@@ -248,6 +259,8 @@ class _HowToUseAppWidgetState extends State<HowToUseAppWidget> {
                                       fontSize: 14.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
+                                      useGoogleFonts: GoogleFonts.asMap()
+                                          .containsKey('Outfit'),
                                     ),
                               ),
                               Icon(
@@ -273,6 +286,8 @@ class _HowToUseAppWidgetState extends State<HowToUseAppWidget> {
                               fontSize: 12.0,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.normal,
+                              useGoogleFonts:
+                                  GoogleFonts.asMap().containsKey('Outfit'),
                             ),
                       ),
                     ),
@@ -314,6 +329,8 @@ class _HowToUseAppWidgetState extends State<HowToUseAppWidget> {
                                       fontSize: 14.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
+                                      useGoogleFonts: GoogleFonts.asMap()
+                                          .containsKey('Outfit'),
                                     ),
                               ),
                               Icon(
@@ -364,6 +381,8 @@ class _HowToUseAppWidgetState extends State<HowToUseAppWidget> {
                                       fontSize: 14.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
+                                      useGoogleFonts: GoogleFonts.asMap()
+                                          .containsKey('Outfit'),
                                     ),
                               ),
                               Icon(

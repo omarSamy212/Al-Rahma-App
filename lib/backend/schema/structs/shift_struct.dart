@@ -10,18 +10,12 @@ import '/flutter_flow/flutter_flow_util.dart';
 
 class ShiftStruct extends FFFirebaseStruct {
   ShiftStruct({
-    String? startingShift,
     String? shiftPeriod,
+    String? startShift,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
-  })  : _startingShift = startingShift,
-        _shiftPeriod = shiftPeriod,
+  })  : _shiftPeriod = shiftPeriod,
+        _startShift = startShift,
         super(firestoreUtilData);
-
-  // "startingShift" field.
-  String? _startingShift;
-  String get startingShift => _startingShift ?? '';
-  set startingShift(String? val) => _startingShift = val;
-  bool hasStartingShift() => _startingShift != null;
 
   // "shiftPeriod" field.
   String? _shiftPeriod;
@@ -29,40 +23,46 @@ class ShiftStruct extends FFFirebaseStruct {
   set shiftPeriod(String? val) => _shiftPeriod = val;
   bool hasShiftPeriod() => _shiftPeriod != null;
 
+  // "startShift" field.
+  String? _startShift;
+  String get startShift => _startShift ?? '';
+  set startShift(String? val) => _startShift = val;
+  bool hasStartShift() => _startShift != null;
+
   static ShiftStruct fromMap(Map<String, dynamic> data) => ShiftStruct(
-        startingShift: data['startingShift'] as String?,
         shiftPeriod: data['shiftPeriod'] as String?,
+        startShift: data['startShift'] as String?,
       );
 
   static ShiftStruct? maybeFromMap(dynamic data) =>
       data is Map ? ShiftStruct.fromMap(data.cast<String, dynamic>()) : null;
 
   Map<String, dynamic> toMap() => {
-        'startingShift': _startingShift,
         'shiftPeriod': _shiftPeriod,
+        'startShift': _startShift,
       }.withoutNulls;
 
   @override
   Map<String, dynamic> toSerializableMap() => {
-        'startingShift': serializeParam(
-          _startingShift,
-          ParamType.String,
-        ),
         'shiftPeriod': serializeParam(
           _shiftPeriod,
+          ParamType.String,
+        ),
+        'startShift': serializeParam(
+          _startShift,
           ParamType.String,
         ),
       }.withoutNulls;
 
   static ShiftStruct fromSerializableMap(Map<String, dynamic> data) =>
       ShiftStruct(
-        startingShift: deserializeParam(
-          data['startingShift'],
+        shiftPeriod: deserializeParam(
+          data['shiftPeriod'],
           ParamType.String,
           false,
         ),
-        shiftPeriod: deserializeParam(
-          data['shiftPeriod'],
+        startShift: deserializeParam(
+          data['startShift'],
           ParamType.String,
           false,
         ),
@@ -74,25 +74,25 @@ class ShiftStruct extends FFFirebaseStruct {
   @override
   bool operator ==(Object other) {
     return other is ShiftStruct &&
-        startingShift == other.startingShift &&
-        shiftPeriod == other.shiftPeriod;
+        shiftPeriod == other.shiftPeriod &&
+        startShift == other.startShift;
   }
 
   @override
-  int get hashCode => const ListEquality().hash([startingShift, shiftPeriod]);
+  int get hashCode => const ListEquality().hash([shiftPeriod, startShift]);
 }
 
 ShiftStruct createShiftStruct({
-  String? startingShift,
   String? shiftPeriod,
+  String? startShift,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
   bool create = false,
   bool delete = false,
 }) =>
     ShiftStruct(
-      startingShift: startingShift,
       shiftPeriod: shiftPeriod,
+      startShift: startShift,
       firestoreUtilData: FirestoreUtilData(
         clearUnsetFields: clearUnsetFields,
         create: create,

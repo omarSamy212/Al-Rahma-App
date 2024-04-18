@@ -77,10 +77,13 @@ class _WorkersReviewWidgetState extends State<WorkersReviewWidget> {
                   'e34iw7co' /* Worker Review */,
                 ),
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
-                      fontFamily: 'Outfit',
+                      fontFamily:
+                          FlutterFlowTheme.of(context).headlineMediumFamily,
                       color: Colors.white,
                       fontSize: 22.0,
                       letterSpacing: 0.0,
+                      useGoogleFonts: GoogleFonts.asMap().containsKey(
+                          FlutterFlowTheme.of(context).headlineMediumFamily),
                     ),
               ),
               actions: [],
@@ -166,19 +169,22 @@ class _WorkersReviewWidgetState extends State<WorkersReviewWidget> {
                                                     .getText(
                                                   'zu360fbx' /* Inspector Name */,
                                                 ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyLarge
-                                                        .override(
-                                                          fontFamily:
-                                                              'Plus Jakarta Sans',
-                                                          color:
-                                                              Color(0xFF14181B),
-                                                          fontSize: 16.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.normal,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyLarge
+                                                    .override(
+                                                      fontFamily:
+                                                          'Plus Jakarta Sans',
+                                                      color: Color(0xFF14181B),
+                                                      fontSize: 16.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.normal,
+                                                      useGoogleFonts: GoogleFonts
+                                                              .asMap()
+                                                          .containsKey(
+                                                              'Plus Jakarta Sans'),
+                                                    ),
                                               ),
                                             ),
                                             Row(
@@ -193,7 +199,7 @@ class _WorkersReviewWidgetState extends State<WorkersReviewWidget> {
                                                   child: Text(
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                      '1hy8col7' /* superviser */,
+                                                      '1hy8col7' /* worker */,
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -207,6 +213,11 @@ class _WorkersReviewWidgetState extends State<WorkersReviewWidget> {
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
+                                                          useGoogleFonts:
+                                                              GoogleFonts
+                                                                      .asMap()
+                                                                  .containsKey(
+                                                                      'Plus Jakarta Sans'),
                                                         ),
                                                   ),
                                                 ),
@@ -231,6 +242,11 @@ class _WorkersReviewWidgetState extends State<WorkersReviewWidget> {
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
+                                                          useGoogleFonts:
+                                                              GoogleFonts
+                                                                      .asMap()
+                                                                  .containsKey(
+                                                                      'Plus Jakarta Sans'),
                                                         ),
                                                   ),
                                                 ),
@@ -262,6 +278,11 @@ class _WorkersReviewWidgetState extends State<WorkersReviewWidget> {
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
+                                                          useGoogleFonts:
+                                                              GoogleFonts
+                                                                      .asMap()
+                                                                  .containsKey(
+                                                                      'Plus Jakarta Sans'),
                                                         ),
                                                   ),
                                                 ),
@@ -291,12 +312,17 @@ class _WorkersReviewWidgetState extends State<WorkersReviewWidget> {
                           FFLocalizations.of(context).getText(
                             '5915fyrp' /* Answer the call */,
                           ),
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Readex Pro',
-                                    fontSize: 17.0,
-                                    letterSpacing: 0.0,
-                                  ),
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: FlutterFlowTheme.of(context)
+                                    .bodyMediumFamily,
+                                fontSize: 17.0,
+                                letterSpacing: 0.0,
+                                useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                    FlutterFlowTheme.of(context)
+                                        .bodyMediumFamily),
+                              ),
                         ),
                         RatingBar.builder(
                           onRatingUpdate: (newValue) =>
@@ -325,12 +351,17 @@ class _WorkersReviewWidgetState extends State<WorkersReviewWidget> {
                           FFLocalizations.of(context).getText(
                             'dq04wzzt' /* Street cleanliness */,
                           ),
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Readex Pro',
-                                    fontSize: 17.0,
-                                    letterSpacing: 0.0,
-                                  ),
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: FlutterFlowTheme.of(context)
+                                    .bodyMediumFamily,
+                                fontSize: 17.0,
+                                letterSpacing: 0.0,
+                                useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                    FlutterFlowTheme.of(context)
+                                        .bodyMediumFamily),
+                              ),
                         ),
                         RatingBar.builder(
                           onRatingUpdate: (newValue) =>
@@ -359,12 +390,17 @@ class _WorkersReviewWidgetState extends State<WorkersReviewWidget> {
                           FFLocalizations.of(context).getText(
                             '19e4sfl3' /* manner with supervisor */,
                           ),
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Readex Pro',
-                                    fontSize: 17.0,
-                                    letterSpacing: 0.0,
-                                  ),
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: FlutterFlowTheme.of(context)
+                                    .bodyMediumFamily,
+                                fontSize: 17.0,
+                                letterSpacing: 0.0,
+                                useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                    FlutterFlowTheme.of(context)
+                                        .bodyMediumFamily),
+                              ),
                         ),
                         RatingBar.builder(
                           onRatingUpdate: (newValue) =>
@@ -404,9 +440,13 @@ class _WorkersReviewWidgetState extends State<WorkersReviewWidget> {
                         textStyle: FlutterFlowTheme.of(context)
                             .bodyMedium
                             .override(
-                              fontFamily: 'Readex Pro',
+                              fontFamily:
+                                  FlutterFlowTheme.of(context).bodyMediumFamily,
                               color: FlutterFlowTheme.of(context).primaryText,
                               letterSpacing: 0.0,
+                              useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                  FlutterFlowTheme.of(context)
+                                      .bodyMediumFamily),
                             ),
                         iconColor: FlutterFlowTheme.of(context).primaryText,
                         iconSize: 18.0,
@@ -421,9 +461,13 @@ class _WorkersReviewWidgetState extends State<WorkersReviewWidget> {
                         textStyle: FlutterFlowTheme.of(context)
                             .bodyMedium
                             .override(
-                              fontFamily: 'Readex Pro',
+                              fontFamily:
+                                  FlutterFlowTheme.of(context).bodyMediumFamily,
                               color: FlutterFlowTheme.of(context).secondaryText,
                               letterSpacing: 0.0,
+                              useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                  FlutterFlowTheme.of(context)
+                                      .bodyMediumFamily),
                             ),
                         iconColor: FlutterFlowTheme.of(context).secondaryText,
                         iconSize: 18.0,
@@ -466,12 +510,17 @@ class _WorkersReviewWidgetState extends State<WorkersReviewWidget> {
                           iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color: FlutterFlowTheme.of(context).primaryBackground,
-                          textStyle:
-                              FlutterFlowTheme.of(context).titleSmall.override(
-                                    fontFamily: 'Readex Pro',
-                                    color: FlutterFlowTheme.of(context).error,
-                                    letterSpacing: 0.0,
-                                  ),
+                          textStyle: FlutterFlowTheme.of(context)
+                              .titleSmall
+                              .override(
+                                fontFamily: FlutterFlowTheme.of(context)
+                                    .titleSmallFamily,
+                                color: FlutterFlowTheme.of(context).error,
+                                letterSpacing: 0.0,
+                                useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                    FlutterFlowTheme.of(context)
+                                        .titleSmallFamily),
+                              ),
                           elevation: 0.0,
                           borderSide: BorderSide(
                             color: FlutterFlowTheme.of(context).alternate,
@@ -510,6 +559,8 @@ class _WorkersReviewWidgetState extends State<WorkersReviewWidget> {
                                     fontSize: 18.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w500,
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey('Plus Jakarta Sans'),
                                   ),
                           elevation: 4.0,
                           borderSide: BorderSide(

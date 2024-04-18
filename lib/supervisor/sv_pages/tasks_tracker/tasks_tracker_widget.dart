@@ -27,129 +27,7 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
-  final animationsMap = {
-    'containerOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 40.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 40.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation3': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation4': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'buttonOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 170.0),
-          end: Offset(0.0, 0.0),
-        ),
-        ScaleEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.7, 0.7),
-          end: Offset(1.0, 1.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation5': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -163,6 +41,129 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
       length: 3,
       initialIndex: 0,
     )..addListener(() => setState(() {}));
+    animationsMap.addAll({
+      'containerOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 40.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 40.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 30.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation4': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 30.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'buttonOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 170.0),
+            end: Offset(0.0, 0.0),
+          ),
+          ScaleEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.7, 0.7),
+            end: Offset(1.0, 1.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation5': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 30.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+    });
     setupAnimations(
       animationsMap.values.where((anim) =>
           anim.trigger == AnimationTrigger.onActionTrigger ||
@@ -248,6 +249,8 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                         fontSize: 24.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
+                                        useGoogleFonts: GoogleFonts.asMap()
+                                            .containsKey('Outfit'),
                                         lineHeight: 1.2,
                                       ),
                                 ),
@@ -269,11 +272,16 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Readex Pro',
+                                        fontFamily: FlutterFlowTheme.of(context)
+                                            .bodyMediumFamily,
                                         color:
                                             FlutterFlowTheme.of(context).info,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.bold,
+                                        useGoogleFonts: GoogleFonts.asMap()
+                                            .containsKey(
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMediumFamily),
                                       ),
                                 ),
                               ),
@@ -291,10 +299,15 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Readex Pro',
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .bodyMediumFamily,
                                       color: FlutterFlowTheme.of(context).info,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.bold,
+                                      useGoogleFonts: GoogleFonts.asMap()
+                                          .containsKey(
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMediumFamily),
                                     ),
                               ),
                             ),
@@ -364,6 +377,10 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                               fontSize: 16.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
+                                              useGoogleFonts:
+                                                  GoogleFonts.asMap()
+                                                      .containsKey(
+                                                          'Plus Jakarta Sans'),
                                             ),
                                       ),
                                     ),
@@ -374,8 +391,14 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                       style: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(
-                                            fontFamily: 'Readex Pro',
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMediumFamily,
                                             letterSpacing: 0.0,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMediumFamily),
                                           ),
                                     ),
                                   ],
@@ -394,6 +417,8 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                       fontSize: 16.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
+                                      useGoogleFonts: GoogleFonts.asMap()
+                                          .containsKey('Plus Jakarta Sans'),
                                     ),
                               ),
                             ],
@@ -432,6 +457,8 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                     fontSize: 18.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey('Plus Jakarta Sans'),
                                   ),
                               unselectedLabelStyle: TextStyle(),
                               labelColor: FlutterFlowTheme.of(context).primary,
@@ -490,9 +517,9 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
                                             logFirebaseEvent(
-                                                'TASKS_TRACKER_Container_zo6jwdr0_ON_TAP');
+                                                'TASKS_TRACKER_PAGE_TaskCard_ON_TAP');
                                             logFirebaseEvent(
-                                                'Container_navigate_to');
+                                                'TaskCard_navigate_to');
 
                                             context.pushNamed(
                                                 'Tm_Task_Discription');
@@ -548,10 +575,16 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                                   .of(context)
                                                               .headlineSmall
                                                               .override(
-                                                                fontFamily:
-                                                                    'Outfit',
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .headlineSmallFamily,
                                                                 letterSpacing:
                                                                     0.0,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .headlineSmallFamily),
                                                               ),
                                                         ),
                                                       ),
@@ -603,9 +636,11 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                                       .bodyMedium
                                                                       .override(
                                                                         fontFamily:
-                                                                            'Readex Pro',
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                         letterSpacing:
                                                                             0.0,
+                                                                        useGoogleFonts:
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                       ),
                                                               elevation: 0.0,
                                                               borderSide:
@@ -635,8 +670,16 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                         .labelMedium
                                                         .override(
                                                           fontFamily:
-                                                              'Readex Pro',
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMediumFamily,
                                                           letterSpacing: 0.0,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelMediumFamily),
                                                         ),
                                                   ),
                                                   Divider(
@@ -670,6 +713,10 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                               fontWeight:
                                                                   FontWeight
                                                                       .normal,
+                                                              useGoogleFonts: GoogleFonts
+                                                                      .asMap()
+                                                                  .containsKey(
+                                                                      'Plus Jakarta Sans'),
                                                             ),
                                                       ),
                                                       Expanded(
@@ -703,6 +750,10 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          'Plus Jakarta Sans'),
                                                                 ),
                                                           ),
                                                         ),
@@ -742,6 +793,10 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        'Plus Jakarta Sans'),
                                                               ),
                                                         ),
                                                       ),
@@ -764,9 +819,9 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
                                             logFirebaseEvent(
-                                                'TASKS_TRACKER_Container_dsqgkxwp_ON_TAP');
+                                                'TASKS_TRACKER_PAGE_TaskCard_ON_TAP');
                                             logFirebaseEvent(
-                                                'Container_navigate_to');
+                                                'TaskCard_navigate_to');
 
                                             context.pushNamed(
                                                 'Tm_Task_Discription');
@@ -816,16 +871,22 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                           FFLocalizations.of(
                                                                   context)
                                                               .getText(
-                                                            '3z2ps0vh' /* {Task Name} */,
+                                                            'kw0awglp' /* {Task Name} */,
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .headlineSmall
                                                               .override(
-                                                                fontFamily:
-                                                                    'Outfit',
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .headlineSmallFamily,
                                                                 letterSpacing:
                                                                     0.0,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .headlineSmallFamily),
                                                               ),
                                                         ),
                                                       ),
@@ -877,9 +938,11 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                                       .bodyMedium
                                                                       .override(
                                                                         fontFamily:
-                                                                            'Readex Pro',
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                         letterSpacing:
                                                                             0.0,
+                                                                        useGoogleFonts:
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                       ),
                                                               elevation: 0.0,
                                                               borderSide:
@@ -902,15 +965,23 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                   Text(
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                      '7u30f94s' /* {Discription} */,
+                                                      'w9slmqbf' /* {Discription} */,
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .labelMedium
                                                         .override(
                                                           fontFamily:
-                                                              'Readex Pro',
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMediumFamily,
                                                           letterSpacing: 0.0,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelMediumFamily),
                                                         ),
                                                   ),
                                                   Divider(
@@ -928,7 +999,7 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                         FFLocalizations.of(
                                                                 context)
                                                             .getText(
-                                                          'i7n5uma8' /* Due */,
+                                                          '6zucelhn' /* Due */,
                                                         ),
                                                         style: FlutterFlowTheme
                                                                 .of(context)
@@ -944,6 +1015,10 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                               fontWeight:
                                                                   FontWeight
                                                                       .normal,
+                                                              useGoogleFonts: GoogleFonts
+                                                                      .asMap()
+                                                                  .containsKey(
+                                                                      'Plus Jakarta Sans'),
                                                             ),
                                                       ),
                                                       Expanded(
@@ -959,7 +1034,7 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                             FFLocalizations.of(
                                                                     context)
                                                                 .getText(
-                                                              'qs3yu1qw' /* Tuesday, 10:00am */,
+                                                              'gqck59l9' /* Tuesday, 10:00am */,
                                                             ),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
@@ -977,6 +1052,10 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          'Plus Jakarta Sans'),
                                                                 ),
                                                           ),
                                                         ),
@@ -1000,7 +1079,7 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                           FFLocalizations.of(
                                                                   context)
                                                               .getText(
-                                                            'msz8qrb0' /* In Progress */,
+                                                            'cegnnv7t' /* In Progress */,
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
@@ -1016,6 +1095,10 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        'Plus Jakarta Sans'),
                                                               ),
                                                         ),
                                                       ),
@@ -1118,6 +1201,10 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                                 decoration:
                                                                     TextDecoration
                                                                         .lineThrough,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        'Outfit'),
                                                               ),
                                                         ),
                                                         subtitle: Text(
@@ -1143,6 +1230,10 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                                 decoration:
                                                                     TextDecoration
                                                                         .lineThrough,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        'Plus Jakarta Sans'),
                                                               ),
                                                         ),
                                                         tileColor: Colors.white,
@@ -1191,6 +1282,10 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          'Plus Jakarta Sans'),
                                                                 ),
                                                           ),
                                                         ),
@@ -1229,6 +1324,10 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          'Plus Jakarta Sans'),
                                                                 ),
                                                           ),
                                                         ),
@@ -1313,6 +1412,10 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                                 decoration:
                                                                     TextDecoration
                                                                         .lineThrough,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        'Outfit'),
                                                               ),
                                                         ),
                                                         subtitle: Text(
@@ -1338,6 +1441,10 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                                 decoration:
                                                                     TextDecoration
                                                                         .lineThrough,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        'Plus Jakarta Sans'),
                                                               ),
                                                         ),
                                                         tileColor: Colors.white,
@@ -1386,6 +1493,10 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          'Plus Jakarta Sans'),
                                                                 ),
                                                           ),
                                                         ),
@@ -1424,6 +1535,10 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          'Plus Jakarta Sans'),
                                                                 ),
                                                           ),
                                                         ),
@@ -1466,9 +1581,17 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily:
-                                                              'Readex Pro',
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMediumFamily,
                                                           color: Colors.white,
                                                           letterSpacing: 0.0,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily),
                                                         ),
                                                   ),
                                                   duration: Duration(
@@ -1503,9 +1626,17 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                       .titleSmall
                                                       .override(
                                                         fontFamily:
-                                                            'Readex Pro',
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleSmallFamily,
                                                         color: Colors.white,
                                                         letterSpacing: 0.0,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmallFamily),
                                                       ),
                                               elevation: 3.0,
                                               borderSide: BorderSide(
@@ -1525,8 +1656,16 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                           style: FlutterFlowTheme.of(context)
                                               .labelMedium
                                               .override(
-                                                fontFamily: 'Readex Pro',
+                                                fontFamily:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMediumFamily,
                                                 letterSpacing: 0.0,
+                                                useGoogleFonts: GoogleFonts
+                                                        .asMap()
+                                                    .containsKey(
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .labelMediumFamily),
                                               ),
                                         ),
                                       ],
@@ -1595,13 +1734,19 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                                     .of(context)
                                                                 .headlineSmall
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Outfit',
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .headlineSmallFamily,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   decoration:
                                                                       TextDecoration
                                                                           .lineThrough,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .headlineSmallFamily),
                                                                 ),
                                                           ),
                                                         ),
@@ -1656,12 +1801,17 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                                     .labelMedium
                                                                     .override(
                                                                       fontFamily:
-                                                                          'Readex Pro',
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .labelMediumFamily,
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .error,
                                                                       letterSpacing:
                                                                           0.0,
+                                                                      useGoogleFonts: GoogleFonts
+                                                                              .asMap()
+                                                                          .containsKey(
+                                                                              FlutterFlowTheme.of(context).labelMediumFamily),
                                                                     ),
                                                               ),
                                                             ],
@@ -1675,17 +1825,25 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                           .getText(
                                                         'a42jbf5u' /* {Discription} */,
                                                       ),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .labelMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Readex Pro',
-                                                            letterSpacing: 0.0,
-                                                            decoration:
-                                                                TextDecoration
-                                                                    .lineThrough,
-                                                          ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMediumFamily,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                decoration:
+                                                                    TextDecoration
+                                                                        .lineThrough,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .labelMediumFamily),
+                                                              ),
                                                     ),
                                                     Divider(
                                                       height: 24.0,
@@ -1722,6 +1880,10 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          'Plus Jakarta Sans'),
                                                                 ),
                                                           ),
                                                         ),
@@ -1762,6 +1924,10 @@ class _TasksTrackerWidgetState extends State<TasksTrackerWidget>
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          'Plus Jakarta Sans'),
                                                                 ),
                                                           ),
                                                         ),

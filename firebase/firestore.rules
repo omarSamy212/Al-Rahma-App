@@ -39,18 +39,53 @@ service cloud.firestore {
     match /roleDefinitions/{document} {
       allow create: if true;
       allow read: if true;
+      allow write: if true;
+      allow delete: if false;
+    }
+
+    match /tasks/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if false;
+    }
+
+    match /Roles/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if false;
+    }
+
+    match /Role_Mapping/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if false;
+    }
+
+    match /Sectors/{document} {
+      allow create: if true;
+      allow read: if true;
       allow write: if false;
       allow delete: if false;
     }
 
-    match /userRoles/{document} {
+    match /Streets/{document} {
       allow create: if true;
       allow read: if true;
-      allow write: if true;
-      allow delete: if true;
+      allow write: if false;
+      allow delete: if false;
     }
 
-    match /tasks/{document} {
+    match /Leaders/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if false;
+      allow delete: if false;
+    }
+
+    match /Squares/{document} {
       allow create: if true;
       allow read: if true;
       allow write: if false;

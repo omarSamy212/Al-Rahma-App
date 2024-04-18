@@ -14,28 +14,10 @@ import '/backend/schema/structs/index.dart';
 import '/auth/firebase_auth/auth_util.dart';
 
 String generateUserID(String role) {
-  Map<String, int> roleNumberMap = {
-    'operation manager': 1000,
-    'deputy operations manager': 1000,
-    'supervisor': 2000,
-    'storage keeper': 3000,
-    'operations director': 4000,
-    'deputy operations director': 4000,
-    'office manager': 5000,
-    'sector management officer': 5000,
-    'operations management officer': 6000,
-    'vehicle movement manager': 7000,
-    'storage keeper (new equipment)': 8000,
-    'storage keeper (used equipment)': 9000,
-    'sector official': 10000,
-    'worker': 11000,
-  };
-
-  int roleNumber = roleNumberMap[role.toLowerCase()] ?? 0;
-
-  int employeeID = roleNumber;
-
-  return employeeID.toString();
+  debugPrint("Role name of ID: " + role);
+  String roleNumber =
+      (role.toLowerCase() == 'worker' || role == 'عامل') ? '7000' : '1000';
+  return roleNumber;
 }
 
 String generatePassword() {
@@ -209,4 +191,48 @@ int calculateAge(DateTime birthdate) {
 
 String? kaloonInSefoon() {
   return "الكالون في السيفون";
+}
+
+bool? checkNameRegex(
+  String? name,
+  String? sentence,
+) {
+  if (name == null || sentence == null) {
+    // Handle null inputs
+    return false;
+  }
+
+  // Escape special characters in the name to ensure proper regex matching
+  final escapedName = RegExp.escape(name);
+
+  // Construct a regular expression pattern to match any substring containing the name
+  final RegExp regex = RegExp('.*$escapedName.*', caseSensitive: false);
+
+  // Check if the name appears anywhere in the sentence
+  return regex.hasMatch(sentence);
+}
+
+String? mapWorkerName(String? name) {
+  if (name == null) {
+    return "";
+  }
+
+  debugPrint("Data printed: ");
+  debugPrint(name);
+
+  // Define the constant mapping of names
+  final Map<String, String> nameMappings = {
+    "Worker": "عامل",
+    "Superviser": "مشرف",
+    // Add more mappings as needed
+  };
+
+  // Check if the name exists in the mapping, return the Arabic equivalent if found
+  if (nameMappings.containsKey(name)) {
+    debugPrint(nameMappings[name]);
+    return nameMappings[name];
+  } else {
+    // Return null if the name is not found in the mapping
+    return "";
+  }
 }

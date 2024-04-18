@@ -101,7 +101,7 @@ class _HintBeforeapplyjobWidgetState extends State<HintBeforeapplyjobWidget> {
                                             12.0, 0.0, 0.0, 0.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
-                                            'fmmci96o' /* Header One */,
+                                            'fmmci96o' /* Hello there! */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .headlineLarge
@@ -111,6 +111,10 @@ class _HintBeforeapplyjobWidgetState extends State<HintBeforeapplyjobWidget> {
                                                 fontSize: 32.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
+                                                useGoogleFonts:
+                                                    GoogleFonts.asMap()
+                                                        .containsKey(
+                                                            'Urbanist'),
                                               ),
                                         ),
                                       ),
@@ -119,7 +123,7 @@ class _HintBeforeapplyjobWidgetState extends State<HintBeforeapplyjobWidget> {
                                             12.0, 4.0, 12.0, 0.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
-                                            'ct6dtfab' /* Lorem ipsum dolor sit amet, co... */,
+                                            'ct6dtfab' /* This video shows how to fill o... */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .labelLarge
@@ -129,138 +133,14 @@ class _HintBeforeapplyjobWidgetState extends State<HintBeforeapplyjobWidget> {
                                                 fontSize: 16.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,
+                                                useGoogleFonts: GoogleFonts
+                                                        .asMap()
+                                                    .containsKey(
+                                                        'Plus Jakarta Sans'),
                                               ),
                                         ),
                                       ),
                                       Spacer(),
-                                    ],
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.all(12.0),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Expanded(
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 12.0),
-                                          child: ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(12.0),
-                                            child: Image.network(
-                                              'https://images.unsplash.com/photo-1678115039222-662c78072a6b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60',
-                                              width: double.infinity,
-                                              height: 300.0,
-                                              fit: BoxFit.cover,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            12.0, 0.0, 0.0, 0.0),
-                                        child: Text(
-                                          FFLocalizations.of(context).getText(
-                                            'p4bp0i26' /* Header Two */,
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .headlineLarge
-                                              .override(
-                                                fontFamily: 'Urbanist',
-                                                color: Color(0xFF101213),
-                                                fontSize: 32.0,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w600,
-                                              ),
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            12.0, 4.0, 12.0, 0.0),
-                                        child: Text(
-                                          FFLocalizations.of(context).getText(
-                                            '54f3qnfs' /* Lorem ipsum dolor sit amet, co... */,
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .labelLarge
-                                              .override(
-                                                fontFamily: 'Plus Jakarta Sans',
-                                                color: Color(0xFF57636C),
-                                                fontSize: 16.0,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w500,
-                                              ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.all(12.0),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Expanded(
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 12.0),
-                                          child: ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(12.0),
-                                            child: Image.network(
-                                              'https://images.unsplash.com/photo-1678132852119-c03c2e7d2740?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzNnx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60',
-                                              width: double.infinity,
-                                              height: 300.0,
-                                              fit: BoxFit.cover,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            12.0, 0.0, 0.0, 0.0),
-                                        child: Text(
-                                          FFLocalizations.of(context).getText(
-                                            'qh5bjrno' /* Header Three */,
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .headlineLarge
-                                              .override(
-                                                fontFamily: 'Urbanist',
-                                                color: Color(0xFF101213),
-                                                fontSize: 32.0,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w600,
-                                              ),
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            12.0, 4.0, 12.0, 0.0),
-                                        child: Text(
-                                          FFLocalizations.of(context).getText(
-                                            'uxzk0xfn' /* Lorem ipsum dolor sit amet, co... */,
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .labelLarge
-                                              .override(
-                                                fontFamily: 'Plus Jakarta Sans',
-                                                color: Color(0xFF57636C),
-                                                fontSize: 16.0,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w500,
-                                              ),
-                                        ),
-                                      ),
                                     ],
                                   ),
                                 ),
@@ -275,7 +155,7 @@ class _HintBeforeapplyjobWidgetState extends State<HintBeforeapplyjobWidget> {
                               child: smooth_page_indicator.SmoothPageIndicator(
                                 controller: _model.pageViewController ??=
                                     PageController(initialPage: 0),
-                                count: 3,
+                                count: 1,
                                 axisDirection: Axis.horizontal,
                                 onDotClicked: (i) async {
                                   await _model.pageViewController!
@@ -342,6 +222,8 @@ class _HintBeforeapplyjobWidgetState extends State<HintBeforeapplyjobWidget> {
                                   fontSize: 16.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w500,
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey('Plus Jakarta Sans'),
                                 ),
                             elevation: 2.0,
                             borderSide: BorderSide(

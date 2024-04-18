@@ -76,18 +76,21 @@ class AppStateNotifier extends ChangeNotifier {
   }
 }
 
-GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
+GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
+    GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? CheckupWidget() : LoginWidget(),
+      errorBuilder: (context, state) => appStateNotifier.loggedIn
+          ? entryPage ?? CheckupWidget()
+          : LoginWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) =>
-              appStateNotifier.loggedIn ? CheckupWidget() : LoginWidget(),
+          builder: (context, _) => appStateNotifier.loggedIn
+              ? entryPage ?? CheckupWidget()
+              : LoginWidget(),
         ),
         FFRoute(
           name: 'welcome',
@@ -170,10 +173,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               'nickName',
               ParamType.String,
             ),
-            role: params.getParam(
-              'role',
-              ParamType.String,
-            ),
             image: params.getParam(
               'image',
               ParamType.String,
@@ -220,7 +219,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             ),
             employmentDate: params.getParam(
               'employmentDate',
-              ParamType.DateTime,
+              ParamType.String,
             ),
             frontNatImageUrl: params.getParam(
               'frontNatImageUrl',
@@ -254,23 +253,89 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               'userId',
               ParamType.String,
             ),
-            natInfo: params.getParam(
-              'natInfo',
-              ParamType.DataStruct,
-              false,
-              NationalInformationStruct.fromSerializableMap,
-            ),
-            drLicInfo: params.getParam(
-              'drLicInfo',
-              ParamType.DataStruct,
-              false,
-              DrivingInformationStruct.fromSerializableMap,
-            ),
             contractorRef: params.getParam(
               'contractorRef',
               ParamType.DocumentReference,
               false,
               ['contractors'],
+            ),
+            nationalId: params.getParam(
+              'nationalId',
+              ParamType.String,
+            ),
+            natIssuePlace: params.getParam(
+              'natIssuePlace',
+              ParamType.String,
+            ),
+            natIssueDate: params.getParam(
+              'natIssueDate',
+              ParamType.String,
+            ),
+            natExpireDate: params.getParam(
+              'natExpireDate',
+              ParamType.String,
+            ),
+            nationality: params.getParam(
+              'nationality',
+              ParamType.String,
+            ),
+            drLicType: params.getParam(
+              'drLicType',
+              ParamType.String,
+            ),
+            drLicIssuePlace: params.getParam(
+              'drLicIssuePlace',
+              ParamType.String,
+            ),
+            drLicIssueDate: params.getParam(
+              'drLicIssueDate',
+              ParamType.String,
+            ),
+            drLicExpiryDate: params.getParam(
+              'drLicExpiryDate',
+              ParamType.String,
+            ),
+            totalDebit: params.getParam(
+              'totalDebit',
+              ParamType.double,
+            ),
+            totalCredit: params.getParam(
+              'totalCredit',
+              ParamType.double,
+            ),
+            diflictPercentage: params.getParam(
+              'diflictPercentage',
+              ParamType.double,
+            ),
+            shiftPrice: params.getParam(
+              'shiftPrice',
+              ParamType.double,
+            ),
+            contractDate: params.getParam(
+              'contractDate',
+              ParamType.DateTime,
+            ),
+            isDriver: params.getParam(
+              'isDriver',
+              ParamType.bool,
+            ),
+            role: params.getParam(
+              'role',
+              ParamType.DocumentReference,
+              false,
+              ['Roles'],
+            ),
+            educationData: params.getParam(
+              'educationData',
+              ParamType.String,
+            ),
+            isEmployed: params.getParam(
+              'isEmployed',
+              ParamType.String,
+            ),
+            relegion: params.getParam(
+              'relegion',
+              ParamType.String,
             ),
           ),
         ),
@@ -378,19 +443,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => UsersListWidget(),
         ),
         FFRoute(
-          name: 'user_profile',
-          path: '/user_profile',
-          requireAuth: true,
-          builder: (context, params) => UserProfileWidget(
-            userDoc: params.getParam(
-              'userDoc',
-              ParamType.DocumentReference,
-              false,
-              ['users'],
-            ),
-          ),
-        ),
-        FFRoute(
           name: 'list',
           path: '/list',
           builder: (context, params) => ListWidget(),
@@ -399,24 +451,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'Settings1Notifications',
           path: '/settings1Notifications',
           builder: (context, params) => Settings1NotificationsWidget(),
-        ),
-        FFRoute(
-          name: 'updateUser',
-          path: '/updateUser',
-          requireAuth: true,
-          builder: (context, params) => UpdateUserWidget(
-            userRef: params.getParam(
-              'userRef',
-              ParamType.DocumentReference,
-              false,
-              ['users'],
-            ),
-          ),
-        ),
-        FFRoute(
-          name: 'WorkingArea',
-          path: '/workingArea',
-          builder: (context, params) => WorkingAreaWidget(),
         ),
         FFRoute(
           name: 'Sv_Requests',
@@ -452,26 +486,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'DailyReport',
           path: '/dailyReport',
           builder: (context, params) => DailyReportWidget(),
-        ),
-        FFRoute(
-          name: 'Submitting_personal_requests',
-          path: '/submittingPersonalRequests',
-          requireAuth: true,
-          asyncParams: {
-            'supervisorDoc': getDoc(['users'], UsersRecord.fromSnapshot),
-            'requestDec':
-                getDoc(['Tools_Requests'], ToolsRequestsRecord.fromSnapshot),
-          },
-          builder: (context, params) => SubmittingPersonalRequestsWidget(
-            supervisorDoc: params.getParam(
-              'supervisorDoc',
-              ParamType.Document,
-            ),
-            requestDec: params.getParam(
-              'requestDec',
-              ParamType.Document,
-            ),
-          ),
         ),
         FFRoute(
           name: 'Taskdetails',
@@ -548,6 +562,189 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'Sv_RequestsCopy',
           path: '/sv_requestss',
           builder: (context, params) => SvRequestsCopyWidget(),
+        ),
+        FFRoute(
+          name: 'supllierHome',
+          path: '/supllierHome',
+          requireAuth: true,
+          builder: (context, params) => SupllierHomeWidget(),
+        ),
+        FFRoute(
+          name: 'send_personal_request',
+          path: '/sendPersonalRequest',
+          builder: (context, params) => SendPersonalRequestWidget(),
+        ),
+        FFRoute(
+          name: 'workersattendance',
+          path: '/workersattendance',
+          builder: (context, params) => WorkersattendanceWidget(),
+        ),
+        FFRoute(
+          name: 'home',
+          path: '/home',
+          builder: (context, params) => HomeWidget(),
+        ),
+        FFRoute(
+          name: 'Home19PropertyAppbookingapp',
+          path: '/home19PropertyAppbookingapp',
+          builder: (context, params) => Home19PropertyAppbookingappWidget(),
+        ),
+        FFRoute(
+          name: 'rr',
+          path: '/rr',
+          builder: (context, params) => RrWidget(),
+        ),
+        FFRoute(
+          name: 'complaints',
+          path: '/complaints',
+          builder: (context, params) => ComplaintsWidget(),
+        ),
+        FFRoute(
+          name: 'OM_Home',
+          path: '/oMHome',
+          requireAuth: true,
+          builder: (context, params) => OMHomeWidget(),
+        ),
+        FFRoute(
+          name: 'Details03TransactionsSummary',
+          path: '/details03TransactionsSummary',
+          builder: (context, params) => Details03TransactionsSummaryWidget(),
+        ),
+        FFRoute(
+          name: 'OM_complandiscription',
+          path: '/oMComplandiscription',
+          builder: (context, params) => OMComplandiscriptionWidget(),
+        ),
+        FFRoute(
+          name: 'OM_List_work_orders',
+          path: '/oMListWorkOrders',
+          builder: (context, params) => OMListWorkOrdersWidget(),
+        ),
+        FFRoute(
+          name: 'OM_work_Orders_discription',
+          path: '/oMWorkOrdersDiscription',
+          builder: (context, params) => OMWorkOrdersDiscriptionWidget(),
+        ),
+        FFRoute(
+          name: 'List_Ratings',
+          path: '/listRatings',
+          builder: (context, params) => ListRatingsWidget(),
+        ),
+        FFRoute(
+          name: 'dash2',
+          path: '/dash2',
+          builder: (context, params) => Dash2Widget(),
+        ),
+        FFRoute(
+          name: 'List_maps',
+          path: '/listMaps',
+          builder: (context, params) => ListMapsWidget(),
+        ),
+        FFRoute(
+          name: 'Add_maps',
+          path: '/addMaps',
+          builder: (context, params) => AddMapsWidget(
+            latLon: params.getParam(
+              'latLon',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'user_Profile',
+          path: '/userProfile',
+          builder: (context, params) => UserProfileWidget(
+            userDoc: params.getParam(
+              'userDoc',
+              ParamType.DocumentReference,
+              false,
+              ['users'],
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'updateUser',
+          path: '/updateUser',
+          requireAuth: true,
+          builder: (context, params) => UpdateUserWidget(
+            user: params.getParam(
+              'user',
+              ParamType.DocumentReference,
+              false,
+              ['users'],
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'Details20Property',
+          path: '/details20Property',
+          builder: (context, params) => Details20PropertyWidget(),
+        ),
+        FFRoute(
+          name: 'OM_List_All_Task',
+          path: '/oMListAllTask',
+          builder: (context, params) => OMListAllTaskWidget(),
+        ),
+        FFRoute(
+          name: 'OM_Supmited_taskDetalis',
+          path: '/oMSupmitedTaskDetalis',
+          builder: (context, params) => OMSupmitedTaskDetalisWidget(),
+        ),
+        FFRoute(
+          name: 'OM_List_All_DailyReports',
+          path: '/oMListAllDailyReports',
+          builder: (context, params) => OMListAllDailyReportsWidget(),
+        ),
+        FFRoute(
+          name: 'OM_View_DailyReport',
+          path: '/oMViewDailyReport',
+          builder: (context, params) => OMViewDailyReportWidget(),
+        ),
+        FFRoute(
+          name: 'OM_List_Personal_orders',
+          path: '/oMListPersonalOrders',
+          builder: (context, params) => OMListPersonalOrdersWidget(),
+        ),
+        FFRoute(
+          name: 'OM_Personal_Orders_discription',
+          path: '/oMPersonalOrdersDiscription',
+          builder: (context, params) => OMPersonalOrdersDiscriptionWidget(),
+        ),
+        FFRoute(
+          name: 'OM_View_Distribution_of_workers',
+          path: '/oMViewDistributionOfWorkers',
+          builder: (context, params) => OMViewDistributionOfWorkersWidget(),
+        ),
+        FFRoute(
+          name: 'OM_List_Distribution_of_workers',
+          path: '/oMListDistributionOfWorkers',
+          builder: (context, params) => OMListDistributionOfWorkersWidget(),
+        ),
+        FFRoute(
+          name: 'New_Admin_Home',
+          path: '/newAdminHome',
+          requireAuth: true,
+          builder: (context, params) => NewAdminHomeWidget(),
+        ),
+        FFRoute(
+          name: 'Home07Invoices',
+          path: '/home07Invoices',
+          builder: (context, params) => Home07InvoicesWidget(),
+        ),
+        FFRoute(
+          name: 'Manualattendance',
+          path: '/manualattendance',
+          builder: (context, params) => ManualattendanceWidget(),
+        ),
+        FFRoute(
+          name: 'LocationPicker',
+          path: '/locationPicker',
+          builder: (context, params) => LocationPickerWidget(
+            pageName: params.getParam(
+              'pageName',
+              ParamType.String,
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],
@@ -625,7 +822,7 @@ extension _GoRouterStateExtensions on GoRouterState {
       extra != null ? extra as Map<String, dynamic> : {};
   Map<String, dynamic> get allParams => <String, dynamic>{}
     ..addAll(pathParameters)
-    ..addAll(queryParameters)
+    ..addAll(uri.queryParameters)
     ..addAll(extraMap);
   TransitionInfo get transitionInfo => extraMap.containsKey(kTransitionInfoKey)
       ? extraMap[kTransitionInfoKey] as TransitionInfo
@@ -720,7 +917,7 @@ class FFRoute {
           }
 
           if (requireAuth && !appStateNotifier.loggedIn) {
-            appStateNotifier.setRedirectLocationIfUnset(state.location);
+            appStateNotifier.setRedirectLocationIfUnset(state.uri.toString());
             return '/login';
           }
           return null;
@@ -798,7 +995,7 @@ class RootPageContext {
   static bool isInactiveRootPage(BuildContext context) {
     final rootPageContext = context.read<RootPageContext?>();
     final isRootPage = rootPageContext?.isRootPage ?? false;
-    final location = GoRouter.of(context).location;
+    final location = GoRouterState.of(context).uri.toString();
     return isRootPage &&
         location != '/' &&
         location != rootPageContext?.errorRoute;

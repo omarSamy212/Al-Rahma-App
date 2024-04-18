@@ -97,10 +97,13 @@ class _UserCreatedWidgetState extends State<UserCreatedWidget> {
                     '1x4vfeio' /* User Created Successfully */,
                   ),
                   style: FlutterFlowTheme.of(context).headlineSmall.override(
-                        fontFamily: 'Outfit',
+                        fontFamily:
+                            FlutterFlowTheme.of(context).headlineSmallFamily,
                         color: FlutterFlowTheme.of(context).primary,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.w600,
+                        useGoogleFonts: GoogleFonts.asMap().containsKey(
+                            FlutterFlowTheme.of(context).headlineSmallFamily),
                       ),
                 ),
               ),
@@ -118,11 +121,15 @@ class _UserCreatedWidgetState extends State<UserCreatedWidget> {
                           style: FlutterFlowTheme.of(context)
                               .bodyMedium
                               .override(
-                                fontFamily: 'Readex Pro',
+                                fontFamily: FlutterFlowTheme.of(context)
+                                    .bodyMediumFamily,
                                 color:
                                     FlutterFlowTheme.of(context).secondaryText,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.bold,
+                                useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                    FlutterFlowTheme.of(context)
+                                        .bodyMediumFamily),
                               ),
                         ),
                       ),
@@ -159,7 +166,7 @@ class _UserCreatedWidgetState extends State<UserCreatedWidget> {
                                 context.pop();
                               }
                               context.pushNamed(
-                                'user_profile',
+                                'user_Profile',
                                 queryParameters: {
                                   'userDoc': serializeParam(
                                     widget.userObject?.userRef,
@@ -182,9 +189,14 @@ class _UserCreatedWidgetState extends State<UserCreatedWidget> {
                               textStyle: FlutterFlowTheme.of(context)
                                   .labelLarge
                                   .override(
-                                    fontFamily: 'Readex Pro',
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .labelLargeFamily,
                                     color: Colors.white,
                                     letterSpacing: 0.0,
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey(
+                                            FlutterFlowTheme.of(context)
+                                                .labelLargeFamily),
                                   ),
                               elevation: 2.0,
                             ),
@@ -220,9 +232,14 @@ class _UserCreatedWidgetState extends State<UserCreatedWidget> {
                               textStyle: FlutterFlowTheme.of(context)
                                   .labelLarge
                                   .override(
-                                    fontFamily: 'Readex Pro',
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .labelLargeFamily,
                                     color: Colors.white,
                                     letterSpacing: 0.0,
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey(
+                                            FlutterFlowTheme.of(context)
+                                                .labelLargeFamily),
                                   ),
                               elevation: 2.0,
                             ),

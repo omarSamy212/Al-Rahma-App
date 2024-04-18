@@ -18,12 +18,12 @@ class Create04TaskModel extends FlutterFlowModel<Create04TaskWidget> {
   final formKey = GlobalKey<FormState>();
   // State field(s) for task widget.
   FocusNode? taskFocusNode;
-  TextEditingController? taskController;
-  String? Function(BuildContext, String?)? taskControllerValidator;
+  TextEditingController? taskTextController;
+  String? Function(BuildContext, String?)? taskTextControllerValidator;
   // State field(s) for description widget.
   FocusNode? descriptionFocusNode;
-  TextEditingController? descriptionController;
-  String? Function(BuildContext, String?)? descriptionControllerValidator;
+  TextEditingController? descriptionTextController;
+  String? Function(BuildContext, String?)? descriptionTextControllerValidator;
   // State field(s) for ChoiceChips widget.
   FormFieldController<List<String>>? choiceChipsValueController;
   String? get choiceChipsValue =>
@@ -39,9 +39,9 @@ class Create04TaskModel extends FlutterFlowModel<Create04TaskWidget> {
   void dispose() {
     unfocusNode.dispose();
     taskFocusNode?.dispose();
-    taskController?.dispose();
+    taskTextController?.dispose();
 
     descriptionFocusNode?.dispose();
-    descriptionController?.dispose();
+    descriptionTextController?.dispose();
   }
 }

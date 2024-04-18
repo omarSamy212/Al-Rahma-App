@@ -13,17 +13,24 @@ Future<String> generateUserCode(String userRole) async {
   String userIDCategory = generateUserID(userRole);
   String endRange = '';
   String startRange = 'User_' + userIDCategory;
-  if (userIDCategory == '11000') {
+  if (userIDCategory == '7000') {
     endRange = 'infinity';
   } else {
     int tempNumber = int.parse(userIDCategory);
-    int resultNumber = tempNumber + 999;
+    int resultNumber = tempNumber + 5999;
     endRange = 'User_$resultNumber';
   }
+  debugPrint("start range: " + '$startRange');
+  debugPrint("end range: " + '$endRange');
   int userCounts = await getDocumentCount(startRange, endRange);
   int tempNumber = int.parse(userIDCategory);
   int resultNumber = tempNumber + userCounts;
-  return '$resultNumber';
+  debugPrint("resultNumber of ID: " + '$resultNumber');
+  debugPrint("userCounts of ID: " + '$userCounts');
+  debugPrint("tempNumber of ID: " + '$tempNumber');
+  String tempvalue = resultNumber.toString().padLeft(4, '0');
+  debugPrint("Final result: " + '$tempvalue');
+  return tempvalue;
 }
 
 Future<int> getDocumentCount(String startRange, String endRange) async {
@@ -31,7 +38,7 @@ Future<int> getDocumentCount(String startRange, String endRange) async {
 
   QuerySnapshot querySnapshot;
 
-  if (endRange == 'infinity') {
+  if (endRange == 'User_infinity') {
     querySnapshot = await users
         .where(FieldPath.documentId, isGreaterThanOrEqualTo: startRange)
         .get();
@@ -44,5 +51,6 @@ Future<int> getDocumentCount(String startRange, String endRange) async {
 
   return querySnapshot.size;
 }
+
 // Set your action name, define your arguments and return parameter,
 // and then add the boilerplate code using the green button on the right!

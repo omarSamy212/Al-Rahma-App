@@ -26,39 +26,7 @@ class _CheckupWidgetState extends State<CheckupWidget>
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
-  final animationsMap = {
-    'containerOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 270.ms,
-          duration: 1260.ms,
-          begin: 1.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'imageOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 110.ms,
-          duration: 2000.ms,
-          begin: 1.0,
-          end: 1.0,
-        ),
-        ShimmerEffect(
-          curve: Curves.easeInOut,
-          delay: 110.ms,
-          duration: 2000.ms,
-          color: Color(0x80FFFFFF),
-          angle: 0.524,
-        ),
-      ],
-    ),
-  };
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -69,13 +37,17 @@ class _CheckupWidgetState extends State<CheckupWidget>
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       logFirebaseEvent('CHECKUP_PAGE_checkup_ON_INIT_STATE');
+      logFirebaseEvent('checkup_set_app_language');
+      setAppLanguage(context, 'ar');
+      logFirebaseEvent('checkup_set_dark_mode_settings');
+      setDarkModeSetting(context, ThemeMode.light);
       logFirebaseEvent('checkup_wait__delay');
       await Future.delayed(const Duration(milliseconds: 4000));
       if (loggedIn) {
         if (currentUserDocument?.privileges?.roleName == 'Admin') {
           logFirebaseEvent('checkup_navigate_to');
 
-          context.goNamedAuth('Admin_Home', context.mounted);
+          context.goNamedAuth('New_Admin_Home', context.mounted);
 
           return;
         } else {
@@ -142,6 +114,39 @@ class _CheckupWidgetState extends State<CheckupWidget>
       }
     });
 
+    animationsMap.addAll({
+      'containerOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 270.0.ms,
+            duration: 1260.0.ms,
+            begin: 1.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'imageOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 110.0.ms,
+            duration: 2000.0.ms,
+            begin: 1.0,
+            end: 1.0,
+          ),
+          ShimmerEffect(
+            curve: Curves.easeInOut,
+            delay: 110.0.ms,
+            duration: 2000.0.ms,
+            color: Color(0x80FFFFFF),
+            angle: 0.524,
+          ),
+        ],
+      ),
+    });
     setupAnimations(
       animationsMap.values.where((anim) =>
           anim.trigger == AnimationTrigger.onActionTrigger ||

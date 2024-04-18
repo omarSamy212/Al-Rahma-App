@@ -1,13 +1,12 @@
+import '/components/button_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
-import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -25,8 +24,6 @@ class _ApplyforjobWidgetState extends State<ApplyforjobWidget> {
   late ApplyforjobModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  late StreamSubscription<bool> _keyboardVisibilitySubscription;
-  bool _isKeyboardVisible = false;
 
   @override
   void initState() {
@@ -34,15 +31,6 @@ class _ApplyforjobWidgetState extends State<ApplyforjobWidget> {
     _model = createModel(context, () => ApplyforjobModel());
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'applyforjob'});
-    if (!isWeb) {
-      _keyboardVisibilitySubscription =
-          KeyboardVisibilityController().onChange.listen((bool visible) {
-        setState(() {
-          _isKeyboardVisible = visible;
-        });
-      });
-    }
-
     _model.textController1 ??= TextEditingController();
     _model.textFieldFocusNode1 ??= FocusNode();
 
@@ -59,9 +47,6 @@ class _ApplyforjobWidgetState extends State<ApplyforjobWidget> {
   void dispose() {
     _model.dispose();
 
-    if (!isWeb) {
-      _keyboardVisibilitySubscription.cancel();
-    }
     super.dispose();
   }
 
@@ -141,6 +126,8 @@ class _ApplyforjobWidgetState extends State<ApplyforjobWidget> {
                                           fontSize: 48.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.bold,
+                                          useGoogleFonts: GoogleFonts.asMap()
+                                              .containsKey('Urbanist'),
                                         ),
                                   ),
                                 ),
@@ -160,6 +147,8 @@ class _ApplyforjobWidgetState extends State<ApplyforjobWidget> {
                                           fontSize: 16.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w500,
+                                          useGoogleFonts: GoogleFonts.asMap()
+                                              .containsKey('Plus Jakarta Sans'),
                                         ),
                                   ),
                                 ),
@@ -186,6 +175,9 @@ class _ApplyforjobWidgetState extends State<ApplyforjobWidget> {
                                             fontSize: 16.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    'Plus Jakarta Sans'),
                                           ),
                                       enabledBorder: UnderlineInputBorder(
                                         borderSide: BorderSide(
@@ -241,9 +233,10 @@ class _ApplyforjobWidgetState extends State<ApplyforjobWidget> {
                                           fontSize: 16.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w500,
+                                          useGoogleFonts: GoogleFonts.asMap()
+                                              .containsKey('Plus Jakarta Sans'),
                                           lineHeight: 3.0,
                                         ),
-                                    minLines: null,
                                     validator: _model.textController1Validator
                                         .asValidator(context),
                                   ),
@@ -269,6 +262,9 @@ class _ApplyforjobWidgetState extends State<ApplyforjobWidget> {
                                             fontSize: 16.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    'Plus Jakarta Sans'),
                                           ),
                                       enabledBorder: UnderlineInputBorder(
                                         borderSide: BorderSide(
@@ -324,9 +320,10 @@ class _ApplyforjobWidgetState extends State<ApplyforjobWidget> {
                                           fontSize: 16.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w500,
+                                          useGoogleFonts: GoogleFonts.asMap()
+                                              .containsKey('Plus Jakarta Sans'),
                                           lineHeight: 3.0,
                                         ),
-                                    minLines: null,
                                     validator: _model.textController2Validator
                                         .asValidator(context),
                                   ),
@@ -352,6 +349,9 @@ class _ApplyforjobWidgetState extends State<ApplyforjobWidget> {
                                             fontSize: 16.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    'Plus Jakarta Sans'),
                                           ),
                                       enabledBorder: UnderlineInputBorder(
                                         borderSide: BorderSide(
@@ -407,9 +407,10 @@ class _ApplyforjobWidgetState extends State<ApplyforjobWidget> {
                                           fontSize: 16.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w500,
+                                          useGoogleFonts: GoogleFonts.asMap()
+                                              .containsKey('Plus Jakarta Sans'),
                                           lineHeight: 3.0,
                                         ),
-                                    minLines: null,
                                     maxLength: 11,
                                     maxLengthEnforcement:
                                         MaxLengthEnforcement.enforced,
@@ -446,6 +447,8 @@ class _ApplyforjobWidgetState extends State<ApplyforjobWidget> {
                                           fontSize: 16.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w500,
+                                          useGoogleFonts: GoogleFonts.asMap()
+                                              .containsKey('Plus Jakarta Sans'),
                                         ),
                                     hintText:
                                         FFLocalizations.of(context).getText(
@@ -493,6 +496,9 @@ class _ApplyforjobWidgetState extends State<ApplyforjobWidget> {
                                             fontSize: 14.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    'Plus Jakarta Sans'),
                                           ),
                                     ),
                                     tileColor: Colors.white,
@@ -514,46 +520,11 @@ class _ApplyforjobWidgetState extends State<ApplyforjobWidget> {
                           ),
                         ),
                       ),
-                      if (!(isWeb
-                          ? MediaQuery.viewInsetsOf(context).bottom > 0
-                          : _isKeyboardVisible))
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              16.0, 12.0, 16.0, 24.0),
-                          child: FFButtonWidget(
-                            onPressed: () {
-                              print('Button pressed ...');
-                            },
-                            text: FFLocalizations.of(context).getText(
-                              'i9x1onxn' /* Done */,
-                            ),
-                            options: FFButtonOptions(
-                              width: double.infinity,
-                              height: 60.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              color: Color(0xFF101213),
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .titleMedium
-                                  .override(
-                                    fontFamily: 'Plus Jakarta Sans',
-                                    color: Colors.white,
-                                    fontSize: 18.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                              elevation: 4.0,
-                              borderSide: BorderSide(
-                                color: Colors.transparent,
-                                width: 1.0,
-                              ),
-                              borderRadius: BorderRadius.circular(50.0),
-                              hoverColor: Color(0xFF101213),
-                            ),
-                          ),
-                        ),
+                      wrapWithModel(
+                        model: _model.buttonModel,
+                        updateCallback: () => setState(() {}),
+                        child: ButtonWidget(),
+                      ),
                     ],
                   ),
                 ),

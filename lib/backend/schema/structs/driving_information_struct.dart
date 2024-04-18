@@ -11,14 +11,14 @@ import '/flutter_flow/flutter_flow_util.dart';
 class DrivingInformationStruct extends FFFirebaseStruct {
   DrivingInformationStruct({
     String? licsenceType,
-    String? issuePlace,
-    String? issueDate,
     String? expiryDate,
+    String? issueDate,
+    String? issuePlace,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _licsenceType = licsenceType,
-        _issuePlace = issuePlace,
-        _issueDate = issueDate,
         _expiryDate = expiryDate,
+        _issueDate = issueDate,
+        _issuePlace = issuePlace,
         super(firestoreUtilData);
 
   // "licsence_type" field.
@@ -27,11 +27,11 @@ class DrivingInformationStruct extends FFFirebaseStruct {
   set licsenceType(String? val) => _licsenceType = val;
   bool hasLicsenceType() => _licsenceType != null;
 
-  // "issue_place" field.
-  String? _issuePlace;
-  String get issuePlace => _issuePlace ?? '';
-  set issuePlace(String? val) => _issuePlace = val;
-  bool hasIssuePlace() => _issuePlace != null;
+  // "expiry_date" field.
+  String? _expiryDate;
+  String get expiryDate => _expiryDate ?? '';
+  set expiryDate(String? val) => _expiryDate = val;
+  bool hasExpiryDate() => _expiryDate != null;
 
   // "issue_date" field.
   String? _issueDate;
@@ -39,18 +39,18 @@ class DrivingInformationStruct extends FFFirebaseStruct {
   set issueDate(String? val) => _issueDate = val;
   bool hasIssueDate() => _issueDate != null;
 
-  // "expiry_date" field.
-  String? _expiryDate;
-  String get expiryDate => _expiryDate ?? '';
-  set expiryDate(String? val) => _expiryDate = val;
-  bool hasExpiryDate() => _expiryDate != null;
+  // "issue_place" field.
+  String? _issuePlace;
+  String get issuePlace => _issuePlace ?? '';
+  set issuePlace(String? val) => _issuePlace = val;
+  bool hasIssuePlace() => _issuePlace != null;
 
   static DrivingInformationStruct fromMap(Map<String, dynamic> data) =>
       DrivingInformationStruct(
         licsenceType: data['licsence_type'] as String?,
-        issuePlace: data['issue_place'] as String?,
-        issueDate: data['issue_date'] as String?,
         expiryDate: data['expiry_date'] as String?,
+        issueDate: data['issue_date'] as String?,
+        issuePlace: data['issue_place'] as String?,
       );
 
   static DrivingInformationStruct? maybeFromMap(dynamic data) => data is Map
@@ -59,9 +59,9 @@ class DrivingInformationStruct extends FFFirebaseStruct {
 
   Map<String, dynamic> toMap() => {
         'licsence_type': _licsenceType,
-        'issue_place': _issuePlace,
-        'issue_date': _issueDate,
         'expiry_date': _expiryDate,
+        'issue_date': _issueDate,
+        'issue_place': _issuePlace,
       }.withoutNulls;
 
   @override
@@ -70,16 +70,16 @@ class DrivingInformationStruct extends FFFirebaseStruct {
           _licsenceType,
           ParamType.String,
         ),
-        'issue_place': serializeParam(
-          _issuePlace,
+        'expiry_date': serializeParam(
+          _expiryDate,
           ParamType.String,
         ),
         'issue_date': serializeParam(
           _issueDate,
           ParamType.String,
         ),
-        'expiry_date': serializeParam(
-          _expiryDate,
+        'issue_place': serializeParam(
+          _issuePlace,
           ParamType.String,
         ),
       }.withoutNulls;
@@ -92,8 +92,8 @@ class DrivingInformationStruct extends FFFirebaseStruct {
           ParamType.String,
           false,
         ),
-        issuePlace: deserializeParam(
-          data['issue_place'],
+        expiryDate: deserializeParam(
+          data['expiry_date'],
           ParamType.String,
           false,
         ),
@@ -102,8 +102,8 @@ class DrivingInformationStruct extends FFFirebaseStruct {
           ParamType.String,
           false,
         ),
-        expiryDate: deserializeParam(
-          data['expiry_date'],
+        issuePlace: deserializeParam(
+          data['issue_place'],
           ParamType.String,
           false,
         ),
@@ -116,21 +116,21 @@ class DrivingInformationStruct extends FFFirebaseStruct {
   bool operator ==(Object other) {
     return other is DrivingInformationStruct &&
         licsenceType == other.licsenceType &&
-        issuePlace == other.issuePlace &&
+        expiryDate == other.expiryDate &&
         issueDate == other.issueDate &&
-        expiryDate == other.expiryDate;
+        issuePlace == other.issuePlace;
   }
 
   @override
   int get hashCode => const ListEquality()
-      .hash([licsenceType, issuePlace, issueDate, expiryDate]);
+      .hash([licsenceType, expiryDate, issueDate, issuePlace]);
 }
 
 DrivingInformationStruct createDrivingInformationStruct({
   String? licsenceType,
-  String? issuePlace,
-  String? issueDate,
   String? expiryDate,
+  String? issueDate,
+  String? issuePlace,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
   bool create = false,
@@ -138,9 +138,9 @@ DrivingInformationStruct createDrivingInformationStruct({
 }) =>
     DrivingInformationStruct(
       licsenceType: licsenceType,
-      issuePlace: issuePlace,
-      issueDate: issueDate,
       expiryDate: expiryDate,
+      issueDate: issueDate,
+      issuePlace: issuePlace,
       firestoreUtilData: FirestoreUtilData(
         clearUnsetFields: clearUnsetFields,
         create: create,

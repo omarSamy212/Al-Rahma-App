@@ -17,23 +17,24 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class CreateUser2Model extends FlutterFlowModel<CreateUser2Widget> {
   ///  State fields for stateful widgets in this page.
 
   // State field(s) for ID widget.
   FocusNode? idFocusNode;
-  TextEditingController? idController;
-  String? Function(BuildContext, String?)? idControllerValidator;
+  TextEditingController? idTextController;
+  String? Function(BuildContext, String?)? idTextControllerValidator;
   // State field(s) for Email widget.
   FocusNode? emailFocusNode;
-  TextEditingController? emailController;
-  String? Function(BuildContext, String?)? emailControllerValidator;
+  TextEditingController? emailTextController;
+  String? Function(BuildContext, String?)? emailTextControllerValidator;
   // State field(s) for Password widget.
   FocusNode? passwordFocusNode;
-  TextEditingController? passwordController;
-  String? Function(BuildContext, String?)? passwordControllerValidator;
+  TextEditingController? passwordTextController;
+  String? Function(BuildContext, String?)? passwordTextControllerValidator;
+  // Stores action output result for [Backend Call - Read Document] action in Button widget.
+  RolesRecord? userRoleOutput;
   // Stores action output result for [Custom Action - createUser] action in Button widget.
   UserCreationObjectStruct? returnObject;
 
@@ -43,12 +44,12 @@ class CreateUser2Model extends FlutterFlowModel<CreateUser2Widget> {
   @override
   void dispose() {
     idFocusNode?.dispose();
-    idController?.dispose();
+    idTextController?.dispose();
 
     emailFocusNode?.dispose();
-    emailController?.dispose();
+    emailTextController?.dispose();
 
     passwordFocusNode?.dispose();
-    passwordController?.dispose();
+    passwordTextController?.dispose();
   }
 }

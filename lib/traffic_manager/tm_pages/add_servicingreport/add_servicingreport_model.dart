@@ -27,12 +27,13 @@ class AddServicingreportModel
   FormFieldController<String>? tricycleValueController;
   // State field(s) for total_price widget.
   FocusNode? totalPriceFocusNode;
-  TextEditingController? totalPriceController;
-  String? Function(BuildContext, String?)? totalPriceControllerValidator;
+  TextEditingController? totalPriceTextController;
+  String? Function(BuildContext, String?)? totalPriceTextControllerValidator;
   // State field(s) for TextualDetails widget.
   FocusNode? textualDetailsFocusNode;
-  TextEditingController? textualDetailsController;
-  String? Function(BuildContext, String?)? textualDetailsControllerValidator;
+  TextEditingController? textualDetailsTextController;
+  String? Function(BuildContext, String?)?
+      textualDetailsTextControllerValidator;
 
   @override
   void initState(BuildContext context) {}
@@ -41,9 +42,9 @@ class AddServicingreportModel
   void dispose() {
     unfocusNode.dispose();
     totalPriceFocusNode?.dispose();
-    totalPriceController?.dispose();
+    totalPriceTextController?.dispose();
 
     textualDetailsFocusNode?.dispose();
-    textualDetailsController?.dispose();
+    textualDetailsTextController?.dispose();
   }
 }

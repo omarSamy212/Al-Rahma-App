@@ -7,6 +7,8 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/shared/shared_components/our_side_nav/our_side_nav_widget.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart'
+    as smooth_page_indicator;
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -32,111 +34,7 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
-  final animationsMap = {
-    'containerOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 300.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 300.ms,
-          begin: Offset(0.0, 20.0),
-          end: Offset(0.0, 0.0),
-        ),
-        TiltEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 300.ms,
-          begin: Offset(0.698, 0),
-          end: Offset(0, 0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 300.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 300.ms,
-          begin: Offset(0.0, 20.0),
-          end: Offset(0.0, 0.0),
-        ),
-        TiltEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 300.ms,
-          begin: Offset(0.698, 0),
-          end: Offset(0, 0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation3': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 40.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 10.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'iconOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-  };
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -145,6 +43,142 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'supervisor_home'});
+    animationsMap.addAll({
+      'pageViewOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 70.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'imageOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 300.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 300.0.ms,
+            begin: Offset(0.0, 20.0),
+            end: Offset(0.0, 0.0),
+          ),
+          TiltEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 300.0.ms,
+            begin: Offset(0.698, 0),
+            end: Offset(0, 0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 300.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 300.0.ms,
+            begin: Offset(0.0, 20.0),
+            end: Offset(0.0, 0.0),
+          ),
+          TiltEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 300.0.ms,
+            begin: Offset(0.698, 0),
+            end: Offset(0, 0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 40.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 10.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'iconOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 1000.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -229,6 +263,8 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                           fontSize: 36.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
+                                          useGoogleFonts: GoogleFonts.asMap()
+                                              .containsKey('Outfit'),
                                         ),
                                   ).animateOnPageLoad(animationsMap[
                                       'textOnPageLoadAnimation']!),
@@ -256,6 +292,8 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                         fontSize: 18.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
+                                        useGoogleFonts: GoogleFonts.asMap()
+                                            .containsKey('Outfit'),
                                       ),
                                 ),
                               ),
@@ -393,6 +431,10 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                               fontWeight:
                                                                   FontWeight
                                                                       .normal,
+                                                              useGoogleFonts: GoogleFonts
+                                                                      .asMap()
+                                                                  .containsKey(
+                                                                      'Outfit'),
                                                             ),
                                                       ),
                                                     ),
@@ -420,6 +462,10 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                               fontWeight:
                                                                   FontWeight
                                                                       .w600,
+                                                              useGoogleFonts: GoogleFonts
+                                                                      .asMap()
+                                                                  .containsKey(
+                                                                      'Outfit'),
                                                             ),
                                                       ),
                                                     ),
@@ -457,8 +503,9 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Readex Pro',
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily,
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .info,
@@ -467,6 +514,11 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .bold,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyMediumFamily),
                                                                 ),
                                                       ),
                                                     ),
@@ -485,13 +537,21 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily:
-                                                              'Readex Pro',
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMediumFamily,
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .info,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.bold,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily),
                                                         ),
                                                   ),
                                                 ],
@@ -503,6 +563,117 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                     ],
                                   ),
                                 ),
+                              ),
+                              Container(
+                                height: 200.0,
+                                child: Container(
+                                  width: double.infinity,
+                                  height: 530.0,
+                                  child: Stack(
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 10.0, 0.0, 30.0),
+                                        child: PageView(
+                                          controller: _model
+                                                  .pageViewController ??=
+                                              PageController(initialPage: 0),
+                                          scrollDirection: Axis.horizontal,
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      12.0, 0.0, 12.0, 0.0),
+                                              child: ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(12.0),
+                                                child: Image.asset(
+                                                  'assets/images/defbf0f4a9dc47df7c98372ec1d5d6d9e98c5a26-1200x628.png',
+                                                  width: 100.0,
+                                                  height: 100.0,
+                                                  fit: BoxFit.cover,
+                                                ),
+                                              ).animateOnPageLoad(animationsMap[
+                                                  'imageOnPageLoadAnimation']!),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      12.0, 0.0, 12.0, 0.0),
+                                              child: ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(12.0),
+                                                child: Image.network(
+                                                  'https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/a825afbf-a2c1-4ad8-a3a7-f3a4b29d78b8/primary-mens-dri-fit-versatile-tank-RcQ41g.png',
+                                                  width: 100.0,
+                                                  height: 100.0,
+                                                  fit: BoxFit.cover,
+                                                ),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      12.0, 0.0, 12.0, 0.0),
+                                              child: ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(12.0),
+                                                child: Image.network(
+                                                  'https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/dc811684-8b82-4fbf-8db8-df854abc2131/sportswear-phoenix-fleece-womens-oversized-pullover-hoodie-bs372Q.png',
+                                                  width: 100.0,
+                                                  height: 100.0,
+                                                  fit: BoxFit.cover,
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(-0.9, 1.0),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 0.0, 10.0),
+                                          child: smooth_page_indicator
+                                              .SmoothPageIndicator(
+                                            controller: _model
+                                                    .pageViewController ??=
+                                                PageController(initialPage: 0),
+                                            count: 3,
+                                            axisDirection: Axis.horizontal,
+                                            onDotClicked: (i) async {
+                                              await _model.pageViewController!
+                                                  .animateToPage(
+                                                i,
+                                                duration:
+                                                    Duration(milliseconds: 500),
+                                                curve: Curves.ease,
+                                              );
+                                            },
+                                            effect: smooth_page_indicator
+                                                .ExpandingDotsEffect(
+                                              expansionFactor: 2.0,
+                                              spacing: 8.0,
+                                              radius: 16.0,
+                                              dotWidth: 16.0,
+                                              dotHeight: 4.0,
+                                              dotColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .alternate,
+                                              activeDotColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryText,
+                                              paintStyle: PaintingStyle.fill,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ).animateOnPageLoad(animationsMap[
+                                    'pageViewOnPageLoadAnimation']!),
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
@@ -525,8 +696,16 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                             style: FlutterFlowTheme.of(context)
                                                 .headlineMedium
                                                 .override(
-                                                  fontFamily: 'Outfit',
+                                                  fontFamily:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .headlineMediumFamily,
                                                   letterSpacing: 0.0,
+                                                  useGoogleFonts: GoogleFonts
+                                                          .asMap()
+                                                      .containsKey(FlutterFlowTheme
+                                                              .of(context)
+                                                          .headlineMediumFamily),
                                                 ),
                                           ),
                                           Text(
@@ -537,8 +716,17 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                             style: FlutterFlowTheme.of(context)
                                                 .labelMedium
                                                 .override(
-                                                  fontFamily: 'Readex Pro',
+                                                  fontFamily:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelMediumFamily,
                                                   letterSpacing: 0.0,
+                                                  useGoogleFonts: GoogleFonts
+                                                          .asMap()
+                                                      .containsKey(
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMediumFamily),
                                                 ),
                                           ),
                                         ].divide(SizedBox(height: 4.0)),
@@ -670,8 +858,17 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                 FlutterFlowTheme.of(context)
                                                     .bodyLarge
                                                     .override(
-                                                      fontFamily: 'Readex Pro',
+                                                      fontFamily:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyLargeFamily,
                                                       letterSpacing: 0.0,
+                                                      useGoogleFonts: GoogleFonts
+                                                              .asMap()
+                                                          .containsKey(
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyLargeFamily),
                                                     ),
                                             elevation: 0.0,
                                             borderSide: BorderSide(
@@ -789,9 +986,11 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                         .labelMedium
                                                                         .override(
                                                                           fontFamily:
-                                                                              'Readex Pro',
+                                                                              FlutterFlowTheme.of(context).labelMediumFamily,
                                                                           letterSpacing:
                                                                               0.0,
+                                                                          useGoogleFonts:
+                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelMediumFamily),
                                                                         ),
                                                                   ),
                                                                   if (responsiveVisibility(
@@ -841,8 +1040,9 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .displaySmall
                                                                             .override(
-                                                                              fontFamily: 'Outfit',
+                                                                              fontFamily: FlutterFlowTheme.of(context).displaySmallFamily,
                                                                               letterSpacing: 0.0,
+                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).displaySmallFamily),
                                                                             ),
                                                                       ),
                                                                     ),
@@ -889,9 +1089,10 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodySmall
                                                                             .override(
-                                                                              fontFamily: 'Readex Pro',
+                                                                              fontFamily: FlutterFlowTheme.of(context).bodySmallFamily,
                                                                               color: FlutterFlowTheme.of(context).secondary,
                                                                               letterSpacing: 0.0,
+                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodySmallFamily),
                                                                             ),
                                                                       ),
                                                                     ),
@@ -991,9 +1192,11 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                         .labelMedium
                                                                         .override(
                                                                           fontFamily:
-                                                                              'Readex Pro',
+                                                                              FlutterFlowTheme.of(context).labelMediumFamily,
                                                                           letterSpacing:
                                                                               0.0,
+                                                                          useGoogleFonts:
+                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelMediumFamily),
                                                                         ),
                                                                   ),
                                                                   if (responsiveVisibility(
@@ -1043,8 +1246,9 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .displaySmall
                                                                             .override(
-                                                                              fontFamily: 'Outfit',
+                                                                              fontFamily: FlutterFlowTheme.of(context).displaySmallFamily,
                                                                               letterSpacing: 0.0,
+                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).displaySmallFamily),
                                                                             ),
                                                                       ),
                                                                     ),
@@ -1091,9 +1295,10 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodySmall
                                                                             .override(
-                                                                              fontFamily: 'Readex Pro',
+                                                                              fontFamily: FlutterFlowTheme.of(context).bodySmallFamily,
                                                                               color: FlutterFlowTheme.of(context).secondary,
                                                                               letterSpacing: 0.0,
+                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodySmallFamily),
                                                                             ),
                                                                       ),
                                                                     ),
@@ -1144,14 +1349,22 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                           .getText(
                                                         'umli55v9' /* Work Area */,
                                                       ),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .titleLarge
-                                                          .override(
-                                                            fontFamily:
-                                                                'Outfit',
-                                                            letterSpacing: 0.0,
-                                                          ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleLarge
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleLargeFamily,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .titleLargeFamily),
+                                                              ),
                                                     ),
                                                   ),
                                                   Padding(
@@ -1165,14 +1378,22 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                           .getText(
                                                         'zh8me3su' /* General information about the ... */,
                                                       ),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .labelMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Readex Pro',
-                                                            letterSpacing: 0.0,
-                                                          ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMediumFamily,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .labelMediumFamily),
+                                                              ),
                                                     ),
                                                   ),
                                                   Padding(
@@ -1247,8 +1468,9 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
-                                                                              fontFamily: 'Readex Pro',
+                                                                              fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                               letterSpacing: 0.0,
+                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                             ),
                                                                       ),
                                                                     ),
@@ -1295,8 +1517,9 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
-                                                                              fontFamily: 'Readex Pro',
+                                                                              fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                               letterSpacing: 0.0,
+                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                             ),
                                                                       ),
                                                                     ),
@@ -1343,8 +1566,9 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
-                                                                              fontFamily: 'Readex Pro',
+                                                                              fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                               letterSpacing: 0.0,
+                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                             ),
                                                                       ),
                                                                     ),
@@ -1495,9 +1719,11 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                       .labelMedium
                                                                       .override(
                                                                         fontFamily:
-                                                                            'Readex Pro',
+                                                                            FlutterFlowTheme.of(context).labelMediumFamily,
                                                                         letterSpacing:
                                                                             0.0,
+                                                                        useGoogleFonts:
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelMediumFamily),
                                                                       ),
                                                                 ),
                                                                 RichText(
@@ -1523,8 +1749,9 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .labelLarge
                                                                             .override(
-                                                                              fontFamily: 'Readex Pro',
+                                                                              fontFamily: FlutterFlowTheme.of(context).labelLargeFamily,
                                                                               letterSpacing: 0.0,
+                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelLargeFamily),
                                                                             ),
                                                                       )
                                                                     ],
@@ -1533,9 +1760,11 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                         .displaySmall
                                                                         .override(
                                                                           fontFamily:
-                                                                              'Outfit',
+                                                                              FlutterFlowTheme.of(context).displaySmallFamily,
                                                                           letterSpacing:
                                                                               0.0,
+                                                                          useGoogleFonts:
+                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).displaySmallFamily),
                                                                         ),
                                                                   ),
                                                                 ),
@@ -1603,9 +1832,10 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
-                                                                                fontFamily: 'Readex Pro',
+                                                                                fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.bold,
+                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                               ),
                                                                         )
                                                                       ],
@@ -1614,9 +1844,11 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                           .labelMedium
                                                                           .override(
                                                                             fontFamily:
-                                                                                'Readex Pro',
+                                                                                FlutterFlowTheme.of(context).labelMediumFamily,
                                                                             letterSpacing:
                                                                                 0.0,
+                                                                            useGoogleFonts:
+                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelMediumFamily),
                                                                           ),
                                                                     ),
                                                                   ),
@@ -1662,9 +1894,14 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                     .bodyMedium
                                                                     .override(
                                                                       fontFamily:
-                                                                          'Readex Pro',
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyMediumFamily,
                                                                       letterSpacing:
                                                                           0.0,
+                                                                      useGoogleFonts: GoogleFonts
+                                                                              .asMap()
+                                                                          .containsKey(
+                                                                              FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                     ),
                                                             elevation: 0.0,
                                                             borderSide:
@@ -1750,12 +1987,17 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                   .titleLarge
                                                                   .override(
                                                                     fontFamily:
-                                                                        'Outfit',
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .titleLargeFamily,
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .primary,
                                                                     letterSpacing:
                                                                         0.0,
+                                                                    useGoogleFonts: GoogleFonts
+                                                                            .asMap()
+                                                                        .containsKey(
+                                                                            FlutterFlowTheme.of(context).titleLargeFamily),
                                                                   ),
                                                             ),
                                                           ),
@@ -1809,9 +2051,11 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                       .bodyMedium
                                                                       .override(
                                                                         fontFamily:
-                                                                            'Readex Pro',
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                         letterSpacing:
                                                                             0.0,
+                                                                        useGoogleFonts:
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                       ),
                                                               elevation: 0.0,
                                                               borderSide:
@@ -1878,9 +2122,14 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                     .titleLarge
                                                                     .override(
                                                                       fontFamily:
-                                                                          'Outfit',
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .titleLargeFamily,
                                                                       letterSpacing:
                                                                           0.0,
+                                                                      useGoogleFonts: GoogleFonts
+                                                                              .asMap()
+                                                                          .containsKey(
+                                                                              FlutterFlowTheme.of(context).titleLargeFamily),
                                                                     ),
                                                               ),
                                                             ),
@@ -1903,9 +2152,14 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                     .labelMedium
                                                                     .override(
                                                                       fontFamily:
-                                                                          'Readex Pro',
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .labelMediumFamily,
                                                                       letterSpacing:
                                                                           0.0,
+                                                                      useGoogleFonts: GoogleFonts
+                                                                              .asMap()
+                                                                          .containsKey(
+                                                                              FlutterFlowTheme.of(context).labelMediumFamily),
                                                                     ),
                                                               ),
                                                             ),
@@ -1943,6 +2197,8 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                             0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
+                                                                        useGoogleFonts:
+                                                                            GoogleFonts.asMap().containsKey('Plus Jakarta Sans'),
                                                                       ),
                                                                 ),
                                                                 Expanded(
@@ -1974,6 +2230,8 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                                 0.0,
                                                                             fontWeight:
                                                                                 FontWeight.normal,
+                                                                            useGoogleFonts:
+                                                                                GoogleFonts.asMap().containsKey('Plus Jakarta Sans'),
                                                                           ),
                                                                     ),
                                                                   ),
@@ -2013,6 +2271,8 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                               0.0,
                                                                           fontWeight:
                                                                               FontWeight.normal,
+                                                                          useGoogleFonts:
+                                                                              GoogleFonts.asMap().containsKey('Plus Jakarta Sans'),
                                                                         ),
                                                                   ),
                                                                 ),
@@ -2110,9 +2370,11 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                           .titleLarge
                                                                           .override(
                                                                             fontFamily:
-                                                                                'Outfit',
+                                                                                FlutterFlowTheme.of(context).titleLargeFamily,
                                                                             letterSpacing:
                                                                                 0.0,
+                                                                            useGoogleFonts:
+                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).titleLargeFamily),
                                                                           ),
                                                                     ),
                                                                   ),
@@ -2152,9 +2414,10 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                         textStyle: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
-                                                                              fontFamily: 'Readex Pro',
+                                                                              fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                               color: FlutterFlowTheme.of(context).error,
                                                                               letterSpacing: 0.0,
+                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                             ),
                                                                         elevation:
                                                                             0.0,
@@ -2203,9 +2466,10 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                               '1862lwih' /* Logout For Worker */,
                                                                             ),
                                                                             style: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                  fontFamily: 'Readex Pro',
+                                                                                  fontFamily: FlutterFlowTheme.of(context).labelMediumFamily,
                                                                                   fontSize: 12.0,
                                                                                   letterSpacing: 0.0,
+                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelMediumFamily),
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -2265,11 +2529,16 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                     .titleSmall
                                                                     .override(
                                                                       fontFamily:
-                                                                          'Readex Pro',
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .titleSmallFamily,
                                                                       fontSize:
                                                                           14.0,
                                                                       letterSpacing:
                                                                           0.0,
+                                                                      useGoogleFonts: GoogleFonts
+                                                                              .asMap()
+                                                                          .containsKey(
+                                                                              FlutterFlowTheme.of(context).titleSmallFamily),
                                                                     ),
                                                             elevation: 2.0,
                                                             borderSide:
@@ -2339,9 +2608,14 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                     .labelSmall
                                                                     .override(
                                                                       fontFamily:
-                                                                          'Readex Pro',
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .labelSmallFamily,
                                                                       letterSpacing:
                                                                           0.0,
+                                                                      useGoogleFonts: GoogleFonts
+                                                                              .asMap()
+                                                                          .containsKey(
+                                                                              FlutterFlowTheme.of(context).labelSmallFamily),
                                                                     ),
                                                               ),
                                                             ),
@@ -2362,9 +2636,11 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                       .labelSmall
                                                                       .override(
                                                                         fontFamily:
-                                                                            'Readex Pro',
+                                                                            FlutterFlowTheme.of(context).labelSmallFamily,
                                                                         letterSpacing:
                                                                             0.0,
+                                                                        useGoogleFonts:
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelSmallFamily),
                                                                       ),
                                                                 ),
                                                               ),
@@ -2388,9 +2664,11 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                       .labelSmall
                                                                       .override(
                                                                         fontFamily:
-                                                                            'Readex Pro',
+                                                                            FlutterFlowTheme.of(context).labelSmallFamily,
                                                                         letterSpacing:
                                                                             0.0,
+                                                                        useGoogleFonts:
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelSmallFamily),
                                                                       ),
                                                                 ),
                                                               ),
@@ -2499,9 +2777,10 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                                     'va26dvad' /* Randy Peterson */,
                                                                                   ),
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'Readex Pro',
+                                                                                        fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                         letterSpacing: 0.0,
                                                                                         fontWeight: FontWeight.bold,
+                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                       ),
                                                                                 ),
                                                                                 Padding(
@@ -2511,9 +2790,10 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                                       'gcmqt5o3' /* #2008 */,
                                                                                     ),
                                                                                     style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                          fontFamily: 'Readex Pro',
+                                                                                          fontFamily: FlutterFlowTheme.of(context).bodySmallFamily,
                                                                                           color: FlutterFlowTheme.of(context).primary,
                                                                                           letterSpacing: 0.0,
+                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodySmallFamily),
                                                                                         ),
                                                                                   ),
                                                                                 ),
@@ -2543,9 +2823,11 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                           .bodyMedium
                                                                           .override(
                                                                             fontFamily:
-                                                                                'Readex Pro',
+                                                                                FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                             letterSpacing:
                                                                                 0.0,
+                                                                            useGoogleFonts:
+                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                           ),
                                                                     ),
                                                                   ),
@@ -2581,8 +2863,9 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                               width: 30.0,
                                                                               height: 47.0,
                                                                               textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    fontFamily: 'Readex Pro',
+                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                     letterSpacing: 0.0,
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                   ),
                                                                               icon: Icon(
                                                                                 Icons.more_vert,
@@ -2744,9 +3027,10 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                                     '414yl3i7' /* Randy Peterson */,
                                                                                   ),
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'Readex Pro',
+                                                                                        fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                         letterSpacing: 0.0,
                                                                                         fontWeight: FontWeight.bold,
+                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                       ),
                                                                                 ),
                                                                                 Padding(
@@ -2756,9 +3040,10 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                                       'vcyful00' /* #2008 */,
                                                                                     ),
                                                                                     style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                          fontFamily: 'Readex Pro',
+                                                                                          fontFamily: FlutterFlowTheme.of(context).bodySmallFamily,
                                                                                           color: FlutterFlowTheme.of(context).primary,
                                                                                           letterSpacing: 0.0,
+                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodySmallFamily),
                                                                                         ),
                                                                                   ),
                                                                                 ),
@@ -2788,9 +3073,11 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                           .bodyMedium
                                                                           .override(
                                                                             fontFamily:
-                                                                                'Readex Pro',
+                                                                                FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                             letterSpacing:
                                                                                 0.0,
+                                                                            useGoogleFonts:
+                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                           ),
                                                                     ),
                                                                   ),
@@ -2826,8 +3113,9 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                               width: 30.0,
                                                                               height: 47.0,
                                                                               textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    fontFamily: 'Readex Pro',
+                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                     letterSpacing: 0.0,
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                   ),
                                                                               icon: Icon(
                                                                                 Icons.more_vert,
@@ -2989,9 +3277,10 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                                     's0n40ssb' /* Randy Peterson */,
                                                                                   ),
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'Readex Pro',
+                                                                                        fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                         letterSpacing: 0.0,
                                                                                         fontWeight: FontWeight.bold,
+                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                       ),
                                                                                 ),
                                                                                 Padding(
@@ -3001,9 +3290,10 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                                       '662mv32r' /* #2008 */,
                                                                                     ),
                                                                                     style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                          fontFamily: 'Readex Pro',
+                                                                                          fontFamily: FlutterFlowTheme.of(context).bodySmallFamily,
                                                                                           color: FlutterFlowTheme.of(context).primary,
                                                                                           letterSpacing: 0.0,
+                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodySmallFamily),
                                                                                         ),
                                                                                   ),
                                                                                 ),
@@ -3033,9 +3323,11 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                           .bodyMedium
                                                                           .override(
                                                                             fontFamily:
-                                                                                'Readex Pro',
+                                                                                FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                             letterSpacing:
                                                                                 0.0,
+                                                                            useGoogleFonts:
+                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                           ),
                                                                     ),
                                                                   ),
@@ -3071,8 +3363,9 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                               width: 30.0,
                                                                               height: 47.0,
                                                                               textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    fontFamily: 'Readex Pro',
+                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                     letterSpacing: 0.0,
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                   ),
                                                                               icon: Icon(
                                                                                 Icons.more_vert,
@@ -3234,9 +3527,10 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                                     '3gmvs7mg' /* Randy Peterson */,
                                                                                   ),
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'Readex Pro',
+                                                                                        fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                         letterSpacing: 0.0,
                                                                                         fontWeight: FontWeight.bold,
+                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                       ),
                                                                                 ),
                                                                                 Padding(
@@ -3246,9 +3540,10 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                                       'wd63uniz' /* #2008 */,
                                                                                     ),
                                                                                     style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                          fontFamily: 'Readex Pro',
+                                                                                          fontFamily: FlutterFlowTheme.of(context).bodySmallFamily,
                                                                                           color: FlutterFlowTheme.of(context).primary,
                                                                                           letterSpacing: 0.0,
+                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodySmallFamily),
                                                                                         ),
                                                                                   ),
                                                                                 ),
@@ -3278,9 +3573,11 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                           .bodyMedium
                                                                           .override(
                                                                             fontFamily:
-                                                                                'Readex Pro',
+                                                                                FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                             letterSpacing:
                                                                                 0.0,
+                                                                            useGoogleFonts:
+                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                           ),
                                                                     ),
                                                                   ),
@@ -3316,8 +3613,9 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                               width: 30.0,
                                                                               height: 47.0,
                                                                               textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    fontFamily: 'Readex Pro',
+                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                     letterSpacing: 0.0,
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                   ),
                                                                               icon: Icon(
                                                                                 Icons.more_vert,
@@ -3488,11 +3786,19 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily:
-                                                              'Readex Pro',
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMediumFamily,
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .error,
                                                           letterSpacing: 0.0,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily),
                                                         ),
                                                     elevation: 0.0,
                                                     borderSide: BorderSide(
@@ -3576,8 +3882,17 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                             context)
                                                         .titleLarge
                                                         .override(
-                                                          fontFamily: 'Outfit',
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleLargeFamily,
                                                           letterSpacing: 0.0,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleLargeFamily),
                                                         ),
                                                   ),
                                                 ),
@@ -3595,8 +3910,16 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                         .labelMedium
                                                         .override(
                                                           fontFamily:
-                                                              'Readex Pro',
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMediumFamily,
                                                           letterSpacing: 0.0,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelMediumFamily),
                                                         ),
                                                   ),
                                                 ),
@@ -3697,11 +4020,13 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                         .bodyMedium
                                                                         .override(
                                                                           fontFamily:
-                                                                              'Readex Pro',
+                                                                              FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                           letterSpacing:
                                                                               0.0,
                                                                           fontWeight:
                                                                               FontWeight.bold,
+                                                                          useGoogleFonts:
+                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                         ),
                                                                   ),
                                                                 ),
@@ -3717,9 +4042,14 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                     .labelSmall
                                                                     .override(
                                                                       fontFamily:
-                                                                          'Readex Pro',
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .labelSmallFamily,
                                                                       letterSpacing:
                                                                           0.0,
+                                                                      useGoogleFonts: GoogleFonts
+                                                                              .asMap()
+                                                                          .containsKey(
+                                                                              FlutterFlowTheme.of(context).labelSmallFamily),
                                                                     ),
                                                               ),
                                                             ],
@@ -3802,18 +4132,20 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                                 '3pbi7njr' /* Marketing Plan */,
                                                                               ),
                                                                               style: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                    fontFamily: 'Readex Pro',
+                                                                                    fontFamily: FlutterFlowTheme.of(context).labelMediumFamily,
                                                                                     color: FlutterFlowTheme.of(context).primary,
                                                                                     letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.bold,
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelMediumFamily),
                                                                                   ),
                                                                             )
                                                                           ],
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .labelMedium
                                                                               .override(
-                                                                                fontFamily: 'Readex Pro',
+                                                                                fontFamily: FlutterFlowTheme.of(context).labelMediumFamily,
                                                                                 letterSpacing: 0.0,
+                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelMediumFamily),
                                                                               ),
                                                                         ),
                                                                       ),
@@ -3926,11 +4258,13 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                         .bodyMedium
                                                                         .override(
                                                                           fontFamily:
-                                                                              'Readex Pro',
+                                                                              FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                           letterSpacing:
                                                                               0.0,
                                                                           fontWeight:
                                                                               FontWeight.bold,
+                                                                          useGoogleFonts:
+                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                         ),
                                                                   ),
                                                                 ),
@@ -3946,9 +4280,14 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                     .labelSmall
                                                                     .override(
                                                                       fontFamily:
-                                                                          'Readex Pro',
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .labelSmallFamily,
                                                                       letterSpacing:
                                                                           0.0,
+                                                                      useGoogleFonts: GoogleFonts
+                                                                              .asMap()
+                                                                          .containsKey(
+                                                                              FlutterFlowTheme.of(context).labelSmallFamily),
                                                                     ),
                                                               ),
                                                             ],
@@ -4031,18 +4370,20 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                                 'relhmr19' /* Marketing Plan */,
                                                                               ),
                                                                               style: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                    fontFamily: 'Readex Pro',
+                                                                                    fontFamily: FlutterFlowTheme.of(context).labelMediumFamily,
                                                                                     color: FlutterFlowTheme.of(context).primary,
                                                                                     letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.bold,
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelMediumFamily),
                                                                                   ),
                                                                             )
                                                                           ],
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .labelMedium
                                                                               .override(
-                                                                                fontFamily: 'Readex Pro',
+                                                                                fontFamily: FlutterFlowTheme.of(context).labelMediumFamily,
                                                                                 letterSpacing: 0.0,
+                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelMediumFamily),
                                                                               ),
                                                                         ),
                                                                       ),
@@ -4155,11 +4496,13 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                         .bodyMedium
                                                                         .override(
                                                                           fontFamily:
-                                                                              'Readex Pro',
+                                                                              FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                           letterSpacing:
                                                                               0.0,
                                                                           fontWeight:
                                                                               FontWeight.bold,
+                                                                          useGoogleFonts:
+                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                         ),
                                                                   ),
                                                                 ),
@@ -4175,9 +4518,14 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                     .labelSmall
                                                                     .override(
                                                                       fontFamily:
-                                                                          'Readex Pro',
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .labelSmallFamily,
                                                                       letterSpacing:
                                                                           0.0,
+                                                                      useGoogleFonts: GoogleFonts
+                                                                              .asMap()
+                                                                          .containsKey(
+                                                                              FlutterFlowTheme.of(context).labelSmallFamily),
                                                                     ),
                                                               ),
                                                             ],
@@ -4260,10 +4608,11 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                                 'rpjmld9f' /* Rudy Fernandez  */,
                                                                               ),
                                                                               style: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                    fontFamily: 'Readex Pro',
+                                                                                    fontFamily: FlutterFlowTheme.of(context).labelMediumFamily,
                                                                                     color: FlutterFlowTheme.of(context).secondary,
                                                                                     letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.bold,
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelMediumFamily),
                                                                                   ),
                                                                             ),
                                                                             TextSpan(
@@ -4285,8 +4634,9 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .labelMedium
                                                                               .override(
-                                                                                fontFamily: 'Readex Pro',
+                                                                                fontFamily: FlutterFlowTheme.of(context).labelMediumFamily,
                                                                                 letterSpacing: 0.0,
+                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelMediumFamily),
                                                                               ),
                                                                         ),
                                                                       ),
@@ -4399,11 +4749,13 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                         .bodyMedium
                                                                         .override(
                                                                           fontFamily:
-                                                                              'Readex Pro',
+                                                                              FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                           letterSpacing:
                                                                               0.0,
                                                                           fontWeight:
                                                                               FontWeight.bold,
+                                                                          useGoogleFonts:
+                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                         ),
                                                                   ),
                                                                 ),
@@ -4419,9 +4771,14 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                     .labelSmall
                                                                     .override(
                                                                       fontFamily:
-                                                                          'Readex Pro',
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .labelSmallFamily,
                                                                       letterSpacing:
                                                                           0.0,
+                                                                      useGoogleFonts: GoogleFonts
+                                                                              .asMap()
+                                                                          .containsKey(
+                                                                              FlutterFlowTheme.of(context).labelSmallFamily),
                                                                     ),
                                                               ),
                                                             ],
@@ -4504,18 +4861,20 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                                 'gfqq83cn' /* Marketing Plan */,
                                                                               ),
                                                                               style: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                    fontFamily: 'Readex Pro',
+                                                                                    fontFamily: FlutterFlowTheme.of(context).labelMediumFamily,
                                                                                     color: FlutterFlowTheme.of(context).primary,
                                                                                     letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.bold,
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelMediumFamily),
                                                                                   ),
                                                                             )
                                                                           ],
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .labelMedium
                                                                               .override(
-                                                                                fontFamily: 'Readex Pro',
+                                                                                fontFamily: FlutterFlowTheme.of(context).labelMediumFamily,
                                                                                 letterSpacing: 0.0,
+                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelMediumFamily),
                                                                               ),
                                                                         ),
                                                                       ),
@@ -4628,11 +4987,13 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                         .bodyMedium
                                                                         .override(
                                                                           fontFamily:
-                                                                              'Readex Pro',
+                                                                              FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                           letterSpacing:
                                                                               0.0,
                                                                           fontWeight:
                                                                               FontWeight.bold,
+                                                                          useGoogleFonts:
+                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                         ),
                                                                   ),
                                                                 ),
@@ -4648,9 +5009,14 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                     .labelSmall
                                                                     .override(
                                                                       fontFamily:
-                                                                          'Readex Pro',
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .labelSmallFamily,
                                                                       letterSpacing:
                                                                           0.0,
+                                                                      useGoogleFonts: GoogleFonts
+                                                                              .asMap()
+                                                                          .containsKey(
+                                                                              FlutterFlowTheme.of(context).labelSmallFamily),
                                                                     ),
                                                               ),
                                                             ],
@@ -4733,18 +5099,20 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                                 '9arub4ry' /* Marketing Plan */,
                                                                               ),
                                                                               style: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                    fontFamily: 'Readex Pro',
+                                                                                    fontFamily: FlutterFlowTheme.of(context).labelMediumFamily,
                                                                                     color: FlutterFlowTheme.of(context).primary,
                                                                                     letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.bold,
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelMediumFamily),
                                                                                   ),
                                                                             )
                                                                           ],
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .labelMedium
                                                                               .override(
-                                                                                fontFamily: 'Readex Pro',
+                                                                                fontFamily: FlutterFlowTheme.of(context).labelMediumFamily,
                                                                                 letterSpacing: 0.0,
+                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelMediumFamily),
                                                                               ),
                                                                         ),
                                                                       ),
@@ -4881,11 +5249,13 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                           .bodyMedium
                                                                           .override(
                                                                             fontFamily:
-                                                                                'Readex Pro',
+                                                                                FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                             letterSpacing:
                                                                                 0.0,
                                                                             fontWeight:
                                                                                 FontWeight.bold,
+                                                                            useGoogleFonts:
+                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                           ),
                                                                     ),
                                                                     Text(
@@ -4899,9 +5269,11 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                                                           .labelSmall
                                                                           .override(
                                                                             fontFamily:
-                                                                                'Readex Pro',
+                                                                                FlutterFlowTheme.of(context).labelSmallFamily,
                                                                             letterSpacing:
                                                                                 0.0,
+                                                                            useGoogleFonts:
+                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelSmallFamily),
                                                                           ),
                                                                     ),
                                                                   ],
@@ -4922,6 +5294,9 @@ class _SupervisorHomeWidgetState extends State<SupervisorHomeWidget>
                                       ),
                                   ].divide(SizedBox(width: 16.0)),
                                 ),
+                              ),
+                              Container(
+                                height: 200.0,
                               ),
                             ].addToEnd(SizedBox(height: 44.0)),
                           ),

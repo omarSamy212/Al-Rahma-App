@@ -75,14 +75,17 @@ class _DailyOrdarWidgetState extends State<DailyOrdarWidget> {
                           FFLocalizations.of(context).getText(
                             'bjbteacw' /* Today's Requests */,
                           ),
-                          style:
-                              FlutterFlowTheme.of(context).titleLarge.override(
-                                    fontFamily: 'Outfit',
-                                    color: Color(0xFF15161E),
-                                    fontSize: 22.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w500,
-                                  ),
+                          style: FlutterFlowTheme.of(context)
+                              .titleLarge
+                              .override(
+                                fontFamily: 'Outfit',
+                                color: Color(0xFF15161E),
+                                fontSize: 22.0,
+                                letterSpacing: 0.0,
+                                fontWeight: FontWeight.w500,
+                                useGoogleFonts:
+                                    GoogleFonts.asMap().containsKey('Outfit'),
+                              ),
                         ),
                       ),
                     ),
@@ -196,7 +199,7 @@ class _DailyOrdarWidgetState extends State<DailyOrdarWidget> {
                                   ),
                                   border: Border.all(
                                     color: Color(0xFFF1F4F8),
-                                    width: 1.0,
+                                    width: 4.0,
                                   ),
                                 ),
                                 child: Padding(
@@ -281,6 +284,10 @@ class _DailyOrdarWidgetState extends State<DailyOrdarWidget> {
                                                     fontSize: 16.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
+                                                    useGoogleFonts: GoogleFonts
+                                                            .asMap()
+                                                        .containsKey(
+                                                            'Plus Jakarta Sans'),
                                                   ),
                                             ),
                                           ),
@@ -295,19 +302,22 @@ class _DailyOrdarWidgetState extends State<DailyOrdarWidget> {
                                                       12.0, 0.0, 12.0, 0.0),
                                               child: Text(
                                                 'ID: #${materialListItem4UsersRecord.userCode}',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyLarge
-                                                        .override(
-                                                          fontFamily:
-                                                              'Plus Jakarta Sans',
-                                                          color:
-                                                              Color(0xFF15161E),
-                                                          fontSize: 16.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyLarge
+                                                    .override(
+                                                      fontFamily:
+                                                          'Plus Jakarta Sans',
+                                                      color: Color(0xFF15161E),
+                                                      fontSize: 16.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                      useGoogleFonts: GoogleFonts
+                                                              .asMap()
+                                                          .containsKey(
+                                                              'Plus Jakarta Sans'),
+                                                    ),
                                               ),
                                             ),
                                           ),

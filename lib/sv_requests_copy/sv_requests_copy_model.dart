@@ -30,9 +30,9 @@ class SvRequestsCopyModel extends FlutterFlowModel<SvRequestsCopyWidget> {
       choiceChipsValueController?.value = val != null ? [val] : [];
   // State field(s) for age widget.
   FocusNode? ageFocusNode1;
-  TextEditingController? ageController1;
-  String? Function(BuildContext, String?)? ageController1Validator;
-  String? _ageController1Validator(BuildContext context, String? val) {
+  TextEditingController? ageTextController1;
+  String? Function(BuildContext, String?)? ageTextController1Validator;
+  String? _ageTextController1Validator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
         'cbwncork' /* Please enter an age for the pa... */,
@@ -44,28 +44,28 @@ class SvRequestsCopyModel extends FlutterFlowModel<SvRequestsCopyWidget> {
 
   // State field(s) for age widget.
   FocusNode? ageFocusNode2;
-  TextEditingController? ageController2;
-  String? Function(BuildContext, String?)? ageController2Validator;
+  TextEditingController? ageTextController2;
+  String? Function(BuildContext, String?)? ageTextController2Validator;
   // State field(s) for description widget.
   FocusNode? descriptionFocusNode;
-  TextEditingController? descriptionController;
-  String? Function(BuildContext, String?)? descriptionControllerValidator;
+  TextEditingController? descriptionTextController;
+  String? Function(BuildContext, String?)? descriptionTextControllerValidator;
 
   @override
   void initState(BuildContext context) {
-    ageController1Validator = _ageController1Validator;
+    ageTextController1Validator = _ageTextController1Validator;
   }
 
   @override
   void dispose() {
     unfocusNode.dispose();
     ageFocusNode1?.dispose();
-    ageController1?.dispose();
+    ageTextController1?.dispose();
 
     ageFocusNode2?.dispose();
-    ageController2?.dispose();
+    ageTextController2?.dispose();
 
     descriptionFocusNode?.dispose();
-    descriptionController?.dispose();
+    descriptionTextController?.dispose();
   }
 }

@@ -10,6 +10,7 @@ import '/flutter_flow/random_data_util.dart' as random_data;
 import 'taskdetails_widget.dart' show TaskdetailsWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -30,6 +31,11 @@ class TaskdetailsModel extends FlutterFlowModel<TaskdetailsWidget> {
   // State field(s) for DropDown widget.
   String? dropDownValue3;
   FormFieldController<String>? dropDownValueController3;
+  // State field(s) for TextualDetails widget.
+  FocusNode? textualDetailsFocusNode;
+  TextEditingController? textualDetailsTextController;
+  String? Function(BuildContext, String?)?
+      textualDetailsTextControllerValidator;
 
   @override
   void initState(BuildContext context) {}
@@ -37,5 +43,7 @@ class TaskdetailsModel extends FlutterFlowModel<TaskdetailsWidget> {
   @override
   void dispose() {
     unfocusNode.dispose();
+    textualDetailsFocusNode?.dispose();
+    textualDetailsTextController?.dispose();
   }
 }

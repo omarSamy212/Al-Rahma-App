@@ -91,6 +91,8 @@ class _TransmissionScan2WidgetState extends State<TransmissionScan2Widget> {
                       fontSize: 24.0,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.w500,
+                      useGoogleFonts:
+                          GoogleFonts.asMap().containsKey('Plus Jakarta Sans'),
                     ),
               ),
               actions: [],
@@ -146,9 +148,17 @@ class _TransmissionScan2WidgetState extends State<TransmissionScan2Widget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Readex Pro',
+                                                fontFamily:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMediumFamily,
                                                 fontSize: 24.0,
                                                 letterSpacing: 0.0,
+                                                useGoogleFonts: GoogleFonts
+                                                        .asMap()
+                                                    .containsKey(
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumFamily),
                                               ),
                                         ),
                                       ),
@@ -253,6 +263,11 @@ class _TransmissionScan2WidgetState extends State<TransmissionScan2Widget> {
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w500,
+                                                            useGoogleFonts:
+                                                                GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        'Plus Jakarta Sans'),
                                                           ),
                                                     ),
                                                   ),
@@ -279,6 +294,11 @@ class _TransmissionScan2WidgetState extends State<TransmissionScan2Widget> {
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w500,
+                                                            useGoogleFonts:
+                                                                GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        'Plus Jakarta Sans'),
                                                           ),
                                                     ),
                                                   ),
@@ -320,11 +340,19 @@ class _TransmissionScan2WidgetState extends State<TransmissionScan2Widget> {
                                                         .titleMedium
                                                         .override(
                                                           fontFamily:
-                                                              'Readex Pro',
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleMediumFamily,
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryText,
                                                           letterSpacing: 0.0,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleMediumFamily),
                                                         ),
                                                   ),
                                                   duration: Duration(
@@ -492,10 +520,16 @@ class _TransmissionScan2WidgetState extends State<TransmissionScan2Widget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyLarge
                                           .override(
-                                            fontFamily: 'Readex Pro',
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyLargeFamily,
                                             color: FlutterFlowTheme.of(context)
                                                 .error,
                                             letterSpacing: 0.0,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyLargeFamily),
                                           ),
                                     ),
                                     duration: Duration(milliseconds: 4000),
@@ -532,6 +566,8 @@ class _TransmissionScan2WidgetState extends State<TransmissionScan2Widget> {
                                     fontSize: 16.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w500,
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey('Plus Jakarta Sans'),
                                   ),
                               borderSide: BorderSide(
                                 color: Colors.transparent,
@@ -570,6 +606,8 @@ class _TransmissionScan2WidgetState extends State<TransmissionScan2Widget> {
                                           fontSize: 14.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
+                                          useGoogleFonts: GoogleFonts.asMap()
+                                              .containsKey('Plus Jakarta Sans'),
                                         ),
                                     mouseCursor: SystemMouseCursors.click,
                                     recognizer: TapGestureRecognizer()
@@ -591,6 +629,8 @@ class _TransmissionScan2WidgetState extends State<TransmissionScan2Widget> {
                                       fontSize: 14.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
+                                      useGoogleFonts: GoogleFonts.asMap()
+                                          .containsKey('Plus Jakarta Sans'),
                                     ),
                               ),
                               textAlign: TextAlign.center,

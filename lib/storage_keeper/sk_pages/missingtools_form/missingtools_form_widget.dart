@@ -45,65 +45,7 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
-  final animationsMap = {
-    'containerOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 110.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 110.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation3': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 110.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -122,9 +64,68 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
       });
     });
 
-    _model.textualDetailsController ??= TextEditingController();
+    _model.textualDetailsTextController ??= TextEditingController();
     _model.textualDetailsFocusNode ??= FocusNode();
 
+    animationsMap.addAll({
+      'containerOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 110.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 110.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 110.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+    });
     setupAnimations(
       animationsMap.values.where((anim) =>
           anim.trigger == AnimationTrigger.onActionTrigger ||
@@ -150,76 +151,44 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
         child: Scaffold(
           key: scaffoldKey,
           backgroundColor: Colors.white,
-          appBar: PreferredSize(
-            preferredSize: Size.fromHeight(100.0),
-            child: AppBar(
-              backgroundColor: Colors.white,
-              automaticallyImplyLeading: false,
-              actions: [],
-              flexibleSpace: FlexibleSpaceBar(
-                title: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 14.0),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  12.0, 0.0, 0.0, 0.0),
-                              child: FlutterFlowIconButton(
-                                borderColor: Colors.transparent,
-                                borderRadius: 30.0,
-                                borderWidth: 1.0,
-                                buttonSize: 50.0,
-                                icon: Icon(
-                                  Icons.arrow_back_rounded,
-                                  color: Color(0xFF14181B),
-                                  size: 30.0,
-                                ),
-                                onPressed: () async {
-                                  logFirebaseEvent(
-                                      'MISSINGTOOLS_FORM_arrow_back_rounded_ICN');
-                                  logFirebaseEvent('IconButton_navigate_back');
-                                  context.pop();
-                                },
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  24.0, 0.0, 0.0, 0.0),
-                              child: Text(
-                                FFLocalizations.of(context).getText(
-                                  '0vaddc65' /* Missing tools Form */,
-                                ),
-                                style: FlutterFlowTheme.of(context)
-                                    .headlineMedium
-                                    .override(
-                                      fontFamily: 'Outfit',
-                                      color: Color(0xFF14181B),
-                                      fontSize: 22.0,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.normal,
-                                    ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                centerTitle: true,
-                expandedTitleScale: 1.0,
+          appBar: AppBar(
+            backgroundColor: FlutterFlowTheme.of(context).primary,
+            automaticallyImplyLeading: false,
+            leading: FlutterFlowIconButton(
+              borderColor: Colors.transparent,
+              borderRadius: 30.0,
+              borderWidth: 1.0,
+              buttonSize: 60.0,
+              icon: Icon(
+                Icons.arrow_back_rounded,
+                color: Colors.white,
+                size: 30.0,
               ),
-              elevation: 0.0,
+              onPressed: () async {
+                logFirebaseEvent('MISSINGTOOLS_FORM_arrow_back_rounded_ICN');
+                logFirebaseEvent('IconButton_navigate_back');
+                context.pop();
+              },
             ),
+            title: Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
+              child: Text(
+                FFLocalizations.of(context).getText(
+                  'hwi8wfh4' /* Missing tools Form */,
+                ),
+                style: FlutterFlowTheme.of(context).headlineMedium.override(
+                      fontFamily: 'Outfit',
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                      fontSize: 22.0,
+                      letterSpacing: 0.0,
+                      fontWeight: FontWeight.normal,
+                      useGoogleFonts: GoogleFonts.asMap().containsKey('Outfit'),
+                    ),
+              ),
+            ),
+            actions: [],
+            centerTitle: true,
+            elevation: 2.0,
           ),
           body: SafeArea(
             top: true,
@@ -319,6 +288,10 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                'Plus Jakarta Sans'),
                                                       ),
                                                 ),
                                               ),
@@ -353,6 +326,11 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                                                             fontWeight:
                                                                 FontWeight
                                                                     .normal,
+                                                            useGoogleFonts:
+                                                                GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        'Plus Jakarta Sans'),
                                                           ),
                                                     ),
                                                   ),
@@ -376,6 +354,11 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                                                             fontWeight:
                                                                 FontWeight
                                                                     .normal,
+                                                            useGoogleFonts:
+                                                                GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        'Plus Jakarta Sans'),
                                                           ),
                                                     ),
                                                   ),
@@ -392,7 +375,7 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                                                             .fromSTEB(16.0,
                                                                 18.0, 0.0, 0.0),
                                                     child: Text(
-                                                      '${widget.supervisorDoc?.shift?.startingShift}\' \'${widget.supervisorDoc?.shift?.shiftPeriod}',
+                                                      '${widget.supervisorDoc?.shift?.startShift}\' \'${widget.supervisorDoc?.shift?.shiftPeriod}',
                                                       style: FlutterFlowTheme
                                                               .of(context)
                                                           .labelMedium
@@ -406,6 +389,11 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                                                             fontWeight:
                                                                 FontWeight
                                                                     .normal,
+                                                            useGoogleFonts:
+                                                                GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        'Plus Jakarta Sans'),
                                                           ),
                                                     ),
                                                   ),
@@ -471,10 +459,15 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                                 textStyle: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Readex Pro',
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .bodyMediumFamily,
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryText,
                                       letterSpacing: 0.0,
+                                      useGoogleFonts: GoogleFonts.asMap()
+                                          .containsKey(
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMediumFamily),
                                     ),
                                 hintText: FFLocalizations.of(context).getText(
                                   'gosp4rgv' /* Select Missing tools */,
@@ -544,12 +537,20 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .titleLarge
                                             .override(
-                                              fontFamily: 'Outfit',
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleLargeFamily,
                                               fontSize: 16.0,
                                               letterSpacing: 0.0,
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .titleLargeFamily),
                                             ),
                                       ),
-                                      count: _model.qunatityMissingValue ??= 0,
+                                      count: _model.qunatityMissingValue ??= 1,
                                       updateCount: (count) => setState(() =>
                                           _model.qunatityMissingValue = count),
                                       stepSize: 1,
@@ -571,7 +572,7 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                       padding:
                           EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 12.0),
                       child: TextFormField(
-                        controller: _model.textualDetailsController,
+                        controller: _model.textualDetailsTextController,
                         focusNode: _model.textualDetailsFocusNode,
                         textCapitalization: TextCapitalization.sentences,
                         obscureText: false,
@@ -583,6 +584,8 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                                     fontSize: 14.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey('Plus Jakarta Sans'),
                                   ),
                           hintText: FFLocalizations.of(context).getText(
                             '51swf6xg' /* Details */,
@@ -594,6 +597,8 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                                     fontSize: 14.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey('Plus Jakarta Sans'),
                                   ),
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
@@ -634,13 +639,14 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                               fontSize: 14.0,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.normal,
+                              useGoogleFonts: GoogleFonts.asMap()
+                                  .containsKey('Plus Jakarta Sans'),
                             ),
                         textAlign: TextAlign.start,
                         maxLines: 3,
-                        minLines: null,
                         maxLength: 500,
                         maxLengthEnforcement: MaxLengthEnforcement.enforced,
-                        validator: _model.textualDetailsControllerValidator
+                        validator: _model.textualDetailsTextControllerValidator
                             .asValidator(context),
                       ),
                     ),
@@ -708,6 +714,8 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                                         fontSize: 14.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
+                                        useGoogleFonts: GoogleFonts.asMap()
+                                            .containsKey('Plus Jakarta Sans'),
                                       ),
                                 ),
                               ),
@@ -840,15 +848,25 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                               title: 'Recorder Details',
                             ),
                           ),
-                          titleTextStyle:
-                              FlutterFlowTheme.of(context).titleLarge.override(
-                                    fontFamily: 'Outfit',
-                                    letterSpacing: 0.0,
-                                  ),
+                          titleTextStyle: FlutterFlowTheme.of(context)
+                              .titleLarge
+                              .override(
+                                fontFamily: FlutterFlowTheme.of(context)
+                                    .titleLargeFamily,
+                                letterSpacing: 0.0,
+                                useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                    FlutterFlowTheme.of(context)
+                                        .titleLargeFamily),
+                              ),
                           playbackDurationTextStyle:
                               FlutterFlowTheme.of(context).labelMedium.override(
-                                    fontFamily: 'Readex Pro',
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .labelMediumFamily,
                                     letterSpacing: 0.0,
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey(
+                                            FlutterFlowTheme.of(context)
+                                                .labelMediumFamily),
                                   ),
                           fillColor:
                               FlutterFlowTheme.of(context).secondaryBackground,
@@ -901,7 +919,7 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                                       16.0, 0.0, 0.0, 0.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
-                                      'mkdymwm1' /* Upload Screenshot */,
+                                      'mkdymwm1' /* Upload photo */,
                                     ),
                                     textAlign: TextAlign.center,
                                     style: FlutterFlowTheme.of(context)
@@ -912,6 +930,8 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                                           fontSize: 14.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w500,
+                                          useGoogleFonts: GoogleFonts.asMap()
+                                              .containsKey('Plus Jakarta Sans'),
                                         ),
                                   ),
                                 ),
@@ -1044,10 +1064,14 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                           style: FlutterFlowTheme.of(context)
                               .bodyMedium
                               .override(
-                                fontFamily: 'Readex Pro',
+                                fontFamily: FlutterFlowTheme.of(context)
+                                    .bodyMediumFamily,
                                 color:
                                     FlutterFlowTheme.of(context).secondaryText,
                                 letterSpacing: 0.0,
+                                useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                    FlutterFlowTheme.of(context)
+                                        .bodyMediumFamily),
                               ),
                         ),
                       ),
@@ -1072,10 +1096,15 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                                   style: FlutterFlowTheme.of(context)
                                       .headlineMedium
                                       .override(
-                                        fontFamily: 'Outfit',
+                                        fontFamily: FlutterFlowTheme.of(context)
+                                            .headlineMediumFamily,
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
                                         letterSpacing: 0.0,
+                                        useGoogleFonts: GoogleFonts.asMap()
+                                            .containsKey(
+                                                FlutterFlowTheme.of(context)
+                                                    .headlineMediumFamily),
                                       ),
                                 ),
                                 duration: Duration(milliseconds: 4000),
@@ -1104,6 +1133,8 @@ class _MissingtoolsFormWidgetState extends State<MissingtoolsFormWidget>
                                     fontSize: 18.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey('Plus Jakarta Sans'),
                                   ),
                           elevation: 2.0,
                           borderSide: BorderSide(

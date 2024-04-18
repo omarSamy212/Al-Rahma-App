@@ -16,7 +16,6 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'create_user2_model.dart';
 export 'create_user2_model.dart';
 
@@ -24,7 +23,6 @@ class CreateUser2Widget extends StatefulWidget {
   const CreateUser2Widget({
     super.key,
     required this.nickName,
-    required this.role,
     this.image,
     required this.phoneNumber,
     required this.firstName,
@@ -45,13 +43,29 @@ class CreateUser2Widget extends StatefulWidget {
     this.startingShift,
     this.shiftPeriod,
     required this.userId,
-    required this.natInfo,
-    this.drLicInfo,
     this.contractorRef,
-  });
+    required this.nationalId,
+    required this.natIssuePlace,
+    required this.natIssueDate,
+    required this.natExpireDate,
+    required this.nationality,
+    this.drLicType,
+    this.drLicIssuePlace,
+    this.drLicIssueDate,
+    this.drLicExpiryDate,
+    this.totalDebit,
+    this.totalCredit,
+    this.diflictPercentage,
+    this.shiftPrice,
+    this.contractDate,
+    bool? isDriver,
+    required this.role,
+    required this.educationData,
+    required this.isEmployed,
+    required this.relegion,
+  }) : this.isDriver = isDriver ?? true;
 
   final String? nickName;
-  final String? role;
   final String? image;
   final int? phoneNumber;
   final String? firstName;
@@ -63,7 +77,7 @@ class CreateUser2Widget extends StatefulWidget {
   final String? city;
   final String? fullAddress;
   final String? socialStatus;
-  final DateTime? employmentDate;
+  final String? employmentDate;
   final String? frontNatImageUrl;
   final String? backNatImageUrl;
   final String? drugTestImageUrl;
@@ -72,9 +86,26 @@ class CreateUser2Widget extends StatefulWidget {
   final String? startingShift;
   final String? shiftPeriod;
   final String? userId;
-  final NationalInformationStruct? natInfo;
-  final DrivingInformationStruct? drLicInfo;
   final DocumentReference? contractorRef;
+  final String? nationalId;
+  final String? natIssuePlace;
+  final String? natIssueDate;
+  final String? natExpireDate;
+  final String? nationality;
+  final String? drLicType;
+  final String? drLicIssuePlace;
+  final String? drLicIssueDate;
+  final String? drLicExpiryDate;
+  final double? totalDebit;
+  final double? totalCredit;
+  final double? diflictPercentage;
+  final double? shiftPrice;
+  final DateTime? contractDate;
+  final bool isDriver;
+  final DocumentReference? role;
+  final String? educationData;
+  final String? isEmployed;
+  final String? relegion;
 
   @override
   State<CreateUser2Widget> createState() => _CreateUser2WidgetState();
@@ -98,16 +129,16 @@ class _CreateUser2WidgetState extends State<CreateUser2Widget> {
       if (loggedIn && (currentUserDocument?.privileges?.roleName == 'Admin')) {
         logFirebaseEvent('createUser_2_set_form_field');
         setState(() {
-          _model.idController?.text = widget.userId!;
+          _model.idTextController?.text = widget.userId!;
         });
         logFirebaseEvent('createUser_2_set_form_field');
         setState(() {
-          _model.emailController?.text =
+          _model.emailTextController?.text =
               functions.generateEmail(widget.userId!);
         });
         logFirebaseEvent('createUser_2_set_form_field');
         setState(() {
-          _model.passwordController?.text = functions.generatePassword();
+          _model.passwordTextController?.text = functions.generatePassword();
         });
       } else {
         logFirebaseEvent('createUser_2_alert_dialog');
@@ -131,13 +162,13 @@ class _CreateUser2WidgetState extends State<CreateUser2Widget> {
       }
     });
 
-    _model.idController ??= TextEditingController();
+    _model.idTextController ??= TextEditingController();
     _model.idFocusNode ??= FocusNode();
 
-    _model.emailController ??= TextEditingController();
+    _model.emailTextController ??= TextEditingController();
     _model.emailFocusNode ??= FocusNode();
 
-    _model.passwordController ??= TextEditingController();
+    _model.passwordTextController ??= TextEditingController();
     _model.passwordFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -152,504 +183,479 @@ class _CreateUser2WidgetState extends State<CreateUser2Widget> {
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder<List<RoleDefinitionsRecord>>(
-      stream: queryRoleDefinitionsRecord(
-        queryBuilder: (roleDefinitionsRecord) => roleDefinitionsRecord.where(
-          'roleName',
-          isEqualTo: widget.role,
-        ),
-        singleRecord: true,
-      ),
-      builder: (context, snapshot) {
-        // Customize what your widget looks like when it's loading.
-        if (!snapshot.hasData) {
-          return Scaffold(
-            backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-            body: Center(
-              child: SizedBox(
-                width: 50.0,
-                height: 50.0,
-                child: SpinKitDualRing(
-                  color: Color(0xFF0CA256),
-                  size: 50.0,
+    return Title(
+        title: 'createUser_2',
+        color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
+        child: Scaffold(
+          key: scaffoldKey,
+          backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+          appBar: AppBar(
+            backgroundColor: FlutterFlowTheme.of(context).primary,
+            automaticallyImplyLeading: false,
+            leading: FlutterFlowIconButton(
+              borderColor: Colors.transparent,
+              borderRadius: 30.0,
+              borderWidth: 1.0,
+              buttonSize: 60.0,
+              icon: Icon(
+                Icons.arrow_back_rounded,
+                color: Colors.white,
+                size: 30.0,
+              ),
+              onPressed: () async {
+                logFirebaseEvent('CREATE_USER_2_arrow_back_rounded_ICN_ON_');
+                logFirebaseEvent('IconButton_navigate_back');
+                context.pop();
+              },
+            ),
+            title: Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
+              child: Text(
+                FFLocalizations.of(context).getText(
+                  'uvudahlw' /* Create Profile */,
                 ),
+                style: FlutterFlowTheme.of(context).headlineMedium.override(
+                      fontFamily:
+                          FlutterFlowTheme.of(context).headlineMediumFamily,
+                      color: FlutterFlowTheme.of(context).info,
+                      fontSize: 22.0,
+                      letterSpacing: 0.0,
+                      useGoogleFonts: GoogleFonts.asMap().containsKey(
+                          FlutterFlowTheme.of(context).headlineMediumFamily),
+                    ),
               ),
             ),
-          );
-        }
-        List<RoleDefinitionsRecord> createUser2RoleDefinitionsRecordList =
-            snapshot.data!;
-        final createUser2RoleDefinitionsRecord =
-            createUser2RoleDefinitionsRecordList.isNotEmpty
-                ? createUser2RoleDefinitionsRecordList.first
-                : null;
-        return Title(
-            title: 'createUser_2',
-            color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
-            child: Scaffold(
-              key: scaffoldKey,
-              backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-              appBar: PreferredSize(
-                preferredSize: Size.fromHeight(100.0),
-                child: AppBar(
-                  backgroundColor:
-                      FlutterFlowTheme.of(context).secondaryBackground,
-                  automaticallyImplyLeading: false,
-                  actions: [],
-                  flexibleSpace: FlexibleSpaceBar(
-                    title: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 14.0),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 8.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      12.0, 0.0, 0.0, 0.0),
-                                  child: FlutterFlowIconButton(
-                                    borderColor: Colors.transparent,
-                                    borderRadius: 30.0,
-                                    borderWidth: 1.0,
-                                    buttonSize: 50.0,
-                                    icon: Icon(
-                                      Icons.arrow_back_rounded,
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                      size: 30.0,
-                                    ),
-                                    onPressed: () async {
-                                      logFirebaseEvent(
-                                          'CREATE_USER_2_arrow_back_rounded_ICN_ON_');
-                                      logFirebaseEvent(
-                                          'IconButton_navigate_back');
-                                      context.safePop();
-                                    },
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                24.0, 0.0, 0.0, 0.0),
-                            child: Text(
-                              FFLocalizations.of(context).getText(
-                                '1801r09g' /* Create Profile */,
-                              ),
-                              style: FlutterFlowTheme.of(context)
-                                  .headlineMedium
-                                  .override(
-                                    fontFamily: 'Outfit',
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    fontSize: 22.0,
-                                    letterSpacing: 0.0,
-                                  ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    centerTitle: true,
-                    expandedTitleScale: 1.0,
-                  ),
-                  elevation: 0.0,
-                ),
-              ),
-              body: SafeArea(
-                top: true,
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 16.0),
-                      child: TextFormField(
-                        controller: _model.idController,
-                        focusNode: _model.idFocusNode,
-                        textCapitalization: TextCapitalization.words,
-                        readOnly: true,
-                        obscureText: false,
-                        decoration: InputDecoration(
-                          labelText: FFLocalizations.of(context).getText(
-                            'yf8l2oet' /* ID */,
-                          ),
-                          labelStyle:
-                              FlutterFlowTheme.of(context).labelMedium.override(
-                                    fontFamily: 'Plus Jakarta Sans',
-                                    color: Color(0xFF57636C),
-                                    fontSize: 14.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.normal,
-                                  ),
-                          hintStyle:
-                              FlutterFlowTheme.of(context).labelMedium.override(
-                                    fontFamily: 'Plus Jakarta Sans',
-                                    color: Color(0xFF57636C),
-                                    fontSize: 14.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.normal,
-                                  ),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Color(0xFFE0E3E7),
-                              width: 2.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Color(0xFF4B39EF),
-                              width: 2.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          errorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Color(0xFFFF5963),
-                              width: 2.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          focusedErrorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Color(0xFFFF5963),
-                              width: 2.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          filled: true,
-                          fillColor: Colors.white,
-                          contentPadding: EdgeInsetsDirectional.fromSTEB(
-                              20.0, 24.0, 0.0, 24.0),
+            actions: [],
+            centerTitle: true,
+            elevation: 2.0,
+          ),
+          body: SafeArea(
+            top: true,
+            child: Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 70.0, 0.0, 0.0),
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 16.0),
+                    child: TextFormField(
+                      controller: _model.idTextController,
+                      focusNode: _model.idFocusNode,
+                      textCapitalization: TextCapitalization.words,
+                      readOnly: true,
+                      obscureText: false,
+                      decoration: InputDecoration(
+                        labelText: FFLocalizations.of(context).getText(
+                          'yf8l2oet' /* ID */,
                         ),
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Plus Jakarta Sans',
-                              color: Color(0xFF14181B),
-                              fontSize: 14.0,
-                              letterSpacing: 0.0,
-                              fontWeight: FontWeight.normal,
-                            ),
-                        minLines: null,
-                        validator:
-                            _model.idControllerValidator.asValidator(context),
-                      ),
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 16.0),
-                      child: TextFormField(
-                        controller: _model.emailController,
-                        focusNode: _model.emailFocusNode,
-                        textCapitalization: TextCapitalization.words,
-                        readOnly: true,
-                        obscureText: false,
-                        decoration: InputDecoration(
-                          labelText: FFLocalizations.of(context).getText(
-                            'kv4tuiot' /* Email */,
-                          ),
-                          labelStyle:
-                              FlutterFlowTheme.of(context).labelMedium.override(
-                                    fontFamily: 'Plus Jakarta Sans',
-                                    color: Color(0xFF57636C),
-                                    fontSize: 14.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.normal,
-                                  ),
-                          hintStyle:
-                              FlutterFlowTheme.of(context).labelMedium.override(
-                                    fontFamily: 'Plus Jakarta Sans',
-                                    color: Color(0xFF57636C),
-                                    fontSize: 14.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.normal,
-                                  ),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Color(0xFFE0E3E7),
-                              width: 2.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Color(0xFF4B39EF),
-                              width: 2.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          errorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Color(0xFFFF5963),
-                              width: 2.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          focusedErrorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Color(0xFFFF5963),
-                              width: 2.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          filled: true,
-                          fillColor: Colors.white,
-                          contentPadding: EdgeInsetsDirectional.fromSTEB(
-                              20.0, 24.0, 0.0, 24.0),
-                        ),
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Plus Jakarta Sans',
-                              color: Color(0xFF14181B),
-                              fontSize: 14.0,
-                              letterSpacing: 0.0,
-                              fontWeight: FontWeight.normal,
-                            ),
-                        minLines: null,
-                        validator: _model.emailControllerValidator
-                            .asValidator(context),
-                      ),
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 16.0),
-                      child: TextFormField(
-                        controller: _model.passwordController,
-                        focusNode: _model.passwordFocusNode,
-                        onFieldSubmitted: (_) async {
-                          logFirebaseEvent(
-                              'CREATE_USER_2_Password_ON_TEXTFIELD_SUBM');
-                          logFirebaseEvent('Password_set_form_field');
-                          setState(() {
-                            _model.passwordController?.text =
-                                functions.generatePassword();
-                          });
-                        },
-                        textCapitalization: TextCapitalization.words,
-                        readOnly: true,
-                        obscureText: false,
-                        decoration: InputDecoration(
-                          labelText: FFLocalizations.of(context).getText(
-                            'oya55ado' /* Password */,
-                          ),
-                          labelStyle:
-                              FlutterFlowTheme.of(context).labelMedium.override(
-                                    fontFamily: 'Plus Jakarta Sans',
-                                    color: Color(0xFF57636C),
-                                    fontSize: 14.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.normal,
-                                  ),
-                          hintStyle:
-                              FlutterFlowTheme.of(context).labelMedium.override(
-                                    fontFamily: 'Plus Jakarta Sans',
-                                    color: Color(0xFF57636C),
-                                    fontSize: 14.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.normal,
-                                  ),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Color(0xFFE0E3E7),
-                              width: 2.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Color(0xFF4B39EF),
-                              width: 2.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          errorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Color(0xFFFF5963),
-                              width: 2.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          focusedErrorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Color(0xFFFF5963),
-                              width: 2.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          filled: true,
-                          fillColor: Colors.white,
-                          contentPadding: EdgeInsetsDirectional.fromSTEB(
-                              20.0, 24.0, 0.0, 24.0),
-                        ),
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Plus Jakarta Sans',
-                              color: Color(0xFF14181B),
-                              fontSize: 14.0,
-                              letterSpacing: 0.0,
-                              fontWeight: FontWeight.normal,
-                            ),
-                        minLines: null,
-                        validator: _model.passwordControllerValidator
-                            .asValidator(context),
-                      ),
-                    ),
-                    Align(
-                      alignment: AlignmentDirectional(0.0, 0.05),
-                      child: Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
-                        child: FFButtonWidget(
-                          onPressed: () async {
-                            logFirebaseEvent(
-                                'CREATE_USER_2_CREATE_USER_BTN_ON_TAP');
-                            logFirebaseEvent('Button_custom_action');
-                            _model.returnObject = await actions.createUser(
-                              _model.emailController.text,
-                              _model.passwordController.text,
-                              random_data.randomString(
-                                10,
-                                25,
-                                true,
-                                true,
-                                true,
-                              ),
-                              widget.nickName!,
-                              widget.firstName!,
-                              widget.middleName!,
-                              widget.lastName!,
-                              widget.gender!,
-                              widget.birthdate!,
-                              widget.phoneNumber!.toString(),
-                              widget.government!,
-                              widget.city!,
-                              widget.fullAddress!,
-                              widget.socialStatus!,
-                              widget.natInfo,
-                              DrivingInformationStruct(),
-                              widget.image,
-                              widget.employmentDate!,
-                              random_data.randomInteger(0, 5).toString(),
-                              'active',
-                              widget.frontNatImageUrl!,
-                              widget.backNatImageUrl!,
-                              widget.drugTestImageUrl,
-                              widget.role!,
-                              ShiftStruct(
-                                startingShift: widget.startingShift,
-                                shiftPeriod: widget.shiftPeriod,
-                              ),
-                              'User_${widget.userId}',
-                              UserPrivilegesStruct(
-                                roleName:
-                                    createUser2RoleDefinitionsRecord?.roleName,
-                                roleTasks:
-                                    createUser2RoleDefinitionsRecord?.roleTasks,
-                              ),
-                              widget.contractorRef,
-                            );
-                            if (_model.returnObject?.message == 'Success') {
-                              logFirebaseEvent('Button_send_s_m_s');
-                              if (isiOS) {
-                                await launchUrl(Uri.parse(
-                                    "sms:${widget.phoneNumber!.toString()}&body=${Uri.encodeComponent('ازيك يا ${widget.nickName}, ده الباسورد بتاعك ${_model.passwordController.text} احتفظ بيه في و أوعى تنساه.')}"));
-                              } else {
-                                await launchUrl(Uri(
-                                  scheme: 'sms',
-                                  path: widget.phoneNumber!.toString(),
-                                  queryParameters: <String, String>{
-                                    'body':
-                                        'ازيك يا ${widget.nickName}, ده الباسورد بتاعك ${_model.passwordController.text} احتفظ بيه في و أوعى تنساه.',
-                                  },
-                                ));
-                              }
-
-                              logFirebaseEvent('Button_bottom_sheet');
-                              await showModalBottomSheet(
-                                isScrollControlled: true,
-                                backgroundColor: Colors.transparent,
-                                context: context,
-                                builder: (context) {
-                                  return Padding(
-                                    padding: MediaQuery.viewInsetsOf(context),
-                                    child: UserCreatedWidget(
-                                      name: widget.nickName!,
-                                      id: widget.userId!,
-                                      role: widget.role!,
-                                      userObject: _model.returnObject!,
-                                    ),
-                                  );
-                                },
-                              ).then((value) => safeSetState(() {}));
-
-                              logFirebaseEvent(
-                                  'Button_clear_text_fields_pin_codes');
-                              setState(() {
-                                _model.idController?.clear();
-                                _model.emailController?.clear();
-                                _model.passwordController?.clear();
-                              });
-                            } else {
-                              logFirebaseEvent('Button_alert_dialog');
-                              await showDialog(
-                                context: context,
-                                builder: (alertDialogContext) {
-                                  return AlertDialog(
-                                    title: Text('error'),
-                                    content: Text(_model.returnObject!.message),
-                                    actions: [
-                                      TextButton(
-                                        onPressed: () =>
-                                            Navigator.pop(alertDialogContext),
-                                        child: Text('Ok'),
-                                      ),
-                                    ],
-                                  );
-                                },
-                              );
-                            }
-
-                            setState(() {});
-                          },
-                          text: FFLocalizations.of(context).getText(
-                            'l29zl71c' /* Create User */,
-                          ),
-                          options: FFButtonOptions(
-                            width: 270.0,
-                            height: 50.0,
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            color: Color(0xFF0CA256),
-                            textStyle: FlutterFlowTheme.of(context)
-                                .titleMedium
-                                .override(
-                                  fontFamily: 'Readex Pro',
-                                  color: Colors.white,
+                        labelStyle:
+                            FlutterFlowTheme.of(context).labelMedium.override(
+                                  fontFamily: 'Plus Jakarta Sans',
+                                  color: Color(0xFF57636C),
+                                  fontSize: 14.0,
                                   letterSpacing: 0.0,
+                                  fontWeight: FontWeight.normal,
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey('Plus Jakarta Sans'),
                                 ),
-                            elevation: 2.0,
-                            borderSide: BorderSide(
-                              color: Colors.transparent,
-                              width: 1.0,
-                            ),
-                            borderRadius: BorderRadius.circular(12.0),
+                        hintStyle:
+                            FlutterFlowTheme.of(context).labelMedium.override(
+                                  fontFamily: 'Plus Jakarta Sans',
+                                  color: Color(0xFF57636C),
+                                  fontSize: 14.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.normal,
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey('Plus Jakarta Sans'),
+                                ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color(0xFFE0E3E7),
+                            width: 2.0,
                           ),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color(0xFF4B39EF),
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        errorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color(0xFFFF5963),
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        focusedErrorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color(0xFFFF5963),
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        filled: true,
+                        fillColor: Colors.white,
+                        contentPadding: EdgeInsetsDirectional.fromSTEB(
+                            20.0, 24.0, 0.0, 24.0),
+                      ),
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Plus Jakarta Sans',
+                            color: Color(0xFF14181B),
+                            fontSize: 14.0,
+                            letterSpacing: 0.0,
+                            fontWeight: FontWeight.normal,
+                            useGoogleFonts: GoogleFonts.asMap()
+                                .containsKey('Plus Jakarta Sans'),
+                          ),
+                      validator:
+                          _model.idTextControllerValidator.asValidator(context),
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 16.0),
+                    child: TextFormField(
+                      controller: _model.emailTextController,
+                      focusNode: _model.emailFocusNode,
+                      textCapitalization: TextCapitalization.words,
+                      readOnly: true,
+                      obscureText: false,
+                      decoration: InputDecoration(
+                        labelText: FFLocalizations.of(context).getText(
+                          'kv4tuiot' /* Email */,
+                        ),
+                        labelStyle:
+                            FlutterFlowTheme.of(context).labelMedium.override(
+                                  fontFamily: 'Plus Jakarta Sans',
+                                  color: Color(0xFF57636C),
+                                  fontSize: 14.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.normal,
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey('Plus Jakarta Sans'),
+                                ),
+                        hintStyle:
+                            FlutterFlowTheme.of(context).labelMedium.override(
+                                  fontFamily: 'Plus Jakarta Sans',
+                                  color: Color(0xFF57636C),
+                                  fontSize: 14.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.normal,
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey('Plus Jakarta Sans'),
+                                ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color(0xFFE0E3E7),
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color(0xFF4B39EF),
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        errorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color(0xFFFF5963),
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        focusedErrorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color(0xFFFF5963),
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        filled: true,
+                        fillColor: Colors.white,
+                        contentPadding: EdgeInsetsDirectional.fromSTEB(
+                            20.0, 24.0, 0.0, 24.0),
+                      ),
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Plus Jakarta Sans',
+                            color: Color(0xFF14181B),
+                            fontSize: 14.0,
+                            letterSpacing: 0.0,
+                            fontWeight: FontWeight.normal,
+                            useGoogleFonts: GoogleFonts.asMap()
+                                .containsKey('Plus Jakarta Sans'),
+                          ),
+                      validator: _model.emailTextControllerValidator
+                          .asValidator(context),
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 16.0),
+                    child: TextFormField(
+                      controller: _model.passwordTextController,
+                      focusNode: _model.passwordFocusNode,
+                      textCapitalization: TextCapitalization.words,
+                      readOnly: true,
+                      obscureText: false,
+                      decoration: InputDecoration(
+                        labelText: FFLocalizations.of(context).getText(
+                          'oya55ado' /* Password */,
+                        ),
+                        labelStyle:
+                            FlutterFlowTheme.of(context).labelMedium.override(
+                                  fontFamily: 'Plus Jakarta Sans',
+                                  color: Color(0xFF57636C),
+                                  fontSize: 14.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.normal,
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey('Plus Jakarta Sans'),
+                                ),
+                        hintStyle:
+                            FlutterFlowTheme.of(context).labelMedium.override(
+                                  fontFamily: 'Plus Jakarta Sans',
+                                  color: Color(0xFF57636C),
+                                  fontSize: 14.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.normal,
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey('Plus Jakarta Sans'),
+                                ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color(0xFFE0E3E7),
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color(0xFF4B39EF),
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        errorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color(0xFFFF5963),
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        focusedErrorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color(0xFFFF5963),
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        filled: true,
+                        fillColor: Colors.white,
+                        contentPadding: EdgeInsetsDirectional.fromSTEB(
+                            20.0, 24.0, 0.0, 24.0),
+                      ),
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Plus Jakarta Sans',
+                            color: Color(0xFF14181B),
+                            fontSize: 14.0,
+                            letterSpacing: 0.0,
+                            fontWeight: FontWeight.normal,
+                            useGoogleFonts: GoogleFonts.asMap()
+                                .containsKey('Plus Jakarta Sans'),
+                          ),
+                      validator: _model.passwordTextControllerValidator
+                          .asValidator(context),
+                    ),
+                  ),
+                  Align(
+                    alignment: AlignmentDirectional(0.0, 0.05),
+                    child: Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
+                      child: FFButtonWidget(
+                        onPressed: () async {
+                          logFirebaseEvent(
+                              'CREATE_USER_2_CREATE_USER_BTN_ON_TAP');
+                          var _shouldSetState = false;
+                          logFirebaseEvent('Button_backend_call');
+                          _model.userRoleOutput =
+                              await RolesRecord.getDocumentOnce(widget.role!);
+                          _shouldSetState = true;
+                          logFirebaseEvent('Button_custom_action');
+                          _model.returnObject = await actions.createUser(
+                            _model.emailTextController.text,
+                            _model.passwordTextController.text,
+                            random_data.randomString(
+                              10,
+                              25,
+                              true,
+                              true,
+                              true,
+                            ),
+                            widget.nickName!,
+                            widget.firstName!,
+                            widget.middleName!,
+                            widget.lastName!,
+                            widget.gender!,
+                            widget.birthdate!,
+                            widget.educationData!,
+                            widget.isEmployed!,
+                            widget.relegion!,
+                            widget.phoneNumber!.toString(),
+                            widget.government!,
+                            widget.city!,
+                            widget.fullAddress!,
+                            widget.socialStatus!,
+                            widget.nationality!,
+                            widget.nationalId!,
+                            widget.natIssuePlace!,
+                            widget.natIssueDate!,
+                            widget.natExpireDate!,
+                            NationalInformationStruct(
+                              nationality: widget.nationality,
+                              nationalId: widget.nationalId,
+                              issuePlace: widget.natIssuePlace,
+                              issueDate: widget.natIssueDate,
+                              expiryDate: widget.natExpireDate,
+                            ),
+                            DrivingInformationStruct(
+                              licsenceType: widget.drLicType,
+                              expiryDate: widget.drLicExpiryDate,
+                              issueDate: widget.drLicIssueDate,
+                              issuePlace: widget.drLicIssuePlace,
+                            ),
+                            widget.image,
+                            widget.employmentDate,
+                            _model.idTextController.text,
+                            'active',
+                            widget.frontNatImageUrl,
+                            widget.backNatImageUrl,
+                            widget.drugTestImageUrl,
+                            ShiftStruct(
+                              shiftPeriod: widget.shiftPeriod,
+                              startShift: widget.startingShift,
+                            ),
+                            'User_${widget.userId}',
+                            widget.contractorRef,
+                            widget.totalDebit,
+                            widget.totalCredit,
+                            widget.diflictPercentage,
+                            widget.shiftPrice,
+                            widget.contractDate?.toString(),
+                            _model.userRoleOutput!.roleName,
+                            widget.isDriver,
+                            _model.userRoleOutput!.roleID,
+                            _model.userRoleOutput!.roleName,
+                            '${valueOrDefault(currentUserDocument?.firstName, '')} ${valueOrDefault(currentUserDocument?.middleName, '')} ${valueOrDefault(currentUserDocument?.lastName, '')}',
+                          );
+                          _shouldSetState = true;
+                          if (_model.returnObject?.message == 'Success') {
+                            if ((_model.userRoleOutput?.roleName == 'Worker') ||
+                                (_model.userRoleOutput?.roleName == 'عامل')) {
+                              logFirebaseEvent('Button_backend_call');
+
+                              await widget.contractorRef!.update({
+                                ...mapToFirestore(
+                                  {
+                                    'workersList': FieldValue.arrayUnion(
+                                        [_model.returnObject?.userRef]),
+                                  },
+                                ),
+                              });
+                            }
+                            logFirebaseEvent('Button_bottom_sheet');
+                            await showModalBottomSheet(
+                              isScrollControlled: true,
+                              backgroundColor: Colors.transparent,
+                              context: context,
+                              builder: (context) {
+                                return Padding(
+                                  padding: MediaQuery.viewInsetsOf(context),
+                                  child: UserCreatedWidget(
+                                    name: widget.nickName!,
+                                    id: widget.userId!,
+                                    role: _model.userRoleOutput!.roleName,
+                                    userObject: _model.returnObject!,
+                                  ),
+                                );
+                              },
+                            ).then((value) => safeSetState(() {}));
+
+                            logFirebaseEvent(
+                                'Button_clear_text_fields_pin_codes');
+                            setState(() {
+                              _model.idTextController?.clear();
+                              _model.emailTextController?.clear();
+                              _model.passwordTextController?.clear();
+                            });
+                            if (_shouldSetState) setState(() {});
+                            return;
+                          } else {
+                            logFirebaseEvent('Button_alert_dialog');
+                            await showDialog(
+                              context: context,
+                              builder: (alertDialogContext) {
+                                return AlertDialog(
+                                  title: Text('error'),
+                                  content: Text(_model.returnObject!.message),
+                                  actions: [
+                                    TextButton(
+                                      onPressed: () =>
+                                          Navigator.pop(alertDialogContext),
+                                      child: Text('Ok'),
+                                    ),
+                                  ],
+                                );
+                              },
+                            );
+                            if (_shouldSetState) setState(() {});
+                            return;
+                          }
+
+                          if (_shouldSetState) setState(() {});
+                        },
+                        text: FFLocalizations.of(context).getText(
+                          'l29zl71c' /* Create User */,
+                        ),
+                        options: FFButtonOptions(
+                          width: 270.0,
+                          height: 50.0,
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
+                          color: Color(0xFF0CA256),
+                          textStyle: FlutterFlowTheme.of(context)
+                              .titleMedium
+                              .override(
+                                fontFamily: FlutterFlowTheme.of(context)
+                                    .titleMediumFamily,
+                                color: Colors.white,
+                                letterSpacing: 0.0,
+                                useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                    FlutterFlowTheme.of(context)
+                                        .titleMediumFamily),
+                              ),
+                          elevation: 2.0,
+                          borderSide: BorderSide(
+                            color: Colors.transparent,
+                            width: 1.0,
+                          ),
+                          borderRadius: BorderRadius.circular(12.0),
                         ),
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-            ));
-      },
-    );
+            ),
+          ),
+        ));
   }
 }

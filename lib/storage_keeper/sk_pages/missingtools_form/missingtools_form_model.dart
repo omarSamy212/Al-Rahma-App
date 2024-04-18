@@ -56,8 +56,9 @@ class MissingtoolsFormModel extends FlutterFlowModel<MissingtoolsFormWidget> {
   int? qunatityMissingValue;
   // State field(s) for TextualDetails widget.
   FocusNode? textualDetailsFocusNode;
-  TextEditingController? textualDetailsController;
-  String? Function(BuildContext, String?)? textualDetailsControllerValidator;
+  TextEditingController? textualDetailsTextController;
+  String? Function(BuildContext, String?)?
+      textualDetailsTextControllerValidator;
   AudioRecorder? audioRecorder;
   String? playComplainRecord;
   FFUploadedFile recordedFileBytes =
@@ -73,6 +74,6 @@ class MissingtoolsFormModel extends FlutterFlowModel<MissingtoolsFormWidget> {
   @override
   void dispose() {
     textualDetailsFocusNode?.dispose();
-    textualDetailsController?.dispose();
+    textualDetailsTextController?.dispose();
   }
 }

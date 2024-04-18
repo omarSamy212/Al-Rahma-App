@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'today_requests_tm_model.dart';
@@ -71,8 +72,10 @@ class _TodayRequestsTmWidgetState extends State<TodayRequestsTmWidget> {
                   'nm9wyubo' /* Today's Requests */,
                 ),
                 style: FlutterFlowTheme.of(context).titleLarge.override(
-                      fontFamily: 'Outfit',
+                      fontFamily: FlutterFlowTheme.of(context).titleLargeFamily,
                       letterSpacing: 0.0,
+                      useGoogleFonts: GoogleFonts.asMap().containsKey(
+                          FlutterFlowTheme.of(context).titleLargeFamily),
                     ),
               ),
             ),
@@ -90,8 +93,8 @@ class _TodayRequestsTmWidgetState extends State<TodayRequestsTmWidget> {
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Icon(
-                              Icons.fire_truck_rounded,
+                            FaIcon(
+                              FontAwesomeIcons.truck,
                               color: Color(0xFF0CA256),
                               size: 44.0,
                             ),
@@ -135,9 +138,15 @@ class _TodayRequestsTmWidgetState extends State<TodayRequestsTmWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .displaySmall
                                         .override(
-                                          fontFamily: 'Outfit',
+                                          fontFamily:
+                                              FlutterFlowTheme.of(context)
+                                                  .displaySmallFamily,
                                           fontSize: 27.0,
                                           letterSpacing: 0.0,
+                                          useGoogleFonts: GoogleFonts.asMap()
+                                              .containsKey(
+                                                  FlutterFlowTheme.of(context)
+                                                      .displaySmallFamily),
                                         ),
                                   );
                                 },
@@ -151,8 +160,13 @@ class _TodayRequestsTmWidgetState extends State<TodayRequestsTmWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .labelMedium
                                   .override(
-                                    fontFamily: 'Readex Pro',
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .labelMediumFamily,
                                     letterSpacing: 0.0,
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey(
+                                            FlutterFlowTheme.of(context)
+                                                .labelMediumFamily),
                                   ),
                             ),
                           ],
@@ -171,8 +185,8 @@ class _TodayRequestsTmWidgetState extends State<TodayRequestsTmWidget> {
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Icon(
-                              Icons.fire_truck_outlined,
+                            FaIcon(
+                              FontAwesomeIcons.truck,
                               color: Color(0xFF232323),
                               size: 44.0,
                             ),
@@ -211,9 +225,15 @@ class _TodayRequestsTmWidgetState extends State<TodayRequestsTmWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .displaySmall
                                         .override(
-                                          fontFamily: 'Outfit',
+                                          fontFamily:
+                                              FlutterFlowTheme.of(context)
+                                                  .displaySmallFamily,
                                           fontSize: 27.0,
                                           letterSpacing: 0.0,
+                                          useGoogleFonts: GoogleFonts.asMap()
+                                              .containsKey(
+                                                  FlutterFlowTheme.of(context)
+                                                      .displaySmallFamily),
                                         ),
                                   );
                                 },
@@ -227,8 +247,13 @@ class _TodayRequestsTmWidgetState extends State<TodayRequestsTmWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .labelMedium
                                   .override(
-                                    fontFamily: 'Readex Pro',
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .labelMediumFamily,
                                     letterSpacing: 0.0,
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey(
+                                            FlutterFlowTheme.of(context)
+                                                .labelMediumFamily),
                                   ),
                             ),
                           ],

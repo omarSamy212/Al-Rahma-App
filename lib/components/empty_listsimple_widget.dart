@@ -60,6 +60,7 @@ class _EmptyListsimpleWidgetState extends State<EmptyListsimpleWidget> {
                   fontSize: 24.0,
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.w500,
+                  useGoogleFonts: GoogleFonts.asMap().containsKey('Outfit'),
                 ),
           ),
         ),
@@ -75,6 +76,8 @@ class _EmptyListsimpleWidgetState extends State<EmptyListsimpleWidget> {
                   fontSize: 14.0,
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.w500,
+                  useGoogleFonts:
+                      GoogleFonts.asMap().containsKey('Plus Jakarta Sans'),
                 ),
           ),
         ),

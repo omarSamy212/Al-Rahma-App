@@ -30,20 +30,20 @@ class UseraddedsuccessfullyModel
 
   // State field(s) for Name widget.
   FocusNode? nameFocusNode;
-  TextEditingController? nameController;
-  String? Function(BuildContext, String?)? nameControllerValidator;
+  TextEditingController? nameTextController;
+  String? Function(BuildContext, String?)? nameTextControllerValidator;
   // State field(s) for ID widget.
   FocusNode? idFocusNode;
-  TextEditingController? idController;
-  String? Function(BuildContext, String?)? idControllerValidator;
+  TextEditingController? idTextController;
+  String? Function(BuildContext, String?)? idTextControllerValidator;
   // State field(s) for Email widget.
   FocusNode? emailFocusNode;
-  TextEditingController? emailController;
-  String? Function(BuildContext, String?)? emailControllerValidator;
+  TextEditingController? emailTextController;
+  String? Function(BuildContext, String?)? emailTextControllerValidator;
   // State field(s) for Password widget.
   FocusNode? passwordFocusNode;
-  TextEditingController? passwordController;
-  String? Function(BuildContext, String?)? passwordControllerValidator;
+  TextEditingController? passwordTextController;
+  String? Function(BuildContext, String?)? passwordTextControllerValidator;
 
   @override
   void initState(BuildContext context) {}
@@ -51,15 +51,15 @@ class UseraddedsuccessfullyModel
   @override
   void dispose() {
     nameFocusNode?.dispose();
-    nameController?.dispose();
+    nameTextController?.dispose();
 
     idFocusNode?.dispose();
-    idController?.dispose();
+    idTextController?.dispose();
 
     emailFocusNode?.dispose();
-    emailController?.dispose();
+    emailTextController?.dispose();
 
     passwordFocusNode?.dispose();
-    passwordController?.dispose();
+    passwordTextController?.dispose();
   }
 }

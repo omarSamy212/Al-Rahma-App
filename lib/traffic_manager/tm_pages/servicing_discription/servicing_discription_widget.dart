@@ -28,34 +28,7 @@ class _ServicingDiscriptionWidgetState extends State<ServicingDiscriptionWidget>
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
-  final animationsMap = {
-    'buttonOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 170.0),
-          end: Offset(0.0, 0.0),
-        ),
-        ScaleEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.7, 0.7),
-          end: Offset(1.0, 1.0),
-        ),
-      ],
-    ),
-  };
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -64,21 +37,49 @@ class _ServicingDiscriptionWidgetState extends State<ServicingDiscriptionWidget>
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'ServicingDiscription'});
-    _model.theTruckController ??= TextEditingController();
+    _model.theTruckTextController ??= TextEditingController();
     _model.theTruckFocusNode ??= FocusNode();
 
-    _model.mechanicalController ??= TextEditingController();
+    _model.mechanicalTextController ??= TextEditingController();
     _model.mechanicalFocusNode ??= FocusNode();
 
-    _model.tricycleController ??= TextEditingController();
+    _model.tricycleTextController ??= TextEditingController();
     _model.tricycleFocusNode ??= FocusNode();
 
-    _model.totalPriceController ??= TextEditingController();
+    _model.totalPriceTextController ??= TextEditingController();
     _model.totalPriceFocusNode ??= FocusNode();
 
-    _model.textualDetailsController ??= TextEditingController();
+    _model.textualDetailsTextController ??= TextEditingController();
     _model.textualDetailsFocusNode ??= FocusNode();
 
+    animationsMap.addAll({
+      'buttonOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 170.0),
+            end: Offset(0.0, 0.0),
+          ),
+          ScaleEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.7, 0.7),
+            end: Offset(1.0, 1.0),
+          ),
+        ],
+      ),
+    });
     setupAnimations(
       animationsMap.values.where((anim) =>
           anim.trigger == AnimationTrigger.onActionTrigger ||
@@ -132,10 +133,13 @@ class _ServicingDiscriptionWidgetState extends State<ServicingDiscriptionWidget>
                   '1981rbb3' /* Servicing Discription */,
                 ),
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
-                      fontFamily: 'Outfit',
+                      fontFamily:
+                          FlutterFlowTheme.of(context).headlineMediumFamily,
                       color: Colors.white,
                       fontSize: 22.0,
                       letterSpacing: 0.0,
+                      useGoogleFonts: GoogleFonts.asMap().containsKey(
+                          FlutterFlowTheme.of(context).headlineMediumFamily),
                     ),
               ),
               actions: [],
@@ -200,7 +204,7 @@ class _ServicingDiscriptionWidgetState extends State<ServicingDiscriptionWidget>
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         20.0, 0.0, 20.0, 0.0),
                                     child: TextFormField(
-                                      controller: _model.theTruckController,
+                                      controller: _model.theTruckTextController,
                                       focusNode: _model.theTruckFocusNode,
                                       textCapitalization:
                                           TextCapitalization.words,
@@ -219,6 +223,10 @@ class _ServicingDiscriptionWidgetState extends State<ServicingDiscriptionWidget>
                                               fontSize: 14.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
+                                              useGoogleFonts:
+                                                  GoogleFonts.asMap()
+                                                      .containsKey(
+                                                          'Plus Jakarta Sans'),
                                             ),
                                         hintStyle: FlutterFlowTheme.of(context)
                                             .labelMedium
@@ -228,6 +236,10 @@ class _ServicingDiscriptionWidgetState extends State<ServicingDiscriptionWidget>
                                               fontSize: 14.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
+                                              useGoogleFonts:
+                                                  GoogleFonts.asMap()
+                                                      .containsKey(
+                                                          'Plus Jakarta Sans'),
                                             ),
                                         enabledBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
@@ -275,10 +287,12 @@ class _ServicingDiscriptionWidgetState extends State<ServicingDiscriptionWidget>
                                             fontSize: 14.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    'Plus Jakarta Sans'),
                                           ),
-                                      minLines: null,
                                       validator: _model
-                                          .theTruckControllerValidator
+                                          .theTruckTextControllerValidator
                                           .asValidator(context),
                                     ),
                                   ),
@@ -288,7 +302,8 @@ class _ServicingDiscriptionWidgetState extends State<ServicingDiscriptionWidget>
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         20.0, 0.0, 20.0, 0.0),
                                     child: TextFormField(
-                                      controller: _model.mechanicalController,
+                                      controller:
+                                          _model.mechanicalTextController,
                                       focusNode: _model.mechanicalFocusNode,
                                       textCapitalization:
                                           TextCapitalization.words,
@@ -307,6 +322,10 @@ class _ServicingDiscriptionWidgetState extends State<ServicingDiscriptionWidget>
                                               fontSize: 14.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
+                                              useGoogleFonts:
+                                                  GoogleFonts.asMap()
+                                                      .containsKey(
+                                                          'Plus Jakarta Sans'),
                                             ),
                                         hintStyle: FlutterFlowTheme.of(context)
                                             .labelMedium
@@ -316,6 +335,10 @@ class _ServicingDiscriptionWidgetState extends State<ServicingDiscriptionWidget>
                                               fontSize: 14.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
+                                              useGoogleFonts:
+                                                  GoogleFonts.asMap()
+                                                      .containsKey(
+                                                          'Plus Jakarta Sans'),
                                             ),
                                         enabledBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
@@ -363,10 +386,12 @@ class _ServicingDiscriptionWidgetState extends State<ServicingDiscriptionWidget>
                                             fontSize: 14.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    'Plus Jakarta Sans'),
                                           ),
-                                      minLines: null,
                                       validator: _model
-                                          .mechanicalControllerValidator
+                                          .mechanicalTextControllerValidator
                                           .asValidator(context),
                                     ),
                                   ),
@@ -382,7 +407,7 @@ class _ServicingDiscriptionWidgetState extends State<ServicingDiscriptionWidget>
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       20.0, 0.0, 20.0, 0.0),
                                   child: TextFormField(
-                                    controller: _model.tricycleController,
+                                    controller: _model.tricycleTextController,
                                     focusNode: _model.tricycleFocusNode,
                                     textCapitalization:
                                         TextCapitalization.words,
@@ -401,6 +426,9 @@ class _ServicingDiscriptionWidgetState extends State<ServicingDiscriptionWidget>
                                             fontSize: 14.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    'Plus Jakarta Sans'),
                                           ),
                                       hintStyle: FlutterFlowTheme.of(context)
                                           .labelMedium
@@ -410,6 +438,9 @@ class _ServicingDiscriptionWidgetState extends State<ServicingDiscriptionWidget>
                                             fontSize: 14.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    'Plus Jakarta Sans'),
                                           ),
                                       enabledBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -457,10 +488,11 @@ class _ServicingDiscriptionWidgetState extends State<ServicingDiscriptionWidget>
                                           fontSize: 14.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.normal,
+                                          useGoogleFonts: GoogleFonts.asMap()
+                                              .containsKey('Plus Jakarta Sans'),
                                         ),
-                                    minLines: null,
                                     validator: _model
-                                        .tricycleControllerValidator
+                                        .tricycleTextControllerValidator
                                         .asValidator(context),
                                   ),
                                 ),
@@ -488,8 +520,16 @@ class _ServicingDiscriptionWidgetState extends State<ServicingDiscriptionWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Readex Pro',
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMediumFamily,
                                               letterSpacing: 0.0,
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumFamily),
                                             ),
                                       ),
                                     ),
@@ -505,7 +545,7 @@ class _ServicingDiscriptionWidgetState extends State<ServicingDiscriptionWidget>
                                           width: 70.0,
                                           child: TextFormField(
                                             controller:
-                                                _model.totalPriceController,
+                                                _model.totalPriceTextController,
                                             focusNode:
                                                 _model.totalPriceFocusNode,
                                             autofocus: true,
@@ -521,16 +561,32 @@ class _ServicingDiscriptionWidgetState extends State<ServicingDiscriptionWidget>
                                                       .labelMedium
                                                       .override(
                                                         fontFamily:
-                                                            'Readex Pro',
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMediumFamily,
                                                         letterSpacing: 0.0,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMediumFamily),
                                                       ),
                                               hintStyle:
                                                   FlutterFlowTheme.of(context)
                                                       .labelMedium
                                                       .override(
                                                         fontFamily:
-                                                            'Readex Pro',
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMediumFamily,
                                                         letterSpacing: 0.0,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMediumFamily),
                                                       ),
                                               enabledBorder:
                                                   UnderlineInputBorder(
@@ -583,17 +639,25 @@ class _ServicingDiscriptionWidgetState extends State<ServicingDiscriptionWidget>
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'Readex Pro',
+                                                  fontFamily:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumFamily,
                                                   letterSpacing: 0.0,
+                                                  useGoogleFonts: GoogleFonts
+                                                          .asMap()
+                                                      .containsKey(
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMediumFamily),
                                                 ),
                                             textAlign: TextAlign.start,
                                             maxLines: 2,
-                                            minLines: null,
                                             keyboardType: const TextInputType
                                                 .numberWithOptions(
                                                 signed: true, decimal: true),
                                             validator: _model
-                                                .totalPriceControllerValidator
+                                                .totalPriceTextControllerValidator
                                                 .asValidator(context),
                                           ),
                                         ),
@@ -608,7 +672,7 @@ class _ServicingDiscriptionWidgetState extends State<ServicingDiscriptionWidget>
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 20.0, 0.0, 20.0, 12.0),
                             child: TextFormField(
-                              controller: _model.textualDetailsController,
+                              controller: _model.textualDetailsTextController,
                               focusNode: _model.textualDetailsFocusNode,
                               textCapitalization: TextCapitalization.sentences,
                               obscureText: false,
@@ -621,9 +685,11 @@ class _ServicingDiscriptionWidgetState extends State<ServicingDiscriptionWidget>
                                       fontSize: 14.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
+                                      useGoogleFonts: GoogleFonts.asMap()
+                                          .containsKey('Plus Jakarta Sans'),
                                     ),
                                 hintText: FFLocalizations.of(context).getText(
-                                  'n40p0sl5' /* Details */,
+                                  'ycsft9se' /* Details */,
                                 ),
                                 hintStyle: FlutterFlowTheme.of(context)
                                     .labelMedium
@@ -633,6 +699,8 @@ class _ServicingDiscriptionWidgetState extends State<ServicingDiscriptionWidget>
                                       fontSize: 14.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
+                                      useGoogleFonts: GoogleFonts.asMap()
+                                          .containsKey('Plus Jakarta Sans'),
                                     ),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
@@ -675,15 +743,16 @@ class _ServicingDiscriptionWidgetState extends State<ServicingDiscriptionWidget>
                                     fontSize: 14.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey('Plus Jakarta Sans'),
                                   ),
                               textAlign: TextAlign.start,
                               maxLines: 3,
-                              minLines: null,
                               maxLength: 500,
                               maxLengthEnforcement:
                                   MaxLengthEnforcement.enforced,
                               validator: _model
-                                  .textualDetailsControllerValidator
+                                  .textualDetailsTextControllerValidator
                                   .asValidator(context),
                             ),
                           ),
@@ -704,9 +773,15 @@ class _ServicingDiscriptionWidgetState extends State<ServicingDiscriptionWidget>
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Readex Pro',
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMediumFamily,
                                             color: Colors.white,
                                             letterSpacing: 0.0,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMediumFamily),
                                           ),
                                     ),
                                     duration: Duration(milliseconds: 4000),
@@ -732,9 +807,14 @@ class _ServicingDiscriptionWidgetState extends State<ServicingDiscriptionWidget>
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
-                                      fontFamily: 'Readex Pro',
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .titleSmallFamily,
                                       color: Colors.white,
                                       letterSpacing: 0.0,
+                                      useGoogleFonts: GoogleFonts.asMap()
+                                          .containsKey(
+                                              FlutterFlowTheme.of(context)
+                                                  .titleSmallFamily),
                                     ),
                                 elevation: 3.0,
                                 borderSide: BorderSide(

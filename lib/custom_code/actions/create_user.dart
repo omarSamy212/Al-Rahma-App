@@ -11,7 +11,7 @@ import 'package:flutter/material.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'dart:convert';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 Future<UserCreationObjectStruct?> createUser(
   String emailAddress,
@@ -23,39 +23,56 @@ Future<UserCreationObjectStruct?> createUser(
   String lastName,
   String gender,
   String birthdate,
+  String educationData,
+  String isEmployed,
+  String relegion,
   String phoneNumber,
   String government,
   String city,
   String fullAddress,
   String socialStatus,
-  //String nationalID,
+  String nationality,
+  String nationalID,
+  String natIssuePlace,
+  String natIssueDate,
+  String natExpireDate,
   NationalInformationStruct? natInfo,
   DrivingInformationStruct? drLicInfo,
   String? photo,
-  DateTime employmentDate,
+  String? employmentDate,
   String userCode,
   String accountStatus,
-  String frontNatImageUrl,
-  String backNatImageUrl,
+  String? frontNatImageUrl,
+  String? backNatImageUrl,
   String? drugTestImageUrl,
-  String userRole,
   ShiftStruct? shift,
   String userID,
-  UserPrivilegesStruct privileges,
   DocumentReference? contractorRef,
+  double? totalDebit,
+  double? totalCredit,
+  double? diflictPercentage,
+  double? shiftPrice,
+  String? contractDate,
+  String userRole,
+  bool? isDriver,
+  String roleID,
+  String roleName,
+  String createdBy,
 ) async {
   String returnmsg = 'Success';
-
-  // String userID = await generateUserID(userRole);
   DateTime createdTime = DateTime.now();
 
   FirebaseApp app = await Firebase.initializeApp(
-      name: randomDocGen, options: Firebase.app().options);
+    name: randomDocGen,
+    options: Firebase.app().options,
+  );
 
   try {
-    UserCredential userCredential = await FirebaseAuth.instanceFor(app: app)
-        .createUserWithEmailAndPassword(
-            email: emailAddress, password: password);
+    UserCredential userCredential =
+        await FirebaseAuth.instanceFor(app: app).createUserWithEmailAndPassword(
+      email: emailAddress,
+      password: password,
+    );
     String? uid = userCredential.user?.uid;
 
     if (uid != null) {
@@ -70,55 +87,75 @@ Future<UserCreationObjectStruct?> createUser(
         'firstName': firstName,
         'middleName': middleName,
         'lastName': lastName,
+        'isEmployed': isEmployed,
+        'educationData': educationData,
         'gender': gender,
         'birthdate': birthdate,
         'phone_number': phoneNumber,
-        //'country': country,
+        'nationality': nationality,
         'government': government,
         'city': city,
         'fullAddress': fullAddress,
         'socialStatus': socialStatus,
-        //'nationalID': nationalID,
         'photo_url': photo,
         'employmentDate': employmentDate,
         'front_nat_image_url': frontNatImageUrl,
         'back_nat_image_url': backNatImageUrl,
-        'drug_test_image_url': drugTestImageUrl,
         'userCode': userCode,
         'accountStatus': accountStatus,
-        'privileges': privileges,
-        'national_information': natInfo,
-        'drivnig_information': drLicInfo,
-        'contractorRef': contractorRef
+        'national_information': natInfo?.toMap(),
+        'created_by': createdBy,
+        'is_driver': isDriver,
       };
 
-      if (shift != null) {
-        userData['shift'] = {
-          'startShift': shift.startingShift,
-          'shiftPeriod': shift.shiftPeriod,
+      // Add contractor reference if the user's role is "contractor"
+      if (userRole.toLowerCase() == 'contractor' || userRole == 'مورد') {
+        // Create contractor document with the same ID as the user document
+        final DocumentReference<Map<String, dynamic>> contractorDocRef =
+            FirebaseFirestore.instance.collection('contractors').doc(userID);
+
+        Map<String, dynamic> contractorData = {
+          'name': nickName,
+          'code': userCode,
+          'totalDebit': totalDebit,
+          'totalCredit': totalCredit,
+          'diflictPercentage': diflictPercentage,
+          'shiftPrice': shiftPrice,
+          'contractDate': contractDate,
+          'userRef': userDocRef, // Reference to user document
+        };
+
+        contractorDocRef.set(contractorData);
+
+        // Set contractor reference as a document reference to the contractor document
+        userData['contractorRef'] = contractorDocRef;
+      } else {
+        // Add shift and drug_test_image_url fields for non-contractor roles
+        userData['shift'] = shift != null
+            ? {
+                'startShift': shift.startShift,
+                'shiftPeriod': shift.shiftPeriod,
+              }
+            : null;
+        userData['drug_test_image_url'] = drugTestImageUrl;
+        userData['contractorRef'] = contractorRef;
+      }
+
+      // Add driving information if the user's role is "driver"
+      if (isDriver! && drLicInfo != null) {
+        userData['driving_information'] = drLicInfo.toMap();
+      }
+
+      // Populate privileges field with granted privilege references
+      List<DocumentReference>? privileges = await grantUserRole(roleID);
+      if (privileges != null) {
+        userData['privileges'] = {
+          'granted_privilege': privileges,
+          'role_name': roleName,
         };
       }
-      userData['privileges'] = {
-        'roleName': privileges.roleName,
-        'roleTasks': privileges.roleTasks
-      };
-      if (natInfo != null) {
-        userData['national_information'] = {
-          'nationality': natInfo.nationality,
-          'national_id': natInfo.national_id,
-          'issue_place': natInfo.issue_place,
-          'issue_date': natInfo.issue_date,
-          'expiry_date': natInfo.expiry_date,
-        };
-      }
-      if (drLicInfo != null) {
-        userData['drivnig_information'] = {
-          'licsence_type': drLicInfo.licsence_type,
-          'issue_place': drLicInfo.issue_place,
-          'issue_date': drLicInfo.issue_date,
-          'expiry_date': drLicInfo.expiry_date,
-        };
-      }
+      debugPrint("User Data: " + userData.toString());
+      // Set user data
       userDocRef.set(userData);
 
       await app.delete();
@@ -130,6 +167,63 @@ Future<UserCreationObjectStruct?> createUser(
     }
   } on FirebaseAuthException catch (e) {
     return UserCreationObjectStruct(userRef: null, message: e.code);
+  }
+}
+
+Future<List<DocumentReference>?> grantUserRole(String roleID) async {
+  try {
+    // Fetch tasks for the specified role ID
+    String roleMap = "Role_" + roleID + "_Map";
+    debugPrint('Role map ID: $roleMap');
+    final tasksSnapshot = await FirebaseFirestore.instance
+        .collection("Role_Mapping")
+        .doc(roleMap)
+        .get();
+
+    // Check if data exists in the snapshot
+    if (tasksSnapshot.exists) {
+      // Extract tasks list from snapshot data
+      final tasksList = tasksSnapshot.data()?['Tasks'] as List<dynamic>;
+
+      // Check if tasksList is not null and is a List
+      if (tasksList != null && tasksList is List) {
+        // Convert each task ID to a DocumentReference
+        final List<DocumentReference<Object?>> references = tasksList
+            .where((taskDocRef) =>
+                taskDocRef is DocumentReference || taskDocRef is String)
+            .map<DocumentReference<Object?>>((taskDocRef) {
+          if (taskDocRef is DocumentReference) {
+            return taskDocRef
+                as DocumentReference<Object?>; // Cast to non-nullable type
+          } else if (taskDocRef is String) {
+            return FirebaseFirestore.instance
+                    .collection("tasks")
+                    .doc(taskDocRef)
+                as DocumentReference<Object?>; // Cast to non-nullable type
+          } else {
+            // This branch should never be reached if the filter is correct, but you can handle it if needed
+            throw ArgumentError('Invalid task document reference: $taskDocRef');
+          }
+        }).toList();
+
+        // Remove null values (if any) from the list
+        references.removeWhere((ref) => ref == null);
+
+        debugPrint('Tasks List: $tasksList');
+        debugPrint('Document References: $references');
+        return references;
+      } else {
+        debugPrint('Error: tasksList is null or not a List');
+        return null;
+      }
+    } else {
+      debugPrint('Error: Snapshot does not exist');
+      return null;
+    }
+  } catch (error, stackTrace) {
+    debugPrint('Error updating privileges: $error');
+    debugPrint('Stack Trace: $stackTrace');
+    return null;
   }
 }
 

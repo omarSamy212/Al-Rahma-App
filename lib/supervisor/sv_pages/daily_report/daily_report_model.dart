@@ -18,24 +18,29 @@ class DailyReportModel extends FlutterFlowModel<DailyReportWidget> {
   final formKey = GlobalKey<FormState>();
   // State field(s) for TextualDetails widget.
   FocusNode? textualDetailsFocusNode1;
-  TextEditingController? textualDetailsController1;
-  String? Function(BuildContext, String?)? textualDetailsController1Validator;
+  TextEditingController? textualDetailsTextController1;
+  String? Function(BuildContext, String?)?
+      textualDetailsTextController1Validator;
   // State field(s) for TextualDetails widget.
   FocusNode? textualDetailsFocusNode2;
-  TextEditingController? textualDetailsController2;
-  String? Function(BuildContext, String?)? textualDetailsController2Validator;
+  TextEditingController? textualDetailsTextController2;
+  String? Function(BuildContext, String?)?
+      textualDetailsTextController2Validator;
   // State field(s) for TextualDetails widget.
   FocusNode? textualDetailsFocusNode3;
-  TextEditingController? textualDetailsController3;
-  String? Function(BuildContext, String?)? textualDetailsController3Validator;
+  TextEditingController? textualDetailsTextController3;
+  String? Function(BuildContext, String?)?
+      textualDetailsTextController3Validator;
   // State field(s) for TextualDetails widget.
   FocusNode? textualDetailsFocusNode4;
-  TextEditingController? textualDetailsController4;
-  String? Function(BuildContext, String?)? textualDetailsController4Validator;
+  TextEditingController? textualDetailsTextController4;
+  String? Function(BuildContext, String?)?
+      textualDetailsTextController4Validator;
   // State field(s) for TextualDetails widget.
   FocusNode? textualDetailsFocusNode5;
-  TextEditingController? textualDetailsController5;
-  String? Function(BuildContext, String?)? textualDetailsController5Validator;
+  TextEditingController? textualDetailsTextController5;
+  String? Function(BuildContext, String?)?
+      textualDetailsTextController5Validator;
 
   @override
   void initState(BuildContext context) {}
@@ -44,18 +49,18 @@ class DailyReportModel extends FlutterFlowModel<DailyReportWidget> {
   void dispose() {
     unfocusNode.dispose();
     textualDetailsFocusNode1?.dispose();
-    textualDetailsController1?.dispose();
+    textualDetailsTextController1?.dispose();
 
     textualDetailsFocusNode2?.dispose();
-    textualDetailsController2?.dispose();
+    textualDetailsTextController2?.dispose();
 
     textualDetailsFocusNode3?.dispose();
-    textualDetailsController3?.dispose();
+    textualDetailsTextController3?.dispose();
 
     textualDetailsFocusNode4?.dispose();
-    textualDetailsController4?.dispose();
+    textualDetailsTextController4?.dispose();
 
     textualDetailsFocusNode5?.dispose();
-    textualDetailsController5?.dispose();
+    textualDetailsTextController5?.dispose();
   }
 }

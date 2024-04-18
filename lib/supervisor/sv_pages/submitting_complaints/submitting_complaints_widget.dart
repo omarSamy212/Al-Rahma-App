@@ -31,27 +31,7 @@ class _SubmittingComplaintsWidgetState extends State<SubmittingComplaintsWidget>
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
-  final animationsMap = {
-    'containerOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 110.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -60,9 +40,30 @@ class _SubmittingComplaintsWidgetState extends State<SubmittingComplaintsWidget>
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'Submitting_complaints'});
-    _model.textualDetailsController ??= TextEditingController();
+    _model.textualDetailsTextController ??= TextEditingController();
     _model.textualDetailsFocusNode ??= FocusNode();
 
+    animationsMap.addAll({
+      'containerOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 110.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+    });
     setupAnimations(
       animationsMap.values.where((anim) =>
           anim.trigger == AnimationTrigger.onActionTrigger ||
@@ -116,10 +117,13 @@ class _SubmittingComplaintsWidgetState extends State<SubmittingComplaintsWidget>
                   'uqcv56iy' /* Submitting complaints */,
                 ),
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
-                      fontFamily: 'Outfit',
+                      fontFamily:
+                          FlutterFlowTheme.of(context).headlineMediumFamily,
                       color: Colors.white,
                       fontSize: 22.0,
                       letterSpacing: 0.0,
+                      useGoogleFonts: GoogleFonts.asMap().containsKey(
+                          FlutterFlowTheme.of(context).headlineMediumFamily),
                     ),
               ),
               actions: [],
@@ -226,6 +230,11 @@ class _SubmittingComplaintsWidgetState extends State<SubmittingComplaintsWidget>
                                                             fontWeight:
                                                                 FontWeight
                                                                     .normal,
+                                                            useGoogleFonts:
+                                                                GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        'Plus Jakarta Sans'),
                                                           ),
                                                     ),
                                                   ),
@@ -263,6 +272,10 @@ class _SubmittingComplaintsWidgetState extends State<SubmittingComplaintsWidget>
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        'Plus Jakarta Sans'),
                                                               ),
                                                         ),
                                                       ),
@@ -294,6 +307,10 @@ class _SubmittingComplaintsWidgetState extends State<SubmittingComplaintsWidget>
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        'Plus Jakarta Sans'),
                                                               ),
                                                         ),
                                                       ),
@@ -333,6 +350,10 @@ class _SubmittingComplaintsWidgetState extends State<SubmittingComplaintsWidget>
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        'Plus Jakarta Sans'),
                                                               ),
                                                         ),
                                                       ),
@@ -391,8 +412,14 @@ class _SubmittingComplaintsWidgetState extends State<SubmittingComplaintsWidget>
                                     textStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          fontFamily: 'Readex Pro',
+                                          fontFamily:
+                                              FlutterFlowTheme.of(context)
+                                                  .labelMediumFamily,
                                           letterSpacing: 0.0,
+                                          useGoogleFonts: GoogleFonts.asMap()
+                                              .containsKey(
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelMediumFamily),
                                         ),
                                     hintText:
                                         FFLocalizations.of(context).getText(
@@ -427,7 +454,7 @@ class _SubmittingComplaintsWidgetState extends State<SubmittingComplaintsWidget>
                           padding: EdgeInsetsDirectional.fromSTEB(
                               20.0, 0.0, 20.0, 12.0),
                           child: TextFormField(
-                            controller: _model.textualDetailsController,
+                            controller: _model.textualDetailsTextController,
                             focusNode: _model.textualDetailsFocusNode,
                             textCapitalization: TextCapitalization.sentences,
                             obscureText: false,
@@ -440,6 +467,8 @@ class _SubmittingComplaintsWidgetState extends State<SubmittingComplaintsWidget>
                                     fontSize: 14.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey('Plus Jakarta Sans'),
                                   ),
                               hintText: FFLocalizations.of(context).getText(
                                 'dkdcu4hu' /* Details */,
@@ -452,6 +481,8 @@ class _SubmittingComplaintsWidgetState extends State<SubmittingComplaintsWidget>
                                     fontSize: 14.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey('Plus Jakarta Sans'),
                                   ),
                               enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
@@ -494,13 +525,15 @@ class _SubmittingComplaintsWidgetState extends State<SubmittingComplaintsWidget>
                                   fontSize: 14.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.normal,
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey('Plus Jakarta Sans'),
                                 ),
                             textAlign: TextAlign.start,
                             maxLines: 3,
-                            minLines: null,
                             maxLength: 500,
                             maxLengthEnforcement: MaxLengthEnforcement.enforced,
-                            validator: _model.textualDetailsControllerValidator
+                            validator: _model
+                                .textualDetailsTextControllerValidator
                                 .asValidator(context),
                           ),
                         ),
@@ -555,6 +588,10 @@ class _SubmittingComplaintsWidgetState extends State<SubmittingComplaintsWidget>
                                               fontSize: 14.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
+                                              useGoogleFonts:
+                                                  GoogleFonts.asMap()
+                                                      .containsKey(
+                                                          'Plus Jakarta Sans'),
                                             ),
                                       ),
                                     ),
@@ -650,10 +687,15 @@ class _SubmittingComplaintsWidgetState extends State<SubmittingComplaintsWidget>
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Readex Pro',
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .bodyMediumFamily,
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryText,
                                     letterSpacing: 0.0,
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey(
+                                            FlutterFlowTheme.of(context)
+                                                .bodyMediumFamily),
                                   ),
                             ),
                           ),
@@ -685,6 +727,8 @@ class _SubmittingComplaintsWidgetState extends State<SubmittingComplaintsWidget>
                                     fontSize: 18.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey('Plus Jakarta Sans'),
                                   ),
                               elevation: 2.0,
                               borderSide: BorderSide(

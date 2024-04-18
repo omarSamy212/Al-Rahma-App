@@ -20,24 +20,25 @@ class ServicingDiscriptionModel
   final unfocusNode = FocusNode();
   // State field(s) for TheTruck widget.
   FocusNode? theTruckFocusNode;
-  TextEditingController? theTruckController;
-  String? Function(BuildContext, String?)? theTruckControllerValidator;
+  TextEditingController? theTruckTextController;
+  String? Function(BuildContext, String?)? theTruckTextControllerValidator;
   // State field(s) for Mechanical widget.
   FocusNode? mechanicalFocusNode;
-  TextEditingController? mechanicalController;
-  String? Function(BuildContext, String?)? mechanicalControllerValidator;
+  TextEditingController? mechanicalTextController;
+  String? Function(BuildContext, String?)? mechanicalTextControllerValidator;
   // State field(s) for tricycle widget.
   FocusNode? tricycleFocusNode;
-  TextEditingController? tricycleController;
-  String? Function(BuildContext, String?)? tricycleControllerValidator;
+  TextEditingController? tricycleTextController;
+  String? Function(BuildContext, String?)? tricycleTextControllerValidator;
   // State field(s) for total_price widget.
   FocusNode? totalPriceFocusNode;
-  TextEditingController? totalPriceController;
-  String? Function(BuildContext, String?)? totalPriceControllerValidator;
+  TextEditingController? totalPriceTextController;
+  String? Function(BuildContext, String?)? totalPriceTextControllerValidator;
   // State field(s) for TextualDetails widget.
   FocusNode? textualDetailsFocusNode;
-  TextEditingController? textualDetailsController;
-  String? Function(BuildContext, String?)? textualDetailsControllerValidator;
+  TextEditingController? textualDetailsTextController;
+  String? Function(BuildContext, String?)?
+      textualDetailsTextControllerValidator;
 
   @override
   void initState(BuildContext context) {}
@@ -46,18 +47,18 @@ class ServicingDiscriptionModel
   void dispose() {
     unfocusNode.dispose();
     theTruckFocusNode?.dispose();
-    theTruckController?.dispose();
+    theTruckTextController?.dispose();
 
     mechanicalFocusNode?.dispose();
-    mechanicalController?.dispose();
+    mechanicalTextController?.dispose();
 
     tricycleFocusNode?.dispose();
-    tricycleController?.dispose();
+    tricycleTextController?.dispose();
 
     totalPriceFocusNode?.dispose();
-    totalPriceController?.dispose();
+    totalPriceTextController?.dispose();
 
     textualDetailsFocusNode?.dispose();
-    textualDetailsController?.dispose();
+    textualDetailsTextController?.dispose();
   }
 }

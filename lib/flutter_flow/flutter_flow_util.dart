@@ -543,7 +543,7 @@ Future<void> stopAudioRecording({
     return;
   }
   final recordedPath = await audioRecorder.stop();
-  final recordedFilePath = Platform.isIOS || Platform.isMacOS
+  final recordedFilePath = !kIsWeb && (Platform.isIOS || Platform.isMacOS)
       ? 'file://$recordedPath'
       : recordedPath;
   if (recordedFilePath == null) {
@@ -580,11 +580,11 @@ void fixStatusBarOniOS16AndBelow(BuildContext context) {
 
 extension ListUniqueExt<T> on Iterable<T> {
   List<T> unique(dynamic Function(T) getKey) {
-    var distinctSet = <T>{};
+    var distinctSet = <dynamic>{};
     var distinctList = <T>[];
     for (var item in this) {
       if (distinctSet.add(getKey(item))) {
-        distinctList.add(getKey(item));
+        distinctList.add(item);
       }
     }
     return distinctList;

@@ -1,11 +1,10 @@
 // Export pages
 export '/shared/shared_pages/welcome_and_login/welcome/welcome_widget.dart'
     show WelcomeWidget;
-export '/shared/shared_pages/welcome_and_login/login/login_widget.dart'
-    show LoginWidget;
+export '/shared/shared_pages/login/login_widget.dart' show LoginWidget;
 export '/storage_keeper/sk_pages/storekeeper_home/storekeeper_home_widget.dart'
     show StorekeeperHomeWidget;
-export '/under_test/pages_under_test/home01_company_list/home01_company_list_widget.dart'
+export '/traffic_manager/tm_pages/under_test/pages_under_test/home01_company_list/home01_company_list_widget.dart'
     show Home01CompanyListWidget;
 export '/admin/a_pages/create_user/create_user_widget.dart'
     show CreateUserWidget;
@@ -35,25 +34,20 @@ export '/supplier/supplier_dashboard/supplier_dashboard_widget.dart'
     show SupplierDashboardWidget;
 export '/shared/shared_pages/applyforjob/applyforjob_widget.dart'
     show ApplyforjobWidget;
-export '/under_test/pages_under_test/onboarding04/onboarding04_widget.dart'
+export '/traffic_manager/tm_pages/under_test/pages_under_test/onboarding04/onboarding04_widget.dart'
     show Onboarding04Widget;
 export '/shared/hint_beforeapplyjob/hint_beforeapplyjob_widget.dart'
     show HintBeforeapplyjobWidget;
-export '/under_test/pages_under_test/home13_productivity/home13_productivity_widget.dart'
+export '/traffic_manager/tm_pages/under_test/pages_under_test/home13_productivity/home13_productivity_widget.dart'
     show Home13ProductivityWidget;
 export '/supervisor/sv_pages/tasks_tracker/tasks_tracker_widget.dart'
     show TasksTrackerWidget;
-export '/under_test/pages_under_test/complain_form_copy/complain_form_copy_widget.dart'
+export '/traffic_manager/tm_pages/under_test/pages_under_test/complain_form_copy/complain_form_copy_widget.dart'
     show ComplainFormCopyWidget;
 export '/admin/a_pages/users_list/users_list_widget.dart' show UsersListWidget;
-export '/shared/shared_pages/user_profile/user_profile_widget.dart'
-    show UserProfileWidget;
 export '/list/list_widget.dart' show ListWidget;
 export '/settings1_notifications/settings1_notifications_widget.dart'
     show Settings1NotificationsWidget;
-export '/admin/a_pages/update_user/update_user_widget.dart'
-    show UpdateUserWidget;
-export '/working_area/working_area_widget.dart' show WorkingAreaWidget;
 export '/supervisor/sv_pages/sv_requests/sv_requests_widget.dart'
     show SvRequestsWidget;
 export '/supervisor/sv_pages/attendanceofworkers/attendanceofworkers_widget.dart'
@@ -67,8 +61,6 @@ export '/supervisor/sv_pages/submitting_complaints/submitting_complaints_widget.
     show SubmittingComplaintsWidget;
 export '/supervisor/sv_pages/daily_report/daily_report_widget.dart'
     show DailyReportWidget;
-export '/supervisor/sv_pages/submitting_personal_requests/submitting_personal_requests_widget.dart'
-    show SubmittingPersonalRequestsWidget;
 export '/supervisor/sv_pages/taskdetails/taskdetails_widget.dart'
     show TaskdetailsWidget;
 export '/supervisor/sv_pages/loggingout_for_workers/loggingout_for_workers_widget.dart'
@@ -79,8 +71,7 @@ export '/details_area/details_area_widget.dart' show DetailsAreaWidget;
 export '/traffic_manager/tm_pages/tm_home/tm_home_widget.dart'
     show TmHomeWidget;
 export '/create04_task/create04_task_widget.dart' show Create04TaskWidget;
-export '/traffic_manager/tm_pages/movment/movment_widget.dart'
-    show MovmentWidget;
+export '/shared/movment/movment_widget.dart' show MovmentWidget;
 export '/traffic_manager/tm_pages/add_servicingreport/add_servicingreport_widget.dart'
     show AddServicingreportWidget;
 export '/traffic_manager/tm_pages/tm_list_requests/tm_list_requests_widget.dart'
@@ -97,3 +88,60 @@ export '/taskdetails_copy/taskdetails_copy_widget.dart'
     show TaskdetailsCopyWidget;
 export '/sv_requests_copy/sv_requests_copy_widget.dart'
     show SvRequestsCopyWidget;
+export '/supllier_home/supllier_home_widget.dart' show SupllierHomeWidget;
+export '/supervisor/sv_pages/send_personal_request/send_personal_request_widget.dart'
+    show SendPersonalRequestWidget;
+export '/operation_maneger_s/o_m_pages/workersattendance/workersattendance_widget.dart'
+    show WorkersattendanceWidget;
+export '/home/home_widget.dart' show HomeWidget;
+export '/home19_property_appbookingapp/home19_property_appbookingapp_widget.dart'
+    show Home19PropertyAppbookingappWidget;
+export '/rr/rr_widget.dart' show RrWidget;
+export '/operation_maneger_s/o_m_pages/complaints/complaints_widget.dart'
+    show ComplaintsWidget;
+export '/operation_maneger_s/o_m_pages/o_m_home/o_m_home_widget.dart'
+    show OMHomeWidget;
+export '/details03_transactions_summary/details03_transactions_summary_widget.dart'
+    show Details03TransactionsSummaryWidget;
+export '/operation_maneger_s/o_m_pages/o_m_complandiscription/o_m_complandiscription_widget.dart'
+    show OMComplandiscriptionWidget;
+export '/operation_maneger_s/o_m_pages/o_m_list_work_orders/o_m_list_work_orders_widget.dart'
+    show OMListWorkOrdersWidget;
+export '/operation_maneger_s/o_m_pages/o_m_work_orders_discription/o_m_work_orders_discription_widget.dart'
+    show OMWorkOrdersDiscriptionWidget;
+export '/admin/a_pages/list_ratings/list_ratings_widget.dart'
+    show ListRatingsWidget;
+export '/dash2/dash2_widget.dart' show Dash2Widget;
+export '/shared/shared_pages/maps/list_maps/list_maps_widget.dart'
+    show ListMapsWidget;
+export '/shared/shared_pages/maps/add_maps/add_maps_widget.dart'
+    show AddMapsWidget;
+export '/admin/a_pages/user_profile/user_profile_widget.dart'
+    show UserProfileWidget;
+export '/admin/a_pages/update_user/update_user_widget.dart'
+    show UpdateUserWidget;
+export '/details20_property/details20_property_widget.dart'
+    show Details20PropertyWidget;
+export '/operation_maneger_s/o_m_pages/o_m_list_all_task/o_m_list_all_task_widget.dart'
+    show OMListAllTaskWidget;
+export '/operation_maneger_s/o_m_pages/o_m_supmited_task_detalis/o_m_supmited_task_detalis_widget.dart'
+    show OMSupmitedTaskDetalisWidget;
+export '/operation_maneger_s/o_m_pages/o_m_list_all_daily_reports/o_m_list_all_daily_reports_widget.dart'
+    show OMListAllDailyReportsWidget;
+export '/operation_maneger_s/o_m_pages/o_m_view_daily_report/o_m_view_daily_report_widget.dart'
+    show OMViewDailyReportWidget;
+export '/operation_maneger_s/o_m_pages/o_m_list_personal_orders/o_m_list_personal_orders_widget.dart'
+    show OMListPersonalOrdersWidget;
+export '/operation_maneger_s/o_m_pages/o_m_personal_orders_discription/o_m_personal_orders_discription_widget.dart'
+    show OMPersonalOrdersDiscriptionWidget;
+export '/operation_maneger_s/o_m_pages/o_m_view_distribution_of_workers/o_m_view_distribution_of_workers_widget.dart'
+    show OMViewDistributionOfWorkersWidget;
+export '/operation_maneger_s/o_m_pages/o_m_list_distribution_of_workers/o_m_list_distribution_of_workers_widget.dart'
+    show OMListDistributionOfWorkersWidget;
+export '/admin/a_pages/new_admin_home/new_admin_home_widget.dart'
+    show NewAdminHomeWidget;
+export '/home07_invoices/home07_invoices_widget.dart' show Home07InvoicesWidget;
+export '/admin/a_pages/manualattendance/manualattendance_widget.dart'
+    show ManualattendanceWidget;
+export '/shared/shared_pages/maps/location_picker/location_picker_widget.dart'
+    show LocationPickerWidget;

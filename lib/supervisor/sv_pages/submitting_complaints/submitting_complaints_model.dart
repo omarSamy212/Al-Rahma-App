@@ -26,8 +26,9 @@ class SubmittingComplaintsModel
   FormFieldController<String>? dropDownValueController;
   // State field(s) for TextualDetails widget.
   FocusNode? textualDetailsFocusNode;
-  TextEditingController? textualDetailsController;
-  String? Function(BuildContext, String?)? textualDetailsControllerValidator;
+  TextEditingController? textualDetailsTextController;
+  String? Function(BuildContext, String?)?
+      textualDetailsTextControllerValidator;
 
   @override
   void initState(BuildContext context) {}
@@ -36,6 +37,6 @@ class SubmittingComplaintsModel
   void dispose() {
     unfocusNode.dispose();
     textualDetailsFocusNode?.dispose();
-    textualDetailsController?.dispose();
+    textualDetailsTextController?.dispose();
   }
 }

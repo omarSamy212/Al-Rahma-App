@@ -2,7 +2,6 @@ import '/auth/base_auth_user_provider.dart';
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
-import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -43,6 +42,10 @@ class CreateUserModel extends FlutterFlowModel<CreateUserWidget> {
 
   bool isNext = true;
 
+  bool isError = true;
+
+  bool isDriver = true;
+
   ///  State fields for stateful widgets in this page.
 
   final formKey9 = GlobalKey<FormState>();
@@ -62,9 +65,9 @@ class CreateUserModel extends FlutterFlowModel<CreateUserWidget> {
   int? numOfUsers;
   // State field(s) for firstName widget.
   FocusNode? firstNameFocusNode;
-  TextEditingController? firstNameController;
-  String? Function(BuildContext, String?)? firstNameControllerValidator;
-  String? _firstNameControllerValidator(BuildContext context, String? val) {
+  TextEditingController? firstNameTextController;
+  String? Function(BuildContext, String?)? firstNameTextControllerValidator;
+  String? _firstNameTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
         'ggodxj06' /* Field is required */,
@@ -76,9 +79,10 @@ class CreateUserModel extends FlutterFlowModel<CreateUserWidget> {
 
   // State field(s) for middleName widget.
   FocusNode? middleNameFocusNode;
-  TextEditingController? middleNameController;
-  String? Function(BuildContext, String?)? middleNameControllerValidator;
-  String? _middleNameControllerValidator(BuildContext context, String? val) {
+  TextEditingController? middleNameTextController;
+  String? Function(BuildContext, String?)? middleNameTextControllerValidator;
+  String? _middleNameTextControllerValidator(
+      BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
         'vkrrbebk' /* Field is required */,
@@ -90,9 +94,9 @@ class CreateUserModel extends FlutterFlowModel<CreateUserWidget> {
 
   // State field(s) for lastName widget.
   FocusNode? lastNameFocusNode;
-  TextEditingController? lastNameController;
-  String? Function(BuildContext, String?)? lastNameControllerValidator;
-  String? _lastNameControllerValidator(BuildContext context, String? val) {
+  TextEditingController? lastNameTextController;
+  String? Function(BuildContext, String?)? lastNameTextControllerValidator;
+  String? _lastNameTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
         '87jbrjhh' /* Field is required */,
@@ -104,9 +108,9 @@ class CreateUserModel extends FlutterFlowModel<CreateUserWidget> {
 
   // State field(s) for nickName widget.
   FocusNode? nickNameFocusNode;
-  TextEditingController? nickNameController;
-  String? Function(BuildContext, String?)? nickNameControllerValidator;
-  String? _nickNameControllerValidator(BuildContext context, String? val) {
+  TextEditingController? nickNameTextController;
+  String? Function(BuildContext, String?)? nickNameTextControllerValidator;
+  String? _nickNameTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
         '4iue3yt2' /* Field is required */,
@@ -130,9 +134,10 @@ class CreateUserModel extends FlutterFlowModel<CreateUserWidget> {
   FormFieldController<String>? countryValueController;
   // State field(s) for nationalID widget.
   FocusNode? nationalIDFocusNode;
-  TextEditingController? nationalIDController;
-  String? Function(BuildContext, String?)? nationalIDControllerValidator;
-  String? _nationalIDControllerValidator(BuildContext context, String? val) {
+  TextEditingController? nationalIDTextController;
+  String? Function(BuildContext, String?)? nationalIDTextControllerValidator;
+  String? _nationalIDTextControllerValidator(
+      BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
         '3dsgsa6c' /* Field is required */,
@@ -148,10 +153,10 @@ class CreateUserModel extends FlutterFlowModel<CreateUserWidget> {
 
   // State field(s) for Birthdate widget.
   FocusNode? birthdateFocusNode;
-  TextEditingController? birthdateController;
+  TextEditingController? birthdateTextController;
   final birthdateMask = MaskTextInputFormatter(mask: '##/##/####');
-  String? Function(BuildContext, String?)? birthdateControllerValidator;
-  String? _birthdateControllerValidator(BuildContext context, String? val) {
+  String? Function(BuildContext, String?)? birthdateTextControllerValidator;
+  String? _birthdateTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
         'xrl64zux' /* Field is required */,
@@ -163,9 +168,9 @@ class CreateUserModel extends FlutterFlowModel<CreateUserWidget> {
 
   // State field(s) for Age widget.
   FocusNode? ageFocusNode1;
-  TextEditingController? ageController1;
-  String? Function(BuildContext, String?)? ageController1Validator;
-  String? _ageController1Validator(BuildContext context, String? val) {
+  TextEditingController? ageTextController1;
+  String? Function(BuildContext, String?)? ageTextController1Validator;
+  String? _ageTextController1Validator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
         'xc4thabi' /* Field is required */,
@@ -177,9 +182,10 @@ class CreateUserModel extends FlutterFlowModel<CreateUserWidget> {
 
   // State field(s) for natPlaceOfIssue widget.
   FocusNode? natPlaceOfIssueFocusNode;
-  TextEditingController? natPlaceOfIssueController;
-  String? Function(BuildContext, String?)? natPlaceOfIssueControllerValidator;
-  String? _natPlaceOfIssueControllerValidator(
+  TextEditingController? natPlaceOfIssueTextController;
+  String? Function(BuildContext, String?)?
+      natPlaceOfIssueTextControllerValidator;
+  String? _natPlaceOfIssueTextControllerValidator(
       BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
@@ -192,10 +198,10 @@ class CreateUserModel extends FlutterFlowModel<CreateUserWidget> {
 
   // State field(s) for natIDDate widget.
   FocusNode? natIDDateFocusNode;
-  TextEditingController? natIDDateController;
+  TextEditingController? natIDDateTextController;
   final natIDDateMask = MaskTextInputFormatter(mask: '##/##/####');
-  String? Function(BuildContext, String?)? natIDDateControllerValidator;
-  String? _natIDDateControllerValidator(BuildContext context, String? val) {
+  String? Function(BuildContext, String?)? natIDDateTextControllerValidator;
+  String? _natIDDateTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
         'ep3xap2v' /* Field is required */,
@@ -208,9 +214,10 @@ class CreateUserModel extends FlutterFlowModel<CreateUserWidget> {
   DateTime? datePicked1;
   // State field(s) for expiryDate widget.
   FocusNode? expiryDateFocusNode;
-  TextEditingController? expiryDateController;
-  String? Function(BuildContext, String?)? expiryDateControllerValidator;
-  String? _expiryDateControllerValidator(BuildContext context, String? val) {
+  TextEditingController? expiryDateTextController;
+  String? Function(BuildContext, String?)? expiryDateTextControllerValidator;
+  String? _expiryDateTextControllerValidator(
+      BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
         'cgj9gsqz' /* Field is required */,
@@ -223,9 +230,10 @@ class CreateUserModel extends FlutterFlowModel<CreateUserWidget> {
   DateTime? datePicked2;
   // State field(s) for nationality widget.
   FocusNode? nationalityFocusNode;
-  TextEditingController? nationalityController;
-  String? Function(BuildContext, String?)? nationalityControllerValidator;
-  String? _nationalityControllerValidator(BuildContext context, String? val) {
+  TextEditingController? nationalityTextController;
+  String? Function(BuildContext, String?)? nationalityTextControllerValidator;
+  String? _nationalityTextControllerValidator(
+      BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
         '1mn2cxty' /* Field is required */,
@@ -237,9 +245,10 @@ class CreateUserModel extends FlutterFlowModel<CreateUserWidget> {
 
   // State field(s) for passportNo widget.
   FocusNode? passportNoFocusNode;
-  TextEditingController? passportNoController;
-  String? Function(BuildContext, String?)? passportNoControllerValidator;
-  String? _passportNoControllerValidator(BuildContext context, String? val) {
+  TextEditingController? passportNoTextController;
+  String? Function(BuildContext, String?)? passportNoTextControllerValidator;
+  String? _passportNoTextControllerValidator(
+      BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
         '8vbjnb37' /* Field is required */,
@@ -251,9 +260,10 @@ class CreateUserModel extends FlutterFlowModel<CreateUserWidget> {
 
   // State field(s) for passportBirthdate widget.
   FocusNode? passportBirthdateFocusNode;
-  TextEditingController? passportBirthdateController;
-  String? Function(BuildContext, String?)? passportBirthdateControllerValidator;
-  String? _passportBirthdateControllerValidator(
+  TextEditingController? passportBirthdateTextController;
+  String? Function(BuildContext, String?)?
+      passportBirthdateTextControllerValidator;
+  String? _passportBirthdateTextControllerValidator(
       BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
@@ -267,9 +277,9 @@ class CreateUserModel extends FlutterFlowModel<CreateUserWidget> {
   DateTime? datePicked3;
   // State field(s) for Age widget.
   FocusNode? ageFocusNode2;
-  TextEditingController? ageController2;
-  String? Function(BuildContext, String?)? ageController2Validator;
-  String? _ageController2Validator(BuildContext context, String? val) {
+  TextEditingController? ageTextController2;
+  String? Function(BuildContext, String?)? ageTextController2Validator;
+  String? _ageTextController2Validator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
         '3zkdeqja' /* Field is required */,
@@ -281,10 +291,10 @@ class CreateUserModel extends FlutterFlowModel<CreateUserWidget> {
 
   // State field(s) for passportPlaceOfIssue widget.
   FocusNode? passportPlaceOfIssueFocusNode;
-  TextEditingController? passportPlaceOfIssueController;
+  TextEditingController? passportPlaceOfIssueTextController;
   String? Function(BuildContext, String?)?
-      passportPlaceOfIssueControllerValidator;
-  String? _passportPlaceOfIssueControllerValidator(
+      passportPlaceOfIssueTextControllerValidator;
+  String? _passportPlaceOfIssueTextControllerValidator(
       BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
@@ -297,9 +307,10 @@ class CreateUserModel extends FlutterFlowModel<CreateUserWidget> {
 
   // State field(s) for passportIssueDate widget.
   FocusNode? passportIssueDateFocusNode;
-  TextEditingController? passportIssueDateController;
-  String? Function(BuildContext, String?)? passportIssueDateControllerValidator;
-  String? _passportIssueDateControllerValidator(
+  TextEditingController? passportIssueDateTextController;
+  String? Function(BuildContext, String?)?
+      passportIssueDateTextControllerValidator;
+  String? _passportIssueDateTextControllerValidator(
       BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
@@ -313,9 +324,10 @@ class CreateUserModel extends FlutterFlowModel<CreateUserWidget> {
   DateTime? datePicked4;
   // State field(s) for passportExpDate widget.
   FocusNode? passportExpDateFocusNode;
-  TextEditingController? passportExpDateController;
-  String? Function(BuildContext, String?)? passportExpDateControllerValidator;
-  String? _passportExpDateControllerValidator(
+  TextEditingController? passportExpDateTextController;
+  String? Function(BuildContext, String?)?
+      passportExpDateTextControllerValidator;
+  String? _passportExpDateTextControllerValidator(
       BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
@@ -329,9 +341,10 @@ class CreateUserModel extends FlutterFlowModel<CreateUserWidget> {
   DateTime? datePicked5;
   // State field(s) for government widget.
   FocusNode? governmentFocusNode;
-  TextEditingController? governmentController;
-  String? Function(BuildContext, String?)? governmentControllerValidator;
-  String? _governmentControllerValidator(BuildContext context, String? val) {
+  TextEditingController? governmentTextController;
+  String? Function(BuildContext, String?)? governmentTextControllerValidator;
+  String? _governmentTextControllerValidator(
+      BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
         'kdw10inl' /* Field is required */,
@@ -343,9 +356,9 @@ class CreateUserModel extends FlutterFlowModel<CreateUserWidget> {
 
   // State field(s) for city widget.
   FocusNode? cityFocusNode;
-  TextEditingController? cityController;
-  String? Function(BuildContext, String?)? cityControllerValidator;
-  String? _cityControllerValidator(BuildContext context, String? val) {
+  TextEditingController? cityTextController;
+  String? Function(BuildContext, String?)? cityTextControllerValidator;
+  String? _cityTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
         '9t4q9h1g' /* Field is required */,
@@ -357,9 +370,10 @@ class CreateUserModel extends FlutterFlowModel<CreateUserWidget> {
 
   // State field(s) for fullAddress widget.
   FocusNode? fullAddressFocusNode;
-  TextEditingController? fullAddressController;
-  String? Function(BuildContext, String?)? fullAddressControllerValidator;
-  String? _fullAddressControllerValidator(BuildContext context, String? val) {
+  TextEditingController? fullAddressTextController;
+  String? Function(BuildContext, String?)? fullAddressTextControllerValidator;
+  String? _fullAddressTextControllerValidator(
+      BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
         'a3gl1iij' /* Field is required */,
@@ -371,9 +385,10 @@ class CreateUserModel extends FlutterFlowModel<CreateUserWidget> {
 
   // State field(s) for phoneNumber widget.
   FocusNode? phoneNumberFocusNode;
-  TextEditingController? phoneNumberController;
-  String? Function(BuildContext, String?)? phoneNumberControllerValidator;
-  String? _phoneNumberControllerValidator(BuildContext context, String? val) {
+  TextEditingController? phoneNumberTextController;
+  String? Function(BuildContext, String?)? phoneNumberTextControllerValidator;
+  String? _phoneNumberTextControllerValidator(
+      BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
         '412nn2e1' /* Field is required */,
@@ -385,9 +400,9 @@ class CreateUserModel extends FlutterFlowModel<CreateUserWidget> {
 
   // State field(s) for eduData widget.
   FocusNode? eduDataFocusNode;
-  TextEditingController? eduDataController;
-  String? Function(BuildContext, String?)? eduDataControllerValidator;
-  String? _eduDataControllerValidator(BuildContext context, String? val) {
+  TextEditingController? eduDataTextController;
+  String? Function(BuildContext, String?)? eduDataTextControllerValidator;
+  String? _eduDataTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
         '4qxp6c30' /* Field is required */,
@@ -403,18 +418,16 @@ class CreateUserModel extends FlutterFlowModel<CreateUserWidget> {
   // State field(s) for userRole widget.
   String? userRoleValue;
   FormFieldController<String>? userRoleValueController;
+  // Stores action output result for [Firestore Query - Query a collection] action in userRole widget.
+  RolesRecord? userRoleOutput;
   // State field(s) for contractor widget.
   String? contractorValue;
   FormFieldController<String>? contractorValueController;
-  // Stores action output result for [Custom Action - contractorPathStringToref] action in contractor widget.
-  DocumentReference? contRef;
-  // Stores action output result for [Backend Call - Read Document] action in contractor widget.
-  ContractorsRecord? contDoc;
   // State field(s) for contID widget.
   FocusNode? contIDFocusNode;
-  TextEditingController? contIDController;
-  String? Function(BuildContext, String?)? contIDControllerValidator;
-  String? _contIDControllerValidator(BuildContext context, String? val) {
+  TextEditingController? contIDTextController;
+  String? Function(BuildContext, String?)? contIDTextControllerValidator;
+  String? _contIDTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
         'web7eexb' /* Please Select Contractor */,
@@ -426,9 +439,10 @@ class CreateUserModel extends FlutterFlowModel<CreateUserWidget> {
 
   // State field(s) for contNumOfWorkers widget.
   FocusNode? contNumOfWorkersFocusNode;
-  TextEditingController? contNumOfWorkersController;
-  String? Function(BuildContext, String?)? contNumOfWorkersControllerValidator;
-  String? _contNumOfWorkersControllerValidator(
+  TextEditingController? contNumOfWorkersTextController;
+  String? Function(BuildContext, String?)?
+      contNumOfWorkersTextControllerValidator;
+  String? _contNumOfWorkersTextControllerValidator(
       BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
@@ -457,21 +471,23 @@ class CreateUserModel extends FlutterFlowModel<CreateUserWidget> {
   // State field(s) for drivingLicType widget.
   String? drivingLicTypeValue;
   FormFieldController<String>? drivingLicTypeValueController;
+  // State field(s) for drivLicPlaceOfIssue widget.
+  FocusNode? drivLicPlaceOfIssueFocusNode;
+  TextEditingController? drivLicPlaceOfIssueTextController;
+  String? Function(BuildContext, String?)?
+      drivLicPlaceOfIssueTextControllerValidator;
   // State field(s) for drivLicIssueDate widget.
   FocusNode? drivLicIssueDateFocusNode;
-  TextEditingController? drivLicIssueDateController;
-  String? Function(BuildContext, String?)? drivLicIssueDateControllerValidator;
+  TextEditingController? drivLicIssueDateTextController;
+  String? Function(BuildContext, String?)?
+      drivLicIssueDateTextControllerValidator;
   DateTime? datePicked6;
   // State field(s) for drivLicExpiryDate widget.
   FocusNode? drivLicExpiryDateFocusNode;
-  TextEditingController? drivLicExpiryDateController;
-  String? Function(BuildContext, String?)? drivLicExpiryDateControllerValidator;
-  DateTime? datePicked7;
-  // State field(s) for drivLicPlaceOfIssue widget.
-  FocusNode? drivLicPlaceOfIssueFocusNode;
-  TextEditingController? drivLicPlaceOfIssueController;
+  TextEditingController? drivLicExpiryDateTextController;
   String? Function(BuildContext, String?)?
-      drivLicPlaceOfIssueControllerValidator;
+      drivLicExpiryDateTextControllerValidator;
+  DateTime? datePicked7;
   // State field(s) for Sv_workArea widget.
   String? svWorkAreaValue;
   FormFieldController<String>? svWorkAreaValueController;
@@ -480,28 +496,23 @@ class CreateUserModel extends FlutterFlowModel<CreateUserWidget> {
   FormFieldController<String>? roleCodeValueController;
   // State field(s) for employmentDate widget.
   FocusNode? employmentDateFocusNode;
-  TextEditingController? employmentDateController;
-  String? Function(BuildContext, String?)? employmentDateControllerValidator;
+  TextEditingController? employmentDateTextController;
+  String? Function(BuildContext, String?)?
+      employmentDateTextControllerValidator;
   DateTime? datePicked8;
   // State field(s) for numOfWorkers widget.
   FocusNode? numOfWorkersFocusNode;
-  TextEditingController? numOfWorkersController;
-  String? Function(BuildContext, String?)? numOfWorkersControllerValidator;
-  String? _numOfWorkersControllerValidator(BuildContext context, String? val) {
-    if (val == null || val.isEmpty) {
-      return FFLocalizations.of(context).getText(
-        'tnens0ef' /* Field is required */,
-      );
-    }
-
-    return null;
-  }
-
+  TextEditingController? numOfWorkersTextController;
+  String? Function(BuildContext, String?)? numOfWorkersTextControllerValidator;
+  // State field(s) for ShiftPrice widget.
+  FocusNode? shiftPriceFocusNode;
+  TextEditingController? shiftPriceTextController;
+  String? Function(BuildContext, String?)? shiftPriceTextControllerValidator;
   // State field(s) for diflict widget.
   FocusNode? diflictFocusNode;
-  TextEditingController? diflictController;
-  String? Function(BuildContext, String?)? diflictControllerValidator;
-  String? _diflictControllerValidator(BuildContext context, String? val) {
+  TextEditingController? diflictTextController;
+  String? Function(BuildContext, String?)? diflictTextControllerValidator;
+  String? _diflictTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
         'mz8l2oaj' /* Field is required */,
@@ -511,34 +522,10 @@ class CreateUserModel extends FlutterFlowModel<CreateUserWidget> {
     return null;
   }
 
-  // State field(s) for ShiftPrice widget.
-  FocusNode? shiftPriceFocusNode;
-  TextEditingController? shiftPriceController;
-  String? Function(BuildContext, String?)? shiftPriceControllerValidator;
-  String? _shiftPriceControllerValidator(BuildContext context, String? val) {
-    if (val == null || val.isEmpty) {
-      return FFLocalizations.of(context).getText(
-        'bcfrlk3f' /* Field is required */,
-      );
-    }
-
-    return null;
-  }
-
   // State field(s) for contractDate widget.
   FocusNode? contractDateFocusNode;
-  TextEditingController? contractDateController;
-  String? Function(BuildContext, String?)? contractDateControllerValidator;
-  String? _contractDateControllerValidator(BuildContext context, String? val) {
-    if (val == null || val.isEmpty) {
-      return FFLocalizations.of(context).getText(
-        'd9j235xq' /* Field is required */,
-      );
-    }
-
-    return null;
-  }
-
+  TextEditingController? contractDateTextController;
+  String? Function(BuildContext, String?)? contractDateTextControllerValidator;
   DateTime? datePicked9;
   bool isDataUploading1 = false;
   FFUploadedFile uploadedLocalFile1 =
@@ -575,135 +562,135 @@ class CreateUserModel extends FlutterFlowModel<CreateUserWidget> {
 
   @override
   void initState(BuildContext context) {
-    firstNameControllerValidator = _firstNameControllerValidator;
-    middleNameControllerValidator = _middleNameControllerValidator;
-    lastNameControllerValidator = _lastNameControllerValidator;
-    nickNameControllerValidator = _nickNameControllerValidator;
-    nationalIDControllerValidator = _nationalIDControllerValidator;
-    birthdateControllerValidator = _birthdateControllerValidator;
-    ageController1Validator = _ageController1Validator;
-    natPlaceOfIssueControllerValidator = _natPlaceOfIssueControllerValidator;
-    natIDDateControllerValidator = _natIDDateControllerValidator;
-    expiryDateControllerValidator = _expiryDateControllerValidator;
-    nationalityControllerValidator = _nationalityControllerValidator;
-    passportNoControllerValidator = _passportNoControllerValidator;
-    passportBirthdateControllerValidator =
-        _passportBirthdateControllerValidator;
-    ageController2Validator = _ageController2Validator;
-    passportPlaceOfIssueControllerValidator =
-        _passportPlaceOfIssueControllerValidator;
-    passportIssueDateControllerValidator =
-        _passportIssueDateControllerValidator;
-    passportExpDateControllerValidator = _passportExpDateControllerValidator;
-    governmentControllerValidator = _governmentControllerValidator;
-    cityControllerValidator = _cityControllerValidator;
-    fullAddressControllerValidator = _fullAddressControllerValidator;
-    phoneNumberControllerValidator = _phoneNumberControllerValidator;
-    eduDataControllerValidator = _eduDataControllerValidator;
-    contIDControllerValidator = _contIDControllerValidator;
-    contNumOfWorkersControllerValidator = _contNumOfWorkersControllerValidator;
-    numOfWorkersControllerValidator = _numOfWorkersControllerValidator;
-    diflictControllerValidator = _diflictControllerValidator;
-    shiftPriceControllerValidator = _shiftPriceControllerValidator;
-    contractDateControllerValidator = _contractDateControllerValidator;
+    firstNameTextControllerValidator = _firstNameTextControllerValidator;
+    middleNameTextControllerValidator = _middleNameTextControllerValidator;
+    lastNameTextControllerValidator = _lastNameTextControllerValidator;
+    nickNameTextControllerValidator = _nickNameTextControllerValidator;
+    nationalIDTextControllerValidator = _nationalIDTextControllerValidator;
+    birthdateTextControllerValidator = _birthdateTextControllerValidator;
+    ageTextController1Validator = _ageTextController1Validator;
+    natPlaceOfIssueTextControllerValidator =
+        _natPlaceOfIssueTextControllerValidator;
+    natIDDateTextControllerValidator = _natIDDateTextControllerValidator;
+    expiryDateTextControllerValidator = _expiryDateTextControllerValidator;
+    nationalityTextControllerValidator = _nationalityTextControllerValidator;
+    passportNoTextControllerValidator = _passportNoTextControllerValidator;
+    passportBirthdateTextControllerValidator =
+        _passportBirthdateTextControllerValidator;
+    ageTextController2Validator = _ageTextController2Validator;
+    passportPlaceOfIssueTextControllerValidator =
+        _passportPlaceOfIssueTextControllerValidator;
+    passportIssueDateTextControllerValidator =
+        _passportIssueDateTextControllerValidator;
+    passportExpDateTextControllerValidator =
+        _passportExpDateTextControllerValidator;
+    governmentTextControllerValidator = _governmentTextControllerValidator;
+    cityTextControllerValidator = _cityTextControllerValidator;
+    fullAddressTextControllerValidator = _fullAddressTextControllerValidator;
+    phoneNumberTextControllerValidator = _phoneNumberTextControllerValidator;
+    eduDataTextControllerValidator = _eduDataTextControllerValidator;
+    contIDTextControllerValidator = _contIDTextControllerValidator;
+    contNumOfWorkersTextControllerValidator =
+        _contNumOfWorkersTextControllerValidator;
+    diflictTextControllerValidator = _diflictTextControllerValidator;
   }
 
   @override
   void dispose() {
     firstNameFocusNode?.dispose();
-    firstNameController?.dispose();
+    firstNameTextController?.dispose();
 
     middleNameFocusNode?.dispose();
-    middleNameController?.dispose();
+    middleNameTextController?.dispose();
 
     lastNameFocusNode?.dispose();
-    lastNameController?.dispose();
+    lastNameTextController?.dispose();
 
     nickNameFocusNode?.dispose();
-    nickNameController?.dispose();
+    nickNameTextController?.dispose();
 
     nationalIDFocusNode?.dispose();
-    nationalIDController?.dispose();
+    nationalIDTextController?.dispose();
 
     birthdateFocusNode?.dispose();
-    birthdateController?.dispose();
+    birthdateTextController?.dispose();
 
     ageFocusNode1?.dispose();
-    ageController1?.dispose();
+    ageTextController1?.dispose();
 
     natPlaceOfIssueFocusNode?.dispose();
-    natPlaceOfIssueController?.dispose();
+    natPlaceOfIssueTextController?.dispose();
 
     natIDDateFocusNode?.dispose();
-    natIDDateController?.dispose();
+    natIDDateTextController?.dispose();
 
     expiryDateFocusNode?.dispose();
-    expiryDateController?.dispose();
+    expiryDateTextController?.dispose();
 
     nationalityFocusNode?.dispose();
-    nationalityController?.dispose();
+    nationalityTextController?.dispose();
 
     passportNoFocusNode?.dispose();
-    passportNoController?.dispose();
+    passportNoTextController?.dispose();
 
     passportBirthdateFocusNode?.dispose();
-    passportBirthdateController?.dispose();
+    passportBirthdateTextController?.dispose();
 
     ageFocusNode2?.dispose();
-    ageController2?.dispose();
+    ageTextController2?.dispose();
 
     passportPlaceOfIssueFocusNode?.dispose();
-    passportPlaceOfIssueController?.dispose();
+    passportPlaceOfIssueTextController?.dispose();
 
     passportIssueDateFocusNode?.dispose();
-    passportIssueDateController?.dispose();
+    passportIssueDateTextController?.dispose();
 
     passportExpDateFocusNode?.dispose();
-    passportExpDateController?.dispose();
+    passportExpDateTextController?.dispose();
 
     governmentFocusNode?.dispose();
-    governmentController?.dispose();
+    governmentTextController?.dispose();
 
     cityFocusNode?.dispose();
-    cityController?.dispose();
+    cityTextController?.dispose();
 
     fullAddressFocusNode?.dispose();
-    fullAddressController?.dispose();
+    fullAddressTextController?.dispose();
 
     phoneNumberFocusNode?.dispose();
-    phoneNumberController?.dispose();
+    phoneNumberTextController?.dispose();
 
     eduDataFocusNode?.dispose();
-    eduDataController?.dispose();
+    eduDataTextController?.dispose();
 
     contIDFocusNode?.dispose();
-    contIDController?.dispose();
+    contIDTextController?.dispose();
 
     contNumOfWorkersFocusNode?.dispose();
-    contNumOfWorkersController?.dispose();
-
-    drivLicIssueDateFocusNode?.dispose();
-    drivLicIssueDateController?.dispose();
-
-    drivLicExpiryDateFocusNode?.dispose();
-    drivLicExpiryDateController?.dispose();
+    contNumOfWorkersTextController?.dispose();
 
     drivLicPlaceOfIssueFocusNode?.dispose();
-    drivLicPlaceOfIssueController?.dispose();
+    drivLicPlaceOfIssueTextController?.dispose();
+
+    drivLicIssueDateFocusNode?.dispose();
+    drivLicIssueDateTextController?.dispose();
+
+    drivLicExpiryDateFocusNode?.dispose();
+    drivLicExpiryDateTextController?.dispose();
 
     employmentDateFocusNode?.dispose();
-    employmentDateController?.dispose();
+    employmentDateTextController?.dispose();
 
     numOfWorkersFocusNode?.dispose();
-    numOfWorkersController?.dispose();
-
-    diflictFocusNode?.dispose();
-    diflictController?.dispose();
+    numOfWorkersTextController?.dispose();
 
     shiftPriceFocusNode?.dispose();
-    shiftPriceController?.dispose();
+    shiftPriceTextController?.dispose();
+
+    diflictFocusNode?.dispose();
+    diflictTextController?.dispose();
 
     contractDateFocusNode?.dispose();
-    contractDateController?.dispose();
+    contractDateTextController?.dispose();
   }
 }

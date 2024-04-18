@@ -30,19 +30,19 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
     _model = createModel(context, () => DailyReportModel());
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'DailyReport'});
-    _model.textualDetailsController1 ??= TextEditingController();
+    _model.textualDetailsTextController1 ??= TextEditingController();
     _model.textualDetailsFocusNode1 ??= FocusNode();
 
-    _model.textualDetailsController2 ??= TextEditingController();
+    _model.textualDetailsTextController2 ??= TextEditingController();
     _model.textualDetailsFocusNode2 ??= FocusNode();
 
-    _model.textualDetailsController3 ??= TextEditingController();
+    _model.textualDetailsTextController3 ??= TextEditingController();
     _model.textualDetailsFocusNode3 ??= FocusNode();
 
-    _model.textualDetailsController4 ??= TextEditingController();
+    _model.textualDetailsTextController4 ??= TextEditingController();
     _model.textualDetailsFocusNode4 ??= FocusNode();
 
-    _model.textualDetailsController5 ??= TextEditingController();
+    _model.textualDetailsTextController5 ??= TextEditingController();
     _model.textualDetailsFocusNode5 ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -91,10 +91,13 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                   'ojc39eec' /* Daily Report */,
                 ),
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
-                      fontFamily: 'Outfit',
+                      fontFamily:
+                          FlutterFlowTheme.of(context).headlineMediumFamily,
                       color: Colors.white,
                       fontSize: 22.0,
                       letterSpacing: 0.0,
+                      useGoogleFonts: GoogleFonts.asMap().containsKey(
+                          FlutterFlowTheme.of(context).headlineMediumFamily),
                     ),
               ),
               actions: [],
@@ -128,8 +131,13 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        fontFamily: 'Readex Pro',
+                                        fontFamily: FlutterFlowTheme.of(context)
+                                            .labelMediumFamily,
                                         letterSpacing: 0.0,
+                                        useGoogleFonts: GoogleFonts.asMap()
+                                            .containsKey(
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMediumFamily),
                                       ),
                                 ),
                               ),
@@ -149,12 +157,19 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .headlineMedium
                                             .override(
-                                              fontFamily: 'Outfit',
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .headlineMediumFamily,
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryText,
                                               fontSize: 22.0,
                                               letterSpacing: 0.0,
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(FlutterFlowTheme
+                                                          .of(context)
+                                                      .headlineMediumFamily),
                                             ),
                                       ),
                                     ),
@@ -171,13 +186,20 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .headlineMedium
                                               .override(
-                                                fontFamily: 'Outfit',
+                                                fontFamily:
+                                                    FlutterFlowTheme.of(context)
+                                                        .headlineMediumFamily,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryText,
                                                 fontSize: 12.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w200,
+                                                useGoogleFonts: GoogleFonts
+                                                        .asMap()
+                                                    .containsKey(FlutterFlowTheme
+                                                            .of(context)
+                                                        .headlineMediumFamily),
                                               ),
                                         ),
                                       ),
@@ -186,8 +208,8 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           10.0, 0.0, 10.0, 12.0),
                                       child: TextFormField(
-                                        controller:
-                                            _model.textualDetailsController1,
+                                        controller: _model
+                                            .textualDetailsTextController1,
                                         focusNode:
                                             _model.textualDetailsFocusNode1,
                                         autofocus: true,
@@ -204,6 +226,10 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                                 fontSize: 14.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
+                                                useGoogleFonts: GoogleFonts
+                                                        .asMap()
+                                                    .containsKey(
+                                                        'Plus Jakarta Sans'),
                                               ),
                                           hintText: FFLocalizations.of(context)
                                               .getText(
@@ -218,6 +244,10 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                                 fontSize: 14.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
+                                                useGoogleFonts: GoogleFonts
+                                                        .asMap()
+                                                    .containsKey(
+                                                        'Plus Jakarta Sans'),
                                               ),
                                           enabledBorder: OutlineInputBorder(
                                             borderSide: BorderSide(
@@ -261,17 +291,24 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .labelLarge
                                             .override(
-                                              fontFamily: 'Readex Pro',
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelLargeFamily,
                                               letterSpacing: 0.0,
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelLargeFamily),
                                             ),
                                         textAlign: TextAlign.start,
                                         maxLines: 3,
-                                        minLines: null,
                                         maxLength: 500,
                                         maxLengthEnforcement:
                                             MaxLengthEnforcement.enforced,
                                         validator: _model
-                                            .textualDetailsController1Validator
+                                            .textualDetailsTextController1Validator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -291,12 +328,19 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .headlineMedium
                                             .override(
-                                              fontFamily: 'Outfit',
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .headlineMediumFamily,
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryText,
                                               fontSize: 22.0,
                                               letterSpacing: 0.0,
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(FlutterFlowTheme
+                                                          .of(context)
+                                                      .headlineMediumFamily),
                                             ),
                                       ),
                                     ),
@@ -313,13 +357,20 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .headlineMedium
                                               .override(
-                                                fontFamily: 'Outfit',
+                                                fontFamily:
+                                                    FlutterFlowTheme.of(context)
+                                                        .headlineMediumFamily,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryText,
                                                 fontSize: 12.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w200,
+                                                useGoogleFonts: GoogleFonts
+                                                        .asMap()
+                                                    .containsKey(FlutterFlowTheme
+                                                            .of(context)
+                                                        .headlineMediumFamily),
                                               ),
                                         ),
                                       ),
@@ -328,8 +379,8 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           10.0, 0.0, 10.0, 12.0),
                                       child: TextFormField(
-                                        controller:
-                                            _model.textualDetailsController2,
+                                        controller: _model
+                                            .textualDetailsTextController2,
                                         focusNode:
                                             _model.textualDetailsFocusNode2,
                                         autofocus: true,
@@ -346,6 +397,10 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                                 fontSize: 14.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
+                                                useGoogleFonts: GoogleFonts
+                                                        .asMap()
+                                                    .containsKey(
+                                                        'Plus Jakarta Sans'),
                                               ),
                                           hintText: FFLocalizations.of(context)
                                               .getText(
@@ -360,6 +415,10 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                                 fontSize: 14.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
+                                                useGoogleFonts: GoogleFonts
+                                                        .asMap()
+                                                    .containsKey(
+                                                        'Plus Jakarta Sans'),
                                               ),
                                           enabledBorder: OutlineInputBorder(
                                             borderSide: BorderSide(
@@ -403,17 +462,24 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .labelLarge
                                             .override(
-                                              fontFamily: 'Readex Pro',
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelLargeFamily,
                                               letterSpacing: 0.0,
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelLargeFamily),
                                             ),
                                         textAlign: TextAlign.start,
                                         maxLines: 3,
-                                        minLines: null,
                                         maxLength: 500,
                                         maxLengthEnforcement:
                                             MaxLengthEnforcement.enforced,
                                         validator: _model
-                                            .textualDetailsController2Validator
+                                            .textualDetailsTextController2Validator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -433,12 +499,19 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .headlineMedium
                                             .override(
-                                              fontFamily: 'Outfit',
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .headlineMediumFamily,
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryText,
                                               fontSize: 22.0,
                                               letterSpacing: 0.0,
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(FlutterFlowTheme
+                                                          .of(context)
+                                                      .headlineMediumFamily),
                                             ),
                                       ),
                                     ),
@@ -455,13 +528,20 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .headlineMedium
                                               .override(
-                                                fontFamily: 'Outfit',
+                                                fontFamily:
+                                                    FlutterFlowTheme.of(context)
+                                                        .headlineMediumFamily,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryText,
                                                 fontSize: 12.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w200,
+                                                useGoogleFonts: GoogleFonts
+                                                        .asMap()
+                                                    .containsKey(FlutterFlowTheme
+                                                            .of(context)
+                                                        .headlineMediumFamily),
                                               ),
                                         ),
                                       ),
@@ -470,8 +550,8 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           10.0, 0.0, 10.0, 12.0),
                                       child: TextFormField(
-                                        controller:
-                                            _model.textualDetailsController3,
+                                        controller: _model
+                                            .textualDetailsTextController3,
                                         focusNode:
                                             _model.textualDetailsFocusNode3,
                                         autofocus: true,
@@ -488,6 +568,10 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                                 fontSize: 14.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
+                                                useGoogleFonts: GoogleFonts
+                                                        .asMap()
+                                                    .containsKey(
+                                                        'Plus Jakarta Sans'),
                                               ),
                                           hintText: FFLocalizations.of(context)
                                               .getText(
@@ -502,6 +586,10 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                                 fontSize: 14.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
+                                                useGoogleFonts: GoogleFonts
+                                                        .asMap()
+                                                    .containsKey(
+                                                        'Plus Jakarta Sans'),
                                               ),
                                           enabledBorder: OutlineInputBorder(
                                             borderSide: BorderSide(
@@ -545,17 +633,24 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .labelLarge
                                             .override(
-                                              fontFamily: 'Readex Pro',
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelLargeFamily,
                                               letterSpacing: 0.0,
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelLargeFamily),
                                             ),
                                         textAlign: TextAlign.start,
                                         maxLines: 3,
-                                        minLines: null,
                                         maxLength: 500,
                                         maxLengthEnforcement:
                                             MaxLengthEnforcement.enforced,
                                         validator: _model
-                                            .textualDetailsController3Validator
+                                            .textualDetailsTextController3Validator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -575,12 +670,19 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .headlineMedium
                                             .override(
-                                              fontFamily: 'Outfit',
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .headlineMediumFamily,
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryText,
                                               fontSize: 22.0,
                                               letterSpacing: 0.0,
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(FlutterFlowTheme
+                                                          .of(context)
+                                                      .headlineMediumFamily),
                                             ),
                                       ),
                                     ),
@@ -597,13 +699,20 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .headlineMedium
                                               .override(
-                                                fontFamily: 'Outfit',
+                                                fontFamily:
+                                                    FlutterFlowTheme.of(context)
+                                                        .headlineMediumFamily,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryText,
                                                 fontSize: 12.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w200,
+                                                useGoogleFonts: GoogleFonts
+                                                        .asMap()
+                                                    .containsKey(FlutterFlowTheme
+                                                            .of(context)
+                                                        .headlineMediumFamily),
                                               ),
                                         ),
                                       ),
@@ -612,8 +721,8 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           10.0, 0.0, 10.0, 12.0),
                                       child: TextFormField(
-                                        controller:
-                                            _model.textualDetailsController4,
+                                        controller: _model
+                                            .textualDetailsTextController4,
                                         focusNode:
                                             _model.textualDetailsFocusNode4,
                                         autofocus: true,
@@ -630,6 +739,10 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                                 fontSize: 14.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
+                                                useGoogleFonts: GoogleFonts
+                                                        .asMap()
+                                                    .containsKey(
+                                                        'Plus Jakarta Sans'),
                                               ),
                                           hintText: FFLocalizations.of(context)
                                               .getText(
@@ -644,6 +757,10 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                                 fontSize: 14.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
+                                                useGoogleFonts: GoogleFonts
+                                                        .asMap()
+                                                    .containsKey(
+                                                        'Plus Jakarta Sans'),
                                               ),
                                           enabledBorder: OutlineInputBorder(
                                             borderSide: BorderSide(
@@ -687,17 +804,24 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .labelLarge
                                             .override(
-                                              fontFamily: 'Readex Pro',
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelLargeFamily,
                                               letterSpacing: 0.0,
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelLargeFamily),
                                             ),
                                         textAlign: TextAlign.start,
                                         maxLines: 3,
-                                        minLines: null,
                                         maxLength: 500,
                                         maxLengthEnforcement:
                                             MaxLengthEnforcement.enforced,
                                         validator: _model
-                                            .textualDetailsController4Validator
+                                            .textualDetailsTextController4Validator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -717,12 +841,19 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .headlineMedium
                                             .override(
-                                              fontFamily: 'Outfit',
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .headlineMediumFamily,
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryText,
                                               fontSize: 22.0,
                                               letterSpacing: 0.0,
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(FlutterFlowTheme
+                                                          .of(context)
+                                                      .headlineMediumFamily),
                                             ),
                                       ),
                                     ),
@@ -739,13 +870,20 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .headlineMedium
                                               .override(
-                                                fontFamily: 'Outfit',
+                                                fontFamily:
+                                                    FlutterFlowTheme.of(context)
+                                                        .headlineMediumFamily,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryText,
                                                 fontSize: 12.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w200,
+                                                useGoogleFonts: GoogleFonts
+                                                        .asMap()
+                                                    .containsKey(FlutterFlowTheme
+                                                            .of(context)
+                                                        .headlineMediumFamily),
                                               ),
                                         ),
                                       ),
@@ -754,8 +892,8 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           10.0, 0.0, 10.0, 12.0),
                                       child: TextFormField(
-                                        controller:
-                                            _model.textualDetailsController5,
+                                        controller: _model
+                                            .textualDetailsTextController5,
                                         focusNode:
                                             _model.textualDetailsFocusNode5,
                                         autofocus: true,
@@ -772,6 +910,10 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                                 fontSize: 14.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
+                                                useGoogleFonts: GoogleFonts
+                                                        .asMap()
+                                                    .containsKey(
+                                                        'Plus Jakarta Sans'),
                                               ),
                                           hintText: FFLocalizations.of(context)
                                               .getText(
@@ -786,6 +928,10 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                                 fontSize: 14.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
+                                                useGoogleFonts: GoogleFonts
+                                                        .asMap()
+                                                    .containsKey(
+                                                        'Plus Jakarta Sans'),
                                               ),
                                           enabledBorder: OutlineInputBorder(
                                             borderSide: BorderSide(
@@ -829,17 +975,24 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .labelLarge
                                             .override(
-                                              fontFamily: 'Readex Pro',
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelLargeFamily,
                                               letterSpacing: 0.0,
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelLargeFamily),
                                             ),
                                         textAlign: TextAlign.start,
                                         maxLines: 3,
-                                        minLines: null,
                                         maxLength: 500,
                                         maxLengthEnforcement:
                                             MaxLengthEnforcement.enforced,
                                         validator: _model
-                                            .textualDetailsController5Validator
+                                            .textualDetailsTextController5Validator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -870,9 +1023,15 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleSmall
                                         .override(
-                                          fontFamily: 'Readex Pro',
+                                          fontFamily:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleSmallFamily,
                                           color: Colors.white,
                                           letterSpacing: 0.0,
+                                          useGoogleFonts: GoogleFonts.asMap()
+                                              .containsKey(
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleSmallFamily),
                                         ),
                                     elevation: 4.0,
                                     borderSide: BorderSide(
@@ -929,6 +1088,10 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                                   fontSize: 14.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
+                                                  useGoogleFonts: GoogleFonts
+                                                          .asMap()
+                                                      .containsKey(
+                                                          'Plus Jakarta Sans'),
                                                 ),
                                           )
                                         ],
@@ -940,6 +1103,10 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                               fontSize: 14.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
+                                              useGoogleFonts:
+                                                  GoogleFonts.asMap()
+                                                      .containsKey(
+                                                          'Plus Jakarta Sans'),
                                             ),
                                       ),
                                     ),

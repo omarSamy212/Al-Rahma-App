@@ -81,6 +81,8 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                       fontSize: 24.0,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.w500,
+                      useGoogleFonts:
+                          GoogleFonts.asMap().containsKey('Plus Jakarta Sans'),
                     ),
               ),
               actions: [
@@ -113,11 +115,6 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                         child: Image.network(
                           currentUserPhoto,
                           fit: BoxFit.cover,
-                          errorBuilder: (context, error, stackTrace) =>
-                              Image.asset(
-                            'assets/images/error_image.png',
-                            fit: BoxFit.cover,
-                          ),
                         ),
                       ),
                     ),
@@ -153,6 +150,9 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                             fontSize: 14.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    'Plus Jakarta Sans'),
                                           ),
                                     ),
                                   ),
@@ -170,6 +170,10 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                               fontSize: 24.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
+                                              useGoogleFonts:
+                                                  GoogleFonts.asMap()
+                                                      .containsKey(
+                                                          'Plus Jakarta Sans'),
                                             ),
                                       ),
                                     ),
@@ -185,6 +189,9 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                             fontSize: 14.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    'Plus Jakarta Sans'),
                                           ),
                                     ),
                                   ),
@@ -245,6 +252,11 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
+                                                          useGoogleFonts:
+                                                              GoogleFonts
+                                                                      .asMap()
+                                                                  .containsKey(
+                                                                      'Plus Jakarta Sans'),
                                                         ),
                                                   ),
                                                 ),
@@ -297,6 +309,11 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
+                                                          useGoogleFonts:
+                                                              GoogleFonts
+                                                                      .asMap()
+                                                                  .containsKey(
+                                                                      'Plus Jakarta Sans'),
                                                         ),
                                                   ),
                                                 ),
@@ -324,6 +341,10 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                               fontSize: 12.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.bold,
+                                              useGoogleFonts:
+                                                  GoogleFonts.asMap()
+                                                      .containsKey(
+                                                          'Plus Jakarta Sans'),
                                             ),
                                       ),
                                     ),
@@ -351,6 +372,10 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                                   fontSize: 14.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
+                                                  useGoogleFonts: GoogleFonts
+                                                          .asMap()
+                                                      .containsKey(
+                                                          'Plus Jakarta Sans'),
                                                 ),
                                           ),
                                         ),
@@ -380,6 +405,10 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                                   fontSize: 14.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
+                                                  useGoogleFonts: GoogleFonts
+                                                          .asMap()
+                                                      .containsKey(
+                                                          'Plus Jakarta Sans'),
                                                 ),
                                           ),
                                         ),
@@ -393,7 +422,7 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                                   0.0, 8.0, 0.0, 12.0),
                                           child: AuthUserStreamWidget(
                                             builder: (context) => Text(
-                                              '${currentUserDocument?.shift?.startingShift}\' \'${currentUserDocument?.shift?.shiftPeriod}',
+                                              '${currentUserDocument?.shift?.startShift}\' ${currentUserDocument?.shift?.shiftPeriod}\'',
                                               style: FlutterFlowTheme.of(
                                                       context)
                                                   .labelMedium
@@ -404,6 +433,10 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                                     fontSize: 14.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w500,
+                                                    useGoogleFonts: GoogleFonts
+                                                            .asMap()
+                                                        .containsKey(
+                                                            'Plus Jakarta Sans'),
                                                   ),
                                             ),
                                           ),
@@ -434,6 +467,10 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                                   fontSize: 14.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
+                                                  useGoogleFonts: GoogleFonts
+                                                          .asMap()
+                                                      .containsKey(
+                                                          'Plus Jakarta Sans'),
                                                 ),
                                           ),
                                         ),
@@ -485,6 +522,8 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                         fontSize: 14.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
+                                        useGoogleFonts: GoogleFonts.asMap()
+                                            .containsKey('Plus Jakarta Sans'),
                                       ),
                                 )
                               ],
@@ -496,6 +535,8 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                     fontSize: 14.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w500,
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey('Plus Jakarta Sans'),
                                   ),
                             ),
                           ),

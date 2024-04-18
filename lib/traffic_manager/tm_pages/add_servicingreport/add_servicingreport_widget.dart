@@ -32,10 +32,10 @@ class _AddServicingreportWidgetState extends State<AddServicingreportWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'Add_servicingreport'});
-    _model.totalPriceController ??= TextEditingController();
+    _model.totalPriceTextController ??= TextEditingController();
     _model.totalPriceFocusNode ??= FocusNode();
 
-    _model.textualDetailsController ??= TextEditingController();
+    _model.textualDetailsTextController ??= TextEditingController();
     _model.textualDetailsFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -84,10 +84,13 @@ class _AddServicingreportWidgetState extends State<AddServicingreportWidget> {
                   'qra1mrrw' /* servicing report ! */,
                 ),
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
-                      fontFamily: 'Outfit',
+                      fontFamily:
+                          FlutterFlowTheme.of(context).headlineMediumFamily,
                       color: Colors.white,
                       fontSize: 22.0,
                       letterSpacing: 0.0,
+                      useGoogleFonts: GoogleFonts.asMap().containsKey(
+                          FlutterFlowTheme.of(context).headlineMediumFamily),
                     ),
               ),
               actions: [],
@@ -168,8 +171,14 @@ class _AddServicingreportWidgetState extends State<AddServicingreportWidget> {
                                       textStyle: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(
-                                            fontFamily: 'Readex Pro',
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMediumFamily,
                                             letterSpacing: 0.0,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMediumFamily),
                                           ),
                                       hintText:
                                           FFLocalizations.of(context).getText(
@@ -222,8 +231,14 @@ class _AddServicingreportWidgetState extends State<AddServicingreportWidget> {
                                       textStyle: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(
-                                            fontFamily: 'Readex Pro',
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMediumFamily,
                                             letterSpacing: 0.0,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMediumFamily),
                                           ),
                                       hintText:
                                           FFLocalizations.of(context).getText(
@@ -303,8 +318,14 @@ class _AddServicingreportWidgetState extends State<AddServicingreportWidget> {
                                     textStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          fontFamily: 'Readex Pro',
+                                          fontFamily:
+                                              FlutterFlowTheme.of(context)
+                                                  .labelMediumFamily,
                                           letterSpacing: 0.0,
+                                          useGoogleFonts: GoogleFonts.asMap()
+                                              .containsKey(
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelMediumFamily),
                                         ),
                                     hintText:
                                         FFLocalizations.of(context).getText(
@@ -355,8 +376,16 @@ class _AddServicingreportWidgetState extends State<AddServicingreportWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Readex Pro',
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMediumFamily,
                                               letterSpacing: 0.0,
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumFamily),
                                             ),
                                       ),
                                     ),
@@ -372,7 +401,7 @@ class _AddServicingreportWidgetState extends State<AddServicingreportWidget> {
                                           width: 70.0,
                                           child: TextFormField(
                                             controller:
-                                                _model.totalPriceController,
+                                                _model.totalPriceTextController,
                                             focusNode:
                                                 _model.totalPriceFocusNode,
                                             autofocus: true,
@@ -388,16 +417,32 @@ class _AddServicingreportWidgetState extends State<AddServicingreportWidget> {
                                                       .labelMedium
                                                       .override(
                                                         fontFamily:
-                                                            'Readex Pro',
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMediumFamily,
                                                         letterSpacing: 0.0,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMediumFamily),
                                                       ),
                                               hintStyle:
                                                   FlutterFlowTheme.of(context)
                                                       .labelMedium
                                                       .override(
                                                         fontFamily:
-                                                            'Readex Pro',
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMediumFamily,
                                                         letterSpacing: 0.0,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMediumFamily),
                                                       ),
                                               enabledBorder:
                                                   UnderlineInputBorder(
@@ -450,17 +495,25 @@ class _AddServicingreportWidgetState extends State<AddServicingreportWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'Readex Pro',
+                                                  fontFamily:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumFamily,
                                                   letterSpacing: 0.0,
+                                                  useGoogleFonts: GoogleFonts
+                                                          .asMap()
+                                                      .containsKey(
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMediumFamily),
                                                 ),
                                             textAlign: TextAlign.start,
                                             maxLines: 2,
-                                            minLines: null,
                                             keyboardType: const TextInputType
                                                 .numberWithOptions(
                                                 signed: true, decimal: true),
                                             validator: _model
-                                                .totalPriceControllerValidator
+                                                .totalPriceTextControllerValidator
                                                 .asValidator(context),
                                           ),
                                         ),
@@ -475,7 +528,7 @@ class _AddServicingreportWidgetState extends State<AddServicingreportWidget> {
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 20.0, 0.0, 20.0, 12.0),
                             child: TextFormField(
-                              controller: _model.textualDetailsController,
+                              controller: _model.textualDetailsTextController,
                               focusNode: _model.textualDetailsFocusNode,
                               textCapitalization: TextCapitalization.sentences,
                               obscureText: false,
@@ -488,6 +541,8 @@ class _AddServicingreportWidgetState extends State<AddServicingreportWidget> {
                                       fontSize: 14.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
+                                      useGoogleFonts: GoogleFonts.asMap()
+                                          .containsKey('Plus Jakarta Sans'),
                                     ),
                                 hintText: FFLocalizations.of(context).getText(
                                   'n40p0sl5' /* Details */,
@@ -500,6 +555,8 @@ class _AddServicingreportWidgetState extends State<AddServicingreportWidget> {
                                       fontSize: 14.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
+                                      useGoogleFonts: GoogleFonts.asMap()
+                                          .containsKey('Plus Jakarta Sans'),
                                     ),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
@@ -542,15 +599,16 @@ class _AddServicingreportWidgetState extends State<AddServicingreportWidget> {
                                     fontSize: 14.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey('Plus Jakarta Sans'),
                                   ),
                               textAlign: TextAlign.start,
                               maxLines: 3,
-                              minLines: null,
                               maxLength: 500,
                               maxLengthEnforcement:
                                   MaxLengthEnforcement.enforced,
                               validator: _model
-                                  .textualDetailsControllerValidator
+                                  .textualDetailsTextControllerValidator
                                   .asValidator(context),
                             ),
                           ),
@@ -581,6 +639,8 @@ class _AddServicingreportWidgetState extends State<AddServicingreportWidget> {
                                       fontSize: 18.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
+                                      useGoogleFonts: GoogleFonts.asMap()
+                                          .containsKey('Plus Jakarta Sans'),
                                     ),
                                 elevation: 2.0,
                                 borderSide: BorderSide(

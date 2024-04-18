@@ -71,8 +71,11 @@ class _Settings1NotificationsWidgetState
                 'rb6mq28f' /* Settings Page */,
               ),
               style: FlutterFlowTheme.of(context).headlineSmall.override(
-                    fontFamily: 'Outfit',
+                    fontFamily:
+                        FlutterFlowTheme.of(context).headlineSmallFamily,
                     letterSpacing: 0.0,
+                    useGoogleFonts: GoogleFonts.asMap().containsKey(
+                        FlutterFlowTheme.of(context).headlineSmallFamily),
                   ),
             ),
             actions: [],
@@ -94,8 +97,12 @@ class _Settings1NotificationsWidgetState
                         ),
                         style:
                             FlutterFlowTheme.of(context).labelMedium.override(
-                                  fontFamily: 'Readex Pro',
+                                  fontFamily: FlutterFlowTheme.of(context)
+                                      .labelMediumFamily,
                                   letterSpacing: 0.0,
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey(FlutterFlowTheme.of(context)
+                                          .labelMediumFamily),
                                 ),
                       ),
                     ),
@@ -114,8 +121,11 @@ class _Settings1NotificationsWidgetState
                       '1oq1d34d' /* Push Notifications */,
                     ),
                     style: FlutterFlowTheme.of(context).bodyLarge.override(
-                          fontFamily: 'Readex Pro',
+                          fontFamily:
+                              FlutterFlowTheme.of(context).bodyLargeFamily,
                           letterSpacing: 0.0,
+                          useGoogleFonts: GoogleFonts.asMap().containsKey(
+                              FlutterFlowTheme.of(context).bodyLargeFamily),
                           lineHeight: 2.0,
                         ),
                   ),
@@ -124,9 +134,12 @@ class _Settings1NotificationsWidgetState
                       'xqcv8q1g' /* Receive Push notifications fro... */,
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Readex Pro',
+                          fontFamily:
+                              FlutterFlowTheme.of(context).bodyMediumFamily,
                           color: Color(0xFF8B97A2),
                           letterSpacing: 0.0,
+                          useGoogleFonts: GoogleFonts.asMap().containsKey(
+                              FlutterFlowTheme.of(context).bodyMediumFamily),
                         ),
                   ),
                   tileColor: FlutterFlowTheme.of(context).secondaryBackground,
@@ -148,8 +161,11 @@ class _Settings1NotificationsWidgetState
                     'm6lmhlpk' /* Email Notifications */,
                   ),
                   style: FlutterFlowTheme.of(context).bodyLarge.override(
-                        fontFamily: 'Readex Pro',
+                        fontFamily:
+                            FlutterFlowTheme.of(context).bodyLargeFamily,
                         letterSpacing: 0.0,
+                        useGoogleFonts: GoogleFonts.asMap().containsKey(
+                            FlutterFlowTheme.of(context).bodyLargeFamily),
                         lineHeight: 2.0,
                       ),
                 ),
@@ -158,9 +174,12 @@ class _Settings1NotificationsWidgetState
                     'c6io0tz6' /* Receive email notifications fr... */,
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Readex Pro',
+                        fontFamily:
+                            FlutterFlowTheme.of(context).bodyMediumFamily,
                         color: Color(0xFF8B97A2),
                         letterSpacing: 0.0,
+                        useGoogleFonts: GoogleFonts.asMap().containsKey(
+                            FlutterFlowTheme.of(context).bodyMediumFamily),
                       ),
                 ),
                 tileColor: FlutterFlowTheme.of(context).secondaryBackground,
@@ -181,8 +200,11 @@ class _Settings1NotificationsWidgetState
                     'gt3z2vwn' /* Location Services */,
                   ),
                   style: FlutterFlowTheme.of(context).bodyLarge.override(
-                        fontFamily: 'Readex Pro',
+                        fontFamily:
+                            FlutterFlowTheme.of(context).bodyLargeFamily,
                         letterSpacing: 0.0,
+                        useGoogleFonts: GoogleFonts.asMap().containsKey(
+                            FlutterFlowTheme.of(context).bodyLargeFamily),
                         lineHeight: 2.0,
                       ),
                 ),
@@ -191,9 +213,12 @@ class _Settings1NotificationsWidgetState
                     '06670cfr' /* Allow us to track your locatio... */,
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Readex Pro',
+                        fontFamily:
+                            FlutterFlowTheme.of(context).bodyMediumFamily,
                         color: Color(0xFF8B97A2),
                         letterSpacing: 0.0,
+                        useGoogleFonts: GoogleFonts.asMap().containsKey(
+                            FlutterFlowTheme.of(context).bodyMediumFamily),
                       ),
                 ),
                 tileColor: FlutterFlowTheme.of(context).secondaryBackground,
@@ -224,9 +249,12 @@ class _Settings1NotificationsWidgetState
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: FlutterFlowTheme.of(context).primary,
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                          fontFamily: 'Readex Pro',
+                          fontFamily:
+                              FlutterFlowTheme.of(context).titleSmallFamily,
                           color: Colors.white,
                           letterSpacing: 0.0,
+                          useGoogleFonts: GoogleFonts.asMap().containsKey(
+                              FlutterFlowTheme.of(context).titleSmallFamily),
                         ),
                     elevation: 3.0,
                     borderSide: BorderSide(

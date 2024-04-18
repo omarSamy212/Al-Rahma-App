@@ -3,9 +3,40 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'package:shared_preferences/shared_preferences.dart';
+
+const kThemeModeKey = '__theme_mode__';
+SharedPreferences? _prefs;
+
+enum DeviceSize {
+  mobile,
+  tablet,
+  desktop,
+}
+
 abstract class FlutterFlowTheme {
+  static DeviceSize deviceSize = DeviceSize.mobile;
+
+  static Future initialize() async =>
+      _prefs = await SharedPreferences.getInstance();
+  static ThemeMode get themeMode {
+    final darkMode = _prefs?.getBool(kThemeModeKey);
+    return darkMode == null
+        ? ThemeMode.system
+        : darkMode
+            ? ThemeMode.dark
+            : ThemeMode.light;
+  }
+
+  static void saveThemeMode(ThemeMode mode) => mode == ThemeMode.system
+      ? _prefs?.remove(kThemeModeKey)
+      : _prefs?.setBool(kThemeModeKey, mode == ThemeMode.dark);
+
   static FlutterFlowTheme of(BuildContext context) {
-    return LightModeTheme();
+    deviceSize = getDeviceSize(context);
+    return Theme.of(context).brightness == Brightness.dark
+        ? DarkModeTheme()
+        : LightModeTheme();
   }
 
   @Deprecated('Use primary instead')
@@ -92,7 +123,22 @@ abstract class FlutterFlowTheme {
   String get bodySmallFamily => typography.bodySmallFamily;
   TextStyle get bodySmall => typography.bodySmall;
 
-  Typography get typography => ThemeTypography(this);
+  Typography get typography => {
+        DeviceSize.mobile: MobileTypography(this),
+        DeviceSize.tablet: TabletTypography(this),
+        DeviceSize.desktop: DesktopTypography(this),
+      }[deviceSize]!;
+}
+
+DeviceSize getDeviceSize(BuildContext context) {
+  final width = MediaQuery.sizeOf(context).width;
+  if (width < 479) {
+    return DeviceSize.mobile;
+  } else if (width < 991) {
+    return DeviceSize.tablet;
+  } else {
+    return DeviceSize.desktop;
+  }
 }
 
 class LightModeTheme extends FlutterFlowTheme {
@@ -154,116 +200,366 @@ abstract class Typography {
   TextStyle get bodySmall;
 }
 
-class ThemeTypography extends Typography {
-  ThemeTypography(this.theme);
+class MobileTypography extends Typography {
+  MobileTypography(this.theme);
 
   final FlutterFlowTheme theme;
 
-  String get displayLargeFamily => 'Outfit';
+  String get displayLargeFamily => 'El Messiri';
   TextStyle get displayLarge => GoogleFonts.getFont(
-        'Outfit',
+        'El Messiri',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 64.0,
       );
-  String get displayMediumFamily => 'Outfit';
+  String get displayMediumFamily => 'El Messiri';
   TextStyle get displayMedium => GoogleFonts.getFont(
-        'Outfit',
+        'El Messiri',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 44.0,
       );
-  String get displaySmallFamily => 'Outfit';
+  String get displaySmallFamily => 'El Messiri';
   TextStyle get displaySmall => GoogleFonts.getFont(
-        'Outfit',
+        'El Messiri',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 36.0,
       );
-  String get headlineLargeFamily => 'Outfit';
+  String get headlineLargeFamily => 'El Messiri';
   TextStyle get headlineLarge => GoogleFonts.getFont(
-        'Outfit',
+        'El Messiri',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 32.0,
       );
-  String get headlineMediumFamily => 'Outfit';
+  String get headlineMediumFamily => 'El Messiri';
   TextStyle get headlineMedium => GoogleFonts.getFont(
-        'Outfit',
+        'El Messiri',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 24.0,
       );
-  String get headlineSmallFamily => 'Outfit';
+  String get headlineSmallFamily => 'El Messiri';
   TextStyle get headlineSmall => GoogleFonts.getFont(
-        'Outfit',
+        'El Messiri',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 24.0,
       );
-  String get titleLargeFamily => 'Outfit';
+  String get titleLargeFamily => 'El Messiri';
   TextStyle get titleLarge => GoogleFonts.getFont(
-        'Outfit',
+        'El Messiri',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 22.0,
       );
-  String get titleMediumFamily => 'Readex Pro';
+  String get titleMediumFamily => 'Noto Naskh Arabic';
   TextStyle get titleMedium => GoogleFonts.getFont(
-        'Readex Pro',
+        'Noto Naskh Arabic',
         color: theme.info,
         fontWeight: FontWeight.normal,
         fontSize: 18.0,
       );
-  String get titleSmallFamily => 'Readex Pro';
+  String get titleSmallFamily => 'Noto Naskh Arabic';
   TextStyle get titleSmall => GoogleFonts.getFont(
-        'Readex Pro',
+        'Noto Naskh Arabic',
         color: theme.info,
         fontWeight: FontWeight.w500,
         fontSize: 16.0,
       );
-  String get labelLargeFamily => 'Readex Pro';
+  String get labelLargeFamily => 'Noto Naskh Arabic';
   TextStyle get labelLarge => GoogleFonts.getFont(
-        'Readex Pro',
+        'Noto Naskh Arabic',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
-  String get labelMediumFamily => 'Readex Pro';
+  String get labelMediumFamily => 'Noto Naskh Arabic';
   TextStyle get labelMedium => GoogleFonts.getFont(
-        'Readex Pro',
+        'Noto Naskh Arabic',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
-  String get labelSmallFamily => 'Readex Pro';
+  String get labelSmallFamily => 'Noto Naskh Arabic';
   TextStyle get labelSmall => GoogleFonts.getFont(
-        'Readex Pro',
+        'Noto Naskh Arabic',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 12.0,
       );
-  String get bodyLargeFamily => 'Readex Pro';
+  String get bodyLargeFamily => 'Noto Naskh Arabic';
   TextStyle get bodyLarge => GoogleFonts.getFont(
-        'Readex Pro',
+        'Noto Naskh Arabic',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
-  String get bodyMediumFamily => 'Readex Pro';
+  String get bodyMediumFamily => 'Noto Naskh Arabic';
   TextStyle get bodyMedium => GoogleFonts.getFont(
-        'Readex Pro',
+        'Noto Naskh Arabic',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
-  String get bodySmallFamily => 'Readex Pro';
+  String get bodySmallFamily => 'Noto Naskh Arabic';
   TextStyle get bodySmall => GoogleFonts.getFont(
-        'Readex Pro',
+        'Noto Naskh Arabic',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 12.0,
       );
+}
+
+class TabletTypography extends Typography {
+  TabletTypography(this.theme);
+
+  final FlutterFlowTheme theme;
+
+  String get displayLargeFamily => 'El Messiri';
+  TextStyle get displayLarge => GoogleFonts.getFont(
+        'El Messiri',
+        color: theme.primaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 64.0,
+      );
+  String get displayMediumFamily => 'El Messiri';
+  TextStyle get displayMedium => GoogleFonts.getFont(
+        'El Messiri',
+        color: theme.primaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 44.0,
+      );
+  String get displaySmallFamily => 'El Messiri';
+  TextStyle get displaySmall => GoogleFonts.getFont(
+        'El Messiri',
+        color: theme.primaryText,
+        fontWeight: FontWeight.w600,
+        fontSize: 36.0,
+      );
+  String get headlineLargeFamily => 'El Messiri';
+  TextStyle get headlineLarge => GoogleFonts.getFont(
+        'El Messiri',
+        color: theme.primaryText,
+        fontWeight: FontWeight.w600,
+        fontSize: 32.0,
+      );
+  String get headlineMediumFamily => 'El Messiri';
+  TextStyle get headlineMedium => GoogleFonts.getFont(
+        'El Messiri',
+        color: theme.primaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 24.0,
+      );
+  String get headlineSmallFamily => 'El Messiri';
+  TextStyle get headlineSmall => GoogleFonts.getFont(
+        'El Messiri',
+        color: theme.primaryText,
+        fontWeight: FontWeight.w500,
+        fontSize: 24.0,
+      );
+  String get titleLargeFamily => 'El Messiri';
+  TextStyle get titleLarge => GoogleFonts.getFont(
+        'El Messiri',
+        color: theme.primaryText,
+        fontWeight: FontWeight.w500,
+        fontSize: 22.0,
+      );
+  String get titleMediumFamily => 'Noto Naskh Arabic';
+  TextStyle get titleMedium => GoogleFonts.getFont(
+        'Noto Naskh Arabic',
+        color: theme.info,
+        fontWeight: FontWeight.normal,
+        fontSize: 18.0,
+      );
+  String get titleSmallFamily => 'Noto Naskh Arabic';
+  TextStyle get titleSmall => GoogleFonts.getFont(
+        'Noto Naskh Arabic',
+        color: theme.info,
+        fontWeight: FontWeight.w500,
+        fontSize: 16.0,
+      );
+  String get labelLargeFamily => 'Noto Naskh Arabic';
+  TextStyle get labelLarge => GoogleFonts.getFont(
+        'Noto Naskh Arabic',
+        color: theme.secondaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 16.0,
+      );
+  String get labelMediumFamily => 'Noto Naskh Arabic';
+  TextStyle get labelMedium => GoogleFonts.getFont(
+        'Noto Naskh Arabic',
+        color: theme.secondaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 14.0,
+      );
+  String get labelSmallFamily => 'Noto Naskh Arabic';
+  TextStyle get labelSmall => GoogleFonts.getFont(
+        'Noto Naskh Arabic',
+        color: theme.secondaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 12.0,
+      );
+  String get bodyLargeFamily => 'Noto Naskh Arabic';
+  TextStyle get bodyLarge => GoogleFonts.getFont(
+        'Noto Naskh Arabic',
+        color: theme.primaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 16.0,
+      );
+  String get bodyMediumFamily => 'Noto Naskh Arabic';
+  TextStyle get bodyMedium => GoogleFonts.getFont(
+        'Noto Naskh Arabic',
+        color: theme.primaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 14.0,
+      );
+  String get bodySmallFamily => 'Noto Naskh Arabic';
+  TextStyle get bodySmall => GoogleFonts.getFont(
+        'Noto Naskh Arabic',
+        color: theme.primaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 12.0,
+      );
+}
+
+class DesktopTypography extends Typography {
+  DesktopTypography(this.theme);
+
+  final FlutterFlowTheme theme;
+
+  String get displayLargeFamily => 'El Messiri';
+  TextStyle get displayLarge => GoogleFonts.getFont(
+        'El Messiri',
+        color: theme.primaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 64.0,
+      );
+  String get displayMediumFamily => 'El Messiri';
+  TextStyle get displayMedium => GoogleFonts.getFont(
+        'El Messiri',
+        color: theme.primaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 44.0,
+      );
+  String get displaySmallFamily => 'El Messiri';
+  TextStyle get displaySmall => GoogleFonts.getFont(
+        'El Messiri',
+        color: theme.primaryText,
+        fontWeight: FontWeight.w600,
+        fontSize: 36.0,
+      );
+  String get headlineLargeFamily => 'El Messiri';
+  TextStyle get headlineLarge => GoogleFonts.getFont(
+        'El Messiri',
+        color: theme.primaryText,
+        fontWeight: FontWeight.w600,
+        fontSize: 32.0,
+      );
+  String get headlineMediumFamily => 'El Messiri';
+  TextStyle get headlineMedium => GoogleFonts.getFont(
+        'El Messiri',
+        color: theme.primaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 24.0,
+      );
+  String get headlineSmallFamily => 'El Messiri';
+  TextStyle get headlineSmall => GoogleFonts.getFont(
+        'El Messiri',
+        color: theme.primaryText,
+        fontWeight: FontWeight.w500,
+        fontSize: 24.0,
+      );
+  String get titleLargeFamily => 'El Messiri';
+  TextStyle get titleLarge => GoogleFonts.getFont(
+        'El Messiri',
+        color: theme.primaryText,
+        fontWeight: FontWeight.w500,
+        fontSize: 22.0,
+      );
+  String get titleMediumFamily => 'Noto Naskh Arabic';
+  TextStyle get titleMedium => GoogleFonts.getFont(
+        'Noto Naskh Arabic',
+        color: theme.info,
+        fontWeight: FontWeight.normal,
+        fontSize: 18.0,
+      );
+  String get titleSmallFamily => 'Noto Naskh Arabic';
+  TextStyle get titleSmall => GoogleFonts.getFont(
+        'Noto Naskh Arabic',
+        color: theme.info,
+        fontWeight: FontWeight.w500,
+        fontSize: 16.0,
+      );
+  String get labelLargeFamily => 'Noto Naskh Arabic';
+  TextStyle get labelLarge => GoogleFonts.getFont(
+        'Noto Naskh Arabic',
+        color: theme.secondaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 16.0,
+      );
+  String get labelMediumFamily => 'Noto Naskh Arabic';
+  TextStyle get labelMedium => GoogleFonts.getFont(
+        'Noto Naskh Arabic',
+        color: theme.secondaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 14.0,
+      );
+  String get labelSmallFamily => 'Noto Naskh Arabic';
+  TextStyle get labelSmall => GoogleFonts.getFont(
+        'Noto Naskh Arabic',
+        color: theme.secondaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 12.0,
+      );
+  String get bodyLargeFamily => 'Noto Naskh Arabic';
+  TextStyle get bodyLarge => GoogleFonts.getFont(
+        'Noto Naskh Arabic',
+        color: theme.primaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 16.0,
+      );
+  String get bodyMediumFamily => 'Noto Naskh Arabic';
+  TextStyle get bodyMedium => GoogleFonts.getFont(
+        'Noto Naskh Arabic',
+        color: theme.primaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 14.0,
+      );
+  String get bodySmallFamily => 'Noto Naskh Arabic';
+  TextStyle get bodySmall => GoogleFonts.getFont(
+        'Noto Naskh Arabic',
+        color: theme.primaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 12.0,
+      );
+}
+
+class DarkModeTheme extends FlutterFlowTheme {
+  @Deprecated('Use primary instead')
+  Color get primaryColor => primary;
+  @Deprecated('Use secondary instead')
+  Color get secondaryColor => secondary;
+  @Deprecated('Use tertiary instead')
+  Color get tertiaryColor => tertiary;
+
+  late Color primary = const Color(0xFF4B39EF);
+  late Color secondary = const Color(0xFF39D2C0);
+  late Color tertiary = const Color(0xFFEE8B60);
+  late Color alternate = const Color(0xFF262D34);
+  late Color primaryText = const Color(0xFFFFFFFF);
+  late Color secondaryText = const Color(0xFF95A1AC);
+  late Color primaryBackground = const Color(0xFF1D2428);
+  late Color secondaryBackground = const Color(0xFF14181B);
+  late Color accent1 = const Color(0x4C4B39EF);
+  late Color accent2 = const Color(0x4D39D2C0);
+  late Color accent3 = const Color(0x4DEE8B60);
+  late Color accent4 = const Color(0xB2262D34);
+  late Color success = const Color(0xFF249689);
+  late Color warning = const Color(0xFFF9CF58);
+  late Color error = const Color(0xFFFF5963);
+  late Color info = const Color(0xFFFFFFFF);
 }
 
 extension TextStyleHelper on TextStyle {

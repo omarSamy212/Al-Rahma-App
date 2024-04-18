@@ -10,12 +10,20 @@ import '/flutter_flow/flutter_flow_util.dart';
 
 class UserPrivilegesStruct extends FFFirebaseStruct {
   UserPrivilegesStruct({
+    List<DocumentReference>? grantedPrivilege,
     String? roleName,
-    List<DocumentReference>? roleTasks,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
-  })  : _roleName = roleName,
-        _roleTasks = roleTasks,
+  })  : _grantedPrivilege = grantedPrivilege,
+        _roleName = roleName,
         super(firestoreUtilData);
+
+  // "granted_privilege" field.
+  List<DocumentReference>? _grantedPrivilege;
+  List<DocumentReference> get grantedPrivilege => _grantedPrivilege ?? const [];
+  set grantedPrivilege(List<DocumentReference>? val) => _grantedPrivilege = val;
+  void updateGrantedPrivilege(Function(List<DocumentReference>) updateFn) =>
+      updateFn(_grantedPrivilege ??= []);
+  bool hasGrantedPrivilege() => _grantedPrivilege != null;
 
   // "role_name" field.
   String? _roleName;
@@ -23,18 +31,10 @@ class UserPrivilegesStruct extends FFFirebaseStruct {
   set roleName(String? val) => _roleName = val;
   bool hasRoleName() => _roleName != null;
 
-  // "role_tasks" field.
-  List<DocumentReference>? _roleTasks;
-  List<DocumentReference> get roleTasks => _roleTasks ?? const [];
-  set roleTasks(List<DocumentReference>? val) => _roleTasks = val;
-  void updateRoleTasks(Function(List<DocumentReference>) updateFn) =>
-      updateFn(_roleTasks ??= []);
-  bool hasRoleTasks() => _roleTasks != null;
-
   static UserPrivilegesStruct fromMap(Map<String, dynamic> data) =>
       UserPrivilegesStruct(
+        grantedPrivilege: getDataList(data['granted_privilege']),
         roleName: data['role_name'] as String?,
-        roleTasks: getDataList(data['role_tasks']),
       );
 
   static UserPrivilegesStruct? maybeFromMap(dynamic data) => data is Map
@@ -42,35 +42,35 @@ class UserPrivilegesStruct extends FFFirebaseStruct {
       : null;
 
   Map<String, dynamic> toMap() => {
+        'granted_privilege': _grantedPrivilege,
         'role_name': _roleName,
-        'role_tasks': _roleTasks,
       }.withoutNulls;
 
   @override
   Map<String, dynamic> toSerializableMap() => {
+        'granted_privilege': serializeParam(
+          _grantedPrivilege,
+          ParamType.DocumentReference,
+          true,
+        ),
         'role_name': serializeParam(
           _roleName,
           ParamType.String,
-        ),
-        'role_tasks': serializeParam(
-          _roleTasks,
-          ParamType.DocumentReference,
-          true,
         ),
       }.withoutNulls;
 
   static UserPrivilegesStruct fromSerializableMap(Map<String, dynamic> data) =>
       UserPrivilegesStruct(
+        grantedPrivilege: deserializeParam<DocumentReference>(
+          data['granted_privilege'],
+          ParamType.DocumentReference,
+          true,
+          collectionNamePath: ['tasks'],
+        ),
         roleName: deserializeParam(
           data['role_name'],
           ParamType.String,
           false,
-        ),
-        roleTasks: deserializeParam<DocumentReference>(
-          data['role_tasks'],
-          ParamType.DocumentReference,
-          true,
-          collectionNamePath: ['tasks'],
         ),
       );
 
@@ -81,12 +81,12 @@ class UserPrivilegesStruct extends FFFirebaseStruct {
   bool operator ==(Object other) {
     const listEquality = ListEquality();
     return other is UserPrivilegesStruct &&
-        roleName == other.roleName &&
-        listEquality.equals(roleTasks, other.roleTasks);
+        listEquality.equals(grantedPrivilege, other.grantedPrivilege) &&
+        roleName == other.roleName;
   }
 
   @override
-  int get hashCode => const ListEquality().hash([roleName, roleTasks]);
+  int get hashCode => const ListEquality().hash([grantedPrivilege, roleName]);
 }
 
 UserPrivilegesStruct createUserPrivilegesStruct({
