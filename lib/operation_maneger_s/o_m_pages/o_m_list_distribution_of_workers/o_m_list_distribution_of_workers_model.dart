@@ -1,19 +1,9 @@
 import '/backend/backend.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
-import '/flutter_flow/flutter_flow_drop_down.dart';
-import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'o_m_list_distribution_of_workers_widget.dart'
     show OMListDistributionOfWorkersWidget;
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 class OMListDistributionOfWorkersModel
     extends FlutterFlowModel<OMListDistributionOfWorkersWidget> {
@@ -27,12 +17,13 @@ class OMListDistributionOfWorkersModel
   // State field(s) for DropDown widget.
   String? dropDownValue1;
   FormFieldController<String>? dropDownValueController1;
+  // Stores action output result for [Firestore Query - Query a collection] action in DropDown widget.
+  List<SquaresRecord>? squares;
   // State field(s) for DropDown widget.
   String? dropDownValue2;
   FormFieldController<String>? dropDownValueController2;
-  // State field(s) for DropDown widget.
-  String? dropDownValue3;
-  FormFieldController<String>? dropDownValueController3;
+  // Stores action output result for [Firestore Query - Query a collection] action in DropDown widget.
+  SquaresRecord? square;
 
   @override
   void initState(BuildContext context) {}

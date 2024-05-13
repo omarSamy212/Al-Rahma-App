@@ -1,6 +1,8 @@
 // Automatic FlutterFlow imports
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
+import '/backend/schema/enums/enums.dart';
+import '/actions/actions.dart' as action_blocks;
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'index.dart'; // Imports other custom actions
@@ -9,7 +11,8 @@ import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
-Future<void> createLeader(String leaderName, String squareID) async {
+Future<bool> createLeader(String leaderName, String squareID,
+    String leaderDescription, String leaderOldName, String sectorID) async {
   try {
     // Access Firestore instance
     FirebaseFirestore firestore = FirebaseFirestore.instance;
@@ -21,6 +24,7 @@ Future<void> createLeader(String leaderName, String squareID) async {
     // Generate a unique square ID
     String leaderID = 'Leader_${numDocuments + 1}';
     DocumentReference squareRef = firestore.collection('Squares').doc(squareID);
+    DocumentReference sectorRef = firestore.collection('Sectors').doc(sectorID);
 
     // Create a new document in the Squares collection
     await firestore.collection('Leaders').doc(leaderID).set({
@@ -28,15 +32,44 @@ Future<void> createLeader(String leaderName, String squareID) async {
       'leaderID': leaderID,
       'streetsList': [], // Initialize with an empty list
       'squareRefrence': squareRef,
+      'leaderDescription': leaderDescription,
+      'supervisorMain': null,
+      'supervisorSecondary': null,
+      'leaderOldName': leaderOldName,
+      'sectorID': sectorID,
     });
 
     // Get reference to the sector document
 
     // Update the squaresList field in the sector document
     DocumentSnapshot squareSnapshot = await squareRef.get();
+    DocumentSnapshot sectorSnapshot = await sectorRef.get();
     // Get the current value of squaresList
     // Get the current value of squaresList
     dynamic squaresListData = squareSnapshot.data();
+    dynamic sectorSupervisorNeeded = sectorSnapshot.data();
+
+    if (sectorSupervisorNeeded != null &&
+        sectorSupervisorNeeded is Map<String, dynamic>) {
+      // Retrieve squaresList from squaresListData
+      int? currentSupervisorsNeeeded =
+          sectorSupervisorNeeded['numOfNeededSupervisors'];
+
+      // Ensure that currentSquaresList is not null
+      if (currentSupervisorsNeeeded == null) {
+        currentSupervisorsNeeeded = 0;
+      }
+
+      // Append the new square reference to the current squaresList
+      currentSupervisorsNeeeded = currentSupervisorsNeeeded + 1;
+
+      // Update the squaresList field in the sector document with the updated array
+      await sectorRef
+          .update({'numOfNeededSupervisors': currentSupervisorsNeeeded});
+    } else {
+      print(
+          'Error: Unable to retrieve leadersList data from the sector document.');
+    }
 
     // Ensure that squaresListData is not null and is a Map<String, dynamic>
     if (squaresListData != null && squaresListData is Map<String, dynamic>) {
@@ -58,9 +91,10 @@ Future<void> createLeader(String leaderName, String squareID) async {
           'Error: Unable to retrieve leadersList data from the sector document.');
     }
 
-    print('leader created successfully!');
+    return true;
   } catch (e) {
     print('Error creating square: $e');
+    return false;
   }
 }
 

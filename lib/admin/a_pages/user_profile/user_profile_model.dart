@@ -1,35 +1,26 @@
 import '/backend/backend.dart';
-import '/backend/firebase_storage/storage.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
-import '/flutter_flow/flutter_flow_button_tabbar.dart';
-import '/flutter_flow/flutter_flow_drop_down.dart';
-import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
-import '/flutter_flow/upload_data.dart';
-import 'dart:async';
-import '/custom_code/actions/index.dart' as actions;
 import 'user_profile_widget.dart' show UserProfileWidget;
-import 'package:barcode_widget/barcode_widget.dart';
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_blurhash/flutter_blurhash.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
-import 'package:octo_image/octo_image.dart';
-import 'package:provider/provider.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class UserProfileModel extends FlutterFlowModel<UserProfileWidget> {
+  ///  Local state fields for this page.
+
+  bool showAttend = true;
+
+  List<ChecksRecord> checks = [];
+  void addToChecks(ChecksRecord item) => checks.add(item);
+  void removeFromChecks(ChecksRecord item) => checks.remove(item);
+  void removeAtIndexFromChecks(int index) => checks.removeAt(index);
+  void insertAtIndexInChecks(int index, ChecksRecord item) =>
+      checks.insert(index, item);
+  void updateChecksAtIndex(int index, Function(ChecksRecord) updateFn) =>
+      checks[index] = updateFn(checks[index]);
+
+  int counter = 0;
+
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
@@ -135,7 +126,7 @@ class UserProfileModel extends FlutterFlowModel<UserProfileWidget> {
   String? _birthdateTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
-        'ggodxj06' /* Field is required */,
+        'yofs1kcr' /* Field is required */,
       );
     }
 
@@ -143,13 +134,13 @@ class UserProfileModel extends FlutterFlowModel<UserProfileWidget> {
   }
 
   // State field(s) for Age widget.
-  FocusNode? ageFocusNode1;
-  TextEditingController? ageTextController1;
-  String? Function(BuildContext, String?)? ageTextController1Validator;
-  String? _ageTextController1Validator(BuildContext context, String? val) {
+  FocusNode? ageFocusNode;
+  TextEditingController? ageTextController;
+  String? Function(BuildContext, String?)? ageTextControllerValidator;
+  String? _ageTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
-        'h02dy9m3' /* Field is required */,
+        'ulqrenzc' /* Field is required */,
       );
     }
 
@@ -165,7 +156,7 @@ class UserProfileModel extends FlutterFlowModel<UserProfileWidget> {
       BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
-        'emgbqhzq' /* Field is required */,
+        '0nzhj4zz' /* Field is required */,
       );
     }
 
@@ -180,7 +171,7 @@ class UserProfileModel extends FlutterFlowModel<UserProfileWidget> {
   String? _natIDDateTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
-        '6quszuut' /* Field is required */,
+        'tl1hsk73' /* Field is required */,
       );
     }
 
@@ -225,7 +216,7 @@ class UserProfileModel extends FlutterFlowModel<UserProfileWidget> {
       BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
-        'xs113aiw' /* Field is required */,
+        'v3rmz8xq' /* Field is required */,
       );
     }
 
@@ -248,10 +239,10 @@ class UserProfileModel extends FlutterFlowModel<UserProfileWidget> {
     return null;
   }
 
-  // State field(s) for Age widget.
-  FocusNode? ageFocusNode2;
-  TextEditingController? ageTextController2;
-  String? Function(BuildContext, String?)? ageTextController2Validator;
+  // State field(s) for passportAge widget.
+  FocusNode? passportAgeFocusNode;
+  TextEditingController? passportAgeTextController;
+  String? Function(BuildContext, String?)? passportAgeTextControllerValidator;
   // State field(s) for passportPlaceOfIssue widget.
   FocusNode? passportPlaceOfIssueFocusNode;
   TextEditingController? passportPlaceOfIssueTextController;
@@ -366,7 +357,7 @@ class UserProfileModel extends FlutterFlowModel<UserProfileWidget> {
   String? _eduDataTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
-        'ycwc7s5w' /* Field is required */,
+        'vcqki3dz' /* Field is required */,
       );
     }
 
@@ -381,11 +372,11 @@ class UserProfileModel extends FlutterFlowModel<UserProfileWidget> {
   FocusNode? roleFocusNode;
   TextEditingController? roleTextController;
   String? Function(BuildContext, String?)? roleTextControllerValidator;
-  // State field(s) for contractstatus widget.
-  FocusNode? contractstatusFocusNode;
-  TextEditingController? contractstatusTextController;
+  // State field(s) for contractorName widget.
+  FocusNode? contractorNameFocusNode;
+  TextEditingController? contractorNameTextController;
   String? Function(BuildContext, String?)?
-      contractstatusTextControllerValidator;
+      contractorNameTextControllerValidator;
   // State field(s) for contID widget.
   FocusNode? contIDFocusNode;
   TextEditingController? contIDTextController;
@@ -424,10 +415,6 @@ class UserProfileModel extends FlutterFlowModel<UserProfileWidget> {
   FocusNode? shifthoursFocusNode;
   TextEditingController? shifthoursTextController;
   String? Function(BuildContext, String?)? shifthoursTextControllerValidator;
-  // State field(s) for islic widget.
-  FocusNode? islicFocusNode;
-  TextEditingController? islicTextController;
-  String? Function(BuildContext, String?)? islicTextControllerValidator;
   // State field(s) for typeoflic widget.
   FocusNode? typeoflicFocusNode;
   TextEditingController? typeoflicTextController;
@@ -464,10 +451,32 @@ class UserProfileModel extends FlutterFlowModel<UserProfileWidget> {
   FocusNode? numOfWorkersFocusNode;
   TextEditingController? numOfWorkersTextController;
   String? Function(BuildContext, String?)? numOfWorkersTextControllerValidator;
+  String? _numOfWorkersTextControllerValidator(
+      BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return FFLocalizations.of(context).getText(
+        '6h5ylbrm' /* Field is required */,
+      );
+    }
+
+    return null;
+  }
+
   // State field(s) for ShiftPrice widget.
   FocusNode? shiftPriceFocusNode;
   TextEditingController? shiftPriceTextController;
   String? Function(BuildContext, String?)? shiftPriceTextControllerValidator;
+  String? _shiftPriceTextControllerValidator(
+      BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return FFLocalizations.of(context).getText(
+        '5yusgnyb' /* Field is required */,
+      );
+    }
+
+    return null;
+  }
+
   // State field(s) for diflict widget.
   FocusNode? diflictFocusNode;
   TextEditingController? diflictTextController;
@@ -486,31 +495,6 @@ class UserProfileModel extends FlutterFlowModel<UserProfileWidget> {
   FocusNode? contractDateFocusNode;
   TextEditingController? contractDateTextController;
   String? Function(BuildContext, String?)? contractDateTextControllerValidator;
-  bool isDataUploading1 = false;
-  FFUploadedFile uploadedLocalFile1 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl1 = '';
-
-  bool isDataUploading2 = false;
-  FFUploadedFile uploadedLocalFile2 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl2 = '';
-
-  bool isDataUploading3 = false;
-  FFUploadedFile uploadedLocalFile3 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl3 = '';
-
-  bool isDataUploading4 = false;
-  FFUploadedFile uploadedLocalFile4 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl4 = '';
-
-  bool isDataUploading5 = false;
-  FFUploadedFile uploadedLocalFile5 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl5 = '';
-
   // State field(s) for DropDown widget.
   String? dropDownValue1;
   FormFieldController<String>? dropDownValueController1;
@@ -520,6 +504,10 @@ class UserProfileModel extends FlutterFlowModel<UserProfileWidget> {
   // State field(s) for DropDown widget.
   String? dropDownValue3;
   FormFieldController<String>? dropDownValueController3;
+  // Stores action output result for [Backend Call - Read Document] action in Button widget.
+  AttendanceLogRecord? attendanceLog;
+  // Stores action output result for [Backend Call - Read Document] action in Button widget.
+  ChecksRecord? checkRecord;
 
   @override
   void initState(BuildContext context) {
@@ -528,7 +516,7 @@ class UserProfileModel extends FlutterFlowModel<UserProfileWidget> {
     lastNameTextControllerValidator = _lastNameTextControllerValidator;
     nickNameTextControllerValidator = _nickNameTextControllerValidator;
     birthdateTextControllerValidator = _birthdateTextControllerValidator;
-    ageTextController1Validator = _ageTextController1Validator;
+    ageTextControllerValidator = _ageTextControllerValidator;
     natPlaceOfIssueTextControllerValidator =
         _natPlaceOfIssueTextControllerValidator;
     natIDDateTextControllerValidator = _natIDDateTextControllerValidator;
@@ -551,6 +539,8 @@ class UserProfileModel extends FlutterFlowModel<UserProfileWidget> {
     contIDTextControllerValidator = _contIDTextControllerValidator;
     contNumOfWorkersTextControllerValidator =
         _contNumOfWorkersTextControllerValidator;
+    numOfWorkersTextControllerValidator = _numOfWorkersTextControllerValidator;
+    shiftPriceTextControllerValidator = _shiftPriceTextControllerValidator;
     diflictTextControllerValidator = _diflictTextControllerValidator;
   }
 
@@ -588,8 +578,8 @@ class UserProfileModel extends FlutterFlowModel<UserProfileWidget> {
     birthdateFocusNode?.dispose();
     birthdateTextController?.dispose();
 
-    ageFocusNode1?.dispose();
-    ageTextController1?.dispose();
+    ageFocusNode?.dispose();
+    ageTextController?.dispose();
 
     natPlaceOfIssueFocusNode?.dispose();
     natPlaceOfIssueTextController?.dispose();
@@ -609,8 +599,8 @@ class UserProfileModel extends FlutterFlowModel<UserProfileWidget> {
     passportBirthdateFocusNode?.dispose();
     passportBirthdateTextController?.dispose();
 
-    ageFocusNode2?.dispose();
-    ageTextController2?.dispose();
+    passportAgeFocusNode?.dispose();
+    passportAgeTextController?.dispose();
 
     passportPlaceOfIssueFocusNode?.dispose();
     passportPlaceOfIssueTextController?.dispose();
@@ -642,8 +632,8 @@ class UserProfileModel extends FlutterFlowModel<UserProfileWidget> {
     roleFocusNode?.dispose();
     roleTextController?.dispose();
 
-    contractstatusFocusNode?.dispose();
-    contractstatusTextController?.dispose();
+    contractorNameFocusNode?.dispose();
+    contractorNameTextController?.dispose();
 
     contIDFocusNode?.dispose();
     contIDTextController?.dispose();
@@ -656,9 +646,6 @@ class UserProfileModel extends FlutterFlowModel<UserProfileWidget> {
 
     shifthoursFocusNode?.dispose();
     shifthoursTextController?.dispose();
-
-    islicFocusNode?.dispose();
-    islicTextController?.dispose();
 
     typeoflicFocusNode?.dispose();
     typeoflicTextController?.dispose();

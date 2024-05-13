@@ -1,33 +1,9 @@
-import '/auth/base_auth_user_provider.dart';
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/backend/firebase_storage/storage.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
-import '/flutter_flow/flutter_flow_drop_down.dart';
-import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
-import '/flutter_flow/upload_data.dart';
-import '/custom_code/actions/index.dart' as actions;
-import '/flutter_flow/custom_functions.dart' as functions;
 import 'create_user_widget.dart' show CreateUserWidget;
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:collection/collection.dart';
-import 'package:easy_debounce/easy_debounce.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_blurhash/flutter_blurhash.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
-import 'package:octo_image/octo_image.dart';
-import 'package:provider/provider.dart';
 
 class CreateUserModel extends FlutterFlowModel<CreateUserWidget> {
   ///  Local state fields for this page.
@@ -465,6 +441,9 @@ class CreateUserModel extends FlutterFlowModel<CreateUserWidget> {
   // State field(s) for workerShiftPeriod widget.
   String? workerShiftPeriodValue;
   FormFieldController<String>? workerShiftPeriodValueController;
+  // State field(s) for sector widget.
+  String? sectorValue;
+  FormFieldController<String>? sectorValueController;
   // State field(s) for isDriver widget.
   String? isDriverValue;
   FormFieldController<String>? isDriverValueController;
@@ -488,12 +467,9 @@ class CreateUserModel extends FlutterFlowModel<CreateUserWidget> {
   String? Function(BuildContext, String?)?
       drivLicExpiryDateTextControllerValidator;
   DateTime? datePicked7;
-  // State field(s) for Sv_workArea widget.
-  String? svWorkAreaValue;
-  FormFieldController<String>? svWorkAreaValueController;
-  // State field(s) for roleCode widget.
-  String? roleCodeValue;
-  FormFieldController<String>? roleCodeValueController;
+  // State field(s) for jobCode widget.
+  String? jobCodeValue;
+  FormFieldController<String>? jobCodeValueController;
   // State field(s) for employmentDate widget.
   FocusNode? employmentDateFocusNode;
   TextEditingController? employmentDateTextController;

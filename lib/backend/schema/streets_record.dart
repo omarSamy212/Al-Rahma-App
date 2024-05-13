@@ -3,16 +3,15 @@ import 'dart:async';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
-import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
 class StreetsRecord extends FirestoreRecord {
   StreetsRecord._(
-    DocumentReference reference,
-    Map<String, dynamic> data,
-  ) : super(reference, data) {
+    super.reference,
+    super.data,
+  ) {
     _initializeFields();
   }
 
@@ -31,11 +30,6 @@ class StreetsRecord extends FirestoreRecord {
   int get maxNumOfWorkers => _maxNumOfWorkers ?? 0;
   bool hasMaxNumOfWorkers() => _maxNumOfWorkers != null;
 
-  // "usersList" field.
-  List<DocumentReference>? _usersList;
-  List<DocumentReference> get usersList => _usersList ?? const [];
-  bool hasUsersList() => _usersList != null;
-
   // "leaderRefrence" field.
   DocumentReference? _leaderRefrence;
   DocumentReference? get leaderRefrence => _leaderRefrence;
@@ -47,18 +41,35 @@ class StreetsRecord extends FirestoreRecord {
   bool hasStreetID() => _streetID != null;
 
   // "streetLocation" field.
-  LatLng? _streetLocation;
-  LatLng? get streetLocation => _streetLocation;
+  GeoLocationStruct? _streetLocation;
+  GeoLocationStruct get streetLocation =>
+      _streetLocation ?? GeoLocationStruct();
   bool hasStreetLocation() => _streetLocation != null;
+
+  // "fixed_point_workers" field.
+  List<DocumentReference>? _fixedPointWorkers;
+  List<DocumentReference> get fixedPointWorkers =>
+      _fixedPointWorkers ?? const [];
+  bool hasFixedPointWorkers() => _fixedPointWorkers != null;
+
+  // "assignedWorkers" field.
+  List<AssignWorkersStruct>? _assignedWorkers;
+  List<AssignWorkersStruct> get assignedWorkers => _assignedWorkers ?? const [];
+  bool hasAssignedWorkers() => _assignedWorkers != null;
 
   void _initializeFields() {
     _streetName = snapshotData['streetName'] as String?;
     _streetDescription = snapshotData['streetDescription'] as String?;
     _maxNumOfWorkers = castToType<int>(snapshotData['maxNumOfWorkers']);
-    _usersList = getDataList(snapshotData['usersList']);
     _leaderRefrence = snapshotData['leaderRefrence'] as DocumentReference?;
     _streetID = snapshotData['streetID'] as String?;
-    _streetLocation = snapshotData['streetLocation'] as LatLng?;
+    _streetLocation =
+        GeoLocationStruct.maybeFromMap(snapshotData['streetLocation']);
+    _fixedPointWorkers = getDataList(snapshotData['fixed_point_workers']);
+    _assignedWorkers = getStructList(
+      snapshotData['assignedWorkers'],
+      AssignWorkersStruct.fromMap,
+    );
   }
 
   static CollectionReference get collection =>
@@ -101,7 +112,7 @@ Map<String, dynamic> createStreetsRecordData({
   int? maxNumOfWorkers,
   DocumentReference? leaderRefrence,
   String? streetID,
-  LatLng? streetLocation,
+  GeoLocationStruct? streetLocation,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -110,9 +121,12 @@ Map<String, dynamic> createStreetsRecordData({
       'maxNumOfWorkers': maxNumOfWorkers,
       'leaderRefrence': leaderRefrence,
       'streetID': streetID,
-      'streetLocation': streetLocation,
+      'streetLocation': GeoLocationStruct().toMap(),
     }.withoutNulls,
   );
+
+  // Handle nested data for "streetLocation" field.
+  addGeoLocationStructData(firestoreData, streetLocation, 'streetLocation');
 
   return firestoreData;
 }
@@ -126,10 +140,11 @@ class StreetsRecordDocumentEquality implements Equality<StreetsRecord> {
     return e1?.streetName == e2?.streetName &&
         e1?.streetDescription == e2?.streetDescription &&
         e1?.maxNumOfWorkers == e2?.maxNumOfWorkers &&
-        listEquality.equals(e1?.usersList, e2?.usersList) &&
         e1?.leaderRefrence == e2?.leaderRefrence &&
         e1?.streetID == e2?.streetID &&
-        e1?.streetLocation == e2?.streetLocation;
+        e1?.streetLocation == e2?.streetLocation &&
+        listEquality.equals(e1?.fixedPointWorkers, e2?.fixedPointWorkers) &&
+        listEquality.equals(e1?.assignedWorkers, e2?.assignedWorkers);
   }
 
   @override
@@ -137,10 +152,11 @@ class StreetsRecordDocumentEquality implements Equality<StreetsRecord> {
         e?.streetName,
         e?.streetDescription,
         e?.maxNumOfWorkers,
-        e?.usersList,
         e?.leaderRefrence,
         e?.streetID,
-        e?.streetLocation
+        e?.streetLocation,
+        e?.fixedPointWorkers,
+        e?.assignedWorkers
       ]);
 
   @override

@@ -1,20 +1,7 @@
-import '/flutter_flow/flutter_flow_animations.dart';
-import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_google_map.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:async';
 import 'o_m_supmited_task_detalis_widget.dart' show OMSupmitedTaskDetalisWidget;
-import 'package:smooth_page_indicator/smooth_page_indicator.dart'
-    as smooth_page_indicator;
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 class OMSupmitedTaskDetalisModel
     extends FlutterFlowModel<OMSupmitedTaskDetalisWidget> {
@@ -29,11 +16,18 @@ class OMSupmitedTaskDetalisModel
           pageViewController!.page != null
       ? pageViewController!.page!.round()
       : 0;
+  // State field(s) for GoogleMap widget.
+  LatLng? googleMapsCenter;
+  final googleMapsController = Completer<GoogleMapController>();
   // State field(s) for TextualDetails widget.
   FocusNode? textualDetailsFocusNode;
   TextEditingController? textualDetailsTextController;
   String? Function(BuildContext, String?)?
       textualDetailsTextControllerValidator;
+  // Stores action output result for [Custom Action - addStreetTaskToBookMark] action in IconButton widget.
+  bool? bookmarkOutput;
+  // Stores action output result for [Custom Action - completeStreetTaskReview] action in Button widget.
+  bool? taskReview;
 
   @override
   void initState(BuildContext context) {}

@@ -138,15 +138,15 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'dmk5pmhx': {
       'en': 'Login to Al Rahma Service Group System',
-      'ar': 'قم بالدخول إلى نظام الرحمة لإدارة العمل الميداني  ',
+      'ar': 'الدخول إلى نظام الرحمة لإدارة العمل الميداني  ',
     },
     '736voji3': {
-      'en': 'Email',
-      'ar': 'البريد الإلكتروني',
+      'en': 'ID',
+      'ar': 'الرمز التعريفي',
     },
     '2ebdxwev': {
       'en': '',
-      'ar': '',
+      'ar': '330',
     },
     'h3u5bi64': {
       'en': 'Password',
@@ -715,7 +715,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'p0dyomyl': {
       'en': 'Search for an item...',
-      'ar': 'البحث عن عنصر...',
+      'ar': 'البحث عن شارع...',
     },
     '5le1ml99': {
       'en': '8 h',
@@ -737,10 +737,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Search for an item...',
       'ar': 'البحث عن عنصر...',
     },
-    'fjn3dqxe': {
-      'en': 'Select Starting Shift',
-      'ar': 'حدد بداية الوردية',
-    },
     'web7eexb': {
       'en': 'Please Select Contractor',
       'ar': '',
@@ -756,6 +752,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     '7cozg12h': {
       'en': 'Please choose an option from the dropdown',
       'ar': 'يرجى اختيار خيار من القائمة المنسدلة',
+    },
+    'fjn3dqxe': {
+      'en': 'Select Starting Shift',
+      'ar': 'حدد بداية الوردية',
     },
     'x15k7nlh': {
       'en': 'Morning',
@@ -804,6 +804,18 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'uxmr3cq2': {
       'en': 'Search for an item...',
       'ar': 'البحث عن عنصر...',
+    },
+    'nf8bd3nh': {
+      'en': 'Select Sector',
+      'ar': '',
+    },
+    'j3bmhl17': {
+      'en': 'Al Rahma',
+      'ar': '',
+    },
+    'qa579rp4': {
+      'en': 'حدد القطاع',
+      'ar': 'حدد القطاع',
     },
     'z7kcg76h': {
       'en': 'Have a driving license?',
@@ -881,141 +893,53 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
       'ar': '',
     },
-    'bk1vlltt': {
-      'en': 'Select Work Area',
-      'ar': 'حدد منطقة العمل',
-    },
-    '6x817z9l': {
-      'en': '--',
-      'ar': '',
-    },
-    'sr4mrqai': {
-      'en': 'Leader Area 1',
-      'ar': 'منطقة ليدر  1',
-    },
-    'wl5f7igc': {
-      'en': 'Leader Area 2',
-      'ar': '',
-    },
-    '2zvqvqe4': {
-      'en': 'Leader Area 3',
-      'ar': '',
-    },
-    'l87kn4w2': {
-      'en': 'Leader Area 4',
-      'ar': '',
-    },
-    'tffwt50g': {
-      'en': 'Leader Area 5',
-      'ar': '',
-    },
-    'k2fdz70g': {
-      'en': 'Leader Area 6',
-      'ar': '',
-    },
-    'upb0xx7h': {
-      'en': 'Leader Area 7',
-      'ar': '',
-    },
-    'hcnnlera': {
-      'en': 'Leader Area 8',
-      'ar': '',
-    },
-    '2bul1mav': {
-      'en': 'Leader Area 9',
-      'ar': '',
-    },
-    'vtj9g7k5': {
-      'en': 'Leader Area 10',
-      'ar': '',
-    },
-    'g3qew8vn': {
-      'en': 'Leader Area 11',
-      'ar': '',
-    },
-    '7u9v4mu9': {
-      'en': 'Leader Area 12',
-      'ar': '',
-    },
-    '3ofvz45p': {
-      'en': 'Leader Area 13',
-      'ar': '',
-    },
-    '6ubker3o': {
-      'en': 'Leader Area 14',
-      'ar': '',
-    },
-    'j76y4san': {
-      'en': 'Leader Area 15',
-      'ar': '',
-    },
-    'yuuar5tk': {
-      'en': 'Leader Area 16',
-      'ar': '',
-    },
-    'lsb6sgsi': {
-      'en': 'Leader Area 17',
-      'ar': '',
-    },
-    'aqqtzdwl': {
-      'en': 'Leader Area 18',
-      'ar': '',
-    },
-    '9zm1kvam': {
-      'en': 'Leader Area 19',
-      'ar': '',
-    },
-    '7gjtukqp': {
-      'en': '--',
-      'ar': '',
-    },
-    'jnt45e2u': {
-      'en': 'Select Work Area',
-      'ar': 'حدد منطقة العمل',
-    },
     'ghmjg2sx': {
-      'en': 'Select Code (optional)',
-      'ar': 'اختر الرمز (اختياري)',
+      'en': 'Select Code',
+      'ar': 'حدد نوع العمل',
     },
     'o4j24kc5': {
       'en': '',
       'ar': '',
     },
-    'uetymcr3': {
-      'en': '150: Superviser',
-      'ar': '150 : المشرف',
+    'bgzldmcn': {
+      'en': ' (210) عامل شارع',
+      'ar': ' (210) عامل شارع',
     },
-    'wvxq2hk6': {
-      'en': '220: fixed point',
-      'ar': '220: نقطة ثابتة',
+    'xtaqv95y': {
+      'en': ' (220) عامل نقطة ثابتة',
+      'ar': ' (220) عامل نقطة ثابتة',
     },
-    'w8fw6g5f': {
-      'en': '250: Garage worker (maintenance)',
-      'ar': '250: عامل جراج (صيانة)',
+    'e7xm2g60': {
+      'en': 'عامل جراج - صيانة (250)',
+      'ar': 'عامل جراج - صيانة (250)',
     },
-    'hkhv4hi2': {
-      'en': '260: Authority worker',
-      'ar': '260: عامل هيئة',
+    'fpt7vkqh': {
+      'en': ' (270) سائق',
+      'ar': ' (270) سائق',
     },
-    '0gasou1f': {
-      'en': '270: Workers’ driver',
-      'ar': '270 : سائق العمال',
+    'xvlkaizr': {
+      'en': '150',
+      'ar': '150',
     },
-    'a6fmozgx': {
-      'en': '280: Authority car driver',
-      'ar': '280 : سائق سيارة الهيئة',
+    'cbdseabb': {
+      'en': '260',
+      'ar': '260',
     },
-    'adpbzhca': {
-      'en': '150-',
-      'ar': '-150',
+    'o7t7zxu8': {
+      'en': '280',
+      'ar': '280',
     },
-    'o44nq1e3': {
-      'en': 'Street Worker',
-      'ar': 'عامل الشارع',
+    'v7tacof8': {
+      'en': '300',
+      'ar': '300',
+    },
+    'dv4w4ot2': {
+      'en': '330',
+      'ar': '330',
     },
     'lr5gpn8h': {
       'en': 'Select code',
-      'ar': 'حدد كود الوظيفة',
+      'ar': 'حدد نوع العمل',
     },
     '9vjhddi3': {
       'en': 'employment date',
@@ -1041,7 +965,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'contract date',
       'ar': 'تاريخ العقد',
     },
-    'nxrwi02a': {
+    '6x817z9l': {
       'en': '',
       'ar': '',
     },
@@ -1325,6 +1249,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // createUser_2
   {
+    'mrxazj43': {
+      'en': 'ID',
+      'ar': 'الأسم',
+    },
     'yf8l2oet': {
       'en': 'ID',
       'ar': 'كود المستخدم',
@@ -1343,14 +1271,18 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'uvudahlw': {
       'en': 'Create Profile',
-      'ar': '',
+      'ar': 'انشاء مستخدم',
     },
   },
   // supervisor_home
   {
     'xgfc5e9i': {
       'en': 'Hello,',
-      'ar': 'مرحبًا،',
+      'ar': 'مرحبًا',
+    },
+    'vcplnloa': {
+      'en': 'Hello,',
+      'ar': '',
     },
     '630xn3m1': {
       'en': 'Team Overview',
@@ -1360,33 +1292,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Review the details below of your Team.',
       'ar': 'قم بمراجعة التفاصيل أدناه الخاصة بفريقك.',
     },
-    'lez1fc8z': {
-      'en': 'Assign',
-      'ar': 'تعيين',
-    },
     'graxwi8p': {
       'en': 'Tasks Completed',
-      'ar': 'اكتملت المهام',
-    },
-    'okkyz5ed': {
-      'en': '5',
-      'ar': '5',
-    },
-    '42o0idu0': {
-      'en': '32.2%',
-      'ar': '32.2%',
+      'ar': 'المهام المكتملة',
     },
     'htfllq5p': {
       'en': 'Upcoming Tasks',
       'ar': 'المهام القادمة',
-    },
-    '7ijp8xlm': {
-      'en': '17',
-      'ar': '17',
-    },
-    'zdhhzivr': {
-      'en': '45.5%',
-      'ar': '45.5%',
     },
     'umli55v9': {
       'en': 'Work Area',
@@ -1398,15 +1310,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'q0e28txe': {
       'en': 'Tasks',
-      'ar': 'مهام',
-    },
-    '7j6932h9': {
-      'en': 'Start Point',
-      'ar': 'نقطة البداية',
-    },
-    '7jm18jz7': {
-      'en': 'End Point',
-      'ar': 'نقطة النهاية',
+      'ar': 'المهام اليومية',
     },
     'obexelts': {
       'en': 'Daily Goal',
@@ -1442,7 +1346,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'ds5mx3rh': {
       'en': 'View',
-      'ar': 'منظر',
+      'ar': 'تقديم',
     },
     '6yi526a1': {
       'en': '{Upcoming Milestones}',
@@ -1473,8 +1377,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ar': 'تسجيل خروج',
     },
     '1862lwih': {
-      'en': 'Logout For Worker',
-      'ar': 'تسجيل الخروج للعامل',
+      'en': 'Logout For Workers',
+      'ar': 'تسجيل الخروج للعمال',
     },
     'a3vwl85o': {
       'en': 'Add New',
@@ -1484,33 +1388,17 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Assigned Users',
       'ar': 'المستخدمون المعينون',
     },
-    '11n5lq64': {
+    'dd1zbs55': {
       'en': 'Due Date',
-      'ar': 'تاريخ الاستحقاق',
+      'ar': '',
     },
     'l4a9wgy5': {
       'en': 'Actions',
       'ar': 'أجراءات',
     },
-    'va26dvad': {
-      'en': 'Randy Peterson',
-      'ar': 'راندي بيترسون',
-    },
-    'gcmqt5o3': {
-      'en': '#2008',
-      'ar': '#2008',
-    },
     '3f74boic': {
       'en': 'Fri. Aug 11th',
       'ar': 'الجمعة. 11 أغسطس',
-    },
-    '47048m9r': {
-      'en': 'worker',
-      'ar': 'عامل',
-    },
-    '3x6tvpvc': {
-      'en': 'Search for an item...',
-      'ar': 'البحث عن عنصر...',
     },
     '414yl3i7': {
       'en': 'Randy Peterson',
@@ -1524,14 +1412,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Fri. Aug 11th',
       'ar': 'الجمعة. 11 أغسطس',
     },
-    'tg5h08pj': {
-      'en': 'worker',
-      'ar': 'عامل',
-    },
-    'hrkxko6u': {
-      'en': 'Search for an item...',
-      'ar': 'البحث عن عنصر...',
-    },
     's0n40ssb': {
       'en': 'Randy Peterson',
       'ar': 'راندي بيترسون',
@@ -1543,14 +1423,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     '3con0z70': {
       'en': 'Fri. Aug 11th',
       'ar': 'الجمعة. 11 أغسطس',
-    },
-    'xlvn8mpc': {
-      'en': 'worker',
-      'ar': 'عامل',
-    },
-    'lsllu42u': {
-      'en': 'Search for an item...',
-      'ar': 'البحث عن عنصر...',
     },
     '3gmvs7mg': {
       'en': 'Randy Peterson',
@@ -1564,121 +1436,57 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Fri. Aug 11th',
       'ar': 'الجمعة. 11 أغسطس',
     },
-    '35o6mpj8': {
-      'en': 'worker',
-      'ar': 'عامل',
+    '6bor7at3': {
+      'en': 'Work order',
+      'ar': 'طلبات  العمل',
     },
-    '76psl0al': {
-      'en': 'Search for an item...',
-      'ar': 'البحث عن عنصر...',
+    '49btmwhv': {
+      'en': 'Complaints',
+      'ar': 'الشكاوي',
+    },
+    '8w2ygizk': {
+      'en': ' personal requests list',
+      'ar': 'طلبات شخصيه',
+    },
+    'wn1hdu9b': {
+      'en': 'Other seirves',
+      'ar': 'خدمات اخري',
+    },
+    'ep5jlbbw': {
+      'en': 'Work request',
+      'ar': 'طلب عمل',
+    },
+    'uh9jc4py': {
+      'en': 'personal request',
+      'ar': 'طلب شخصي',
+    },
+    'i2u8diip': {
+      'en': 'Attendence',
+      'ar': 'تحضير  المشرف',
+    },
+    '3f75fz8n': {
+      'en': 'Attend workers',
+      'ar': 'تحضير العمال',
+    },
+    '2i8q3rie': {
+      'en': 'my tasks',
+      'ar': 'المهام اليومية',
+    },
+    '0zew9tms': {
+      'en': 'daily report',
+      'ar': 'التقرير اليومي',
+    },
+    'aa63p9hs': {
+      'en': 'Locate workers',
+      'ar': 'توزيع العمال',
+    },
+    'tscxtblb': {
+      'en': 'Order request',
+      'ar': 'اختيار العمال',
     },
     'wbmzcdgw': {
       'en': 'End Shift For Superviser',
-      'ar': 'نهاية التحول للمشرف',
-    },
-    '64rv3zkn': {
-      'en': 'Activity',
-      'ar': 'نشاط',
-    },
-    '6206idkd': {
-      'en': 'Recent completed tasks from your team.',
-      'ar': 'المهام المكتملة الأخيرة من فريقك.',
-    },
-    '8cslybyh': {
-      'en': 'Rudy Fernandez',
-      'ar': 'رودي فرنانديز',
-    },
-    'ev574rcl': {
-      'en': '4m ago',
-      'ar': 'منذ 4 م',
-    },
-    'j8wuget6': {
-      'en': 'Completed ',
-      'ar': 'مكتمل',
-    },
-    '3pbi7njr': {
-      'en': 'Marketing Plan',
-      'ar': 'خطة التسويق',
-    },
-    'j9dc5l1a': {
-      'en': 'Rudy Fernandez',
-      'ar': 'رودي فرنانديز',
-    },
-    'ywv8t15a': {
-      'en': '4m ago',
-      'ar': 'منذ 4 م',
-    },
-    'rj9ygn3n': {
-      'en': 'Started ',
-      'ar': 'بدأت',
-    },
-    'relhmr19': {
-      'en': 'Marketing Plan',
-      'ar': 'خطة التسويق',
-    },
-    '0t7dcaj0': {
-      'en': 'Abigail Rojas',
-      'ar': 'أبيجيل روخاس',
-    },
-    'r8m7rvgf': {
-      'en': '4m ago',
-      'ar': 'منذ 4 م',
-    },
-    'be3aog6l': {
-      'en': 'Assigned  ',
-      'ar': 'مُكَلَّف',
-    },
-    'rpjmld9f': {
-      'en': 'Rudy Fernandez ',
-      'ar': 'رودي فرنانديز',
-    },
-    '2mup0dbr': {
-      'en': 'to ',
-      'ar': 'ل',
-    },
-    'uaja5btr': {
-      'en': 'Marketing Plan',
-      'ar': 'خطة التسويق',
-    },
-    '9xoyr3gg': {
-      'en': 'Abigail Rojas',
-      'ar': 'أبيجيل روخاس',
-    },
-    'yvbtudop': {
-      'en': '4m ago',
-      'ar': 'منذ 4 م',
-    },
-    '0rl4k3iy': {
-      'en': 'Created a project: ',
-      'ar': 'تم إنشاء مشروع:',
-    },
-    'gfqq83cn': {
-      'en': 'Marketing Plan',
-      'ar': 'خطة التسويق',
-    },
-    'djsf1v54': {
-      'en': 'Liz Ambridge',
-      'ar': 'ليز أمبريدج',
-    },
-    'yi461uj9': {
-      'en': '4m ago',
-      'ar': 'منذ 4 م',
-    },
-    'xifzw6x5': {
-      'en': 'Sent a plan update for ',
-      'ar': 'تم إرسال تحديث الخطة لـ',
-    },
-    '9arub4ry': {
-      'en': 'Marketing Plan',
-      'ar': 'خطة التسويق',
-    },
-    '8gejg5yd': {
-      'en': 'Project Started',
-      'ar': 'بدأ المشروع',
-    },
-    'xvc798fd': {
-      'en': '12d ago',
-      'ar': 'منذ 12 يومًا',
+      'ar': 'انهاء  الوردية',
     },
     'ydryhxhx': {
       'en': 'Al Rahma',
@@ -1735,7 +1543,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '1',
       'ar': '',
     },
-    'cbqou6qw': {
+    'jupa7up6': {
       'en': '1',
       'ar': '1',
     },
@@ -3010,141 +2818,49 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // tasksTracker
   {
-    '0zjot582': {
-      'en': '{Working Area}',
-      'ar': '{منطقة العمل}',
+    'iyudgnjx': {
+      'en': 'All',
+      'ar': 'الجميع',
     },
-    'wjz3jdpt': {
-      'en': '{Working Area discription}',
-      'ar': '{وصف منطقة العمل}',
+    'qpi48sc3': {
+      'en': 'Approved',
+      'ar': 'مقبول',
     },
-    'nz4enkka': {
-      'en': '{12} Tasks',
-      'ar': '{12} المهام',
+    '31wysmtk': {
+      'en': 'Rejected',
+      'ar': 'مرفوض',
     },
-    '8olvp832': {
-      'en': 'Pending',
+    'm73a3tnf': {
+      'en': 'In progress',
       'ar': 'قيد الانتظار',
     },
-    'x6xtkr31': {
-      'en': '{Task Name}',
-      'ar': '{اسم المهمة}',
+    'm8sdn8ca': {
+      'en': 'For you',
+      'ar': 'مطلوب منك',
+    },
+    'pjcc4zh5': {
+      'en': 'All',
+      'ar': 'الجميع',
+    },
+    '42cyl7iz': {
+      'en': 'All',
+      'ar': 'الجميع',
     },
     '7yoz6vwu': {
       'en': 'View',
-      'ar': 'منظر',
-    },
-    'zwrqwk2r': {
-      'en': '{Discription}',
-      'ar': '{وصف}',
+      'ar': 'تقديم',
     },
     'mmnfxuta': {
       'en': 'Due',
-      'ar': 'حق',
-    },
-    'gqck59l9': {
-      'en': 'Tuesday, 10:00am',
-      'ar': 'الثلاثاء، الساعة 10:00 صباحاً',
+      'ar': '',
     },
     '0oxhwfw1': {
       'en': 'In Progress',
-      'ar': 'في تَقَدم',
-    },
-    'kw0awglp': {
-      'en': '{Task Name}',
-      'ar': '{اسم المهمة}',
-    },
-    'u7ivogvc': {
-      'en': 'View',
-      'ar': 'منظر',
-    },
-    'w9slmqbf': {
-      'en': '{Discription}',
-      'ar': '{وصف}',
-    },
-    '6zucelhn': {
-      'en': 'Due',
-      'ar': 'حق',
-    },
-    'mvjeo69g': {
-      'en': 'Tuesday, 10:00am',
-      'ar': 'الثلاثاء، الساعة 10:00 صباحاً',
-    },
-    'cegnnv7t': {
-      'en': 'In Progress',
-      'ar': 'في تَقَدم',
-    },
-    'ctycx5m2': {
-      'en': 'Completed',
-      'ar': 'مكتمل',
-    },
-    'rhewwzy4': {
-      'en': 'Design Template Screens',
-      'ar': 'شاشات قالب التصميم',
-    },
-    '6fda2r6b': {
-      'en': 'Create template screen for task todo app.',
-      'ar': 'إنشاء شاشة قالب لتطبيق المهام الواجبة.',
-    },
-    'ea246r3k': {
-      'en': 'Tuesday, 10:00am',
-      'ar': 'الثلاثاء، الساعة 10:00 صباحاً',
-    },
-    'hbpbm9mb': {
-      'en': 'Completed',
-      'ar': 'مكتمل',
-    },
-    '9fvbm9hy': {
-      'en': 'Design Template Screens',
-      'ar': 'شاشات قالب التصميم',
-    },
-    '4xe382y1': {
-      'en': 'Create template screen for task todo app.',
-      'ar': 'إنشاء شاشة قالب لتطبيق المهام الواجبة.',
-    },
-    'lj8l8c29': {
-      'en': 'Tuesday, 10:00am',
-      'ar': 'الثلاثاء، الساعة 10:00 صباحاً',
-    },
-    'jerg319h': {
-      'en': 'Completed',
-      'ar': 'مكتمل',
-    },
-    'crra11hj': {
-      'en': 'Daily Report',
-      'ar': 'تقرير يومي',
-    },
-    's9e9ngqz': {
-      'en': 'The daily report is delivered at the end of the shift',
-      'ar': 'يتم تسليم التقرير اليومي في نهاية الوردية',
-    },
-    'zuy2topf': {
-      'en': 'late',
-      'ar': 'متأخر',
-    },
-    'v3gunpi9': {
-      'en': '{Task Name}',
-      'ar': '{اسم المهمة}',
-    },
-    'ovn0iahu': {
-      'en': 'Provide reason',
-      'ar': 'تقديم السبب',
-    },
-    'a42jbf5u': {
-      'en': '{Discription}',
-      'ar': '{وصف}',
-    },
-    '0tmvzxjl': {
-      'en': 'Tuesday, 10:00am',
-      'ar': 'الثلاثاء، الساعة 10:00 صباحاً',
-    },
-    '7y0a7ht6': {
-      'en': 'Lated',
-      'ar': 'متأخرا',
+      'ar': 'قيد الانتظار',
     },
     'a6u6ex2k': {
       'en': 'Task Tracker',
-      'ar': 'تعقب المهام',
+      'ar': 'المهام اليومية',
     },
     'dsy0bd7i': {
       'en': 'Tasks',
@@ -3224,14 +2940,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Search listings...',
       'ar': 'قوائم البحث...',
     },
-    'eiyc2m93': {
-      'en': 'Section',
-      'ar': 'قسم',
-    },
-    'o39cebb2': {
-      'en': 'Search for an item...',
-      'ar': 'البحث عن عنصر...',
-    },
     'b0cy2tun': {
       'en': 'Morning',
       'ar': 'صباحي',
@@ -3246,9 +2954,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'auoc8mgw': {
       'en': 'Shift',
-      'ar': 'يحول',
+      'ar': 'الحالة',
     },
-    '47jvouug': {
+    '3x6tvpvc': {
       'en': 'Search for an item...',
       'ar': 'البحث عن عنصر...',
     },
@@ -3264,7 +2972,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Day',
       'ar': 'يوم',
     },
-    'hb1kdvar': {
+    '47jvouug': {
       'en': 'Search for an item...',
       'ar': 'البحث عن عنصر...',
     },
@@ -3272,7 +2980,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'clear',
       'ar': 'حذف',
     },
-    'iyudgnjx': {
+    'juanafum': {
       'en': 'All',
       'ar': 'الجميع',
     },
@@ -3288,17 +2996,17 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Other',
       'ar': 'آخر',
     },
-    'pjcc4zh5': {
+    'or81nc4d': {
+      'en': 'Supplier',
+      'ar': 'مورد',
+    },
+    'owxrx6t2': {
       'en': 'All',
       'ar': 'الجميع',
     },
-    '42cyl7iz': {
+    '9k8tfmwv': {
       'en': 'All',
       'ar': 'الجميع',
-    },
-    'a8enoh7c': {
-      'en': 'No: {20}',
-      'ar': 'رقم: {20}',
     },
     'lg0bwmgt': {
       'en': 'All',
@@ -3330,7 +3038,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'digpcxk2': {
       'en': 'Users',
-      'ar': 'المستخدمين',
+      'ar': 'الموظفين',
     },
     'pgj4n7re': {
       'en': '•',
@@ -3439,7 +3147,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Assigned To',
       'ar': '',
     },
-    'dd1zbs55': {
+    'b2im9x3r': {
       'en': 'Due Date',
       'ar': '',
     },
@@ -3603,23 +3311,23 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ar': '',
     },
   },
-  // Sv_Requests
+  // Sv_Work_Requests
   {
     'alqruwac': {
       'en': '*Please fill out the form below to continue.',
       'ar': '*يرجى ملء النموذج أدناه للمتابعة.',
     },
+    'to288cxg': {
+      'en': 'Van',
+      'ar': 'نقل مخلفات',
+    },
     '3rg258qg': {
       'en': 'Van',
-      'ar': 'سيارة نقل',
-    },
-    'gykzklj5': {
-      'en': 'TRICYCLE',
-      'ar': 'دراجة ثلاثية العجلات',
+      'ar': 'نقل مخلفات',
     },
     'yh112kjz': {
       'en': 'Extra workers',
-      'ar': 'عمال إضافيين',
+      'ar': 'عمالة اضافيه',
     },
     'iep6a0tc': {
       'en': 'New tools',
@@ -3649,13 +3357,29 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '44 rescue transfers',
       'ar': '44 عملية إنقاذ',
     },
+    '47s0pnrg': {
+      'en': 'Tricycle',
+      'ar': 'تروسيكل',
+    },
     'ikr8z14a': {
       'en': 'Number*',
-      'ar': 'رقم*',
+      'ar': 'عدد*',
     },
-    '8ovemxd1': {
-      'en': 'exact location',
-      'ar': 'الموقع الدقيق',
+    'a4ztindq': {
+      'en': 'Option 1',
+      'ar': 'الخيار 1',
+    },
+    'dhdi7pu5': {
+      'en': 'Please select...',
+      'ar': 'العامل',
+    },
+    'o39cebb2': {
+      'en': 'Search for an item...',
+      'ar': 'البحث عن شارع...',
+    },
+    '2qqrdjup': {
+      'en': '',
+      'ar': '',
     },
     'ct2ndo2d': {
       'en': '*For example, the name of the street or square,\n not the area',
@@ -3667,7 +3391,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '38b34et5': {
       'en': 'Submit Form',
-      'ar': 'تقديم النموذج',
+      'ar': 'تقديم الطلب',
     },
     'gfb5dhwl': {
       'en': 'Please enter the patients full name.',
@@ -3707,7 +3431,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'i9s80vgl': {
       'en': 'Requests form',
-      'ar': 'نموذج الطلبات',
+      'ar': 'طلبات العمل',
     },
     'oz8xu6fs': {
       'en': 'Requests',
@@ -3735,35 +3459,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Sv_map
   {
-    'ez4iftq6': {
-      'en': '{Work Area}',
-      'ar': '{منطقة العمل}',
-    },
-    'ftibaqq1': {
-      'en': '{General information about the area.}',
-      'ar': '{معلومات عامة عن المنطقة.}',
-    },
     'oyb27d5f': {
       'en': 'Tasks',
-      'ar': 'مهام',
-    },
-    'fs4l7b0d': {
-      'en': 'Start Point',
-      'ar': 'نقطة البداية',
-    },
-    'w8akfsaj': {
-      'en': 'End Point',
-      'ar': 'نقطة النهاية',
+      'ar': 'المهام اليومية',
     },
     '4j1b6o6u': {
       'en': 'Description',
       'ar': 'وصف',
-    },
-    'sx3v4cna': {
-      'en':
-          '{A beach is a narrow, gently sloping strip of land that lies along the edge of an ocean, lake, or river. Materials such as sand, pebbles, rocks, and seashell fragments cover beaches.}',
-      'ar':
-          '{الشاطئ عبارة عن شريط ضيق من الأرض منحدر بلطف يقع على طول حافة محيط أو بحيرة أو نهر. تغطي الشواطئ مواد مثل الرمل والحصى والصخور وشظايا الأصداف.}',
     },
     '22am2pvo': {
       'en': 'Add New',
@@ -3773,25 +3475,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Areas',
       'ar': 'المناطق',
     },
-    'kkm0g1h0': {
-      'en': 'No: {12}',
-      'ar': 'رقم: {12}',
-    },
     'en531u8c': {
       'en': 'Maps Details',
       'ar': 'تفاصيل الخرائط',
     },
-    'rhkhgjxv': {
-      'en': 'Randy Peterson',
-      'ar': 'راندي بيترسون',
-    },
     'dl1p973n': {
       'en': 'Need',
       'ar': 'يحتاج',
-    },
-    '477omxdr': {
-      'en': '8',
-      'ar': '8',
     },
     '70w869uu': {
       'en': 'Randy Peterson',
@@ -3807,87 +3497,15 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'vgvz2ko8': {
       'en': 'Today\'s Workers List',
-      'ar': 'قائمة العمال اليوم',
+      'ar': 'قائمة عمال اليوم',
     },
     'z2ythfe5': {
       'en': 'PDF',
-      'ar': 'بي دي إف',
+      'ar': 'PDF',
     },
     'gmj5aubd': {
       'en': 'You can distribute workers like you want ',
       'ar': 'يمكنك توزيع العمال كما تريد',
-    },
-    '5mufhngh': {
-      'en': '{Street Name}',
-      'ar': '{اسم الشارع}',
-    },
-    '68mfjvxi': {
-      'en': 'Need : {5}',
-      'ar': 'الحاجة : {5}',
-    },
-    'ochnb0cj': {
-      'en': 'worker name',
-      'ar': 'اسم العامل',
-    },
-    'sd4331bz': {
-      'en': 'Search for an item...',
-      'ar': 'البحث عن عنصر...',
-    },
-    '9j6p7t6e': {
-      'en': 'Randy Peterson',
-      'ar': 'راندي بيترسون',
-    },
-    'vj8i9xkx': {
-      'en': '#2008',
-      'ar': '#2008',
-    },
-    'j72fmf3l': {
-      'en': 'Car',
-      'ar': 'سيارة',
-    },
-    'ex3s6xvs': {
-      'en': 'worker',
-      'ar': 'عامل',
-    },
-    '5r3fdcq2': {
-      'en': 'Search for an item...',
-      'ar': 'البحث عن عنصر...',
-    },
-    'y8nwm4ox': {
-      'en': 'worker',
-      'ar': 'عامل',
-    },
-    'givs8cpr': {
-      'en': 'Search for an item...',
-      'ar': 'البحث عن عنصر...',
-    },
-    'xs6e3wvn': {
-      'en': 'Randy Peterson',
-      'ar': 'راندي بيترسون',
-    },
-    '2i5s47pw': {
-      'en': '#2008',
-      'ar': '#2008',
-    },
-    'n0ksiuqi': {
-      'en': 'Car',
-      'ar': 'سيارة',
-    },
-    'xd5kmrp2': {
-      'en': 'worker',
-      'ar': 'عامل',
-    },
-    '28z0oqd4': {
-      'en': 'Search for an item...',
-      'ar': '',
-    },
-    'r5za8r6v': {
-      'en': 'worker',
-      'ar': 'عامل',
-    },
-    'h8dk62gk': {
-      'en': 'Search for an item...',
-      'ar': '',
     },
     'ibq61164': {
       'en': 'Al Rahma',
@@ -3908,13 +3526,17 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'camera scan',
       'ar': 'مسح الكاميرا',
     },
+    'fsqi594f': {
+      'en': 'Cancel',
+      'ar': 'الغاء',
+    },
     '1mncq6a6': {
       'en': 'Please scan the code to enter the system',
-      'ar': 'يرجى مسح الرمز ضوئيًا للدخول إلى النظام',
+      'ar': 'قم بمسح الرمز ضوئيًا للدخول إلى النظام',
     },
     'd1io63q4': {
       'en': 'Attendence of supervisor',
-      'ar': '',
+      'ar': 'تسجيل دخول  المشرفين',
     },
     '8uw3qbjb': {
       'en': 'Home',
@@ -3925,15 +3547,19 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   {
     '0qe72sby': {
       'en': 'camera scan',
-      'ar': 'مسح الكاميرا',
+      'ar': 'مسح الرمز',
+    },
+    '2sba32ve': {
+      'en': 'Cancel',
+      'ar': 'الغاء',
     },
     '98y2lu2a': {
       'en': 'Please scan the code to logout from the system',
-      'ar': 'يرجى مسح الرمز ضوئيًا لتسجيل الخروج من النظام',
+      'ar': 'قم  بمسح الرمز ضوئيًا لتسجيل الخروج من النظام',
     },
     '0jzyuw1b': {
       'en': 'Loggingout For Supervisor',
-      'ar': '',
+      'ar': 'تسجيل خروج المشرفين',
     },
     'dqki1ron': {
       'en': 'Home',
@@ -3942,21 +3568,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Submitting_complaints
   {
-    'zr0c63b9': {
-      'en': 'Inspector Name',
-      'ar': 'اسم المفتش',
-    },
-    'iyqb6m0k': {
-      'en': 'superviser',
-      'ar': 'المشرف',
-    },
-    'f80uyqpf': {
-      'en': 'ID: #1520',
-      'ar': 'رقم التعريف: #1520',
-    },
-    'cw5lt8ov': {
-      'en': '8h',
-      'ar': '8 ساعات',
+    '1vmenqku': {
+      'en': 'Worker',
+      'ar': 'عامل',
     },
     'sbn6rj2y': {
       'en': 'Leaving Work',
@@ -3982,11 +3596,19 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Unclean uniform',
       'ar': 'زي غير نظيف',
     },
+    'ryhv0qfm': {
+      'en': 'Being late',
+      'ar': 'التاخر عن العمل',
+    },
+    '13hnl6we': {
+      'en': 'doesn\'t obligate to distribution',
+      'ar': 'عدم الاستجابة للتوزيعه',
+    },
     'di1h86r1': {
       'en': 'Reason..',
-      'ar': 'سبب..',
+      'ar': 'السبب',
     },
-    'yu0wzol0': {
+    '47jvouug': {
       'en': 'Search for an item...',
       'ar': 'البحث عن عنصر...',
     },
@@ -3994,13 +3616,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Details',
       'ar': 'تفاصيل',
     },
-    'f7ikp5m1': {
-      'en': 'Upload Screenshot',
-      'ar': 'تحميل لقطة الشاشة',
-    },
     '3lr7t518': {
       'en': 'Maximum 3 img/jpg',
-      'ar': 'الحد الأقصى 3img/jpg',
+      'ar': 'الحد الاقصى  3 صور',
     },
     '2xu9ygjm': {
       'en': 'Make Complain',
@@ -4105,7 +3723,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'ojc39eec': {
       'en': 'Daily Report',
-      'ar': '',
+      'ar': 'التقرير اليومي',
     },
     'afp5v6h1': {
       'en': 'Home',
@@ -4114,127 +3732,25 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Taskdetails
   {
-    'zg9ylgih': {
-      'en': '{Task Area}',
-      'ar': '{منطقة المهمة}',
+    'h2t8v2p7': {
+      'en': 'Daily report on the state of general cleanliness of the area',
+      'ar': 'التقرير اليومي لحالة الشارع',
     },
-    'ebatp1zh': {
-      'en': '{General information about the area.}',
-      'ar': '{معلومات عامة عن المنطقة.}',
+    '7hdqaaok': {
+      'en': 'Daily report on the state of general cleanliness of the area',
+      'ar': 'التقرير اليومي لحالة الشارع',
     },
     '7jwop0dm': {
       'en': 'Tasks',
-      'ar': 'مهام',
-    },
-    '8eayl07z': {
-      'en': 'Start Point',
-      'ar': 'نقطة البداية',
-    },
-    'cr8055qh': {
-      'en': 'End Point',
-      'ar': 'نقطة النهاية',
+      'ar': 'الموقع',
     },
     'nrty5alo': {
       'en': 'Description',
       'ar': 'وصف',
     },
-    '4mx9l0rp': {
-      'en':
-          '{A beach is a narrow, gently sloping strip of land that lies along the edge of an ocean, lake, or river. Materials such as sand, pebbles, rocks, and seashell fragments cover beaches.}',
-      'ar':
-          '{الشاطئ عبارة عن شريط ضيق من الأرض منحدر بلطف يقع على طول حافة محيط أو بحيرة أو نهر. تغطي الشواطئ مواد مثل الرمل والحصى والصخور وشظايا الأصداف.}',
-    },
-    'xanuoi83': {
-      'en': 'Today\'s Workers',
-      'ar': 'قائمة العمال اليوم',
-    },
-    '9v5apylh': {
-      'en': 'Due Date',
-      'ar': 'تاريخ الاستحقاق',
-    },
-    '22eb2j9h': {
-      'en': 'Actions',
-      'ar': 'أجراءات',
-    },
-    'ry7v71pc': {
-      'en': 'Randy Peterson',
-      'ar': 'راندي بيترسون',
-    },
-    'v29dvb1c': {
-      'en': '#2008',
-      'ar': '#2008',
-    },
-    '6b5jb40e': {
-      'en': 'Fri. Aug 11th',
-      'ar': 'الجمعة. 11 أغسطس',
-    },
-    's88ljdn3': {
-      'en': 'Car',
-      'ar': 'سيارة',
-    },
-    '3s03rpek': {
-      'en': 'worker',
-      'ar': 'عامل',
-    },
-    'f0ks9a3r': {
-      'en': 'Search for an item...',
-      'ar': 'البحث عن عنصر...',
-    },
-    'ga09kej3': {
-      'en': 'Randy Peterson',
-      'ar': 'راندي بيترسون',
-    },
-    'sctpdhof': {
-      'en': '#2008',
-      'ar': '#2008',
-    },
-    'x9r3js2a': {
-      'en': 'Fri. Aug 11th',
-      'ar': 'الجمعة. 11 أغسطس',
-    },
-    'fv1tda3d': {
-      'en': 'Car',
-      'ar': 'سيارة',
-    },
-    'srfnbxfp': {
-      'en': 'worker',
-      'ar': 'عامل',
-    },
-    'upcele1s': {
-      'en': 'Search for an item...',
-      'ar': '',
-    },
-    'gh3z1e6u': {
-      'en': 'Randy Peterson',
-      'ar': 'راندي بيترسون',
-    },
-    '19zk9zuq': {
-      'en': '#2008',
-      'ar': '#2008',
-    },
-    'gqi1f22x': {
-      'en': 'Fri. Aug 11th',
-      'ar': 'الجمعة. 11 أغسطس',
-    },
-    'mhdpv53u': {
-      'en': 'Car',
-      'ar': 'سيارة',
-    },
-    '1svdwnky': {
-      'en': 'worker',
-      'ar': 'عامل',
-    },
-    'br841o1f': {
-      'en': 'Search for an item...',
-      'ar': 'البحث عن عنصر...',
-    },
-    '04ee2bqs': {
-      'en': 'Upload Screenshot',
-      'ar': 'تحميل لقطة الشاشة',
-    },
     'fa6nvb27': {
       'en': 'Maximum 3 img/jpg',
-      'ar': 'الحد الأقصى 3img/jpg',
+      'ar': 'الحد الأقصى 3 صور',
     },
     't3wwkofo': {
       'en': 'Details...',
@@ -4292,23 +3808,23 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '5915fyrp': {
       'en': 'Answer the call',
-      'ar': 'ردي على المكالمة',
+      'ar': 'استجابة النداء',
     },
     'dq04wzzt': {
       'en': 'Street cleanliness',
-      'ar': 'نظافة الشوارع',
+      'ar': 'نظافة االشارع',
     },
     '19e4sfl3': {
       'en': 'manner with supervisor',
-      'ar': 'الطريقة مع المشرف',
+      'ar': 'الاسلوب مع المشرف',
     },
     'prci80vl': {
       'en': 'Removing ',
-      'ar': 'إزالة',
+      'ar': 'تجريد',
     },
     '4i48ykt5': {
       'en': 'to lift',
-      'ar': 'لرفع',
+      'ar': 'جونية',
     },
     '2vzwbehr': {
       'en': 'wash',
@@ -4447,69 +3963,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'clz7l79f': {
       'en': 'Powerd by Omar-s Team',
-      'ar': 'بدعم من فريق عمر',
+      'ar': 'Powerd by Omar-s Team',
     },
     'oo4equt8': {
       'en': '__',
       'ar': '__',
     },
   },
-  // Create04Task
-  {
-    'mu64sntu': {
-      'en': 'Task...',
-      'ar': '',
-    },
-    'e30fd8du': {
-      'en': 'Description...',
-      'ar': '',
-    },
-    's6io14mx': {
-      'en': 'Add tags',
-      'ar': '',
-    },
-    'oi935hqc': {
-      'en': 'Product Design',
-      'ar': '',
-    },
-    'ur0862y5': {
-      'en': 'FlutterFlow',
-      'ar': '',
-    },
-    'i32cf96v': {
-      'en': 'UI Design',
-      'ar': '',
-    },
-    'bhdu6akd': {
-      'en': 'Web Design',
-      'ar': '',
-    },
-    'gwu2kh8g': {
-      'en': 'Product Design',
-      'ar': '',
-    },
-    'b2im9x3r': {
-      'en': 'Due Date',
-      'ar': '',
-    },
-    'd2yt0omw': {
-      'en': 'Get Started',
-      'ar': '',
-    },
-    '8qe6isgb': {
-      'en': 'Create Task',
-      'ar': '',
-    },
-    'mnz2jhha': {
-      'en': 'Please fill out the form below to continue.',
-      'ar': '',
-    },
-    'qve8sti1': {
-      'en': 'Home',
-      'ar': 'الصفحه الرئيسيه',
-    },
-  },
-  // movment
+  // Add_Movement
   {
     'x9vapwtu': {
       'en': 'motocycle',
@@ -4517,13 +3978,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'zia5wmfv': {
       'en': 'truecycle',
-      'ar': '',
+      'ar': 'تروسيكل',
     },
     'smd9d7b9': {
       'en': 'The Truck',
       'ar': 'شاحنة',
     },
-    'svx1zzyt': {
+    'hrkxko6u': {
       'en': 'Search for an item...',
       'ar': 'البحث عن عنصر...',
     },
@@ -4589,27 +4050,15 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'u9fb727w': {
       'en': 'Tricycle',
-      'ar': 'دراجة ثلاثية العجلات',
+      'ar': 'لوحة ارقام التروسيكل',
     },
-    'ag69gso8': {
+    'hb1kdvar': {
       'en': 'Search for an item...',
       'ar': 'البحث عن عنصر...',
     },
-    'dym09nuy': {
-      'en': '936 | ل ن ص ',
-      'ar': '936 | ل ن ص',
-    },
-    'kjw16xyi': {
-      'en': '..',
-      'ar': '..',
-    },
-    '0iqxia66': {
-      'en': 'Motocycle',
-      'ar': 'دراجة نارية',
-    },
-    '1z59pjzc': {
-      'en': 'Search for an item...',
-      'ar': 'البحث عن عنصر...',
+    '8zdm7n9y': {
+      'en': '',
+      'ar': '',
     },
     'pe7viyok': {
       'en': 'Details',
@@ -4617,11 +4066,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '3xgek4pu': {
       'en': 'Done',
-      'ar': 'منتهي',
+      'ar': 'ارسال',
     },
     'n2pwke1e': {
-      'en': 'Adding Movement !',
-      'ar': 'إضافة حركة!',
+      'en': 'Adding Movement ',
+      'ar': 'إضافة حركة',
     },
     'foek0c6i': {
       'en': 'Home',
@@ -4635,8 +4084,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ar': 'دراجة نارية',
     },
     'frjmbwmk': {
-      'en': 'true cycle',
-      'ar': 'دورة حقيقية',
+      'en': 'truecycle',
+      'ar': 'تروسيكل',
     },
     'ioyfj7od': {
       'en': 'The Truck',
@@ -4660,7 +4109,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'ogo4tyx6': {
       'en': 'Mechanical',
-      'ar': 'السائق',
+      'ar': 'ميكانيكي',
     },
     'a257llc2': {
       'en': 'Search for an item...',
@@ -4708,9 +4157,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'fpsk3lfx': {
       'en': 'Tricycle',
-      'ar': 'دراجة ثلاثية العجلات',
+      'ar': 'تروسيكل',
     },
-    'hz7xeawl': {
+    'lsllu42u': {
       'en': 'Search for an item...',
       'ar': 'البحث عن عنصر...',
     },
@@ -4728,7 +4177,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'vm7iv8uh': {
       'en': 'Done',
-      'ar': 'منتهي',
+      'ar': 'ارسال ',
     },
     'qra1mrrw': {
       'en': 'servicing report !',
@@ -4741,149 +4190,89 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Tm_List_Requests
   {
-    '5jwjbaz7': {
-      'en': 'Active Requests : {12} ',
-      'ar': 'الطلبات النشطة : {12}',
-    },
-    '1ge5y561': {
-      'en': 'Pending',
-      'ar': 'عامل',
-    },
-    '98akjcqy': {
-      'en': '{Sv Name}',
-      'ar': '{اسم سيفرت}',
-    },
-    '8o2snr1w': {
-      'en': 'View',
-      'ar': 'منظر',
-    },
-    '0jg2k6yl': {
-      'en': '{Leader 5} | {Maadi}',
-      'ar': '{القائد 5} | {المعادي}',
-    },
-    '1ygzw5rp': {
-      'en': '{Details}',
-      'ar': '{تفاصيل}',
-    },
-    'xc9pfwev': {
-      'en': 'Truesicly',
-      'ar': 'بصدق',
-    },
-    'g7vvr5qc': {
-      'en': 'Due',
-      'ar': 'حق',
-    },
-    '4mkmu4fp': {
-      'en': 'Tuesday, 10:00am',
-      'ar': 'الثلاثاء، الساعة 10:00 صباحاً',
-    },
-    'm6btcpn6': {
-      'en': 'In Progress',
-      'ar': 'في تَقَدم',
-    },
-    'xk1chcp4': {
-      'en': '{Sv Name}',
-      'ar': '{اسم سيفرت}',
-    },
-    'ume75mu0': {
-      'en': 'View',
-      'ar': 'منظر',
-    },
-    '7brc8mrr': {
-      'en': '{Leader 5} | {Maadi}',
-      'ar': '{القائد 5} | {المعادي}',
-    },
-    'rn328ijr': {
-      'en': '{Details}',
-      'ar': '{تفاصيل}',
-    },
-    '6tyydwpj': {
-      'en': 'Truesicly',
-      'ar': 'بصدق',
-    },
-    'q90p1knc': {
-      'en': 'Due',
-      'ar': 'حق',
-    },
-    'nxzf6nho': {
-      'en': 'Tuesday, 10:00am',
-      'ar': 'الثلاثاء، الساعة 10:00 صباحاً',
-    },
-    'tedllljo': {
-      'en': 'In Progress',
-      'ar': 'في تَقَدم',
-    },
-    'w89kyjul': {
-      'en': 'Completed',
-      'ar': 'مكتمل',
-    },
-    'vwxaucc9': {
-      'en': '{Sv Name}',
-      'ar': '{اسم سيفرت}',
-    },
-    '4x9t2r3h': {
-      'en': '{Leader 5} | {Maadi}',
-      'ar': '{القائد 5} | {المعادي}',
-    },
-    'zba47is3': {
-      'en': 'Create template screen for task todo app.',
-      'ar': 'إنشاء شاشة قالب لتطبيق المهام الواجبة.',
-    },
-    'mb7feii0': {
-      'en': 'Truesicly',
-      'ar': 'بصدق',
-    },
-    '9w3xnifp': {
-      'en': 'Driver name',
-      'ar': 'اسم السائق',
-    },
-    'gzzzmjc8': {
-      'en': 'Tuesday, 10:00am',
-      'ar': 'الثلاثاء، الساعة 10:00 صباحاً',
-    },
-    '1mh327c9': {
-      'en': 'Completed',
-      'ar': 'مكتمل',
-    },
-    '9gjw61m7': {
-      'en': '{Sv Name}',
-      'ar': '{اسم سيفرت}',
-    },
-    'zenjy83w': {
-      'en': 'Traffic Manager | Errands',
-      'ar': 'مدير المرور | المهمات',
-    },
-    'fpjskrvs': {
-      'en': 'Create template screen for task todo app.',
-      'ar': 'إنشاء شاشة قالب لتطبيق المهام الواجبة.',
-    },
-    'plyh38hw': {
-      'en': 'Truesicly',
-      'ar': 'بصدق',
-    },
-    'fm97i9uy': {
-      'en': 'Driver name',
-      'ar': 'اسم السائق',
-    },
-    '4w0ftt3g': {
-      'en': 'Tuesday, 10:00am',
-      'ar': 'الثلاثاء، الساعة 10:00 صباحاً',
-    },
-    'kmmlhg1u': {
-      'en': 'Completed',
-      'ar': 'مكتمل',
-    },
-    'ltsbyy48': {
-      'en': 'Export PDF',
-      'ar': 'تصدير قوات الدفاع الشعبي',
-    },
-    'btxf0k44': {
-      'en': 'Report on errands and motorcycle movement',
-      'ar': 'تقرير عن المهمات وحركة الدراجات النارية',
-    },
     'g17fmf21': {
       'en': 'All Requests',
       'ar': 'جميع الطلبات',
+    },
+    '6q16sq71': {
+      'en': 'All',
+      'ar': 'الجميع',
+    },
+    '47s7hgx9': {
+      'en': 'All',
+      'ar': 'الجميع',
+    },
+    'w67lwykm': {
+      'en': 'bock',
+      'ar': '',
+    },
+    'sme1oosc': {
+      'en': '2 ton',
+      'ar': '2 طن',
+    },
+    '19uu17i8': {
+      'en': '4 ton',
+      'ar': '4 طن',
+    },
+    'osv05ojg': {
+      'en': '44 rescue transfers',
+      'ar': '44 عملية إنقاذ',
+    },
+    'isvi0gkv': {
+      'en': 'Tricycle',
+      'ar': 'تروسيكل',
+    },
+    'ch8tw2ze': {
+      'en': 'Type',
+      'ar': 'السبب',
+    },
+    'nij3nbsr': {
+      'en': 'Search for an item...',
+      'ar': 'البحث عن عنصر...',
+    },
+    '10r47b0q': {
+      'en': 'Date ',
+      'ar': 'التاريخ',
+    },
+    'ouambtph': {
+      'en': '',
+      'ar': '',
+    },
+    'ke1rfd2b': {
+      'en': '',
+      'ar': '',
+    },
+    'ipen9dql': {
+      'en': 'All',
+      'ar': 'الجميع',
+    },
+    'oywgyjp7': {
+      'en': 'Approved',
+      'ar': 'مقبول',
+    },
+    'o3py61qw': {
+      'en': 'Rejected',
+      'ar': 'مرفوض',
+    },
+    '0ozn0fod': {
+      'en': 'In progress',
+      'ar': 'قيد الانتظار',
+    },
+    'xr62lks3': {
+      'en': 'For you',
+      'ar': 'مطلوب منك',
+    },
+    '6j872p50': {
+      'en': 'All',
+      'ar': 'الجميع',
+    },
+    'yx1oqnmj': {
+      'en': 'All',
+      'ar': 'الجميع',
+    },
+    'u7ivogvc': {
+      'en': 'View',
+      'ar': 'عرض',
     },
     '7r9wb1u4': {
       'en': 'Tasks',
@@ -4892,77 +4281,55 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Tm_Task_Discription
   {
-    'utbn2jvm': {
-      'en': '{Sv Name}',
-      'ar': '{اسم سيفرت}',
-    },
-    '3g0cfbml': {
-      'en': '{Leader 5} | {Maadi}',
-      'ar': '{القائد 5} | {المعادي}',
-    },
-    'p5zjqoxs': {
-      'en': '#ID',
-      'ar': '#بطاقة تعريف',
-    },
     'i16xuzen': {
       'en': 'Due',
-      'ar': 'حق',
+      'ar': '',
     },
-    'b68fnzl7': {
-      'en': 'In Progress',
-      'ar': 'في تَقَدم',
+    'clbghcpm': {
+      'en': 'Details',
+      'ar': 'تفاصيل',
     },
-    'a600nrfk': {
-      'en': 'Tuesday, 10:00am',
-      'ar': 'الثلاثاء، الساعة 10:00 صباحاً',
+    'u36b6api': {
+      'en': 'kind of order',
+      'ar': 'نوع الطلب',
     },
-    'rzroif9e': {
-      'en': 'Discription',
-      'ar': 'وصف',
+    'w2ho6m0d': {
+      'en': 'kind of order',
+      'ar': 'نوع المركبة',
     },
     'yiqe28er': {
       'en': 'ST',
       'ar': 'شارع',
     },
-    'bgqgriii': {
-      'en': '15',
-      'ar': '15',
-    },
-    'xa2nozcq': {
-      'en': 'KIND OF CAR',
-      'ar': 'نوع السيارة',
-    },
-    'snalz0mi': {
-      'en': 'Truci',
-      'ar': 'تروسي',
-    },
-    'v4v2o423': {
+    'rzroif9e': {
       'en': 'Discription',
-      'ar': 'وصف',
+      'ar': 'تفاصيل الطلب',
     },
-    '80uy1gjc': {
-      'en':
-          'hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhcompanyname.co',
-      'ar':
-          'هههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههه اسم الشركة.',
+    't5c1jzmn': {
+      'en': 'Response',
+      'ar': 'إجابة',
+    },
+    'iju0abq3': {
+      'en': 'Comment',
+      'ar': 'تعليق',
     },
     'ap9dn0r8': {
       'en': 'Asghin Driver & Area',
-      'ar': 'سائق ومنطقة Asghin',
+      'ar': '',
     },
     'bpmv1nkh': {
       'en': 'motocycle',
       'ar': 'دراجة نارية',
     },
-    'k8pynclf': {
-      'en': 'true cycle',
-      'ar': 'دورة حقيقية',
+    'vs408j0x': {
+      'en': 'truecycle',
+      'ar': '',
     },
     'dj4fv7ye': {
       'en': 'The Truck',
       'ar': 'شاحنة',
     },
-    'sxss7eo9': {
+    'svx1zzyt': {
       'en': 'Search for an item...',
       'ar': 'البحث عن عنصر...',
     },
@@ -4980,9 +4347,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'h4p61aih': {
       'en': 'The Driver',
-      'ar': 'السائق',
+      'ar': 'ميكانيكي',
     },
-    'pnme5x46': {
+    '76psl0al': {
       'en': 'Search for an item...',
       'ar': 'البحث عن عنصر...',
     },
@@ -5026,17 +4393,17 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '987 | ل ن ص ',
       'ar': '987 | ل ن ص',
     },
-    'isvi0gkv': {
+    'w77k55b7': {
       'en': 'Tricycle',
-      'ar': 'دراجة ثلاثية العجلات',
+      'ar': '',
     },
-    'wasdiuiz': {
+    'sd4331bz': {
       'en': 'Search for an item...',
       'ar': 'البحث عن عنصر...',
     },
     'aynxxi43': {
       'en': 'Mark as Complete',
-      'ar': 'وضع علامة كمكتمل',
+      'ar': 'تم',
     },
     'z5xo7c6b': {
       'en': 'Home',
@@ -5084,37 +4451,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Tm_List_Fixing
   {
-    'r138awnv': {
-      'en': 'Total Fixing Reports : {12} ',
-      'ar': 'إجمالي تقارير الإصلاح : {12}',
-    },
-    'j1iyh2qi': {
-      'en': 'Truesicly',
-      'ar': 'بصدق',
-    },
     'rd3gvxtw': {
       'en': 'View',
       'ar': 'منظر',
-    },
-    'nascr4hr': {
-      'en': ' م ن ص | 127',
-      'ar': 'م ن ص | 127',
-    },
-    'cqdp8lhd': {
-      'en': '{Details}',
-      'ar': '{تفاصيل}',
-    },
-    'dqr1b7ea': {
-      'en': 'mechanical name',
-      'ar': 'الاسم الميكانيكي',
-    },
-    'qs3yu1qw': {
-      'en': 'Tuesday, 10:00am',
-      'ar': 'الثلاثاء، الساعة 10:00 صباحاً',
-    },
-    'q0k5k7xp': {
-      'en': '500 L.E',
-      'ar': '500 ج.م',
     },
     'ln27oahb': {
       'en': 'Export PDF',
@@ -5122,7 +4461,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'yq2uhgp7': {
       'en': 'List of Fixing Reports',
-      'ar': 'قائمة تقارير الإصلاح',
+      'ar': 'قائمة تقارير الصيانة',
     },
     '0btmtwv4': {
       'en': 'Tasks',
@@ -5139,7 +4478,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Details',
       'ar': 'تفاصيل',
     },
-    '4ap4cl3y': {
+    'f7ikp5m1': {
       'en': 'Upload Screenshot',
       'ar': 'تحميل لقطة الشاشة',
     },
@@ -5153,7 +4492,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'cjgwmno4': {
       'en': 'Lated Task',
-      'ar': 'تقديم الشكاوى',
+      'ar': 'تقديم طلب شخصي',
     },
     'mhn69er9': {
       'en': 'Home',
@@ -5224,9 +4563,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'worker',
       'ar': '',
     },
-    'ira6s34r': {
+    'givs8cpr': {
       'en': 'Search for an item...',
-      'ar': 'البحث عن عنصر...',
+      'ar': '',
     },
     '9rlld8lx': {
       'en': 'Randy Peterson',
@@ -5299,7 +4638,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Sv_RequestsCopy
   {
-    'u3glddcb': {
+    'gshw6an5': {
       'en': '{Sv Name}',
       'ar': '{اسم سيفرت}',
     },
@@ -5345,31 +4684,31 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'utc8oa3d': {
       'en': 'Extra workers',
-      'ar': '',
+      'ar': 'عمالة اضافيه',
     },
     '53ktuigb': {
       'en': 'Select one...',
       'ar': '',
     },
-    'yi0mupst': {
+    'svx1zzyt': {
       'en': 'Search for an item...',
       'ar': 'البحث عن عنصر...',
     },
-    'w67lwykm': {
+    '37466yl0': {
       'en': 'bock',
       'ar': '',
     },
-    'sme1oosc': {
+    '2sfgtz9n': {
       'en': '2 ton',
-      'ar': '',
+      'ar': '2 طن',
     },
-    '19uu17i8': {
+    'bf0ibctf': {
       'en': '4 ton',
-      'ar': '',
+      'ar': '4 طن',
     },
-    'osv05ojg': {
+    'd6epmnaq': {
       'en': '44 rescue transfers',
-      'ar': '',
+      'ar': '44 عملية إنقاذ',
     },
     '5dtxblee': {
       'en': 'Number*',
@@ -5472,7 +4811,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'u6he5v84': {
       'en': 'Upcoming Tasks',
-      'ar': 'المهام القادمة',
+      'ar': 'إجمالي الطلبات',
     },
     'o3ig2bh1': {
       'en': '17',
@@ -5526,7 +4865,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '3',
       'ar': '3',
     },
-    '6q16sq71': {
+    '2i341s70': {
       'en': 'All',
       'ar': 'الجميع',
     },
@@ -5598,7 +4937,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Fri. Aug 11th',
       'ar': 'الجمعة. 11 أغسطس',
     },
-    'lgmztent': {
+    'srfnbxfp': {
       'en': 'worker',
       'ar': 'عامل',
     },
@@ -5622,7 +4961,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'worker',
       'ar': 'عامل',
     },
-    'ni2rb8pu': {
+    'ag69gso8': {
       'en': 'Search for an item...',
       'ar': 'البحث عن عنصر...',
     },
@@ -5789,25 +5128,17 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // send_personal_request
   {
-    '560mis69': {
-      'en': 'Inspector Name',
-      'ar': 'اسم المفتش',
-    },
-    'm1pwxbj3': {
-      'en': 'superviser',
-      'ar': 'المشرف',
-    },
-    'ez7f630t': {
-      'en': 'ID: #1520',
-      'ar': 'رقم التعريف: #1520',
-    },
-    'ojiq14ma': {
-      'en': '8h',
-      'ar': '8 ساعات',
-    },
     'u6ba8naf': {
       'en': 'Loan',
       'ar': 'سلفة',
+    },
+    'o2efw1mk': {
+      'en': 'leaving early',
+      'ar': 'انصراف مبكر',
+    },
+    '96mk3viy': {
+      'en': 'Other',
+      'ar': '',
     },
     'v77lyi3o': {
       'en': 'Reason..',
@@ -5823,11 +5154,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '0ic6qwwb': {
       'en': 'Done',
-      'ar': 'منتهي',
+      'ar': 'ارسال الطلب',
     },
-    'drgpoknm': {
-      'en': 'Submitting complaints',
-      'ar': 'تقديم الشكاوى',
+    '64d40p44': {
+      'en': 'Submitting personal request',
+      'ar': 'تقديم طلب شخصي',
     },
     'oq3skcry': {
       'en': 'Home',
@@ -5840,27 +5171,19 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Search listings...',
       'ar': 'قوائم البحث...',
     },
-    'uiluffzx': {
-      'en': 'Option 1',
-      'ar': 'الخيار 1',
-    },
     'uwjgj8sc': {
       'en': 'Section',
       'ar': 'قطاع',
     },
-    'louq209d': {
+    '5r3fdcq2': {
       'en': 'Search for an item...',
       'ar': 'البحث عن عنصر...',
-    },
-    '902cu81n': {
-      'en': 'Option 1',
-      'ar': 'الخيار 1',
     },
     'sa0g4vfc': {
       'en': 'Shift',
       'ar': 'وردية',
     },
-    'tkgdmofg': {
+    'f0ks9a3r': {
       'en': 'Search for an item...',
       'ar': 'البحث عن عنصر...',
     },
@@ -5876,7 +5199,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Search for an item...',
       'ar': 'البحث عن عنصر...',
     },
-    '47s7hgx9': {
+    'xm3qlr4r': {
       'en': 'All',
       'ar': 'الجميع',
     },
@@ -5886,13 +5209,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'z39831wv': {
       'en': 'Superviser',
-      'ar': 'المشرف',
+      'ar': 'مشرف',
     },
     'dgjmz0np': {
       'en': 'Other',
-      'ar': 'آخر',
+      'ar': 'اخر',
     },
-    'ipen9dql': {
+    'pvc0jjvx': {
       'en': 'All',
       'ar': 'الجميع',
     },
@@ -5916,17 +5239,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '50 ',
       'ar': '50',
     },
-    'h0tois0z': {
-      'en': '/ 150',
-      'ar': '/ 150',
-    },
     '5hc4hs4t': {
       'en': '9',
       'ar': '9',
-    },
-    'fib4or31': {
-      'en': '/ 10 ',
-      'ar': '/ 10',
     },
     'q77e13ot': {
       'en': 'Workers',
@@ -5970,7 +5285,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'ktnzb0wi': {
       'en': 'Marag',
-      'ar': 'مارج',
+      'ar': 'المعراج',
     },
     'r54lj7xa': {
       'en': '32.2%',
@@ -6000,19 +5315,15 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Superviser',
       'ar': 'المشرف',
     },
-    's88ef1m4': {
-      'en': 'Add New',
-      'ar': 'اضف جديد',
-    },
-    'q8wenxba': {
+    '12tcviu7': {
       'en': 'Attendance Users',
-      'ar': 'الحضور',
+      'ar': 'الأسم',
     },
     'l05rqusu': {
       'en': 'Date',
-      'ar': 'تاريخ',
+      'ar': '',
     },
-    'npq4ethq': {
+    'xsaik1m7': {
       'en': 'Time',
       'ar': 'وقت',
     },
@@ -6020,77 +5331,17 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'PDF',
       'ar': 'PDF',
     },
-    '8nbnb0jf': {
-      'en': 'Randy Peterson',
-      'ar': 'راندي بيترسون',
-    },
-    'fyg9qbie': {
-      'en': '#2008',
-      'ar': '#2008',
-    },
-    'bsw3e89i': {
+    'x9r3js2a': {
       'en': 'Fri. Aug 11th',
       'ar': 'الجمعة. 11 أغسطس',
     },
-    'ewpczk1i': {
-      'en': 'In :',
-      'ar': 'حضور :',
+    '0d64ai9u': {
+      'en': 'In    :',
+      'ar': 'داخل',
     },
-    'r35sexov': {
+    'k9d7qpth': {
       'en': 'Out :',
-      'ar': 'انصراف :',
-    },
-    '3krcpyog': {
-      'en': '10:00am',
-      'ar': '10:00 ص',
-    },
-    'uzmwoqmq': {
-      'en': '03:00pm',
-      'ar': '03:00 مساءا',
-    },
-    'hkwwdspv': {
-      'en': 'worker',
-      'ar': 'عامل',
-    },
-    'f0z0xpwj': {
-      'en': 'Search for an item...',
-      'ar': 'البحث عن عنصر...',
-    },
-    '2kgsgdsf': {
-      'en': 'Randy Peterson',
-      'ar': 'راندي بيترسون',
-    },
-    'sdyryprt': {
-      'en': '#2008',
-      'ar': '#2008',
-    },
-    '5gyj1y2s': {
-      'en': 'Fri. Aug 11th',
-      'ar': 'الجمعة. 11 أغسطس',
-    },
-    'o1zts0iw': {
-      'en': 'In :',
-      'ar': 'حضور :',
-    },
-    'rhlfzc1g': {
-      'en': 'Out :',
-      'ar': 'انصراف :',
-    },
-    'xq840hyz': {
-      'en': '10:00am',
-      'ar': '10:00 ص',
-    },
-    '4o30qc8v': {
-      'en': '---',
-      'ar': '---',
-    },
-    'iqerxa08': {
-      'en': 'worker',
-      'ar': 'عامل',
-    },
-    'etd0with': {
-      'en': 'Search for an item...',
-      'ar': 'البحث عن عنصر...',
+      'ar': 'خارج :',
     },
     '0gxqp5eu': {
       'en': 'Attendance',
@@ -6278,159 +5529,107 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ar': 'بيت',
     },
   },
-  // complaints
+  // List_complaints
   {
-    'i4ed4b4v': {
-      'en': 'Search listings...',
-      'ar': 'قوائم البحث...',
+    'e0zofosb': {
+      'en': 'All',
+      'ar': 'الجميع',
     },
     'yfcyi282': {
-      'en': 'Leaving work',
+      'en': 'Leaving Work',
       'ar': 'ترك العمل',
     },
     'gvzml36l': {
       'en': 'Being late',
-      'ar': 'يجري في وقت متأخر',
+      'ar': 'التاخر عن العمل',
     },
     'chbosett': {
-      'en': 'Negligence in work',
-      'ar': 'اهمال في العمل',
-    },
-    '4psx3ssp': {
-      'en': 'Negligence in the covenant',
-      'ar': 'الإهمال في العهد',
+      'en': 'Negligence at Work',
+      'ar': 'الإهمال في العمل',
     },
     'j6gidr3p': {
       'en': 'Inslut and slander',
       'ar': 'السب والقذف',
     },
-    'z271u6c3': {
-      'en': 'Assault on a co-worker',
-      'ar': 'الاعتداء على زميل العمل',
+    'rrm437k3': {
+      'en': 'All',
+      'ar': 'الجميع',
     },
-    'ch8tw2ze': {
+    'l85xivlk': {
+      'en': 'Assault by beating',
+      'ar': 'الاعتداء بالضرب',
+    },
+    'y48zb23i': {
+      'en': 'Negligence in the tools',
+      'ar': 'الإهمال في الأدوات',
+    },
+    'kyeksdx3': {
+      'en': 'Unclean uniform',
+      'ar': 'زي غير نظيف',
+    },
+    '0zgzzxw3': {
+      'en': 'doesn\'t obligate to distribution',
+      'ar': 'عدم الاستجابة للتوزيعه',
+    },
+    '0jlnr7ym': {
       'en': 'Type',
-      'ar': 'يكتب',
+      'ar': 'السبب',
     },
-    '7oe8fxlg': {
+    'ira6s34r': {
       'en': 'Search for an item...',
       'ar': 'البحث عن عنصر...',
     },
     'pgwnav97': {
       'en': 'Date ',
-      'ar': 'تاريخ',
+      'ar': 'التاريخ',
+    },
+    '5dlexomi': {
+      'en': '',
+      'ar': '',
+    },
+    '9uh7vdup': {
+      'en': '',
+      'ar': '',
     },
     '2qqrdjup': {
       'en': '',
       'ar': '',
     },
-    'm55cu1tw': {
-      'en': 'New ',
-      'ar': 'جديد',
+    'ni8wrqpv': {
+      'en': 'All',
+      'ar': 'الجميع',
     },
-    'va3svq03': {
-      'en': '{Worker Name}',
-      'ar': '{اسم العامل}',
-    },
-    'rdoh2q7o': {
-      'en': '{Area}',
-      'ar': '{منطقة}',
-    },
-    'f6wcxek9': {
-      'en': '{type}',
-      'ar': '{يكتب}',
-    },
-    '53z00i72': {
-      'en': '#{id}',
-      'ar': '#{بطاقة تعريف}',
-    },
-    'x2xsjexg': {
-      'en': '{30/5/2024, 10:00am}',
-      'ar': '{30/5/2024، 10:00 صباحًا}',
-    },
-    'yiswr2c8': {
-      'en': 'In Progress',
-      'ar': 'في تَقَدم',
-    },
-    'qbedkbt1': {
-      'en': 'Accepted',
-      'ar': 'قبلت',
-    },
-    'ynmm34zs': {
-      'en': '{Worker Name}',
-      'ar': '{اسم العامل}',
-    },
-    'ofmf1xq9': {
-      'en': '{Leader 5} | {Maadi}',
-      'ar': '{القائد 5} | {المعادي}',
-    },
-    'yssum480': {
-      'en': 'Create template screen for task todo app.',
-      'ar': 'إنشاء شاشة قالب لتطبيق المهام الواجبة.',
-    },
-    'p4iwt7kf': {
-      'en': '{type}',
-      'ar': '{يكتب}',
-    },
-    'oxo7ryip': {
-      'en': '#{id}',
-      'ar': '#{بطاقة تعريف}',
-    },
-    '5i2o8v1z': {
-      'en': 'Date',
-      'ar': 'تاريخ',
-    },
-    '1bg9e6qs': {
-      'en': 'Tuesday, 10:00am',
-      'ar': 'الثلاثاء، الساعة 10:00 صباحاً',
-    },
-    'nzecbfc1': {
-      'en': 'Completed',
-      'ar': 'مكتمل',
-    },
-    'kqfbddnp': {
-      'en': 'Daily Report',
-      'ar': 'تقرير يومي',
-    },
-    'zi57x5g5': {
-      'en': 'The daily report is delivered at the end of the shift',
-      'ar': 'يتم تسليم التقرير اليومي في نهاية الوردية',
+    'xp3bg5vf': {
+      'en': 'Approved',
+      'ar': 'مقبول',
     },
     'rpq3vl4b': {
       'en': 'Rejected',
       'ar': 'مرفوض',
     },
-    'xm60ziyo': {
-      'en': '{Worker Name}',
-      'ar': '{اسم العامل}',
+    'eyp539qu': {
+      'en': 'In progress',
+      'ar': 'قيد الانتظار',
     },
-    '86xk2d1b': {
-      'en': '{Leader 5} | {Maadi}',
-      'ar': '{القائد 5} | {المعادي}',
+    '8wz4bpgd': {
+      'en': 'For you',
+      'ar': 'مطلوب منك',
     },
-    'phscjhb9': {
-      'en': 'Create template screen for task todo app.',
-      'ar': 'إنشاء شاشة قالب لتطبيق المهام الواجبة.',
+    'iyqzettu': {
+      'en': 'All',
+      'ar': 'الجميع',
     },
-    'smfp1zzw': {
-      'en': '{type}',
-      'ar': '{يكتب}',
+    'cms9w39p': {
+      'en': 'All',
+      'ar': 'الجميع',
     },
-    'wjdw1r8r': {
-      'en': '#{id}',
-      'ar': '#{بطاقة تعريف}',
+    '83uy4t0x': {
+      'en': 'Accept',
+      'ar': 'قبول',
     },
-    '0dgfksl6': {
-      'en': 'Date',
-      'ar': 'تاريخ',
-    },
-    '2jpdjgmh': {
-      'en': 'Tuesday, 10:00am',
-      'ar': 'الثلاثاء، الساعة 10:00 صباحاً',
-    },
-    '6pjwnufe': {
-      'en': 'Rejected',
-      'ar': 'مرفوض',
+    'rxehdzdj': {
+      'en': 'Reject',
+      'ar': 'رفض',
     },
     '5mzksuxb': {
       'en': 'Complaints',
@@ -6446,10 +5645,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'uf364dwj': {
       'en': 'Hello,',
       'ar': 'مرحبًا،',
-    },
-    '0xrhe36b': {
-      'en': 'Morning',
-      'ar': 'صباح',
     },
     'tuvazi29': {
       'en': 'Workers',
@@ -6597,13 +5792,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'mnmbrgx4': {
       'en': 'Achieved goals: ',
-      'ar': 'الأهداف المحققة:',
+      'ar': 'الأهداف المحققة:  ',
     },
     'r4tzm3nt': {
       'en': '3',
       'ar': '3',
     },
-    'e0zofosb': {
+    'mccr4mh0': {
       'en': 'All',
       'ar': 'الجميع',
     },
@@ -6629,19 +5824,19 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '5h7d7wz1': {
       'en': 'Natifications',
-      'ar': 'المواليد',
+      'ar': 'الاشعارات',
     },
     'qy4lctl6': {
       'en': 'personal order',
-      'ar': 'أمر شخصي',
+      'ar': 'طلب شخصي',
     },
-    'jupa7up6': {
+    'cbqou6qw': {
       'en': '1',
       'ar': '1',
     },
     'ij4n64i9': {
       'en': 'Superviser order',
-      'ar': 'أمر المشرف',
+      'ar': 'طلبات العمل',
     },
     'gufgxo93': {
       'en': '1',
@@ -6649,7 +5844,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'z4usu2ej': {
       'en': 'complans',
-      'ar': 'يشكو',
+      'ar': 'الشكاوى',
     },
     'yrgm6htn': {
       'en': '1',
@@ -6657,167 +5852,47 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '9lx2mzy8': {
       'en': 'Other seirves',
-      'ar': 'سيرفيس أخرى',
-    },
-    'cfgacydq': {
-      'en': 'Due Date',
-      'ar': 'تاريخ الاستحقاق',
-    },
-    '5peecpde': {
-      'en': 'Actions',
-      'ar': 'أجراءات',
+      'ar': 'خدمات  أخرى',
     },
     're64bovm': {
-      'en': 'personal request',
-      'ar': 'طلب شخصي',
-    },
-    'qxvor6le': {
-      'en': 'Reports',
-      'ar': 'التقارير',
-    },
-    'rc1b615a': {
-      'en': 'Atindanse',
-      'ar': 'حاضر',
-    },
-    '4c1sx0ez': {
-      'en': 'Map',
-      'ar': 'خريطة',
-    },
-    'lhcjr8y8': {
-      'en': 'personal request',
+      'en': 'Personal request',
       'ar': 'طلب شخصي',
     },
     'v4v07ytb': {
-      'en': 'daily report',
+      'en': 'Daily report',
       'ar': 'تقرير يومي',
+    },
+    'rc1b615a': {
+      'en': 'Atindanse',
+      'ar': 'الحضور',
+    },
+    '4c1sx0ez': {
+      'en': 'Map',
+      'ar': 'القطاعات',
+    },
+    'hmawl4su': {
+      'en': 'tasks',
+      'ar': '',
+    },
+    '5u23m32s': {
+      'en': 'Reviwes',
+      'ar': 'التقييمات',
+    },
+    'lhcjr8y8': {
+      'en': 'Assign supervisor',
+      'ar': 'تعيين مشرف',
     },
     'z1if7a3k': {
       'en': 'Users',
       'ar': 'المستخدمين',
     },
-    '5u23m32s': {
-      'en': 'Reviwes',
-      'ar': 'المراجعات',
+    '6vv3w47e': {
+      'en': 'Users',
+      'ar': '',
     },
-    '77nfs5ij': {
-      'en': 'personal request',
-      'ar': 'طلب شخصي',
-    },
-    '3hbx66jt': {
-      'en': 'daily report',
-      'ar': 'التقرير اليومي',
-    },
-    'tx602u1w': {
-      'en': 'Add User',
-      'ar': 'إضافة مستخدم',
-    },
-    'zsljq4y7': {
-      'en': 'Reviwes',
-      'ar': 'المراجعات',
-    },
-    'ag33nm0k': {
-      'en': 'Activity',
-      'ar': 'نشاط',
-    },
-    '92iedlyb': {
-      'en': 'Recent completed tasks from your team.',
-      'ar': 'المهام المكتملة الأخيرة من فريقك.',
-    },
-    '0a7w2hch': {
-      'en': 'Rudy Fernandez',
-      'ar': 'رودي فرنانديز',
-    },
-    'ujpjvg8o': {
-      'en': '4m ago',
-      'ar': 'منذ 4 م',
-    },
-    'kthh7da8': {
-      'en': 'Completed ',
-      'ar': 'مكتمل',
-    },
-    'wo4yi0vd': {
-      'en': 'Marketing Plan',
-      'ar': 'خطة التسويق',
-    },
-    'byil4lvg': {
-      'en': 'Rudy Fernandez',
-      'ar': 'رودي فرنانديز',
-    },
-    'fw665rpr': {
-      'en': '4m ago',
-      'ar': 'منذ 4 م',
-    },
-    'ex7lisu2': {
-      'en': 'Started ',
-      'ar': 'بدأت',
-    },
-    'hg2lon57': {
-      'en': 'Marketing Plan',
-      'ar': 'خطة التسويق',
-    },
-    'odww1fxf': {
-      'en': 'Abigail Rojas',
-      'ar': 'أبيجيل روخاس',
-    },
-    'cf6tg09d': {
-      'en': '4m ago',
-      'ar': 'منذ 4 م',
-    },
-    '4dmjmpf8': {
-      'en': 'Assigned  ',
-      'ar': 'مُكَلَّف',
-    },
-    'hnvh055l': {
-      'en': 'Rudy Fernandez ',
-      'ar': 'رودي فرنانديز',
-    },
-    '0jx9xg1w': {
-      'en': 'to ',
-      'ar': 'ل',
-    },
-    'gsdxap08': {
-      'en': 'Marketing Plan',
-      'ar': 'خطة التسويق',
-    },
-    '0rxp24sb': {
-      'en': 'Abigail Rojas',
-      'ar': 'أبيجيل روخاس',
-    },
-    'ekft8aij': {
-      'en': '4m ago',
-      'ar': 'منذ 4 م',
-    },
-    '76hatj7w': {
-      'en': 'Created a project: ',
-      'ar': 'تم إنشاء مشروع:',
-    },
-    '14o9vpea': {
-      'en': 'Marketing Plan',
-      'ar': 'خطة التسويق',
-    },
-    'kx94co3n': {
-      'en': 'Liz Ambridge',
-      'ar': 'ليز أمبريدج',
-    },
-    'i4m0kq4r': {
-      'en': '4m ago',
-      'ar': 'منذ 4 م',
-    },
-    '5qvaylno': {
-      'en': 'Sent a plan update for ',
-      'ar': 'تم إرسال تحديث الخطة لـ',
-    },
-    'rl4e1sez': {
-      'en': 'Marketing Plan',
-      'ar': 'خطة التسويق',
-    },
-    'p9bgmfog': {
-      'en': 'Project Started',
-      'ar': 'بدأ المشروع',
-    },
-    'agqlvqjv': {
-      'en': '12d ago',
-      'ar': 'منذ 12 يومًا',
+    'an5faeh8': {
+      'en': 'workers requests list',
+      'ar': '',
     },
     '1ddnxj2l': {
       'en': 'Powerd by Omar-s Team',
@@ -6945,21 +6020,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // OM_complandiscription
   {
-    'v9856fn3': {
-      'en': 'Inspector Name',
-      'ar': 'اسم المفتش',
-    },
     '6oe3fmj5': {
       'en': 'superviser',
       'ar': 'المشرف',
-    },
-    '8h7muonz': {
-      'en': 'ID: #1520',
-      'ar': 'رقم التعريف: #1520',
-    },
-    'ifvh7k1x': {
-      'en': '8h',
-      'ar': '8 ساعات',
     },
     'kmc636tm': {
       'en': 'Type',
@@ -6969,17 +6032,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Details',
       'ar': 'تفاصيل',
     },
-    'iml3bzff': {
-      'en': 'Maximum 3 img/jpg',
-      'ar': 'الحد الأقصى 3img/jpg',
-    },
     'sm5npurt': {
       'en': 'Comment',
       'ar': 'تعليق',
     },
-    '0jprgnzl': {
+    '4uyoba6b': {
       'en': 'Accept',
-      'ar': 'يقبل',
+      'ar': 'قبول',
     },
     'i0fq81sn': {
       'en': 'Reject',
@@ -6987,7 +6046,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'ie5vtsz0': {
       'en': 'Submitting complaints',
-      'ar': 'تقديم الشكاوى',
+      'ar': 'تفاصيل الشكوى',
     },
     'xb5m4kk1': {
       'en': 'Home',
@@ -6996,185 +6055,137 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // OM_List_work_orders
   {
-    't2oayvy8': {
-      'en': 'Search listings...',
-      'ar': 'قوائم البحث...',
+    'l90bs9o1': {
+      'en': 'All',
+      'ar': 'الجميع',
     },
-    'a4ztindq': {
-      'en': 'Option 1',
-      'ar': 'الخيار 1',
+    'da4tx373': {
+      'en': 'All',
+      'ar': 'الجميع',
     },
-    'argr034c': {
-      'en': 'Section',
-      'ar': 'قسم',
+    'wqgdnxot': {
+      'en': 'Van',
+      'ar': 'نقل مخلفات',
     },
-    'ljn310k9': {
+    '484368ju': {
+      'en': 'Extra workers',
+      'ar': 'عمالة اضافيه',
+    },
+    'thjcw72o': {
+      'en': 'New tools',
+      'ar': 'أدوات جديدة',
+    },
+    '6lvfxgzf': {
+      'en': 'Type',
+      'ar': 'يكتب',
+    },
+    'br841o1f': {
       'en': 'Search for an item...',
       'ar': 'البحث عن عنصر...',
     },
-    'ij3gdwhl': {
-      'en': 'Option 1',
-      'ar': 'الخيار 1',
+    '93qs551o': {
+      'en': 'All',
+      'ar': 'الجميع',
     },
-    'xks3gqa7': {
-      'en': 'Shift',
-      'ar': 'يحول',
+    'vvi7ptlr': {
+      'en': 'All',
+      'ar': 'الجميع',
     },
-    'd2tuusfi': {
+    '0nvbjq45': {
+      'en': 'bock',
+      'ar': 'بوك',
+    },
+    'c7edf1py': {
+      'en': '2 ton',
+      'ar': '2 طن',
+    },
+    'fxko5ea8': {
+      'en': '4 ton',
+      'ar': '4 طن',
+    },
+    '1gvoo5fi': {
+      'en': '44 rescue transfers',
+      'ar': '44 عملية إنقاذ',
+    },
+    '3d68xsrq': {
+      'en': 'Tricycle',
+      'ar': 'تروسيكل',
+    },
+    'rcgcaf9w': {
+      'en': 'Type',
+      'ar': 'يكتب',
+    },
+    '4a3dnkyh': {
       'en': 'Search for an item...',
-      'ar': 'البحث عن عنصر...',
+      'ar': '',
     },
-    'e5d3ouch': {
-      'en': 'Option 1',
-      'ar': 'صباحي',
+    'rgdkndn6': {
+      'en': 'Date ',
+      'ar': 'التاريخ',
     },
-    'z44xaggt': {
-      'en': 'Day',
-      'ar': 'يوم',
+    'uc887tio': {
+      'en': '',
+      'ar': '',
     },
-    '8czprnp1': {
-      'en': 'Search for an item...',
-      'ar': 'البحث عن عنصر...',
+    '5sxgj8rk': {
+      'en': '',
+      'ar': '',
     },
-    'ghuqg6zb': {
-      'en': 'No: {20}',
-      'ar': 'رقم: {20}',
+    'w4rae9du': {
+      'en': '',
+      'ar': '',
     },
-    'vyf9o7jr': {
-      'en': 'Pending',
+    '4rceiff4': {
+      'en': 'All',
+      'ar': 'الجميع',
+    },
+    'wus1zjjh': {
+      'en': 'Approved',
+      'ar': 'مقبول',
+    },
+    'xlfjp873': {
+      'en': 'Rejected',
+      'ar': 'مرفوض',
+    },
+    '8274xypj': {
+      'en': 'In progress',
       'ar': 'قيد الانتظار',
     },
-    'gshw6an5': {
-      'en': '{Sv Name}',
-      'ar': '{اسم سيفرت}',
+    'lp7q6put': {
+      'en': 'For you',
+      'ar': 'مطلوب منك',
     },
-    '5wv3osy2': {
+    'vstmy8jj': {
+      'en': 'All',
+      'ar': 'الجميع',
+    },
+    'ac3ej3ib': {
+      'en': 'All',
+      'ar': 'الجميع',
+    },
+    'msrt0tcv': {
+      'en': 'View',
+      'ar': 'عرض',
+    },
+    'g1iabjm6': {
+      'en': 'Accept',
+      'ar': 'قبول',
+    },
+    'u72tqe6x': {
+      'en': 'Reject',
+      'ar': 'رفض',
+    },
+    'ume75mu0': {
       'en': 'View',
       'ar': 'منظر',
     },
-    'gsrhrssx': {
-      'en': '{Leader 5} | {Maadi}',
-      'ar': '{القائد 5} | {المعادي}',
+    '715wvb1g': {
+      'en': 'Accept',
+      'ar': 'قبول',
     },
-    'dl8zcn4c': {
-      'en': '{Details}',
-      'ar': '{تفاصيل}',
-    },
-    '66vhiulo': {
-      'en': '{type}',
-      'ar': '{يكتب}',
-    },
-    'tqzqn72t': {
-      'en': 'Due',
-      'ar': 'حق',
-    },
-    '8b0wf1wl': {
-      'en': 'Tuesday, 10:00am',
-      'ar': 'الثلاثاء، الساعة 10:00 صباحاً',
-    },
-    'awp3v7ez': {
-      'en': 'In Progress',
-      'ar': 'في تَقَدم',
-    },
-    '1lswmnpp': {
-      'en': '{Sv Name}',
-      'ar': '{اسم سيفرت}',
-    },
-    '2sodr5jg': {
-      'en': 'View',
-      'ar': 'منظر',
-    },
-    '9h1t34yn': {
-      'en': '{Leader 5} | {Maadi}',
-      'ar': '{القائد 5} | {المعادي}',
-    },
-    'g3ysal1v': {
-      'en': '{Details}',
-      'ar': '{تفاصيل}',
-    },
-    'i492vcez': {
-      'en': '{type}',
-      'ar': '{يكتب}',
-    },
-    'ee05y63q': {
-      'en': 'Due',
-      'ar': 'حق',
-    },
-    '7yi6lkfe': {
-      'en': 'Tuesday, 10:00am',
-      'ar': 'الثلاثاء، الساعة 10:00 صباحاً',
-    },
-    'v8i2f3ei': {
-      'en': 'In Progress',
-      'ar': 'في تَقَدم',
-    },
-    's5gzruzl': {
-      'en': 'Completed',
-      'ar': 'مكتمل',
-    },
-    'w9uen6f3': {
-      'en': '{Sv Name}',
-      'ar': '{اسم سيفرت}',
-    },
-    'g1y7sx99': {
-      'en': '{Leader 5} | {Maadi}',
-      'ar': '{القائد 5} | {المعادي}',
-    },
-    '8zzju9r1': {
-      'en': 'Create template screen for task todo app.',
-      'ar': 'إنشاء شاشة قالب لتطبيق المهام الواجبة.',
-    },
-    'zifu8bk8': {
-      'en': 'Truesicly',
-      'ar': 'بصدق',
-    },
-    't80mkcnh': {
-      'en': 'Driver name',
-      'ar': 'اسم السائق',
-    },
-    'owyvpdt9': {
-      'en': 'Tuesday, 10:00am',
-      'ar': 'الثلاثاء، الساعة 10:00 صباحاً',
-    },
-    'tbvkocmg': {
-      'en': 'Completed',
-      'ar': 'مكتمل',
-    },
-    'q1b7t8dz': {
-      'en': '{Sv Name}',
-      'ar': '{اسم سيفرت}',
-    },
-    '74gey6ke': {
-      'en': 'Traffic Manager | Errands',
-      'ar': 'مدير المرور | المهمات',
-    },
-    '4ep6idzj': {
-      'en': 'Create template screen for task todo app.',
-      'ar': 'إنشاء شاشة قالب لتطبيق المهام الواجبة.',
-    },
-    '48wvyfrn': {
-      'en': 'Truesicly',
-      'ar': 'بصدق',
-    },
-    '02g48n3l': {
-      'en': 'Driver name',
-      'ar': 'اسم السائق',
-    },
-    'jse98nx5': {
-      'en': 'Tuesday, 10:00am',
-      'ar': 'الثلاثاء، الساعة 10:00 صباحاً',
-    },
-    '1cqa8rab': {
-      'en': 'Completed',
-      'ar': 'مكتمل',
-    },
-    'pjwse1gj': {
-      'en': 'Export PDF',
-      'ar': 'تصدير قوات الدفاع الشعبي',
-    },
-    '1fbktxv1': {
-      'en': 'Report on errands and motorcycle movement',
-      'ar': 'تقرير عن المهمات وحركة الدراجات النارية',
+    'o55pvfnb': {
+      'en': 'Reject',
+      'ar': 'رفض',
     },
     'qe75adpc': {
       'en': 'Work orders',
@@ -7187,29 +6198,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // OM_work_Orders_discription
   {
-    'n4xwwinl': {
-      'en': '{Sv Name}',
-      'ar': '{اسم سيفرت}',
-    },
-    'y7ptaeij': {
-      'en': '{Leader 5} | {Maadi}',
-      'ar': '{القائد 5} | {المعادي}',
-    },
-    'geoxq1rg': {
-      'en': '#ID',
-      'ar': '#بطاقة تعريف',
-    },
     '6qawikun': {
       'en': 'Due',
-      'ar': 'حق',
-    },
-    'hxv6ipld': {
-      'en': 'In Progress',
-      'ar': 'في تَقَدم',
-    },
-    'nlpf53sx': {
-      'en': 'Tuesday, 10:00am',
-      'ar': 'الثلاثاء، الساعة 10:00 صباحاً',
+      'ar': 'التاريخ',
     },
     'r7a62j8h': {
       'en': 'Details',
@@ -7219,37 +6210,19 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'kind of order',
       'ar': 'نوع من النظام',
     },
-    '3kkhowwh': {
-      'en': '{no: 5}',
-      'ar': '{رقم 5}',
-    },
-    '9w35wr0t': {
-      'en': '{if its a car then it shows the kind of it}',
-      'ar': '{إذا كانت سيارة فهذا يدل على نوعها}',
-    },
     'yyinykyo': {
       'en': 'ST',
       'ar': 'شارع',
-    },
-    '0krk3esn': {
-      'en': '{15}',
-      'ar': '{15}',
     },
     'htdnav2t': {
       'en': 'Discription',
       'ar': 'وصف',
     },
-    '7ab2zad7': {
-      'en':
-          'hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhcompanyname.co',
-      'ar':
-          'هههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههه اسم الشركة.',
-    },
     'mwwrd9qx': {
       'en': 'Response',
       'ar': 'إجابة',
     },
-    'iju0abq3': {
+    'a6tfaivj': {
       'en': 'Comment',
       'ar': 'تعليق',
     },
@@ -7266,10 +6239,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ar': 'بيت',
     },
   },
-  // List_Ratings
+  // List_Reviews
   {
     '8xui5vko': {
-      'en': 'Rating Overview',
+      'en': 'Reviews Overview',
       'ar': 'نظرة عامة على التقييم',
     },
     'z6fe1xal': {
@@ -7280,7 +6253,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Option 1',
       'ar': 'الخيار 1',
     },
-    'rrm437k3': {
+    'if0zkq8k': {
       'en': 'All',
       'ar': 'الجميع',
     },
@@ -7469,7 +6442,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ar': '4.7',
     },
     '7r005n3u': {
-      'en': 'Ratings',
+      'en': 'Reviews',
       'ar': 'التقييمات',
     },
     'zfc7yl5q': {
@@ -8006,7 +6979,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // List_maps
   {
-    '4c1qqsgt': {
+    'i4ed4b4v': {
       'en': 'Search listings...',
       'ar': 'قوائم البحث...',
     },
@@ -8024,13 +6997,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'yt923507': {
       'en': 'Option 1',
-      'ar': 'الخيار 1',
+      'ar': 'شاشة رمادية',
     },
     'bzoua52d': {
       'en': 'Square',
       'ar': 'مربع',
     },
-    'vbnmp9oy': {
+    'louq209d': {
       'en': 'Search for an item...',
       'ar': 'البحث عن عنصر...',
     },
@@ -8040,9 +7013,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'z2dj3n2y': {
       'en': 'Leader',
-      'ar': 'قائد',
+      'ar': 'ليدر',
     },
-    'pvqv7ehd': {
+    'ljn310k9': {
       'en': 'Search for an item...',
       'ar': 'البحث عن عنصر...',
     },
@@ -8058,47 +7031,19 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Maps Details',
       'ar': 'تفاصيل الخرائط',
     },
-    'zffe55o2': {
-      'en': 'Due Date',
-      'ar': 'تاريخ الاستحقاق',
-    },
-    '69pkwk2a': {
-      'en': 'Actions',
-      'ar': 'أجراءات',
-    },
     'jnpm4796': {
       'en': 'PDF',
       'ar': 'PDF',
-    },
-    '0sybt3kt': {
-      'en': 'Randy Peterson',
-      'ar': 'راندي بيترسون',
-    },
-    'w9we337t': {
-      'en': 'Fri. Aug 11th',
-      'ar': 'الجمعة. 11 أغسطس',
     },
     'ouygul91': {
       'en': 'Need',
       'ar': 'يحتاج',
     },
-    'k2yc9x59': {
-      'en': '8',
-      'ar': '8',
-    },
-    '9985evvu': {
-      'en': 'worker',
-      'ar': 'عامل',
-    },
-    'tbtyod24': {
-      'en': 'Search for an item...',
-      'ar': 'البحث عن عنصر...',
-    },
     '3iom27l0': {
       'en': 'Randy Peterson',
       'ar': 'راندي بيترسون',
     },
-    'jutc63ax': {
+    'a2a77mea': {
       'en': 'Fri. Aug 11th',
       'ar': 'الجمعة. 11 أغسطس',
     },
@@ -8109,14 +7054,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     '9djvqh3u': {
       'en': '8',
       'ar': '8',
-    },
-    '4841hldm': {
-      'en': 'worker',
-      'ar': 'عامل',
-    },
-    'ktz60aiu': {
-      'en': 'Search for an item...',
-      'ar': 'البحث عن عنصر...',
     },
     'ejedmcdw': {
       'en': 'Maps',
@@ -8143,7 +7080,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'oqeafqtm': {
       'en': 'Leader',
-      'ar': 'قائد',
+      'ar': ' ليدر',
     },
     '3zsifane': {
       'en': 'Street',
@@ -8165,7 +7102,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Sector',
       'ar': 'قطاع',
     },
-    'zoz3rb75': {
+    '8czprnp1': {
       'en': 'Search for an item...',
       'ar': 'البحث عن عنصر...',
     },
@@ -8187,7 +7124,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'r2yjcja5': {
       'en': 'Leader',
-      'ar': 'قائد',
+      'ar': ' ليدر',
     },
     'jgodsc6y': {
       'en': 'Search for an item...',
@@ -8195,19 +7132,27 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'okqqjnsn': {
       'en': 'loc. Name',
-      'ar': 'loc. اسم',
+      'ar': 'اسم الموقع',
+    },
+    'nxrwi02a': {
+      'en': '',
+      'ar': 'التاخر عن العمل',
+    },
+    'k6owuoue': {
+      'en': 'Previous name (leader area)',
+      'ar': 'الاسم الاسبق (منطقة ليدر)',
     },
     'fu56hro8': {
       'en': 'location (If St.)',
-      'ar': 'الموقع (إذا كان St.)',
+      'ar': 'الموقع علي الخريطة (إذا كان شارع)',
     },
-    '9hhjyova': {
+    'ke1rfd2b': {
       'en': '',
       'ar': '',
     },
     '81d0wbqf': {
-      'en': 'Description (If St Or Sector)',
-      'ar': 'الوصف (إذا كان St أو القطاع)',
+      'en': 'Description (If Street Or Leader Area)',
+      'ar': 'الوصف (إذا كان شارع  او  ليدر)',
     },
     'mdbr2gc0': {
       'en': 'St. Workers Need',
@@ -8236,17 +7181,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '|',
       'ar': '|',
     },
-    'axtdvqkt': {
-      'en': 'Worker',
-      'ar': 'عامل',
-    },
-    'gfxmkct1': {
-      'en': 'Chat',
-      'ar': 'محادثة',
-    },
     '0ixnykb3': {
       'en': 'Call',
-      'ar': 'يتصل',
+      'ar': 'اتصال',
     },
     'kij21wbf': {
       'en': '4.7',
@@ -8262,7 +7199,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'lkmavl53': {
       'en': 'Address Work {If Super}',
-      'ar': 'عنوان العمل {إذا كان ممتازًا}',
+      'ar': 'عنوان العمل',
     },
     '1zhr8ylj': {
       'en': 'Time:  ',
@@ -8272,17 +7209,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Supplier Info',
       'ar': 'معلومات المورد',
     },
-    '4przn1fm': {
-      'en': '{Supplier Nickname}',
-      'ar': '{الاسم المستعار للمورد}',
-    },
     '9ra2d6fe': {
       'en': '|',
       'ar': '|',
-    },
-    'nc83futi': {
-      'en': 'ID: #{15}',
-      'ar': 'المعرف: #{15}',
     },
     'rrf5kyl6': {
       'en': ' have a problem? ',
@@ -8292,17 +7221,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': ' Make Complan',
       'ar': ' ابلاغ عن مشكلة',
     },
-    's96fgcgz': {
+    '64br0lip': {
       'en': 'Deactivate User',
-      'ar': 'إلغاء تنشيط المستخدم',
+      'ar': 'ايقاف المستخدم',
     },
     'sbm7puci': {
       'en': 'Advanced',
       'ar': 'اضافي',
-    },
-    '9iubauvf': {
-      'en': 'ID: #1502',
-      'ar': 'رقم التعريف: #1502',
     },
     'j42wrsnu': {
       'en': 'First Name',
@@ -8320,24 +7245,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Nick Name',
       'ar': 'الشهرة',
     },
-    '6e8c39q3': {
-      'en': 'religion ',
-      'ar': 'الجنس',
-    },
-    'ple0zq04': {
-      'en': 'Gender',
-      'ar': '',
-    },
-    '9uh7vdup': {
+    'bal0mlcw': {
       'en': '',
-      'ar': '',
-    },
-    'iinrky9v': {
-      'en': 'maritial status',
-      'ar': '',
-    },
-    'lbvayuoe': {
-      'en': 'nationality',
       'ar': '',
     },
     'h02dy9m3': {
@@ -8374,11 +7283,19 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'fk5avii6': {
       'en': 'national id',
+      'ar': 'الهويه الوطنيه',
+    },
+    'zpqecdds': {
+      'en': '',
       'ar': '',
     },
     '9uh78vj8': {
       'en': 'Birthdate',
       'ar': 'تاريخ الميلاد',
+    },
+    '017vwxtt': {
+      'en': 'Calc age',
+      'ar': 'احسب العمر',
     },
     'safc8sxt': {
       'en': 'Age',
@@ -8446,7 +7363,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '33dqm631': {
       'en': 'Enter Nationality',
-      'ar': 'أدخل الجنسية',
+      'ar': ' الجنسية',
     },
     '8tve2c3r': {
       'en': 'Passport No.',
@@ -8455,6 +7372,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'akv0sd1d': {
       'en': 'Birthdate',
       'ar': 'تاريخ الميلاد',
+    },
+    'upt0c1wp': {
+      'en': 'Calc age',
+      'ar': 'احسب العمر',
     },
     '2lu8vseg': {
       'en': 'Age',
@@ -8609,7 +7530,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ar': 'مقاول',
     },
     's5gtdub1': {
-      'en': 'Contract Status',
+      'en': 'Contractor',
       'ar': '',
     },
     'skmpp1xz': {
@@ -8622,7 +7543,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'kbzhng2c': {
       'en': 'Starting Shift',
-      'ar': 'بدء التحول',
+      'ar': 'بداية الوردية',
     },
     '3gxzi635': {
       'en': 'Starting Shift',
@@ -8648,14 +7569,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Please choose an option from the dropdown',
       'ar': 'يرجى اختيار خيار من القائمة المنسدلة',
     },
-    '29egc17k': {
-      'en': 'Have a driving license?',
-      'ar': 'هل لديك رخصة قيادة؟',
-    },
-    '4n9fjwr3': {
-      'en': 'Is there driving license?',
-      'ar': '',
-    },
     'toh0by3y': {
       'en': 'Type of driving license?',
       'ar': 'نوع رخصة القيادة؟',
@@ -8674,11 +7587,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '7gc25bvf': {
       'en': '',
-      'ar': '',
-    },
-    '5sxgj8rk': {
-      'en': '',
-      'ar': '',
+      'ar': 'عدم ترجمة النصوص بشكل صحيح.',
     },
     '06mh3ji4': {
       'en': 'Driving License Expiry Date',
@@ -8848,25 +7757,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Attendance',
       'ar': 'الحضور',
     },
-    'bllxekay': {
-      'en': 'Will Hobbiton',
-      'ar': 'ويل هوبيتون',
-    },
-    '845y5z3d': {
-      'en': 'Nickname',
-      'ar': 'كنية',
-    },
     'adryeuv4': {
       'en': '|',
       'ar': '|',
-    },
-    '6o8ygn9p': {
-      'en': 'ID: #1502',
-      'ar': 'رقم التعريف: #1502',
-    },
-    'kxl5rn0v': {
-      'en': 'Worker',
-      'ar': 'عامل',
     },
     '1bgv9vqw': {
       'en': 'Option 1',
@@ -8908,6 +7801,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Attendance',
       'ar': 'حضور',
     },
+    't2ate7bp': {
+      'en': 'Show attendance logs',
+      'ar': 'اظهار  الحضور',
+    },
     'nfq6n3ci': {
       'en': 'Attendance',
       'ar': 'حضور',
@@ -8916,69 +7813,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Time',
       'ar': 'وقت',
     },
-    '2jq0wdpb': {
-      'en': 'Work Info',
-      'ar': 'معلومات العمل',
-    },
-    'kuc43ksv': {
-      'en': '03/01/2024',
-      'ar': '01/03/2024',
-    },
     '0ssjuef6': {
       'en': 'In :',
       'ar': 'في :',
     },
-    'k9d7qpth': {
+    'r35sexov': {
       'en': 'Out :',
       'ar': 'خارج :',
-    },
-    'oei56k89': {
-      'en': '10:00am',
-      'ar': '10:00 ص',
-    },
-    'km7r4os3': {
-      'en': '03:00pm',
-      'ar': '03:00 مساءا',
-    },
-    'nt1ml2p6': {
-      'en': '{Sv Name}',
-      'ar': '{اسم سيفرت}',
-    },
-    'caq6v498': {
-      'en': '{Area}',
-      'ar': '{منطقة}',
-    },
-    '0kmd66ib': {
-      'en': '|',
-      'ar': '|',
-    },
-    'awurslgx': {
-      'en': '{Car}',
-      'ar': '{سيارة}',
-    },
-    'lttidju6': {
-      'en': 'No: {1502}',
-      'ar': 'رقم: {1502}',
-    },
-    'glujl3km': {
-      'en': 'Export PDF',
-      'ar': 'تصدير قوات الدفاع الشعبي',
-    },
-    'kkhqfu75': {
-      'en': 'Complaints',
-      'ar': 'شكاوي',
-    },
-    'dkfwcf2s': {
-      'en': 'Complaints',
-      'ar': 'شكاوي',
-    },
-    '253o9eas': {
-      'en': 'Time',
-      'ar': 'وقت',
-    },
-    'xbp5ab6y': {
-      'en': 'Work Info',
-      'ar': 'معلومات العمل',
     },
     '1aeh6wtz': {
       'en': '{Type}',
@@ -9012,93 +7853,25 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '{Car}',
       'ar': '{سيارة}',
     },
-    '172txndb': {
-      'en': 'No: {1502}',
-      'ar': 'رقم: {1502}',
+    'dkfwcf2s': {
+      'en': 'Complaints',
+      'ar': 'شكاوي',
     },
-    '0v46h0gc': {
-      'en': 'Export PDF',
-      'ar': 'تصدير قوات الدفاع الشعبي',
-    },
-    '09u5ygvg': {
-      'en': 'Uniform',
-      'ar': 'زي مُوحد',
-    },
-    '12tcviu7': {
-      'en': 'Unifoam receipts',
-      'ar': 'إيصالات Unifoam',
-    },
-    'agmbrxbt': {
-      'en': 'Price',
-      'ar': 'سعر',
-    },
-    '6lvfxgzf': {
-      'en': 'Type',
-      'ar': 'يكتب',
-    },
-    '2m3ep1r3': {
-      'en': '03/05/2056',
-      'ar': '03/05/2056',
-    },
-    'pcmzwsie': {
-      'en': '03:00pm',
-      'ar': '03:00 مساءا',
-    },
-    'lc6ffk0o': {
-      'en': '500 L.E',
-      'ar': '500 ج.م',
-    },
-    'aq132fb6': {
-      'en': 'قيد التقسيط',
-      'ar': 'قيد التشغيل',
-    },
-    'vmcm3xud': {
-      'en': 'No: {1502}',
-      'ar': 'رقم: {1502}',
-    },
-    '3lisefcm': {
-      'en': 'Export PDF',
-      'ar': 'تصدير قوات الدفاع الشعبي',
-    },
-    'p7v78m1o': {
-      'en': 'Personal Order',
-      'ar': 'أمر شخصي',
-    },
-    'n9xt5xt0': {
-      'en': 'Id',
-      'ar': 'بطاقة تعريف',
-    },
-    'qm9p9cxz': {
-      'en': 'Description',
-      'ar': 'وصف',
-    },
-    'xsaik1m7': {
+    '253o9eas': {
       'en': 'Time',
       'ar': 'وقت',
     },
-    '869x05z5': {
-      'en': '#125',
-      'ar': '#125',
+    'xbp5ab6y': {
+      'en': 'Work Info',
+      'ar': 'معلومات العمل',
     },
-    't5uqvaih': {
-      'en': 'انا غلبان من الشرقية فلوسي ضاعت وعايز اروح :(',
-      'ar': 'انا غلبان من الشرقية فلوسي ضاعت وعايز اروح :(',
-    },
-    'xbfn05k0': {
-      'en': '03/05/2056',
-      'ar': '03/05/2056',
-    },
-    '4lgi70s2': {
-      'en': '03:00pm',
-      'ar': '03:00 مساءا',
-    },
-    'o6ipkmze': {
-      'en': 'No: {1502}',
-      'ar': 'رقم: {1502}',
-    },
-    'sxc6m2lb': {
+    'glujl3km': {
       'en': 'Export PDF',
       'ar': 'تصدير قوات الدفاع الشعبي',
+    },
+    'lttidju6': {
+      'en': 'No: {1502}',
+      'ar': 'رقم: {1502}',
     },
     'dgi0zmwp': {
       'en': 'Profile',
@@ -9335,7 +8108,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Age',
       'ar': 'العمر',
     },
-    'bal0mlcw': {
+    'ov2bqx1c': {
       'en': '',
       'ar': '',
     },
@@ -9559,7 +8332,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Time',
       'ar': 'وقت',
     },
-    'olspi0j0': {
+    'vbnmp9oy': {
       'en': 'Search for an item...',
       'ar': 'البحث عن عنصر...',
     },
@@ -9623,7 +8396,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Search for an item...',
       'ar': 'البحث عن عنصر...',
     },
-    'z9u279o7': {
+    '29egc17k': {
       'en': 'Have a driving license?',
       'ar': 'هل لديك رخصة قيادة؟',
     },
@@ -9651,7 +8424,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Motorcycle / Tricycle',
       'ar': 'دراجة نارية / دراجة ثلاثية العجلات',
     },
-    'to288cxg': {
+    '1637li1t': {
       'en': 'Van',
       'ar': 'سيارة نقل',
     },
@@ -9691,85 +8464,85 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Select Work Area',
       'ar': 'حدد منطقة العمل',
     },
-    '5k1mpow6': {
+    'kfzh470w': {
       'en': '',
       'ar': '',
     },
-    'aqw9vu6m': {
+    'sr4mrqai': {
       'en': 'Leader Area 1',
-      'ar': 'منطقة القائد 1',
+      'ar': 'منطقة ليدر  1',
     },
-    'nhg7y4a9': {
+    'wl5f7igc': {
       'en': 'Leader Area 2',
-      'ar': 'منطقة القائد 2',
+      'ar': '',
     },
-    'qccpp1jg': {
+    '2zvqvqe4': {
       'en': 'Leader Area 3',
-      'ar': 'منطقة القائد 3',
+      'ar': '',
     },
-    'sy11t9zg': {
+    'l87kn4w2': {
       'en': 'Leader Area 4',
-      'ar': 'منطقة القائد 4',
+      'ar': '',
     },
-    'zsp0wr1g': {
+    'tffwt50g': {
       'en': 'Leader Area 5',
-      'ar': 'منطقة القائد 5',
+      'ar': '',
     },
-    'o6vmlkz2': {
+    'k2fdz70g': {
       'en': 'Leader Area 6',
-      'ar': 'منطقة القائد 6',
+      'ar': '',
     },
-    'zbcjahf6': {
+    'upb0xx7h': {
       'en': 'Leader Area 7',
-      'ar': 'منطقة القائد 7',
+      'ar': '',
     },
-    'panknvpj': {
+    'hcnnlera': {
       'en': 'Leader Area 8',
-      'ar': 'منطقة القائد 8',
+      'ar': '',
     },
-    '0i10j0z2': {
+    '2bul1mav': {
       'en': 'Leader Area 9',
-      'ar': 'منطقة القائد 9',
+      'ar': '',
     },
-    'i9vl268p': {
+    'vtj9g7k5': {
       'en': 'Leader Area 10',
-      'ar': 'منطقة القائد 10',
+      'ar': '',
     },
-    'i27rg9kz': {
+    'g3qew8vn': {
       'en': 'Leader Area 11',
-      'ar': 'منطقة القائد 11',
+      'ar': '',
     },
-    '359vqjbc': {
+    '7u9v4mu9': {
       'en': 'Leader Area 12',
-      'ar': 'منطقة القائد 12',
+      'ar': '',
     },
-    '9o2z2spi': {
+    '3ofvz45p': {
       'en': 'Leader Area 13',
-      'ar': 'منطقة القائد 13',
+      'ar': '',
     },
-    's1b92hlf': {
+    '6ubker3o': {
       'en': 'Leader Area 14',
-      'ar': 'منطقة القائد 14',
+      'ar': '',
     },
-    'rpgye2ew': {
+    'j76y4san': {
       'en': 'Leader Area 15',
-      'ar': 'منطقة القائد 15',
+      'ar': '',
     },
-    'wx0qqw5a': {
+    'yuuar5tk': {
       'en': 'Leader Area 16',
-      'ar': 'منطقة القائد 16',
+      'ar': '',
     },
-    'gi6o7tou': {
+    'lsb6sgsi': {
       'en': 'Leader Area 17',
-      'ar': 'منطقة القائد 17',
+      'ar': '',
     },
-    'uz21l403': {
+    'aqqtzdwl': {
       'en': 'Leader Area 18',
-      'ar': 'منطقة القائد 18',
+      'ar': '',
     },
-    'kw0206r8': {
+    '9zm1kvam': {
       'en': 'Leader Area 19',
-      'ar': 'منطقة القائد 19',
+      'ar': '',
     },
     'mtmoqf1a': {
       'en': 'Leader Area 20',
@@ -10044,214 +8817,46 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // OM_List_All_Task
   {
     '4898ga5v': {
-      'en': 'Search...( Area, Superviser )',
-      'ar': 'بحث...(منطقة، مشرف)',
+      'en': 'Search...( Superviser )',
+      'ar': 'بحث...(مشرف)',
     },
-    '30jkep8b': {
-      'en': 'Option 1',
-      'ar': 'الخيار 1',
+    'azfpbxyr': {
+      'en': 'All',
+      'ar': 'الجميع',
     },
-    'wa3kwpbs': {
-      'en': 'Section',
-      'ar': 'قسم',
-    },
-    'z70qzcg8': {
-      'en': 'Search for an item...',
-      'ar': 'البحث عن عنصر...',
-    },
-    'w8r87gsz': {
-      'en': 'Option 1',
-      'ar': 'الخيار 1',
-    },
-    'japiea9o': {
-      'en': 'Shift',
-      'ar': 'يحول',
-    },
-    'rbt6uvpe': {
-      'en': 'Search for an item...',
-      'ar': 'البحث عن عنصر...',
-    },
-    'y0qgiom4': {
-      'en': 'Option 1',
-      'ar': 'الخيار 1',
-    },
-    'bmrl29ni': {
-      'en': 'Day',
-      'ar': 'يوم',
-    },
-    'jkq83rnz': {
-      'en': 'Search for an item...',
-      'ar': 'البحث عن عنصر...',
-    },
-    '725caxye': {
-      'en': 'No: {20}',
-      'ar': 'عدد : {20}',
-    },
-    'n78ios4q': {
-      'en': 'Pending',
-      'ar': 'قيد الانتظار',
-    },
-    '0ei5qbe2': {
-      'en': '{Sv Name}',
-      'ar': '{اسم سيفرت}',
-    },
-    '5wpaoimi': {
-      'en': 'View',
-      'ar': 'منظر',
-    },
-    'j2hx4b26': {
-      'en': '{Leader 5} | {Maadi}',
-      'ar': '{القائد 5} | {المعادي}',
-    },
-    'p1vmz3z5': {
-      'en': '{Street}',
-      'ar': '{شارع}',
-    },
-    'pj7yvfjl': {
-      'en': 'Morning',
-      'ar': 'صباح',
-    },
-    'qlq9u4cq': {
-      'en': 'Tuesday, 10:00am',
-      'ar': 'الثلاثاء، الساعة 10:00 صباحاً',
-    },
-    'jybs926k': {
-      'en': 'In Progress',
-      'ar': 'في تَقَدم',
-    },
-    '2j7kmkq0': {
-      'en': 'Completed',
-      'ar': 'مكتمل',
-    },
-    '1zs50eep': {
-      'en': '{Sv Name}',
-      'ar': '{اسم سيفرت}',
-    },
-    'c3n4yeaf': {
-      'en': 'View',
-      'ar': 'منظر',
-    },
-    '46bpj7ev': {
-      'en': '{Leader 5} | {Maadi}',
-      'ar': '{القائد 5} | {المعادي}',
-    },
-    '1aa5jskt': {
-      'en': '{Street}',
-      'ar': '{شارع}',
-    },
-    'uqkjqk6l': {
-      'en': 'Morning',
-      'ar': 'صباح',
-    },
-    'j9p9xsh3': {
-      'en': 'Tuesday, 10:00am',
-      'ar': 'الثلاثاء، الساعة 10:00 صباحاً',
-    },
-    'mye98ye4': {
-      'en': 'Completed',
-      'ar': 'مكتمل',
+    'jlywh2y5': {
+      'en': 'bookmarked',
+      'ar': 'إشارة مرجعية',
     },
     'wbfnlf1b': {
       'en': 'Reviewed',
       'ar': 'تمت المراجعة',
     },
-    'lxwbol6f': {
-      'en': '{Sv Name}',
-      'ar': '{اسم سيفرت}',
+    'n1lunfll': {
+      'en': 'In progress',
+      'ar': 'قيد الانتظار',
     },
-    'eynbxxht': {
-      'en': '{Leader 5} | {Maadi}',
-      'ar': '{القائد 5} | {المعادي}',
+    '8xur9c0w': {
+      'en': 'All',
+      'ar': 'الجميع',
     },
-    'mgs9gjy7': {
-      'en': 'Street',
-      'ar': 'شارع',
+    '5it7lhnd': {
+      'en': 'All',
+      'ar': 'الجميع',
     },
-    '03v77zfw': {
-      'en': 'Morning',
-      'ar': 'صباح',
-    },
-    'w1wk6bnd': {
-      'en': 'Tuesday, 10:00am',
-      'ar': 'الثلاثاء، الساعة 10:00 صباحاً',
-    },
-    'd2oor1ka': {
-      'en': 'Reviewed',
-      'ar': 'تمت المراجعة',
-    },
-    '8yh2kxuw': {
-      'en': 'Export PDF',
-      'ar': 'تصدير PDF',
-    },
-    'czciey4t': {
-      'en': 'Lated',
-      'ar': 'متأخرا',
-    },
-    'k2ey0v81': {
-      'en': '{Sv Name}',
-      'ar': '{اسم سيفرت}',
-    },
-    'g3qk8wvw': {
+    '8o2snr1w': {
       'en': 'View',
-      'ar': 'منظر',
+      'ar': 'عرض',
     },
-    'ofdsld3s': {
-      'en': '{Leader 5} | {Maadi}',
-      'ar': '{القائد 5} | {المعادي}',
-    },
-    'x8fvci2v': {
-      'en': '{Street}',
-      'ar': '{شارع}',
-    },
-    'yyece55q': {
+    'pj7yvfjl': {
       'en': 'Morning',
       'ar': 'صباح',
-    },
-    'kcej4f6t': {
-      'en': 'Tuesday, 10:00am',
-      'ar': 'الثلاثاء، الساعة 10:00 صباحاً',
     },
     'yfg9l4is': {
       'en': 'Lated',
       'ar': 'متأخرا',
     },
-    'un59dsce': {
-      'en': 'Export PDF',
-      'ar': 'تصدير قوات الدفاع الشعبي',
-    },
-    '83yh0esk': {
-      'en': 'Bookmarked',
-      'ar': 'إشارة مرجعية',
-    },
-    '0x4ssqqp': {
-      'en': '{Sv Name}',
-      'ar': '{اسم سيفرت}',
-    },
-    '7x4xjds5': {
-      'en': 'View',
-      'ar': 'منظر',
-    },
-    'bo7jniko': {
-      'en': '{Leader 5} | {Maadi}',
-      'ar': '{القائد 5} | {المعادي}',
-    },
-    'hrqi5x10': {
-      'en': '{Street}',
-      'ar': '{شارع}',
-    },
-    'yy1oqlve': {
-      'en': 'Morning',
-      'ar': 'صباح',
-    },
-    'za96705k': {
-      'en': 'Tuesday, 10:00am',
-      'ar': 'الثلاثاء، الساعة 10:00 صباحاً',
-    },
-    '3wqwyh3v': {
-      'en': 'Lated{Same}',
-      'ar': 'متأخر {نفس}',
-    },
-    'm9tca6q6': {
+    'ltsbyy48': {
       'en': 'Export PDF',
       'ar': 'تصدير قوات الدفاع الشعبي',
     },
@@ -10266,29 +8871,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // OM_Supmited_taskDetalis
   {
-    'hvpshf26': {
-      'en': '{Sv Name}',
-      'ar': '{اسم سيفرت}',
-    },
-    'n3ikgw1t': {
-      'en': '{Leader 5} | {Maadi}',
-      'ar': '{القائد 5} | {المعادي}',
-    },
-    '9u041xcp': {
-      'en': '#ID',
-      'ar': '#بطاقة تعريف',
-    },
     'ut2cpeob': {
       'en': 'Due',
-      'ar': 'حق',
+      'ar': 'التوقيت',
     },
     'ssaa8ytq': {
       'en': 'In Progress',
       'ar': 'في تَقَدم',
-    },
-    'p4p6qsbi': {
-      'en': 'Tuesday, 10:00am',
-      'ar': 'الثلاثاء، الساعة 10:00 صباحاً',
     },
     'nym7i83i': {
       'en': 'Details',
@@ -10298,21 +8887,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'ST',
       'ar': 'شارع',
     },
-    'ny3a1rk5': {
-      'en': '{15}',
-      'ar': '{15}',
-    },
     'zw3trjy5': {
       'en': 'Discription',
       'ar': 'وصف',
     },
-    'l6f5auq4': {
-      'en':
-          'hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhcompanyname.co',
-      'ar':
-          'هههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههه اسم الشركة.',
-    },
-    't5c1jzmn': {
+    '5wowql27': {
       'en': 'Response',
       'ar': 'إجابة',
     },
@@ -10335,137 +8914,41 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // OM_List_All_DailyReports
   {
-    'h77pfxos': {
-      'en': 'Search...( Area, Superviser )',
-      'ar': 'بحث...(منطقة، مشرف)',
+    'e000z8wx': {
+      'en': 'Search...( Superviser )',
+      'ar': '',
     },
-    '88os7bbc': {
-      'en': 'Option 1',
-      'ar': 'الخيار 1',
+    '66m49rgb': {
+      'en': 'All',
+      'ar': 'الجميع',
     },
-    '94ddpvqd': {
-      'en': 'Section',
-      'ar': 'قسم',
+    's2e9lyc0': {
+      'en': 'bookmarked',
+      'ar': '',
     },
-    'r4zm4vss': {
-      'en': 'Search for an item...',
-      'ar': 'البحث عن عنصر...',
+    'd7i98dyc': {
+      'en': 'Reviewed',
+      'ar': '',
     },
-    '9r493iib': {
-      'en': 'Option 1',
-      'ar': 'الخيار 1',
+    'f93acafz': {
+      'en': 'In progress',
+      'ar': '',
     },
-    'qr3im1dt': {
-      'en': 'Shift',
-      'ar': 'يحول',
+    'fbbgpqum': {
+      'en': 'All',
+      'ar': '',
     },
-    'm1ukmeyq': {
-      'en': 'Search for an item...',
-      'ar': 'البحث عن عنصر...',
+    '3zrwbyq7': {
+      'en': 'All',
+      'ar': '',
     },
-    'ubk1boj3': {
-      'en': 'Option 1',
-      'ar': 'الخيار 1',
-    },
-    'l6m2mcjv': {
-      'en': 'Day',
-      'ar': 'يوم',
-    },
-    'dvp0hodp': {
-      'en': 'Search for an item...',
-      'ar': 'البحث عن عنصر...',
-    },
-    '2ajwjt22': {
-      'en': 'No: {20}',
-      'ar': 'رقم: {20}',
-    },
-    'kivwp5rp': {
-      'en': 'Pending',
-      'ar': 'قيد الانتظار',
-    },
-    'pvc23x2m': {
-      'en': '{Sv Name}',
-      'ar': '{اسم سيفرت}',
-    },
-    'tsivqe8h': {
+    '5wpaoimi': {
       'en': 'View',
-      'ar': 'منظر',
-    },
-    'iiwc7q6e': {
-      'en': '{Leader 5} | {Maadi}',
-      'ar': '{القائد 5} | {المعادي}',
+      'ar': 'عرض',
     },
     'vwhbade8': {
       'en': 'Morning',
       'ar': 'صباح',
-    },
-    'xez9cbit': {
-      'en': 'Tuesday, 10:00am',
-      'ar': 'الثلاثاء، الساعة 10:00 صباحاً',
-    },
-    '1kl3ek94': {
-      'en': 'Pending',
-      'ar': 'قيد الانتظار',
-    },
-    'd7i98dyc': {
-      'en': 'Reviewed',
-      'ar': 'تمت المراجعة',
-    },
-    'drivydv8': {
-      'en': '{Sv Name}',
-      'ar': '{اسم سيفرت}',
-    },
-    'bi2adkzr': {
-      'en': '{Leader 5} | {Maadi}',
-      'ar': '{القائد 5} | {المعادي}',
-    },
-    '3ru53683': {
-      'en': 'Morning',
-      'ar': 'صباح',
-    },
-    'vvhibo02': {
-      'en': 'Tuesday, 10:00am',
-      'ar': 'الثلاثاء، الساعة 10:00 صباحاً',
-    },
-    'u3tmk6jr': {
-      'en': 'Reviewed',
-      'ar': 'تمت المراجعة',
-    },
-    '2pgy4hc1': {
-      'en': 'Export PDF',
-      'ar': 'تصدير قوات الدفاع الشعبي',
-    },
-    '7kaf3fya': {
-      'en': 'Bookmarked',
-      'ar': 'إشارة مرجعية',
-    },
-    '4d8nhbzu': {
-      'en': '{Sv Name}',
-      'ar': '{اسم سيفرت}',
-    },
-    '5qsiz68q': {
-      'en': 'View',
-      'ar': 'منظر',
-    },
-    'p4s6vu09': {
-      'en': '{Leader 5} | {Maadi}',
-      'ar': '{القائد 5} | {المعادي}',
-    },
-    '2gd41x3u': {
-      'en': 'Morning',
-      'ar': 'صباح',
-    },
-    '0c1sw764': {
-      'en': 'Tuesday, 10:00am',
-      'ar': 'الثلاثاء، الساعة 10:00 صباحاً',
-    },
-    'yd7kp1af': {
-      'en': '{Same}',
-      'ar': '{نفس}',
-    },
-    'ljg36vbs': {
-      'en': 'Export PDF',
-      'ar': 'تصدير قوات الدفاع الشعبي',
     },
     'ar4l1nyp': {
       'en': 'Daily Reports',
@@ -10478,33 +8961,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // OM_View_DailyReport
   {
-    '0ick0l9p': {
-      'en': '{Sv Name}',
-      'ar': '{اسم سيفرت}',
-    },
-    'ljofvq99': {
-      'en': '{Leader 5} | {Maadi}',
-      'ar': '{القائد 5} | {المعادي}',
-    },
-    'uxpi34bq': {
-      'en': '#Id',
-      'ar': '#بطاقة تعريف',
-    },
-    '6jt8i1gt': {
-      'en': 'Morning',
-      'ar': 'صباح',
-    },
-    'nc2yt7lh': {
-      'en': '02/03/2034',
-      'ar': '02/03/2034',
-    },
     'rc1c13xy': {
       'en': '|',
       'ar': '|',
-    },
-    'xhg2rgg6': {
-      'en': '10:00am',
-      'ar': '10:00 ص',
     },
     'zd47gx1p': {
       'en': 'Daily report on the state of general cleanliness of the area',
@@ -10512,7 +8971,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'kuhd12md': {
       'en': 'Sweep Condition',
-      'ar': 'حالة الاجتياح',
+      'ar': 'حالة الكنس العامة',
     },
     'dsi3qytv': {
       'en':
@@ -10582,7 +9041,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'ci03wnx1': {
       'en': 'Reviewed',
-      'ar': 'تمت المراجعة',
+      'ar': 'تم حل المشكلة',
     },
     '6sjgtzc4': {
       'en': 'Daily Report',
@@ -10595,145 +9054,93 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // OM_List_Personal_orders
   {
-    '3pyjm9v7': {
-      'en': 'Search listings...',
-      'ar': 'قوائم البحث...',
-    },
-    'c9cnf1sx': {
-      'en': 'Option 1',
-      'ar': 'الخيار 1',
-    },
-    '2niulqcd': {
-      'en': 'Section',
-      'ar': 'قسم',
-    },
-    'dlkddwat': {
-      'en': 'Search for an item...',
-      'ar': 'البحث عن عنصر...',
-    },
-    'jryx84eo': {
-      'en': 'Option 1',
-      'ar': 'الخيار 1',
-    },
-    'posr2jg8': {
-      'en': 'Shift',
-      'ar': 'يحول',
-    },
-    '6uh6fr2k': {
-      'en': 'Search for an item...',
-      'ar': 'البحث عن عنصر...',
-    },
-    'shc342rt': {
-      'en': 'Option 1',
-      'ar': 'الخيار 1',
-    },
-    '60gzn5te': {
-      'en': 'Day',
-      'ar': 'يوم',
-    },
-    'm2u4l3gj': {
-      'en': 'Search for an item...',
-      'ar': 'البحث عن عنصر...',
-    },
-    'y32k72pd': {
-      'en': 'No: {20}',
-      'ar': 'رقم: {20}',
-    },
-    'gn0oi1xu': {
-      'en': 'Pending',
-      'ar': 'قيد الانتظار',
-    },
-    'if86mne7': {
-      'en': '{Sv Name}',
-      'ar': '{اسم سيفرت}',
-    },
-    'v4potjhw': {
-      'en': 'View',
-      'ar': 'منظر',
-    },
-    'p3t9v15c': {
-      'en': '{Leader 5} | {Maadi}',
-      'ar': '{القائد 5} | {المعادي}',
-    },
-    's3a6hm9j': {
-      'en': '{Details}',
-      'ar': '{تفاصيل}',
-    },
-    '6on597te': {
-      'en': 'Tuesday, 10:00am',
-      'ar': 'الثلاثاء، الساعة 10:00 صباحاً',
-    },
-    'mmczymsb': {
-      'en': 'In Progress',
-      'ar': 'في تَقَدم',
-    },
-    'elowf8o9': {
-      'en': 'Accepted',
-      'ar': 'قبلت',
-    },
-    'gb1k3krd': {
-      'en': '{Sv Name}',
-      'ar': '{اسم سيفرت}',
-    },
-    'nxo05ekm': {
-      'en': '{Leader 5} | {Maadi}',
-      'ar': '{القائد 5} | {المعادي}',
-    },
-    '7qvwynuq': {
-      'en': 'Create template screen for task todo app.',
-      'ar': 'إنشاء شاشة قالب لتطبيق المهام الواجبة.',
-    },
-    '3zk1bhtg': {
-      'en': 'Tuesday, 10:00am',
-      'ar': 'الثلاثاء، الساعة 10:00 صباحاً',
-    },
-    'gf3o86dd': {
-      'en': 'Accepted',
-      'ar': 'قبلت',
-    },
-    'fhes0uf1': {
-      'en': 'Export PDF',
-      'ar': 'تصدير قوات الدفاع الشعبي',
-    },
-    'z05oayk1': {
-      'en': 'Report on errands and motorcycle movement',
-      'ar': 'تقرير عن المهمات وحركة الدراجات النارية',
-    },
-    '31wysmtk': {
-      'en': 'Rejected',
-      'ar': 'مرفوض',
-    },
-    'qiiege9a': {
-      'en': '{Sv Name}',
-      'ar': '{اسم سيفرت}',
-    },
-    'st1venbe': {
-      'en': '{Leader 5} | {Maadi}',
-      'ar': '{القائد 5} | {المعادي}',
-    },
-    'yf74y2g6': {
-      'en': 'Create template screen for task todo app.',
-      'ar': 'إنشاء شاشة قالب لتطبيق المهام الواجبة.',
-    },
-    'uxdtge3o': {
-      'en': 'Tuesday, 10:00am',
-      'ar': 'الثلاثاء، الساعة 10:00 صباحاً',
-    },
-    '7phucli6': {
-      'en': 'Rejected',
-      'ar': 'مرفوض',
-    },
-    'qyiq2vvp': {
-      'en': 'Export PDF',
-      'ar': 'تصدير قوات الدفاع الشعبي',
-    },
-    'y9xmv3kc': {
-      'en': 'Report on errands and motorcycle movement',
-      'ar': 'تقرير عن المهمات وحركة الدراجات النارية',
-    },
     '1zbz8vgt': {
       'en': 'Personal orders',
       'ar': 'الطلبات الشخصية',
+    },
+    'fip8qqf6': {
+      'en': 'All',
+      'ar': 'الجميع',
+    },
+    'cwe42tzh': {
+      'en': 'Loan',
+      'ar': 'سلفة',
+    },
+    'zl8fya9p': {
+      'en': 'All',
+      'ar': 'الجميع',
+    },
+    'si2yx8xh': {
+      'en': 'leaving early',
+      'ar': 'انصراف مبكر',
+    },
+    'sq0et7u7': {
+      'en': 'Other',
+      'ar': 'اخر',
+    },
+    '1tyc90wp': {
+      'en': 'Type',
+      'ar': 'مكان الحدوث ( اسم الصفحة, الخطوة)',
+    },
+    'upcele1s': {
+      'en': 'Search for an item...',
+      'ar': '',
+    },
+    'k8o9j4nx': {
+      'en': 'Date ',
+      'ar': 'التاريخ',
+    },
+    'ug14zmj3': {
+      'en': '',
+      'ar': '',
+    },
+    'z2m9eocn': {
+      'en': '',
+      'ar': '',
+    },
+    'jhr7yw54': {
+      'en': '',
+      'ar': '',
+    },
+    'yr5qws8k': {
+      'en': 'All',
+      'ar': 'الجميع',
+    },
+    'sjoz3rqq': {
+      'en': 'Approved',
+      'ar': 'مقبول',
+    },
+    '7onu4hnd': {
+      'en': 'Rejected',
+      'ar': 'مرفوض',
+    },
+    'mxjsxmrn': {
+      'en': 'In progress',
+      'ar': 'قيد الانتظار',
+    },
+    'kc9ik6nb': {
+      'en': 'For you',
+      'ar': 'مطلوب منك',
+    },
+    'ea7u0zaz': {
+      'en': 'All',
+      'ar': 'الجميع',
+    },
+    '1ilho9oz': {
+      'en': 'All',
+      'ar': 'الجميع',
+    },
+    '2sodr5jg': {
+      'en': 'View',
+      'ar': 'عرض',
+    },
+    'tiwmpiie': {
+      'en': 'Accept',
+      'ar': 'قبول',
+    },
+    'cjdtbmsj': {
+      'en': 'Reject',
+      'ar': 'رفض',
     },
     '1bhzo8l4': {
       'en': 'Home',
@@ -10742,51 +9149,21 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // OM_Personal_Orders_discription
   {
-    '8hqjfbid': {
-      'en': '{Sv Name}',
-      'ar': '{اسم سيفرت}',
-    },
-    'jmgcu539': {
-      'en': '{Leader 5} | {Maadi}',
-      'ar': '{القائد 5} | {المعادي}',
-    },
-    '3gbdwsth': {
-      'en': '#ID',
-      'ar': '#بطاقة تعريف',
-    },
     'd9b4kcdc': {
       'en': 'Due',
       'ar': 'حق',
-    },
-    'fbbvnjue': {
-      'en': 'In Progress',
-      'ar': 'في تَقَدم',
-    },
-    'xaa86oda': {
-      'en': 'Tuesday, 10:00am',
-      'ar': 'الثلاثاء، الساعة 10:00 صباحاً',
     },
     'pt5vk3qk': {
       'en': 'Details',
       'ar': 'تفاصيل',
     },
-    'u36b6api': {
+    'vt1s8e5o': {
       'en': 'kind of order',
-      'ar': 'نوع من النظام',
-    },
-    '6w9au7ir': {
-      'en': '{if its a car then it shows the kind of it}',
-      'ar': '{إذا كانت سيارة فهذا يدل على نوعها}',
+      'ar': 'نوع الطلب',
     },
     '4wav1rak': {
       'en': 'Discription',
       'ar': 'وصف',
-    },
-    'ab6utm8s': {
-      'en':
-          'hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhcompanyname.co',
-      'ar':
-          'ههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههههه اسم الشركة.',
     },
     'zgb6ct8t': {
       'en': 'Response',
@@ -10811,33 +9188,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // OM_View_Distribution_of_workers
   {
-    'sn09xza2': {
-      'en': '{Sv Name}',
-      'ar': '{اسم سيفرت}',
-    },
-    'ovb415br': {
-      'en': '{Leader 5} | {Maadi}',
-      'ar': '{القائد 5} | {المعادي}',
-    },
-    'yt16iv6g': {
-      'en': '#Id',
-      'ar': '#بطاقة تعريف',
-    },
-    'q4v9cuuv': {
-      'en': 'Morning',
-      'ar': 'صباح',
-    },
-    'es6na973': {
-      'en': '02/03/2034',
-      'ar': '02/03/2034',
-    },
     'qoac8x3d': {
       'en': '|',
       'ar': '|',
-    },
-    '3808okvm': {
-      'en': '10:00am',
-      'ar': '10:00 ص',
     },
     '1vb3vwga': {
       'en':
@@ -10851,38 +9204,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'iktvp5hm': {
       'en': 'Distribution of workers',
       'ar': 'توزيع العمال',
-    },
-    'pxzvb0bz': {
-      'en': '{Street Name}',
-      'ar': '{اسم الشارع}',
-    },
-    'bd7kuxsp': {
-      'en': 'Need : {5}',
-      'ar': 'الحاجة : {5}',
-    },
-    'gpi3vvco': {
-      'en': 'Randy Peterson',
-      'ar': 'راندي بيترسون',
-    },
-    'cl6vm9wj': {
-      'en': '#2008',
-      'ar': '#2008',
-    },
-    'akt2sbsl': {
-      'en': 'Car',
-      'ar': 'سيارة',
-    },
-    '4ypb6q5l': {
-      'en': 'Randy Peterson',
-      'ar': 'راندي بيترسون',
-    },
-    'q3qx7qu5': {
-      'en': '#2008',
-      'ar': '#2008',
-    },
-    '0dv21qct': {
-      'en': 'Car',
-      'ar': 'سيارة',
     },
     'n29ewpng': {
       'en': 'Export to PDF',
@@ -10908,34 +9229,22 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ar': 'الخيار 1',
     },
     '80kijiub': {
-      'en': 'Section',
-      'ar': 'قسم',
+      'en': 'sector',
+      'ar': 'قطاع',
     },
     'u3jwwx8i': {
       'en': 'Search for an item...',
       'ar': 'البحث عن عنصر...',
     },
-    'oklqlowq': {
+    'ij3gdwhl': {
       'en': 'Option 1',
       'ar': 'الخيار 1',
     },
-    'rltwiq5h': {
-      'en': 'Shift',
-      'ar': 'يحول',
+    '94ccn66y': {
+      'en': 'Square',
+      'ar': 'مربع',
     },
-    'vysg4xh7': {
-      'en': 'Search for an item...',
-      'ar': 'البحث عن عنصر...',
-    },
-    '3ylv3r3f': {
-      'en': 'Option 1',
-      'ar': 'الخيار 1',
-    },
-    '01o2cdjn': {
-      'en': 'Day',
-      'ar': 'يوم',
-    },
-    'vht27tb3': {
+    'yu0wzol0': {
       'en': 'Search for an item...',
       'ar': 'البحث عن عنصر...',
     },
@@ -10963,25 +9272,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'PDF',
       'ar': 'بي دي إف',
     },
-    'g72aj8b9': {
-      'en': 'Randy Peterson',
-      'ar': 'راندي بيترسون',
-    },
-    'ag1k9abe': {
-      'en': '#2008',
-      'ar': '#2008',
-    },
-    'a2a77mea': {
+    'waobqm81': {
       'en': 'Fri. Aug 11th',
-      'ar': 'الجمعة. 11 أغسطس',
-    },
-    '4phjwu2i': {
-      'en': '{Leader 5} | {Maadi}',
-      'ar': '{القائد 5} | {المعادي}',
+      'ar': '',
     },
     'fabwz36z': {
-      'en': 'Attendance',
-      'ar': 'حضور',
+      'en': 'Daily Wokers Distribution',
+      'ar': 'توزيع العمالة اليومية',
     },
     '7y0b6w4l': {
       'en': '•',
@@ -10991,12 +9288,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // New_Admin_Home
   {
     'aeb6a19x': {
-      'en': 'Hello,',
-      'ar': 'مرحبًا،',
-    },
-    'aotwrjjy': {
-      'en': 'Morning',
-      'ar': 'الصباحية',
+      'en': 'Hello',
+      'ar': 'مرحبًا',
     },
     'wkkk8ft9': {
       'en': 'Workers',
@@ -11006,14 +9299,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '32.2%',
       'ar': '32.2%',
     },
-    'ddwkr8dj': {
-      'en': '480 ',
-      'ar': '480',
-    },
-    's4efbgc6': {
-      'en': '/ 500',
-      'ar': '/ 500',
-    },
     'xja84gyo': {
       'en': 'Supervisers',
       'ar': 'مشرفين',
@@ -11022,37 +9307,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '32.2%',
       'ar': '32.2%',
     },
-    '8eo6nck1': {
-      'en': '18 ',
-      'ar': '18',
-    },
-    'v577zxe3': {
-      'en': '/ 20',
-      'ar': '/ 20',
-    },
-    'qgpxp6g1': {
-      'en': 'Maadi',
-      'ar': 'المعادي',
-    },
-    'u4hb9j50': {
+    '42o0idu0': {
       'en': '32.2%',
       'ar': '32.2%',
-    },
-    'wa3o1dr8': {
-      'en': '50 ',
-      'ar': '50',
-    },
-    'hdj497hn': {
-      'en': '/ 150',
-      'ar': '/ 150',
-    },
-    '07oqbimi': {
-      'en': '9 ',
-      'ar': '9',
-    },
-    'frgk5x56': {
-      'en': '/ 10',
-      'ar': '/ 10',
     },
     '0sg7savz': {
       'en': 'Workers',
@@ -11062,193 +9319,77 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Superviser',
       'ar': 'المشرف',
     },
-    '0po66fyb': {
-      'en': 'Basatin',
-      'ar': 'البساتين',
-    },
-    'lv77xpci': {
-      'en': '32.2%',
-      'ar': '32.2%',
-    },
-    'gt9lm9se': {
-      'en': '50 ',
-      'ar': '50',
-    },
-    'x8jvtcpf': {
-      'en': '/ 150',
-      'ar': '/ 150',
-    },
-    '27u5ora6': {
-      'en': '9 ',
-      'ar': '9',
-    },
-    'y9960k29': {
-      'en': '/ 10',
-      'ar': '/ 10',
-    },
-    'p999euss': {
-      'en': 'Workers',
-      'ar': 'عمال',
-    },
-    'y8dxbqg9': {
-      'en': 'Superviser',
-      'ar': 'المشرف',
-    },
-    'dcm56qb9': {
-      'en': 'Marag',
-      'ar': 'معراج',
-    },
-    'wl81xceq': {
-      'en': '32.2%',
-      'ar': '32.2%',
-    },
-    'syqtp6qj': {
-      'en': '50 ',
-      'ar': '50',
-    },
-    'bgmxjyga': {
-      'en': '/ 150',
-      'ar': '/ 150',
-    },
-    '7k18v4hl': {
-      'en': '9 ',
-      'ar': '9',
-    },
-    '1s3hzmsp': {
-      'en': '/ 10',
-      'ar': '/ 10',
-    },
-    'sypg90bo': {
-      'en': 'Workers',
-      'ar': 'عمال',
-    },
-    '97szef21': {
-      'en': 'Superviser',
-      'ar': 'المشرف',
-    },
-    'bfzmz7dj': {
-      'en': 'Daily Goal',
-      'ar': 'الهدف اليومي',
-    },
-    'si1tb3dd': {
-      'en': '62.2% /',
-      'ar': '62.2% /',
-    },
-    'hze5ec9l': {
-      'en': ' 12',
-      'ar': '12',
-    },
-    'istpshqf': {
-      'en': '',
-      'ar': '',
-    },
-    'b0uz0149': {
-      'en': 'Achieved goals: ',
-      'ar': 'الأهداف المحققة:',
-    },
-    'fmty2tht': {
-      'en': '3',
-      'ar': '3',
-    },
-    'ni8wrqpv': {
-      'en': 'All',
-      'ar': 'الجميع',
-    },
     '79rv4ltx': {
       'en': 'Work Area',
       'ar': 'منطقة العمل',
     },
     'rz8il05a': {
       'en': 'General information about the area.',
-      'ar': 'معلومات عامة عن المنطقة.',
+      'ar': 'قطاع المعادي الجديدة , قطاع المعراج , قطاع البساتين',
     },
     'nu9se8pd': {
       'en': 'Tasks',
-      'ar': 'المهام',
-    },
-    'n5x3yqrr': {
-      'en': 'Supervisers',
-      'ar': 'المشرفين',
+      'ar': 'المهام ',
     },
     'yf16dqz4': {
       'en': 'Notifications',
       'ar': 'الإشعارات',
     },
+    'vizc3z25': {
+      'en': 'Task',
+      'ar': 'المهام الميدانية',
+    },
     'mzucrge1': {
       'en': 'personal order',
-      'ar': 'طلب  شخصي',
+      'ar': 'طلب شخصي',
     },
-    'v5fcg4lc': {
-      'en': '1',
-      'ar': '1',
+    'ispu1uxa': {
+      'en': 'complaints',
+      'ar': 'شكاوي',
     },
-    '6bor7at3': {
-      'en': 'Supervisers order',
-      'ar': 'طلبات  المشرفين',
-    },
-    'brumpway': {
-      'en': '1',
-      'ar': '1',
-    },
-    '49btmwhv': {
-      'en': 'complans',
-      'ar': 'الشكاوي',
-    },
-    'pwzx29iy': {
-      'en': '1',
-      'ar': '1',
-    },
-    'wn1hdu9b': {
+    'aj4bnxg4': {
       'en': 'Other services',
       'ar': 'خدمات أخري',
     },
-    'oydiv5y3': {
-      'en': 'personal request',
-      'ar': 'طلب شخصي',
-    },
-    '58wkvysr': {
-      'en': 'Reports',
-      'ar': 'التقارير',
-    },
-    'vozr66m3': {
-      'en': 'Atindanse',
-      'ar': 'الحضور',
-    },
-    '520wek0l': {
-      'en': 'Map',
-      'ar': 'الخريطة',
-    },
     'hj9igy6o': {
-      'en': 'personal request',
-      'ar': 'طلب شخصي',
+      'en': 'maps list',
+      'ar': 'عرض الخرائط',
     },
-    'lthsq1bv': {
-      'en': 'daily report',
-      'ar': 'التقرير اليومي',
+    'j5hijiev': {
+      'en': 'Suppliers',
+      'ar': 'ادارة الموردين',
     },
     'usv6033p': {
       'en': 'Users',
       'ar': 'الموظفين',
     },
-    'nzusb4ds': {
-      'en': 'Reviwes',
-      'ar': 'المراجعات',
+    'vozr66m3': {
+      'en': 'Attendence',
+      'ar': 'الحضور',
     },
-    'xar4rr1c': {
-      'en': 'personal request',
-      'ar': 'طلب شخصي',
-    },
-    'lcy9rhm4': {
+    'lthsq1bv': {
       'en': 'daily report',
-      'ar': 'التقرير اليومي',
+      'ar': 'التقرير اليومي للمشرفين',
     },
     'um7peax7': {
       'en': 'Add User',
       'ar': 'إضافة مستخدم',
     },
-    'xmurgibw': {
-      'en': 'Reviwes',
-      'ar': 'المراجعات',
+    '4b2yalko': {
+      'en': 'set supervisor',
+      'ar': 'تعيين مشرف لمنطقة',
+    },
+    '520wek0l': {
+      'en': 'Add Map',
+      'ar': 'اضافه خريطه',
+    },
+    'xar4rr1c': {
+      'en': 'List Movemint',
+      'ar': 'تقارير الحركة',
+    },
+    '0ltpsfom': {
+      'en': 'Fixing Reports',
+      'ar': 'تقارير الصيانه',
     },
     'jc8rgf32': {
       'en': 'Activity',
@@ -11356,7 +9497,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '215zr9ys': {
       'en': 'Powerd by Omar-s Team',
-      'ar': 'بدعم من فريق عمر',
+      'ar': 'Powerd by Omar-s Team',
     },
     'kp5k9298': {
       'en': 'Al Rahma',
@@ -11404,13 +9545,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Manualattendance
   {
-    'm1relfha': {
+    '4c1qqsgt': {
       'en': 'Search listings...',
       'ar': 'قوائم البحث...',
-    },
-    '8mtd5euj': {
-      'en': 'No: {20}',
-      'ar': 'رقم: {20}',
     },
     'whtbf36g': {
       'en': '#ID',
@@ -11418,7 +9555,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'tgs80qt7': {
       'en': 'Attend',
-      'ar': 'حضور',
+      'ar': 'تحضير',
+    },
+    'wtx6frbe': {
+      'en': 'Attend',
+      'ar': '',
     },
     'hxinyg3z': {
       'en': 'Inspector Name',
@@ -11437,19 +9578,1658 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ar': '',
     },
     'fuyt1sww': {
-      'en': 'Users',
-      'ar': '',
+      'en': 'Manual Attendance',
+      'ar': 'الحضور و الانصراف',
     },
     'a7v37y1t': {
       'en': '•',
       'ar': '•',
     },
   },
-  // LocationPicker
+  // Other_Home
   {
+    '23w1wn38': {
+      'en': 'Hello,',
+      'ar': 'مرحبًا،',
+    },
+    '3k3hao5l': {
+      'en': 'Morning',
+      'ar': 'الصباحية',
+    },
+    'jjhrade8': {
+      'en': 'Workers',
+      'ar': '',
+    },
+    '3ykub7it': {
+      'en': '32.2%',
+      'ar': '',
+    },
+    'kv3qbzf9': {
+      'en': '480 ',
+      'ar': '480',
+    },
+    '9aq5qanr': {
+      'en': '/ 500',
+      'ar': '',
+    },
+    'c8kkmaxp': {
+      'en': 'Supervisers',
+      'ar': 'المشرفين',
+    },
+    'u10j5p2g': {
+      'en': '32.2%',
+      'ar': '',
+    },
+    'ya20fqwa': {
+      'en': '18 ',
+      'ar': '',
+    },
+    '3cfo182e': {
+      'en': '/ 20',
+      'ar': '',
+    },
+    'u2gxwmj3': {
+      'en': 'Maadi',
+      'ar': '',
+    },
+    'h159nbui': {
+      'en': '32.2%',
+      'ar': '',
+    },
+    'g4g0q990': {
+      'en': '50 ',
+      'ar': '50',
+    },
+    'rjh5bx17': {
+      'en': '/ 150',
+      'ar': '',
+    },
+    'xbw1pss7': {
+      'en': '9 ',
+      'ar': '',
+    },
+    '6nlt61zf': {
+      'en': '/ 10',
+      'ar': '',
+    },
+    '5kae6rl7': {
+      'en': 'Workers',
+      'ar': '',
+    },
+    'kj3jx78l': {
+      'en': 'Superviser',
+      'ar': '',
+    },
+    'tur5qkpy': {
+      'en': 'Basatin',
+      'ar': '',
+    },
+    'u5fl0d5j': {
+      'en': '32.2%',
+      'ar': '',
+    },
+    'xxh5z5tf': {
+      'en': '50 ',
+      'ar': '',
+    },
+    'mhpevins': {
+      'en': '/ 150',
+      'ar': '',
+    },
+    'wj8d0coz': {
+      'en': '9 ',
+      'ar': '',
+    },
+    '8j020e5c': {
+      'en': '/ 10',
+      'ar': '',
+    },
+    '5nei29lv': {
+      'en': 'Workers',
+      'ar': '',
+    },
+    'xpalrxij': {
+      'en': 'Superviser',
+      'ar': '',
+    },
+    '6z5u6ga0': {
+      'en': 'Marag',
+      'ar': '',
+    },
+    '2769w9l7': {
+      'en': '32.2%',
+      'ar': '',
+    },
+    'otfs8wq0': {
+      'en': '50 ',
+      'ar': '',
+    },
+    'vudkr3tn': {
+      'en': '/ 150',
+      'ar': '',
+    },
+    'bugs2asm': {
+      'en': '9 ',
+      'ar': '',
+    },
+    'yvun5kgw': {
+      'en': '/ 10',
+      'ar': '',
+    },
+    'm92fibo3': {
+      'en': 'Workers',
+      'ar': '',
+    },
+    'ej0d8o0z': {
+      'en': 'Superviser',
+      'ar': '',
+    },
+    '8ygqazp4': {
+      'en': 'Maadi',
+      'ar': '',
+    },
+    'dt2w4im7': {
+      'en': '32.2%',
+      'ar': '',
+    },
+    'iirsd32k': {
+      'en': '50 ',
+      'ar': '',
+    },
+    '81g8odbd': {
+      'en': '/ 150',
+      'ar': '',
+    },
+    'y5m5h9ek': {
+      'en': '9',
+      'ar': '',
+    },
+    't6oi8rr7': {
+      'en': '/ 10 ',
+      'ar': '',
+    },
+    '6tydu0he': {
+      'en': 'Workers',
+      'ar': '',
+    },
+    '56ax3fl1': {
+      'en': 'Supervisers',
+      'ar': '',
+    },
+    'k0ujy1tp': {
+      'en': 'Basatin',
+      'ar': '',
+    },
+    'puivwnzv': {
+      'en': '32.2%',
+      'ar': '',
+    },
+    '8d9znivo': {
+      'en': '50 ',
+      'ar': '',
+    },
+    '0xu28zf2': {
+      'en': '/ 150',
+      'ar': '',
+    },
+    '35x4i23i': {
+      'en': '9 ',
+      'ar': '',
+    },
+    'y84idr7r': {
+      'en': '/ 10',
+      'ar': '',
+    },
+    'voshwey1': {
+      'en': 'Workers',
+      'ar': '',
+    },
+    'wv3ero60': {
+      'en': 'Supervisers',
+      'ar': '',
+    },
+    'nwl5a4wm': {
+      'en': 'Marag',
+      'ar': '',
+    },
+    'qj3ydnwh': {
+      'en': '32.2%',
+      'ar': '',
+    },
+    's3eazpy4': {
+      'en': '50 ',
+      'ar': '',
+    },
+    'wo1w35bo': {
+      'en': '/ 150',
+      'ar': '',
+    },
+    '5l433zrx': {
+      'en': '9 ',
+      'ar': '',
+    },
+    'ma8fxsed': {
+      'en': '/ 10',
+      'ar': '',
+    },
+    'kp6afgy8': {
+      'en': 'Workers',
+      'ar': '',
+    },
+    'hd13rqxp': {
+      'en': 'Superviser',
+      'ar': '',
+    },
+    'g1ba2bjh': {
+      'en': 'Notifications',
+      'ar': '',
+    },
+    'm7pbchi6': {
+      'en': 'personal order',
+      'ar': 'طلب  شخصي',
+    },
+    'hrkjtbu2': {
+      'en': '1',
+      'ar': '',
+    },
+    'i06kvkts': {
+      'en': 'Work  requests',
+      'ar': '',
+    },
+    'uipurbhc': {
+      'en': '1',
+      'ar': '',
+    },
+    'cid34awt': {
+      'en': 'Complaints',
+      'ar': '',
+    },
+    'br8kd4hj': {
+      'en': '1',
+      'ar': '',
+    },
+    '0li4eha9': {
+      'en': 'Other services',
+      'ar': '',
+    },
+    't1waumtm': {
+      'en': 'Due Date',
+      'ar': '',
+    },
+    'd82sb4ay': {
+      'en': 'Actions',
+      'ar': 'أجراءات',
+    },
+    'u1i4vylj': {
+      'en': 'personal request',
+      'ar': 'طلب شخصي',
+    },
+    'n3damb57': {
+      'en': 'Reports',
+      'ar': '',
+    },
+    'fgwa92u5': {
+      'en': 'Atindanse',
+      'ar': 'الحضور',
+    },
+    '8k1i6pmt': {
+      'en': 'Map',
+      'ar': 'الخريطة',
+    },
+    'pc4sms7o': {
+      'en': 'personal request',
+      'ar': '',
+    },
+    'h8622bka': {
+      'en': 'daily report',
+      'ar': 'التقرير اليومي',
+    },
+    '9weciwan': {
+      'en': 'Users',
+      'ar': '',
+    },
+    '0ol87tqu': {
+      'en': 'Reviwes',
+      'ar': 'المراجعات',
+    },
+    'izdacxoh': {
+      'en': 'personal request',
+      'ar': '',
+    },
+    'z2nxgw1d': {
+      'en': 'daily report',
+      'ar': '',
+    },
+    'kz4sr0rk': {
+      'en': 'Add User',
+      'ar': 'إضافة مستخدم',
+    },
+    'afraffvj': {
+      'en': 'Reviwes',
+      'ar': '',
+    },
+    '2813x723': {
+      'en': 'personal request',
+      'ar': '',
+    },
+    '8hdohzz4': {
+      'en': 'daily report',
+      'ar': '',
+    },
+    'bk7fo4dm': {
+      'en': 'Add User',
+      'ar': '',
+    },
+    '1zssu2hn': {
+      'en': 'Reviwes',
+      'ar': '',
+    },
+    'lbdzq0ip': {
+      'en': 'Activity',
+      'ar': '',
+    },
+    '1mrbr155': {
+      'en': 'Recent completed tasks from your team.',
+      'ar': '',
+    },
+    'dm3v969w': {
+      'en': 'Rudy Fernandez',
+      'ar': '',
+    },
+    '7g8tndmd': {
+      'en': '4m ago',
+      'ar': '',
+    },
+    '9nzmzrly': {
+      'en': 'Completed ',
+      'ar': '',
+    },
+    '1hqv5e5a': {
+      'en': 'Marketing Plan',
+      'ar': '',
+    },
+    's7dp26e2': {
+      'en': 'Rudy Fernandez',
+      'ar': '',
+    },
+    'kmvtt5tp': {
+      'en': '4m ago',
+      'ar': '',
+    },
+    't9l5y5nc': {
+      'en': 'Started ',
+      'ar': '',
+    },
+    'jizurrsx': {
+      'en': 'Marketing Plan',
+      'ar': '',
+    },
+    'j4823oy7': {
+      'en': 'Abigail Rojas',
+      'ar': '',
+    },
+    'eh0rujpe': {
+      'en': '4m ago',
+      'ar': '',
+    },
+    '990zxpq9': {
+      'en': 'Assigned  ',
+      'ar': '',
+    },
+    'szbpumhe': {
+      'en': 'Rudy Fernandez ',
+      'ar': '',
+    },
+    'k27oxjlp': {
+      'en': 'to ',
+      'ar': '',
+    },
+    'wjfc71l7': {
+      'en': 'Marketing Plan',
+      'ar': '',
+    },
+    '4aidxj87': {
+      'en': 'Abigail Rojas',
+      'ar': '',
+    },
+    'rnkp38g7': {
+      'en': '4m ago',
+      'ar': '',
+    },
+    'c2j9vbg1': {
+      'en': 'Created a project: ',
+      'ar': '',
+    },
+    'q1j99aee': {
+      'en': 'Marketing Plan',
+      'ar': '',
+    },
+    '1tde4da8': {
+      'en': 'Liz Ambridge',
+      'ar': '',
+    },
+    'eay1pyps': {
+      'en': '4m ago',
+      'ar': '',
+    },
+    'thnp02dx': {
+      'en': 'Sent a plan update for ',
+      'ar': '',
+    },
+    'cgpvq5dv': {
+      'en': 'Marketing Plan',
+      'ar': '',
+    },
+    '5ihbvw8d': {
+      'en': 'Project Started',
+      'ar': '',
+    },
+    'grlvoowu': {
+      'en': '12d ago',
+      'ar': '',
+    },
+    '82cqzpbl': {
+      'en': 'Al Rahma',
+      'ar': 'الرحمة',
+    },
+    '4ihx8bke': {
+      'en': 'Fieldwork management',
+      'ar': '',
+    },
     'h2kskk0t': {
       'en': 'Home',
       'ar': 'الصفحة الرئيسية',
+    },
+  },
+  // viewLocation
+  {
+    'qwo07x6c': {
+      'en': 'Location',
+      'ar': 'الموقع',
+    },
+    'oloibvov': {
+      'en': 'Home',
+      'ar': '',
+    },
+  },
+  // set_street_supervisor
+  {
+    'nqhkgq9j': {
+      'en': 'Option 1',
+      'ar': '',
+    },
+    'xntr6q3o': {
+      'en': 'Sector',
+      'ar': 'قطاع',
+    },
+    'zoz3rb75': {
+      'en': 'Search for an item...',
+      'ar': 'البحث عن عنصر...',
+    },
+    '6wvuchx3': {
+      'en': 'Option 1',
+      'ar': 'الخيار 1',
+    },
+    '899zvq24': {
+      'en': 'Square',
+      'ar': 'مربع',
+    },
+    'olspi0j0': {
+      'en': 'Search for an item...',
+      'ar': 'البحث عن عنصر...',
+    },
+    'q2eeqlb9': {
+      'en': 'Option 1',
+      'ar': '',
+    },
+    'ypud8avd': {
+      'en': 'Leader',
+      'ar': 'ليدر',
+    },
+    'tbtyod24': {
+      'en': 'Search for an item...',
+      'ar': '',
+    },
+    'a210atl7': {
+      'en': 'Main supervisor',
+      'ar': 'المشرف الاول',
+    },
+    'jkq83rnz': {
+      'en': 'Search for an item...',
+      'ar': 'البحث عن عنصر...',
+    },
+    '9qe97jtv': {
+      'en': 'Assign supervisor ',
+      'ar': 'تعين مشرف',
+    },
+    'u8l5pdd2': {
+      'en': 'Assign supervisor',
+      'ar': 'تعين مشرف',
+    },
+    'nogf1woa': {
+      'en': 'Home',
+      'ar': '',
+    },
+  },
+  // other_services
+  {
+    'nao8zsjq': {
+      'en': 'Other seirves',
+      'ar': 'خدمات أخري',
+    },
+    'mjlx2clt': {
+      'en': 'personal request',
+      'ar': ' طلب شخصي',
+    },
+    '6rjrqeoy': {
+      'en': 'maps',
+      'ar': 'القطاعات',
+    },
+    'zz6kkoku': {
+      'en': 'tasks',
+      'ar': 'المهام',
+    },
+    'cnzg7i1q': {
+      'en': 'Financial transactions',
+      'ar': '',
+    },
+    'x2espxkq': {
+      'en': 'Attendance',
+      'ar': '',
+    },
+    'l911r369': {
+      'en': 'daily reports',
+      'ar': '',
+    },
+    '946ptwzp': {
+      'en': 'Worker distributions',
+      'ar': '',
+    },
+    'psx30fxl': {
+      'en': 'Repair reports',
+      'ar': '',
+    },
+    '64pmoa1d': {
+      'en': 'Add a repair report',
+      'ar': '',
+    },
+    'xj6qqox7': {
+      'en': 'list of workers',
+      'ar': '',
+    },
+    '27n97d0y': {
+      'en': 'suppliers',
+      'ar': '',
+    },
+    'qc3hbvqs': {
+      'en': 'transmission',
+      'ar': '',
+    },
+    'bx21rbwt': {
+      'en': 'Al Rahma',
+      'ar': 'الرحمة',
+    },
+    '3ne4xvbs': {
+      'en': 'Fieldwork management',
+      'ar': 'إدارة العمل الميداني',
+    },
+    'qve8sti1': {
+      'en': 'Home',
+      'ar': 'الصفحه الرئيسيه',
+    },
+  },
+  // suc
+  {
+    'do2jph4l': {
+      'en': 'Home',
+      'ar': '',
+    },
+  },
+  // New_Tm_Home
+  {
+    'xw52x4tu': {
+      'en': 'Hello,',
+      'ar': 'مرحبًا،',
+    },
+    'tbz9hpxn': {
+      'en': 'Today\'s Requests',
+      'ar': 'طلبات اليوم',
+    },
+    '7i81zxqq': {
+      'en': 'Active Requests',
+      'ar': 'الطلبات النشطة',
+    },
+    'tmzscq3e': {
+      'en': 'Total Requests',
+      'ar': 'الطلبات المكتملة',
+    },
+    'xlswtywg': {
+      'en': 'Notifications',
+      'ar': 'إشعارات',
+    },
+    '0s985kpv': {
+      'en': 'Work order',
+      'ar': 'طلبات\n العمل',
+    },
+    'icrluej4': {
+      'en': 'Personal order',
+      'ar': 'طلبات شخصية',
+    },
+    '5iislwul': {
+      'en': 'Other services',
+      'ar': 'خدمات أخري',
+    },
+    'rutqt7yi': {
+      'en': 'Add Servicing',
+      'ar': 'اضافة صيانة',
+    },
+    'p3vk1kh2': {
+      'en': 'Add movement',
+      'ar': 'اضافة \n حركة',
+    },
+    'j5h73ig4': {
+      'en': 'Personal order',
+      'ar': 'طلب  شخصي',
+    },
+    'h69u2gcd': {
+      'en': 'Servicing report',
+      'ar': 'تقارير الصيانة',
+    },
+    '4cdkqank': {
+      'en': 'List movements',
+      'ar': 'تقارير الحركة',
+    },
+    'jnzsj7gw': {
+      'en': 'Powerd by Omar-s Team',
+      'ar': 'Powerd by Omar-s Team',
+    },
+    'hqg01i5g': {
+      'en': 'Al Rahma',
+      'ar': 'الرحمة',
+    },
+    'u1s4s44f': {
+      'en': 'Movement & vehicles management',
+      'ar': 'ادارة الحركة والمركبات',
+    },
+    'z5xo7c6b': {
+      'en': 'Home',
+      'ar': 'بيت',
+    },
+  },
+  // ChooseWorkersManual
+  {
+    '8gl7nbwh': {
+      'en': 'Search listings...',
+      'ar': 'قوائم البحث...',
+    },
+    'uz7n9dwa': {
+      'en': 'Choose',
+      'ar': 'تعيين',
+    },
+    'j1rry82s': {
+      'en': 'Attend',
+      'ar': '',
+    },
+    '2k3emq9p': {
+      'en': 'Choose Workers Manual',
+      'ar': 'تعيين عمال الشوارع',
+    },
+    't7bga6jy': {
+      'en': '•',
+      'ar': '•',
+    },
+  },
+  // AccountantHome
+  {
+    '4e05utpm': {
+      'en': 'Hello,',
+      'ar': 'مرحبًا،',
+    },
+    'dnwwn0gp': {
+      'en': 'Morning',
+      'ar': '',
+    },
+    'npgcz1x1': {
+      'en': 'Workers',
+      'ar': 'عمال',
+    },
+    'edt0zsii': {
+      'en': '32.2%',
+      'ar': '32.2%',
+    },
+    'jtv8e7d0': {
+      'en': '480 ',
+      'ar': '480',
+    },
+    'losfjse6': {
+      'en': '/ 500',
+      'ar': '/ 500',
+    },
+    'n5x3yqrr': {
+      'en': 'Supervisers',
+      'ar': 'المشرفين',
+    },
+    'b4yht3lc': {
+      'en': '32.2%',
+      'ar': '32.2%',
+    },
+    'uqmufjci': {
+      'en': '18 ',
+      'ar': '',
+    },
+    '1rgvmddj': {
+      'en': '/ 20',
+      'ar': '',
+    },
+    'eask1kaz': {
+      'en': 'Maadi',
+      'ar': '',
+    },
+    'imhuxyov': {
+      'en': '32.2%',
+      'ar': '32.2%',
+    },
+    'wa3o1dr8': {
+      'en': '50 ',
+      'ar': '50',
+    },
+    'hdj497hn': {
+      'en': '/ 150',
+      'ar': '/ 150',
+    },
+    '27u5ora6': {
+      'en': '9 ',
+      'ar': '9',
+    },
+    'frgk5x56': {
+      'en': '/ 10',
+      'ar': '/ 10',
+    },
+    'p999euss': {
+      'en': 'Workers',
+      'ar': 'عمال',
+    },
+    'y8dxbqg9': {
+      'en': 'Superviser',
+      'ar': 'المشرف',
+    },
+    '0po66fyb': {
+      'en': 'Basatin',
+      'ar': 'البساتين',
+    },
+    'lv77xpci': {
+      'en': '32.2%',
+      'ar': '',
+    },
+    'gt9lm9se': {
+      'en': '50 ',
+      'ar': '50',
+    },
+    'x8jvtcpf': {
+      'en': '/ 150',
+      'ar': '/ 150',
+    },
+    '7k18v4hl': {
+      'en': '9 ',
+      'ar': '9',
+    },
+    'y9960k29': {
+      'en': '/ 10',
+      'ar': '/ 10',
+    },
+    'sypg90bo': {
+      'en': 'Workers',
+      'ar': 'عمال',
+    },
+    '97szef21': {
+      'en': 'Superviser',
+      'ar': 'المشرف',
+    },
+    'dcm56qb9': {
+      'en': 'Marag',
+      'ar': 'معراج',
+    },
+    'u4hb9j50': {
+      'en': '32.2%',
+      'ar': '32.2%',
+    },
+    'syqtp6qj': {
+      'en': '50 ',
+      'ar': '50',
+    },
+    'bgmxjyga': {
+      'en': '/ 150',
+      'ar': '/ 150',
+    },
+    '61drv35y': {
+      'en': '9 ',
+      'ar': '',
+    },
+    '1s3hzmsp': {
+      'en': '/ 10',
+      'ar': '/ 10',
+    },
+    'vlewqa3z': {
+      'en': 'Workers',
+      'ar': '',
+    },
+    '1q76tn1h': {
+      'en': 'Superviser',
+      'ar': '',
+    },
+    'bfzmz7dj': {
+      'en': 'Daily Goal',
+      'ar': 'الهدف اليومي',
+    },
+    'tffu8ek6': {
+      'en': '62.2% /',
+      'ar': '62.2% /',
+    },
+    'hze5ec9l': {
+      'en': ' 12',
+      'ar': '12',
+    },
+    '3hu492d0': {
+      'en': '',
+      'ar': 'عدم ترجمة النصوص بشكل صحيح.',
+    },
+    'b0uz0149': {
+      'en': 'Achieved goals: ',
+      'ar': 'الأهداف المحققة:  ',
+    },
+    'fmty2tht': {
+      'en': '3',
+      'ar': '3',
+    },
+    'b2b8auqp': {
+      'en': 'All',
+      'ar': 'الجميع',
+    },
+    'dy8q3o22': {
+      'en': 'Work Area',
+      'ar': 'منطقة العمل',
+    },
+    'ctoe0py8': {
+      'en': 'General information about the area.',
+      'ar': 'معلومات عامة عن المنطقة.',
+    },
+    '7r9wb1u4': {
+      'en': 'Tasks',
+      'ar': 'مهام',
+    },
+    'fs4l7b0d': {
+      'en': 'Start Point',
+      'ar': 'نقطة البداية',
+    },
+    'w8akfsaj': {
+      'en': 'End Point',
+      'ar': 'نقطة النهاية',
+    },
+    'ff1pymuf': {
+      'en': 'Natifications',
+      'ar': 'إشعارات',
+    },
+    '3n4a92ku': {
+      'en': 'personal order',
+      'ar': '',
+    },
+    'oiokyrss': {
+      'en': '1',
+      'ar': '1',
+    },
+    'g0z34qk6': {
+      'en': 'Superviser order',
+      'ar': '',
+    },
+    '4knu8zt3': {
+      'en': '1',
+      'ar': '1',
+    },
+    't40v2n8r': {
+      'en': 'complans',
+      'ar': '',
+    },
+    'pwzx29iy': {
+      'en': '1',
+      'ar': '1',
+    },
+    '9f4qkyt2': {
+      'en': 'Other seirves',
+      'ar': '',
+    },
+    '1qg0ggx1': {
+      'en': 'Personal request',
+      'ar': '',
+    },
+    'xbkw6o4e': {
+      'en': 'Daily report',
+      'ar': '',
+    },
+    'hn9m31hm': {
+      'en': 'Atindanse',
+      'ar': '',
+    },
+    'vm9m1k97': {
+      'en': 'Map',
+      'ar': '',
+    },
+    'okg95nlk': {
+      'en': 'Assign supervisor',
+      'ar': '',
+    },
+    '37w7nopy': {
+      'en': 'Users',
+      'ar': '',
+    },
+    'vagq7do4': {
+      'en': 'Reviwes',
+      'ar': '',
+    },
+    'kbkj3cpy': {
+      'en': 'tasks',
+      'ar': '',
+    },
+    '4lklba0l': {
+      'en': 'Powerd by Omar-s Team',
+      'ar': 'Powerd by Omar-s Team',
+    },
+    't57ctf41': {
+      'en': 'Al Rahma',
+      'ar': 'الرحمة',
+    },
+    'yha5hfs0': {
+      'en': 'Fieldwork management',
+      'ar': 'ادارة الحركة والمركبات',
+    },
+    'mhn69er9': {
+      'en': 'Home',
+      'ar': 'بيت',
+    },
+  },
+  // Supplier_Transactions
+  {
+    't5yp5t0c': {
+      'en': 'Profit Details',
+      'ar': 'تفاصيل المعاملات',
+    },
+    'ian015ax': {
+      'en': ' Revenue & Expenses',
+      'ar': 'عائدات ونفقات',
+    },
+    's2d1vwja': {
+      'en': 'Attendance',
+      'ar': 'الحضور',
+    },
+    '17zvgj56': {
+      'en': 'Total',
+      'ar': 'الاجمالي',
+    },
+    'lj5fmsbf': {
+      'en': 'Revenue',
+      'ar': 'عائد',
+    },
+    '5jo2k919': {
+      'en': 'Expenses',
+      'ar': 'مصروفات',
+    },
+    'obue1x8e': {
+      'en': 'Your transactions',
+      'ar': 'معاملاتك',
+    },
+    'y4ewo7qc': {
+      'en': 'Expenses',
+      'ar': '',
+    },
+    'lgfxba5r': {
+      'en': 'Date & Time',
+      'ar': '',
+    },
+    'wtkatnb9': {
+      'en': 'Secondary text',
+      'ar': '',
+    },
+    '2ldj6ghv': {
+      'en': '\$1.50',
+      'ar': '',
+    },
+    '8ls6oxai': {
+      'en': 'Transactions',
+      'ar': 'معاملات',
+    },
+    '4eqbjzu4': {
+      'en': 'Home',
+      'ar': 'بيت',
+    },
+  },
+  // Add_Transactions
+  {
+    '159am37y': {
+      'en': 'Choose what you want to add ?',
+      'ar': 'ماذا تريد ان تضيف ؟',
+    },
+    'ggg26fge': {
+      'en': 'Contractor Name',
+      'ar': 'معرف المقاول',
+    },
+    'h36ovi9l': {
+      'en': 'Contractor ID',
+      'ar': 'معرف المقاول',
+    },
+    '0nk6r7ef': {
+      'en': 'Revenue',
+      'ar': 'إيرادات',
+    },
+    'bd6z4ilm': {
+      'en': 'Expense',
+      'ar': 'مصروفات',
+    },
+    'iiqpsd02': {
+      'en': 'Please select...',
+      'ar': 'اختر نوع المعاملة',
+    },
+    'pnme5x46': {
+      'en': 'Search for an item...',
+      'ar': 'البحث عن عنصر...',
+    },
+    'z55l8zaf': {
+      'en': 'value',
+      'ar': 'قيمة المعاملة',
+    },
+    'j286pvfz': {
+      'en': 'Description',
+      'ar': 'وصف',
+    },
+    'l7o0vwtx': {
+      'en': 'Add',
+      'ar': 'اضافة',
+    },
+    '6sprh5wx': {
+      'en': 'Add Transactions',
+      'ar': 'اضافة معاملة',
+    },
+    'oq3skcry': {
+      'en': 'Home',
+      'ar': 'بيت',
+    },
+  },
+  // contractorsList
+  {
+    't2oayvy8': {
+      'en': 'Search listings...',
+      'ar': 'قوائم البحث...',
+    },
+    'vsvnxeg5': {
+      'en': 'Suppliers',
+      'ar': 'الموردين',
+    },
+    'vgi6c9sd': {
+      'en': '•',
+      'ar': '•',
+    },
+  },
+  // OM_Cars_Orders_discription
+  {
+    '3sg8k20c': {
+      'en': 'Due',
+      'ar': 'التاريخ',
+    },
+    'mpecbfbo': {
+      'en': 'Details',
+      'ar': 'تفاصيل',
+    },
+    'ouerx989': {
+      'en': 'kind of order',
+      'ar': 'نوع من النظام',
+    },
+    'h9krjmk7': {
+      'en': 'kind of order',
+      'ar': 'نوع الطلب',
+    },
+    'u2uxl7qt': {
+      'en': 'ST',
+      'ar': 'شارع',
+    },
+    'v4v2o423': {
+      'en': 'Discription',
+      'ar': 'وصف',
+    },
+    'rtp9rkm1': {
+      'en': 'Response',
+      'ar': 'إجابة',
+    },
+    'bppn5xor': {
+      'en': 'Comment',
+      'ar': 'تعليق',
+    },
+    'f0pffabb': {
+      'en': 'Accept',
+      'ar': 'يقبل',
+    },
+    'v8hsx5dj': {
+      'en': 'Reject',
+      'ar': 'يرفض',
+    },
+    '3npejzlp': {
+      'en': 'Home',
+      'ar': 'بيت',
+    },
+  },
+  // Create04TaskCopy
+  {
+    '4cia15rd': {
+      'en': 'Task...',
+      'ar': '',
+    },
+    '04i337iq': {
+      'en': 'Description...',
+      'ar': '',
+    },
+    't3l2q0s9': {
+      'en': 'Add tags',
+      'ar': '',
+    },
+    'haktp40f': {
+      'en': 'Product Design',
+      'ar': '',
+    },
+    'dqg5h3vd': {
+      'en': 'FlutterFlow',
+      'ar': '',
+    },
+    'h8pusdyo': {
+      'en': 'UI Design',
+      'ar': '',
+    },
+    'c4pvd5e8': {
+      'en': 'Web Design',
+      'ar': '',
+    },
+    'v2bzthh5': {
+      'en': 'Product Design',
+      'ar': '',
+    },
+    'x7xgz9oh': {
+      'en': 'Due Date',
+      'ar': '',
+    },
+    '8dy2ciha': {
+      'en': 'Get Started',
+      'ar': '',
+    },
+    '8elziome': {
+      'en': 'Create Task',
+      'ar': '',
+    },
+    '74ibxo41': {
+      'en': 'Please fill out the form below to continue.',
+      'ar': '',
+    },
+    'voex71te': {
+      'en': 'Home',
+      'ar': 'بيت',
+    },
+  },
+  // Eng_Home
+  {
+    'dz1xxkr7': {
+      'en': 'Maverick',
+      'ar': '',
+    },
+    'wpi2hxv9': {
+      'en': 'Workers',
+      'ar': '',
+    },
+    'budl7z96': {
+      'en': '32.2%',
+      'ar': '32.2%',
+    },
+    '6nqwol8r': {
+      'en': '480 ',
+      'ar': '',
+    },
+    '9ud932gn': {
+      'en': '/ 500',
+      'ar': '',
+    },
+    'o8hosz73': {
+      'en': 'Supervisers',
+      'ar': 'المشرفين',
+    },
+    'wl81xceq': {
+      'en': '32.2%',
+      'ar': '',
+    },
+    '6iuiikqd': {
+      'en': '18 ',
+      'ar': '',
+    },
+    'o3m8k6of': {
+      'en': '/ 20',
+      'ar': '',
+    },
+    '7qm2uj4h': {
+      'en': 'Maadi',
+      'ar': '',
+    },
+    'r2vkad86': {
+      'en': '32.2%',
+      'ar': '',
+    },
+    '24crpuiw': {
+      'en': '50 ',
+      'ar': '50',
+    },
+    'oec5dl87': {
+      'en': '/ 150',
+      'ar': '',
+    },
+    '9cqblmyl': {
+      'en': '9 ',
+      'ar': '',
+    },
+    'yu80xf59': {
+      'en': '/ 10',
+      'ar': '',
+    },
+    'sjm6d5k1': {
+      'en': 'Workers',
+      'ar': '',
+    },
+    '1e8hn3bv': {
+      'en': 'Superviser',
+      'ar': '',
+    },
+    '4xyqez8t': {
+      'en': 'Daily Goal',
+      'ar': '',
+    },
+    'si1tb3dd': {
+      'en': '62.2% /',
+      'ar': '62.2% /',
+    },
+    'hizlrn3s': {
+      'en': ' 12',
+      'ar': '',
+    },
+    '59qu39v1': {
+      'en': '',
+      'ar': '',
+    },
+    '4awpz2ec': {
+      'en': 'Achieved goals:  ',
+      'ar': '',
+    },
+    'qr8v849r': {
+      'en': '3',
+      'ar': '',
+    },
+    'yxhk237y': {
+      'en': 'All',
+      'ar': 'الجميع',
+    },
+    'p1n4z8h1': {
+      'en': 'Notifications',
+      'ar': '',
+    },
+    '9raltoj2': {
+      'en': 'personal order',
+      'ar': 'طلب شخصي',
+    },
+    'qjkfdiia': {
+      'en': 'Bugs',
+      'ar': 'المشاكل ',
+    },
+    'viesxoww': {
+      'en': 'Other services',
+      'ar': '',
+    },
+    '68ukv7uh': {
+      'en': 'Attendence',
+      'ar': '',
+    },
+    '8s9qdx2x': {
+      'en': 'maps list',
+      'ar': '',
+    },
+    'q2h1czp5': {
+      'en': 'set supervisor',
+      'ar': '',
+    },
+    'k8an01ru': {
+      'en': 'Add Map',
+      'ar': '',
+    },
+    'oadedllk': {
+      'en': 'Users',
+      'ar': '',
+    },
+    '9bp8ab9x': {
+      'en': 'Add User',
+      'ar': '',
+    },
+    'yucrvq7m': {
+      'en': 'personal request',
+      'ar': '',
+    },
+    'oc5ys5h7': {
+      'en': 'Suppliers',
+      'ar': '',
+    },
+    '64rv3zkn': {
+      'en': 'Activity',
+      'ar': 'نشاط',
+    },
+    '6206idkd': {
+      'en': 'Recent completed tasks from your team.',
+      'ar': 'المهام المكتملة الأخيرة من فريقك.',
+    },
+    '8cslybyh': {
+      'en': 'Rudy Fernandez',
+      'ar': 'رودي فرنانديز',
+    },
+    'ev574rcl': {
+      'en': '4m ago',
+      'ar': 'منذ 4 م',
+    },
+    'j8wuget6': {
+      'en': 'Completed ',
+      'ar': 'مكتمل',
+    },
+    '3pbi7njr': {
+      'en': 'Marketing Plan',
+      'ar': 'خطة التسويق',
+    },
+    'j9dc5l1a': {
+      'en': 'Rudy Fernandez',
+      'ar': 'رودي فرنانديز',
+    },
+    'ywv8t15a': {
+      'en': '4m ago',
+      'ar': 'منذ 4 م',
+    },
+    'rj9ygn3n': {
+      'en': 'Started ',
+      'ar': 'بدأت',
+    },
+    'relhmr19': {
+      'en': 'Marketing Plan',
+      'ar': 'خطة التسويق',
+    },
+    '0t7dcaj0': {
+      'en': 'Abigail Rojas',
+      'ar': 'أبيجيل روخاس',
+    },
+    'r8m7rvgf': {
+      'en': '4m ago',
+      'ar': 'منذ 4 م',
+    },
+    'be3aog6l': {
+      'en': 'Assigned  ',
+      'ar': 'مُكَلَّف',
+    },
+    'rpjmld9f': {
+      'en': 'Rudy Fernandez ',
+      'ar': 'رودي فرنانديز',
+    },
+    '2mup0dbr': {
+      'en': 'to ',
+      'ar': 'ل',
+    },
+    'uaja5btr': {
+      'en': 'Marketing Plan',
+      'ar': 'خطة التسويق',
+    },
+    '9xoyr3gg': {
+      'en': 'Abigail Rojas',
+      'ar': 'أبيجيل روخاس',
+    },
+    'yvbtudop': {
+      'en': '4m ago',
+      'ar': 'منذ 4 م',
+    },
+    '0rl4k3iy': {
+      'en': 'Created a project: ',
+      'ar': 'تم إنشاء مشروع:',
+    },
+    'gfqq83cn': {
+      'en': 'Marketing Plan',
+      'ar': 'خطة التسويق',
+    },
+    'djsf1v54': {
+      'en': 'Liz Ambridge',
+      'ar': 'ليز أمبريدج',
+    },
+    'yi461uj9': {
+      'en': '4m ago',
+      'ar': 'منذ 4 م',
+    },
+    'xifzw6x5': {
+      'en': 'Sent a plan update for ',
+      'ar': 'تم إرسال تحديث الخطة لـ',
+    },
+    '9arub4ry': {
+      'en': 'Marketing Plan',
+      'ar': 'خطة التسويق',
+    },
+    '8gejg5yd': {
+      'en': 'Project Started',
+      'ar': 'بدأ المشروع',
+    },
+    'xvc798fd': {
+      'en': '12d ago',
+      'ar': 'منذ 12 يومًا',
+    },
+    'u0c8ksi8': {
+      'en': 'Powerd by Omar-s Team',
+      'ar': '',
+    },
+    'i8thjjmv': {
+      'en': 'Al Rahma',
+      'ar': '',
+    },
+    'hpqclefb': {
+      'en': 'Fieldwork management',
+      'ar': '',
+    },
+    'dv66lo3r': {
+      'en': 'Home',
+      'ar': 'بيت',
+    },
+  },
+  // Eng_list_technicalsupport
+  {
+    'zqql0dec': {
+      'en': 'Search...( Superviser )',
+      'ar': '',
+    },
+    '31z4cycp': {
+      'en': 'Option 1',
+      'ar': '8 ساعات',
+    },
+    'l0wlrq2e': {
+      'en': 'issue type',
+      'ar': 'النوع',
+    },
+    '99lso5qm': {
+      'en': 'Search for an item...',
+      'ar': 'البحث عن عنصر...',
+    },
+    '2jv2bhxm': {
+      'en': 'Option 1',
+      'ar': 'الخيار 1',
+    },
+    'w9r0d5k7': {
+      'en': 'state',
+      'ar': 'الحالة',
+    },
+    '6w6wo5y4': {
+      'en': 'Search for an item...',
+      'ar': 'البحث عن عنصر...',
+    },
+    'jvju3gnj': {
+      'en': 'Option 1',
+      'ar': 'الخيار 1',
+    },
+    'z44xaggt': {
+      'en': 'Day',
+      'ar': 'يوم',
+    },
+    'gj0uep15': {
+      'en': 'Search for an item...',
+      'ar': 'البحث عن عنصر...',
+    },
+    'ghuqg6zb': {
+      'en': 'No: {20}',
+      'ar': '',
+    },
+    '0z0hx3q7': {
+      'en': 'View',
+      'ar': 'عرض',
+    },
+    'ngu2up3b': {
+      'en': 'Tuesday, 10:00am',
+      'ar': '',
+    },
+    'pjwse1gj': {
+      'en': 'Export PDF',
+      'ar': 'تصدير قوات الدفاع الشعبي',
+    },
+    '212tr650': {
+      'en': 'Daily Tasks',
+      'ar': '',
+    },
+    'mf2barwe': {
+      'en': 'Home',
+      'ar': 'بيت',
+    },
+  },
+  // Eng_technicalsupport_details
+  {
+    'can6s9vm': {
+      'en': '#ID',
+      'ar': '',
+    },
+    's4wvuw1e': {
+      'en': 'Created BY',
+      'ar': 'المتضرر من المشكلة',
+    },
+    'ry345lpr': {
+      'en': 'Response',
+      'ar': '',
+    },
+    '2ajmg5h2': {
+      'en': 'Fixed',
+      'ar': 'تم حل المشكلة',
+    },
+    'j3xspmi1': {
+      'en': 'Bug Details',
+      'ar': 'تفاصيل المشكلة',
+    },
+    'kaab0zk0': {
+      'en': 'Home',
+      'ar': 'بيت',
+    },
+  },
+  // Send_technicalsupport
+  {
+    'f7qcpmy1': {
+      'en': 'Sector',
+      'ar': 'قطاع',
+    },
+    'hovwhd5s': {
+      'en': 'شاشة رمادية',
+      'ar': 'شاشة رمادية',
+    },
+    'wqacx787': {
+      'en': 'عدم عمل الأوامر كما هو متوقع',
+      'ar': ' عدم عمل الأوامر كما هو متوقع',
+    },
+    'ebynao5f': {
+      'en': ' عدم استجابة الأزرار',
+      'ar': ' عدم عمل الأوامر كما هو متوقع',
+    },
+    '2e677ggo': {
+      'en': 'التطبيق بطئ',
+      'ar': 'التطبيق بطئ',
+    },
+    'bhzt0l23': {
+      'en': 'استهلاك كبير للذاكرة أو البطارية.',
+      'ar': 'استهلاك كبير للذاكرة أو البطارية.',
+    },
+    '6ko59ui4': {
+      'en': 'الوصول غير المصرح به.',
+      'ar': 'الوصول غير المصرح به.',
+    },
+    '5zp7t5h5': {
+      'en': 'عدم تنسيق العناصر بشكل صحيح',
+      'ar': 'عدم تنسيق العناصر بشكل صحيح',
+    },
+    'q69qwxnx': {
+      'en': 'فقدان البيانات',
+      'ar': 'فقدان البيانات',
+    },
+    '888rcigy': {
+      'en': 'مشاكل الاتصال بالسيرفر',
+      'ar': 'مشاكل الاتصال بالسيرفر',
+    },
+    'f4fgqp6y': {
+      'en': 'تفاعل غير متوقع مع البيانات المرسلة والمستقبلة.',
+      'ar': 'تفاعل غير متوقع مع البيانات المرسلة والمستقبلة.',
+    },
+    'xs003awb': {
+      'en': 'عدم ترجمة النصوص بشكل صحيح.',
+      'ar': 'عدم ترجمة النصوص بشكل صحيح.',
+    },
+    'rghyhfl3': {
+      'en': 'Please select bug type',
+      'ar': 'اختر نوع المشكلة',
+    },
+    'bfumkno7': {
+      'en': 'Search for an item...',
+      'ar': 'البحث عن عنصر...',
+    },
+    'sm4slr91': {
+      'en': 'place of issue',
+      'ar': 'مكان الحدوث ( اسم الصفحة, الخطوة)',
+    },
+    'kiy7gfmu': {
+      'en': 'Type',
+      'ar': 'مكان الحدوث ( اسم الصفحة, الخطوة)',
+    },
+    '0kmev1uu': {
+      'en': 'Details',
+      'ar': 'تفاصيل',
+    },
+    'xoz8e2cg': {
+      'en': 'Done',
+      'ar': 'ارسال ',
+    },
+    'rh98y3tr': {
+      'en': 'Submitting technical support',
+      'ar': '',
+    },
+    'yd02b72o': {
+      'en': 'Home',
+      'ar': 'بيت',
+    },
+  },
+  // Tm_List_Movment
+  {
+    '5wv3osy2': {
+      'en': 'View',
+      'ar': 'منظر',
+    },
+    '8yh2kxuw': {
+      'en': 'Export PDF',
+      'ar': 'تصدير PDF',
+    },
+    'dco5bixg': {
+      'en': 'List of movments',
+      'ar': 'تقارير الحركة',
+    },
+    'axea0t0h': {
+      'en': 'Tasks',
+      'ar': 'مهام',
     },
   },
   // Header03TaskSummary
@@ -11523,31 +11303,27 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '9xp6o3sh': {
       'en': 'Platform Navigation',
-      'ar': 'التنقل في المنصة',
+      'ar': 'التنقل في  التطبيق',
     },
     'spyqa9j1': {
       'en': 'Dashboard',
-      'ar': 'لوحة المراقبة',
-    },
-    '2iynbb4t': {
-      'en': 'Chats',
-      'ar': 'الشاتات',
-    },
-    '5mg1we84': {
-      'en': 'Working Area',
-      'ar': '',
-    },
-    '6tbl288i': {
-      'en': 'Requests',
-      'ar': '',
+      'ar': 'الصفحة الرئيسية',
     },
     '8wbcyqhp': {
-      'en': 'Complaints & suggestions',
-      'ar': 'الشكاوي والمقترحات',
+      'en': 'Personal Requests',
+      'ar': 'الطلبات الشخصية',
+    },
+    's02jmgkt': {
+      'en': 'Complaints',
+      'ar': 'شكاوي',
     },
     'bweqr6uk': {
-      'en': 'Settings',
-      'ar': 'الإعدادات',
+      'en': 'Other',
+      'ar': 'عن التطبيق',
+    },
+    '6tbl288i': {
+      'en': 'Technical support',
+      'ar': 'الدعم الفني',
     },
     'qg5d6iez': {
       'en': 'Notifications',
@@ -11561,21 +11337,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Explore',
       'ar': 'استكشف',
     },
-    'f48hvv56': {
-      'en': 'العربية',
-      'ar': 'English',
-    },
-    's2qfbnvm': {
-      'en': 'Chats',
-      'ar': '',
-    },
-    'k25ioo4n': {
-      'en': 'Chats',
-      'ar': '',
-    },
     'i663n5fu': {
       'en': 'Log Out',
-      'ar': 'الخروج',
+      'ar': 'تسجيل الخروج',
     },
   },
   // Table01
@@ -12313,9 +12077,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Create User',
       'ar': '',
     },
-    'mrxazj43': {
+    '1r6tgkqj': {
       'en': 'ID',
-      'ar': '',
+      'ar': 'الأسم',
     },
     'hagy7hy2': {
       'en': 'User Information',
@@ -12428,8 +12192,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // EmptyListsimple
   {
     '5a8crhfe': {
-      'en': 'No Activity',
-      'ar': '',
+      'en': 'Empty ',
+      'ar': 'لا يوجد',
     },
     'kpiw9w0t': {
       'en': 'It seems that you don\'t have any recent activity.',
@@ -12442,6 +12206,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'User Created Successfully',
       'ar': 'تم إنشاء المستخدم بنجاح',
     },
+    'rk9mguqx': {
+      'en': '',
+      'ar': '',
+    },
     '8jjr3g8w': {
       'en': 'View Profile',
       'ar': 'الصفحة الشخصية',
@@ -12451,122 +12219,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ar': 'الصفحة الرئيسية',
     },
   },
-  // serch
-  {
-    'w0clerx5': {
-      'en': 'Search platform...',
-      'ar': '',
-    },
-    'z7akv505': {
-      'en': 'Search',
-      'ar': '',
-    },
-    'yui44yf6': {
-      'en': 'Templates',
-      'ar': '',
-    },
-    'tlzz6rqj': {
-      'en': 'Quickly find templates',
-      'ar': '',
-    },
-    'zqvn8qj3': {
-      'en': '[Template Name]',
-      'ar': '',
-    },
-    's7sjs0ni': {
-      'en': 'cateogry',
-      'ar': '',
-    },
-    '6vhzxdh5': {
-      'en': 'Enabled',
-      'ar': '',
-    },
-    'uw03yfhu': {
-      'en': '[Template Name]',
-      'ar': '',
-    },
-    '1kpmitzd': {
-      'en': 'cateogry',
-      'ar': '',
-    },
-    'p25h1afx': {
-      'en': 'Enabled',
-      'ar': '',
-    },
-    '4j8m6yq1': {
-      'en': '[Template Name]',
-      'ar': '',
-    },
-    'xe418l6p': {
-      'en': 'cateogry',
-      'ar': '',
-    },
-    'xwg5088l': {
-      'en': 'Disabled',
-      'ar': '',
-    },
-    'a6uc141c': {
-      'en': '[Template Name]',
-      'ar': '',
-    },
-    'oktqk054': {
-      'en': 'cateogry',
-      'ar': '',
-    },
-    'sxaet95r': {
-      'en': 'Enabled',
-      'ar': '',
-    },
-    'zdmh6rim': {
-      'en': '[Template Name]',
-      'ar': '',
-    },
-    'w2b2h9df': {
-      'en': 'cateogry',
-      'ar': '',
-    },
-    'extqpspw': {
-      'en': 'Enabled',
-      'ar': '',
-    },
-    'x1xifn57': {
-      'en': 'Components',
-      'ar': '',
-    },
-    'zr7nsni6': {
-      'en': 'Find your components',
-      'ar': '',
-    },
-    '0lm7atcw': {
-      'en': '[Template Name]',
-      'ar': '',
-    },
-    'i1qcqwui': {
-      'en': 'cateogry',
-      'ar': '',
-    },
-    'e67ec6j5': {
-      'en': 'Enabled',
-      'ar': '',
-    },
-    'mdczuoad': {
-      'en': '[Template Name]',
-      'ar': '',
-    },
-    'clwibx7e': {
-      'en': 'cateogry',
-      'ar': '',
-    },
-    'q8kz9p3l': {
-      'en': 'Disabled',
-      'ar': '',
-    },
-  },
   // today_requests_tm
   {
     'nm9wyubo': {
       'en': 'Today\'s Requests',
-      'ar': '',
+      'ar': 'طلبات اليوم',
     },
     'ndp6f2qu': {
       'en': 'Active Requests',
@@ -12574,7 +12231,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '3i4qhxzj': {
       'en': 'Total Requests',
-      'ar': '',
+      'ar': 'الطلبات المكتملة',
     },
   },
   // Button
@@ -12582,6 +12239,297 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'i9x1onxn': {
       'en': 'Done',
       'ar': 'الانهاء',
+    },
+  },
+  // dial
+  {
+    'jsbrkjuw': {
+      'en': 'Are You Sure',
+      'ar': 'هل انت متأكد انك تريد تسجيل خروج العامل؟',
+    },
+    'a6gpnql6': {
+      'en': 'No',
+      'ar': 'لا',
+    },
+    'ajzithbs': {
+      'en': 'Yes',
+      'ar': 'نعم',
+    },
+  },
+  // sp_dropdown
+  {
+    'xlvn8mpc': {
+      'en': 'worker',
+      'ar': 'عامل',
+    },
+    'dlkddwat': {
+      'en': 'Search for an item...',
+      'ar': 'البحث عن عنصر...',
+    },
+  },
+  // supervisorWorkerList
+  {
+    '6oo4e1x8': {
+      'en': 'Make complaint',
+      'ar': 'اصدار شكوي',
+    },
+    'g3pn8mgs': {
+      'en': 'Worker rating',
+      'ar': 'تقيم العامل',
+    },
+  },
+  // user_createdCopy
+  {
+    'vg0x27uk': {
+      'en': 'User Created Successfully',
+      'ar': '',
+    },
+    'tbkl98q6': {
+      'en': '',
+      'ar': '',
+    },
+    '5iglm0qf': {
+      'en': 'View Profile',
+      'ar': '',
+    },
+    '3gtkv50v': {
+      'en': 'Back To Home',
+      'ar': '',
+    },
+  },
+  // dialCopy
+  {
+    '08d47pr5': {
+      'en':
+          'FlutterFlow is a visual development platform that allows you to easily create beautiful and responsive user interfaces for your mobile and web applications. ',
+      'ar': '',
+    },
+    'evgaw6a7': {
+      'en': 'Action 2',
+      'ar': '',
+    },
+    'ml4lux7i': {
+      'en': 'Action 1',
+      'ar': '',
+    },
+  },
+  // sucsses_2
+  {
+    '914gpvt8': {
+      'en': 'Done!',
+      'ar': '',
+    },
+  },
+  // ddAtten
+  {
+    'ex3s6xvs': {
+      'en': 'worker',
+      'ar': 'عامل',
+    },
+    '28z0oqd4': {
+      'en': 'Search for an item...',
+      'ar': '',
+    },
+  },
+  // dpAttennn
+  {
+    '35o6mpj8': {
+      'en': 'worker',
+      'ar': 'عامل',
+    },
+    'yi0mupst': {
+      'en': 'Search for an item...',
+      'ar': 'البحث عن عنصر...',
+    },
+  },
+  // Succses
+  {
+    'nblp29x6': {
+      'en': 'Success',
+      'ar': ' تم بنجاح',
+    },
+  },
+  // InfoCopy
+  {
+    'sqjkstdi': {
+      'en': 'Info',
+      'ar': '',
+    },
+    '8asl0l3a': {
+      'en': 'Info message',
+      'ar': '',
+    },
+    'uk796v5s': {
+      'en': 'Button',
+      'ar': '',
+    },
+  },
+  // InfoCopyCopy
+  {
+    '5s6dl8e2': {
+      'en': 'Error',
+      'ar': '',
+    },
+    '8ih3rz6b': {
+      'en': 'Info message',
+      'ar': '',
+    },
+    'o7g82wg3': {
+      'en': 'Button',
+      'ar': '',
+    },
+  },
+  // streetWorkers
+  {
+    'gh3z1e6u': {
+      'en': 'Randy Peterson',
+      'ar': 'راندي بيترسون',
+    },
+    '19zk9zuq': {
+      'en': '#2008',
+      'ar': '#2008',
+    },
+    'j72fmf3l': {
+      'en': 'Car',
+      'ar': 'سيارة',
+    },
+  },
+  // assignedWorkersDD
+  {
+    'r5za8r6v': {
+      'en': 'worker',
+      'ar': 'عامل',
+    },
+    'h8dk62gk': {
+      'en': 'Search for an item...',
+      'ar': '',
+    },
+  },
+  // assignedWorkersSideMenu
+  {
+    'ezgrd9to': {
+      'en': 'Edit',
+      'ar': 'تعديل نوع العمل',
+    },
+    '2dj0qvoz': {
+      'en': 'Delete',
+      'ar': 'ازالة من الشارع',
+    },
+    'ni2rb8pu': {
+      'en': 'Search for an item...',
+      'ar': 'البحث عن عنصر...',
+    },
+  },
+  // AssignWorkerBSheet
+  {
+    't88zd6xb': {
+      'en': 'Assign Workrer',
+      'ar': 'تعيين عامل',
+    },
+    'mgs9gjy7': {
+      'en': 'Street',
+      'ar': 'الشارع',
+    },
+    'l1eltsbr': {
+      'en': 'Gonya',
+      'ar': 'جونيه',
+    },
+    'uiluffzx': {
+      'en': 'Option 1',
+      'ar': '',
+    },
+    '10ze7asn': {
+      'en': 'Please select...',
+      'ar': 'العامل',
+    },
+    '1z59pjzc': {
+      'en': 'Search for an item...',
+      'ar': 'البحث عن عنصر...',
+    },
+    'lif6mc3k': {
+      'en': 'Gonya',
+      'ar': 'جونيه',
+    },
+    'e5d3ouch': {
+      'en': 'Option 1',
+      'ar': 'صباحي',
+    },
+    '7z8x23y2': {
+      'en': 'Please select...',
+      'ar': 'نوع العمل',
+    },
+    'wasdiuiz': {
+      'en': 'Search for an item...',
+      'ar': 'البحث عن عنصر...',
+    },
+    'f0ot8hiz': {
+      'en': 'Button',
+      'ar': 'تأكيد',
+    },
+    'sv9fagjo': {
+      'en': 'Button',
+      'ar': 'الغاء',
+    },
+    'midstkdw': {
+      'en': 'Hello World',
+      'ar': '',
+    },
+  },
+  // AssignWorkerBSheetEdit
+  {
+    'u08srgml': {
+      'en': 'Assign Workrer',
+      'ar': 'اختيار عامل',
+    },
+    'ovqdwtsc': {
+      'en': 'Street',
+      'ar': 'الشارع',
+    },
+    'issxmwzs': {
+      'en': 'Worker Name',
+      'ar': 'اسم العامل',
+    },
+    '902cu81n': {
+      'en': 'Option 1',
+      'ar': '',
+    },
+    '2nekj6bg': {
+      'en': 'Please select...',
+      'ar': 'الرجاء تحديد العمل...',
+    },
+    'sxss7eo9': {
+      'en': 'Search for an item...',
+      'ar': 'البحث عن عنصر...',
+    },
+    '9ouzbkdx': {
+      'en': 'Edit',
+      'ar': 'تعديل',
+    },
+    '87urbtmd': {
+      'en': 'Cancel',
+      'ar': 'الغاء',
+    },
+    '8ugyc0q7': {
+      'en': 'Hello World',
+      'ar': '',
+    },
+  },
+  // assignWorkerOptions
+  {
+    '99o60cg5': {
+      'en': 'Edit',
+      'ar': 'تعديل',
+    },
+    'si86z3tb': {
+      'en': 'Remove',
+      'ar': 'ازالة من الشارع',
+    },
+  },
+  // SuccsesOneButton
+  {
+    'goxnwmgu': {
+      'en': 'Success',
+      'ar': '',
     },
   },
   // Miscellaneous
@@ -12596,6 +12544,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '4qsor06n': {
       'en': '',
+      'ar': '',
+    },
+    '7r2synpy': {
+      'en': ' من أجل تجربة استخدام افضل, من فضلك قم بفتح خدمة تحديد المواقع',
       'ar': '',
     },
     'bwj1dvzt': {

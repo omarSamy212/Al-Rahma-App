@@ -1,10 +1,21 @@
 export '/backend/schema/util/schema_util.dart';
 
+export 'authorized_user_struct.dart';
 export 'array_of_tools_struct.dart';
+export 'assign_workers_struct.dart';
+export 'attendacne_struct.dart';
+export 'checks_struct.dart';
+export 'current_shift_info_struct.dart';
 export 'driving_information_struct.dart';
+export 'generate_p_d_f_struct.dart';
+export 'geo_location_struct.dart';
+export 'image_old_paths_struct.dart';
+export 'leader_workers_struct_struct.dart';
 export 'missing_tool_array_struct.dart';
 export 'nat_info_struct.dart';
 export 'national_information_struct.dart';
+export 'personal_request_user_respons_struct.dart';
 export 'shift_struct.dart';
 export 'user_creation_object_struct.dart';
+export 'user_login_object_struct.dart';
 export 'user_privileges_struct.dart';

@@ -1,6 +1,8 @@
 // Automatic FlutterFlow imports
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
+import '/backend/schema/enums/enums.dart';
+import '/actions/actions.dart' as action_blocks;
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'index.dart'; // Imports other custom actions
@@ -11,7 +13,7 @@ import 'package:flutter/material.dart';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-Future<void> createSector(String sectorName, String sectorDescription) async {
+Future<bool> createSector(String sectorName) async {
   try {
     // Access Firestore instance
     FirebaseFirestore firestore = FirebaseFirestore.instance;
@@ -26,14 +28,16 @@ Future<void> createSector(String sectorName, String sectorDescription) async {
     // Create a new document in the Sectors collection
     await firestore.collection('Sectors').doc(sectorId).set({
       'sectorName': sectorName,
-      'sectorDescription': sectorDescription,
       'squaresList': [], // Initialize with an empty list
       'sectorID': sectorId,
+      'numOfNeededSupervisors': 0,
+      'numOfNeededWorkers': 0,
     });
 
-    print('Sector created successfully!');
+    return true;
   } catch (e) {
     print('Error creating sector: $e');
+    return false;
   }
 }
 

@@ -3,16 +3,15 @@ import 'dart:async';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
-import '/backend/schema/util/schema_util.dart';
+import '/backend/schema/enums/enums.dart';
 
 import 'index.dart';
-import '/flutter_flow/flutter_flow_util.dart';
 
 class UsersRecord extends FirestoreRecord {
   UsersRecord._(
-    DocumentReference reference,
-    Map<String, dynamic> data,
-  ) : super(reference, data) {
+    super.reference,
+    super.data,
+  ) {
     _initializeFields();
   }
 
@@ -136,11 +135,6 @@ class UsersRecord extends FirestoreRecord {
   ShiftStruct get shift => _shift ?? ShiftStruct();
   bool hasShift() => _shift != null;
 
-  // "contractorRef" field.
-  DocumentReference? _contractorRef;
-  DocumentReference? get contractorRef => _contractorRef;
-  bool hasContractorRef() => _contractorRef != null;
-
   // "national_information" field.
   NationalInformationStruct? _nationalInformation;
   NationalInformationStruct get nationalInformation =>
@@ -179,9 +173,44 @@ class UsersRecord extends FirestoreRecord {
   bool hasIsDriver() => _isDriver != null;
 
   // "employmentDate" field.
-  DateTime? _employmentDate;
-  DateTime? get employmentDate => _employmentDate;
+  String? _employmentDate;
+  String get employmentDate => _employmentDate ?? '';
   bool hasEmploymentDate() => _employmentDate != null;
+
+  // "contractorRef" field.
+  DocumentReference? _contractorRef;
+  DocumentReference? get contractorRef => _contractorRef;
+  bool hasContractorRef() => _contractorRef != null;
+
+  // "leaderAreaRefrence1" field.
+  DocumentReference? _leaderAreaRefrence1;
+  DocumentReference? get leaderAreaRefrence1 => _leaderAreaRefrence1;
+  bool hasLeaderAreaRefrence1() => _leaderAreaRefrence1 != null;
+
+  // "leaderAreaRefrence2" field.
+  DocumentReference? _leaderAreaRefrence2;
+  DocumentReference? get leaderAreaRefrence2 => _leaderAreaRefrence2;
+  bool hasLeaderAreaRefrence2() => _leaderAreaRefrence2 != null;
+
+  // "is_attend" field.
+  bool? _isAttend;
+  bool get isAttend => _isAttend ?? false;
+  bool hasIsAttend() => _isAttend != null;
+
+  // "attendance_state" field.
+  AttedanceState? _attendanceState;
+  AttedanceState? get attendanceState => _attendanceState;
+  bool hasAttendanceState() => _attendanceState != null;
+
+  // "attendance" field.
+  AttendacneStruct? _attendance;
+  AttendacneStruct get attendance => _attendance ?? AttendacneStruct();
+  bool hasAttendance() => _attendance != null;
+
+  // "job_code" field.
+  String? _jobCode;
+  String get jobCode => _jobCode ?? '';
+  bool hasJobCode() => _jobCode != null;
 
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
@@ -208,7 +237,6 @@ class UsersRecord extends FirestoreRecord {
     _backDrivingLicence = snapshotData['back_driving_licence'] as String?;
     _privileges = UserPrivilegesStruct.maybeFromMap(snapshotData['privileges']);
     _shift = ShiftStruct.maybeFromMap(snapshotData['shift']);
-    _contractorRef = snapshotData['contractorRef'] as DocumentReference?;
     _nationalInformation = NationalInformationStruct.maybeFromMap(
         snapshotData['national_information']);
     _drivingInformation = DrivingInformationStruct.maybeFromMap(
@@ -218,7 +246,17 @@ class UsersRecord extends FirestoreRecord {
     _isEmployed = snapshotData['isEmployed'] as String?;
     _createdBy = snapshotData['created_by'] as String?;
     _isDriver = snapshotData['is_driver'] as bool?;
-    _employmentDate = snapshotData['employmentDate'] as DateTime?;
+    _employmentDate = snapshotData['employmentDate'] as String?;
+    _contractorRef = snapshotData['contractorRef'] as DocumentReference?;
+    _leaderAreaRefrence1 =
+        snapshotData['leaderAreaRefrence1'] as DocumentReference?;
+    _leaderAreaRefrence2 =
+        snapshotData['leaderAreaRefrence2'] as DocumentReference?;
+    _isAttend = snapshotData['is_attend'] as bool?;
+    _attendanceState =
+        deserializeEnum<AttedanceState>(snapshotData['attendance_state']);
+    _attendance = AttendacneStruct.maybeFromMap(snapshotData['attendance']);
+    _jobCode = snapshotData['job_code'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -279,7 +317,6 @@ Map<String, dynamic> createUsersRecordData({
   String? backDrivingLicence,
   UserPrivilegesStruct? privileges,
   ShiftStruct? shift,
-  DocumentReference? contractorRef,
   NationalInformationStruct? nationalInformation,
   DrivingInformationStruct? drivingInformation,
   String? relegion,
@@ -287,7 +324,14 @@ Map<String, dynamic> createUsersRecordData({
   String? isEmployed,
   String? createdBy,
   bool? isDriver,
-  DateTime? employmentDate,
+  String? employmentDate,
+  DocumentReference? contractorRef,
+  DocumentReference? leaderAreaRefrence1,
+  DocumentReference? leaderAreaRefrence2,
+  bool? isAttend,
+  AttedanceState? attendanceState,
+  AttendacneStruct? attendance,
+  String? jobCode,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -315,7 +359,6 @@ Map<String, dynamic> createUsersRecordData({
       'back_driving_licence': backDrivingLicence,
       'privileges': UserPrivilegesStruct().toMap(),
       'shift': ShiftStruct().toMap(),
-      'contractorRef': contractorRef,
       'national_information': NationalInformationStruct().toMap(),
       'driving_information': DrivingInformationStruct().toMap(),
       'relegion': relegion,
@@ -324,6 +367,13 @@ Map<String, dynamic> createUsersRecordData({
       'created_by': createdBy,
       'is_driver': isDriver,
       'employmentDate': employmentDate,
+      'contractorRef': contractorRef,
+      'leaderAreaRefrence1': leaderAreaRefrence1,
+      'leaderAreaRefrence2': leaderAreaRefrence2,
+      'is_attend': isAttend,
+      'attendance_state': attendanceState,
+      'attendance': AttendacneStruct().toMap(),
+      'job_code': jobCode,
     }.withoutNulls,
   );
 
@@ -340,6 +390,9 @@ Map<String, dynamic> createUsersRecordData({
   // Handle nested data for "driving_information" field.
   addDrivingInformationStructData(
       firestoreData, drivingInformation, 'driving_information');
+
+  // Handle nested data for "attendance" field.
+  addAttendacneStructData(firestoreData, attendance, 'attendance');
 
   return firestoreData;
 }
@@ -373,7 +426,6 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.backDrivingLicence == e2?.backDrivingLicence &&
         e1?.privileges == e2?.privileges &&
         e1?.shift == e2?.shift &&
-        e1?.contractorRef == e2?.contractorRef &&
         e1?.nationalInformation == e2?.nationalInformation &&
         e1?.drivingInformation == e2?.drivingInformation &&
         e1?.relegion == e2?.relegion &&
@@ -381,7 +433,14 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.isEmployed == e2?.isEmployed &&
         e1?.createdBy == e2?.createdBy &&
         e1?.isDriver == e2?.isDriver &&
-        e1?.employmentDate == e2?.employmentDate;
+        e1?.employmentDate == e2?.employmentDate &&
+        e1?.contractorRef == e2?.contractorRef &&
+        e1?.leaderAreaRefrence1 == e2?.leaderAreaRefrence1 &&
+        e1?.leaderAreaRefrence2 == e2?.leaderAreaRefrence2 &&
+        e1?.isAttend == e2?.isAttend &&
+        e1?.attendanceState == e2?.attendanceState &&
+        e1?.attendance == e2?.attendance &&
+        e1?.jobCode == e2?.jobCode;
   }
 
   @override
@@ -410,7 +469,6 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.backDrivingLicence,
         e?.privileges,
         e?.shift,
-        e?.contractorRef,
         e?.nationalInformation,
         e?.drivingInformation,
         e?.relegion,
@@ -418,7 +476,14 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.isEmployed,
         e?.createdBy,
         e?.isDriver,
-        e?.employmentDate
+        e?.employmentDate,
+        e?.contractorRef,
+        e?.leaderAreaRefrence1,
+        e?.leaderAreaRefrence2,
+        e?.isAttend,
+        e?.attendanceState,
+        e?.attendance,
+        e?.jobCode
       ]);
 
   @override

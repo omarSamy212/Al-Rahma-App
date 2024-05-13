@@ -4,9 +4,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'button_model.dart';
 export 'button_model.dart';
 
@@ -63,7 +61,7 @@ class _ButtonWidgetState extends State<ButtonWidget> {
           ? MediaQuery.viewInsetsOf(context).bottom > 0
           : _isKeyboardVisible),
       child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 24.0),
+        padding: const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 24.0),
         child: FFButtonWidget(
           onPressed: () {
             print('Button pressed ...');
@@ -74,9 +72,9 @@ class _ButtonWidgetState extends State<ButtonWidget> {
           options: FFButtonOptions(
             width: double.infinity,
             height: 60.0,
-            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-            iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-            color: Color(0xFF101213),
+            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+            iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+            color: const Color(0xFF101213),
             textStyle: FlutterFlowTheme.of(context).titleMedium.override(
                   fontFamily: 'Plus Jakarta Sans',
                   color: Colors.white,
@@ -87,12 +85,12 @@ class _ButtonWidgetState extends State<ButtonWidget> {
                       GoogleFonts.asMap().containsKey('Plus Jakarta Sans'),
                 ),
             elevation: 4.0,
-            borderSide: BorderSide(
+            borderSide: const BorderSide(
               color: Colors.transparent,
               width: 1.0,
             ),
             borderRadius: BorderRadius.circular(50.0),
-            hoverColor: Color(0xFF101213),
+            hoverColor: const Color(0xFF101213),
           ),
         ),
       ),

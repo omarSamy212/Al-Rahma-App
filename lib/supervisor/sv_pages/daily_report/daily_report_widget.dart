@@ -1,12 +1,15 @@
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
+import '/components/succses_one_button_widget.dart';
+import '/components/yes_no_question_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:styled_divider/styled_divider.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'daily_report_model.dart';
@@ -57,6 +60,8 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Title(
         title: 'DailyReport',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
@@ -75,7 +80,7 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                 borderRadius: 30.0,
                 borderWidth: 1.0,
                 buttonSize: 60.0,
-                icon: Icon(
+                icon: const Icon(
                   Icons.arrow_back_rounded,
                   color: Colors.white,
                   size: 30.0,
@@ -100,8 +105,8 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                           FlutterFlowTheme.of(context).headlineMediumFamily),
                     ),
               ),
-              actions: [],
-              centerTitle: false,
+              actions: const [],
+              centerTitle: true,
               elevation: 2.0,
             ),
             body: SafeArea(
@@ -114,7 +119,7 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                       key: _model.formKey,
                       autovalidateMode: AutovalidateMode.disabled,
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             16.0, 12.0, 16.0, 0.0),
                         child: SingleChildScrollView(
                           child: Column(
@@ -122,7 +127,7 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     16.0, 4.0, 0.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
@@ -142,14 +147,14 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 16.0, 0.0, 0.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Align(
                                       alignment:
-                                          AlignmentDirectional(-1.0, 0.0),
+                                          const AlignmentDirectional(-1.0, 0.0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
                                           '7r8sy0rv' /* Sweep Condition */,
@@ -175,9 +180,9 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                     ),
                                     Align(
                                       alignment:
-                                          AlignmentDirectional(-1.0, 0.0),
+                                          const AlignmentDirectional(-1.0, 0.0),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             10.0, 0.0, 0.0, 0.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
@@ -205,7 +210,7 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           10.0, 0.0, 10.0, 12.0),
                                       child: TextFormField(
                                         controller: _model
@@ -222,7 +227,7 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                               .labelMedium
                                               .override(
                                                 fontFamily: 'Plus Jakarta Sans',
-                                                color: Color(0xFF57636C),
+                                                color: const Color(0xFF57636C),
                                                 fontSize: 14.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
@@ -240,7 +245,7 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                               .labelMedium
                                               .override(
                                                 fontFamily: 'Plus Jakarta Sans',
-                                                color: Color(0xFF57636C),
+                                                color: const Color(0xFF57636C),
                                                 fontSize: 14.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
@@ -250,7 +255,7 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                                         'Plus Jakarta Sans'),
                                               ),
                                           enabledBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
+                                            borderSide: const BorderSide(
                                               color: Color(0xFFE0E3E7),
                                               width: 2.0,
                                             ),
@@ -258,7 +263,7 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                                 BorderRadius.circular(8.0),
                                           ),
                                           focusedBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
+                                            borderSide: const BorderSide(
                                               color: Color(0xFF4B39EF),
                                               width: 2.0,
                                             ),
@@ -266,7 +271,7 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                                 BorderRadius.circular(8.0),
                                           ),
                                           errorBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
+                                            borderSide: const BorderSide(
                                               color: Color(0xFFFF5963),
                                               width: 2.0,
                                             ),
@@ -275,7 +280,7 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                           ),
                                           focusedErrorBorder:
                                               OutlineInputBorder(
-                                            borderSide: BorderSide(
+                                            borderSide: const BorderSide(
                                               color: Color(0xFFFF5963),
                                               width: 2.0,
                                             ),
@@ -285,7 +290,7 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                           filled: true,
                                           fillColor: Colors.white,
                                           contentPadding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   20.0, 24.0, 0.0, 24.0),
                                         ),
                                         style: FlutterFlowTheme.of(context)
@@ -320,7 +325,7 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                     ),
                                     Align(
                                       alignment:
-                                          AlignmentDirectional(-1.0, 0.0),
+                                          const AlignmentDirectional(-1.0, 0.0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
                                           'ple75jy6' /* Dust Stripping Condition */,
@@ -346,9 +351,9 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                     ),
                                     Align(
                                       alignment:
-                                          AlignmentDirectional(-1.0, 0.0),
+                                          const AlignmentDirectional(-1.0, 0.0),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             10.0, 0.0, 0.0, 0.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
@@ -376,7 +381,7 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           10.0, 0.0, 10.0, 12.0),
                                       child: TextFormField(
                                         controller: _model
@@ -393,7 +398,7 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                               .labelMedium
                                               .override(
                                                 fontFamily: 'Plus Jakarta Sans',
-                                                color: Color(0xFF57636C),
+                                                color: const Color(0xFF57636C),
                                                 fontSize: 14.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
@@ -411,7 +416,7 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                               .labelMedium
                                               .override(
                                                 fontFamily: 'Plus Jakarta Sans',
-                                                color: Color(0xFF57636C),
+                                                color: const Color(0xFF57636C),
                                                 fontSize: 14.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
@@ -421,7 +426,7 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                                         'Plus Jakarta Sans'),
                                               ),
                                           enabledBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
+                                            borderSide: const BorderSide(
                                               color: Color(0xFFE0E3E7),
                                               width: 2.0,
                                             ),
@@ -429,7 +434,7 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                                 BorderRadius.circular(8.0),
                                           ),
                                           focusedBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
+                                            borderSide: const BorderSide(
                                               color: Color(0xFF4B39EF),
                                               width: 2.0,
                                             ),
@@ -437,7 +442,7 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                                 BorderRadius.circular(8.0),
                                           ),
                                           errorBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
+                                            borderSide: const BorderSide(
                                               color: Color(0xFFFF5963),
                                               width: 2.0,
                                             ),
@@ -446,7 +451,7 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                           ),
                                           focusedErrorBorder:
                                               OutlineInputBorder(
-                                            borderSide: BorderSide(
+                                            borderSide: const BorderSide(
                                               color: Color(0xFFFF5963),
                                               width: 2.0,
                                             ),
@@ -456,7 +461,7 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                           filled: true,
                                           fillColor: Colors.white,
                                           contentPadding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   20.0, 24.0, 0.0, 24.0),
                                         ),
                                         style: FlutterFlowTheme.of(context)
@@ -491,7 +496,7 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                     ),
                                     Align(
                                       alignment:
-                                          AlignmentDirectional(-1.0, 0.0),
+                                          const AlignmentDirectional(-1.0, 0.0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
                                           'b0urv28f' /* Waste Removal Condition */,
@@ -517,9 +522,9 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                     ),
                                     Align(
                                       alignment:
-                                          AlignmentDirectional(-1.0, 0.0),
+                                          const AlignmentDirectional(-1.0, 0.0),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             10.0, 0.0, 0.0, 0.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
@@ -547,7 +552,7 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           10.0, 0.0, 10.0, 12.0),
                                       child: TextFormField(
                                         controller: _model
@@ -564,7 +569,7 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                               .labelMedium
                                               .override(
                                                 fontFamily: 'Plus Jakarta Sans',
-                                                color: Color(0xFF57636C),
+                                                color: const Color(0xFF57636C),
                                                 fontSize: 14.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
@@ -582,7 +587,7 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                               .labelMedium
                                               .override(
                                                 fontFamily: 'Plus Jakarta Sans',
-                                                color: Color(0xFF57636C),
+                                                color: const Color(0xFF57636C),
                                                 fontSize: 14.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
@@ -592,7 +597,7 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                                         'Plus Jakarta Sans'),
                                               ),
                                           enabledBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
+                                            borderSide: const BorderSide(
                                               color: Color(0xFFE0E3E7),
                                               width: 2.0,
                                             ),
@@ -600,7 +605,7 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                                 BorderRadius.circular(8.0),
                                           ),
                                           focusedBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
+                                            borderSide: const BorderSide(
                                               color: Color(0xFF4B39EF),
                                               width: 2.0,
                                             ),
@@ -608,7 +613,7 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                                 BorderRadius.circular(8.0),
                                           ),
                                           errorBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
+                                            borderSide: const BorderSide(
                                               color: Color(0xFFFF5963),
                                               width: 2.0,
                                             ),
@@ -617,7 +622,7 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                           ),
                                           focusedErrorBorder:
                                               OutlineInputBorder(
-                                            borderSide: BorderSide(
+                                            borderSide: const BorderSide(
                                               color: Color(0xFFFF5963),
                                               width: 2.0,
                                             ),
@@ -627,7 +632,7 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                           filled: true,
                                           fillColor: Colors.white,
                                           contentPadding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   20.0, 24.0, 0.0, 24.0),
                                         ),
                                         style: FlutterFlowTheme.of(context)
@@ -662,7 +667,7 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                     ),
                                     Align(
                                       alignment:
-                                          AlignmentDirectional(-1.0, 0.0),
+                                          const AlignmentDirectional(-1.0, 0.0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
                                           'xh1dh0ip' /* Section Needs */,
@@ -688,9 +693,9 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                     ),
                                     Align(
                                       alignment:
-                                          AlignmentDirectional(-1.0, 0.0),
+                                          const AlignmentDirectional(-1.0, 0.0),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             10.0, 0.0, 0.0, 0.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
@@ -718,7 +723,7 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           10.0, 0.0, 10.0, 12.0),
                                       child: TextFormField(
                                         controller: _model
@@ -735,7 +740,7 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                               .labelMedium
                                               .override(
                                                 fontFamily: 'Plus Jakarta Sans',
-                                                color: Color(0xFF57636C),
+                                                color: const Color(0xFF57636C),
                                                 fontSize: 14.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
@@ -753,7 +758,7 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                               .labelMedium
                                               .override(
                                                 fontFamily: 'Plus Jakarta Sans',
-                                                color: Color(0xFF57636C),
+                                                color: const Color(0xFF57636C),
                                                 fontSize: 14.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
@@ -763,7 +768,7 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                                         'Plus Jakarta Sans'),
                                               ),
                                           enabledBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
+                                            borderSide: const BorderSide(
                                               color: Color(0xFFE0E3E7),
                                               width: 2.0,
                                             ),
@@ -771,7 +776,7 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                                 BorderRadius.circular(8.0),
                                           ),
                                           focusedBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
+                                            borderSide: const BorderSide(
                                               color: Color(0xFF4B39EF),
                                               width: 2.0,
                                             ),
@@ -779,7 +784,7 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                                 BorderRadius.circular(8.0),
                                           ),
                                           errorBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
+                                            borderSide: const BorderSide(
                                               color: Color(0xFFFF5963),
                                               width: 2.0,
                                             ),
@@ -788,7 +793,7 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                           ),
                                           focusedErrorBorder:
                                               OutlineInputBorder(
-                                            borderSide: BorderSide(
+                                            borderSide: const BorderSide(
                                               color: Color(0xFFFF5963),
                                               width: 2.0,
                                             ),
@@ -798,7 +803,7 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                           filled: true,
                                           fillColor: Colors.white,
                                           contentPadding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   20.0, 24.0, 0.0, 24.0),
                                         ),
                                         style: FlutterFlowTheme.of(context)
@@ -833,7 +838,7 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                     ),
                                     Align(
                                       alignment:
-                                          AlignmentDirectional(-1.0, 0.0),
+                                          const AlignmentDirectional(-1.0, 0.0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
                                           'jpk5beho' /* A State of increased hostility... */,
@@ -859,9 +864,9 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                     ),
                                     Align(
                                       alignment:
-                                          AlignmentDirectional(-1.0, 0.0),
+                                          const AlignmentDirectional(-1.0, 0.0),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             10.0, 0.0, 0.0, 0.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
@@ -889,7 +894,7 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           10.0, 0.0, 10.0, 12.0),
                                       child: TextFormField(
                                         controller: _model
@@ -906,7 +911,7 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                               .labelMedium
                                               .override(
                                                 fontFamily: 'Plus Jakarta Sans',
-                                                color: Color(0xFF57636C),
+                                                color: const Color(0xFF57636C),
                                                 fontSize: 14.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
@@ -924,7 +929,7 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                               .labelMedium
                                               .override(
                                                 fontFamily: 'Plus Jakarta Sans',
-                                                color: Color(0xFF57636C),
+                                                color: const Color(0xFF57636C),
                                                 fontSize: 14.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
@@ -934,7 +939,7 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                                         'Plus Jakarta Sans'),
                                               ),
                                           enabledBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
+                                            borderSide: const BorderSide(
                                               color: Color(0xFFE0E3E7),
                                               width: 2.0,
                                             ),
@@ -942,7 +947,7 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                                 BorderRadius.circular(8.0),
                                           ),
                                           focusedBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
+                                            borderSide: const BorderSide(
                                               color: Color(0xFF4B39EF),
                                               width: 2.0,
                                             ),
@@ -950,7 +955,7 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                                 BorderRadius.circular(8.0),
                                           ),
                                           errorBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
+                                            borderSide: const BorderSide(
                                               color: Color(0xFFFF5963),
                                               width: 2.0,
                                             ),
@@ -959,7 +964,7 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                           ),
                                           focusedErrorBorder:
                                               OutlineInputBorder(
-                                            borderSide: BorderSide(
+                                            borderSide: const BorderSide(
                                               color: Color(0xFFFF5963),
                                               width: 2.0,
                                             ),
@@ -969,7 +974,7 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                           filled: true,
                                           fillColor: Colors.white,
                                           contentPadding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   20.0, 24.0, 0.0, 24.0),
                                         ),
                                         style: FlutterFlowTheme.of(context)
@@ -996,28 +1001,405 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                             .asValidator(context),
                                       ),
                                     ),
-                                  ].divide(SizedBox(height: 12.0)),
+                                  ].divide(const SizedBox(height: 12.0)),
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 24.0, 0.0, 12.0),
                                 child: FFButtonWidget(
-                                  onPressed: () {
-                                    print('Button pressed ...');
+                                  onPressed: () async {
+                                    logFirebaseEvent(
+                                        'DAILY_REPORT_SUBMIT_REPORT_BTN_ON_TAP');
+                                    logFirebaseEvent('Button_bottom_sheet');
+                                    await showModalBottomSheet(
+                                      isScrollControlled: true,
+                                      backgroundColor: Colors.transparent,
+                                      enableDrag: false,
+                                      context: context,
+                                      builder: (context) {
+                                        return GestureDetector(
+                                          onTap: () => _model
+                                                  .unfocusNode.canRequestFocus
+                                              ? FocusScope.of(context)
+                                                  .requestFocus(
+                                                      _model.unfocusNode)
+                                              : FocusScope.of(context)
+                                                  .unfocus(),
+                                          child: Padding(
+                                            padding: MediaQuery.viewInsetsOf(
+                                                context),
+                                            child: SizedBox(
+                                              height: MediaQuery.sizeOf(context)
+                                                      .height *
+                                                  1.0,
+                                              child: YesNoQuestionWidget(
+                                                headerName: 'رسالة تأكيد',
+                                                infoMessage:
+                                                    'هل انت متأكد من ارسال التقرير اليومي ؟',
+                                                yesButtonText: 'نعم',
+                                                noButtonText: 'لا',
+                                                yesButtonAction: () async {
+                                                  var shouldSetState = false;
+                                                  if (FFAppState()
+                                                          .authenticatedUser
+                                                          .leaderAreaRefrence1 !=
+                                                      null) {
+                                                    logFirebaseEvent(
+                                                        '_backend_call');
+                                                    _model.leader1 = await LeadersRecord
+                                                        .getDocumentOnce(FFAppState()
+                                                            .authenticatedUser
+                                                            .leaderAreaRefrence1!);
+                                                    shouldSetState = true;
+                                                    logFirebaseEvent(
+                                                        '_backend_call');
+                                                    _model.square1 =
+                                                        await SquaresRecord
+                                                            .getDocumentOnce(_model
+                                                                .leader1!
+                                                                .squareRefrence!);
+                                                    shouldSetState = true;
+                                                    logFirebaseEvent(
+                                                        '_custom_action');
+                                                    _model.dailyreport1 =
+                                                        await actions
+                                                            .createDailyReport(
+                                                      _model
+                                                          .textualDetailsTextController1
+                                                          .text,
+                                                      _model
+                                                          .textualDetailsTextController2
+                                                          .text,
+                                                      _model
+                                                          .textualDetailsTextController3
+                                                          .text,
+                                                      _model
+                                                          .textualDetailsTextController4
+                                                          .text,
+                                                      _model
+                                                          .textualDetailsTextController5
+                                                          .text,
+                                                      currentUserDocument!
+                                                          .userRefrence!,
+                                                      _model.leader1?.reference,
+                                                      _model.square1
+                                                          ?.sectorRefrence,
+                                                    );
+                                                    shouldSetState = true;
+                                                    if (_model.dailyreport1!) {
+                                                      logFirebaseEvent(
+                                                          '_bottom_sheet');
+                                                      await showModalBottomSheet(
+                                                        isScrollControlled:
+                                                            true,
+                                                        backgroundColor:
+                                                            Colors.transparent,
+                                                        isDismissible: false,
+                                                        enableDrag: false,
+                                                        context: context,
+                                                        builder: (context) {
+                                                          return GestureDetector(
+                                                            onTap: () => _model
+                                                                    .unfocusNode
+                                                                    .canRequestFocus
+                                                                ? FocusScope.of(
+                                                                        context)
+                                                                    .requestFocus(
+                                                                        _model
+                                                                            .unfocusNode)
+                                                                : FocusScope.of(
+                                                                        context)
+                                                                    .unfocus(),
+                                                            child: Padding(
+                                                              padding: MediaQuery
+                                                                  .viewInsetsOf(
+                                                                      context),
+                                                              child: SizedBox(
+                                                                height: MediaQuery.sizeOf(
+                                                                            context)
+                                                                        .height *
+                                                                    1.0,
+                                                                child:
+                                                                    SuccsesOneButtonWidget(
+                                                                  successesMessage:
+                                                                      'تم الارسال التقرير',
+                                                                  cancelButtonText:
+                                                                      'تم',
+                                                                  cancelButtonAction:
+                                                                      () async {
+                                                                    logFirebaseEvent(
+                                                                        '_bottom_sheet');
+                                                                    Navigator.pop(
+                                                                        context);
+                                                                    logFirebaseEvent(
+                                                                        '_bottom_sheet');
+                                                                    Navigator.pop(
+                                                                        context);
+                                                                    logFirebaseEvent(
+                                                                        '_navigate_back');
+                                                                    context
+                                                                        .safePop();
+                                                                  },
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          );
+                                                        },
+                                                      ).then((value) =>
+                                                          safeSetState(() {}));
+                                                    } else {
+                                                      return;
+                                                    }
+
+                                                    return;
+                                                  } else {
+                                                    if (FFAppState()
+                                                            .authenticatedUser
+                                                            .leaderAreaRefrence2 !=
+                                                        null) {
+                                                      logFirebaseEvent(
+                                                          '_backend_call');
+                                                      _model.leader2 =
+                                                          await LeadersRecord
+                                                              .getDocumentOnce(
+                                                                  FFAppState()
+                                                                      .authenticatedUser
+                                                                      .leaderAreaRefrence2!);
+                                                      shouldSetState = true;
+                                                      logFirebaseEvent(
+                                                          '_backend_call');
+                                                      _model.square2 =
+                                                          await SquaresRecord
+                                                              .getDocumentOnce(
+                                                                  _model
+                                                                      .leader2!
+                                                                      .squareRefrence!);
+                                                      shouldSetState = true;
+                                                      logFirebaseEvent(
+                                                          '_custom_action');
+                                                      _model.dailyreport2 =
+                                                          await actions
+                                                              .createDailyReport(
+                                                        _model
+                                                            .textualDetailsTextController1
+                                                            .text,
+                                                        _model
+                                                            .textualDetailsTextController2
+                                                            .text,
+                                                        _model
+                                                            .textualDetailsTextController3
+                                                            .text,
+                                                        _model
+                                                            .textualDetailsTextController4
+                                                            .text,
+                                                        _model
+                                                            .textualDetailsTextController5
+                                                            .text,
+                                                        currentUserDocument!
+                                                            .userRefrence!,
+                                                        _model
+                                                            .leader2?.reference,
+                                                        _model.square2
+                                                            ?.sectorRefrence,
+                                                      );
+                                                      shouldSetState = true;
+                                                      if (_model
+                                                          .dailyreport2!) {
+                                                        logFirebaseEvent(
+                                                            '_bottom_sheet');
+                                                        await showModalBottomSheet(
+                                                          isScrollControlled:
+                                                              true,
+                                                          backgroundColor:
+                                                              Colors
+                                                                  .transparent,
+                                                          isDismissible: false,
+                                                          enableDrag: false,
+                                                          context: context,
+                                                          builder: (context) {
+                                                            return GestureDetector(
+                                                              onTap: () => _model
+                                                                      .unfocusNode
+                                                                      .canRequestFocus
+                                                                  ? FocusScope.of(
+                                                                          context)
+                                                                      .requestFocus(
+                                                                          _model
+                                                                              .unfocusNode)
+                                                                  : FocusScope.of(
+                                                                          context)
+                                                                      .unfocus(),
+                                                              child: Padding(
+                                                                padding: MediaQuery
+                                                                    .viewInsetsOf(
+                                                                        context),
+                                                                child:
+                                                                    SizedBox(
+                                                                  height: MediaQuery.sizeOf(
+                                                                              context)
+                                                                          .height *
+                                                                      1.0,
+                                                                  child:
+                                                                      SuccsesOneButtonWidget(
+                                                                    successesMessage:
+                                                                        'تم الارسال التقرير',
+                                                                    cancelButtonText:
+                                                                        'تم',
+                                                                    cancelButtonAction:
+                                                                        () async {
+                                                                      logFirebaseEvent(
+                                                                          '_bottom_sheet');
+                                                                      Navigator.pop(
+                                                                          context);
+                                                                      logFirebaseEvent(
+                                                                          '_bottom_sheet');
+                                                                      Navigator.pop(
+                                                                          context);
+                                                                      logFirebaseEvent(
+                                                                          '_navigate_back');
+                                                                      context
+                                                                          .safePop();
+                                                                    },
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            );
+                                                          },
+                                                        ).then((value) =>
+                                                            safeSetState(
+                                                                () {}));
+                                                      } else {
+                                                        return;
+                                                      }
+
+                                                      return;
+                                                    } else {
+                                                      logFirebaseEvent(
+                                                          '_custom_action');
+                                                      _model.dailyreport3 =
+                                                          await actions
+                                                              .createDailyReport(
+                                                        _model
+                                                            .textualDetailsTextController1
+                                                            .text,
+                                                        _model
+                                                            .textualDetailsTextController2
+                                                            .text,
+                                                        _model
+                                                            .textualDetailsTextController3
+                                                            .text,
+                                                        _model
+                                                            .textualDetailsTextController4
+                                                            .text,
+                                                        _model
+                                                            .textualDetailsTextController5
+                                                            .text,
+                                                        currentUserDocument!
+                                                            .userRefrence!,
+                                                        null,
+                                                        null,
+                                                      );
+                                                      shouldSetState = true;
+                                                      if (_model
+                                                          .dailyreport3!) {
+                                                        logFirebaseEvent(
+                                                            '_bottom_sheet');
+                                                        await showModalBottomSheet(
+                                                          isScrollControlled:
+                                                              true,
+                                                          backgroundColor:
+                                                              Colors
+                                                                  .transparent,
+                                                          isDismissible: false,
+                                                          enableDrag: false,
+                                                          context: context,
+                                                          builder: (context) {
+                                                            return GestureDetector(
+                                                              onTap: () => _model
+                                                                      .unfocusNode
+                                                                      .canRequestFocus
+                                                                  ? FocusScope.of(
+                                                                          context)
+                                                                      .requestFocus(
+                                                                          _model
+                                                                              .unfocusNode)
+                                                                  : FocusScope.of(
+                                                                          context)
+                                                                      .unfocus(),
+                                                              child: Padding(
+                                                                padding: MediaQuery
+                                                                    .viewInsetsOf(
+                                                                        context),
+                                                                child:
+                                                                    SizedBox(
+                                                                  height: MediaQuery.sizeOf(
+                                                                              context)
+                                                                          .height *
+                                                                      1.0,
+                                                                  child:
+                                                                      SuccsesOneButtonWidget(
+                                                                    successesMessage:
+                                                                        'تم الارسال التقرير',
+                                                                    cancelButtonText:
+                                                                        'تم',
+                                                                    cancelButtonAction:
+                                                                        () async {
+                                                                      logFirebaseEvent(
+                                                                          '_bottom_sheet');
+                                                                      Navigator.pop(
+                                                                          context);
+                                                                      logFirebaseEvent(
+                                                                          '_bottom_sheet');
+                                                                      Navigator.pop(
+                                                                          context);
+                                                                      logFirebaseEvent(
+                                                                          '_navigate_back');
+                                                                      context
+                                                                          .safePop();
+                                                                    },
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            );
+                                                          },
+                                                        ).then((value) =>
+                                                            safeSetState(
+                                                                () {}));
+                                                      } else {
+                                                        return;
+                                                      }
+
+                                                      return;
+                                                    }
+                                                  }
+                                                },
+                                                noButtonAction: () async {
+                                                  logFirebaseEvent(
+                                                      '_bottom_sheet');
+                                                  Navigator.pop(context);
+                                                },
+                                              ),
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                    ).then((value) => safeSetState(() {}));
+
+                                    setState(() {});
                                   },
                                   text: FFLocalizations.of(context).getText(
                                     'kzbcmh4u' /* Submit Report */,
                                   ),
-                                  icon: Icon(
+                                  icon: const Icon(
                                     Icons.receipt_long,
                                     size: 15.0,
                                   ),
                                   options: FFButtonOptions(
                                     width: double.infinity,
                                     height: 48.0,
-                                    padding: EdgeInsets.all(0.0),
-                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsets.all(0.0),
+                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
                                     color: FlutterFlowTheme.of(context).primary,
                                     textStyle: FlutterFlowTheme.of(context)
@@ -1034,7 +1416,7 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                                       .titleSmallFamily),
                                         ),
                                     elevation: 4.0,
-                                    borderSide: BorderSide(
+                                    borderSide: const BorderSide(
                                       color: Colors.transparent,
                                       width: 1.0,
                                     ),
@@ -1045,9 +1427,9 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
 
                               // You will have to add an action on this rich text to go to your login page.
                               Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
+                                alignment: const AlignmentDirectional(0.0, 0.0),
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 12.0, 0.0, 12.0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
@@ -1072,7 +1454,7 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                                 .getText(
                                               'aefx3rd8' /*  Would you like to leave?  */,
                                             ),
-                                            style: TextStyle(),
+                                            style: const TextStyle(),
                                           ),
                                           TextSpan(
                                             text: FFLocalizations.of(context)
@@ -1084,7 +1466,7 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                                 .override(
                                                   fontFamily:
                                                       'Plus Jakarta Sans',
-                                                  color: Color(0xFF4B39EF),
+                                                  color: const Color(0xFF4B39EF),
                                                   fontSize: 14.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
@@ -1099,7 +1481,7 @@ class _DailyReportWidgetState extends State<DailyReportWidget> {
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Plus Jakarta Sans',
-                                              color: Color(0xFF101213),
+                                              color: const Color(0xFF101213),
                                               fontSize: 14.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,

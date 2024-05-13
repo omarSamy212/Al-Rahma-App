@@ -1,22 +1,25 @@
 import '/backend/backend.dart';
-import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'manualattendance_widget.dart' show ManualattendanceWidget;
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 class ManualattendanceModel extends FlutterFlowModel<ManualattendanceWidget> {
+  ///  Local state fields for this page.
+
+  bool isFullList = true;
+
+  bool refreshPage = true;
+
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  List<SectorsRecord>? manualattendancePreviousSnapshot;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
+  // Stores action output result for [Backend Call - Create Document] action in IconButton widget.
+  ChecksRecord? createCheck;
 
   @override
   void initState(BuildContext context) {}

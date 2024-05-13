@@ -1,17 +1,13 @@
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import '/shared/shared_components/our_side_nav/our_side_nav_widget.dart';
 import '/storage_keeper/sk_components/daily_ordar/daily_ordar_widget.dart';
 import '/storage_keeper/sk_components/todays_requests_dashboard/todays_requests_dashboard_widget.dart';
+import '/traffic_manager/shared/shared_components/our_side_nav/our_side_nav_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'day_contract_list_model.dart';
 export 'day_contract_list_model.dart';
 
@@ -53,8 +49,8 @@ class _DayContractListWidgetState extends State<DayContractListWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(0.0, 10.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(0.0, 10.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -93,30 +89,30 @@ class _DayContractListWidgetState extends State<DayContractListWidget>
               : FocusScope.of(context).unfocus(),
           child: Scaffold(
             key: scaffoldKey,
-            backgroundColor: Color(0xFFF1F4F8),
+            backgroundColor: const Color(0xFFF1F4F8),
             drawer: Drawer(
               elevation: 16.0,
               child: wrapWithModel(
                 model: _model.ourSideNavModel,
                 updateCallback: () => setState(() {}),
-                child: OurSideNavWidget(),
+                child: const OurSideNavWidget(),
               ),
             ),
             appBar: PreferredSize(
-              preferredSize: Size.fromHeight(70.0),
+              preferredSize: const Size.fromHeight(70.0),
               child: AppBar(
-                backgroundColor: Color(0xFF0CA256),
+                backgroundColor: const Color(0xFF0CA256),
                 automaticallyImplyLeading: false,
                 title: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 0.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Align(
-                        alignment: AlignmentDirectional(-1.0, 0.0),
+                        alignment: const AlignmentDirectional(-1.0, 0.0),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               24.0, 0.0, 0.0, 0.0),
                           child: InkWell(
                             splashColor: Colors.transparent,
@@ -129,7 +125,7 @@ class _DayContractListWidgetState extends State<DayContractListWidget>
                               logFirebaseEvent('menu_drawer');
                               scaffoldKey.currentState!.openDrawer();
                             },
-                            child: Icon(
+                            child: const Icon(
                               Icons.menu,
                               color: Color(0xFFE0E3E7),
                               size: 24.0,
@@ -166,9 +162,9 @@ class _DayContractListWidgetState extends State<DayContractListWidget>
                         ],
                       ),
                       Align(
-                        alignment: AlignmentDirectional(0.0, 0.0),
+                        alignment: const AlignmentDirectional(0.0, 0.0),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 24.0, 0.0),
                           child: InkWell(
                             splashColor: Colors.transparent,
@@ -183,7 +179,7 @@ class _DayContractListWidgetState extends State<DayContractListWidget>
                               context.pushNamed(
                                 'welcome',
                                 extra: <String, dynamic>{
-                                  kTransitionInfoKey: TransitionInfo(
+                                  kTransitionInfoKey: const TransitionInfo(
                                     hasTransition: true,
                                     transitionType: PageTransitionType.fade,
                                   ),
@@ -201,7 +197,7 @@ class _DayContractListWidgetState extends State<DayContractListWidget>
                     ],
                   ),
                 ),
-                actions: [],
+                actions: const [],
                 centerTitle: false,
                 elevation: 0.0,
               ),
@@ -212,27 +208,27 @@ class _DayContractListWidgetState extends State<DayContractListWidget>
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    Container(
+                    SizedBox(
                       height: 250.0,
                       child: Stack(
                         children: [
                           Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
+                            alignment: const AlignmentDirectional(0.0, 0.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
-                                  child: Container(
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                  child: SizedBox(
                                     height: 233.0,
                                     child: Stack(
                                       children: [
                                         Container(
                                           width: double.infinity,
                                           height: 87.0,
-                                          decoration: BoxDecoration(
+                                          decoration: const BoxDecoration(
                                             color: Color(0xFF0CA256),
                                           ),
                                         ),
@@ -240,7 +236,7 @@ class _DayContractListWidgetState extends State<DayContractListWidget>
                                           model: _model
                                               .todaysRequestsDashboardModel,
                                           updateCallback: () => setState(() {}),
-                                          child: Hero(
+                                          child: const Hero(
                                             tag: 'requestCounter',
                                             transitionOnUserGestures: true,
                                             child: Material(
@@ -267,12 +263,12 @@ class _DayContractListWidgetState extends State<DayContractListWidget>
                       scrollDirection: Axis.vertical,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 20.0, 0.0, 0.0),
                           child: wrapWithModel(
                             model: _model.dailyOrdarModel,
                             updateCallback: () => setState(() {}),
-                            child: DailyOrdarWidget(),
+                            child: const DailyOrdarWidget(),
                           ),
                         ),
                       ],

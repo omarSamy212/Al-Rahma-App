@@ -1,23 +1,21 @@
-import '/flutter_flow/flutter_flow_animations.dart';
-import '/flutter_flow/flutter_flow_drop_down.dart';
-import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_google_map.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'tm_task_discription_widget.dart' show TmTaskDiscriptionWidget;
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 class TmTaskDiscriptionModel extends FlutterFlowModel<TmTaskDiscriptionWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  // State field(s) for GoogleMap widget.
+  LatLng? googleMapsCenter;
+  final googleMapsController = Completer<GoogleMapController>();
+  // State field(s) for TextualDetails widget.
+  FocusNode? textualDetailsFocusNode;
+  TextEditingController? textualDetailsTextController;
+  String? Function(BuildContext, String?)?
+      textualDetailsTextControllerValidator;
   // State field(s) for the_truck widget.
   String? theTruckValue;
   FormFieldController<String>? theTruckValueController;
@@ -34,5 +32,7 @@ class TmTaskDiscriptionModel extends FlutterFlowModel<TmTaskDiscriptionWidget> {
   @override
   void dispose() {
     unfocusNode.dispose();
+    textualDetailsFocusNode?.dispose();
+    textualDetailsTextController?.dispose();
   }
 }

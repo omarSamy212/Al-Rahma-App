@@ -2,7 +2,6 @@ import '/auth/base_auth_user_provider.dart';
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
-import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -14,19 +13,14 @@ import '/flutter_flow/upload_data.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
 import 'package:easy_debounce/easy_debounce.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_blurhash/flutter_blurhash.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
-import 'package:octo_image/octo_image.dart';
 import 'package:provider/provider.dart';
 import 'update_user_model.dart';
 export 'update_user_model.dart';
@@ -61,18 +55,19 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       logFirebaseEvent('UPDATE_USER_updateUser_ON_INIT_STATE');
       if (!(loggedIn &&
-          (currentUserDocument?.privileges?.roleName == 'Admin'))) {
+          (FFAppState().authenticatedUser.privileges.roleName ==
+              'رئيس مجلس الإدارة'))) {
         logFirebaseEvent('updateUser_alert_dialog');
         await showDialog(
           context: context,
           builder: (alertDialogContext) {
             return AlertDialog(
-              title: Text('Error'),
-              content: Text('Access Not Granted'),
+              title: const Text('Error'),
+              content: const Text('Access Not Granted'),
               actions: [
                 TextButton(
                   onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
+                  child: const Text('Ok'),
                 ),
               ],
             );
@@ -172,8 +167,8 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
             curve: Curves.easeInOut,
             delay: 250.0.ms,
             duration: 600.0.ms,
-            begin: Offset(0.0, 70.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(0.0, 70.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -198,8 +193,8 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
             curve: Curves.easeInOut,
             delay: 250.0.ms,
             duration: 600.0.ms,
-            begin: Offset(0.0, 70.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(0.0, 70.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -224,8 +219,8 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
             curve: Curves.easeInOut,
             delay: 250.0.ms,
             duration: 600.0.ms,
-            begin: Offset(0.0, 70.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(0.0, 70.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -250,8 +245,8 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
             curve: Curves.easeInOut,
             delay: 250.0.ms,
             duration: 600.0.ms,
-            begin: Offset(0.0, 70.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(0.0, 70.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -276,8 +271,8 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
             curve: Curves.easeInOut,
             delay: 250.0.ms,
             duration: 600.0.ms,
-            begin: Offset(0.0, 70.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(0.0, 70.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -302,8 +297,8 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
             curve: Curves.easeInOut,
             delay: 250.0.ms,
             duration: 600.0.ms,
-            begin: Offset(0.0, 70.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(0.0, 70.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -327,6 +322,8 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return StreamBuilder<UsersRecord>(
       stream: UsersRecord.getDocument(widget.user!),
       builder: (context, snapshot) {
@@ -347,7 +344,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
               key: scaffoldKey,
               backgroundColor: Colors.white,
               appBar: PreferredSize(
-                preferredSize: Size.fromHeight(70.0),
+                preferredSize: const Size.fromHeight(70.0),
                 child: AppBar(
                   backgroundColor: FlutterFlowTheme.of(context).primary,
                   automaticallyImplyLeading: false,
@@ -356,7 +353,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                     borderRadius: 30.0,
                     borderWidth: 1.0,
                     buttonSize: 60.0,
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.arrow_back_rounded,
                       color: Colors.white,
                       size: 30.0,
@@ -370,7 +367,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                   ),
                   title: Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                     child: Text(
                       FFLocalizations.of(context).getText(
                         'yxcxejbg' /* Update  Profile */,
@@ -387,7 +384,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                               ),
                     ),
                   ),
-                  actions: [],
+                  actions: const [],
                   centerTitle: true,
                   elevation: 2.0,
                 ),
@@ -395,26 +392,24 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
               body: SafeArea(
                 top: true,
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
                   child: SingleChildScrollView(
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: EdgeInsets.all(2.0),
+                          padding: const EdgeInsets.all(2.0),
                           child: Container(
                             width: 200.0,
                             height: 200.0,
                             clipBehavior: Clip.antiAlias,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               shape: BoxShape.circle,
                             ),
                             child: CachedNetworkImage(
-                              fadeInDuration: Duration(milliseconds: 500),
-                              fadeOutDuration: Duration(milliseconds: 500),
-                              imageUrl: updateUserUsersRecord.photoUrl !=
-                                          null &&
-                                      updateUserUsersRecord.photoUrl != ''
+                              fadeInDuration: const Duration(milliseconds: 500),
+                              fadeOutDuration: const Duration(milliseconds: 500),
+                              imageUrl: updateUserUsersRecord.photoUrl != ''
                                   ? updateUserUsersRecord.photoUrl
                                   : 'https://images.unsplash.com/photo-1676195470090-7c90bf539b3b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHw5fHxtYW4lMjBwcm9maWxlJTIwaWNvbnxlbnwwfHx8fDE3MTIwMDQwNDR8MA&ixlib=rb-4.0.3&q=80&w=1080',
                               fit: BoxFit.fitWidth,
@@ -422,13 +417,13 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                           ),
                         ),
                         Container(
-                          decoration: BoxDecoration(),
+                          decoration: const BoxDecoration(),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Align(
-                                alignment: AlignmentDirectional(0.0, -1.0),
+                                alignment: const AlignmentDirectional(0.0, -1.0),
                                 child: Form(
                                   key: _model.formKey7,
                                   autovalidateMode: AutovalidateMode.disabled,
@@ -440,7 +435,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                           .secondaryBackground,
                                     ),
                                     child: Align(
-                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      alignment: const AlignmentDirectional(0.0, 0.0),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.min,
                                         crossAxisAlignment:
@@ -448,12 +443,12 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                         children: [
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 10.0),
                                             child: Text(
                                               FFLocalizations.of(context)
                                                   .getText(
-                                                'dkchucwl' /* ID: #1502 */,
+                                                'emgoopnd' /* ID: #1502 */,
                                               ),
                                               style: FlutterFlowTheme.of(
                                                       context)
@@ -461,7 +456,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                   .override(
                                                     fontFamily:
                                                         'Plus Jakarta Sans',
-                                                    color: Color(0xFF101213),
+                                                    color: const Color(0xFF101213),
                                                     fontSize: 14.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w500,
@@ -477,7 +472,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                             children: [
                                               Expanded(
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(20.0, 10.0,
                                                           20.0, 16.0),
                                                   child: TextFormField(
@@ -508,7 +503,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Plus Jakarta Sans',
-                                                                color: Color(
+                                                                color: const Color(
                                                                     0xFF57636C),
                                                                 fontSize: 14.0,
                                                                 letterSpacing:
@@ -528,7 +523,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Plus Jakarta Sans',
-                                                                color: Color(
+                                                                color: const Color(
                                                                     0xFF57636C),
                                                                 fontSize: 14.0,
                                                                 letterSpacing:
@@ -543,7 +538,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                               ),
                                                       enabledBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: BorderSide(
+                                                        borderSide: const BorderSide(
                                                           color:
                                                               Color(0xFFE0E3E7),
                                                           width: 2.0,
@@ -554,7 +549,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       ),
                                                       focusedBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: BorderSide(
+                                                        borderSide: const BorderSide(
                                                           color:
                                                               Color(0xFF4B39EF),
                                                           width: 2.0,
@@ -565,7 +560,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       ),
                                                       errorBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: BorderSide(
+                                                        borderSide: const BorderSide(
                                                           color:
                                                               Color(0xFFFF5963),
                                                           width: 2.0,
@@ -576,7 +571,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       ),
                                                       focusedErrorBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: BorderSide(
+                                                        borderSide: const BorderSide(
                                                           color:
                                                               Color(0xFFFF5963),
                                                           width: 2.0,
@@ -588,7 +583,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       filled: true,
                                                       fillColor: Colors.white,
                                                       contentPadding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   20.0,
                                                                   24.0,
@@ -602,7 +597,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              Color(0xFF14181B),
+                                                              const Color(0xFF14181B),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -621,7 +616,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                               ),
                                               Expanded(
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(20.0, 10.0,
                                                           20.0, 16.0),
                                                   child: TextFormField(
@@ -652,7 +647,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Plus Jakarta Sans',
-                                                                color: Color(
+                                                                color: const Color(
                                                                     0xFF57636C),
                                                                 fontSize: 14.0,
                                                                 letterSpacing:
@@ -672,7 +667,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Plus Jakarta Sans',
-                                                                color: Color(
+                                                                color: const Color(
                                                                     0xFF57636C),
                                                                 fontSize: 14.0,
                                                                 letterSpacing:
@@ -687,7 +682,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                               ),
                                                       enabledBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: BorderSide(
+                                                        borderSide: const BorderSide(
                                                           color:
                                                               Color(0xFFE0E3E7),
                                                           width: 2.0,
@@ -698,7 +693,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       ),
                                                       focusedBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: BorderSide(
+                                                        borderSide: const BorderSide(
                                                           color:
                                                               Color(0xFF4B39EF),
                                                           width: 2.0,
@@ -709,7 +704,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       ),
                                                       errorBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: BorderSide(
+                                                        borderSide: const BorderSide(
                                                           color:
                                                               Color(0xFFFF5963),
                                                           width: 2.0,
@@ -720,7 +715,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       ),
                                                       focusedErrorBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: BorderSide(
+                                                        borderSide: const BorderSide(
                                                           color:
                                                               Color(0xFFFF5963),
                                                           width: 2.0,
@@ -732,7 +727,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       filled: true,
                                                       fillColor: Colors.white,
                                                       contentPadding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   20.0,
                                                                   24.0,
@@ -746,7 +741,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              Color(0xFF14181B),
+                                                              const Color(0xFF14181B),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -771,11 +766,11 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                               Expanded(
                                                 child: Align(
                                                   alignment:
-                                                      AlignmentDirectional(
+                                                      const AlignmentDirectional(
                                                           0.0, 0.0),
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(
                                                                 20.0,
                                                                 10.0,
@@ -810,7 +805,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                 .override(
                                                                   fontFamily:
                                                                       'Plus Jakarta Sans',
-                                                                  color: Color(
+                                                                  color: const Color(
                                                                       0xFF57636C),
                                                                   fontSize:
                                                                       14.0,
@@ -831,7 +826,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                 .override(
                                                                   fontFamily:
                                                                       'Plus Jakarta Sans',
-                                                                  color: Color(
+                                                                  color: const Color(
                                                                       0xFF57636C),
                                                                   fontSize:
                                                                       14.0,
@@ -848,7 +843,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                         enabledBorder:
                                                             OutlineInputBorder(
                                                           borderSide:
-                                                              BorderSide(
+                                                              const BorderSide(
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             width: 2.0,
@@ -861,7 +856,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                         focusedBorder:
                                                             OutlineInputBorder(
                                                           borderSide:
-                                                              BorderSide(
+                                                              const BorderSide(
                                                             color: Color(
                                                                 0xFF4B39EF),
                                                             width: 2.0,
@@ -874,7 +869,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                         errorBorder:
                                                             OutlineInputBorder(
                                                           borderSide:
-                                                              BorderSide(
+                                                              const BorderSide(
                                                             color: Color(
                                                                 0xFFFF5963),
                                                             width: 2.0,
@@ -887,7 +882,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                         focusedErrorBorder:
                                                             OutlineInputBorder(
                                                           borderSide:
-                                                              BorderSide(
+                                                              const BorderSide(
                                                             color: Color(
                                                                 0xFFFF5963),
                                                             width: 2.0,
@@ -900,7 +895,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                         filled: true,
                                                         fillColor: Colors.white,
                                                         contentPadding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     20.0,
                                                                     24.0,
@@ -913,7 +908,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                           .override(
                                                             fontFamily:
                                                                 'Plus Jakarta Sans',
-                                                            color: Color(
+                                                            color: const Color(
                                                                 0xFF14181B),
                                                             fontSize: 14.0,
                                                             letterSpacing: 0.0,
@@ -935,7 +930,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                               ),
                                               Expanded(
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(20.0, 10.0,
                                                           20.0, 16.0),
                                                   child: TextFormField(
@@ -966,7 +961,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Plus Jakarta Sans',
-                                                                color: Color(
+                                                                color: const Color(
                                                                     0xFF57636C),
                                                                 fontSize: 14.0,
                                                                 letterSpacing:
@@ -986,7 +981,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Plus Jakarta Sans',
-                                                                color: Color(
+                                                                color: const Color(
                                                                     0xFF57636C),
                                                                 fontSize: 14.0,
                                                                 letterSpacing:
@@ -1001,7 +996,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                               ),
                                                       enabledBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: BorderSide(
+                                                        borderSide: const BorderSide(
                                                           color:
                                                               Color(0xFFE0E3E7),
                                                           width: 2.0,
@@ -1012,7 +1007,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       ),
                                                       focusedBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: BorderSide(
+                                                        borderSide: const BorderSide(
                                                           color:
                                                               Color(0xFF4B39EF),
                                                           width: 2.0,
@@ -1023,7 +1018,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       ),
                                                       errorBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: BorderSide(
+                                                        borderSide: const BorderSide(
                                                           color:
                                                               Color(0xFFFF5963),
                                                           width: 2.0,
@@ -1034,7 +1029,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       ),
                                                       focusedErrorBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: BorderSide(
+                                                        borderSide: const BorderSide(
                                                           color:
                                                               Color(0xFFFF5963),
                                                           width: 2.0,
@@ -1046,7 +1041,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       filled: true,
                                                       fillColor: Colors.white,
                                                       contentPadding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   20.0,
                                                                   24.0,
@@ -1060,7 +1055,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              Color(0xFF14181B),
+                                                              const Color(0xFF14181B),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -1081,9 +1076,9 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                           ),
                                           Align(
                                             alignment:
-                                                AlignmentDirectional(-1.0, 0.0),
+                                                const AlignmentDirectional(-1.0, 0.0),
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       25.0, 10.0, 0.0, 0.0),
                                               child: Text(
@@ -1110,7 +1105,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     20.0, 10.0, 20.0, 12.0),
                                             child: FlutterFlowDropDown<String>(
                                               controller: _model
@@ -1141,7 +1136,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            Color(0xFF14181B),
+                                                            const Color(0xFF14181B),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -1156,7 +1151,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       .getText(
                                                 'quevxoty' /* Religion */,
                                               ),
-                                              icon: Icon(
+                                              icon: const Icon(
                                                 Icons
                                                     .keyboard_arrow_down_rounded,
                                                 color: Color(0xFF57636C),
@@ -1164,10 +1159,10 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                               ),
                                               fillColor: Colors.white,
                                               elevation: 2.0,
-                                              borderColor: Color(0xFFE0E3E7),
+                                              borderColor: const Color(0xFFE0E3E7),
                                               borderWidth: 2.0,
                                               borderRadius: 8.0,
-                                              margin: EdgeInsetsDirectional
+                                              margin: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       20.0, 4.0, 12.0, 4.0),
                                               hidesUnderline: true,
@@ -1177,9 +1172,9 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                           ),
                                           Align(
                                             alignment:
-                                                AlignmentDirectional(-1.0, 0.0),
+                                                const AlignmentDirectional(-1.0, 0.0),
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       25.0, 10.0, 0.0, 0.0),
                                               child: Text(
@@ -1206,7 +1201,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     20.0, 10.0, 20.0, 12.0),
                                             child: FlutterFlowDropDown<String>(
                                               controller: _model
@@ -1237,7 +1232,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            Color(0xFF14181B),
+                                                            const Color(0xFF14181B),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -1252,7 +1247,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       .getText(
                                                 '3e9mudts' /* Select Gender */,
                                               ),
-                                              icon: Icon(
+                                              icon: const Icon(
                                                 Icons
                                                     .keyboard_arrow_down_rounded,
                                                 color: Color(0xFF57636C),
@@ -1260,10 +1255,10 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                               ),
                                               fillColor: Colors.white,
                                               elevation: 2.0,
-                                              borderColor: Color(0xFFE0E3E7),
+                                              borderColor: const Color(0xFFE0E3E7),
                                               borderWidth: 2.0,
                                               borderRadius: 8.0,
-                                              margin: EdgeInsetsDirectional
+                                              margin: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       20.0, 4.0, 12.0, 4.0),
                                               hidesUnderline: true,
@@ -1273,9 +1268,9 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                           ),
                                           Align(
                                             alignment:
-                                                AlignmentDirectional(-1.0, 0.0),
+                                                const AlignmentDirectional(-1.0, 0.0),
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       25.0, 10.0, 0.0, 0.0),
                                               child: Text(
@@ -1302,7 +1297,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     20.0, 10.0, 20.0, 2.0),
                                             child: FlutterFlowDropDown<String>(
                                               controller: _model
@@ -1334,7 +1329,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            Color(0xFF14181B),
+                                                            const Color(0xFF14181B),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -1349,7 +1344,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       .getText(
                                                 'qh7c9fxr' /* Marital Status */,
                                               ),
-                                              icon: Icon(
+                                              icon: const Icon(
                                                 Icons
                                                     .keyboard_arrow_down_rounded,
                                                 color: Color(0xFF57636C),
@@ -1357,10 +1352,10 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                               ),
                                               fillColor: Colors.white,
                                               elevation: 2.0,
-                                              borderColor: Color(0xFFE0E3E7),
+                                              borderColor: const Color(0xFFE0E3E7),
                                               borderWidth: 2.0,
                                               borderRadius: 8.0,
-                                              margin: EdgeInsetsDirectional
+                                              margin: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       20.0, 4.0, 12.0, 4.0),
                                               hidesUnderline: true,
@@ -1370,9 +1365,9 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                           ),
                                           Align(
                                             alignment:
-                                                AlignmentDirectional(-1.0, 0.0),
+                                                const AlignmentDirectional(-1.0, 0.0),
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       25.0, 10.0, 0.0, 0.0),
                                               child: Text(
@@ -1399,7 +1394,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     20.0, 10.0, 20.0, 12.0),
                                             child: FlutterFlowDropDown<String>(
                                               controller: _model
@@ -1431,7 +1426,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            Color(0xFF14181B),
+                                                            const Color(0xFF14181B),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -1446,7 +1441,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       .getText(
                                                 'nx9mxld8' /* Nationality */,
                                               ),
-                                              icon: Icon(
+                                              icon: const Icon(
                                                 Icons
                                                     .keyboard_arrow_down_rounded,
                                                 color: Color(0xFF57636C),
@@ -1454,10 +1449,10 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                               ),
                                               fillColor: Colors.white,
                                               elevation: 2.0,
-                                              borderColor: Color(0xFFE0E3E7),
+                                              borderColor: const Color(0xFFE0E3E7),
                                               borderWidth: 2.0,
                                               borderRadius: 8.0,
-                                              margin: EdgeInsetsDirectional
+                                              margin: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       20.0, 4.0, 12.0, 4.0),
                                               hidesUnderline: true,
@@ -1479,7 +1474,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                               if ((_model.countryValue == 'Egypt') ||
                                   (_model.countryValue == 'مصر'))
                                 Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Form(
                                     key: _model.formKey9,
                                     autovalidateMode: AutovalidateMode.disabled,
@@ -1494,7 +1489,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                         children: [
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     20.0, 25.0, 20.0, 0.0),
                                             child: TextFormField(
                                               controller: _model
@@ -1509,7 +1504,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
                                                 '_model.nationalIDTextController',
-                                                Duration(milliseconds: 2000),
+                                                const Duration(milliseconds: 2000),
                                                 () => setState(() {}),
                                               ),
                                               textCapitalization:
@@ -1529,7 +1524,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     .override(
                                                       fontFamily:
                                                           'Plus Jakarta Sans',
-                                                      color: Color(0xFF57636C),
+                                                      color: const Color(0xFF57636C),
                                                       fontSize: 14.0,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
@@ -1545,7 +1540,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     .override(
                                                       fontFamily:
                                                           'Plus Jakarta Sans',
-                                                      color: Color(0xFF57636C),
+                                                      color: const Color(0xFF57636C),
                                                       fontSize: 14.0,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
@@ -1557,7 +1552,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     ),
                                                 enabledBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFE0E3E7),
                                                     width: 2.0,
                                                   ),
@@ -1567,7 +1562,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                 ),
                                                 focusedBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFF4B39EF),
                                                     width: 2.0,
                                                   ),
@@ -1576,7 +1571,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                           8.0),
                                                 ),
                                                 errorBorder: OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 2.0,
                                                   ),
@@ -1586,7 +1581,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                 ),
                                                 focusedErrorBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 2.0,
                                                   ),
@@ -1597,7 +1592,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                 filled: true,
                                                 fillColor: Colors.white,
                                                 contentPadding:
-                                                    EdgeInsetsDirectional
+                                                    const EdgeInsetsDirectional
                                                         .fromSTEB(20.0, 24.0,
                                                             0.0, 20.0),
                                                 suffixIcon: _model
@@ -1611,7 +1606,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                               ?.clear();
                                                           setState(() {});
                                                         },
-                                                        child: Icon(
+                                                        child: const Icon(
                                                           Icons.clear,
                                                           color:
                                                               Color(0xFF757575),
@@ -1627,7 +1622,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            Color(0xFF14181B),
+                                                            const Color(0xFF14181B),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -1649,15 +1644,12 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                           ),
                                           if (_model.nationalIDTextController
                                                       .text !=
-                                                  null &&
-                                              _model.nationalIDTextController
-                                                      .text !=
                                                   '')
                                             Align(
-                                              alignment: AlignmentDirectional(
+                                              alignment: const AlignmentDirectional(
                                                   -1.0, -1.0),
                                               child: Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         20.0, 0.0, 0.0, 10.0),
                                                 child: FFButtonWidget(
@@ -1699,11 +1691,11 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     width: 123.0,
                                                     height: 38.0,
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(24.0, 0.0,
                                                                 24.0, 0.0),
                                                     iconPadding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 0.0),
                                                     color: FlutterFlowTheme.of(
@@ -1728,7 +1720,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                       .titleSmallFamily),
                                                         ),
                                                     elevation: 3.0,
-                                                    borderSide: BorderSide(
+                                                    borderSide: const BorderSide(
                                                       color: Colors.transparent,
                                                       width: 1.0,
                                                     ),
@@ -1741,7 +1733,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                             ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     20.0, 0.0, 20.0, 4.0),
                                             child: TextFormField(
                                               controller: _model
@@ -1768,7 +1760,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     .override(
                                                       fontFamily:
                                                           'Plus Jakarta Sans',
-                                                      color: Color(0xFF57636C),
+                                                      color: const Color(0xFF57636C),
                                                       fontSize: 14.0,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
@@ -1784,7 +1776,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     .override(
                                                       fontFamily:
                                                           'Plus Jakarta Sans',
-                                                      color: Color(0xFF57636C),
+                                                      color: const Color(0xFF57636C),
                                                       fontSize: 14.0,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
@@ -1796,7 +1788,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     ),
                                                 enabledBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFE0E3E7),
                                                     width: 2.0,
                                                   ),
@@ -1806,7 +1798,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                 ),
                                                 focusedBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFF4B39EF),
                                                     width: 2.0,
                                                   ),
@@ -1815,7 +1807,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                           8.0),
                                                 ),
                                                 errorBorder: OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 2.0,
                                                   ),
@@ -1825,7 +1817,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                 ),
                                                 focusedErrorBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 2.0,
                                                   ),
@@ -1836,7 +1828,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                 filled: true,
                                                 fillColor: Colors.white,
                                                 contentPadding:
-                                                    EdgeInsetsDirectional
+                                                    const EdgeInsetsDirectional
                                                         .fromSTEB(20.0, 24.0,
                                                             0.0, 24.0),
                                               ),
@@ -1847,7 +1839,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            Color(0xFF14181B),
+                                                            const Color(0xFF14181B),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -1867,7 +1859,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     20.0, 6.0, 20.0, 6.0),
                                             child: TextFormField(
                                               controller:
@@ -1889,7 +1881,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     .override(
                                                       fontFamily:
                                                           'Plus Jakarta Sans',
-                                                      color: Color(0xFF57636C),
+                                                      color: const Color(0xFF57636C),
                                                       fontSize: 14.0,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
@@ -1905,7 +1897,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     .override(
                                                       fontFamily:
                                                           'Plus Jakarta Sans',
-                                                      color: Color(0xFF57636C),
+                                                      color: const Color(0xFF57636C),
                                                       fontSize: 14.0,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
@@ -1917,7 +1909,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     ),
                                                 enabledBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFE0E3E7),
                                                     width: 2.0,
                                                   ),
@@ -1927,7 +1919,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                 ),
                                                 focusedBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFF4B39EF),
                                                     width: 2.0,
                                                   ),
@@ -1936,7 +1928,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                           8.0),
                                                 ),
                                                 errorBorder: OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 2.0,
                                                   ),
@@ -1946,7 +1938,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                 ),
                                                 focusedErrorBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 2.0,
                                                   ),
@@ -1957,7 +1949,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                 filled: true,
                                                 fillColor: Colors.white,
                                                 contentPadding:
-                                                    EdgeInsetsDirectional
+                                                    const EdgeInsetsDirectional
                                                         .fromSTEB(20.0, 24.0,
                                                             0.0, 24.0),
                                               ),
@@ -1968,7 +1960,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            Color(0xFF14181B),
+                                                            const Color(0xFF14181B),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -1986,7 +1978,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     20.0, 10.0, 20.0, 1.0),
                                             child: TextFormField(
                                               controller: _model
@@ -2013,7 +2005,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     .override(
                                                       fontFamily:
                                                           'Plus Jakarta Sans',
-                                                      color: Color(0xFF57636C),
+                                                      color: const Color(0xFF57636C),
                                                       fontSize: 14.0,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
@@ -2029,7 +2021,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     .override(
                                                       fontFamily:
                                                           'Plus Jakarta Sans',
-                                                      color: Color(0xFF57636C),
+                                                      color: const Color(0xFF57636C),
                                                       fontSize: 14.0,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
@@ -2041,7 +2033,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     ),
                                                 enabledBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFE0E3E7),
                                                     width: 2.0,
                                                   ),
@@ -2051,7 +2043,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                 ),
                                                 focusedBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFF4B39EF),
                                                     width: 2.0,
                                                   ),
@@ -2060,7 +2052,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                           8.0),
                                                 ),
                                                 errorBorder: OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 2.0,
                                                   ),
@@ -2070,7 +2062,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                 ),
                                                 focusedErrorBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 2.0,
                                                   ),
@@ -2081,7 +2073,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                 filled: true,
                                                 fillColor: Colors.white,
                                                 contentPadding:
-                                                    EdgeInsetsDirectional
+                                                    const EdgeInsetsDirectional
                                                         .fromSTEB(20.0, 24.0,
                                                             0.0, 24.0),
                                               ),
@@ -2092,7 +2084,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            Color(0xFF14181B),
+                                                            const Color(0xFF14181B),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -2112,7 +2104,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                             children: [
                                               Expanded(
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(20.0, 10.0,
                                                           20.0, 16.0),
                                                   child: TextFormField(
@@ -2143,7 +2135,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Plus Jakarta Sans',
-                                                                color: Color(
+                                                                color: const Color(
                                                                     0xFF57636C),
                                                                 fontSize: 14.0,
                                                                 letterSpacing:
@@ -2163,7 +2155,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Plus Jakarta Sans',
-                                                                color: Color(
+                                                                color: const Color(
                                                                     0xFF57636C),
                                                                 fontSize: 14.0,
                                                                 letterSpacing:
@@ -2178,7 +2170,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                               ),
                                                       enabledBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: BorderSide(
+                                                        borderSide: const BorderSide(
                                                           color:
                                                               Color(0xFFE0E3E7),
                                                           width: 2.0,
@@ -2189,7 +2181,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       ),
                                                       focusedBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: BorderSide(
+                                                        borderSide: const BorderSide(
                                                           color:
                                                               Color(0xFF4B39EF),
                                                           width: 2.0,
@@ -2200,7 +2192,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       ),
                                                       errorBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: BorderSide(
+                                                        borderSide: const BorderSide(
                                                           color:
                                                               Color(0xFFFF5963),
                                                           width: 2.0,
@@ -2211,7 +2203,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       ),
                                                       focusedErrorBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: BorderSide(
+                                                        borderSide: const BorderSide(
                                                           color:
                                                               Color(0xFFFF5963),
                                                           width: 2.0,
@@ -2223,7 +2215,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       filled: true,
                                                       fillColor: Colors.white,
                                                       contentPadding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   20.0,
                                                                   24.0,
@@ -2237,7 +2229,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              Color(0xFF14181B),
+                                                              const Color(0xFF14181B),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -2260,10 +2252,10 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                 ),
                                               ),
                                               Align(
-                                                alignment: AlignmentDirectional(
+                                                alignment: const AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 16.0, 0.0),
                                                   child: FFButtonWidget(
@@ -2272,7 +2264,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                           'UPDATE_USER_PAGE__BTN_ON_TAP');
                                                       logFirebaseEvent(
                                                           'Button_date_time_picker');
-                                                      final _datePicked1Date =
+                                                      final datePicked1Date =
                                                           await showDatePicker(
                                                         context: context,
                                                         initialDate:
@@ -2339,16 +2331,16 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                         },
                                                       );
 
-                                                      if (_datePicked1Date !=
+                                                      if (datePicked1Date !=
                                                           null) {
                                                         safeSetState(() {
                                                           _model.datePicked1 =
                                                               DateTime(
-                                                            _datePicked1Date
+                                                            datePicked1Date
                                                                 .year,
-                                                            _datePicked1Date
+                                                            datePicked1Date
                                                                 .month,
-                                                            _datePicked1Date
+                                                            datePicked1Date
                                                                 .day,
                                                           );
                                                         });
@@ -2372,7 +2364,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                         .getText(
                                                       '0e7rjtsg' /*  */,
                                                     ),
-                                                    icon: Icon(
+                                                    icon: const Icon(
                                                       Icons.calendar_month,
                                                       size: 15.0,
                                                     ),
@@ -2380,14 +2372,14 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       width: 36.0,
                                                       height: 39.0,
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
                                                                   0.0,
                                                                   0.0),
                                                       iconPadding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   6.0,
                                                                   0.0,
@@ -2416,7 +2408,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                             .titleSmallFamily),
                                                               ),
                                                       elevation: 3.0,
-                                                      borderSide: BorderSide(
+                                                      borderSide: const BorderSide(
                                                         color:
                                                             Colors.transparent,
                                                         width: 1.0,
@@ -2439,7 +2431,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                             children: [
                                               Expanded(
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(20.0, 0.0, 20.0,
                                                           10.0),
                                                   child: TextFormField(
@@ -2471,7 +2463,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Plus Jakarta Sans',
-                                                                color: Color(
+                                                                color: const Color(
                                                                     0xFF57636C),
                                                                 fontSize: 14.0,
                                                                 letterSpacing:
@@ -2491,7 +2483,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Plus Jakarta Sans',
-                                                                color: Color(
+                                                                color: const Color(
                                                                     0xFF57636C),
                                                                 fontSize: 14.0,
                                                                 letterSpacing:
@@ -2506,7 +2498,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                               ),
                                                       enabledBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: BorderSide(
+                                                        borderSide: const BorderSide(
                                                           color:
                                                               Color(0xFFE0E3E7),
                                                           width: 2.0,
@@ -2517,7 +2509,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       ),
                                                       focusedBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: BorderSide(
+                                                        borderSide: const BorderSide(
                                                           color:
                                                               Color(0xFF4B39EF),
                                                           width: 2.0,
@@ -2528,7 +2520,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       ),
                                                       errorBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: BorderSide(
+                                                        borderSide: const BorderSide(
                                                           color:
                                                               Color(0xFFFF5963),
                                                           width: 2.0,
@@ -2539,7 +2531,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       ),
                                                       focusedErrorBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: BorderSide(
+                                                        borderSide: const BorderSide(
                                                           color:
                                                               Color(0xFFFF5963),
                                                           width: 2.0,
@@ -2551,7 +2543,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       filled: true,
                                                       fillColor: Colors.white,
                                                       contentPadding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   20.0,
                                                                   24.0,
@@ -2565,7 +2557,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              Color(0xFF14181B),
+                                                              const Color(0xFF14181B),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -2583,10 +2575,10 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                 ),
                                               ),
                                               Align(
-                                                alignment: AlignmentDirectional(
+                                                alignment: const AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 16.0, 0.0),
                                                   child: FFButtonWidget(
@@ -2595,7 +2587,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                           'UPDATE_USER_PAGE__BTN_ON_TAP');
                                                       logFirebaseEvent(
                                                           'Button_date_time_picker');
-                                                      final _datePicked2Date =
+                                                      final datePicked2Date =
                                                           await showDatePicker(
                                                         context: context,
                                                         initialDate:
@@ -2662,16 +2654,16 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                         },
                                                       );
 
-                                                      if (_datePicked2Date !=
+                                                      if (datePicked2Date !=
                                                           null) {
                                                         safeSetState(() {
                                                           _model.datePicked2 =
                                                               DateTime(
-                                                            _datePicked2Date
+                                                            datePicked2Date
                                                                 .year,
-                                                            _datePicked2Date
+                                                            datePicked2Date
                                                                 .month,
-                                                            _datePicked2Date
+                                                            datePicked2Date
                                                                 .day,
                                                           );
                                                         });
@@ -2695,7 +2687,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                         .getText(
                                                       '1g2f64vk' /*  */,
                                                     ),
-                                                    icon: Icon(
+                                                    icon: const Icon(
                                                       Icons.calendar_month,
                                                       size: 15.0,
                                                     ),
@@ -2703,14 +2695,14 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       width: 36.0,
                                                       height: 39.0,
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
                                                                   0.0,
                                                                   0.0),
                                                       iconPadding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   6.0,
                                                                   0.0,
@@ -2739,7 +2731,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                             .titleSmallFamily),
                                                               ),
                                                       elevation: 3.0,
-                                                      borderSide: BorderSide(
+                                                      borderSide: const BorderSide(
                                                         color:
                                                             Colors.transparent,
                                                         width: 1.0,
@@ -2766,7 +2758,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                               if ((_model.countryValue == 'Other') ||
                                   (_model.countryValue == 'آخر'))
                                 Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Form(
                                     key: _model.formKey6,
                                     autovalidateMode: AutovalidateMode.disabled,
@@ -2781,12 +2773,12 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                         children: [
                                           Align(
                                             alignment:
-                                                AlignmentDirectional(0.0, 0.0),
+                                                const AlignmentDirectional(0.0, 0.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.min,
                                               children: [
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(20.0, 16.0,
                                                           20.0, 16.0),
                                                   child: TextFormField(
@@ -2817,7 +2809,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Plus Jakarta Sans',
-                                                                color: Color(
+                                                                color: const Color(
                                                                     0xFF57636C),
                                                                 fontSize: 14.0,
                                                                 letterSpacing:
@@ -2837,7 +2829,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Plus Jakarta Sans',
-                                                                color: Color(
+                                                                color: const Color(
                                                                     0xFF57636C),
                                                                 fontSize: 14.0,
                                                                 letterSpacing:
@@ -2852,7 +2844,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                               ),
                                                       enabledBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: BorderSide(
+                                                        borderSide: const BorderSide(
                                                           color:
                                                               Color(0xFFE0E3E7),
                                                           width: 2.0,
@@ -2863,7 +2855,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       ),
                                                       focusedBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: BorderSide(
+                                                        borderSide: const BorderSide(
                                                           color:
                                                               Color(0xFF4B39EF),
                                                           width: 2.0,
@@ -2874,7 +2866,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       ),
                                                       errorBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: BorderSide(
+                                                        borderSide: const BorderSide(
                                                           color:
                                                               Color(0xFFFF5963),
                                                           width: 2.0,
@@ -2885,7 +2877,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       ),
                                                       focusedErrorBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: BorderSide(
+                                                        borderSide: const BorderSide(
                                                           color:
                                                               Color(0xFFFF5963),
                                                           width: 2.0,
@@ -2897,7 +2889,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       filled: true,
                                                       fillColor: Colors.white,
                                                       contentPadding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   20.0,
                                                                   24.0,
@@ -2911,7 +2903,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              Color(0xFF14181B),
+                                                              const Color(0xFF14181B),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -2928,7 +2920,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(20.0, 0.0, 20.0,
                                                           16.0),
                                                   child: TextFormField(
@@ -2944,7 +2936,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     onChanged: (_) =>
                                                         EasyDebounce.debounce(
                                                       '_model.passportNoTextController',
-                                                      Duration(
+                                                      const Duration(
                                                           milliseconds: 2000),
                                                       () => setState(() {}),
                                                     ),
@@ -2965,7 +2957,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Plus Jakarta Sans',
-                                                                color: Color(
+                                                                color: const Color(
                                                                     0xFF57636C),
                                                                 fontSize: 14.0,
                                                                 letterSpacing:
@@ -2986,7 +2978,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Plus Jakarta Sans',
-                                                                color: Color(
+                                                                color: const Color(
                                                                     0xFF57636C),
                                                                 fontSize: 14.0,
                                                                 letterSpacing:
@@ -3001,7 +2993,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                               ),
                                                       enabledBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: BorderSide(
+                                                        borderSide: const BorderSide(
                                                           color:
                                                               Color(0xFFE0E3E7),
                                                           width: 2.0,
@@ -3012,7 +3004,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       ),
                                                       focusedBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: BorderSide(
+                                                        borderSide: const BorderSide(
                                                           color:
                                                               Color(0xFF4B39EF),
                                                           width: 2.0,
@@ -3023,7 +3015,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       ),
                                                       errorBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: BorderSide(
+                                                        borderSide: const BorderSide(
                                                           color:
                                                               Color(0xFFFF5963),
                                                           width: 2.0,
@@ -3034,7 +3026,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       ),
                                                       focusedErrorBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: BorderSide(
+                                                        borderSide: const BorderSide(
                                                           color:
                                                               Color(0xFFFF5963),
                                                           width: 2.0,
@@ -3046,7 +3038,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       filled: true,
                                                       fillColor: Colors.white,
                                                       contentPadding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   20.0,
                                                                   24.0,
@@ -3063,7 +3055,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                     ?.clear();
                                                                 setState(() {});
                                                               },
-                                                              child: Icon(
+                                                              child: const Icon(
                                                                 Icons.clear,
                                                                 color: Color(
                                                                     0xFF757575),
@@ -3079,7 +3071,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              Color(0xFF14181B),
+                                                              const Color(0xFF14181B),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -3104,7 +3096,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     Expanded(
                                                       child: Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     20.0,
                                                                     10.0,
@@ -3131,7 +3123,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                 FFLocalizations.of(
                                                                         context)
                                                                     .getText(
-                                                              '9uh78vj8' /* Birthdate */,
+                                                              'k7ddc0xy' /* Birthdate */,
                                                             ),
                                                             labelStyle:
                                                                 FlutterFlowTheme.of(
@@ -3140,7 +3132,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                     .override(
                                                                       fontFamily:
                                                                           'Plus Jakarta Sans',
-                                                                      color: Color(
+                                                                      color: const Color(
                                                                           0xFF57636C),
                                                                       fontSize:
                                                                           14.0,
@@ -3161,7 +3153,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                     .override(
                                                                       fontFamily:
                                                                           'Plus Jakarta Sans',
-                                                                      color: Color(
+                                                                      color: const Color(
                                                                           0xFF57636C),
                                                                       fontSize:
                                                                           14.0,
@@ -3178,7 +3170,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                             enabledBorder:
                                                                 OutlineInputBorder(
                                                               borderSide:
-                                                                  BorderSide(
+                                                                  const BorderSide(
                                                                 color: Color(
                                                                     0xFFE0E3E7),
                                                                 width: 2.0,
@@ -3191,7 +3183,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                             focusedBorder:
                                                                 OutlineInputBorder(
                                                               borderSide:
-                                                                  BorderSide(
+                                                                  const BorderSide(
                                                                 color: Color(
                                                                     0xFF4B39EF),
                                                                 width: 2.0,
@@ -3204,7 +3196,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                             errorBorder:
                                                                 OutlineInputBorder(
                                                               borderSide:
-                                                                  BorderSide(
+                                                                  const BorderSide(
                                                                 color: Color(
                                                                     0xFFFF5963),
                                                                 width: 2.0,
@@ -3217,7 +3209,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                             focusedErrorBorder:
                                                                 OutlineInputBorder(
                                                               borderSide:
-                                                                  BorderSide(
+                                                                  const BorderSide(
                                                                 color: Color(
                                                                     0xFFFF5963),
                                                                 width: 2.0,
@@ -3231,7 +3223,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                             fillColor:
                                                                 Colors.white,
                                                             contentPadding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         20.0,
                                                                         24.0,
@@ -3244,7 +3236,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Plus Jakarta Sans',
-                                                                color: Color(
+                                                                color: const Color(
                                                                     0xFF14181B),
                                                                 fontSize: 14.0,
                                                                 letterSpacing:
@@ -3269,11 +3261,11 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     ),
                                                     Align(
                                                       alignment:
-                                                          AlignmentDirectional(
+                                                          const AlignmentDirectional(
                                                               0.0, 0.0),
                                                       child: Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -3285,7 +3277,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                 'UPDATE_USER_PAGE__BTN_ON_TAP');
                                                             logFirebaseEvent(
                                                                 'Button_date_time_picker');
-                                                            final _datePicked3Date =
+                                                            final datePicked3Date =
                                                                 await showDatePicker(
                                                               context: context,
                                                               initialDate:
@@ -3349,16 +3341,16 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                               },
                                                             );
 
-                                                            if (_datePicked3Date !=
+                                                            if (datePicked3Date !=
                                                                 null) {
                                                               safeSetState(() {
                                                                 _model.datePicked3 =
                                                                     DateTime(
-                                                                  _datePicked3Date
+                                                                  datePicked3Date
                                                                       .year,
-                                                                  _datePicked3Date
+                                                                  datePicked3Date
                                                                       .month,
-                                                                  _datePicked3Date
+                                                                  datePicked3Date
                                                                       .day,
                                                                 );
                                                               });
@@ -3382,7 +3374,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                               .getText(
                                                             'zsy5lqiy' /*  */,
                                                           ),
-                                                          icon: Icon(
+                                                          icon: const Icon(
                                                             Icons
                                                                 .calendar_month,
                                                             size: 15.0,
@@ -3392,14 +3384,14 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                             width: 36.0,
                                                             height: 39.0,
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
                                                                         0.0,
                                                                         0.0),
                                                             iconPadding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         6.0,
                                                                         0.0,
@@ -3427,7 +3419,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                     ),
                                                             elevation: 3.0,
                                                             borderSide:
-                                                                BorderSide(
+                                                                const BorderSide(
                                                               color: Colors
                                                                   .transparent,
                                                               width: 1.0,
@@ -3444,17 +3436,14 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                 ),
                                                 if (_model.passportBirthdateTextController
                                                             .text !=
-                                                        null &&
-                                                    _model.passportBirthdateTextController
-                                                            .text !=
                                                         '')
                                                   Align(
                                                     alignment:
-                                                        AlignmentDirectional(
+                                                        const AlignmentDirectional(
                                                             -1.0, -1.0),
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   20.0,
                                                                   0.0,
@@ -3487,14 +3476,14 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                           width: 123.0,
                                                           height: 38.0,
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       24.0,
                                                                       0.0,
                                                                       24.0,
                                                                       0.0),
                                                           iconPadding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       0.0,
@@ -3524,7 +3513,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                   ),
                                                           elevation: 3.0,
                                                           borderSide:
-                                                              BorderSide(
+                                                              const BorderSide(
                                                             color: Colors
                                                                 .transparent,
                                                             width: 1.0,
@@ -3538,7 +3527,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     ),
                                                   ),
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(20.0, 0.0, 20.0,
                                                           16.0),
                                                   child: TextFormField(
@@ -3564,7 +3553,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Plus Jakarta Sans',
-                                                                color: Color(
+                                                                color: const Color(
                                                                     0xFF57636C),
                                                                 fontSize: 14.0,
                                                                 letterSpacing:
@@ -3584,7 +3573,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Plus Jakarta Sans',
-                                                                color: Color(
+                                                                color: const Color(
                                                                     0xFF57636C),
                                                                 fontSize: 14.0,
                                                                 letterSpacing:
@@ -3599,7 +3588,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                               ),
                                                       enabledBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: BorderSide(
+                                                        borderSide: const BorderSide(
                                                           color:
                                                               Color(0xFFE0E3E7),
                                                           width: 2.0,
@@ -3610,7 +3599,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       ),
                                                       focusedBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: BorderSide(
+                                                        borderSide: const BorderSide(
                                                           color:
                                                               Color(0xFF4B39EF),
                                                           width: 2.0,
@@ -3621,7 +3610,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       ),
                                                       errorBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: BorderSide(
+                                                        borderSide: const BorderSide(
                                                           color:
                                                               Color(0xFFFF5963),
                                                           width: 2.0,
@@ -3632,7 +3621,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       ),
                                                       focusedErrorBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: BorderSide(
+                                                        borderSide: const BorderSide(
                                                           color:
                                                               Color(0xFFFF5963),
                                                           width: 2.0,
@@ -3644,7 +3633,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       filled: true,
                                                       fillColor: Colors.white,
                                                       contentPadding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   20.0,
                                                                   24.0,
@@ -3658,7 +3647,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              Color(0xFF14181B),
+                                                              const Color(0xFF14181B),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -3677,7 +3666,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(20.0, 10.0,
                                                           20.0, 16.0),
                                                   child: TextFormField(
@@ -3708,7 +3697,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Plus Jakarta Sans',
-                                                                color: Color(
+                                                                color: const Color(
                                                                     0xFF57636C),
                                                                 fontSize: 14.0,
                                                                 letterSpacing:
@@ -3728,7 +3717,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Plus Jakarta Sans',
-                                                                color: Color(
+                                                                color: const Color(
                                                                     0xFF57636C),
                                                                 fontSize: 14.0,
                                                                 letterSpacing:
@@ -3743,7 +3732,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                               ),
                                                       enabledBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: BorderSide(
+                                                        borderSide: const BorderSide(
                                                           color:
                                                               Color(0xFFE0E3E7),
                                                           width: 2.0,
@@ -3754,7 +3743,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       ),
                                                       focusedBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: BorderSide(
+                                                        borderSide: const BorderSide(
                                                           color:
                                                               Color(0xFF4B39EF),
                                                           width: 2.0,
@@ -3765,7 +3754,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       ),
                                                       errorBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: BorderSide(
+                                                        borderSide: const BorderSide(
                                                           color:
                                                               Color(0xFFFF5963),
                                                           width: 2.0,
@@ -3776,7 +3765,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       ),
                                                       focusedErrorBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: BorderSide(
+                                                        borderSide: const BorderSide(
                                                           color:
                                                               Color(0xFFFF5963),
                                                           width: 2.0,
@@ -3788,7 +3777,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       filled: true,
                                                       fillColor: Colors.white,
                                                       contentPadding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   20.0,
                                                                   24.0,
@@ -3802,7 +3791,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              Color(0xFF14181B),
+                                                              const Color(0xFF14181B),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -3825,7 +3814,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     Expanded(
                                                       child: Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     20.0,
                                                                     10.0,
@@ -3861,7 +3850,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                     .override(
                                                                       fontFamily:
                                                                           'Plus Jakarta Sans',
-                                                                      color: Color(
+                                                                      color: const Color(
                                                                           0xFF57636C),
                                                                       fontSize:
                                                                           14.0,
@@ -3882,7 +3871,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                     .override(
                                                                       fontFamily:
                                                                           'Plus Jakarta Sans',
-                                                                      color: Color(
+                                                                      color: const Color(
                                                                           0xFF57636C),
                                                                       fontSize:
                                                                           14.0,
@@ -3899,7 +3888,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                             enabledBorder:
                                                                 OutlineInputBorder(
                                                               borderSide:
-                                                                  BorderSide(
+                                                                  const BorderSide(
                                                                 color: Color(
                                                                     0xFFE0E3E7),
                                                                 width: 2.0,
@@ -3912,7 +3901,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                             focusedBorder:
                                                                 OutlineInputBorder(
                                                               borderSide:
-                                                                  BorderSide(
+                                                                  const BorderSide(
                                                                 color: Color(
                                                                     0xFF4B39EF),
                                                                 width: 2.0,
@@ -3925,7 +3914,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                             errorBorder:
                                                                 OutlineInputBorder(
                                                               borderSide:
-                                                                  BorderSide(
+                                                                  const BorderSide(
                                                                 color: Color(
                                                                     0xFFFF5963),
                                                                 width: 2.0,
@@ -3938,7 +3927,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                             focusedErrorBorder:
                                                                 OutlineInputBorder(
                                                               borderSide:
-                                                                  BorderSide(
+                                                                  const BorderSide(
                                                                 color: Color(
                                                                     0xFFFF5963),
                                                                 width: 2.0,
@@ -3952,7 +3941,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                             fillColor:
                                                                 Colors.white,
                                                             contentPadding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         20.0,
                                                                         24.0,
@@ -3965,7 +3954,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Plus Jakarta Sans',
-                                                                color: Color(
+                                                                color: const Color(
                                                                     0xFF14181B),
                                                                 fontSize: 14.0,
                                                                 letterSpacing:
@@ -3990,11 +3979,11 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     ),
                                                     Align(
                                                       alignment:
-                                                          AlignmentDirectional(
+                                                          const AlignmentDirectional(
                                                               0.0, 0.0),
                                                       child: Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -4006,7 +3995,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                 'UPDATE_USER_PAGE__BTN_ON_TAP');
                                                             logFirebaseEvent(
                                                                 'Button_date_time_picker');
-                                                            final _datePicked4Date =
+                                                            final datePicked4Date =
                                                                 await showDatePicker(
                                                               context: context,
                                                               initialDate:
@@ -4070,16 +4059,16 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                               },
                                                             );
 
-                                                            if (_datePicked4Date !=
+                                                            if (datePicked4Date !=
                                                                 null) {
                                                               safeSetState(() {
                                                                 _model.datePicked4 =
                                                                     DateTime(
-                                                                  _datePicked4Date
+                                                                  datePicked4Date
                                                                       .year,
-                                                                  _datePicked4Date
+                                                                  datePicked4Date
                                                                       .month,
-                                                                  _datePicked4Date
+                                                                  datePicked4Date
                                                                       .day,
                                                                 );
                                                               });
@@ -4103,7 +4092,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                               .getText(
                                                             '3k43pxg4' /*  */,
                                                           ),
-                                                          icon: Icon(
+                                                          icon: const Icon(
                                                             Icons
                                                                 .calendar_month,
                                                             size: 15.0,
@@ -4113,14 +4102,14 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                             width: 36.0,
                                                             height: 39.0,
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
                                                                         0.0,
                                                                         0.0),
                                                             iconPadding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         6.0,
                                                                         0.0,
@@ -4148,7 +4137,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                     ),
                                                             elevation: 3.0,
                                                             borderSide:
-                                                                BorderSide(
+                                                                const BorderSide(
                                                               color: Colors
                                                                   .transparent,
                                                               width: 1.0,
@@ -4164,7 +4153,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                   ],
                                                 ),
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 0.0, 10.0),
                                                   child: Row(
@@ -4174,7 +4163,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       Expanded(
                                                         child: Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       20.0,
                                                                       0.0,
@@ -4210,7 +4199,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                       .override(
                                                                         fontFamily:
                                                                             'Plus Jakarta Sans',
-                                                                        color: Color(
+                                                                        color: const Color(
                                                                             0xFF57636C),
                                                                         fontSize:
                                                                             14.0,
@@ -4228,7 +4217,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                       .override(
                                                                         fontFamily:
                                                                             'Plus Jakarta Sans',
-                                                                        color: Color(
+                                                                        color: const Color(
                                                                             0xFF57636C),
                                                                         fontSize:
                                                                             14.0,
@@ -4242,7 +4231,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                               enabledBorder:
                                                                   OutlineInputBorder(
                                                                 borderSide:
-                                                                    BorderSide(
+                                                                    const BorderSide(
                                                                   color: Color(
                                                                       0xFFE0E3E7),
                                                                   width: 2.0,
@@ -4255,7 +4244,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                               focusedBorder:
                                                                   OutlineInputBorder(
                                                                 borderSide:
-                                                                    BorderSide(
+                                                                    const BorderSide(
                                                                   color: Color(
                                                                       0xFF4B39EF),
                                                                   width: 2.0,
@@ -4268,7 +4257,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                               errorBorder:
                                                                   OutlineInputBorder(
                                                                 borderSide:
-                                                                    BorderSide(
+                                                                    const BorderSide(
                                                                   color: Color(
                                                                       0xFFFF5963),
                                                                   width: 2.0,
@@ -4281,7 +4270,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                               focusedErrorBorder:
                                                                   OutlineInputBorder(
                                                                 borderSide:
-                                                                    BorderSide(
+                                                                    const BorderSide(
                                                                   color: Color(
                                                                       0xFFFF5963),
                                                                   width: 2.0,
@@ -4295,7 +4284,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                               fillColor:
                                                                   Colors.white,
                                                               contentPadding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           20.0,
                                                                           24.0,
@@ -4308,7 +4297,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                 .override(
                                                                   fontFamily:
                                                                       'Plus Jakarta Sans',
-                                                                  color: Color(
+                                                                  color: const Color(
                                                                       0xFF14181B),
                                                                   fontSize:
                                                                       14.0,
@@ -4334,11 +4323,11 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       ),
                                                       Align(
                                                         alignment:
-                                                            AlignmentDirectional(
+                                                            const AlignmentDirectional(
                                                                 0.0, 0.0),
                                                         child: Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       0.0,
@@ -4351,7 +4340,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                   'UPDATE_USER_PAGE__BTN_ON_TAP');
                                                               logFirebaseEvent(
                                                                   'Button_date_time_picker');
-                                                              final _datePicked5Date =
+                                                              final datePicked5Date =
                                                                   await showDatePicker(
                                                                 context:
                                                                     context,
@@ -4411,17 +4400,17 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                 },
                                                               );
 
-                                                              if (_datePicked5Date !=
+                                                              if (datePicked5Date !=
                                                                   null) {
                                                                 safeSetState(
                                                                     () {
                                                                   _model.datePicked5 =
                                                                       DateTime(
-                                                                    _datePicked5Date
+                                                                    datePicked5Date
                                                                         .year,
-                                                                    _datePicked5Date
+                                                                    datePicked5Date
                                                                         .month,
-                                                                    _datePicked5Date
+                                                                    datePicked5Date
                                                                         .day,
                                                                   );
                                                                 });
@@ -4445,7 +4434,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                 .getText(
                                                               'hoc0zf6s' /*  */,
                                                             ),
-                                                            icon: Icon(
+                                                            icon: const Icon(
                                                               Icons
                                                                   .calendar_month,
                                                               size: 15.0,
@@ -4455,14 +4444,14 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                               width: 36.0,
                                                               height: 39.0,
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
                                                                           0.0,
                                                                           0.0),
                                                               iconPadding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           6.0,
                                                                           0.0,
@@ -4487,7 +4476,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                       ),
                                                               elevation: 3.0,
                                                               borderSide:
-                                                                  BorderSide(
+                                                                  const BorderSide(
                                                                 color: Colors
                                                                     .transparent,
                                                                 width: 1.0,
@@ -4518,7 +4507,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                   ),
                                 ),
                               Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
+                                alignment: const AlignmentDirectional(0.0, 0.0),
                                 child: Form(
                                   key: _model.formKey11,
                                   autovalidateMode: AutovalidateMode.disabled,
@@ -4536,7 +4525,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                           children: [
                                             Expanded(
                                               child: Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         20.0, 10.0, 20.0, 10.0),
                                                 child: TextFormField(
@@ -4565,7 +4554,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              Color(0xFF57636C),
+                                                              const Color(0xFF57636C),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -4583,7 +4572,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              Color(0xFF57636C),
+                                                              const Color(0xFF57636C),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -4596,7 +4585,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                         ),
                                                     enabledBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: BorderSide(
+                                                      borderSide: const BorderSide(
                                                         color:
                                                             Color(0xFFE0E3E7),
                                                         width: 2.0,
@@ -4607,7 +4596,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     ),
                                                     focusedBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: BorderSide(
+                                                      borderSide: const BorderSide(
                                                         color:
                                                             Color(0xFF4B39EF),
                                                         width: 2.0,
@@ -4618,7 +4607,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     ),
                                                     errorBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: BorderSide(
+                                                      borderSide: const BorderSide(
                                                         color:
                                                             Color(0xFFFF5963),
                                                         width: 2.0,
@@ -4629,7 +4618,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     ),
                                                     focusedErrorBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: BorderSide(
+                                                      borderSide: const BorderSide(
                                                         color:
                                                             Color(0xFFFF5963),
                                                         width: 2.0,
@@ -4641,7 +4630,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     filled: true,
                                                     fillColor: Colors.white,
                                                     contentPadding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(
                                                                 20.0,
                                                                 24.0,
@@ -4655,7 +4644,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            Color(0xFF14181B),
+                                                            const Color(0xFF14181B),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -4673,7 +4662,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                             ),
                                             Expanded(
                                               child: Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         20.0, 10.0, 20.0, 10.0),
                                                 child: TextFormField(
@@ -4702,7 +4691,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              Color(0xFF57636C),
+                                                              const Color(0xFF57636C),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -4720,7 +4709,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              Color(0xFF57636C),
+                                                              const Color(0xFF57636C),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -4733,7 +4722,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                         ),
                                                     enabledBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: BorderSide(
+                                                      borderSide: const BorderSide(
                                                         color:
                                                             Color(0xFFE0E3E7),
                                                         width: 2.0,
@@ -4744,7 +4733,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     ),
                                                     focusedBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: BorderSide(
+                                                      borderSide: const BorderSide(
                                                         color:
                                                             Color(0xFF4B39EF),
                                                         width: 2.0,
@@ -4755,7 +4744,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     ),
                                                     errorBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: BorderSide(
+                                                      borderSide: const BorderSide(
                                                         color:
                                                             Color(0xFFFF5963),
                                                         width: 2.0,
@@ -4766,7 +4755,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     ),
                                                     focusedErrorBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: BorderSide(
+                                                      borderSide: const BorderSide(
                                                         color:
                                                             Color(0xFFFF5963),
                                                         width: 2.0,
@@ -4778,7 +4767,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     filled: true,
                                                     fillColor: Colors.white,
                                                     contentPadding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(
                                                                 20.0,
                                                                 24.0,
@@ -4792,7 +4781,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            Color(0xFF14181B),
+                                                            const Color(0xFF14181B),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -4812,7 +4801,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   20.0, 10.0, 20.0, 10.0),
                                           child: TextFormField(
                                             controller: _model
@@ -4826,7 +4815,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                             onChanged: (_) =>
                                                 EasyDebounce.debounce(
                                               '_model.fullAddressTextController',
-                                              Duration(milliseconds: 2000),
+                                              const Duration(milliseconds: 2000),
                                               () => setState(() {}),
                                             ),
                                             textCapitalization:
@@ -4845,7 +4834,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            Color(0xFF57636C),
+                                                            const Color(0xFF57636C),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -4862,7 +4851,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            Color(0xFF57636C),
+                                                            const Color(0xFF57636C),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -4873,7 +4862,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                 'Plus Jakarta Sans'),
                                                       ),
                                               enabledBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0xFFE0E3E7),
                                                   width: 2.0,
                                                 ),
@@ -4881,7 +4870,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     BorderRadius.circular(8.0),
                                               ),
                                               focusedBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0xFF4B39EF),
                                                   width: 2.0,
                                                 ),
@@ -4889,7 +4878,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     BorderRadius.circular(8.0),
                                               ),
                                               errorBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0xFFFF5963),
                                                   width: 2.0,
                                                 ),
@@ -4898,7 +4887,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                               ),
                                               focusedErrorBorder:
                                                   OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0xFFFF5963),
                                                   width: 2.0,
                                                 ),
@@ -4908,7 +4897,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                               filled: true,
                                               fillColor: Colors.white,
                                               contentPadding:
-                                                  EdgeInsetsDirectional
+                                                  const EdgeInsetsDirectional
                                                       .fromSTEB(20.0, 24.0, 0.0,
                                                           24.0),
                                               suffixIcon: _model
@@ -4922,7 +4911,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                             ?.clear();
                                                         setState(() {});
                                                       },
-                                                      child: Icon(
+                                                      child: const Icon(
                                                         Icons.clear,
                                                         color:
                                                             Color(0xFF757575),
@@ -4936,7 +4925,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                 .override(
                                                   fontFamily:
                                                       'Plus Jakarta Sans',
-                                                  color: Color(0xFF14181B),
+                                                  color: const Color(0xFF14181B),
                                                   fontSize: 14.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.normal,
@@ -4952,7 +4941,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   20.0, 0.0, 20.0, 16.0),
                                           child: TextFormField(
                                             controller: _model
@@ -4979,7 +4968,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            Color(0xFF57636C),
+                                                            const Color(0xFF57636C),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -4996,7 +4985,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            Color(0xFF57636C),
+                                                            const Color(0xFF57636C),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -5007,7 +4996,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                 'Plus Jakarta Sans'),
                                                       ),
                                               enabledBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0xFFE0E3E7),
                                                   width: 2.0,
                                                 ),
@@ -5015,7 +5004,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     BorderRadius.circular(8.0),
                                               ),
                                               focusedBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0xFF4B39EF),
                                                   width: 2.0,
                                                 ),
@@ -5023,7 +5012,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     BorderRadius.circular(8.0),
                                               ),
                                               errorBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0xFFFF5963),
                                                   width: 2.0,
                                                 ),
@@ -5032,7 +5021,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                               ),
                                               focusedErrorBorder:
                                                   OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0xFFFF5963),
                                                   width: 2.0,
                                                 ),
@@ -5042,7 +5031,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                               filled: true,
                                               fillColor: Colors.white,
                                               contentPadding:
-                                                  EdgeInsetsDirectional
+                                                  const EdgeInsetsDirectional
                                                       .fromSTEB(20.0, 24.0, 0.0,
                                                           24.0),
                                             ),
@@ -5051,7 +5040,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                 .override(
                                                   fontFamily:
                                                       'Plus Jakarta Sans',
-                                                  color: Color(0xFF14181B),
+                                                  color: const Color(0xFF14181B),
                                                   fontSize: 14.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.normal,
@@ -5084,7 +5073,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                 ),
                               ),
                               Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
+                                alignment: const AlignmentDirectional(0.0, 0.0),
                                 child: Form(
                                   key: _model.formKey12,
                                   autovalidateMode: AutovalidateMode.disabled,
@@ -5100,7 +5089,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                       children: [
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   20.0, 16.0, 20.0, 6.0),
                                           child: TextFormField(
                                             controller:
@@ -5126,7 +5115,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            Color(0xFF57636C),
+                                                            const Color(0xFF57636C),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -5143,7 +5132,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            Color(0xFF57636C),
+                                                            const Color(0xFF57636C),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -5154,7 +5143,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                 'Plus Jakarta Sans'),
                                                       ),
                                               enabledBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0xFFE0E3E7),
                                                   width: 2.0,
                                                 ),
@@ -5162,7 +5151,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     BorderRadius.circular(8.0),
                                               ),
                                               focusedBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0xFF4B39EF),
                                                   width: 2.0,
                                                 ),
@@ -5170,7 +5159,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     BorderRadius.circular(8.0),
                                               ),
                                               errorBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0xFFFF5963),
                                                   width: 2.0,
                                                 ),
@@ -5179,7 +5168,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                               ),
                                               focusedErrorBorder:
                                                   OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0xFFFF5963),
                                                   width: 2.0,
                                                 ),
@@ -5189,7 +5178,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                               filled: true,
                                               fillColor: Colors.white,
                                               contentPadding:
-                                                  EdgeInsetsDirectional
+                                                  const EdgeInsetsDirectional
                                                       .fromSTEB(20.0, 24.0, 0.0,
                                                           24.0),
                                             ),
@@ -5198,7 +5187,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                 .override(
                                                   fontFamily:
                                                       'Plus Jakarta Sans',
-                                                  color: Color(0xFF14181B),
+                                                  color: const Color(0xFF14181B),
                                                   fontSize: 14.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.normal,
@@ -5214,10 +5203,10 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                         ),
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(-1.0, 0.0),
+                                              const AlignmentDirectional(-1.0, 0.0),
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     25.0, 10.0, 0.0, 0.0),
                                             child: Text(
                                               FFLocalizations.of(context)
@@ -5242,7 +5231,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   20.0, 10.0, 20.0, 10.0),
                                           child: FlutterFlowDropDown<String>(
                                             controller: _model
@@ -5272,7 +5261,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     .override(
                                                       fontFamily:
                                                           'Plus Jakarta Sans',
-                                                      color: Color(0xFF14181B),
+                                                      color: const Color(0xFF14181B),
                                                       fontSize: 14.0,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
@@ -5287,18 +5276,18 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     .getText(
                                               'd0xh78gg' /* Employed now? */,
                                             ),
-                                            icon: Icon(
+                                            icon: const Icon(
                                               Icons.keyboard_arrow_down_rounded,
                                               color: Color(0xFF57636C),
                                               size: 15.0,
                                             ),
                                             fillColor: Colors.white,
                                             elevation: 2.0,
-                                            borderColor: Color(0xFFE0E3E7),
+                                            borderColor: const Color(0xFFE0E3E7),
                                             borderWidth: 2.0,
                                             borderRadius: 8.0,
                                             margin:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     20.0, 4.0, 12.0, 4.0),
                                             hidesUnderline: true,
                                             isSearchable: false,
@@ -5316,13 +5305,13 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                 ),
                               ),
                               Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
+                                alignment: const AlignmentDirectional(0.0, 0.0),
                                 child: StreamBuilder<List<RolesRecord>>(
                                   stream: queryRolesRecord(),
                                   builder: (context, snapshot) {
                                     // Customize what your widget looks like when it's loading.
                                     if (!snapshot.hasData) {
-                                      return Center(
+                                      return const Center(
                                         child: SizedBox(
                                           width: 50.0,
                                           height: 50.0,
@@ -5350,10 +5339,10 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Align(
-                                              alignment: AlignmentDirectional(
+                                              alignment: const AlignmentDirectional(
                                                   -1.0, 0.0),
                                               child: Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         25.0, 10.0, 0.0, 0.0),
                                                 child: Text(
@@ -5378,7 +5367,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                               ),
                                             ),
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       20.0, 10.0, 20.0, 12.0),
                                               child: StreamBuilder<
@@ -5397,7 +5386,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                 builder: (context, snapshot) {
                                                   // Customize what your widget looks like when it's loading.
                                                   if (!snapshot.hasData) {
-                                                    return Center(
+                                                    return const Center(
                                                       child: SizedBox(
                                                         width: 50.0,
                                                         height: 50.0,
@@ -5474,7 +5463,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              Color(0xFF14181B),
+                                                              const Color(0xFF14181B),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -5491,7 +5480,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                             .getText(
                                                       '3nj6g1wx' /* Select Role */,
                                                     ),
-                                                    icon: Icon(
+                                                    icon: const Icon(
                                                       Icons
                                                           .keyboard_arrow_down_rounded,
                                                       color: Color(0xFF57636C),
@@ -5500,11 +5489,11 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     fillColor: Colors.white,
                                                     elevation: 2.0,
                                                     borderColor:
-                                                        Color(0xFFE0E3E7),
+                                                        const Color(0xFFE0E3E7),
                                                     borderWidth: 2.0,
                                                     borderRadius: 8.0,
                                                     margin:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(20.0, 4.0,
                                                                 12.0, 4.0),
                                                     hidesUnderline: true,
@@ -5538,7 +5527,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                       builder: (context, snapshot) {
                                         // Customize what your widget looks like when it's loading.
                                         if (!snapshot.hasData) {
-                                          return Center(
+                                          return const Center(
                                             child: SizedBox(
                                               width: 50.0,
                                               height: 50.0,
@@ -5565,7 +5554,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                             builder: (context, snapshot) {
                                               // Customize what your widget looks like when it's loading.
                                               if (!snapshot.hasData) {
-                                                return Center(
+                                                return const Center(
                                                   child: SizedBox(
                                                     width: 50.0,
                                                     height: 50.0,
@@ -5579,18 +5568,18 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                               final workerContractorsRecord =
                                                   snapshot.data!;
                                               return Container(
-                                                decoration: BoxDecoration(),
+                                                decoration: const BoxDecoration(),
                                                 child: Column(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
                                                   children: [
                                                     Align(
                                                       alignment:
-                                                          AlignmentDirectional(
+                                                          const AlignmentDirectional(
                                                               -1.0, 0.0),
                                                       child: Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     25.0,
                                                                     10.0,
@@ -5627,7 +5616,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                             'عامل'))
                                                       Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     20.0,
                                                                     10.0,
@@ -5662,17 +5651,17 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                 val);
                                                             logFirebaseEvent(
                                                                 'UPDATE_USER_contractor_ON_FORM_WIDGET_SE');
-                                                            var _shouldSetState =
+                                                            var shouldSetState =
                                                                 false;
                                                             logFirebaseEvent(
                                                                 'contractor_custom_action');
                                                             _model.contRef =
-                                                                await actions
+                                                                actions
                                                                     .contractorPathStringToref(
                                                               _model
                                                                   .contractorValue!,
                                                             );
-                                                            _shouldSetState =
+                                                            shouldSetState =
                                                                 true;
                                                             logFirebaseEvent(
                                                                 'contractor_set_form_field');
@@ -5721,7 +5710,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                       .getDocumentOnce(
                                                                           _model
                                                                               .contRef!);
-                                                              _shouldSetState =
+                                                              shouldSetState =
                                                                   true;
                                                               logFirebaseEvent(
                                                                   'contractor_set_form_field');
@@ -5741,8 +5730,9 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                         .length
                                                                         .toString();
                                                               });
-                                                              if (_shouldSetState)
+                                                              if (shouldSetState) {
                                                                 setState(() {});
+                                                              }
                                                               return;
                                                             } else {
                                                               logFirebaseEvent(
@@ -5760,7 +5750,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                           .primaryText,
                                                                     ),
                                                                   ),
-                                                                  duration: Duration(
+                                                                  duration: const Duration(
                                                                       milliseconds:
                                                                           4000),
                                                                   backgroundColor:
@@ -5771,8 +5761,9 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                               );
                                                             }
 
-                                                            if (_shouldSetState)
+                                                            if (shouldSetState) {
                                                               setState(() {});
+                                                            }
                                                           },
                                                           width:
                                                               double.infinity,
@@ -5784,7 +5775,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                   .override(
                                                                     fontFamily:
                                                                         'Plus Jakarta Sans',
-                                                                    color: Color(
+                                                                    color: const Color(
                                                                         0xFF14181B),
                                                                     fontSize:
                                                                         14.0,
@@ -5804,7 +5795,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                   .getText(
                                                             'r1hfx48i' /* Select Contractor */,
                                                           ),
-                                                          icon: Icon(
+                                                          icon: const Icon(
                                                             Icons
                                                                 .keyboard_arrow_down_rounded,
                                                             color: Color(
@@ -5815,11 +5806,11 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                               Colors.white,
                                                           elevation: 2.0,
                                                           borderColor:
-                                                              Color(0xFFE0E3E7),
+                                                              const Color(0xFFE0E3E7),
                                                           borderWidth: 2.0,
                                                           borderRadius: 8.0,
                                                           margin:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       20.0,
                                                                       4.0,
@@ -5836,17 +5827,17 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       children: [
                                                         Align(
                                                           alignment:
-                                                              AlignmentDirectional(
+                                                              const AlignmentDirectional(
                                                                   -1.0, 0.0),
                                                           child: Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         20.0,
                                                                         10.0,
                                                                         10.0,
                                                                         10.0),
-                                                            child: Container(
+                                                            child: SizedBox(
                                                               width: MediaQuery
                                                                           .sizeOf(
                                                                               context)
@@ -5874,7 +5865,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                   labelText: FFLocalizations.of(
                                                                           context)
                                                                       .getText(
-                                                                    'skmpp1xz' /* Contractor ID */,
+                                                                    'jxtcjkwl' /* Contractor ID */,
                                                                   ),
                                                                   labelStyle: FlutterFlowTheme.of(
                                                                           context)
@@ -5882,7 +5873,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                       .override(
                                                                         fontFamily:
                                                                             'Plus Jakarta Sans',
-                                                                        color: Color(
+                                                                        color: const Color(
                                                                             0xFF57636C),
                                                                         fontSize:
                                                                             14.0,
@@ -5899,7 +5890,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                       .override(
                                                                         fontFamily:
                                                                             'Plus Jakarta Sans',
-                                                                        color: Color(
+                                                                        color: const Color(
                                                                             0xFF57636C),
                                                                         fontSize:
                                                                             14.0,
@@ -5913,7 +5904,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                   enabledBorder:
                                                                       UnderlineInputBorder(
                                                                     borderSide:
-                                                                        BorderSide(
+                                                                        const BorderSide(
                                                                       color: Color(
                                                                           0xFFE0E3E7),
                                                                       width:
@@ -5926,7 +5917,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                   focusedBorder:
                                                                       UnderlineInputBorder(
                                                                     borderSide:
-                                                                        BorderSide(
+                                                                        const BorderSide(
                                                                       color: Color(
                                                                           0xFF4B39EF),
                                                                       width:
@@ -5939,7 +5930,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                   errorBorder:
                                                                       UnderlineInputBorder(
                                                                     borderSide:
-                                                                        BorderSide(
+                                                                        const BorderSide(
                                                                       color: Color(
                                                                           0xFFFF5963),
                                                                       width:
@@ -5952,7 +5943,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                   focusedErrorBorder:
                                                                       UnderlineInputBorder(
                                                                     borderSide:
-                                                                        BorderSide(
+                                                                        const BorderSide(
                                                                       color: Color(
                                                                           0xFFFF5963),
                                                                       width:
@@ -5967,7 +5958,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                       Colors
                                                                           .white,
                                                                   contentPadding:
-                                                                      EdgeInsetsDirectional.fromSTEB(
+                                                                      const EdgeInsetsDirectional.fromSTEB(
                                                                           20.0,
                                                                           24.0,
                                                                           0.0,
@@ -5979,7 +5970,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                     .override(
                                                                       fontFamily:
                                                                           'Plus Jakarta Sans',
-                                                                      color: Color(
+                                                                      color: const Color(
                                                                           0xFF14181B),
                                                                       fontSize:
                                                                           14.0,
@@ -6015,17 +6006,17 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                         Expanded(
                                                           child: Align(
                                                             alignment:
-                                                                AlignmentDirectional(
+                                                                const AlignmentDirectional(
                                                                     -1.0, 0.0),
                                                             child: Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           9.0,
                                                                           10.0,
                                                                           20.0,
                                                                           10.0),
-                                                              child: Container(
+                                                              child: SizedBox(
                                                                 width: MediaQuery.sizeOf(
                                                                             context)
                                                                         .width *
@@ -6054,7 +6045,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                     labelText: FFLocalizations.of(
                                                                             context)
                                                                         .getText(
-                                                                      'oqley6xf' /* Num Of Workers */,
+                                                                      'pcebteng' /* Num Of Workers */,
                                                                     ),
                                                                     labelStyle: FlutterFlowTheme.of(
                                                                             context)
@@ -6063,7 +6054,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                           fontFamily:
                                                                               'Plus Jakarta Sans',
                                                                           color:
-                                                                              Color(0xFF57636C),
+                                                                              const Color(0xFF57636C),
                                                                           fontSize:
                                                                               14.0,
                                                                           letterSpacing:
@@ -6080,7 +6071,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                           fontFamily:
                                                                               'Plus Jakarta Sans',
                                                                           color:
-                                                                              Color(0xFF57636C),
+                                                                              const Color(0xFF57636C),
                                                                           fontSize:
                                                                               14.0,
                                                                           letterSpacing:
@@ -6093,7 +6084,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                     enabledBorder:
                                                                         UnderlineInputBorder(
                                                                       borderSide:
-                                                                          BorderSide(
+                                                                          const BorderSide(
                                                                         color: Color(
                                                                             0xFFE0E3E7),
                                                                         width:
@@ -6106,7 +6097,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                     focusedBorder:
                                                                         UnderlineInputBorder(
                                                                       borderSide:
-                                                                          BorderSide(
+                                                                          const BorderSide(
                                                                         color: Color(
                                                                             0xFF4B39EF),
                                                                         width:
@@ -6119,7 +6110,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                     errorBorder:
                                                                         UnderlineInputBorder(
                                                                       borderSide:
-                                                                          BorderSide(
+                                                                          const BorderSide(
                                                                         color: Color(
                                                                             0xFFFF5963),
                                                                         width:
@@ -6132,7 +6123,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                     focusedErrorBorder:
                                                                         UnderlineInputBorder(
                                                                       borderSide:
-                                                                          BorderSide(
+                                                                          const BorderSide(
                                                                         color: Color(
                                                                             0xFFFF5963),
                                                                         width:
@@ -6148,7 +6139,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                         Colors
                                                                             .white,
                                                                     contentPadding:
-                                                                        EdgeInsetsDirectional.fromSTEB(
+                                                                        const EdgeInsetsDirectional.fromSTEB(
                                                                             20.0,
                                                                             24.0,
                                                                             0.0,
@@ -6160,7 +6151,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                       .override(
                                                                         fontFamily:
                                                                             'Plus Jakarta Sans',
-                                                                        color: Color(
+                                                                        color: const Color(
                                                                             0xFF14181B),
                                                                         fontSize:
                                                                             14.0,
@@ -6185,11 +6176,11 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     ),
                                                     Align(
                                                       alignment:
-                                                          AlignmentDirectional(
+                                                          const AlignmentDirectional(
                                                               -1.0, 0.0),
                                                       child: Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     25.0,
                                                                     10.0,
@@ -6220,7 +6211,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   20.0,
                                                                   10.0,
@@ -6235,14 +6226,14 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                   .circular(
                                                                       8.0),
                                                           border: Border.all(
-                                                            color: Color(
+                                                            color: const Color(
                                                                 0xFFE5E7EB),
                                                             width: 2.0,
                                                           ),
                                                         ),
                                                         child: Padding(
                                                           padding:
-                                                              EdgeInsets.all(
+                                                              const EdgeInsets.all(
                                                                   8.0),
                                                           child: Row(
                                                             mainAxisSize:
@@ -6254,7 +6245,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                             children: [
                                                               Align(
                                                                 alignment:
-                                                                    AlignmentDirectional(
+                                                                    const AlignmentDirectional(
                                                                         -1.0,
                                                                         -1.0),
                                                                 child:
@@ -6298,7 +6289,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                       .override(
                                                                         fontFamily:
                                                                             'Plus Jakarta Sans',
-                                                                        color: Color(
+                                                                        color: const Color(
                                                                             0xFF14181B),
                                                                         letterSpacing:
                                                                             0.0,
@@ -6330,7 +6321,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                       2.0,
                                                                   borderRadius:
                                                                       8.0,
-                                                                  margin: EdgeInsetsDirectional
+                                                                  margin: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           10.0,
                                                                           0.0,
@@ -6346,7 +6337,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                       false,
                                                                 ),
                                                               ),
-                                                              SizedBox(
+                                                              const SizedBox(
                                                                 height: 45.0,
                                                                 child:
                                                                     VerticalDivider(
@@ -6359,7 +6350,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                               ),
                                                               Align(
                                                                 alignment:
-                                                                    AlignmentDirectional(
+                                                                    const AlignmentDirectional(
                                                                         -1.0,
                                                                         0.0),
                                                                 child:
@@ -6430,7 +6421,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                       2.0,
                                                                   borderRadius:
                                                                       8.0,
-                                                                  margin: EdgeInsetsDirectional
+                                                                  margin: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           16.0,
                                                                           0.0,
@@ -6453,11 +6444,11 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     ),
                                                     Align(
                                                       alignment:
-                                                          AlignmentDirectional(
+                                                          const AlignmentDirectional(
                                                               -1.0, 0.0),
                                                       child: Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     25.0,
                                                                     10.0,
@@ -6467,7 +6458,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                           FFLocalizations.of(
                                                                   context)
                                                               .getText(
-                                                            'op525m9c' /* Select Starting Shift */,
+                                                            '8tnvoifp' /* Select Starting Shift */,
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
@@ -6507,11 +6498,11 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                       autovalidateMode:
                                           AutovalidateMode.disabled,
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             20.0, 10.0, 20.0, 10.0),
                                         child: Container(
                                           width: double.infinity,
-                                          constraints: BoxConstraints(
+                                          constraints: const BoxConstraints(
                                             maxWidth: 500.0,
                                           ),
                                           decoration: BoxDecoration(
@@ -6519,12 +6510,12 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                             borderRadius:
                                                 BorderRadius.circular(8.0),
                                             border: Border.all(
-                                              color: Color(0xFFE5E7EB),
+                                              color: const Color(0xFFE5E7EB),
                                               width: 2.0,
                                             ),
                                           ),
                                           child: Padding(
-                                            padding: EdgeInsets.all(8.0),
+                                            padding: const EdgeInsets.all(8.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -6533,7 +6524,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                               children: [
                                                 Align(
                                                   alignment:
-                                                      AlignmentDirectional(
+                                                      const AlignmentDirectional(
                                                           0.0, 0.0),
                                                   child: FlutterFlowDropDown<
                                                       String>(
@@ -6575,7 +6566,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              Color(0xFF14181B),
+                                                              const Color(0xFF14181B),
                                                           letterSpacing: 0.0,
                                                           useGoogleFonts:
                                                               GoogleFonts
@@ -6587,7 +6578,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                         FFLocalizations.of(
                                                                 context)
                                                             .getText(
-                                                      'z9ptj5z9' /* Select starting shift  */,
+                                                      'tq47fjpu' /* Select starting shift  */,
                                                     ),
                                                     icon: Icon(
                                                       Icons
@@ -6607,7 +6598,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     borderWidth: 2.0,
                                                     borderRadius: 8.0,
                                                     margin:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(10.0, 0.0,
                                                                 16.0, 0.0),
                                                     hidesUnderline: true,
@@ -6616,7 +6607,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     isMultiSelect: false,
                                                   ),
                                                 ),
-                                                SizedBox(
+                                                const SizedBox(
                                                   height: 45.0,
                                                   child: VerticalDivider(
                                                     width: 10.0,
@@ -6626,7 +6617,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                 ),
                                                 Align(
                                                   alignment:
-                                                      AlignmentDirectional(
+                                                      const AlignmentDirectional(
                                                           -1.0, 0.0),
                                                   child: FlutterFlowDropDown<
                                                       String>(
@@ -6700,7 +6691,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     borderWidth: 2.0,
                                                     borderRadius: 8.0,
                                                     margin:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(16.0, 0.0,
                                                                 16.0, 0.0),
                                                     hidesUnderline: true,
@@ -6723,10 +6714,10 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                       children: [
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(-1.0, 0.0),
+                                              const AlignmentDirectional(-1.0, 0.0),
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     25.0, 10.0, 0.0, 0.0),
                                             child: Text(
                                               FFLocalizations.of(context)
@@ -6755,7 +6746,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                 'مورد'))
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     20.0, 10.0, 20.0, 12.0),
                                             child: FlutterFlowDropDown<String>(
                                               controller: _model
@@ -6789,7 +6780,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            Color(0xFF14181B),
+                                                            const Color(0xFF14181B),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -6804,7 +6795,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       .getText(
                                                 'dgmflr1h' /* Do you have a driving license? */,
                                               ),
-                                              icon: Icon(
+                                              icon: const Icon(
                                                 Icons
                                                     .keyboard_arrow_down_rounded,
                                                 color: Color(0xFF57636C),
@@ -6812,10 +6803,10 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                               ),
                                               fillColor: Colors.white,
                                               elevation: 2.0,
-                                              borderColor: Color(0xFFE0E3E7),
+                                              borderColor: const Color(0xFFE0E3E7),
                                               borderWidth: 2.0,
                                               borderRadius: 8.0,
-                                              margin: EdgeInsetsDirectional
+                                              margin: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       20.0, 4.0, 12.0, 4.0),
                                               hidesUnderline: true,
@@ -6825,15 +6816,15 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                           ),
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(-1.0, 0.0),
+                                              const AlignmentDirectional(-1.0, 0.0),
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     25.0, 10.0, 0.0, 0.0),
                                             child: Text(
                                               FFLocalizations.of(context)
                                                   .getText(
-                                                'toh0by3y' /* Type of driving license? */,
+                                                '5hsor24h' /* Type of driving license? */,
                                               ),
                                               style:
                                                   FlutterFlowTheme.of(context)
@@ -6855,7 +6846,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                             (_model.isDriverValue == 'نعم'))
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     20.0, 10.0, 20.0, 12.0),
                                             child: FlutterFlowDropDown<String>(
                                               controller: _model
@@ -6877,7 +6868,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                 ),
                                                 FFLocalizations.of(context)
                                                     .getText(
-                                                  'to288cxg' /* Van */,
+                                                  '1637li1t' /* Van */,
                                                 )
                                               ],
                                               onChanged: (val) => setState(() =>
@@ -6892,7 +6883,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            Color(0xFF14181B),
+                                                            const Color(0xFF14181B),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -6907,7 +6898,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       .getText(
                                                 'yui5kvi6' /* Type of driving license? */,
                                               ),
-                                              icon: Icon(
+                                              icon: const Icon(
                                                 Icons
                                                     .keyboard_arrow_down_rounded,
                                                 color: Color(0xFF57636C),
@@ -6915,10 +6906,10 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                               ),
                                               fillColor: Colors.white,
                                               elevation: 2.0,
-                                              borderColor: Color(0xFFE0E3E7),
+                                              borderColor: const Color(0xFFE0E3E7),
                                               borderWidth: 2.0,
                                               borderRadius: 8.0,
-                                              margin: EdgeInsetsDirectional
+                                              margin: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       20.0, 4.0, 12.0, 4.0),
                                               hidesUnderline: true,
@@ -6930,7 +6921,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                             (_model.isDriverValue == 'نعم'))
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     20.0, 10.0, 20.0, 16.0),
                                             child: TextFormField(
                                               controller: _model
@@ -6957,7 +6948,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     .override(
                                                       fontFamily:
                                                           'Plus Jakarta Sans',
-                                                      color: Color(0xFF57636C),
+                                                      color: const Color(0xFF57636C),
                                                       fontSize: 14.0,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
@@ -6973,7 +6964,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     .override(
                                                       fontFamily:
                                                           'Plus Jakarta Sans',
-                                                      color: Color(0xFF57636C),
+                                                      color: const Color(0xFF57636C),
                                                       fontSize: 14.0,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
@@ -6985,7 +6976,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     ),
                                                 enabledBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFE0E3E7),
                                                     width: 2.0,
                                                   ),
@@ -6995,7 +6986,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                 ),
                                                 focusedBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFF4B39EF),
                                                     width: 2.0,
                                                   ),
@@ -7004,7 +6995,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                           8.0),
                                                 ),
                                                 errorBorder: OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 2.0,
                                                   ),
@@ -7014,7 +7005,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                 ),
                                                 focusedErrorBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFFF5963),
                                                     width: 2.0,
                                                   ),
@@ -7025,7 +7016,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                 filled: true,
                                                 fillColor: Colors.white,
                                                 contentPadding:
-                                                    EdgeInsetsDirectional
+                                                    const EdgeInsetsDirectional
                                                         .fromSTEB(20.0, 24.0,
                                                             0.0, 24.0),
                                               ),
@@ -7036,7 +7027,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            Color(0xFF14181B),
+                                                            const Color(0xFF14181B),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -7058,7 +7049,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                             children: [
                                               Expanded(
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(20.0, 10.0,
                                                           20.0, 16.0),
                                                   child: TextFormField(
@@ -7089,7 +7080,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Plus Jakarta Sans',
-                                                                color: Color(
+                                                                color: const Color(
                                                                     0xFF57636C),
                                                                 fontSize: 14.0,
                                                                 letterSpacing:
@@ -7109,7 +7100,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Plus Jakarta Sans',
-                                                                color: Color(
+                                                                color: const Color(
                                                                     0xFF57636C),
                                                                 fontSize: 14.0,
                                                                 letterSpacing:
@@ -7124,7 +7115,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                               ),
                                                       enabledBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: BorderSide(
+                                                        borderSide: const BorderSide(
                                                           color:
                                                               Color(0xFFE0E3E7),
                                                           width: 2.0,
@@ -7135,7 +7126,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       ),
                                                       focusedBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: BorderSide(
+                                                        borderSide: const BorderSide(
                                                           color:
                                                               Color(0xFF4B39EF),
                                                           width: 2.0,
@@ -7146,7 +7137,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       ),
                                                       errorBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: BorderSide(
+                                                        borderSide: const BorderSide(
                                                           color:
                                                               Color(0xFFFF5963),
                                                           width: 2.0,
@@ -7157,7 +7148,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       ),
                                                       focusedErrorBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: BorderSide(
+                                                        borderSide: const BorderSide(
                                                           color:
                                                               Color(0xFFFF5963),
                                                           width: 2.0,
@@ -7169,7 +7160,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       filled: true,
                                                       fillColor: Colors.white,
                                                       contentPadding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   20.0,
                                                                   24.0,
@@ -7183,7 +7174,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              Color(0xFF14181B),
+                                                              const Color(0xFF14181B),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -7203,10 +7194,10 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                 ),
                                               ),
                                               Align(
-                                                alignment: AlignmentDirectional(
+                                                alignment: const AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 16.0, 0.0),
                                                   child: FFButtonWidget(
@@ -7215,7 +7206,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                           'UPDATE_USER_PAGE__BTN_ON_TAP');
                                                       logFirebaseEvent(
                                                           'Button_date_time_picker');
-                                                      final _datePicked6Date =
+                                                      final datePicked6Date =
                                                           await showDatePicker(
                                                         context: context,
                                                         initialDate:
@@ -7282,16 +7273,16 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                         },
                                                       );
 
-                                                      if (_datePicked6Date !=
+                                                      if (datePicked6Date !=
                                                           null) {
                                                         safeSetState(() {
                                                           _model.datePicked6 =
                                                               DateTime(
-                                                            _datePicked6Date
+                                                            datePicked6Date
                                                                 .year,
-                                                            _datePicked6Date
+                                                            datePicked6Date
                                                                 .month,
-                                                            _datePicked6Date
+                                                            datePicked6Date
                                                                 .day,
                                                           );
                                                         });
@@ -7315,7 +7306,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                         .getText(
                                                       'k6cfiys7' /*  */,
                                                     ),
-                                                    icon: Icon(
+                                                    icon: const Icon(
                                                       Icons.calendar_month,
                                                       size: 15.0,
                                                     ),
@@ -7323,14 +7314,14 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       width: 36.0,
                                                       height: 39.0,
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
                                                                   0.0,
                                                                   0.0),
                                                       iconPadding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   6.0,
                                                                   0.0,
@@ -7359,7 +7350,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                             .titleSmallFamily),
                                                               ),
                                                       elevation: 3.0,
-                                                      borderSide: BorderSide(
+                                                      borderSide: const BorderSide(
                                                         color:
                                                             Colors.transparent,
                                                         width: 1.0,
@@ -7380,7 +7371,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                             children: [
                                               Expanded(
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(20.0, 10.0,
                                                           20.0, 16.0),
                                                   child: TextFormField(
@@ -7411,7 +7402,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Plus Jakarta Sans',
-                                                                color: Color(
+                                                                color: const Color(
                                                                     0xFF57636C),
                                                                 fontSize: 14.0,
                                                                 letterSpacing:
@@ -7431,7 +7422,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Plus Jakarta Sans',
-                                                                color: Color(
+                                                                color: const Color(
                                                                     0xFF57636C),
                                                                 fontSize: 14.0,
                                                                 letterSpacing:
@@ -7446,7 +7437,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                               ),
                                                       enabledBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: BorderSide(
+                                                        borderSide: const BorderSide(
                                                           color:
                                                               Color(0xFFE0E3E7),
                                                           width: 2.0,
@@ -7457,7 +7448,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       ),
                                                       focusedBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: BorderSide(
+                                                        borderSide: const BorderSide(
                                                           color:
                                                               Color(0xFF4B39EF),
                                                           width: 2.0,
@@ -7468,7 +7459,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       ),
                                                       errorBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: BorderSide(
+                                                        borderSide: const BorderSide(
                                                           color:
                                                               Color(0xFFFF5963),
                                                           width: 2.0,
@@ -7479,7 +7470,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       ),
                                                       focusedErrorBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: BorderSide(
+                                                        borderSide: const BorderSide(
                                                           color:
                                                               Color(0xFFFF5963),
                                                           width: 2.0,
@@ -7491,7 +7482,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       filled: true,
                                                       fillColor: Colors.white,
                                                       contentPadding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   20.0,
                                                                   24.0,
@@ -7505,7 +7496,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              Color(0xFF14181B),
+                                                              const Color(0xFF14181B),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -7525,10 +7516,10 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                 ),
                                               ),
                                               Align(
-                                                alignment: AlignmentDirectional(
+                                                alignment: const AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 16.0, 0.0),
                                                   child: FFButtonWidget(
@@ -7537,7 +7528,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                           'UPDATE_USER_PAGE__BTN_ON_TAP');
                                                       logFirebaseEvent(
                                                           'Button_date_time_picker');
-                                                      final _datePicked7Date =
+                                                      final datePicked7Date =
                                                           await showDatePicker(
                                                         context: context,
                                                         initialDate:
@@ -7604,16 +7595,16 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                         },
                                                       );
 
-                                                      if (_datePicked7Date !=
+                                                      if (datePicked7Date !=
                                                           null) {
                                                         safeSetState(() {
                                                           _model.datePicked7 =
                                                               DateTime(
-                                                            _datePicked7Date
+                                                            datePicked7Date
                                                                 .year,
-                                                            _datePicked7Date
+                                                            datePicked7Date
                                                                 .month,
-                                                            _datePicked7Date
+                                                            datePicked7Date
                                                                 .day,
                                                           );
                                                         });
@@ -7637,7 +7628,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                         .getText(
                                                       'zqogz5ks' /*  */,
                                                     ),
-                                                    icon: Icon(
+                                                    icon: const Icon(
                                                       Icons.calendar_month,
                                                       size: 15.0,
                                                     ),
@@ -7645,14 +7636,14 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       width: 36.0,
                                                       height: 39.0,
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
                                                                   0.0,
                                                                   0.0),
                                                       iconPadding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   6.0,
                                                                   0.0,
@@ -7681,7 +7672,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                             .titleSmallFamily),
                                                               ),
                                                       elevation: 3.0,
-                                                      borderSide: BorderSide(
+                                                      borderSide: const BorderSide(
                                                         color:
                                                             Colors.transparent,
                                                         width: 1.0,
@@ -7699,9 +7690,9 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                     ),
                                   ),
                                   Align(
-                                    alignment: AlignmentDirectional(-1.0, 0.0),
+                                    alignment: const AlignmentDirectional(-1.0, 0.0),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           25.0, 10.0, 0.0, 0.0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
@@ -7723,7 +7714,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                   ),
                                   if (true != true)
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           20.0, 10.0, 20.0, 12.0),
                                       child: FlutterFlowDropDown<String>(
                                         controller: _model
@@ -7731,61 +7722,61 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                             FormFieldController<String>(null),
                                         options: [
                                           FFLocalizations.of(context).getText(
-                                            'aqw9vu6m' /* Leader Area 1 */,
+                                            'sr4mrqai' /* Leader Area 1 */,
                                           ),
                                           FFLocalizations.of(context).getText(
-                                            'nhg7y4a9' /* Leader Area 2 */,
+                                            'wl5f7igc' /* Leader Area 2 */,
                                           ),
                                           FFLocalizations.of(context).getText(
-                                            'qccpp1jg' /* Leader Area 3 */,
+                                            '2zvqvqe4' /* Leader Area 3 */,
                                           ),
                                           FFLocalizations.of(context).getText(
-                                            'sy11t9zg' /* Leader Area 4 */,
+                                            'l87kn4w2' /* Leader Area 4 */,
                                           ),
                                           FFLocalizations.of(context).getText(
-                                            'zsp0wr1g' /* Leader Area 5 */,
+                                            'tffwt50g' /* Leader Area 5 */,
                                           ),
                                           FFLocalizations.of(context).getText(
-                                            'o6vmlkz2' /* Leader Area 6 */,
+                                            'k2fdz70g' /* Leader Area 6 */,
                                           ),
                                           FFLocalizations.of(context).getText(
-                                            'zbcjahf6' /* Leader Area 7 */,
+                                            'upb0xx7h' /* Leader Area 7 */,
                                           ),
                                           FFLocalizations.of(context).getText(
-                                            'panknvpj' /* Leader Area 8 */,
+                                            'hcnnlera' /* Leader Area 8 */,
                                           ),
                                           FFLocalizations.of(context).getText(
-                                            '0i10j0z2' /* Leader Area 9 */,
+                                            '2bul1mav' /* Leader Area 9 */,
                                           ),
                                           FFLocalizations.of(context).getText(
-                                            'i9vl268p' /* Leader Area 10 */,
+                                            'vtj9g7k5' /* Leader Area 10 */,
                                           ),
                                           FFLocalizations.of(context).getText(
-                                            'i27rg9kz' /* Leader Area 11 */,
+                                            'g3qew8vn' /* Leader Area 11 */,
                                           ),
                                           FFLocalizations.of(context).getText(
-                                            '359vqjbc' /* Leader Area 12 */,
+                                            '7u9v4mu9' /* Leader Area 12 */,
                                           ),
                                           FFLocalizations.of(context).getText(
-                                            '9o2z2spi' /* Leader Area 13 */,
+                                            '3ofvz45p' /* Leader Area 13 */,
                                           ),
                                           FFLocalizations.of(context).getText(
-                                            's1b92hlf' /* Leader Area 14 */,
+                                            '6ubker3o' /* Leader Area 14 */,
                                           ),
                                           FFLocalizations.of(context).getText(
-                                            'rpgye2ew' /* Leader Area 15 */,
+                                            'j76y4san' /* Leader Area 15 */,
                                           ),
                                           FFLocalizations.of(context).getText(
-                                            'wx0qqw5a' /* Leader Area 16 */,
+                                            'yuuar5tk' /* Leader Area 16 */,
                                           ),
                                           FFLocalizations.of(context).getText(
-                                            'gi6o7tou' /* Leader Area 17 */,
+                                            'lsb6sgsi' /* Leader Area 17 */,
                                           ),
                                           FFLocalizations.of(context).getText(
-                                            'uz21l403' /* Leader Area 18 */,
+                                            'aqqtzdwl' /* Leader Area 18 */,
                                           ),
                                           FFLocalizations.of(context).getText(
-                                            'kw0206r8' /* Leader Area 19 */,
+                                            '9zm1kvam' /* Leader Area 19 */,
                                           ),
                                           FFLocalizations.of(context).getText(
                                             'mtmoqf1a' /* Leader Area 20 */,
@@ -7799,7 +7790,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Plus Jakarta Sans',
-                                              color: Color(0xFF14181B),
+                                              color: const Color(0xFF14181B),
                                               fontSize: 14.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
@@ -7812,17 +7803,17 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                             FFLocalizations.of(context).getText(
                                           '2ysb2s3a' /* Select Work Area */,
                                         ),
-                                        icon: Icon(
+                                        icon: const Icon(
                                           Icons.keyboard_arrow_down_rounded,
                                           color: Color(0xFF57636C),
                                           size: 15.0,
                                         ),
                                         fillColor: Colors.white,
                                         elevation: 2.0,
-                                        borderColor: Color(0xFFE0E3E7),
+                                        borderColor: const Color(0xFFE0E3E7),
                                         borderWidth: 2.0,
                                         borderRadius: 8.0,
-                                        margin: EdgeInsetsDirectional.fromSTEB(
+                                        margin: const EdgeInsetsDirectional.fromSTEB(
                                             20.0, 4.0, 12.0, 4.0),
                                         hidesUnderline: true,
                                         isSearchable: false,
@@ -7830,9 +7821,9 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                       ),
                                     ),
                                   Align(
-                                    alignment: AlignmentDirectional(-1.0, 0.0),
+                                    alignment: const AlignmentDirectional(-1.0, 0.0),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           25.0, 10.0, 0.0, 0.0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
@@ -7861,7 +7852,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                       (_model.userRoleOutput?.roleName ==
                                           'عامل'))
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           20.0, 10.0, 20.0, 12.0),
                                       child: FlutterFlowDropDown<String>(
                                         controller:
@@ -7904,7 +7895,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Plus Jakarta Sans',
-                                              color: Color(0xFF14181B),
+                                              color: const Color(0xFF14181B),
                                               fontSize: 14.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
@@ -7917,17 +7908,17 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                             FFLocalizations.of(context).getText(
                                           'tidi8bxo' /* Select code */,
                                         ),
-                                        icon: Icon(
+                                        icon: const Icon(
                                           Icons.keyboard_arrow_down_rounded,
                                           color: Color(0xFF57636C),
                                           size: 15.0,
                                         ),
                                         fillColor: Colors.white,
                                         elevation: 2.0,
-                                        borderColor: Color(0xFFE0E3E7),
+                                        borderColor: const Color(0xFFE0E3E7),
                                         borderWidth: 2.0,
                                         borderRadius: 8.0,
-                                        margin: EdgeInsetsDirectional.fromSTEB(
+                                        margin: const EdgeInsetsDirectional.fromSTEB(
                                             20.0, 4.0, 12.0, 4.0),
                                         hidesUnderline: true,
                                         isSearchable: false,
@@ -7940,15 +7931,14 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                       Expanded(
                                         child: Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   20.0, 10.0, 20.0, 16.0),
                                           child: TextFormField(
                                             controller: _model
                                                     .employmentDateTextController ??=
                                                 TextEditingController(
                                               text: updateUserUsersRecord
-                                                  .employmentDate
-                                                  ?.toString(),
+                                                  .employmentDate,
                                             ),
                                             focusNode:
                                                 _model.employmentDateFocusNode,
@@ -7969,7 +7959,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            Color(0xFF57636C),
+                                                            const Color(0xFF57636C),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -7986,7 +7976,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            Color(0xFF57636C),
+                                                            const Color(0xFF57636C),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -7997,7 +7987,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                 'Plus Jakarta Sans'),
                                                       ),
                                               enabledBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0xFFE0E3E7),
                                                   width: 2.0,
                                                 ),
@@ -8005,7 +7995,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     BorderRadius.circular(8.0),
                                               ),
                                               focusedBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0xFF4B39EF),
                                                   width: 2.0,
                                                 ),
@@ -8013,7 +8003,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     BorderRadius.circular(8.0),
                                               ),
                                               errorBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0xFFFF5963),
                                                   width: 2.0,
                                                 ),
@@ -8022,7 +8012,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                               ),
                                               focusedErrorBorder:
                                                   OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0xFFFF5963),
                                                   width: 2.0,
                                                 ),
@@ -8032,7 +8022,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                               filled: true,
                                               fillColor: Colors.white,
                                               contentPadding:
-                                                  EdgeInsetsDirectional
+                                                  const EdgeInsetsDirectional
                                                       .fromSTEB(20.0, 24.0, 0.0,
                                                           24.0),
                                             ),
@@ -8041,7 +8031,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                 .override(
                                                   fontFamily:
                                                       'Plus Jakarta Sans',
-                                                  color: Color(0xFF14181B),
+                                                  color: const Color(0xFF14181B),
                                                   fontSize: 14.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.normal,
@@ -8058,10 +8048,10 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                       ),
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 16.0, 0.0),
                                           child: FFButtonWidget(
                                             onPressed: () async {
@@ -8069,7 +8059,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                   'UPDATE_USER_PAGE__BTN_ON_TAP');
                                               logFirebaseEvent(
                                                   'Button_date_time_picker');
-                                              final _datePicked8Date =
+                                              final datePicked8Date =
                                                   await showDatePicker(
                                                 context: context,
                                                 initialDate:
@@ -8135,12 +8125,12 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                 },
                                               );
 
-                                              if (_datePicked8Date != null) {
+                                              if (datePicked8Date != null) {
                                                 safeSetState(() {
                                                   _model.datePicked8 = DateTime(
-                                                    _datePicked8Date.year,
-                                                    _datePicked8Date.month,
-                                                    _datePicked8Date.day,
+                                                    datePicked8Date.year,
+                                                    datePicked8Date.month,
+                                                    datePicked8Date.day,
                                                   );
                                                 });
                                               }
@@ -8162,16 +8152,16 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                 .getText(
                                               'gdtp3agg' /*  */,
                                             ),
-                                            icon: Icon(
+                                            icon: const Icon(
                                               Icons.calendar_month,
                                               size: 15.0,
                                             ),
                                             options: FFButtonOptions(
                                               width: 36.0,
                                               height: 39.0,
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                              iconPadding: EdgeInsetsDirectional
+                                              iconPadding: const EdgeInsetsDirectional
                                                   .fromSTEB(6.0, 0.0, 0.0, 0.0),
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -8194,7 +8184,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                     .titleSmallFamily),
                                                       ),
                                               elevation: 3.0,
-                                              borderSide: BorderSide(
+                                              borderSide: const BorderSide(
                                                 color: Colors.transparent,
                                                 width: 1.0,
                                               ),
@@ -8213,7 +8203,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                   ),
                                 ],
                               ),
-                            ].divide(SizedBox(height: 0.0)),
+                            ].divide(const SizedBox(height: 0.0)),
                           ),
                         ),
                         Divider(
@@ -8223,7 +8213,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                         if ((_model.userRoleOutput?.roleName == 'Supplier') ||
                             (_model.userRoleOutput?.roleName == 'مورد'))
                           Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
+                            alignment: const AlignmentDirectional(0.0, 0.0),
                             child: Form(
                               key: _model.formKey5,
                               autovalidateMode: AutovalidateMode.disabled,
@@ -8233,7 +8223,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                 builder: (context, snapshot) {
                                   // Customize what your widget looks like when it's loading.
                                   if (!snapshot.hasData) {
-                                    return Center(
+                                    return const Center(
                                       child: SizedBox(
                                         width: 50.0,
                                         height: 50.0,
@@ -8260,7 +8250,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                           children: [
                                             Expanded(
                                               child: Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         20.0, 0.0, 20.0, 16.0),
                                                 child: TextFormField(
@@ -8291,7 +8281,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              Color(0xFF57636C),
+                                                              const Color(0xFF57636C),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -8309,7 +8299,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              Color(0xFF57636C),
+                                                              const Color(0xFF57636C),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -8322,7 +8312,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                         ),
                                                     enabledBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: BorderSide(
+                                                      borderSide: const BorderSide(
                                                         color:
                                                             Color(0xFFE0E3E7),
                                                         width: 2.0,
@@ -8333,7 +8323,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     ),
                                                     focusedBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: BorderSide(
+                                                      borderSide: const BorderSide(
                                                         color:
                                                             Color(0xFF4B39EF),
                                                         width: 2.0,
@@ -8344,7 +8334,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     ),
                                                     errorBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: BorderSide(
+                                                      borderSide: const BorderSide(
                                                         color:
                                                             Color(0xFFFF5963),
                                                         width: 2.0,
@@ -8355,7 +8345,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     ),
                                                     focusedErrorBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: BorderSide(
+                                                      borderSide: const BorderSide(
                                                         color:
                                                             Color(0xFFFF5963),
                                                         width: 2.0,
@@ -8367,7 +8357,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     filled: true,
                                                     fillColor: Colors.white,
                                                     contentPadding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(
                                                                 20.0,
                                                                 24.0,
@@ -8381,7 +8371,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            Color(0xFF14181B),
+                                                            const Color(0xFF14181B),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -8401,7 +8391,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                             ),
                                             Expanded(
                                               child: Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         20.0, 0.0, 20.0, 16.0),
                                                 child: TextFormField(
@@ -8432,7 +8422,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              Color(0xFF57636C),
+                                                              const Color(0xFF57636C),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -8450,7 +8440,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              Color(0xFF57636C),
+                                                              const Color(0xFF57636C),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -8463,7 +8453,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                         ),
                                                     enabledBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: BorderSide(
+                                                      borderSide: const BorderSide(
                                                         color:
                                                             Color(0xFFE0E3E7),
                                                         width: 2.0,
@@ -8474,7 +8464,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     ),
                                                     focusedBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: BorderSide(
+                                                      borderSide: const BorderSide(
                                                         color:
                                                             Color(0xFF4B39EF),
                                                         width: 2.0,
@@ -8485,7 +8475,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     ),
                                                     errorBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: BorderSide(
+                                                      borderSide: const BorderSide(
                                                         color:
                                                             Color(0xFFFF5963),
                                                         width: 2.0,
@@ -8496,7 +8486,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     ),
                                                     focusedErrorBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: BorderSide(
+                                                      borderSide: const BorderSide(
                                                         color:
                                                             Color(0xFFFF5963),
                                                         width: 2.0,
@@ -8508,7 +8498,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     filled: true,
                                                     fillColor: Colors.white,
                                                     contentPadding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(
                                                                 20.0,
                                                                 24.0,
@@ -8522,7 +8512,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            Color(0xFF14181B),
+                                                            const Color(0xFF14181B),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -8547,7 +8537,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                           children: [
                                             Expanded(
                                               child: Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         20.0, 0.0, 20.0, 16.0),
                                                 child: TextFormField(
@@ -8578,7 +8568,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              Color(0xFF57636C),
+                                                              const Color(0xFF57636C),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -8596,7 +8586,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              Color(0xFF57636C),
+                                                              const Color(0xFF57636C),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -8609,7 +8599,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                         ),
                                                     enabledBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: BorderSide(
+                                                      borderSide: const BorderSide(
                                                         color:
                                                             Color(0xFFE0E3E7),
                                                         width: 2.0,
@@ -8620,7 +8610,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     ),
                                                     focusedBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: BorderSide(
+                                                      borderSide: const BorderSide(
                                                         color:
                                                             Color(0xFF4B39EF),
                                                         width: 2.0,
@@ -8631,7 +8621,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     ),
                                                     errorBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: BorderSide(
+                                                      borderSide: const BorderSide(
                                                         color:
                                                             Color(0xFFFF5963),
                                                         width: 2.0,
@@ -8642,7 +8632,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     ),
                                                     focusedErrorBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: BorderSide(
+                                                      borderSide: const BorderSide(
                                                         color:
                                                             Color(0xFFFF5963),
                                                         width: 2.0,
@@ -8654,7 +8644,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     filled: true,
                                                     fillColor: Colors.white,
                                                     contentPadding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(
                                                                 20.0,
                                                                 24.0,
@@ -8668,7 +8658,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            Color(0xFF14181B),
+                                                            const Color(0xFF14181B),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -8693,7 +8683,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                           children: [
                                             Expanded(
                                               child: Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         20.0, 10.0, 20.0, 16.0),
                                                 child: TextFormField(
@@ -8716,7 +8706,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                         FFLocalizations.of(
                                                                 context)
                                                             .getText(
-                                                      'im8dgsd0' /* contract date */,
+                                                      '7ns0f9xu' /* contract date */,
                                                     ),
                                                     labelStyle: FlutterFlowTheme
                                                             .of(context)
@@ -8725,7 +8715,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              Color(0xFF57636C),
+                                                              const Color(0xFF57636C),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -8743,7 +8733,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              Color(0xFF57636C),
+                                                              const Color(0xFF57636C),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -8756,7 +8746,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                         ),
                                                     enabledBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: BorderSide(
+                                                      borderSide: const BorderSide(
                                                         color:
                                                             Color(0xFFE0E3E7),
                                                         width: 2.0,
@@ -8767,7 +8757,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     ),
                                                     focusedBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: BorderSide(
+                                                      borderSide: const BorderSide(
                                                         color:
                                                             Color(0xFF4B39EF),
                                                         width: 2.0,
@@ -8778,7 +8768,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     ),
                                                     errorBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: BorderSide(
+                                                      borderSide: const BorderSide(
                                                         color:
                                                             Color(0xFFFF5963),
                                                         width: 2.0,
@@ -8789,7 +8779,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     ),
                                                     focusedErrorBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: BorderSide(
+                                                      borderSide: const BorderSide(
                                                         color:
                                                             Color(0xFFFF5963),
                                                         width: 2.0,
@@ -8801,7 +8791,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     filled: true,
                                                     fillColor: Colors.white,
                                                     contentPadding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(
                                                                 20.0,
                                                                 24.0,
@@ -8815,7 +8805,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            Color(0xFF14181B),
+                                                            const Color(0xFF14181B),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -8832,10 +8822,10 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                               ),
                                             ),
                                             Align(
-                                              alignment: AlignmentDirectional(
+                                              alignment: const AlignmentDirectional(
                                                   0.0, 0.0),
                                               child: Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 16.0, 0.0),
                                                 child: FFButtonWidget(
@@ -8844,7 +8834,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                         'UPDATE_USER_PAGE__BTN_ON_TAP');
                                                     logFirebaseEvent(
                                                         'Button_date_time_picker');
-                                                    final _datePicked9Date =
+                                                    final datePicked9Date =
                                                         await showDatePicker(
                                                       context: context,
                                                       initialDate:
@@ -8910,15 +8900,15 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       },
                                                     );
 
-                                                    if (_datePicked9Date !=
+                                                    if (datePicked9Date !=
                                                         null) {
                                                       safeSetState(() {
                                                         _model.datePicked9 =
                                                             DateTime(
-                                                          _datePicked9Date.year,
-                                                          _datePicked9Date
+                                                          datePicked9Date.year,
+                                                          datePicked9Date
                                                               .month,
-                                                          _datePicked9Date.day,
+                                                          datePicked9Date.day,
                                                         );
                                                       });
                                                     }
@@ -8941,7 +8931,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       .getText(
                                                     'lmm7wjpt' /*  */,
                                                   ),
-                                                  icon: Icon(
+                                                  icon: const Icon(
                                                     Icons.calendar_month,
                                                     size: 15.0,
                                                   ),
@@ -8949,11 +8939,11 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                     width: 36.0,
                                                     height: 39.0,
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 0.0),
                                                     iconPadding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(6.0, 0.0,
                                                                 0.0, 0.0),
                                                     color: FlutterFlowTheme.of(
@@ -8977,7 +8967,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                       .titleSmallFamily),
                                                         ),
                                                     elevation: 3.0,
-                                                    borderSide: BorderSide(
+                                                    borderSide: const BorderSide(
                                                       color: Colors.transparent,
                                                       width: 1.0,
                                                     ),
@@ -8998,7 +8988,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                             ),
                           ),
                         Align(
-                          alignment: AlignmentDirectional(0.0, 0.0),
+                          alignment: const AlignmentDirectional(0.0, 0.0),
                           child: Form(
                             key: _model.formKey3,
                             autovalidateMode: AutovalidateMode.disabled,
@@ -9032,9 +9022,9 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                           ),
                                           Align(
                                             alignment:
-                                                AlignmentDirectional(-1.0, 0.0),
+                                                const AlignmentDirectional(-1.0, 0.0),
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       20.0, 0.0, 0.0, 0.0),
                                               child: Text(
@@ -9065,17 +9055,17 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                             ),
                                           ),
                                           Padding(
-                                            padding: EdgeInsets.all(12.0),
+                                            padding: const EdgeInsets.all(12.0),
                                             child: Container(
                                               width: double.infinity,
-                                              constraints: BoxConstraints(
+                                              constraints: const BoxConstraints(
                                                 maxWidth: 670.0,
                                               ),
                                               decoration: BoxDecoration(
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryBackground,
-                                                boxShadow: [
+                                                boxShadow: const [
                                                   BoxShadow(
                                                     blurRadius: 3.0,
                                                     color: Color(0x33000000),
@@ -9103,7 +9093,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                   children: [
                                                     Padding(
                                                       padding:
-                                                          EdgeInsets.all(24.0),
+                                                          const EdgeInsets.all(24.0),
                                                       child: Column(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -9113,7 +9103,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                         children: [
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
@@ -9137,7 +9127,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                             .start,
                                                                     children: [
                                                                       Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                                                             0.0,
                                                                             0.0,
                                                                             0.0,
@@ -9166,7 +9156,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                           .max,
                                                                   children: [
                                                                     Align(
-                                                                      alignment: AlignmentDirectional(
+                                                                      alignment: const AlignmentDirectional(
                                                                           -0.01,
                                                                           0.87),
                                                                       child:
@@ -9210,7 +9200,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                             children: [
                                                               Expanded(
                                                                 child: Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -9234,7 +9224,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                     child:
                                                                         Stack(
                                                                       alignment:
-                                                                          AlignmentDirectional(
+                                                                          const AlignmentDirectional(
                                                                               0.0,
                                                                               0.0),
                                                                       children: [
@@ -9250,7 +9240,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                               size: 72.0,
                                                                             ),
                                                                             Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                                                                               child: Text(
                                                                                 FFLocalizations.of(context).getText(
                                                                                   'c9n2h4u6' /* Add Photo */,
@@ -9263,7 +9253,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                               ),
                                                                             ),
                                                                             Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                                                                               child: Text(
                                                                                 FFLocalizations.of(context).getText(
                                                                                   'zk6ecwu3' /* Upload an image here... */,
@@ -9279,7 +9269,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                         ),
                                                                         Padding(
                                                                           padding:
-                                                                              EdgeInsets.all(8.0),
+                                                                              const EdgeInsets.all(8.0),
                                                                           child:
                                                                               InkWell(
                                                                             splashColor:
@@ -9348,8 +9338,8 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                                 ClipRRect(
                                                                               borderRadius: BorderRadius.circular(10.0),
                                                                               child: CachedNetworkImage(
-                                                                                fadeInDuration: Duration(milliseconds: 500),
-                                                                                fadeOutDuration: Duration(milliseconds: 500),
+                                                                                fadeInDuration: const Duration(milliseconds: 500),
+                                                                                fadeOutDuration: const Duration(milliseconds: 500),
                                                                                 imageUrl: _model.uploadedFileUrl1,
                                                                                 width: 196.0,
                                                                                 height: 196.0,
@@ -9385,7 +9375,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                           ),
                         ),
                         Align(
-                          alignment: AlignmentDirectional(0.0, 0.0),
+                          alignment: const AlignmentDirectional(0.0, 0.0),
                           child: Form(
                             key: _model.formKey2,
                             autovalidateMode: AutovalidateMode.disabled,
@@ -9419,9 +9409,9 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                           ),
                                           Align(
                                             alignment:
-                                                AlignmentDirectional(-1.0, 0.0),
+                                                const AlignmentDirectional(-1.0, 0.0),
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       20.0, 0.0, 0.0, 0.0),
                                               child: Text(
@@ -9452,17 +9442,17 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                             ),
                                           ),
                                           Padding(
-                                            padding: EdgeInsets.all(12.0),
+                                            padding: const EdgeInsets.all(12.0),
                                             child: Container(
                                               width: double.infinity,
-                                              constraints: BoxConstraints(
+                                              constraints: const BoxConstraints(
                                                 maxWidth: 670.0,
                                               ),
                                               decoration: BoxDecoration(
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryBackground,
-                                                boxShadow: [
+                                                boxShadow: const [
                                                   BoxShadow(
                                                     blurRadius: 3.0,
                                                     color: Color(0x33000000),
@@ -9490,7 +9480,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                   children: [
                                                     Padding(
                                                       padding:
-                                                          EdgeInsets.all(24.0),
+                                                          const EdgeInsets.all(24.0),
                                                       child: Column(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -9500,7 +9490,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                         children: [
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
@@ -9524,7 +9514,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                             .start,
                                                                     children: [
                                                                       Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                                                             0.0,
                                                                             0.0,
                                                                             0.0,
@@ -9545,7 +9535,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                         ),
                                                                       ),
                                                                       Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                                                             0.0,
                                                                             0.0,
                                                                             0.0,
@@ -9574,7 +9564,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                           .max,
                                                                   children: [
                                                                     Align(
-                                                                      alignment: AlignmentDirectional(
+                                                                      alignment: const AlignmentDirectional(
                                                                           -0.01,
                                                                           0.87),
                                                                       child:
@@ -9618,7 +9608,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                             children: [
                                                               Expanded(
                                                                 child: Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -9642,7 +9632,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                     child:
                                                                         Stack(
                                                                       alignment:
-                                                                          AlignmentDirectional(
+                                                                          const AlignmentDirectional(
                                                                               0.0,
                                                                               0.0),
                                                                       children: [
@@ -9658,7 +9648,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                               size: 72.0,
                                                                             ),
                                                                             Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                                                                               child: Text(
                                                                                 FFLocalizations.of(context).getText(
                                                                                   'f89pemp5' /* Add Photo */,
@@ -9671,7 +9661,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                               ),
                                                                             ),
                                                                             Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                                                                               child: Text(
                                                                                 FFLocalizations.of(context).getText(
                                                                                   '3be81d8t' /* Upload an image here... */,
@@ -9687,7 +9677,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                         ),
                                                                         Padding(
                                                                           padding:
-                                                                              EdgeInsets.all(8.0),
+                                                                              const EdgeInsets.all(8.0),
                                                                           child:
                                                                               InkWell(
                                                                             splashColor:
@@ -9756,8 +9746,8 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                                 ClipRRect(
                                                                               borderRadius: BorderRadius.circular(10.0),
                                                                               child: CachedNetworkImage(
-                                                                                fadeInDuration: Duration(milliseconds: 500),
-                                                                                fadeOutDuration: Duration(milliseconds: 500),
+                                                                                fadeInDuration: const Duration(milliseconds: 500),
+                                                                                fadeOutDuration: const Duration(milliseconds: 500),
                                                                                 imageUrl: _model.uploadedFileUrl2,
                                                                                 width: double.infinity,
                                                                                 height: double.infinity,
@@ -9801,17 +9791,17 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                             MainAxisAlignment.center,
                                         children: [
                                           Padding(
-                                            padding: EdgeInsets.all(12.0),
+                                            padding: const EdgeInsets.all(12.0),
                                             child: Container(
                                               width: double.infinity,
-                                              constraints: BoxConstraints(
+                                              constraints: const BoxConstraints(
                                                 maxWidth: 670.0,
                                               ),
                                               decoration: BoxDecoration(
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryBackground,
-                                                boxShadow: [
+                                                boxShadow: const [
                                                   BoxShadow(
                                                     blurRadius: 3.0,
                                                     color: Color(0x33000000),
@@ -9839,7 +9829,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                   children: [
                                                     Padding(
                                                       padding:
-                                                          EdgeInsets.all(24.0),
+                                                          const EdgeInsets.all(24.0),
                                                       child: Column(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -9849,7 +9839,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                         children: [
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
@@ -9873,7 +9863,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                             .start,
                                                                     children: [
                                                                       Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                                                             0.0,
                                                                             0.0,
                                                                             0.0,
@@ -9894,7 +9884,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                         ),
                                                                       ),
                                                                       Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                                                             0.0,
                                                                             0.0,
                                                                             0.0,
@@ -9923,7 +9913,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                           .max,
                                                                   children: [
                                                                     Align(
-                                                                      alignment: AlignmentDirectional(
+                                                                      alignment: const AlignmentDirectional(
                                                                           -0.01,
                                                                           0.87),
                                                                       child:
@@ -9967,7 +9957,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                             children: [
                                                               Expanded(
                                                                 child: Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -9991,7 +9981,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                     child:
                                                                         Stack(
                                                                       alignment:
-                                                                          AlignmentDirectional(
+                                                                          const AlignmentDirectional(
                                                                               0.0,
                                                                               0.0),
                                                                       children: [
@@ -10007,7 +9997,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                               size: 72.0,
                                                                             ),
                                                                             Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                                                                               child: Text(
                                                                                 FFLocalizations.of(context).getText(
                                                                                   'w9n8l4rk' /* Add Photo */,
@@ -10020,7 +10010,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                               ),
                                                                             ),
                                                                             Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                                                                               child: Text(
                                                                                 FFLocalizations.of(context).getText(
                                                                                   '3pctfapy' /* Upload an image here... */,
@@ -10036,7 +10026,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                         ),
                                                                         Padding(
                                                                           padding:
-                                                                              EdgeInsets.all(8.0),
+                                                                              const EdgeInsets.all(8.0),
                                                                           child:
                                                                               InkWell(
                                                                             splashColor:
@@ -10105,8 +10095,8 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                                 ClipRRect(
                                                                               borderRadius: BorderRadius.circular(10.0),
                                                                               child: CachedNetworkImage(
-                                                                                fadeInDuration: Duration(milliseconds: 500),
-                                                                                fadeOutDuration: Duration(milliseconds: 500),
+                                                                                fadeInDuration: const Duration(milliseconds: 500),
+                                                                                fadeOutDuration: const Duration(milliseconds: 500),
                                                                                 imageUrl: _model.uploadedFileUrl3,
                                                                                 width: double.infinity,
                                                                                 height: double.infinity,
@@ -10142,7 +10132,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                           ),
                         ),
                         Align(
-                          alignment: AlignmentDirectional(0.0, 0.0),
+                          alignment: const AlignmentDirectional(0.0, 0.0),
                           child: Form(
                             key: _model.formKey1,
                             autovalidateMode: AutovalidateMode.disabled,
@@ -10179,10 +10169,10 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       .alternate,
                                             ),
                                             Align(
-                                              alignment: AlignmentDirectional(
+                                              alignment: const AlignmentDirectional(
                                                   -1.0, 0.0),
                                               child: Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         20.0, 0.0, 0.0, 0.0),
                                                 child: Text(
@@ -10214,17 +10204,17 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                               ),
                                             ),
                                             Padding(
-                                              padding: EdgeInsets.all(12.0),
+                                              padding: const EdgeInsets.all(12.0),
                                               child: Container(
                                                 width: double.infinity,
-                                                constraints: BoxConstraints(
+                                                constraints: const BoxConstraints(
                                                   maxWidth: 670.0,
                                                 ),
                                                 decoration: BoxDecoration(
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .secondaryBackground,
-                                                  boxShadow: [
+                                                  boxShadow: const [
                                                     BoxShadow(
                                                       blurRadius: 3.0,
                                                       color: Color(0x33000000),
@@ -10253,7 +10243,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                             .start,
                                                     children: [
                                                       Padding(
-                                                        padding: EdgeInsets.all(
+                                                        padding: const EdgeInsets.all(
                                                             24.0),
                                                         child: Column(
                                                           mainAxisSize:
@@ -10264,7 +10254,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                           children: [
                                                             Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -10289,7 +10279,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                               .start,
                                                                       children: [
                                                                         Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
                                                                               0.0,
                                                                               0.0,
                                                                               0.0,
@@ -10307,7 +10297,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                           ),
                                                                         ),
                                                                         Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
                                                                               0.0,
                                                                               0.0,
                                                                               0.0,
@@ -10333,7 +10323,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                             .max,
                                                                     children: [
                                                                       Align(
-                                                                        alignment: AlignmentDirectional(
+                                                                        alignment: const AlignmentDirectional(
                                                                             -0.01,
                                                                             0.87),
                                                                         child:
@@ -10376,7 +10366,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                 Expanded(
                                                                   child:
                                                                       Padding(
-                                                                    padding: EdgeInsetsDirectional
+                                                                    padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -10397,7 +10387,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                       ),
                                                                       child:
                                                                           Stack(
-                                                                        alignment: AlignmentDirectional(
+                                                                        alignment: const AlignmentDirectional(
                                                                             0.0,
                                                                             0.0),
                                                                         children: [
@@ -10413,7 +10403,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                                 size: 72.0,
                                                                               ),
                                                                               Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                                                                                 child: Text(
                                                                                   FFLocalizations.of(context).getText(
                                                                                     'wrkvpmmk' /* Add Photo */,
@@ -10426,7 +10416,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                                 ),
                                                                               ),
                                                                               Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                                                                                 child: Text(
                                                                                   FFLocalizations.of(context).getText(
                                                                                     's5iammb7' /* Upload an image here... */,
@@ -10442,7 +10432,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                           ),
                                                                           Padding(
                                                                             padding:
-                                                                                EdgeInsets.all(8.0),
+                                                                                const EdgeInsets.all(8.0),
                                                                             child:
                                                                                 InkWell(
                                                                               splashColor: Colors.transparent,
@@ -10505,8 +10495,8 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                               child: ClipRRect(
                                                                                 borderRadius: BorderRadius.circular(10.0),
                                                                                 child: CachedNetworkImage(
-                                                                                  fadeInDuration: Duration(milliseconds: 500),
-                                                                                  fadeOutDuration: Duration(milliseconds: 500),
+                                                                                  fadeInDuration: const Duration(milliseconds: 500),
+                                                                                  fadeOutDuration: const Duration(milliseconds: 500),
                                                                                   imageUrl: _model.uploadedFileUrl4,
                                                                                   width: double.infinity,
                                                                                   height: double.infinity,
@@ -10550,17 +10540,17 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                               MainAxisAlignment.center,
                                           children: [
                                             Padding(
-                                              padding: EdgeInsets.all(12.0),
+                                              padding: const EdgeInsets.all(12.0),
                                               child: Container(
                                                 width: double.infinity,
-                                                constraints: BoxConstraints(
+                                                constraints: const BoxConstraints(
                                                   maxWidth: 670.0,
                                                 ),
                                                 decoration: BoxDecoration(
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .secondaryBackground,
-                                                  boxShadow: [
+                                                  boxShadow: const [
                                                     BoxShadow(
                                                       blurRadius: 3.0,
                                                       color: Color(0x33000000),
@@ -10589,7 +10579,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                             .start,
                                                     children: [
                                                       Padding(
-                                                        padding: EdgeInsets.all(
+                                                        padding: const EdgeInsets.all(
                                                             24.0),
                                                         child: Column(
                                                           mainAxisSize:
@@ -10600,7 +10590,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                           children: [
                                                             Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -10625,7 +10615,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                               .start,
                                                                       children: [
                                                                         Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
                                                                               0.0,
                                                                               0.0,
                                                                               0.0,
@@ -10643,7 +10633,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                           ),
                                                                         ),
                                                                         Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
                                                                               0.0,
                                                                               0.0,
                                                                               0.0,
@@ -10669,7 +10659,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                             .max,
                                                                     children: [
                                                                       Align(
-                                                                        alignment: AlignmentDirectional(
+                                                                        alignment: const AlignmentDirectional(
                                                                             -0.01,
                                                                             0.87),
                                                                         child:
@@ -10712,7 +10702,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                 Expanded(
                                                                   child:
                                                                       Padding(
-                                                                    padding: EdgeInsetsDirectional
+                                                                    padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -10733,7 +10723,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                       ),
                                                                       child:
                                                                           Stack(
-                                                                        alignment: AlignmentDirectional(
+                                                                        alignment: const AlignmentDirectional(
                                                                             0.0,
                                                                             0.0),
                                                                         children: [
@@ -10749,7 +10739,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                                 size: 72.0,
                                                                               ),
                                                                               Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                                                                                 child: Text(
                                                                                   FFLocalizations.of(context).getText(
                                                                                     'w1qw3jqo' /* Add Photo */,
@@ -10762,7 +10752,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                                 ),
                                                                               ),
                                                                               Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                                                                                 child: Text(
                                                                                   FFLocalizations.of(context).getText(
                                                                                     'v2lys5vb' /* Upload an image here... */,
@@ -10778,7 +10768,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                           ),
                                                                           Padding(
                                                                             padding:
-                                                                                EdgeInsets.all(8.0),
+                                                                                const EdgeInsets.all(8.0),
                                                                             child:
                                                                                 InkWell(
                                                                               splashColor: Colors.transparent,
@@ -10841,8 +10831,8 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                               child: ClipRRect(
                                                                                 borderRadius: BorderRadius.circular(10.0),
                                                                                 child: CachedNetworkImage(
-                                                                                  fadeInDuration: Duration(milliseconds: 500),
-                                                                                  fadeOutDuration: Duration(milliseconds: 500),
+                                                                                  fadeInDuration: const Duration(milliseconds: 500),
+                                                                                  fadeOutDuration: const Duration(milliseconds: 500),
                                                                                   imageUrl: _model.uploadedFileUrl5,
                                                                                   width: double.infinity,
                                                                                   height: double.infinity,
@@ -10879,7 +10869,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                           ),
                         ),
                         Align(
-                          alignment: AlignmentDirectional(0.0, 0.0),
+                          alignment: const AlignmentDirectional(0.0, 0.0),
                           child: Container(
                             width: 416.0,
                             height: 707.0,
@@ -10908,17 +10898,17 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                           MainAxisAlignment.center,
                                       children: [
                                         Padding(
-                                          padding: EdgeInsets.all(12.0),
+                                          padding: const EdgeInsets.all(12.0),
                                           child: Container(
                                             width: double.infinity,
-                                            constraints: BoxConstraints(
+                                            constraints: const BoxConstraints(
                                               maxWidth: 670.0,
                                             ),
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryBackground,
-                                              boxShadow: [
+                                              boxShadow: const [
                                                 BoxShadow(
                                                   blurRadius: 3.0,
                                                   color: Color(0x33000000),
@@ -10945,7 +10935,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        EdgeInsets.all(24.0),
+                                                        const EdgeInsets.all(24.0),
                                                     child: Column(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -10955,7 +10945,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                       children: [
                                                         Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       0.0,
@@ -10979,7 +10969,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                           .start,
                                                                   children: [
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           0.0,
                                                                           0.0,
@@ -11000,7 +10990,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                       ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           0.0,
                                                                           0.0,
@@ -11036,7 +11026,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                             Expanded(
                                                               child: Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -11057,7 +11047,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                   ),
                                                                   child: Stack(
                                                                     alignment:
-                                                                        AlignmentDirectional(
+                                                                        const AlignmentDirectional(
                                                                             0.0,
                                                                             0.0),
                                                                     children: [
@@ -11075,7 +11065,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                                 72.0,
                                                                           ),
                                                                           Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
                                                                                 0.0,
                                                                                 12.0,
                                                                                 0.0,
@@ -11093,7 +11083,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                             ),
                                                                           ),
                                                                           Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
                                                                                 0.0,
                                                                                 4.0,
                                                                                 0.0,
@@ -11114,7 +11104,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                       ),
                                                                       Padding(
                                                                         padding:
-                                                                            EdgeInsets.all(8.0),
+                                                                            const EdgeInsets.all(8.0),
                                                                         child:
                                                                             InkWell(
                                                                           splashColor:
@@ -11187,8 +11177,8 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                                                                 BorderRadius.circular(10.0),
                                                                             child:
                                                                                 CachedNetworkImage(
-                                                                              fadeInDuration: Duration(milliseconds: 500),
-                                                                              fadeOutDuration: Duration(milliseconds: 500),
+                                                                              fadeInDuration: const Duration(milliseconds: 500),
+                                                                              fadeOutDuration: const Duration(milliseconds: 500),
                                                                               imageUrl: '',
                                                                               width: double.infinity,
                                                                               height: double.infinity,
@@ -11223,7 +11213,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                           ),
                         ),
                         Align(
-                          alignment: AlignmentDirectional(0.0, 0.0),
+                          alignment: const AlignmentDirectional(0.0, 0.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
                               'dq7vyo8g' /* * Please verify the data, it c... */,
@@ -11242,9 +11232,9 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                           ),
                         ),
                         Align(
-                          alignment: AlignmentDirectional(0.0, 0.05),
+                          alignment: const AlignmentDirectional(0.0, 0.05),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 24.0, 0.0, 24.0),
                             child: FFButtonWidget(
                               onPressed: () async {
@@ -11419,7 +11409,8 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                   fullAddress:
                                       _model.fullAddressTextController.text,
                                   socialStatus: _model.maritalStatusValue,
-                                  employmentDate: _model.datePicked8,
+                                  employmentDate:
+                                      _model.datePicked8?.toString(),
                                   displayName:
                                       _model.nickNameTextController.text,
                                   phoneNumber:
@@ -11470,25 +11461,18 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                       _model.eduDataTextController.text,
                                   isEmployed: _model.isEmployeedValue,
                                   photoUrl: () {
-                                    if (_model.uploadedFileUrl1 != null &&
-                                        _model.uploadedFileUrl1 != '') {
+                                    if (_model.uploadedFileUrl1 != '') {
                                       return _model.uploadedFileUrl1;
-                                    } else if (updateUserUsersRecord.photoUrl !=
-                                            null &&
-                                        updateUserUsersRecord.photoUrl != '') {
+                                    } else if (updateUserUsersRecord.photoUrl != '') {
                                       return updateUserUsersRecord.photoUrl;
                                     } else {
                                       return null;
                                     }
                                   }(),
                                   frontNatImageUrl: () {
-                                    if (_model.uploadedFileUrl2 != null &&
-                                        _model.uploadedFileUrl2 != '') {
+                                    if (_model.uploadedFileUrl2 != '') {
                                       return _model.uploadedFileUrl2;
                                     } else if (updateUserUsersRecord
-                                                .frontNatImageUrl !=
-                                            null &&
-                                        updateUserUsersRecord
                                                 .frontNatImageUrl !=
                                             '') {
                                       return updateUserUsersRecord
@@ -11498,13 +11482,9 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                     }
                                   }(),
                                   backNatImageUrl: () {
-                                    if (_model.uploadedFileUrl3 != null &&
-                                        _model.uploadedFileUrl3 != '') {
+                                    if (_model.uploadedFileUrl3 != '') {
                                       return _model.uploadedFileUrl3;
-                                    } else if (updateUserUsersRecord
-                                                .backNatImageUrl !=
-                                            null &&
-                                        updateUserUsersRecord.backNatImageUrl !=
+                                    } else if (updateUserUsersRecord.backNatImageUrl !=
                                             '') {
                                       return updateUserUsersRecord
                                           .backNatImageUrl;
@@ -11513,13 +11493,9 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                     }
                                   }(),
                                   drugTestImageUrl: () {
-                                    if (_model.uploadedFileUrl6 != null &&
-                                        _model.uploadedFileUrl6 != '') {
+                                    if (_model.uploadedFileUrl6 != '') {
                                       return _model.uploadedFileUrl6;
                                     } else if (updateUserUsersRecord
-                                                .drugTestImageUrl !=
-                                            null &&
-                                        updateUserUsersRecord
                                                 .drugTestImageUrl !=
                                             '') {
                                       return updateUserUsersRecord
@@ -11529,13 +11505,9 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                     }
                                   }(),
                                   frontDrivingLicence: () {
-                                    if (_model.uploadedFileUrl4 != null &&
-                                        _model.uploadedFileUrl4 != '') {
+                                    if (_model.uploadedFileUrl4 != '') {
                                       return _model.uploadedFileUrl4;
                                     } else if (updateUserUsersRecord
-                                                .frontDrivingLicence !=
-                                            null &&
-                                        updateUserUsersRecord
                                                 .frontDrivingLicence !=
                                             '') {
                                       return updateUserUsersRecord
@@ -11545,13 +11517,9 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                     }
                                   }(),
                                   backDrivingLicence: () {
-                                    if (_model.uploadedFileUrl5 != null &&
-                                        _model.uploadedFileUrl5 != '') {
+                                    if (_model.uploadedFileUrl5 != '') {
                                       return _model.uploadedFileUrl5;
                                     } else if (updateUserUsersRecord
-                                                .backDrivingLicence !=
-                                            null &&
-                                        updateUserUsersRecord
                                                 .backDrivingLicence !=
                                             '') {
                                       return updateUserUsersRecord
@@ -11568,11 +11536,11 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                               options: FFButtonOptions(
                                 width: 270.0,
                                 height: 50.0,
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
-                                color: Color(0xFF0CA256),
+                                color: const Color(0xFF0CA256),
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleMedium
                                     .override(
@@ -11585,7 +11553,7 @@ class _UpdateUserWidgetState extends State<UpdateUserWidget>
                                           .containsKey('Plus Jakarta Sans'),
                                     ),
                                 elevation: 2.0,
-                                borderSide: BorderSide(
+                                borderSide: const BorderSide(
                                   color: Colors.transparent,
                                   width: 1.0,
                                 ),

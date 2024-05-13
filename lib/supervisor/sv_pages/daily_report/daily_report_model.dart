@@ -1,15 +1,7 @@
-import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'daily_report_widget.dart' show DailyReportWidget;
-import 'package:styled_divider/styled_divider.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 class DailyReportModel extends FlutterFlowModel<DailyReportWidget> {
   ///  State fields for stateful widgets in this page.
@@ -41,6 +33,20 @@ class DailyReportModel extends FlutterFlowModel<DailyReportWidget> {
   TextEditingController? textualDetailsTextController5;
   String? Function(BuildContext, String?)?
       textualDetailsTextController5Validator;
+  // Stores action output result for [Custom Action - createDailyReport] action in Button widget.
+  bool? dailyreport3;
+  // Stores action output result for [Backend Call - Read Document] action in Button widget.
+  LeadersRecord? leader2;
+  // Stores action output result for [Backend Call - Read Document] action in Button widget.
+  SquaresRecord? square2;
+  // Stores action output result for [Custom Action - createDailyReport] action in Button widget.
+  bool? dailyreport2;
+  // Stores action output result for [Backend Call - Read Document] action in Button widget.
+  LeadersRecord? leader1;
+  // Stores action output result for [Backend Call - Read Document] action in Button widget.
+  SquaresRecord? square1;
+  // Stores action output result for [Custom Action - createDailyReport] action in Button widget.
+  bool? dailyreport1;
 
   @override
   void initState(BuildContext context) {}

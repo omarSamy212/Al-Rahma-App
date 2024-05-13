@@ -5,11 +5,8 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -62,8 +59,8 @@ class _ToolItemWidgetState extends State<ToolItemWidget>
             curve: Curves.elasticOut,
             delay: 190.0.ms,
             duration: 600.0.ms,
-            begin: Offset(1.0, 1.0),
-            end: Offset(1.0, 1.0),
+            begin: const Offset(1.0, 1.0),
+            end: const Offset(1.0, 1.0),
           ),
         ],
       ),
@@ -75,8 +72,8 @@ class _ToolItemWidgetState extends State<ToolItemWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 1070.0.ms,
-            begin: Offset(1.0, 1.0),
-            end: Offset(1.0, 1.0),
+            begin: const Offset(1.0, 1.0),
+            end: const Offset(1.0, 1.0),
           ),
         ],
       ),
@@ -103,13 +100,13 @@ class _ToolItemWidgetState extends State<ToolItemWidget>
     context.watch<FFAppState>();
 
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 0.0),
+      padding: const EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 0.0),
       child: Container(
         width: double.infinity,
         height: 100.0,
         decoration: BoxDecoration(
           color: Colors.white,
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
               blurRadius: 4.0,
               color: Color(0x320E151B),
@@ -122,7 +119,7 @@ class _ToolItemWidgetState extends State<ToolItemWidget>
           borderRadius: BorderRadius.circular(8.0),
         ),
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(12.0, 8.0, 8.0, 8.0),
+          padding: const EdgeInsetsDirectional.fromSTEB(12.0, 8.0, 8.0, 8.0),
           child: Row(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -142,7 +139,7 @@ class _ToolItemWidgetState extends State<ToolItemWidget>
               ),
               Expanded(
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -150,13 +147,13 @@ class _ToolItemWidgetState extends State<ToolItemWidget>
                     children: [
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
                         child: Text(
                           widget.toolName!,
                           style:
                               FlutterFlowTheme.of(context).titleLarge.override(
                                     fontFamily: 'Plus Jakarta Sans',
-                                    color: Color(0xFF0F1113),
+                                    color: const Color(0xFF0F1113),
                                     fontSize: 15.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w500,
@@ -167,13 +164,13 @@ class _ToolItemWidgetState extends State<ToolItemWidget>
                       ),
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                         child: Text(
                           widget.availableQuantity!.toString(),
                           style:
                               FlutterFlowTheme.of(context).labelSmall.override(
                                     fontFamily: 'Plus Jakarta Sans',
-                                    color: Color(0xFF57636C),
+                                    color: const Color(0xFF57636C),
                                     fontSize: 12.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w500,
@@ -188,7 +185,7 @@ class _ToolItemWidgetState extends State<ToolItemWidget>
               ),
               if (_model.isCountControllerVisible)
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
                   child: Container(
                     width: 106.0,
                     height: 29.0,
@@ -212,7 +209,7 @@ class _ToolItemWidgetState extends State<ToolItemWidget>
                       incrementIconBuilder: (enabled) => FaIcon(
                         FontAwesomeIcons.plus,
                         color: enabled
-                            ? Color(0xFF0CA256)
+                            ? const Color(0xFF0CA256)
                             : FlutterFlowTheme.of(context).alternate,
                         size: 15.0,
                       ),
@@ -260,7 +257,7 @@ class _ToolItemWidgetState extends State<ToolItemWidget>
                                                   .labelLargeFamily),
                                     ),
                               ),
-                              duration: Duration(milliseconds: 4000),
+                              duration: const Duration(milliseconds: 4000),
                               backgroundColor:
                                   FlutterFlowTheme.of(context).secondary,
                             ),
@@ -281,7 +278,7 @@ class _ToolItemWidgetState extends State<ToolItemWidget>
                   borderRadius: 20.0,
                   borderWidth: 1.0,
                   buttonSize: 40.0,
-                  fillColor: Color(0xFF0CA256),
+                  fillColor: const Color(0xFF0CA256),
                   icon: Icon(
                     Icons.add_task,
                     color: FlutterFlowTheme.of(context).primaryText,
@@ -351,7 +348,7 @@ class _ToolItemWidgetState extends State<ToolItemWidget>
                                         .titleMediumFamily),
                               ),
                         ),
-                        duration: Duration(milliseconds: 4000),
+                        duration: const Duration(milliseconds: 4000),
                         backgroundColor:
                             FlutterFlowTheme.of(context).primaryBackground,
                       ),

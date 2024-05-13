@@ -1,6 +1,8 @@
 // Automatic FlutterFlow imports
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
+import '/backend/schema/enums/enums.dart';
+import '/actions/actions.dart' as action_blocks;
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'index.dart'; // Imports other custom actions
@@ -9,7 +11,7 @@ import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
-Future<void> createSquare(String squareName, String sectorID) async {
+Future<bool> createSquare(String squareName, String sectorID) async {
   try {
     // Access Firestore instance
     FirebaseFirestore firestore = FirebaseFirestore.instance;
@@ -26,7 +28,7 @@ Future<void> createSquare(String squareName, String sectorID) async {
     await firestore.collection('Squares').doc(squareID).set({
       'squareName': squareName,
       'squareID': squareID,
-      'leaderList': [], // Initialize with an empty list
+      'leadersList': [], // Initialize with an empty list
       'sectorRefrence': sectorRef,
     });
 
@@ -58,9 +60,10 @@ Future<void> createSquare(String squareName, String sectorID) async {
           'Error: Unable to retrieve squaresList data from the sector document.');
     }
 
-    print('Square created successfully!');
+    return true;
   } catch (e) {
     print('Error creating square: $e');
+    return false;
   }
 }
 

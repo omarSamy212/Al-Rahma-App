@@ -11,6 +11,7 @@ import 'uploaded_file.dart';
 import '/backend/backend.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '/backend/schema/structs/index.dart';
+import '/backend/schema/enums/enums.dart';
 import '/auth/firebase_auth/auth_util.dart';
 
 String generateUserID(String role) {
@@ -53,24 +54,12 @@ int updateAppstateCart(
 }
 
 DocumentReference? getUserref(String? documentId) {
-  // Use the document id to return a user reference
-  var docRefFuture = FirebaseFirestore.instance
-      .collection("users")
-      .where("uid", isEqualTo: documentId!)
-      .get()
-      .then((querySnapshot) {
-    if (querySnapshot.docs.isNotEmpty) {
-      return querySnapshot.docs[0].reference;
-    } else {
-      // If no document is found, you can handle it by throwing an exception
-      throw Exception('No user found with document ID: $documentId');
-      // Alternatively, return a default DocumentReference instance
-      // return FirebaseFirestore.instance.collection("users").doc('default');
-    }
-  });
-
-  // Explicitly cast the Future<DocumentReference> to DocumentReference
-  return docRefFuture as DocumentReference;
+  try {
+    return FirebaseFirestore.instance.collection('users').doc(documentId);
+  } catch (e) {
+    print('Error getting user reference: $e');
+    return null;
+  }
 }
 
 DocumentReference? newCustomFunction(
@@ -104,7 +93,7 @@ DocumentReference? newCustomFunction(
 
 String currentDate() {
   var now = DateTime.now();
-  var formatter = DateFormat('yyyy-MM-dd');
+  var formatter = DateFormat('dd-MM-yyyy');
   String formattedDate = formatter.format(now);
   return formattedDate;
 }
@@ -234,5 +223,270 @@ String? mapWorkerName(String? name) {
   } else {
     // Return null if the name is not found in the mapping
     return "";
+  }
+}
+
+DateTime stringDateToDate(String dateString) {
+  DateFormat format =
+      DateFormat("yyyy-MM-dd"); // Adjust the format as per your date string
+
+  // Use the parse method of DateFormat to convert the string to DateTime
+  return format.parse(dateString);
+}
+
+LatLng convertGeoLocationToLatLon(GeoLocationStruct position) {
+  return LatLng(position.latitude, position.longitude);
+}
+
+String checkShift() {
+  final now = DateTime.now();
+  final hour = now.hour;
+
+  if (hour >= 6 && hour < 14) {
+    return 'صباحي';
+  } else if (hour >= 14 && hour < 22) {
+    return 'مسائي';
+  } else {
+    return 'ليلي';
+  }
+}
+
+int getOldImageIndex(
+  String imageID,
+  List<ImageOldPathsStruct> list,
+) {
+  // i want to search in list and return the index of the element where imageID equal to imageId
+  for (int i = 0; i < list.length; i++) {
+    if (list[i].imageID == imageID) {
+      debugPrint('Value found in: $i');
+      return i;
+    }
+  }
+  debugPrint("Value not found");
+  return -1;
+}
+
+DocumentReference? getAttendanceLogRef(String docId) {
+  return FirebaseFirestore.instance.collection('attendance_log').doc(docId);
+}
+
+String formatCoordinates(String inputString) {
+  debugPrint("input string: " + inputString);
+  final regex = RegExp(r"lat: (\d+\.\d+), lng: (\d+\.\d+)");
+  final match = regex.firstMatch(inputString);
+  debugPrint("match: " + match.toString());
+  if (match == null) {
+    return inputString; // Handle invalid input
+  }
+
+  final latStr = match.group(1)!;
+  final lngStr = match.group(2)!;
+
+  // Convert to doubles
+  final originalLat = double.parse(latStr);
+  final originalLng = double.parse(lngStr);
+  debugPrint("original lat: " + originalLat.toString());
+  debugPrint("original lon: " + originalLng.toString());
+
+  // Increase precision (adjust as needed)
+  // final precision = 6;
+  // final preciseLat = originalLat * math.pow(10, precision);
+  // final preciseLng = originalLng * math.pow(10, precision);
+
+  // Format and return the output string
+  return "${originalLat}, ${originalLng}";
+}
+
+int getRoleStageIndex(
+  String role,
+  List<String> stagesList,
+) {
+  debugPrint("List values is: " + stagesList.toString());
+  debugPrint("List length: " + stagesList.length.toString());
+  for (int i = 0; i < stagesList.length; i++) {
+    if (stagesList[i] == role) {
+      debugPrint('Value found in: $i');
+      return i;
+    }
+  }
+  debugPrint("Value not found");
+  return -1;
+}
+
+String getTimeNow() {
+  final now = DateTime.now();
+  final formatter = DateFormat('HH:mm');
+  final formattedTime = formatter.format(now);
+
+  return formattedTime;
+}
+
+bool checkStringInList(
+  List<String>? stringList,
+  String? string,
+) {
+  if (stringList != null && string != null) {
+    return stringList.contains(string);
+  } else {
+    debugPrint("Null value received in checkStringInList");
+    return false;
+  }
+}
+
+dynamic sampelsToJson(List<GeneratePDFStruct> samples) {
+  List<Map<String, dynamic>> jsonDataList = [];
+
+  for (var sample in samples) {
+    jsonDataList.add({
+      'notes': sample.notes ?? '',
+      'workerShift': sample.workerShift ?? '',
+      'SupplierCode': sample.supplierCode ?? '',
+      'nationalID': sample.nationalID ?? '',
+      'name': sample.name ?? '',
+      'workerCode': sample.workerCode ?? '',
+      'in': samples.indexOf(sample),
+    });
+  }
+  //debugPrint(jsonDataList);
+  return jsonDataList;
+}
+
+DocumentReference? getSectorRef(String? docID) {
+  return FirebaseFirestore.instance.collection('Sectors').doc(docID);
+}
+
+DocumentReference? getSessionRef(String? docId) {
+  return FirebaseFirestore.instance.collection('sessions').doc(docId);
+}
+
+bool checkRoleInMap(
+  List<PersonalRequestUserResponsStruct> roleMap,
+  String role,
+) {
+  try {
+    // Iterate over each element in the roleMap list
+    for (var item in roleMap) {
+      // Check if the roleName matches the specified role
+      if (item.userRole == role) {
+        return true;
+      }
+    }
+    // If no match found, return false
+    return false;
+  } catch (e) {
+    // Handle any errors
+    print('Error: $e');
+    return false;
+  }
+}
+
+String checkRoleResponse(
+  List<PersonalRequestUserResponsStruct>? roleMap,
+  String? role,
+) {
+  try {
+    // Check if roleMap is null or empty
+    if (roleMap == null || roleMap.isEmpty) {
+      return ""; // Return empty string if roleMap is null or empty
+    }
+
+    // Iterate over each element in the roleMap list
+    for (var item in roleMap) {
+      // Check if the roleName matches the specified role
+      if (item.userRole == role) {
+        return item.response; // Return the response if roleName matches
+      }
+    }
+
+    // If no match found, return empty string
+    return "";
+  } catch (e) {
+    // Handle any errors
+    print('Error: $e');
+    return ""; // Return empty string in case of error
+  }
+}
+
+String getRoleRejection(List<PersonalRequestUserResponsStruct>? roleMap) {
+  try {
+    // Check if roleMap is null or empty
+    if (roleMap == null || roleMap.isEmpty) {
+      return ""; // Return empty string if roleMap is null or empty
+    }
+
+    // Iterate over each element in the roleMap list
+    for (var item in roleMap) {
+      // Check if the response of the element is "Rejected"
+      if (item.response == "Rejected") {
+        if (item.userRole != null) {
+          return item.userRole; // Return the roleName if response is "Rejected"
+        } else {
+          return "";
+        }
+      }
+    }
+
+    // If no role with response "Rejected" found, return empty string
+    return "";
+  } catch (e) {
+    // Handle any errors
+    print('Error: $e');
+    return ""; // Return empty string in case of error
+  }
+}
+
+List<LatLng> convertGeoListToLatLon(List<StreetsRecord> streetList) {
+  List<LatLng> latLngList = [];
+
+  for (var streetRecord in streetList) {
+    latLngList.add(LatLng(streetRecord.streetLocation.latitude,
+        streetRecord.streetLocation.longitude));
+  }
+
+  return latLngList;
+}
+
+bool compareLatLng(
+  LatLng latLng1,
+  LatLng latLng2,
+) {
+  return latLng1.latitude == latLng2.latitude &&
+      latLng1.longitude == latLng2.longitude;
+}
+
+bool isDatePastOrToday(String? dateString) {
+  DateTime currentDate = DateTime.now();
+  DateTime targetDate = DateFormat("dd-MM-yyyy").parse(dateString!);
+
+  return currentDate.isAfter(targetDate) ||
+      currentDate.isAtSameMomentAs(targetDate);
+}
+
+bool hasCheckRef(DocumentReference userRef) {
+  bool hasField = false;
+
+  userRef.get().then((DocumentSnapshot userDoc) {
+    if (userDoc.exists && userDoc.data() is Map<String, dynamic>) {
+      Map<String, dynamic> userData = userDoc.data() as Map<String, dynamic>;
+      if (userData.containsKey("attendance")) {
+        Map<String, dynamic>? attendance = userData["attendance"];
+        hasField = attendance?.containsKey("check_ref") ?? false;
+      }
+    }
+  }).catchError((error) {
+    print("Error: $error");
+  });
+
+  return hasField;
+}
+
+DateTime? stringToDate(String strinDate) {
+  final format = DateFormat('dd-MM-yyyy');
+  try {
+    return format.parse(strinDate);
+  } catch (e) {
+    // Handle invalid date format (optional)
+    print("Invalid date format: $e");
+    return null; // Or return a default date
   }
 }

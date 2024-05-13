@@ -1,13 +1,15 @@
+import '/auth/firebase_auth/auth_util.dart';
+import '/components/succses_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'send_personal_request_model.dart';
@@ -48,6 +50,8 @@ class _SendPersonalRequestWidgetState extends State<SendPersonalRequestWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Title(
         title: 'send_personal_request',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
@@ -66,7 +70,7 @@ class _SendPersonalRequestWidgetState extends State<SendPersonalRequestWidget> {
                 borderRadius: 30.0,
                 borderWidth: 1.0,
                 buttonSize: 60.0,
-                icon: Icon(
+                icon: const Icon(
                   Icons.arrow_back_rounded,
                   color: Colors.white,
                   size: 30.0,
@@ -79,7 +83,7 @@ class _SendPersonalRequestWidgetState extends State<SendPersonalRequestWidget> {
               ),
               title: Text(
                 FFLocalizations.of(context).getText(
-                  'cjgwmno4' /* Submitting complaints */,
+                  '64d40p44' /* Submitting personal request */,
                 ),
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
                       fontFamily:
@@ -91,7 +95,7 @@ class _SendPersonalRequestWidgetState extends State<SendPersonalRequestWidget> {
                           FlutterFlowTheme.of(context).headlineMediumFamily),
                     ),
               ),
-              actions: [],
+              actions: const [],
               centerTitle: false,
               elevation: 2.0,
             ),
@@ -105,7 +109,7 @@ class _SendPersonalRequestWidgetState extends State<SendPersonalRequestWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 16.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -113,13 +117,13 @@ class _SendPersonalRequestWidgetState extends State<SendPersonalRequestWidget> {
                             children: [
                               Expanded(
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       20.0, 8.0, 20.0, 0.0),
                                   child: Container(
                                     width: double.infinity,
                                     decoration: BoxDecoration(
                                       color: Colors.white,
-                                      boxShadow: [
+                                      boxShadow: const [
                                         BoxShadow(
                                           blurRadius: 3.0,
                                           color: Color(0x20000000),
@@ -132,7 +136,7 @@ class _SendPersonalRequestWidgetState extends State<SendPersonalRequestWidget> {
                                       borderRadius: BorderRadius.circular(12.0),
                                     ),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           8.0, 8.0, 12.0, 8.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -144,11 +148,15 @@ class _SendPersonalRequestWidgetState extends State<SendPersonalRequestWidget> {
                                                 BorderRadius.circular(8.0),
                                             child: CachedNetworkImage(
                                               fadeInDuration:
-                                                  Duration(milliseconds: 500),
+                                                  const Duration(milliseconds: 500),
                                               fadeOutDuration:
-                                                  Duration(milliseconds: 500),
-                                              imageUrl:
-                                                  'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2669&q=80',
+                                                  const Duration(milliseconds: 500),
+                                              imageUrl: valueOrDefault<String>(
+                                                FFAppState()
+                                                    .authenticatedUser
+                                                    .photoUrl,
+                                                'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/al-rahma-paufng/assets/nyfyk3dm1q65/unknown-user-image.jpg',
+                                              ),
                                               width: 157.0,
                                               height: 138.0,
                                               fit: BoxFit.cover,
@@ -164,7 +172,7 @@ class _SendPersonalRequestWidgetState extends State<SendPersonalRequestWidget> {
                                           ),
                                           Expanded(
                                             child: Align(
-                                              alignment: AlignmentDirectional(
+                                              alignment: const AlignmentDirectional(
                                                   0.0, 0.0),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
@@ -173,14 +181,15 @@ class _SendPersonalRequestWidgetState extends State<SendPersonalRequestWidget> {
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(16.0, 0.0,
                                                                 0.0, 0.0),
                                                     child: Text(
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        'zr0c63b9' /* Inspector Name */,
+                                                      valueOrDefault<String>(
+                                                        FFAppState()
+                                                            .authenticatedUser
+                                                            .displayName,
+                                                        'Name',
                                                       ),
                                                       style: FlutterFlowTheme
                                                               .of(context)
@@ -188,7 +197,7 @@ class _SendPersonalRequestWidgetState extends State<SendPersonalRequestWidget> {
                                                           .override(
                                                             fontFamily:
                                                                 'Plus Jakarta Sans',
-                                                            color: Color(
+                                                            color: const Color(
                                                                 0xFF14181B),
                                                             fontSize: 16.0,
                                                             letterSpacing: 0.0,
@@ -211,17 +220,20 @@ class _SendPersonalRequestWidgetState extends State<SendPersonalRequestWidget> {
                                                     children: [
                                                       Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     16.0,
                                                                     4.0,
                                                                     20.0,
                                                                     0.0),
                                                         child: Text(
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .getText(
-                                                            'iyqb6m0k' /* superviser */,
+                                                          valueOrDefault<
+                                                              String>(
+                                                            FFAppState()
+                                                                .authenticatedUser
+                                                                .privileges
+                                                                .roleName,
+                                                            'Role',
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
@@ -229,7 +241,7 @@ class _SendPersonalRequestWidgetState extends State<SendPersonalRequestWidget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Plus Jakarta Sans',
-                                                                color: Color(
+                                                                color: const Color(
                                                                     0xFF57636C),
                                                                 fontSize: 14.0,
                                                                 letterSpacing:
@@ -246,17 +258,17 @@ class _SendPersonalRequestWidgetState extends State<SendPersonalRequestWidget> {
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     16.0,
                                                                     4.0,
                                                                     0.0,
                                                                     0.0),
                                                         child: Text(
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .getText(
-                                                            'f80uyqpf' /* ID: #1520 */,
+                                                          valueOrDefault<
+                                                              String>(
+                                                            'ID: #${FFAppState().authenticatedUser.userCode}',
+                                                            'Code',
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
@@ -264,7 +276,7 @@ class _SendPersonalRequestWidgetState extends State<SendPersonalRequestWidget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Plus Jakarta Sans',
-                                                                color: Color(
+                                                                color: const Color(
                                                                     0xFF57636C),
                                                                 fontSize: 14.0,
                                                                 letterSpacing:
@@ -289,17 +301,20 @@ class _SendPersonalRequestWidgetState extends State<SendPersonalRequestWidget> {
                                                     children: [
                                                       Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     16.0,
                                                                     18.0,
                                                                     0.0,
                                                                     0.0),
                                                         child: Text(
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .getText(
-                                                            'cw5lt8ov' /* 8h */,
+                                                          valueOrDefault<
+                                                              String>(
+                                                            FFAppState()
+                                                                .authenticatedUser
+                                                                .shift
+                                                                .shiftPeriod,
+                                                            'Shift',
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
@@ -307,7 +322,7 @@ class _SendPersonalRequestWidgetState extends State<SendPersonalRequestWidget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Plus Jakarta Sans',
-                                                                color: Color(
+                                                                color: const Color(
                                                                     0xFF57636C),
                                                                 fontSize: 14.0,
                                                                 letterSpacing:
@@ -338,14 +353,14 @@ class _SendPersonalRequestWidgetState extends State<SendPersonalRequestWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 20.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Expanded(
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       20.0, 0.0, 20.0, 0.0),
                                   child: FlutterFlowDropDown<String>(
                                     controller:
@@ -354,6 +369,12 @@ class _SendPersonalRequestWidgetState extends State<SendPersonalRequestWidget> {
                                     options: [
                                       FFLocalizations.of(context).getText(
                                         'u6ba8naf' /* Loan */,
+                                      ),
+                                      FFLocalizations.of(context).getText(
+                                        'o2efw1mk' /* leaving early */,
+                                      ),
+                                      FFLocalizations.of(context).getText(
+                                        '96mk3viy' /* Other */,
                                       )
                                     ],
                                     onChanged: (val) => setState(
@@ -388,7 +409,7 @@ class _SendPersonalRequestWidgetState extends State<SendPersonalRequestWidget> {
                                         FlutterFlowTheme.of(context).alternate,
                                     borderWidth: 2.0,
                                     borderRadius: 8.0,
-                                    margin: EdgeInsetsDirectional.fromSTEB(
+                                    margin: const EdgeInsetsDirectional.fromSTEB(
                                         16.0, 4.0, 16.0, 4.0),
                                     hidesUnderline: true,
                                     isOverButton: true,
@@ -401,7 +422,7 @@ class _SendPersonalRequestWidgetState extends State<SendPersonalRequestWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               20.0, 0.0, 20.0, 12.0),
                           child: TextFormField(
                             controller: _model.textualDetailsTextController,
@@ -413,7 +434,7 @@ class _SendPersonalRequestWidgetState extends State<SendPersonalRequestWidget> {
                                   .labelMedium
                                   .override(
                                     fontFamily: 'Plus Jakarta Sans',
-                                    color: Color(0xFF57636C),
+                                    color: const Color(0xFF57636C),
                                     fontSize: 14.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
@@ -421,13 +442,13 @@ class _SendPersonalRequestWidgetState extends State<SendPersonalRequestWidget> {
                                         .containsKey('Plus Jakarta Sans'),
                                   ),
                               hintText: FFLocalizations.of(context).getText(
-                                'n40p0sl5' /* Details */,
+                                'al9ftujl' /* Details */,
                               ),
                               hintStyle: FlutterFlowTheme.of(context)
                                   .labelMedium
                                   .override(
                                     fontFamily: 'Plus Jakarta Sans',
-                                    color: Color(0xFF57636C),
+                                    color: const Color(0xFF57636C),
                                     fontSize: 14.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
@@ -435,28 +456,28 @@ class _SendPersonalRequestWidgetState extends State<SendPersonalRequestWidget> {
                                         .containsKey('Plus Jakarta Sans'),
                                   ),
                               enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
+                                borderSide: const BorderSide(
                                   color: Color(0xFFE0E3E7),
                                   width: 2.0,
                                 ),
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
                               focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
+                                borderSide: const BorderSide(
                                   color: Color(0xFF4B39EF),
                                   width: 2.0,
                                 ),
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
                               errorBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
+                                borderSide: const BorderSide(
                                   color: Color(0xFFFF5963),
                                   width: 2.0,
                                 ),
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
                               focusedErrorBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
+                                borderSide: const BorderSide(
                                   color: Color(0xFFFF5963),
                                   width: 2.0,
                                 ),
@@ -464,14 +485,14 @@ class _SendPersonalRequestWidgetState extends State<SendPersonalRequestWidget> {
                               ),
                               filled: true,
                               fillColor: Colors.white,
-                              contentPadding: EdgeInsetsDirectional.fromSTEB(
+                              contentPadding: const EdgeInsetsDirectional.fromSTEB(
                                   20.0, 24.0, 0.0, 24.0),
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'Plus Jakarta Sans',
-                                  color: Color(0xFF14181B),
+                                  color: const Color(0xFF14181B),
                                   fontSize: 14.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.normal,
@@ -488,24 +509,88 @@ class _SendPersonalRequestWidgetState extends State<SendPersonalRequestWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 50.0, 0.0, 17.0),
                           child: FFButtonWidget(
                             onPressed: () async {
                               logFirebaseEvent(
                                   'SEND_PERSONAL_REQUEST_DONE_BTN_ON_TAP');
+                              var shouldSetState = false;
+                              logFirebaseEvent('Button_custom_action');
+                              _model.personalRequestCreation =
+                                  await actions.createPersonalRequest(
+                                _model.dropDownValue!,
+                                _model.textualDetailsTextController.text,
+                                currentUserDocument!.userRefrence!,
+                              );
+                              shouldSetState = true;
+                              if (_model.personalRequestCreation!) {
+                                logFirebaseEvent('Button_bottom_sheet');
+                                await showModalBottomSheet(
+                                  isScrollControlled: true,
+                                  backgroundColor: Colors.transparent,
+                                  isDismissible: false,
+                                  enableDrag: false,
+                                  context: context,
+                                  builder: (context) {
+                                    return GestureDetector(
+                                      onTap: () => _model
+                                              .unfocusNode.canRequestFocus
+                                          ? FocusScope.of(context)
+                                              .requestFocus(_model.unfocusNode)
+                                          : FocusScope.of(context).unfocus(),
+                                      child: Padding(
+                                        padding:
+                                            MediaQuery.viewInsetsOf(context),
+                                        child: SizedBox(
+                                          height: MediaQuery.sizeOf(context)
+                                                  .height *
+                                              1.0,
+                                          child: SuccsesWidget(
+                                            successesMessage:
+                                                'تم تقديم طلب شخصي بنجاح',
+                                            yesButtonText: 'جميع الطلبات',
+                                            cancelButtonText: 'تم',
+                                            yesButtonAction: () async {
+                                              logFirebaseEvent('_navigate_to');
+
+                                              context.pushNamed(
+                                                  'OM_List_Personal_orders');
+                                            },
+                                            cancelButtonAction: () async {
+                                              logFirebaseEvent('_bottom_sheet');
+                                              Navigator.pop(context);
+                                              logFirebaseEvent(
+                                                  '_navigate_back');
+                                              context.safePop();
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                ).then((value) => safeSetState(() {}));
+
+                                if (shouldSetState) setState(() {});
+                                return;
+                              } else {
+                                if (shouldSetState) setState(() {});
+                                return;
+                              }
+
+                              if (shouldSetState) setState(() {});
                             },
                             text: FFLocalizations.of(context).getText(
-                              'vm7iv8uh' /* Done */,
+                              '0ic6qwwb' /* Done */,
                             ),
                             options: FFButtonOptions(
                               width: 270.0,
                               height: 50.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
-                              color: Color(0xFF0CA256),
+                              color: const Color(0xFF0CA256),
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleMedium
                                   .override(
@@ -518,7 +603,7 @@ class _SendPersonalRequestWidgetState extends State<SendPersonalRequestWidget> {
                                         .containsKey('Plus Jakarta Sans'),
                                   ),
                               elevation: 2.0,
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                 color: Colors.transparent,
                                 width: 1.0,
                               ),

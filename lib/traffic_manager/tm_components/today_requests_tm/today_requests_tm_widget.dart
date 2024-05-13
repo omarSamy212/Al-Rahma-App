@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'today_requests_tm_model.dart';
 export 'today_requests_tm_model.dart';
 
@@ -44,12 +43,12 @@ class _TodayRequestsTmWidgetState extends State<TodayRequestsTmWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
+      padding: const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).secondaryBackground,
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
               blurRadius: 5.0,
               color: Color(0x230E151B),
@@ -66,7 +65,7 @@ class _TodayRequestsTmWidgetState extends State<TodayRequestsTmWidget> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 0.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 0.0, 0.0),
               child: Text(
                 FFLocalizations.of(context).getText(
                   'nm9wyubo' /* Today's Requests */,
@@ -88,18 +87,18 @@ class _TodayRequestsTmWidgetState extends State<TodayRequestsTmWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: EdgeInsets.all(12.0),
+                        padding: const EdgeInsets.all(12.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            FaIcon(
+                            const FaIcon(
                               FontAwesomeIcons.truck,
                               color: Color(0xFF0CA256),
                               size: 44.0,
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 12.0, 0.0, 4.0),
                               child: FutureBuilder<int>(
                                 future: queryToolsRequestsRecordCount(
@@ -117,7 +116,7 @@ class _TodayRequestsTmWidgetState extends State<TodayRequestsTmWidget> {
                                 builder: (context, snapshot) {
                                   // Customize what your widget looks like when it's loading.
                                   if (!snapshot.hasData) {
-                                    return Center(
+                                    return const Center(
                                       child: SizedBox(
                                         width: 50.0,
                                         height: 50.0,
@@ -172,7 +171,7 @@ class _TodayRequestsTmWidgetState extends State<TodayRequestsTmWidget> {
                           ],
                         ),
                       ),
-                    ].divide(SizedBox(height: 0.0)),
+                    ].divide(const SizedBox(height: 0.0)),
                   ),
                 ),
                 Expanded(
@@ -180,18 +179,18 @@ class _TodayRequestsTmWidgetState extends State<TodayRequestsTmWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: EdgeInsets.all(12.0),
+                        padding: const EdgeInsets.all(12.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            FaIcon(
+                            const FaIcon(
                               FontAwesomeIcons.truck,
                               color: Color(0xFF232323),
                               size: 44.0,
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 12.0, 0.0, 4.0),
                               child: FutureBuilder<int>(
                                 future: queryToolsRequestsRecordCount(
@@ -204,7 +203,7 @@ class _TodayRequestsTmWidgetState extends State<TodayRequestsTmWidget> {
                                 builder: (context, snapshot) {
                                   // Customize what your widget looks like when it's loading.
                                   if (!snapshot.hasData) {
-                                    return Center(
+                                    return const Center(
                                       child: SizedBox(
                                         width: 50.0,
                                         height: 50.0,

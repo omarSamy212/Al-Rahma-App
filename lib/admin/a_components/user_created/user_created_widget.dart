@@ -3,9 +3,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'user_created_model.dart';
 export 'user_created_model.dart';
 
@@ -16,9 +14,9 @@ class UserCreatedWidget extends StatefulWidget {
     String? id,
     String? role,
     required this.userObject,
-  })  : this.name = name ?? 'name',
-        this.id = id ?? 'id',
-        this.role = role ?? 'role';
+  })  : name = name ?? 'name',
+        id = id ?? 'id',
+        role = role ?? 'role';
 
   final String name;
   final String id;
@@ -58,7 +56,7 @@ class _UserCreatedWidgetState extends State<UserCreatedWidget> {
     return Container(
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).primaryBackground,
-        borderRadius: BorderRadius.only(
+        borderRadius: const BorderRadius.only(
           bottomLeft: Radius.circular(0.0),
           bottomRight: Radius.circular(0.0),
           topLeft: Radius.circular(16.0),
@@ -66,7 +64,7 @@ class _UserCreatedWidgetState extends State<UserCreatedWidget> {
         ),
       ),
       child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(16.0, 10.0, 16.0, 0.0),
+        padding: const EdgeInsetsDirectional.fromSTEB(16.0, 10.0, 16.0, 0.0),
         child: SingleChildScrollView(
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -74,7 +72,7 @@ class _UserCreatedWidgetState extends State<UserCreatedWidget> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -91,7 +89,7 @@ class _UserCreatedWidgetState extends State<UserCreatedWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                 child: Text(
                   FFLocalizations.of(context).getText(
                     '1x4vfeio' /* User Created Successfully */,
@@ -108,16 +106,18 @@ class _UserCreatedWidgetState extends State<UserCreatedWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Expanded(
                       child: Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                         child: Text(
-                          'المستخدم ${widget.name} تم أنشاءه بنجاح  بوظيفة ${widget.role}, و رمز تعريفي${widget.id}.',
+                          FFLocalizations.of(context).getText(
+                            'rk9mguqx' /*  */,
+                          ),
                           style: FlutterFlowTheme.of(context)
                               .bodyMedium
                               .override(
@@ -138,7 +138,7 @@ class _UserCreatedWidgetState extends State<UserCreatedWidget> {
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(0.0, 0.0),
+                alignment: const AlignmentDirectional(0.0, 0.0),
                 child: Icon(
                   Icons.check_circle_rounded,
                   color: FlutterFlowTheme.of(context).primary,
@@ -146,16 +146,16 @@ class _UserCreatedWidgetState extends State<UserCreatedWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 30.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 30.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Expanded(
                       child: Align(
-                        alignment: AlignmentDirectional(-1.0, 0.0),
+                        alignment: const AlignmentDirectional(-1.0, 0.0),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               7.0, 0.0, 0.0, 0.0),
                           child: FFButtonWidget(
                             onPressed: () async {
@@ -181,9 +181,9 @@ class _UserCreatedWidgetState extends State<UserCreatedWidget> {
                             options: FFButtonOptions(
                               width: 160.0,
                               height: 50.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
                               color: FlutterFlowTheme.of(context).primary,
                               textStyle: FlutterFlowTheme.of(context)
@@ -206,9 +206,9 @@ class _UserCreatedWidgetState extends State<UserCreatedWidget> {
                     ),
                     Expanded(
                       child: Align(
-                        alignment: AlignmentDirectional(1.0, 0.0),
+                        alignment: const AlignmentDirectional(1.0, 0.0),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               7.0, 0.0, 0.0, 0.0),
                           child: FFButtonWidget(
                             onPressed: () async {
@@ -216,7 +216,7 @@ class _UserCreatedWidgetState extends State<UserCreatedWidget> {
                                   'USER_CREATED_BACK_TO_HOME_BTN_ON_TAP');
                               logFirebaseEvent('Button_navigate_to');
 
-                              context.goNamed('Admin_Home');
+                              context.goNamed('New_Admin_Home');
                             },
                             text: FFLocalizations.of(context).getText(
                               'kakzwltv' /* Back To Home */,
@@ -224,9 +224,9 @@ class _UserCreatedWidgetState extends State<UserCreatedWidget> {
                             options: FFButtonOptions(
                               width: 160.0,
                               height: 50.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
                               color: FlutterFlowTheme.of(context).primary,
                               textStyle: FlutterFlowTheme.of(context)

@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "748044862889",
-    "project_id": "storage-kbaczx",
-    "storage_bucket": "storage-kbaczx.appspot.com"
+    "project_number": "27595286934",
+    "project_id": "al-rahma-testing",
+    "storage_bucket": "al-rahma-testing.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:748044862889:android:1391561f940773bb6b70b8",
+        "mobilesdk_app_id": "1:27595286934:android:1ebe8cff87db1d737815b7",
         "android_client_info": {
           "package_name": "com.mycompany.storagekeeper"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCC1oFBYB7ngIi7qRbtXRq9EESPlSWpSe0"
+          "current_key": "AIzaSyDhQ8eUvoayeNmWC-X7L3YgUZTyiLG917g"
         }
       ],
       "services": {

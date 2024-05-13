@@ -1,48 +1,50 @@
-import '/flutter_flow/flutter_flow_animations.dart';
-import '/flutter_flow/flutter_flow_drop_down.dart';
-import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
+import '/components/street_workers_widget.dart';
+import '/flutter_flow/flutter_flow_google_map.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/form_field_controller.dart';
-import 'dart:async';
-import '/flutter_flow/random_data_util.dart' as random_data;
 import 'taskdetails_widget.dart' show TaskdetailsWidget;
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 class TaskdetailsModel extends FlutterFlowModel<TaskdetailsWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // State field(s) for DropDown widget.
-  String? dropDownValue1;
-  FormFieldController<String>? dropDownValueController1;
-  // State field(s) for DropDown widget.
-  String? dropDownValue2;
-  FormFieldController<String>? dropDownValueController2;
-  // State field(s) for DropDown widget.
-  String? dropDownValue3;
-  FormFieldController<String>? dropDownValueController3;
+  // State field(s) for GoogleMap widget.
+  LatLng? googleMapsCenter;
+  final googleMapsController = Completer<GoogleMapController>();
+  // Model for streetWorkers component.
+  late StreetWorkersModel streetWorkersModel;
+  bool isDataUploading1 = false;
+  FFUploadedFile uploadedLocalFile1 =
+      FFUploadedFile(bytes: Uint8List.fromList([]));
+  String uploadedFileUrl1 = '';
+
+  bool isDataUploading2 = false;
+  FFUploadedFile uploadedLocalFile2 =
+      FFUploadedFile(bytes: Uint8List.fromList([]));
+  String uploadedFileUrl2 = '';
+
+  bool isDataUploading3 = false;
+  FFUploadedFile uploadedLocalFile3 =
+      FFUploadedFile(bytes: Uint8List.fromList([]));
+  String uploadedFileUrl3 = '';
+
   // State field(s) for TextualDetails widget.
   FocusNode? textualDetailsFocusNode;
   TextEditingController? textualDetailsTextController;
   String? Function(BuildContext, String?)?
       textualDetailsTextControllerValidator;
+  // Stores action output result for [Custom Action - createStreetTask] action in Button widget.
+  bool? streetTaskCreation;
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    streetWorkersModel = createModel(context, () => StreetWorkersModel());
+  }
 
   @override
   void dispose() {
     unfocusNode.dispose();
+    streetWorkersModel.dispose();
     textualDetailsFocusNode?.dispose();
     textualDetailsTextController?.dispose();
   }

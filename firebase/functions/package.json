@@ -18,10 +18,10 @@
   },
   "scripts": {
     "lint": "./node_modules/.bin/eslint --max-warnings=0 .",
-    "serve": "firebase -P storage-kbaczx emulators:start --only functions",
-    "shell": "firebase -P storage-kbaczx functions:shell",
+    "serve": "firebase -P al-rahma-testing emulators:start --only functions",
+    "shell": "firebase -P al-rahma-testing functions:shell",
     "start": "npm run shell",
-    "logs": "firebase -P storage-kbaczx functions:log",
+    "logs": "firebase -P al-rahma-testing functions:log",
     "compile": "cp ../../tsconfig.template.json ./tsconfig-compile.json && tsc --project tsconfig-compile.json"
   },
   "engines": {

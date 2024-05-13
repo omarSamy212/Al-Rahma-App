@@ -2,21 +2,13 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:go_router/go_router.dart';
-import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import '/backend/backend.dart';
-import '/backend/schema/structs/index.dart';
 
 import '/auth/base_auth_user_provider.dart';
 
 import '/index.dart';
-import '/main.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/lat_lng.dart';
-import '/flutter_flow/place.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'serialization_util.dart';
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
@@ -82,42 +74,42 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) => appStateNotifier.loggedIn
-          ? entryPage ?? CheckupWidget()
-          : LoginWidget(),
+          ? entryPage ?? const CheckupWidget()
+          : const LoginWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) => appStateNotifier.loggedIn
-              ? entryPage ?? CheckupWidget()
-              : LoginWidget(),
+              ? entryPage ?? const CheckupWidget()
+              : const LoginWidget(),
         ),
         FFRoute(
           name: 'welcome',
           path: '/welcome',
-          builder: (context, params) => WelcomeWidget(),
+          builder: (context, params) => const WelcomeWidget(),
         ),
         FFRoute(
           name: 'Login',
           path: '/login',
-          builder: (context, params) => LoginWidget(),
+          builder: (context, params) => const LoginWidget(),
         ),
         FFRoute(
           name: 'storekeeperHome',
           path: '/storekeeperHome',
           requireAuth: true,
-          builder: (context, params) => StorekeeperHomeWidget(),
+          builder: (context, params) => const StorekeeperHomeWidget(),
         ),
         FFRoute(
           name: 'Home01CompanyList',
           path: '/home01CompanyList',
-          builder: (context, params) => Home01CompanyListWidget(),
+          builder: (context, params) => const Home01CompanyListWidget(),
         ),
         FFRoute(
           name: 'createUser',
           path: '/createUser',
           requireAuth: true,
-          builder: (context, params) => CreateUserWidget(),
+          builder: (context, params) => const CreateUserWidget(),
         ),
         FFRoute(
           name: 'Missingtools_form',
@@ -143,7 +135,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           name: 'day_Contract_List',
           path: '/dayContractList',
           requireAuth: true,
-          builder: (context, params) => DayContractListWidget(),
+          builder: (context, params) => const DayContractListWidget(),
         ),
         FFRoute(
           name: 'request_Details',
@@ -153,14 +145,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
             supervisorRef: params.getParam(
               'supervisorRef',
               ParamType.DocumentReference,
-              false,
-              ['users'],
+              isList: false,
+              collectionNamePath: ['users'],
             ),
             requestRef: params.getParam(
               'requestRef',
               ParamType.DocumentReference,
-              false,
-              ['Tools_Requests'],
+              isList: false,
+              collectionNamePath: ['Tools_Requests'],
             ),
           ),
         ),
@@ -179,7 +171,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
             ),
             phoneNumber: params.getParam(
               'phoneNumber',
-              ParamType.int,
+              ParamType.String,
             ),
             firstName: params.getParam(
               'firstName',
@@ -256,8 +248,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
             contractorRef: params.getParam(
               'contractorRef',
               ParamType.DocumentReference,
-              false,
-              ['contractors'],
+              isList: false,
+              collectionNamePath: ['contractors'],
             ),
             nationalId: params.getParam(
               'nationalId',
@@ -322,8 +314,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
             role: params.getParam(
               'role',
               ParamType.DocumentReference,
-              false,
-              ['Roles'],
+              isList: false,
+              collectionNamePath: ['Roles'],
             ),
             educationData: params.getParam(
               'educationData',
@@ -337,85 +329,93 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
               'relegion',
               ParamType.String,
             ),
+            jobCode: params.getParam(
+              'jobCode',
+              ParamType.String,
+            ),
+            sectorID: params.getParam(
+              'sectorID',
+              ParamType.String,
+            ),
           ),
         ),
         FFRoute(
           name: 'supervisor_home',
           path: '/supervisorHome',
           requireAuth: true,
-          builder: (context, params) => SupervisorHomeWidget(),
+          builder: (context, params) => const SupervisorHomeWidget(),
         ),
         FFRoute(
           name: 'Admin_Home',
           path: '/adminHome',
           requireAuth: true,
-          builder: (context, params) => AdminHomeWidget(),
+          builder: (context, params) => const AdminHomeWidget(),
         ),
         FFRoute(
           name: 'my_profile',
           path: '/my_profile',
           requireAuth: true,
-          builder: (context, params) => MyProfileWidget(),
+          builder: (context, params) => const MyProfileWidget(),
         ),
         FFRoute(
           name: 'worker_Home',
           path: '/workerHome',
           requireAuth: true,
-          builder: (context, params) => WorkerHomeWidget(),
+          builder: (context, params) => const WorkerHomeWidget(),
         ),
         FFRoute(
           name: 'transmission_Select_1',
           path: '/transmission_Select_1',
           requireAuth: true,
-          builder: (context, params) => TransmissionSelect1Widget(),
+          builder: (context, params) => const TransmissionSelect1Widget(),
         ),
         FFRoute(
           name: 'transmission_Scan_2',
           path: '/transmission_Scan_2',
           requireAuth: true,
-          builder: (context, params) => TransmissionScan2Widget(),
+          builder: (context, params) => const TransmissionScan2Widget(),
         ),
         FFRoute(
           name: 'HowToUseApp',
           path: '/howToUseApp',
-          builder: (context, params) => HowToUseAppWidget(),
+          builder: (context, params) => const HowToUseAppWidget(),
         ),
         FFRoute(
           name: 'checkup',
           path: '/checkup',
           requireAuth: true,
-          builder: (context, params) => CheckupWidget(),
+          builder: (context, params) => const CheckupWidget(),
         ),
         FFRoute(
           name: 'supplierDashboard',
           path: '/supplierDashboard',
           requireAuth: true,
-          builder: (context, params) => SupplierDashboardWidget(),
+          builder: (context, params) => const SupplierDashboardWidget(),
         ),
         FFRoute(
           name: 'applyforjob',
           path: '/applyforjob',
-          builder: (context, params) => ApplyforjobWidget(),
+          builder: (context, params) => const ApplyforjobWidget(),
         ),
         FFRoute(
           name: 'Onboarding04',
           path: '/onboarding04',
-          builder: (context, params) => Onboarding04Widget(),
+          builder: (context, params) => const Onboarding04Widget(),
         ),
         FFRoute(
           name: 'hintBeforeapplyjob',
           path: '/hintBeforeapplyjob',
-          builder: (context, params) => HintBeforeapplyjobWidget(),
+          builder: (context, params) => const HintBeforeapplyjobWidget(),
         ),
         FFRoute(
           name: 'Home13Productivity',
           path: '/home13Productivity',
-          builder: (context, params) => Home13ProductivityWidget(),
+          builder: (context, params) => const Home13ProductivityWidget(),
         ),
         FFRoute(
           name: 'tasksTracker',
           path: '/tasksTracker',
-          builder: (context, params) => TasksTrackerWidget(),
+          builder: (context, params) => const TasksTrackerWidget(),
         ),
         FFRoute(
           name: 'complain_formCopy',
@@ -440,215 +440,256 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
         FFRoute(
           name: 'usersList',
           path: '/usersList',
-          builder: (context, params) => UsersListWidget(),
+          builder: (context, params) => const UsersListWidget(),
         ),
         FFRoute(
           name: 'list',
           path: '/list',
-          builder: (context, params) => ListWidget(),
+          builder: (context, params) => const ListWidget(),
         ),
         FFRoute(
           name: 'Settings1Notifications',
           path: '/settings1Notifications',
-          builder: (context, params) => Settings1NotificationsWidget(),
+          builder: (context, params) => const Settings1NotificationsWidget(),
         ),
         FFRoute(
-          name: 'Sv_Requests',
+          name: 'Sv_Work_Requests',
           path: '/requestss',
-          builder: (context, params) => SvRequestsWidget(),
+          builder: (context, params) => const SvWorkRequestsWidget(),
         ),
         FFRoute(
           name: 'Attendanceofworkers',
           path: '/attendanceofworkers',
-          builder: (context, params) => AttendanceofworkersWidget(),
+          builder: (context, params) => const AttendanceofworkersWidget(),
         ),
         FFRoute(
           name: 'Sv_map',
           path: '/svMap',
-          builder: (context, params) => SvMapWidget(),
+          builder: (context, params) => SvMapWidget(
+            leaderRef: params.getParam(
+              'leaderRef',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['Leaders'],
+            ),
+          ),
         ),
         FFRoute(
           name: 'AttendenceofSupervisor',
           path: '/attendenceofSupervisor',
-          builder: (context, params) => AttendenceofSupervisorWidget(),
+          builder: (context, params) => const AttendenceofSupervisorWidget(),
         ),
         FFRoute(
           name: 'loggingout_for_supervisor',
           path: '/loggingoutForSupervisor',
-          builder: (context, params) => LoggingoutForSupervisorWidget(),
+          builder: (context, params) => const LoggingoutForSupervisorWidget(),
         ),
         FFRoute(
           name: 'Submitting_complaints',
           path: '/submittingComplaints',
-          builder: (context, params) => SubmittingComplaintsWidget(),
+          builder: (context, params) => SubmittingComplaintsWidget(
+            userReported: params.getParam(
+              'userReported',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['users'],
+            ),
+          ),
         ),
         FFRoute(
           name: 'DailyReport',
           path: '/dailyReport',
-          builder: (context, params) => DailyReportWidget(),
+          builder: (context, params) => const DailyReportWidget(),
         ),
         FFRoute(
           name: 'Taskdetails',
           path: '/taskdetails',
-          builder: (context, params) => TaskdetailsWidget(),
+          asyncParams: {
+            'taskDetails': getDoc(['Streets'], StreetsRecord.fromSnapshot),
+          },
+          builder: (context, params) => TaskdetailsWidget(
+            taskDetails: params.getParam(
+              'taskDetails',
+              ParamType.Document,
+            ),
+          ),
         ),
         FFRoute(
           name: 'loggingout_for_Workers',
           path: '/loggingoutForWorkers',
-          builder: (context, params) => LoggingoutForWorkersWidget(),
+          builder: (context, params) => const LoggingoutForWorkersWidget(),
         ),
         FFRoute(
           name: 'workers_review',
           path: '/workersReview',
-          builder: (context, params) => WorkersReviewWidget(),
+          builder: (context, params) => WorkersReviewWidget(
+            userReviewed: params.getParam(
+              'userReviewed',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['users'],
+            ),
+          ),
         ),
         FFRoute(
           name: 'DetailsArea',
           path: '/detailsArea',
-          builder: (context, params) => DetailsAreaWidget(),
+          builder: (context, params) => const DetailsAreaWidget(),
         ),
         FFRoute(
           name: 'Tm_Home',
           path: '/tmHome',
           requireAuth: true,
-          builder: (context, params) => TmHomeWidget(),
+          builder: (context, params) => const TmHomeWidget(),
         ),
         FFRoute(
-          name: 'Create04Task',
-          path: '/create04Task',
-          builder: (context, params) => Create04TaskWidget(),
-        ),
-        FFRoute(
-          name: 'movment',
-          path: '/movment',
-          builder: (context, params) => MovmentWidget(),
+          name: 'Add_Movement',
+          path: '/addMovement',
+          builder: (context, params) => const AddMovementWidget(),
         ),
         FFRoute(
           name: 'Add_servicingreport',
           path: '/addServicingreport',
-          builder: (context, params) => AddServicingreportWidget(),
+          builder: (context, params) => const AddServicingreportWidget(),
         ),
         FFRoute(
           name: 'Tm_List_Requests',
           path: '/tmListRequests',
-          builder: (context, params) => TmListRequestsWidget(),
+          builder: (context, params) => const TmListRequestsWidget(),
         ),
         FFRoute(
           name: 'Tm_Task_Discription',
           path: '/tmTaskDiscription',
-          builder: (context, params) => TmTaskDiscriptionWidget(),
+          builder: (context, params) => TmTaskDiscriptionWidget(
+            vehicle: params.getParam(
+              'vehicle',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['VehicleRequest'],
+            ),
+          ),
         ),
         FFRoute(
           name: 'ServicingDiscription',
           path: '/servicingDiscription',
-          builder: (context, params) => ServicingDiscriptionWidget(),
+          builder: (context, params) => const ServicingDiscriptionWidget(),
         ),
         FFRoute(
           name: 'Tm_List_Fixing',
           path: '/tmListFixing',
-          builder: (context, params) => TmListFixingWidget(),
+          builder: (context, params) => const TmListFixingWidget(),
         ),
         FFRoute(
           name: 'Form_for_LatedTask',
           path: '/formForLatedTask',
-          builder: (context, params) => FormForLatedTaskWidget(),
+          builder: (context, params) => const FormForLatedTaskWidget(),
         ),
         FFRoute(
           name: 'TaskdetailsCopy',
           path: '/taskdetailsCopy',
-          builder: (context, params) => TaskdetailsCopyWidget(),
+          builder: (context, params) => const TaskdetailsCopyWidget(),
         ),
         FFRoute(
           name: 'Sv_RequestsCopy',
           path: '/sv_requestss',
-          builder: (context, params) => SvRequestsCopyWidget(),
+          builder: (context, params) => const SvRequestsCopyWidget(),
         ),
         FFRoute(
           name: 'supllierHome',
           path: '/supllierHome',
           requireAuth: true,
-          builder: (context, params) => SupllierHomeWidget(),
+          builder: (context, params) => const SupllierHomeWidget(),
         ),
         FFRoute(
           name: 'send_personal_request',
           path: '/sendPersonalRequest',
-          builder: (context, params) => SendPersonalRequestWidget(),
+          builder: (context, params) => const SendPersonalRequestWidget(),
         ),
         FFRoute(
           name: 'workersattendance',
           path: '/workersattendance',
-          builder: (context, params) => WorkersattendanceWidget(),
+          requireAuth: true,
+          builder: (context, params) => const WorkersattendanceWidget(),
         ),
         FFRoute(
           name: 'home',
           path: '/home',
-          builder: (context, params) => HomeWidget(),
+          builder: (context, params) => const HomeWidget(),
         ),
         FFRoute(
           name: 'Home19PropertyAppbookingapp',
           path: '/home19PropertyAppbookingapp',
-          builder: (context, params) => Home19PropertyAppbookingappWidget(),
+          builder: (context, params) => const Home19PropertyAppbookingappWidget(),
         ),
         FFRoute(
           name: 'rr',
           path: '/rr',
-          builder: (context, params) => RrWidget(),
+          builder: (context, params) => const RrWidget(),
         ),
         FFRoute(
-          name: 'complaints',
-          path: '/complaints',
-          builder: (context, params) => ComplaintsWidget(),
+          name: 'List_complaints',
+          path: '/listComplaints',
+          builder: (context, params) => const ListComplaintsWidget(),
         ),
         FFRoute(
           name: 'OM_Home',
           path: '/oMHome',
           requireAuth: true,
-          builder: (context, params) => OMHomeWidget(),
+          builder: (context, params) => const OMHomeWidget(),
         ),
         FFRoute(
           name: 'Details03TransactionsSummary',
           path: '/details03TransactionsSummary',
-          builder: (context, params) => Details03TransactionsSummaryWidget(),
+          builder: (context, params) => const Details03TransactionsSummaryWidget(),
         ),
         FFRoute(
           name: 'OM_complandiscription',
           path: '/oMComplandiscription',
-          builder: (context, params) => OMComplandiscriptionWidget(),
+          builder: (context, params) => OMComplandiscriptionWidget(
+            reportDetails: params.getParam(
+              'reportDetails',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['Complaints'],
+            ),
+          ),
         ),
         FFRoute(
           name: 'OM_List_work_orders',
           path: '/oMListWorkOrders',
-          builder: (context, params) => OMListWorkOrdersWidget(),
+          builder: (context, params) => const OMListWorkOrdersWidget(),
         ),
         FFRoute(
           name: 'OM_work_Orders_discription',
           path: '/oMWorkOrdersDiscription',
-          builder: (context, params) => OMWorkOrdersDiscriptionWidget(),
+          builder: (context, params) => OMWorkOrdersDiscriptionWidget(
+            workerRequest: params.getParam(
+              'workerRequest',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['WorkerRequest'],
+            ),
+          ),
         ),
         FFRoute(
-          name: 'List_Ratings',
-          path: '/listRatings',
-          builder: (context, params) => ListRatingsWidget(),
+          name: 'List_Reviews',
+          path: '/listReviews',
+          builder: (context, params) => const ListReviewsWidget(),
         ),
         FFRoute(
           name: 'dash2',
           path: '/dash2',
-          builder: (context, params) => Dash2Widget(),
+          builder: (context, params) => const Dash2Widget(),
         ),
         FFRoute(
           name: 'List_maps',
           path: '/listMaps',
-          builder: (context, params) => ListMapsWidget(),
+          builder: (context, params) => const ListMapsWidget(),
         ),
         FFRoute(
           name: 'Add_maps',
           path: '/addMaps',
-          builder: (context, params) => AddMapsWidget(
-            latLon: params.getParam(
-              'latLon',
-              ParamType.String,
-            ),
-          ),
+          builder: (context, params) => const AddMapsWidget(),
         ),
         FFRoute(
           name: 'user_Profile',
@@ -657,8 +698,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
             userDoc: params.getParam(
               'userDoc',
               ParamType.DocumentReference,
-              false,
-              ['users'],
+              isList: false,
+              collectionNamePath: ['users'],
             ),
           ),
         ),
@@ -670,81 +711,236 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
             user: params.getParam(
               'user',
               ParamType.DocumentReference,
-              false,
-              ['users'],
+              isList: false,
+              collectionNamePath: ['users'],
             ),
           ),
         ),
         FFRoute(
           name: 'Details20Property',
           path: '/details20Property',
-          builder: (context, params) => Details20PropertyWidget(),
+          builder: (context, params) => const Details20PropertyWidget(),
         ),
         FFRoute(
           name: 'OM_List_All_Task',
           path: '/oMListAllTask',
-          builder: (context, params) => OMListAllTaskWidget(),
+          builder: (context, params) => const OMListAllTaskWidget(),
         ),
         FFRoute(
           name: 'OM_Supmited_taskDetalis',
           path: '/oMSupmitedTaskDetalis',
-          builder: (context, params) => OMSupmitedTaskDetalisWidget(),
+          builder: (context, params) => OMSupmitedTaskDetalisWidget(
+            streetTaskDetail: params.getParam(
+              'streetTaskDetail',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['streetTasks'],
+            ),
+          ),
         ),
         FFRoute(
           name: 'OM_List_All_DailyReports',
           path: '/oMListAllDailyReports',
-          builder: (context, params) => OMListAllDailyReportsWidget(),
+          builder: (context, params) => const OMListAllDailyReportsWidget(),
         ),
         FFRoute(
           name: 'OM_View_DailyReport',
           path: '/oMViewDailyReport',
-          builder: (context, params) => OMViewDailyReportWidget(),
+          builder: (context, params) => OMViewDailyReportWidget(
+            reportRefrence: params.getParam(
+              'reportRefrence',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['Daily_Reports'],
+            ),
+          ),
         ),
         FFRoute(
           name: 'OM_List_Personal_orders',
           path: '/oMListPersonalOrders',
-          builder: (context, params) => OMListPersonalOrdersWidget(),
+          builder: (context, params) => const OMListPersonalOrdersWidget(),
         ),
         FFRoute(
           name: 'OM_Personal_Orders_discription',
           path: '/oMPersonalOrdersDiscription',
-          builder: (context, params) => OMPersonalOrdersDiscriptionWidget(),
+          builder: (context, params) => OMPersonalOrdersDiscriptionWidget(
+            personalOrder: params.getParam(
+              'personalOrder',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['PersonalRequests'],
+            ),
+          ),
         ),
         FFRoute(
           name: 'OM_View_Distribution_of_workers',
           path: '/oMViewDistributionOfWorkers',
-          builder: (context, params) => OMViewDistributionOfWorkersWidget(),
+          builder: (context, params) => OMViewDistributionOfWorkersWidget(
+            leaderRef: params.getParam(
+              'leaderRef',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['Leaders'],
+            ),
+          ),
         ),
         FFRoute(
           name: 'OM_List_Distribution_of_workers',
           path: '/oMListDistributionOfWorkers',
-          builder: (context, params) => OMListDistributionOfWorkersWidget(),
+          builder: (context, params) => const OMListDistributionOfWorkersWidget(),
         ),
         FFRoute(
           name: 'New_Admin_Home',
           path: '/newAdminHome',
           requireAuth: true,
-          builder: (context, params) => NewAdminHomeWidget(),
+          builder: (context, params) => const NewAdminHomeWidget(),
         ),
         FFRoute(
           name: 'Home07Invoices',
           path: '/home07Invoices',
-          builder: (context, params) => Home07InvoicesWidget(),
+          builder: (context, params) => const Home07InvoicesWidget(),
         ),
         FFRoute(
           name: 'Manualattendance',
           path: '/manualattendance',
-          builder: (context, params) => ManualattendanceWidget(),
+          requireAuth: true,
+          builder: (context, params) => const ManualattendanceWidget(),
         ),
         FFRoute(
-          name: 'LocationPicker',
-          path: '/locationPicker',
-          builder: (context, params) => LocationPickerWidget(
-            pageName: params.getParam(
-              'pageName',
-              ParamType.String,
+          name: 'Other_Home',
+          path: '/otherHome',
+          requireAuth: true,
+          builder: (context, params) => const OtherHomeWidget(),
+        ),
+        FFRoute(
+          name: 'viewLocation',
+          path: '/viewLocation',
+          builder: (context, params) => ViewLocationWidget(
+            location: params.getParam(
+              'location',
+              ParamType.LatLng,
             ),
           ),
+        ),
+        FFRoute(
+          name: 'set_street_supervisor',
+          path: '/setStreetSupervisor',
+          builder: (context, params) => const SetStreetSupervisorWidget(),
+        ),
+        FFRoute(
+          name: 'other_services',
+          path: '/otherServices',
+          requireAuth: true,
+          builder: (context, params) => const OtherServicesWidget(),
+        ),
+        FFRoute(
+          name: 'suc',
+          path: '/suc',
+          builder: (context, params) => const SucWidget(),
+        ),
+        FFRoute(
+          name: 'New_Tm_Home',
+          path: '/newTmHome',
+          requireAuth: true,
+          builder: (context, params) => const NewTmHomeWidget(),
+        ),
+        FFRoute(
+          name: 'ChooseWorkersManual',
+          path: '/chooseWorkersManual',
+          requireAuth: true,
+          builder: (context, params) => ChooseWorkersManualWidget(
+            leaderArea: params.getParam(
+              'leaderArea',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['Leaders'],
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'AccountantHome',
+          path: '/accountantHome',
+          requireAuth: true,
+          builder: (context, params) => const AccountantHomeWidget(),
+        ),
+        FFRoute(
+          name: 'Supplier_Transactions',
+          path: '/supplierTransactions',
+          builder: (context, params) => SupplierTransactionsWidget(
+            contRef: params.getParam(
+              'contRef',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['contractors'],
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'Add_Transactions',
+          path: '/addTransactions',
+          builder: (context, params) => AddTransactionsWidget(
+            contRef: params.getParam(
+              'contRef',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['contractors'],
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'contractorsList',
+          path: '/contractorsList',
+          builder: (context, params) => const ContractorsListWidget(),
+        ),
+        FFRoute(
+          name: 'OM_Cars_Orders_discription',
+          path: '/oMCarsOrdersDiscription',
+          builder: (context, params) => OMCarsOrdersDiscriptionWidget(
+            vehicleRequest: params.getParam(
+              'vehicleRequest',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['VehicleRequest'],
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'Create04TaskCopy',
+          path: '/create04TaskCopy',
+          builder: (context, params) => const Create04TaskCopyWidget(),
+        ),
+        FFRoute(
+          name: 'Eng_Home',
+          path: '/engHome',
+          requireAuth: true,
+          builder: (context, params) => const EngHomeWidget(),
+        ),
+        FFRoute(
+          name: 'Eng_list_technicalsupport',
+          path: '/engListTechnicalsupport',
+          builder: (context, params) => const EngListTechnicalsupportWidget(),
+        ),
+        FFRoute(
+          name: 'Eng_technicalsupport_details',
+          path: '/engTechnicalsupportDetails',
+          builder: (context, params) => EngTechnicalsupportDetailsWidget(
+            bugReport: params.getParam(
+              'bugReport',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['bugReports'],
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'Send_technicalsupport',
+          path: '/sendTechnicalsupport',
+          builder: (context, params) => const SendTechnicalsupportWidget(),
+        ),
+        FFRoute(
+          name: 'Tm_List_Movment',
+          path: '/tmListMovment',
+          builder: (context, params) => const TmListMovmentWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],
@@ -841,7 +1037,7 @@ class FFParameters {
   // present is the special extra parameter reserved for the transition info.
   bool get isEmpty =>
       state.allParams.isEmpty ||
-      (state.extraMap.length == 1 &&
+      (state.allParams.length == 1 &&
           state.extraMap.containsKey(kTransitionInfoKey));
   bool isAsyncParam(MapEntry<String, dynamic> param) =>
       asyncParams.containsKey(param.key) && param.value is String;
@@ -862,11 +1058,11 @@ class FFParameters {
 
   dynamic getParam<T>(
     String paramName,
-    ParamType type, [
+    ParamType type, {
     bool isList = false,
     List<String>? collectionNamePath,
     StructBuilder<T>? structBuilder,
-  ]) {
+  }) {
     if (futureParamValues.containsKey(paramName)) {
       return futureParamValues[paramName];
     }
@@ -932,7 +1128,7 @@ class FFRoute {
                 )
               : builder(context, ffParams);
           final child = appStateNotifier.loading
-              ? Center(
+              ? const Center(
                   child: SizedBox(
                     width: 50.0,
                     height: 50.0,
@@ -984,7 +1180,7 @@ class TransitionInfo {
   final Duration duration;
   final Alignment? alignment;
 
-  static TransitionInfo appDefault() => TransitionInfo(hasTransition: false);
+  static TransitionInfo appDefault() => const TransitionInfo(hasTransition: false);
 }
 
 class RootPageContext {
@@ -1005,4 +1201,14 @@ class RootPageContext {
         value: RootPageContext(true, errorRoute),
         child: child,
       );
+}
+
+extension GoRouterLocationExtension on GoRouter {
+  String getCurrentLocation() {
+    final RouteMatch lastMatch = routerDelegate.currentConfiguration.last;
+    final RouteMatchList matchList = lastMatch is ImperativeRouteMatch
+        ? lastMatch.matches
+        : routerDelegate.currentConfiguration;
+    return matchList.uri.toString();
+  }
 }

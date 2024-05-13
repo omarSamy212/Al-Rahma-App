@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>API_KEY</key>
-	<string>AIzaSyDt_zQoQQqGCcqdIp6JFAYfNzs-9o3Gll8</string>
+	<string>AIzaSyBzjRX457UCIzDit7PH54K02br_VM3GJBk</string>
 	<key>GCM_SENDER_ID</key>
-	<string>748044862889</string>
+	<string>27595286934</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.mycompany.storagekeeper</string>
 	<key>PROJECT_ID</key>
-	<string>storage-kbaczx</string>
+	<string>al-rahma-testing</string>
 	<key>STORAGE_BUCKET</key>
-	<string>storage-kbaczx.appspot.com</string>
+	<string>al-rahma-testing.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -25,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:748044862889:ios:137c314c48661d9c6b70b8</string>
+	<string>1:27595286934:ios:d2fda83fd58e7c727815b7</string>
 </dict>
 </plist>

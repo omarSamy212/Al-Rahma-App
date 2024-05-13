@@ -4,16 +4,14 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/shared/shared_components/our_side_nav/our_side_nav_widget.dart';
+import '/traffic_manager/shared/shared_components/our_side_nav/our_side_nav_widget.dart';
 import '/traffic_manager/tm_components/today_requests_tm/today_requests_tm_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'tm_home_model.dart';
 export 'tm_home_model.dart';
 
@@ -54,8 +52,8 @@ class _TmHomeWidgetState extends State<TmHomeWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(0.0, 10.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(0.0, 10.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -78,8 +76,8 @@ class _TmHomeWidgetState extends State<TmHomeWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(0.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(0.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -107,7 +105,7 @@ class _TmHomeWidgetState extends State<TmHomeWidget>
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
-          return Scaffold(
+          return const Scaffold(
             backgroundColor: Color(0xFFF1F4F8),
             body: Center(
               child: SizedBox(
@@ -132,23 +130,23 @@ class _TmHomeWidgetState extends State<TmHomeWidget>
                   : FocusScope.of(context).unfocus(),
               child: Scaffold(
                 key: scaffoldKey,
-                backgroundColor: Color(0xFFF1F4F8),
+                backgroundColor: const Color(0xFFF1F4F8),
                 drawer: Drawer(
                   elevation: 16.0,
                   child: wrapWithModel(
                     model: _model.ourSideNavModel,
                     updateCallback: () => setState(() {}),
-                    child: OurSideNavWidget(),
+                    child: const OurSideNavWidget(),
                   ),
                 ),
                 appBar: PreferredSize(
-                  preferredSize: Size.fromHeight(100.0),
+                  preferredSize: const Size.fromHeight(100.0),
                   child: AppBar(
-                    backgroundColor: Color(0xFF0CA256),
+                    backgroundColor: const Color(0xFF0CA256),
                     automaticallyImplyLeading: false,
                     leading: Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
                       child: InkWell(
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,
@@ -159,91 +157,86 @@ class _TmHomeWidgetState extends State<TmHomeWidget>
                           logFirebaseEvent('menu_drawer');
                           scaffoldKey.currentState!.openDrawer();
                         },
-                        child: Icon(
+                        child: const Icon(
                           Icons.menu,
                           color: Color(0xFFE0E3E7),
                           size: 24.0,
                         ),
                       ),
                     ),
-                    title: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 0.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 10.0, 0.0, 0.0),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Text(
-                                        FFLocalizations.of(context).getText(
-                                          'ibq61164' /* Al Rahma */,
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .displaySmall
-                                            .override(
-                                              fontFamily: 'Outfit',
-                                              color: Colors.white,
-                                              fontSize: 36.0,
-                                              letterSpacing: 0.0,
-                                              fontWeight: FontWeight.w600,
-                                              useGoogleFonts:
-                                                  GoogleFonts.asMap()
-                                                      .containsKey('Outfit'),
-                                            ),
-                                      ).animateOnPageLoad(animationsMap[
-                                          'textOnPageLoadAnimation']!),
-                                      FaIcon(
-                                        FontAwesomeIcons.leaf,
-                                        color: FlutterFlowTheme.of(context)
-                                            .alternate,
-                                        size: 24.0,
-                                      ).animateOnPageLoad(animationsMap[
-                                          'iconOnPageLoadAnimation']!),
-                                    ],
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 35.0),
-                                    child: Text(
+                    title: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Align(
+                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          child: Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 10.0, 0.0, 0.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Text(
                                       FFLocalizations.of(context).getText(
-                                        'mhy2yg3f' /* Traffic management */,
+                                        'ttjcsrzi' /* Al Rahma */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .displaySmall
                                           .override(
                                             fontFamily: 'Outfit',
                                             color: Colors.white,
-                                            fontSize: 18.0,
+                                            fontSize: 36.0,
                                             letterSpacing: 0.0,
-                                            fontWeight: FontWeight.normal,
+                                            fontWeight: FontWeight.w600,
                                             useGoogleFonts: GoogleFonts.asMap()
                                                 .containsKey('Outfit'),
                                           ),
+                                    ).animateOnPageLoad(animationsMap[
+                                        'textOnPageLoadAnimation']!),
+                                    FaIcon(
+                                      FontAwesomeIcons.leaf,
+                                      color: FlutterFlowTheme.of(context)
+                                          .alternate,
+                                      size: 24.0,
+                                    ).animateOnPageLoad(animationsMap[
+                                        'iconOnPageLoadAnimation']!),
+                                  ],
+                                ),
+                                Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 35.0),
+                                  child: Text(
+                                    FFLocalizations.of(context).getText(
+                                      'mhy2yg3f' /* Traffic management */,
                                     ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .displaySmall
+                                        .override(
+                                          fontFamily: 'Outfit',
+                                          color: Colors.white,
+                                          fontSize: 18.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.normal,
+                                          useGoogleFonts: GoogleFonts.asMap()
+                                              .containsKey('Outfit'),
+                                        ),
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                     actions: [
                       Align(
-                        alignment: AlignmentDirectional(1.0, 0.0),
+                        alignment: const AlignmentDirectional(1.0, 0.0),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 24.0, 0.0),
                           child: InkWell(
                             splashColor: Colors.transparent,
@@ -257,7 +250,7 @@ class _TmHomeWidgetState extends State<TmHomeWidget>
                               context.pushNamed(
                                 'welcome',
                                 extra: <String, dynamic>{
-                                  kTransitionInfoKey: TransitionInfo(
+                                  kTransitionInfoKey: const TransitionInfo(
                                     hasTransition: true,
                                     transitionType: PageTransitionType.fade,
                                   ),
@@ -291,15 +284,15 @@ class _TmHomeWidgetState extends State<TmHomeWidget>
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
-                                child: Container(
+                                alignment: const AlignmentDirectional(0.0, 0.0),
+                                child: SizedBox(
                                   height: 68.0,
                                   child: Stack(
                                     children: [
                                       Container(
                                         width: double.infinity,
                                         height: 96.0,
-                                        decoration: BoxDecoration(
+                                        decoration: const BoxDecoration(
                                           color: Color(0xFF0CA256),
                                           borderRadius: BorderRadius.only(
                                             bottomLeft: Radius.circular(0.0),
@@ -311,10 +304,10 @@ class _TmHomeWidgetState extends State<TmHomeWidget>
                                       ),
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(-1.0, 0.0),
+                                            const AlignmentDirectional(-1.0, 0.0),
                                         child: Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   25.0, 0.0, 0.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -324,10 +317,10 @@ class _TmHomeWidgetState extends State<TmHomeWidget>
                                                 CrossAxisAlignment.center,
                                             children: [
                                               Align(
-                                                alignment: AlignmentDirectional(
+                                                alignment: const AlignmentDirectional(
                                                     -1.0, 0.0),
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 2.0, 0.0),
                                                   child: Text(
@@ -341,7 +334,7 @@ class _TmHomeWidgetState extends State<TmHomeWidget>
                                                         .override(
                                                           fontFamily: 'Outfit',
                                                           color:
-                                                              Color(0xFF14181B),
+                                                              const Color(0xFF14181B),
                                                           fontSize: 18.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -356,7 +349,7 @@ class _TmHomeWidgetState extends State<TmHomeWidget>
                                                 ),
                                               ),
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         2.0, 0.0, 0.0, 0.0),
                                                 child: AuthUserStreamWidget(
@@ -382,10 +375,10 @@ class _TmHomeWidgetState extends State<TmHomeWidget>
                                                 ),
                                               ),
                                               Align(
-                                                alignment: AlignmentDirectional(
+                                                alignment: const AlignmentDirectional(
                                                     1.0, 0.0),
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           73.0, 0.0, 12.0, 0.0),
                                                   child: Text(
@@ -462,20 +455,20 @@ class _TmHomeWidgetState extends State<TmHomeWidget>
                                 ),
                               ),
                               Align(
-                                alignment: AlignmentDirectional(0.0, -1.0),
+                                alignment: const AlignmentDirectional(0.0, -1.0),
                                 child: Stack(
                                   children: [
                                     Container(
                                       width: double.infinity,
                                       height: 87.0,
-                                      decoration: BoxDecoration(
+                                      decoration: const BoxDecoration(
                                         color: Color(0xFF0CA256),
                                       ),
                                     ),
                                     wrapWithModel(
                                       model: _model.todayRequestsTmModel,
                                       updateCallback: () => setState(() {}),
-                                      child: TodayRequestsTmWidget(),
+                                      child: const TodayRequestsTmWidget(),
                                     ),
                                   ],
                                 ),
@@ -484,11 +477,11 @@ class _TmHomeWidgetState extends State<TmHomeWidget>
                           ),
                         ],
                       ),
-                      Spacer(),
+                      const Spacer(),
                       Align(
-                        alignment: AlignmentDirectional(0.0, 0.0),
+                        alignment: const AlignmentDirectional(0.0, 0.0),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 25.0, 0.0, 0.0),
                           child: FFButtonWidget(
                             onPressed: () async {
@@ -496,20 +489,20 @@ class _TmHomeWidgetState extends State<TmHomeWidget>
                                   'TM_HOME_PAGE_servicing_report_ON_TAP');
                               logFirebaseEvent('servicing_report_navigate_to');
 
-                              context.pushNamed('day_Contract_List');
+                              context.pushNamed('Tm_List_Fixing');
                             },
                             text: FFLocalizations.of(context).getText(
                               '2jv2y9vp' /* servicing report */,
                             ),
-                            icon: Icon(
+                            icon: const Icon(
                               Icons.miscellaneous_services_rounded,
                               size: 15.0,
                             ),
                             options: FFButtonOptions(
                               width: 200.0,
-                              height: 100.0,
-                              padding: EdgeInsets.all(24.0),
-                              iconPadding: EdgeInsets.all(0.0),
+                              height: 120.0,
+                              padding: const EdgeInsets.all(24.0),
+                              iconPadding: const EdgeInsets.all(0.0),
                               color: FlutterFlowTheme.of(context).primary,
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
@@ -535,13 +528,13 @@ class _TmHomeWidgetState extends State<TmHomeWidget>
                       ),
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
                                   logFirebaseEvent(
@@ -553,16 +546,16 @@ class _TmHomeWidgetState extends State<TmHomeWidget>
                                 text: FFLocalizations.of(context).getText(
                                   '7iiblxym' /* Add movement */,
                                 ),
-                                icon: Icon(
+                                icon: const Icon(
                                   Icons.motorcycle_sharp,
                                   size: 15.0,
                                 ),
                                 options: FFButtonOptions(
                                   width: 180.0,
-                                  height: 100.0,
-                                  padding: EdgeInsets.all(14.0),
-                                  iconPadding: EdgeInsets.all(0.0),
-                                  color: Color(0xFF0CA256),
+                                  height: 120.0,
+                                  padding: const EdgeInsets.all(14.0),
+                                  iconPadding: const EdgeInsets.all(0.0),
+                                  color: const Color(0xFF0CA256),
                                   textStyle: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
@@ -585,7 +578,7 @@ class _TmHomeWidgetState extends State<TmHomeWidget>
                               ),
                             ),
                             Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
                                   logFirebaseEvent(
@@ -599,16 +592,16 @@ class _TmHomeWidgetState extends State<TmHomeWidget>
  */
                                   ,
                                 ),
-                                icon: Icon(
+                                icon: const Icon(
                                   Icons.fire_truck_outlined,
                                   size: 15.0,
                                 ),
                                 options: FFButtonOptions(
                                   width: 180.0,
-                                  height: 100.0,
-                                  padding: EdgeInsets.all(14.0),
-                                  iconPadding: EdgeInsets.all(0.0),
-                                  color: Color(0xFF0CA256),
+                                  height: 120.0,
+                                  padding: const EdgeInsets.all(14.0),
+                                  iconPadding: const EdgeInsets.all(0.0),
+                                  color: const Color(0xFF0CA256),
                                   textStyle: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
@@ -634,8 +627,8 @@ class _TmHomeWidgetState extends State<TmHomeWidget>
                         ).animateOnPageLoad(
                             animationsMap['rowOnPageLoadAnimation']!),
                       ),
-                      Spacer(),
-                      Spacer(),
+                      const Spacer(),
+                      const Spacer(),
                       Text(
                         FFLocalizations.of(context).getText(
                           'clz7l79f' /* Powerd by Omar-s Team */,

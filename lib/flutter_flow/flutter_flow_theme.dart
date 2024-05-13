@@ -205,107 +205,107 @@ class MobileTypography extends Typography {
 
   final FlutterFlowTheme theme;
 
-  String get displayLargeFamily => 'El Messiri';
+  String get displayLargeFamily => 'IBM Plex Sans';
   TextStyle get displayLarge => GoogleFonts.getFont(
-        'El Messiri',
+        'IBM Plex Sans',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 64.0,
       );
-  String get displayMediumFamily => 'El Messiri';
+  String get displayMediumFamily => 'IBM Plex Sans';
   TextStyle get displayMedium => GoogleFonts.getFont(
-        'El Messiri',
+        'IBM Plex Sans',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 44.0,
       );
-  String get displaySmallFamily => 'El Messiri';
+  String get displaySmallFamily => 'IBM Plex Sans';
   TextStyle get displaySmall => GoogleFonts.getFont(
-        'El Messiri',
+        'IBM Plex Sans',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 36.0,
       );
-  String get headlineLargeFamily => 'El Messiri';
+  String get headlineLargeFamily => 'IBM Plex Sans';
   TextStyle get headlineLarge => GoogleFonts.getFont(
-        'El Messiri',
+        'IBM Plex Sans',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 32.0,
       );
-  String get headlineMediumFamily => 'El Messiri';
+  String get headlineMediumFamily => 'IBM Plex Sans';
   TextStyle get headlineMedium => GoogleFonts.getFont(
-        'El Messiri',
+        'IBM Plex Sans',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 24.0,
       );
-  String get headlineSmallFamily => 'El Messiri';
+  String get headlineSmallFamily => 'IBM Plex Sans';
   TextStyle get headlineSmall => GoogleFonts.getFont(
-        'El Messiri',
+        'IBM Plex Sans',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 24.0,
       );
-  String get titleLargeFamily => 'El Messiri';
+  String get titleLargeFamily => 'IBM Plex Sans';
   TextStyle get titleLarge => GoogleFonts.getFont(
-        'El Messiri',
+        'IBM Plex Sans',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 22.0,
       );
-  String get titleMediumFamily => 'Noto Naskh Arabic';
+  String get titleMediumFamily => 'Plus Jakarta Sans';
   TextStyle get titleMedium => GoogleFonts.getFont(
-        'Noto Naskh Arabic',
+        'Plus Jakarta Sans',
         color: theme.info,
         fontWeight: FontWeight.normal,
         fontSize: 18.0,
       );
-  String get titleSmallFamily => 'Noto Naskh Arabic';
+  String get titleSmallFamily => 'Plus Jakarta Sans';
   TextStyle get titleSmall => GoogleFonts.getFont(
-        'Noto Naskh Arabic',
+        'Plus Jakarta Sans',
         color: theme.info,
         fontWeight: FontWeight.w500,
         fontSize: 16.0,
       );
-  String get labelLargeFamily => 'Noto Naskh Arabic';
+  String get labelLargeFamily => 'Plus Jakarta Sans';
   TextStyle get labelLarge => GoogleFonts.getFont(
-        'Noto Naskh Arabic',
+        'Plus Jakarta Sans',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
-  String get labelMediumFamily => 'Noto Naskh Arabic';
+  String get labelMediumFamily => 'Plus Jakarta Sans';
   TextStyle get labelMedium => GoogleFonts.getFont(
-        'Noto Naskh Arabic',
+        'Plus Jakarta Sans',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
-  String get labelSmallFamily => 'Noto Naskh Arabic';
+  String get labelSmallFamily => 'Plus Jakarta Sans';
   TextStyle get labelSmall => GoogleFonts.getFont(
-        'Noto Naskh Arabic',
+        'Plus Jakarta Sans',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 12.0,
       );
-  String get bodyLargeFamily => 'Noto Naskh Arabic';
+  String get bodyLargeFamily => 'Plus Jakarta Sans';
   TextStyle get bodyLarge => GoogleFonts.getFont(
-        'Noto Naskh Arabic',
+        'Plus Jakarta Sans',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
-  String get bodyMediumFamily => 'Noto Naskh Arabic';
+  String get bodyMediumFamily => 'Plus Jakarta Sans';
   TextStyle get bodyMedium => GoogleFonts.getFont(
-        'Noto Naskh Arabic',
+        'Plus Jakarta Sans',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
-  String get bodySmallFamily => 'Noto Naskh Arabic';
+  String get bodySmallFamily => 'Plus Jakarta Sans';
   TextStyle get bodySmall => GoogleFonts.getFont(
-        'Noto Naskh Arabic',
+        'Plus Jakarta Sans',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 12.0,
@@ -317,107 +317,107 @@ class TabletTypography extends Typography {
 
   final FlutterFlowTheme theme;
 
-  String get displayLargeFamily => 'El Messiri';
+  String get displayLargeFamily => 'IBM Plex Sans';
   TextStyle get displayLarge => GoogleFonts.getFont(
-        'El Messiri',
+        'IBM Plex Sans',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 64.0,
       );
-  String get displayMediumFamily => 'El Messiri';
+  String get displayMediumFamily => 'IBM Plex Sans';
   TextStyle get displayMedium => GoogleFonts.getFont(
-        'El Messiri',
+        'IBM Plex Sans',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 44.0,
       );
-  String get displaySmallFamily => 'El Messiri';
+  String get displaySmallFamily => 'IBM Plex Sans';
   TextStyle get displaySmall => GoogleFonts.getFont(
-        'El Messiri',
+        'IBM Plex Sans',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 36.0,
       );
-  String get headlineLargeFamily => 'El Messiri';
+  String get headlineLargeFamily => 'IBM Plex Sans';
   TextStyle get headlineLarge => GoogleFonts.getFont(
-        'El Messiri',
+        'IBM Plex Sans',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 32.0,
       );
-  String get headlineMediumFamily => 'El Messiri';
+  String get headlineMediumFamily => 'IBM Plex Sans';
   TextStyle get headlineMedium => GoogleFonts.getFont(
-        'El Messiri',
+        'IBM Plex Sans',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 24.0,
       );
-  String get headlineSmallFamily => 'El Messiri';
+  String get headlineSmallFamily => 'IBM Plex Sans';
   TextStyle get headlineSmall => GoogleFonts.getFont(
-        'El Messiri',
+        'IBM Plex Sans',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 24.0,
       );
-  String get titleLargeFamily => 'El Messiri';
+  String get titleLargeFamily => 'IBM Plex Sans';
   TextStyle get titleLarge => GoogleFonts.getFont(
-        'El Messiri',
+        'IBM Plex Sans',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 22.0,
       );
-  String get titleMediumFamily => 'Noto Naskh Arabic';
+  String get titleMediumFamily => 'Plus Jakarta Sans';
   TextStyle get titleMedium => GoogleFonts.getFont(
-        'Noto Naskh Arabic',
+        'Plus Jakarta Sans',
         color: theme.info,
         fontWeight: FontWeight.normal,
         fontSize: 18.0,
       );
-  String get titleSmallFamily => 'Noto Naskh Arabic';
+  String get titleSmallFamily => 'Plus Jakarta Sans';
   TextStyle get titleSmall => GoogleFonts.getFont(
-        'Noto Naskh Arabic',
+        'Plus Jakarta Sans',
         color: theme.info,
         fontWeight: FontWeight.w500,
         fontSize: 16.0,
       );
-  String get labelLargeFamily => 'Noto Naskh Arabic';
+  String get labelLargeFamily => 'Plus Jakarta Sans';
   TextStyle get labelLarge => GoogleFonts.getFont(
-        'Noto Naskh Arabic',
+        'Plus Jakarta Sans',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
-  String get labelMediumFamily => 'Noto Naskh Arabic';
+  String get labelMediumFamily => 'Plus Jakarta Sans';
   TextStyle get labelMedium => GoogleFonts.getFont(
-        'Noto Naskh Arabic',
+        'Plus Jakarta Sans',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
-  String get labelSmallFamily => 'Noto Naskh Arabic';
+  String get labelSmallFamily => 'Plus Jakarta Sans';
   TextStyle get labelSmall => GoogleFonts.getFont(
-        'Noto Naskh Arabic',
+        'Plus Jakarta Sans',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 12.0,
       );
-  String get bodyLargeFamily => 'Noto Naskh Arabic';
+  String get bodyLargeFamily => 'Plus Jakarta Sans';
   TextStyle get bodyLarge => GoogleFonts.getFont(
-        'Noto Naskh Arabic',
+        'Plus Jakarta Sans',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
-  String get bodyMediumFamily => 'Noto Naskh Arabic';
+  String get bodyMediumFamily => 'Plus Jakarta Sans';
   TextStyle get bodyMedium => GoogleFonts.getFont(
-        'Noto Naskh Arabic',
+        'Plus Jakarta Sans',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
-  String get bodySmallFamily => 'Noto Naskh Arabic';
+  String get bodySmallFamily => 'Plus Jakarta Sans';
   TextStyle get bodySmall => GoogleFonts.getFont(
-        'Noto Naskh Arabic',
+        'Plus Jakarta Sans',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 12.0,
@@ -429,107 +429,107 @@ class DesktopTypography extends Typography {
 
   final FlutterFlowTheme theme;
 
-  String get displayLargeFamily => 'El Messiri';
+  String get displayLargeFamily => 'IBM Plex Sans';
   TextStyle get displayLarge => GoogleFonts.getFont(
-        'El Messiri',
+        'IBM Plex Sans',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 64.0,
       );
-  String get displayMediumFamily => 'El Messiri';
+  String get displayMediumFamily => 'IBM Plex Sans';
   TextStyle get displayMedium => GoogleFonts.getFont(
-        'El Messiri',
+        'IBM Plex Sans',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 44.0,
       );
-  String get displaySmallFamily => 'El Messiri';
+  String get displaySmallFamily => 'IBM Plex Sans';
   TextStyle get displaySmall => GoogleFonts.getFont(
-        'El Messiri',
+        'IBM Plex Sans',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 36.0,
       );
-  String get headlineLargeFamily => 'El Messiri';
+  String get headlineLargeFamily => 'IBM Plex Sans';
   TextStyle get headlineLarge => GoogleFonts.getFont(
-        'El Messiri',
+        'IBM Plex Sans',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 32.0,
       );
-  String get headlineMediumFamily => 'El Messiri';
+  String get headlineMediumFamily => 'IBM Plex Sans';
   TextStyle get headlineMedium => GoogleFonts.getFont(
-        'El Messiri',
+        'IBM Plex Sans',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 24.0,
       );
-  String get headlineSmallFamily => 'El Messiri';
+  String get headlineSmallFamily => 'IBM Plex Sans';
   TextStyle get headlineSmall => GoogleFonts.getFont(
-        'El Messiri',
+        'IBM Plex Sans',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 24.0,
       );
-  String get titleLargeFamily => 'El Messiri';
+  String get titleLargeFamily => 'IBM Plex Sans';
   TextStyle get titleLarge => GoogleFonts.getFont(
-        'El Messiri',
+        'IBM Plex Sans',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 22.0,
       );
-  String get titleMediumFamily => 'Noto Naskh Arabic';
+  String get titleMediumFamily => 'Plus Jakarta Sans';
   TextStyle get titleMedium => GoogleFonts.getFont(
-        'Noto Naskh Arabic',
+        'Plus Jakarta Sans',
         color: theme.info,
         fontWeight: FontWeight.normal,
         fontSize: 18.0,
       );
-  String get titleSmallFamily => 'Noto Naskh Arabic';
+  String get titleSmallFamily => 'Plus Jakarta Sans';
   TextStyle get titleSmall => GoogleFonts.getFont(
-        'Noto Naskh Arabic',
+        'Plus Jakarta Sans',
         color: theme.info,
         fontWeight: FontWeight.w500,
         fontSize: 16.0,
       );
-  String get labelLargeFamily => 'Noto Naskh Arabic';
+  String get labelLargeFamily => 'Plus Jakarta Sans';
   TextStyle get labelLarge => GoogleFonts.getFont(
-        'Noto Naskh Arabic',
+        'Plus Jakarta Sans',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
-  String get labelMediumFamily => 'Noto Naskh Arabic';
+  String get labelMediumFamily => 'Plus Jakarta Sans';
   TextStyle get labelMedium => GoogleFonts.getFont(
-        'Noto Naskh Arabic',
+        'Plus Jakarta Sans',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
-  String get labelSmallFamily => 'Noto Naskh Arabic';
+  String get labelSmallFamily => 'Plus Jakarta Sans';
   TextStyle get labelSmall => GoogleFonts.getFont(
-        'Noto Naskh Arabic',
+        'Plus Jakarta Sans',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 12.0,
       );
-  String get bodyLargeFamily => 'Noto Naskh Arabic';
+  String get bodyLargeFamily => 'Plus Jakarta Sans';
   TextStyle get bodyLarge => GoogleFonts.getFont(
-        'Noto Naskh Arabic',
+        'Plus Jakarta Sans',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
-  String get bodyMediumFamily => 'Noto Naskh Arabic';
+  String get bodyMediumFamily => 'Plus Jakarta Sans';
   TextStyle get bodyMedium => GoogleFonts.getFont(
-        'Noto Naskh Arabic',
+        'Plus Jakarta Sans',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
-  String get bodySmallFamily => 'Noto Naskh Arabic';
+  String get bodySmallFamily => 'Plus Jakarta Sans';
   TextStyle get bodySmall => GoogleFonts.getFont(
-        'Noto Naskh Arabic',
+        'Plus Jakarta Sans',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 12.0,

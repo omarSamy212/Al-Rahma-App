@@ -1,19 +1,9 @@
-import '/flutter_flow/flutter_flow_animations.dart';
-import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
+import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:async';
 import 'o_m_personal_orders_discription_widget.dart'
     show OMPersonalOrdersDiscriptionWidget;
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 class OMPersonalOrdersDiscriptionModel
     extends FlutterFlowModel<OMPersonalOrdersDiscriptionWidget> {
@@ -25,6 +15,10 @@ class OMPersonalOrdersDiscriptionModel
   TextEditingController? textualDetailsTextController;
   String? Function(BuildContext, String?)?
       textualDetailsTextControllerValidator;
+  // Stores action output result for [Custom Action - acceptPersonalRequest] action in Button widget.
+  List<PersonalRequestUserResponsStruct>? list;
+  // Stores action output result for [Custom Action - declinePersonalRequest] action in Button widget.
+  List<PersonalRequestUserResponsStruct>? rejectList;
 
   @override
   void initState(BuildContext context) {}

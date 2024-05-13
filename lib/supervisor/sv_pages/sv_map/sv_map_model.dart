@@ -1,37 +1,30 @@
-import '/flutter_flow/flutter_flow_animations.dart';
-import '/flutter_flow/flutter_flow_drop_down.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_google_map.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/form_field_controller.dart';
 import 'sv_map_widget.dart' show SvMapWidget;
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 class SvMapModel extends FlutterFlowModel<SvMapWidget> {
+  ///  Local state fields for this page.
+
+  List<DocumentReference> availableWorkers = [];
+  void addToAvailableWorkers(DocumentReference item) =>
+      availableWorkers.add(item);
+  void removeFromAvailableWorkers(DocumentReference item) =>
+      availableWorkers.remove(item);
+  void removeAtIndexFromAvailableWorkers(int index) =>
+      availableWorkers.removeAt(index);
+  void insertAtIndexInAvailableWorkers(int index, DocumentReference item) =>
+      availableWorkers.insert(index, item);
+  void updateAvailableWorkersAtIndex(
+          int index, Function(DocumentReference) updateFn) =>
+      availableWorkers[index] = updateFn(availableWorkers[index]);
+
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // State field(s) for Addworker_toStreet widget.
-  String? addworkerToStreetValue;
-  FormFieldController<String>? addworkerToStreetValueController;
-  // State field(s) for DropDown widget.
-  String? dropDownValue1;
-  FormFieldController<String>? dropDownValueController1;
-  // State field(s) for DropDown widget.
-  String? dropDownValue2;
-  FormFieldController<String>? dropDownValueController2;
-  // State field(s) for DropDown widget.
-  String? dropDownValue3;
-  FormFieldController<String>? dropDownValueController3;
-  // State field(s) for DropDown widget.
-  String? dropDownValue4;
-  FormFieldController<String>? dropDownValueController4;
+  // State field(s) for GoogleMap widget.
+  LatLng? googleMapsCenter;
+  final googleMapsController = Completer<GoogleMapController>();
 
   @override
   void initState(BuildContext context) {}
