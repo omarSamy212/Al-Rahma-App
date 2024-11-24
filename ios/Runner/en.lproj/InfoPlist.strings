@@ -1,0 +1,3 @@
+NSMicrophoneUsageDescription = "In order to record an audio, this app requires permission to acces the microphone";
+NSLocationWhenInUseUsageDescription = " من أجل تجربة استخدام افضل, من فضلك قم بفتح خدمة تحديد المواقع";
+PermissionGroupNotification = "In order to recieve notifications, this app requires permission to acces notificatons";
